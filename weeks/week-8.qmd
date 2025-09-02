@@ -2,6 +2,7 @@
 title: "Week 8"
 subtitle: "MLR: Cross validation"
 editor: visual
+draft: true
 ---
 
 ::: callout-important

@@ -2,6 +2,7 @@
 title: "Week 12"
 subtitle: "Multinomial logistic regression"
 editor: visual
+draft: true
 ---
 
 ::: callout-important
