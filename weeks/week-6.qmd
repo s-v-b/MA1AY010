@@ -2,6 +2,7 @@
 title: "Week 6"
 subtitle: "MLR: Model building and comparison"
 editor: visual
+draft: true
 ---
 
 ::: callout-important

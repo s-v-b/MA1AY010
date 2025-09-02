@@ -2,6 +2,7 @@
 title: "Week 2"
 subtitle: "Simple linear regression"
 editor: visual
+draft: true
 ---
 
 ::: callout-important
