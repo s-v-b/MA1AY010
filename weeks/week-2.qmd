@@ -1,38 +1,42 @@
 ---
-title: "Week 2"
-subtitle: "Simple linear regression"
-editor: visual
+title: "Semaine 2"
+subtitle: ""
+editor: source
 draft: true
 ---
 
+
+
+
 ::: callout-important
--   Classes are virtual this week. Find Zoom links [here](https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/page/d5eef508-07a4-4c6d-b7bd-4614a9631562 "Sakai - Zoom meetings").
--   Due dates:
-    -   Lab 1: Fri, Jan 14, 5pm ET
-    -   AE 1: Sun, Jan 16, 11:59pm ET
+
+La semaine I (15-19 septembre 2025)  est encore consacrée aux révisions de Licence. 
+
 :::
 
-## Prepare
+## Préparer/Revoir
 
-📖 Read Introduction to Modern Statistics, Chp 7: [Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr.html)
+- Espaces produits, tribus produits
+- Lois produits
+- Théorème de Fubini
+- Calculs de densités *image*
+- Espérances, moments, Espaces $L^p$
+- Convergences p.s. et convergences dans $L^p$
+- Inégalité de Jensen et conséquences 
+- Processus de branchement aléatoire
 
-## Participate
+## Exercices
 
-🖥️ [Lab 1 - Meet the toolkit](/slides/lab-1.html)
+[Feuille TD I](/exercices/td1.html)
+[Feuille TD I suppléments](/exercices/td1-supplement.html)
 
-🖥️ [Lecture 2 - Simple linear regression](/slides/lec-2.html)
 
-🖥️ [Lecture 3 - Model fitting in R with tidymodels](/slides/lec-3.html)
+- TD I.18 (sommes aléatoires de variables indépendantes) (*fin*).
+- Supplément TD I Exercice 1 (Cantor), Exercice 5 (Anniversaires)
+- TD I.7
+- TD I....
 
-## Practice
 
-📋 [Application Exercise 1 - Bike rentals in DC](/ae/ae-1-dcbikeshare.html) *(Post-class note: complete only Part 1 - Daily counts and temperature)*
-
-## Perform
-
-⌨️ [Lab 1 - Meet the toolkit](/labs/lab-1.html "Lab instructions")
-
-<br><br>
 
 ::: {style="font-size: 0.875em;"}
 Back to [course schedule](/ "Course schedule") ⏎

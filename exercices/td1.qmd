@@ -1,0 +1,1864 @@
+---
+#title: "Exercices : semaine I"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2025-09-08"
+
+format:
+  pdf:
+    output-file: td1.pdf
+    class: exam
+    include-in-header:
+      - text: "\\lhead{{\\sf  Probabilités \\\\ TD 1}}"
+  html:
+    output-file: td1.html
+
+engine: knitr
+---
+
+
+
+
+
+
+
+
+
+```{r}
+#| echo: false
+#| eval: true
+
+cnt_exo <- 1
+```
+
+
+
+::: {.callout-note}
+
+### TD I : Révisions de Licence 
+
+- 8 Septembre 2025-12 Septembre 2025
+
+- Master I Isifar
+
+- **Probabilités** 
+
+:::
+
+
+
+
+# Variables aléatoires réelles
+
+::: {.callout-note}
+
+Pour $X$ une variable aléatoire réelle et $t \in \mathbb{R}$ on note 
+
+$$F_X(t) := \mathbb{P}(X \le t)$$
+
+la *fonction de répartition* de (la loi de) $X$ et 
+
+$$\Phi_X(t) = \mathbb{E}[\exp(itX)]$$
+
+la *fonction caractérique* de (la loi) de $X$
+
+:::
+
+## Fonctions de répartition
+
+
+::: {.content-hidden}
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: false    # true si l'exercice est visible 
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ 
+
+(Feuille jointe) 
+
+1. Lesquels parmi les $8$ graphes dessinés sur la dernière page représentent des fonctions de répartition? Justifier. 
+2. Pour ceux de ces graphes qui sont bien des fonctions de répartition, estimer approximativement l'espérance des variables aléatoires correspondantes. 
+3. Toujours pour ceux de ces graphes qui sont bien des fonctions de répartition, les variables aléatoires correspondantes possédent-elles une densité? Si oui, en ébaucher le graphe.   
+
+:::
+
+
+::: {.content-visible when-profile="solution"}
+ 
+  
+De gauche à droite et de bas en haut 
+
+
+1. Ce n'est pas une fonction de répartition, puisque par exemple la fonction représentée est strictement décroissante sur $[0,+\infty[$
+1. Ce n'est pas une fonction de répartiton, car elle n'est pas croissante : $F(0-) > F(0+)$
+1. C'est la fonction de répartition d'une variable $X$ telle que $\mathbb{P}(X=0)=p$, et $\mathbb{P}(X \in [0,1/2]) = 1$. Comme $\mathbb{P}(X=0)>0$, $X$ ne possède pas de densité. Enfin on a clairement $\mathbb{E}[X] \in (0,1/2)$. 
+1. C'est une fonction de répartition, en admettant que $F(x) \to 1$ lorsque $x \to \infty$. 
+
+  La variable aléatoire associée est discrète, à valeurs dans $\{-1, -1/2, 0 , 1/2, 1, 3/2, ...\} = \mathbb{N}/2-1$, elle ne possède donc pas de densité.  
+  Puisque $X$ est bornée inférieurement, on peut toujours définir $\mathbb{E}[X]$, même si il est possible que $X$ ne soit pas intégrable. 
+  Quoiqu'il en soit $\mathbb{E}[X]$ est clairement strictement supérieure à $-1/2$, et peut possiblement être $+\infty$.  
+1. Ce n'est pas une fonction de répartition puisqu'elle prend des valeurs strictement négatives 
+1. C'est une fonction de répartition, la variable associée est telle que 
+
+$$X = \mathbf{1}_{\{\xi=1\}}  U_1 +\mathbfcal{1}_{\{\xi=2\}} U_2 + \mathbf{1}_{\{\xi=3\}} U_3$$
+
+où $\xi-1 \sim \mathrm{Bin}(2,1/2)$ indépendante des $U_i$, et 
+$U_1 \sim \mathrm{Unif}[0,1]$, $U_2 \sim \mathrm{Unif}[1,3/2]$, $U_3 \sim \mathrm{Unif}[3/2,2]$.  
+Autrement dit, $X$ possède la densité $f_X$ telle que 
+
+$$f_X(x) = \frac{1}{4} \mathbf{1}_{[0,1]}(x) +  \mathbf{1}_{[1,3/2]}(x) + \frac{1}{2}  \mathbf{1}_{[3/2,2]}(x)$$ 
+
+On trouve 
+
+$$\mathbb{E}[X] = \frac{1}{4} \times \frac{1}{2} + \frac{1}{2} \times \frac{5}{4} + \frac{1}{4} \times \frac{7}{4} = \frac{19}{16}.$$
+
+1. A priori on n'a pas affaire à uine fonction de répartition puisque la limite en $-\infty$ ne semble pas nulle. 
+1. C'est la fonction de répartition d'une variable du type 
+$ X = \xi Y + (1-\xi) U$ où $\xi \sim \mathrm{Ber}(3/4)$, $Y$ suit la loi de $1+\exp(\lambda)$ conditionnée à être inférieure à $3/2$, et enfin $U \sim \mathrm{Unif}[7/4,2]$.
+
+Notons que dans ce cas le paramètre $\lambda$ est la dérivée au point $1$ de la fonction $F$, mais il est difficile à estimer à l'oeil nu. 
+Notre variable est bien à densité
+
+$$f(x) = \gamma \lambda \exp(-\lambda (x-1)) \mathbf{1}_{[1,3/2]}(x) + \frac{1}{4} \mathbf{1}_{[7/4,2]}(x)$$
+
+où $\gamma (1-\exp(-\lambda/2)) = 3/4$. On a alors 
+
+$$
+\begin{eqnarray*}
+ \mathbb{E}[X] & = & \gamma \int_1^{3/2} \lambda x \exp(-\lambda (x-1)) + \frac{1}{4} \frac{15}{8} 
+ \\ & = & \gamma (1-\exp(-\lambda/2))- \frac{\gamma}{2}\exp(-\lambda/2) + \frac{\gamma}{\lambda} (1-\exp(-\lambda/2)) +\frac{15}{32} 
+\\ & = & \frac{3}{4} \left(1+\frac{1}{\lambda} \right) - \frac{\gamma}{2} \exp(-\lambda/2) + \frac{15}{32}. 
+\end{eqnarray*}
+$$ 
+
+Par exemple pour $\lambda=5$ on obtient $\mathbb{E}[X] \approx 1.302$, et dans tous les cas $\mathbb{E}[X] \in (1,2)$. 
+
+:::
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ (transformation affine)
+
+Soit $X$ une variable aléatoire réelle, $F_X$ sa fonction de répartition,  $a, b$ deux réels fixés, et $Y := aX+b$ 
+
+ 
+1. On suppose dans cette question que $a=1$. Comment déduire $F_Y$ de  $F_X$? 
+
+      Si (la loi de) $X$ admet une densité, en est-il de même de $Y$? Si oui, exprimer dans ce cas $f_Y$ à l'aide de $f_X$.  
+
+2. On suppose dans cette question que $b=0$ et $a>0$. Comment déduire $F_Y$ de  $F_X$? 
+
+      Si (la loi de ) $X$ admet une densité, à quelle condition sur $a$ en est-il de même de (la loi de) $Y$? Exprimer dans ce cas $f_Y$ à l'aide de $f_X$.  
+
+3. Répondre aux mêmes questions lorsque $b=0$ et $a=-1$? 
+4. Répondre enfin aux mêmes questions lorsque $a$ et $b$ sont quelconques. 
+  
+
+::: {.content-visible when-profile="solution"}
+ 
+Soit $F_Y$ la fonction de répartition de $Y$. 
+ 
+1. On a 
+$$F_Y(x) = \mathbb{P}(Y \le x) = \mathbb{P}(X+b \le x) = \mathbb{P}(X \le x-b) = F_X(x-b)$$
+Ainsi, le graphe de $F_Y$ se déduit de celui de $F_X$ en le translatant de $b$ vers la droite. 
+Si $X$ admet une densité $f_X$, 
+$$F_Y(x) = \int_{-\infty}^{x-b} f_X(u) du = \int_{-\infty}^b f_Y(v) dv,$$
+où $f_Y(v) = f_X(v-b), u \in \mathbb{R}$.     
+Ainsi, si $X$ admet une densité $f_X$, $Y$ admet la densité $f_Y$ définie ci-dessus. 
+
+1. On a dans ce cas 
+$$F_Y(x) = \mathbb{P}(Y \le x) = \mathbb{P}(aX \le x) = \mathbb{P}(X \le \frac{x}{a}) = F_X(\frac{x}{a}).$$
+Ainsi le graphe de $F_Y$ se déduit de celui de $F_X$ en dilatant ce dernier par $a$. 
+
+Si $X$ admet une densité $f_X$, on a 
+$$ F_Y(x) = \int_{-\infty}^{\frac{x}{a}} f_X(u) du = \int_{-\infty}^x \frac{1}{a} f_X(\frac{v}{a}) dv = \int_{-\infty}^x f_Y(v) dv,$$
+où $f_Y(v) = \frac{1}{a} f_X(\frac{v}{a}), v \in \mathbb{R}$. 
+Ainsi, si $X$ admet une densité $f_X$, alors $Y$ admet la densité $f_Y$ définie ci-dessus.  
+1. Dans ce cas 
+$$ F_Y(x) = \mathbb{P}(-X \le x) = \mathbb{P}(X \ge -x) = 1-F_X((-x)^-).$$
+Si $X$ admet une densité $f_X$, 
+$$ F_Y(x) = \int_{-x}^{\infty} f_X(u) du = \int_{-\infty}^x f_X(-v) dv = \int_{-\infty}^x f_Y(v)dv,$$
+où $f_Y(v) = f_X(-v), x \in \mathbb{R}$. 
+Ainsi, si $X$ admet une densité $f_X$, alors $Y$ admet la densité $f_Y$ définie ci-dessus.  
+1. Traitons d'abord le cas $a=0$. Dans ce cas, quelque soit $X$, on obtient que $Y$ est déterministe, $\mathbb{P}(Y=b)=1$ (en particulier $Y$ n'a pas de densité même si $X$ en possède une. 
+
+Lorsque $a > 0$, on obtient par un raisonnement similaire à 1,2, 
+$$ F_Y(x) = F_X\left(\frac{x-b}{a}\right),$$
+et si $X$ possède la densité $f_X$, alors 
+$Y$ possède la densité $f_Y$ telle que $f_Y(v) = \frac{1}{a} f_X\left( \frac{v-b}{a} \right), v \in \mathbb{R}$. 
+
+Enfin lorsque $a<0$, 
+$$F_Y(x) = \mathbb{P}(aX+b \le x) = \mathbb{P}(aX \le x-b) = \mathbb{P}\left(X \ge \frac{x-b}{a}\right) = 1-F_X\left(\left(\frac{x-b}{a}\right)^-\right),$$ 
+et si $X$ possède la densité $f_X$, 
+$$F_Y(x) = \int_{\frac{x-b}{a}}^{+\infty} f_X(u) du = \frac{1}{|a|} \int_{-\infty}^{x} f_X\left(\frac{v-b}{a}\right) dv,$$
+de sorte que $Y$ possède la densité $f_Y$ où $f_Y(v) = \frac{1}{|a|} f_X\left(\frac{v-b}{a}\right), v \in \mathbb{R}$. 
+
+
+:::
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ (Minimum, maximum de variables indépendantes)
+
+
+Soient $X_i, i \ge 1$, des variables indépendantes. 
+Pour $k \ge 2$, on note $Y_k = \min (X_1,...,X_k)$, $Z_k = \max(X_1,...,X_k).$    
+ 
+1. Dans cette question on s'intéresse à $k=2$. 
+    
+    Comment déduire $F_{Y_2}$ de $F_{X_1}, F_{X_2}$? 
+    Même question pour $F_{Z_2}$.
+
+2. Généraliser à $k$ quelconque. 
+ 
+4. Quelle est la loi de $Z_k$ lorsque les $\{X_i, i \ge 1\}$ sont i.i.d., $\sim \mathrm{Unif}[0,1]$? 
+   
+5. Quelle est la loi de $Y_k$ lorsque les $\{X_i, i \ge 1\}$ sont des variables *exponentielles* indépendantes, avec $X_i \sim \text{Exp}(\lambda_i)$ (où pour tout $i$, $\lambda_i >0$)?  
+
+
+::: {.content-visible when-profile="solution"}
+ 
+
+1. On a pour tout $x \in \mathbb{R}$, 
+$$1-F_{Y_2}(x) = \mathbb{P}(Y_2 > x) = \mathbb{P}(\min(X_1,X_2) >x)) = \mathbb{P}(X_1 >x, X_2 >x) = \mathbb{P}(X_1>x) \mathbb{P}(X_2>x),$$
+où pour la dernière égalité on s'est servi de l'indépendance de $X_1$ et $X_2$. 
+On déduit que pour tout $x \in \mathbb{R}$, 
+$$1-F_{Y_2}(x) = (1-F_{X_1}(x)) (1-F_{X_2}(x)).$$
+
+
+De manière similaire, on obtient pour tout $x \in \mathbb{R}$
+$$F_{Z_2}(x) = F_{Y_1}(x) F_{Y_2}(x).$$ 
+
+1. Par un raisonnement similaire, pour tout $x \in \mathbb{R}$,  
+$$ 1-f_{Y_k}(x) = \prod_{i=1}^k (1-F_{X_i}(x))$$
+
+Par ailleurs,  pour tout $x \in \mathbb{R}$, 
+$$F_{Z_k}(x) = \mathbb{P}(\max(X_1,...,X_k) \le x) = \mathbb{P}(X_i \le x, 1 \le i \le k) = \prod_{i=1}^k \mathbb{P}(X_i \le x)$$
+où pour la dernière égalité on s'est servi de l'indépendance des $(X_i, 1 \le i \le k)$. 
+On déduit, pour tout $x \in \mathbb{R}$, 
+$$F_{Z_k}(x) = \prod_{i=1}^k F_{X_i}(x)$$ 
+1. Dans ce cas $F_{X_i}(x) = x \mathbf{1}_{[0,1]}(x) + \mathbf{1}_{]1,+\infty[}(x)$, et donc 
+ 
+    $$F_{Z_k}(x) = {\begin{cases} 0 & \mbox{si } x \le 0\\ x^k & \mbox{si } 0 \le x \le 1 \\  1 & \mbox{si } x \ge 1 \end{cases},$$
+
+    on déduit donc que $Z_k$ est une variable de densité 
+    $$f_{Z_k}(x) = k x^{k-1} \mathbf{1}_{[0,1]}(x), x \in \mathbb{R}.$$
+
+1. Dans ce cas $1-F_{X_i}(x) = \exp(-\lambda_i x) \mathbf{1}_{\{x \ge 0\}} + \mathbf{1}_{\{x<0\}}$, on a donc 
+
+    $$1-F_{Y_k}(x) = \begin{cases} 1 & \mbox{si } x \le 0 \\ \exp\left(-x \sum_{i=1}^k \lambda_i\right)  & \text{sinon}\end{cases}$$
+
+    de sorte que $Y_k \sim \exp(\Lambda)$, avec $\Lambda = \sum_{i=1}^k \lambda_i$. 
+ 
+
+::: 
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ 
+
+
+On suppose que $X \sim \mathcal{N}(0,1)$. Que valent 
+
+$$\mathbb{P}(X \le 1), \quad \mathbb{P}(-1.23 \le X \le 0.43), \quad \mathbb{P}(X>0.32)?$$
+
+
+
+::: {.content-visible when-profile="solution"}
+
+En utillisant le logiciel `R`, la fonction de répartition de la loi $\mathcal{N}(0,1)$ est 
+désignée par `pnorm()`, la fonction réciproque (fonction quantile) est désignée par `qnorm`
+
+|                                  |                             | $\approx$                     |
+|:---------------------------------|:---------------------------:|------------------------------:|
+|$\mathbb{P}(X \le 1)$             | `pnorm(1)`                  | `r pnorm(1)`                  |
+|$\mathbb{P}(-1.23 \le X \le 0.43)$| `pnorm(.43) - pnorm(-1.23)` | `r pnorm(.43) - pnorm(-1.23)` |
+|$\mathbb{P}(X > .32 1)$           | `1 - pnorm(.32)`            | `r 1- pnorm(.32)`             |
+
+
+::: 
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ 
+
+On suppose que l'écart à la taille moyenne $T=15.5$ des individus d'une population suit une loi normale centrée réduite. 
+
+Dans quel intervalle centré en $T$ se situent les tailles de $99\%$ des individus de la population? 
+
+::: {.content-visible when-profile="solution"}
+ 
+D'après la table, pour $Z \sim \mathcal{N}(0,1)$, on a $\mathbb{P}(Z \le 2.57) \approx 0.9949),$ et  $\mathbb{P}(Z \le 2.58) \approx 0.9951$, de sorte que  $\mathbb{P}(|Z| \ge 2.57) \approx 0.0102$, et  $\mathbb{P}(|Z| \ge 2.58) \approx 0.0098$. 
+
+On déduit que les tailles de $99\%$ de la population se situent entre $15.5 - 2,58 = 12.92$ et $15.5+2.58 = 18.08$. 
+
+::: 
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+
+
+Etant donnée X une variable aléatoire gaussienne de paramètres $\mu$ et $\sigma^2$, donner la probabilité que $|X - \mu|$ dépasse $k\sigma$ pour $k = 1, 2, 3$. 
+
+*Suggestion*: On commencera par montrer que $\sigma^{-1}(X-\mu)$ suit une loi normale centrée réduite.
+
+Reprendre les questions de l'exercice précédent lorsque $\mu=2, \sigma=2$. 
+
+Reprendre les questions de l'exercice précédent lorsque $\mu=0, \sigma=1/2$.  
+
+::: {.content-visible when-profile="solution"}
+ 
+Puisque $(X-\mu)/\sigma \sim \mathcal{N}(0,1)$ on a 
+
+$$\mathbb{P}(|X- \mu| \ge k \sigma)= \mathbb{P}(|Z| \ge k),$$
+et donc d'après la table, pour $k=1$ ceci vaut 
+
+$$\mathbb{P}(|Z| \ge 1) =  2 (1-\mathbb{P}(Z \le 1)) \approx 2 \times (1-0.8413) = 2 * 0.1587 = 0.3174$$
+pour $k=2$, 
+
+$$\mathbb{P}(|Z| \ge 2) = 2(1-\mathbb{P}(Z \le 2) \approx 2 \times (1- 0.9772) = 0.0456.$$
+enfin pour $k=3$, 
+
+$$\mathbb{P}(|Z| \ge 3) = 2 (1- \mathbb{P}(Z \le 3) \approx 2 \times (1-0.9987) = 0.0026.$$
+
+Pour $\mu=2, \sigma=2$, on a 
+
+$$\mathbb{P}(X \le 1) = \mathbb{P}(Z \le -1/2) \approx 0.3085,$$ 
+
+$$ \mathbb{P}(-1.23 \le X \le 0.43) = \mathbb{P}(-\frac{3.23}{2} \le Z \le -\frac{1.57}{2}) \approx 0.9463-0.7823 = 0.1640,$$ 
+
+$$\mathbb{P}(X > 0.32) = \mathbb{P}(Z>-0.84) \approx 0.7995.$$
+
+
+Pour $\mu=0, \sigma=1/2$, on trouve 
+$$\mathbb{P}(X \le 1) = \mathbb{P}(Z \le 2) \approx 0.9772$$ 
+
+$$\mathbb{P}(-1.23 \le X \le 0.43 ) = \mathbb{P}(-2.46 \le Z \le 0.86) \approx 0.8051 - (1-0.9931) = 0.7982,$$
+
+$$\mathbb{P}(X>0.32) = \mathbb{P}(Z > 0.64) \approx 1-0.7389 = 0.2611$$ 
+
+::: 
+
+
+## Densités
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ 
+
+Dans les cas suivants, trouver la valeur de $C$ pour que $f$ soit une densité de probabilité.  
+
+1. $f(x) = C \frac{1}{\sqrt{x (1-x)}}, 0 <x <1,$
+1. $f(x) = C \exp(-x-\exp(-x)), x \in \mathbb{R},$
+1. $f(x) = C \frac{1}{1+x^2}$.
+ 
+::: {.content-visible when-profile="solution"}
+ 
+
+1. On a 
+$$x(1-x) = x-x^2 = \frac{1}{4} - \left(x-\frac{1}{2}\right)^2$$ 
+et on sait que la primitive de $x \to \frac{1}{\sqrt{a^2-x^2}}$ est $x \to \arcsin\left(\frac{x}{a}\right)$. 
+On a donc en effectuant le changement de variable $y = x-1/2$, 
+$$\int_{0}^1 \frac{1}{\sqrt{x(1-x)}} = \int_{-1/2}^{1/2} \frac{dy}{\sqrt{\frac{1}{4}-y^2}} = \left[\arcsin(2y)\right]_{-1/2}^{1/2} = \pi,$$
+et il faut donc poser $C = \frac{1}{\pi}$ pour que $f$ soit une densité de probabilité sur $]0,1[$.  
+1. Soit $h(x) = \exp(-\exp(-x)), x \in \mathbb{R}$, on a pour $x \in \mathbb{R}$, 
+$$h'(x) =\exp(-x) \exp(-\exp(-x)) = \exp(-x-\exp(-x)),$$ 
+de sorte que 
+$$ \int_{-\infty}^{\infty} \exp(-x-\exp(-x)) = \left[\exp(-\exp(-x))\right]_{-\infty}^{\infty} = 1,$$
+et il faut poser $C=1$ pour que $f$ soit une densité de probabilité sur $\mathbb{R}$.  
+1. On a 
+$$\int_{\infty}^{\infty} \frac{dx}{1+x^2} = \left[ \arctan(x) \right]_{-\infty}^{\infty} = \pi,$$
+et il faut donc poser $C=\frac{1}{\pi}$ pour que $f$ soit une densité de probabilité sur $\mathbb{R}$. 
+
+:::
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+  (Mélange)
+
+On suppose que $X$ et $Y$ sont deux variables de densités respectives $f_X, f_Y$, et que $\alpha \in [0,1]$. Montrer que $g : = \alpha f_X + (1-\alpha) f_Y$ est également une densité de probabilité. 
+
+Trouver une variable aléatoire dont $g$ est la densité.  
+
+
+::: {.content-visible when-profile="solution"}
+
+La fonction $g$ reste bien évidemment borélienne, et puisque $\alpha \in [0,1]$, positive, de plus 
+
+$$\int_{\mathbb{R}} g(x) dx = \alpha \int_{\mathbb{R}} f_X(x) dx + (1-\alpha) \int_{\mathbb{R}} f_Y(x) dx = \alpha + (1-\alpha) = 1,$$
+
+on conclut que $g$ est bien une densité de probabilité. 
+
+Soit $\xi \sim \mathrm{Ber}(\alpha)$, indépendante de $(X,Y)$. Alors $Z= \xi X + (1-\xi)Y$ possède la densité $g$. En effet, en utilisant l'indépendance de $\xi$ et $(X,Y)$ à la deuxième ligne ci-dessous,  
+
+$$\begin{eqnarray*} \mathbb{P}(Z \le x) & = & \mathbb{P}(\xi=1,  X \le x) + \mathbb{P}(\xi=0, Y \le x) \\ & = & \mathbb{P}(\xi=1) \mathbb{P}(X \le x) + \mathbb{P}(\xi=0) \mathbb{P}(Y \le x) \\ & = & \alpha F_X(x) + (1-\alpha) F_Y(x) \\ & = & \int_{-\infty}^x (\alpha f_X(x) + (1-\alpha)f_Y(x)) dx \end{eqnarray*}$$
+
+:::
+
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ 
+
+Soit $X$ de densité $f$, et $(\alpha, \beta) \in \overline{\mathbb{R}}^2$ sont supposés tels que 
+$$\mathbb{P}(\alpha < X < \beta) =1$$ 
+On suppose que $g$ est un $C^{1}$-difféomorphisme croissant de $(\alpha, \beta)$ sur $(g(\alpha),g(\beta))$. 
+
+ 
+1. Montrer que $g(X)$ a pour densité $\frac{f(g^{-1}(x))}{g'(g^{-1}(x))} \mathbf{1}_{\{x \in (g(\alpha), g(\beta))\}}$. 
+1. Quelle est la densité de la variable $aX+b$, où $a>0$ et $b\in \mathbb{R}$ sont fixés?   
+1. Soit $Y \sim \mathcal{N}(0,1)$. Quelle est la densité de $Z = \exp(Y)$? 
+   
+
+::: {.content-visible when-profile="solution"}
+
+
+1. Posons $T= g(X)$. Pour $h : \mathbb{R} \to \mathbb{R}_+$ mesurable, on a 
+$$\mathbb{E}[h(T)]  = \mathbb{E}[h(g(X))] = \int_{\alpha}^{\beta} h(g(x)) f(x) dx$$  
+En effectuant le changement de variables $t = g(x)$ il vient 
+$$ \mathbb{E}[h(T)]  = \int_{g(\alpha)}^{g(\beta)} \frac{h(t) f(g^{-1}(t))}{g'(g^{-1}(t))} dt. $$
+Comme ceci est valable pour tout fonction $h$ mesurable positive, on conclut que $T$ possède la densité souhaitée sur $(g(\alpha),g(\beta))$ 
+1. Ici $g : x \to ax+b$, $g^{-1} : x \to \frac{x-b}{a}$, $g'(x) = a$ pour tout $x$ et dans ce cas la densité recherchée s'exprime donc 
+$$\frac{1}{a} f\left( \frac{x-b}{a} \right) \mathbf{1}_{(a\alpha+b, a\beta+b)}(x), \ x \in \mathbb{R}.$$ 
+Quitte à prendre $\alpha = -\infty, \beta = +\infty$, on retrouve le résultat de l'exercice 2. 
+1. Ici $\alpha = - \infty, \beta=+\infty$, $f(y) = \frac{1}{\sqrt{2\pi}} \exp(-y^2/2), y \in \mathbb{R}$, et $g: x \to \exp(x)$, $g^{-1} : y \to \ln(y)$ et $g'(g^{-1}(x)) = x$. On obtient donc que la densité de  $Z$ est 
+$$\frac{1}{x \sqrt{2\pi}} \exp\left(-\frac{\ln(x)^2}{2}\right) \mathbf{1}_{\{x >0\}}.$$
+
+
+
+:::
+
+## Lois usuelles, calculs de loi
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ (Fonctions de répartition et fonctions caractéristiques de lois usuelles)
+
+::: {.callout-caution}
+
+Attention : dans le cas d'une variable continue, quand on calcule $\Phi_X$ on %doit intégrer sur $\mathbb{R}$ une fonction complexe. 
+Trois méthodes sont envisageables. 
+
+Parfois on peut intégrer séparément partie réelle et partie imaginaire. 
+
+Parfois il est utile de se servir de la formule de Cauchy. En particulier, cette formule assure que si $f$ est une fonction *holomorphe*, si $\mathcal{C}$ est un contour fermé "raisonnable" (en particulier tout cercle ou polygone régulier), et enfin si $\overset{\circ}{\mathcal{C}}$ désigne l'ensemble des points se trouvant à l'intérieur de ce contour, alors    
+$$\forall a \in \overset{\circ}{\mathcal{C}}, \quad f(a) = \frac{1}{2\pi i} \oint_{\mathcal{C}}  \frac{f(z)}{z-a} \mathrm{d}z.$$ 
+
+Attention : cette formule montre bien que l'on ne peut pas traiter l'intégrale d'une fonction complexe en faisant "comme si" $i$ était réél (!) La *méthode des résidus* est en outre une conséquence directe de la formule de Cauchy.
+
+Enfin, on peut utiliser le prolongement analytique (voir l'exemple de la fonction $\Gamma$). 
+
+:::
+
+ 
+1. Exprimer le plus simplement $F_X$ dans les cas suivants (on pourra se contenter de tracer l'allure du graphe de la fonction de répartition lorsque celle-ci ne possède pas d'expression simple).  
+  
+    a. $n \in \mathbb{N}^*, p \in [0,1], X \sim \text{Bin}(n,p)$,
+    a. $\lambda>0, X \sim \text{Poisson}(\lambda)$,
+    a. $a>0, X\sim \text{Unif}[-a,a]$, 
+    a. $\lambda>0, X \sim \mathbf{exp}(\lambda)$,
+    a. $\lambda>0, s \in \mathbb{N}^*$, $X \sim \Gamma(\lambda, s)$ (on rappelle que la densité $f_X$ de $X \sim \Gamma(\lambda,s)$ est telle que $f_X(x) =\frac{1}{\Gamma(s)} \lambda^s x^{s-1}\exp(-\lambda x) \mathbf{1}_{[0,\infty[}(x), x \in \mathbb{R}$), 
+    a. $X \sim \mathcal{N}(0,1)$, 
+    a. $\mu \in \mathbb{R}, \sigma>0, X \sim \mathcal{N}(\mu,\sigma^2)$.  
+    a. $a>0, X \sim \mathrm{Cauchy}(a)$ (on rappelle que la densité $f_X$ de la loi de Cauchy de paramètre $a$ est telle que $f_X(x) = \frac{a}{\pi(x^2+a^2)}, x\in \mathbb{R}$).  
+    a. (*) $X \sim \mathrm{stable}(1/2)$ (cette loi a pour densité $\sqrt{2\pi x^{-3}} \exp(-1/2x)\mathbf{1}_{[0,\infty[}(x).$)   
+
+3.  Lesquelles parmi ces variables possèdent une densité?  
+4.  Exprimer le plus simplement $\Phi_X$ pour les $7$ premières variables de la première question ci-dessus. En déduire, ou trouver par un calcul direct, $E[X],$ et $\mathrm{Var}[X]$. 
+
+
+::: {.content-visible when-profile="solution"}
+ 
+
+- Binômiale 
+Il s'agit d'une variable discrète à valeurs dans $[|0,n|]$, (elle ne possède donc pas de densité), et telle que 
+$$\mathbb{P}(X=k) = {n \choose k} p^k (1-p)^{n-k}, \ 0\le k \le n$$
+On a  
+$$F_X(x) = \sum_{k=0}^n \mathbf{1}_{\{x \ge k\}} {n \choose k} p^k(1-p)^{n-k}, x \in \mathbb{R}.$$
+$X$ a même loi que $\sum_{j=1}^n \xi_j$ où les $(\xi_j, 0 \le j \le n)$ i.i.d suivant la loi Ber$(p)$, de sorte que 
+$$\Phi_X(t) = \mathbb{E}[\exp(itX)] = \Phi_{\xi_1}(t)^n = (p\exp(it)+(1-p))^n, \ t \in \mathbb{R}$$ 
+On a enfin, toujours gr\^ace à l'écriture de $X$ comme somme de $n$ variables de Bernoulli indépendantes et de même paramètre $p$, 
+$$\mathbb{E}[X] = np , \qquad \mathrm{Var}[X] = np(1-p)$$
+
+- Poisson 
+Il s'agit d'une variable discrète à valeurs dans $\mathbb{N}$ (elle ne possède donc pas de densité) et telle que 
+$$ \mathbb{P}(X=k) = \lambda^k \frac{\exp(-\lambda)}{k!}, k \in \mathbb{N}.$$
+On a 
+$$ F_X(x) = \sum_{k \in \mathbb{N}} \mathbf{1}_{\{x \ge k\}} \exp(-\lambda)\frac{\lambda^k}{k!}, x \in \mathbb{R}$$
+et 
+$$ \Phi_X(t) = \sum_{ k \in \mathbb{N}} \exp(itk) \exp(-\lambda) \frac{\lambda^k}{k!} = \exp(\lambda \exp(it) -1), t \in \mathbb{R}$$ 
+On a par un calcul direct 
+$$ \mathbb{E}[X] = \mathrm{Var}[X] = \lambda.$$ 
+
+- Uniforme continue symétrique
+
+    Il s'agit de la loi de densité $\frac{1}{2a} \mathbf{1}_{[-a,a]}$. 
+    On a pour $x \in \mathbb{R}$, 
+
+    $$F_X(x) = \begin{cases}  0 & \mbox{si } x \le -a \\ 
+    \frac{1}{2a} (x+a) & \mbox{si } x \in [-a,a] \\ 
+    1 & \mbox{si } x \ge a \end{cases}$$
+
+    et pour $t \in \mathbb{R}$, 
+    
+    $$\Phi_X(t) = \begin{cases} 1 & \mbox{si } t =0 \\ \frac{\sin(ta)}{ta} & \mbox{si } t \ne 0.\end{cases}$$
+    
+    On a par un calcul direct 
+
+    $$\mathbb{E}[X] = 0, \mathrm{Var}[X] = \frac{a^2}{3}$$
+
+- Exponentielle
+  
+    Il s'agit de la loi de densité $x \to \lambda \exp(-\lambda x) \mathbf{1}_{\{x \ge 0\}}$. 
+    On a pour $x \in \mathbb{R}$, 
+    
+    $$F_X(x) =  \begin{cases}  0 & \mbox{si } x \le 0 \\ 
+    1-\exp(-\lambda x) & \mbox{si } x \ge 0 \end{cases}$$
+    
+    et 
+    
+    $$\Phi_X(t) = \frac{\lambda}{\lambda-it}, t\ in \mathbb{R}$$
+
+    On a enfin par un calcul direct (i.p.p) 
+    
+    $$\mathbb{E}[X] = \frac{1}{\lambda}, \ \ \mathrm{Var}[X] = \frac{1}{\lambda^2}$$
+
+- Gamma
+  
+    La densité est rappelée en énoncé. 
+    La fonction de répartition n'admet pas en général de forme plus simple que $\int_{-\infty}^x f_X(u)du$. 
+    On a de plus 
+    
+    $$\Phi_X(t) = \left(\frac{\lambda}{\lambda-it} \right)^s, t \in \mathbb{R}$$
+    
+    Quitte à calculer la dérivée première et seconde en $0$ de $\Phi_X$ on trouve 
+    
+    $$\mathbb{E}[X] = \frac{s}{\lambda}, \qquad \mathrm{Var}[X] = \frac{s}{\lambda^2}.$$
+
+- Gaussienne centrée réduite
+  
+    Il s'agit de la loi de densité $f_X : x \to \frac{1}{\sqrt{2\pi}} \exp(-x^2/2)$, la fonction $F_X$ n'a pas  de forme plus simple que $\int_{-\infty}^x f_X(u)du$, et 
+    $$ \Phi_X(t) = \exp(-t^2/2), \ t\in \mathbb{R}$$
+    On a (soit par calcul direct, soit en dérivant $\Phi_X$) 
+    $$\mathbb{E}[X] = 0, \quad \mathrm{Var}[X] =1$$
+
+- Gaussienne
+
+    Si $Z \sim \mathcal{N}(0,1)$, on a $X = \mu + \sigma Z \sim \mathcal{N}(\mu,\sigma^2)$, et $X$ a pour densité 
+    $$f_X : x \to \frac{1}{\sigma \sqrt{2\pi}} \exp\left(-\frac{(x-\mu)^2}{2}\right).$$
+    la fonction $F_X$ n'a pas  de forme plus simple que $\int_{-\infty}^x f_X(u)du$ et 
+    $$\Phi_X(t) = \exp\left(it \mu - \frac{\sigma^2 t^2}{2}\right), t\in \mathbb{R}.$$
+    Puisque $X = \mu + \sigma Z$ on trouve que 
+    $$\mathbb{E}[X] = \mu, \quad \mathrm{Var}[X]= \sigma^2.$$ 
+
+- Cauchy
+
+    La densité est rappelée dans l'énoncé, on a pour $x \in \mathbb{R}$, 
+    $$F_X(x) = \frac{1}{\pi} \left(\frac{\pi}{2}+ \arctan\left(\frac{x}{a}\right)\right),$$ 
+    et 
+    $$ \Phi_X(t) = \exp(-a|t|), t \in \mathbb{R}.$$ 
+
+- Stable $(1/2)$
+
+    La loi stable$(1/2)$ a la densité rappelée en énoncé (la fonction $F_X$ n'a pas  de forme plus simple que $\int_{-\infty}^x f_X(u)du$), sa fonction caractéristique est donnée par 
+    $$\Phi_X(t) = \exp(-\sqrt{|t|}(1+\mathrm{sgn}(t)i), \ t\in \mathbb{R}.$$
+
+    et on note que $x \to x f_X(x)$ n'est pas intégrable (donc $\mathbb{E}[X]= +\infty$, $\mathrm{Var}[X]=+\infty$). 
+
+:::
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+
+
+Pour des valeurs de $t$ que l'on précisera, calculer la transformée de Laplace $L(t) := \mathbb{E}[\exp(-t X)]$ et la fonction génératrice des moments $G(u) := \mathbb{E}[u^X]$ de la variable $X$ dans les cas suivants. 
+
+1. $X \sim \mathrm{Ber}(p)$, où $p \in [0,1]$, 
+1. $X \sim \mathrm{Bin}(n,p)$, où $n \in \mathbb{N}^*, p \in [0,1]$,
+1. $X \sim \mathrm{Geom}(p)$, où $p \in [0,1]$, 
+1. $X \sim \mathrm{Poisson}(\lambda)$, où $\lambda>0$,  
+1. $X=Y_1+...+Y_n$, où les $Y_i, 1 \le i \le n$ sont des variables indépendantes, et $Y_i \sim \mathrm{Poisson}(\lambda_i)$, avec $\lambda_i >0$.   
+
+::: {.content-visible when-profile="solution"}
+ 
+ 
+1. $G(u) = 1-p + pu, u \in \mathbb{R}$, $L(t) = (1-p) + p \exp(-t) = G(\exp(-t)), t \in \mathbb{R}$.
+1. $G(u) = (1-p + pu)^n, u \in \mathbb{R}$, $L(t)= G(\exp(-t)), t \in \mathbb{R}$
+1. $G(u) = \frac{up}{1-u(1-p)}, |u|<\frac{1}{1-p}$, et $L(t) = G(\exp(-t)),  t > \ln(1-p)$. 
+1. $G(u) = \exp(\lambda(u-1)), u \in \mathbb{R}$, et $L(t) = G(\exp(-t)), t \in \mathbb{R}$
+1. $G(u) = \exp(\Lambda(u-1)), u \in \mathbb{R}$ où $\Lambda = \sum_{i=1}^n \lambda_i$, $L(t) = G(\exp(-t)), t \in \mathbb{R}$
+
+:::
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ 
+
+Soit $X$ une v.a.r. de densité $f$. Quelle est la densité de $X^2$? 
+Qu'obtient-on dans le cas où $X \sim \mathcal{N}(0,1)$?
+
+
+::: {.content-visible when-profile="solution"}
+
+Soit $\phi : \mathbb{R} \to \mathbb{R}$ borélienne positive. et $Y=X^2$. On a, en effectuant le changement de variables $u=x^2$ à la quatrième ligne ci-dessous, 
+
+$$\begin{eqnarray*} \mathbb{E}[\phi(Y^2)] & = & \mathbb{E}[\phi(X^2)] \\ & = & \int_{\mathbb{R}} \phi(x^2) f(x) dx \\ & = & \int_{\mathbb{R}_-}\phi(x^2) f(x) dx + \int_{\mathbb{R}_+} \phi(x^2) f(x) dx \\ & = & \int_{0}^{\infty} \phi(u) f(-\sqrt{u}) \frac{du}{2\sqrt{u}} + \int_0^{\infty} \phi(u) f(\sqrt{u})\frac{du}{2\sqrt{u}} \\& = & \int_0^{\infty} \phi(u) \frac{f(-\sqrt{u}) + f(\sqrt{u})}{2\sqrt{u}} du \end{eqnarray*}$$
+
+Comme l'égalité ci-dessus est valable pour toute $\phi : \mathbb{R} \to \mathbb{R}$ borélienne positive, on conclut que $Y$ possède la densité 
+
+$$u\to f_Y(u)  = \frac{f(-\sqrt{u}) + f(\sqrt{u})}{2\sqrt{u}} \mathbf{1}_{\{u>0\}}.$$
+
+Dans le cas où $X \sim \mathcal{N}(0,1)$, on obtient 
+
+$$f_Y(u) = \frac{1}{\sqrt{2\pi}} \frac{\exp\left(-\frac{u}{2}\right)}{\sqrt{u}} \mathbf{1}_{\{u > 0\}},$$ 
+
+de sorte que $Y \sim \Gamma(1/2,1/2)$.  
+
+:::
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+
+
+Soit $X \sim \exp(1)$. Calculer la densité des variables suivantes :   
+
+1. $Y = aX+b$, où $a>0$ et $b \in \mathbb{R}$. Qu'observe-t-on dans le cas où $b=0$?    
+1. $Z = X^2$. 
+1. $U = \exp(-X)$.  
+  
+
+::: {.content-visible when-profile="solution"}
+ 
+ 
+
+1. On a d'après l'exercice 2 
+
+    $$f_Y(u) = \frac{1}{a} \exp\left(- \frac{u-b}{a}\right)\mathbf{1}_{\{u \ge 0\}}, u \in \mathbb{R} $$
+    
+    Lorsque $b =0$, on constate que $Y \sim \exp\left(\frac{1}{a}\right)$
+
+2. D'après l'exercice précédent 
+
+    $$ f_Z(u) = \frac{\exp(- \sqrt{u})}{\sqrt{u}} \mathbf{1}_{\{u>0\}}, u \in \mathbb{R}.$$
+
+3. Soit $\phi : \mathbb{R} \to \mathbb{R}_+$ borélienne, on a, en effectuant le changement de variables $u=\exp(-x)$ à la troisième ligne ci-dessous 
+
+    $$\begin{eqnarray*}
+    \mathbb{E}[\phi(U)] & = & \mathbb{E}[\phi(\exp(-X)] \\ & = & 
+    \int_0^{\infty} \phi(\exp(-x)) \exp(-x) dx \\ & = &  \int_{0}^1 \phi(u) du, 
+    \end{eqnarray*}$$
+ 
+    et, comme cette égalité est valable pour tout $\phi : \mathbb{R} \to \mathbb{R}_+$ borélienne, on conclut que $U \sim \mathrm{Unif}[0,1]$. 
+
+
+::: 
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ 
+
+Trouver la loi de $\arcsin(X)$ lorsque
+
+1. $X \sim \mathrm{Unif}[0,1]$,
+1. $X \sim \mathrm{Unif}[-1,1]$.
+
+
+::: {.content-visible when-profile="solution"}
+ 
+
+1.  Soit $\phi : \mathbb{R} \to \mathbb{R}_+$ borélienne, on a, en effectuant le changement de variables $u=\arcsin(x)$ à la deuxième ligne ci-dessous
+  
+    $$\begin{eqnarray*}
+     \mathbb{E}[\phi(\arcsin(X))] & = & \int_0^1 \phi(\arcsin(x)) dx  \\ & = & \int_0^{\pi/2} \phi(u) \cos(u) du. 
+    \end{eqnarray*}$$
+ 
+On conclut que $Y=\arcsin(X)$ possède la densité $u \to f_Y(u) = \cos(u) \mathbf{1}_{[0,\pi/2]}(u)$. 
+
+1. Soit $\phi : \mathbb{R} \to \mathbb{R}_+$ borélienne, on a, en effectuant le changement de variables $u=\arcsin(x)$ à la deuxième ligne ci-dessous
+   
+    $$\begin{eqnarray*}
+    \mathbb{E}[\phi(\arcsin(X))] & = & \frac{1}{2} \int_{-1}^1 \phi(\arcsin(x)) dx  \\ & = & \frac{1}{2} \int_{-\pi/2}^{\pi/2} \phi(u) \cos(u) du. 
+    \end{eqnarray*}$$
+ 
+    On conclut que $Y=\arcsin(X)$ possède la densité $u \to f_Y(u) = \frac{\cos(u)}{2} \mathbf{1}_{[-\pi/2,\pi/2]}(u)$. 
+
+
+:::
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ 
+
+On souhaite peindre un mur (infini!) en utilisant un arroseur automatique qui effectue des demi-révolutions successives. 
+Pour simplifier le modèle, on représentera le mur par une droite verticale $\Delta$, et l'arroseur par une source ponctuelle $O$ située à $1$ mètre du mur, et émettant en tout instant $t$ de façon parfaitement rectiligne dans la direction $\overset{\rightarrow}{u}(t)$. On note $M$ la projection orthogonale de $O$ sur $\Delta$ et $\theta(t)$ l'angle entre $O \overset{\rightarrow}{u}(t)$ et $\overset{\rightarrow}{OM}$. 
+L'intersection de $O\overset{\rightarrow}{u}$ avec $\Delta$ est notée $H(\theta)$.
+
+On suppose en outre que lors d'une demi-révolution, $\theta(t)$ parcourt exactement l'intervalle $(-\pi/2,\pi/2)$. 
+ 
+On fait l'hypothèse que la demi-révolution s'effectue à vitesse angulaire constante, et on se demande quelle sera la répartition de l'épaisseur de la couche de peinture le long de $\Delta$ après un nombre entier de demi-révolutions. 
+
+
+
+ 
+1. Justifier qu'une particule de peinture choisie uniformément au hasard parmi toutes les particules est envoyée suivant un angle $\theta \sim \mathrm{Unif}(-\pi/2,\pi/2)$. Une telle particule se pose alors en $H(\theta)$, On note $h(\theta)$ l'ordonnée de $H(\theta)$ (c'est également la distance algébrique entre $O$ et $H$).   
+ 
+2. Exprimer $h(\theta)$ en fonction de $\theta$. 
+Quelle est la loi de $h(\theta)$? Que pouvez-vous en déduire sur la distribution de l'épaisseur de la couche de peinture le long du mur?
+
+1. A posteriori, quelle critique peut-on formuler sur le modèle?  
+
+
+
+::: {.content-visible when-profile="solution"}
+
+
+1. La vitesse angulaire étant constante, et le nombre de révolutions étant entier, aucune direction dans $]-\pi/2,\pi/2[$ n'est privilégiée. Plus précisément, si $-\pi/2 < \theta_0 < \theta_0 + \theta_1 < \pi/2$, le nombre de particules envoyées lors des $n$ révolutions dans un secteur angulaire $(\theta_0, \theta_0+\theta_1)$ ne dépend pas de $\theta_0$ et est proportionnel à $\theta_1$. 
+ 
+    Ainsi, lorsqu'on choisit une des particules de peinture envoyées uniformément au hasard, la probabilité qu'elle ait été envoyée dans ce secteur angulaire est proportionnelle à $\theta_1$,, elle vaut donc $\frac{2}{\pi} \theta_1$ (en effet la probabilité est $1$ pour $\theta_0=-\pi/2, \theta_1=\pi$. Toujours pour  $-\pi/2< \theta_0< \theta_0 +\theta_1<\pi/2$, $\frac{1}{\pi} \theta_1=\int_{\theta_0}^{\theta_0+\theta_1} \frac{1}{\pi} dx$, et comme ceci est valable pour tous $-\pi/2< \theta_0< \theta_0 +\theta_1<\pi/2$, cela caractérise la loi de l'angle, et on déduit que celui-ci suit bien une loi $\mathrm{Unif}]-\pi/2,\pi/2[$. 
+
+2. On a $h(\theta) = \tan(\theta)$, et donc si on pose $X = h(\theta)$ et si $\phi : \mathbb{R} \to \mathbb{R}_+$ est borélienne on a (on effectue le changement de variables $x=\tan(\theta)$ à la troisième ligne ci-dessous) 
+
+    $$\begin{eqnarray*} \mathbb{E}[\phi(X)] & = & \mathbb{E}[\phi(\tan(\theta))] \\ & = & \int_{-\pi/2}^{\pi/2} \frac{2}{\pi} \phi(\tan(\theta)) d\theta \\ & = &  \int_{-\infty}^{\infty} \frac{1}{\pi} \frac{\phi(x)}{1+x^2} dx  \end{eqnarray*}$$
+ 
+    de sorte que $X$ a pour densité $f_X: x \to \frac{1}{\pi(1+x^2)}$. 
+
+3. On a $\mathbb{E}[|X|]=+\infty$, autrement dit, la distance moyenne à l'axe des abcisses à laquelle une particule choisie uniformément atterit est ... infinie.  
+
+::: 
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ 
+
+Soit $X \sim \mathrm{Cauchy}$ (de paramètre $1$). 
+
+Quelle est la loi de 
+
+1. $Y:=\frac{1}{X}$?
+1. $Z:= \frac{1}{1+X^2}$?
+
+
+::: {.content-visible when-profile="solution"}
+ 
+
+1.  Comme $\mathbb{P}(X=0)=0$, la variable $Y$ est bien définie. 
+
+    Si $\phi : \mathbb{R} \to \mathbb{R}_+$ est borélienne on a (on effectue le changement de variables $y=\frac{1}{x}$ à la toisième ligne ci-dessous) 
+
+    $$\begin{eqnarray*} \mathbb{E}[\phi(Y)] & = & \mathbb{E}[\phi(\frac{1}{X})] \\ & = & \int_{-\infty}^{0} \frac{\phi(1/x)}{\pi(1+x^2)} dx  + \int_{0}^{\infty} \frac{\phi(1/x)}{\pi(1+x^2)} dx \\ & = & \int_{-\infty}^0 \frac{\phi(y)}{\pi y^2(1+\frac{1}{y^2})} dy + \int_0^{\infty} \frac{\phi(y)}{\pi y^2(1+\frac{1}{y^2})} dy \\  & = & \int_{-\infty}^{\infty}  \frac{\phi(y)}{\pi (1+y^2)} dy \end{eqnarray*}$$
+ 
+    de sorte que $Y \sim \mathrm{Cauchy}(1)$. 
+
+1. Si $\phi : \mathbb{R} \to \mathbb{R}_+$ est borélienne on a (on effectue le changement de variables $z=\frac{1}{1+x^2}$ à la toisième ligne ci-dessous) 
+ 
+   $$\begin{eqnarray*} \mathbb{E}[\phi(Z)] & = & \mathbb{E}[\phi(\frac{1}{1+X^2})] \\ & = & \int_{-\infty}^{0} \frac{\phi(\frac{1}{1+x^2})}{\pi(1+x^2)} dx  + \int_{0}^{\infty} \frac{\phi(\frac{1}{1+x^2})}{\pi(1+x^2)} dx \\ & = & 2 \int_{0}^1 \frac{z \phi(z)}{\pi} \frac{1}{2 z^2\sqrt{\frac{1}{z}-1}}  \\  & = & \int_{0}^{1} \frac{\phi(z)}{\pi\sqrt{z(1-z)}} \end{eqnarray*}$$
+ 
+    de sorte que $Z \sim \mathrm{Beta}(1/2,1/2)$. 
+
+
+
+:::
+
+
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+
+
+Soit $Z \sim \mathcal{N}(0,1)$.   Montrer que pour tout $x>0$, 
+
+$$\left(x^{-1}-x^{-3}\right) \exp(-x^2/2) \le \sqrt{2\pi} \mathbb{P}(Z>x) \le x^{-1} \exp(-x^2/2).$$
+
+*Indication* : on pourra penser à utiliser le changement de variable $y=x+z$ pour obtenir l'inégalité de droite, et on commencera par calculer la dérivée de $\left(x^{-1}-x^{-3}\right) \exp(-x^2/2)$ pour obtenir celle de gauche.
+
+
+::: {.content-visible when-profile="solution"}
+ 
+On a pour $x >0$, en effectuant le changement de variables $y=x+z$ suggéré dans l'énoncé 
+
+$$
+\begin{eqnarray*}
+ \sqrt{2\pi} \mathbb{P}(Z>x) & = & \int_{x}^{\infty} \exp(-y^2/2) dy 
+\\ & = & \int_0^{\infty} \exp(-x^2/2-xz-z^2/2) \mathrm{d}z 
+\\ & = & \exp(-x^2/2) \int_{\mathbb{R}_+} \exp(-zx - z^2/2) \mathrm{d}z 
+\\ & \le & \exp(-x^2/2) \int_{\mathbb{R}_+} \exp(-zx) \mathrm{d}z = x^{-1} \exp(-x^2/2) 
+\end{eqnarray*}
+$$ 
+
+Par ailleurs, si $g : x \to (x^{-1}-x^{-3})(\exp(-x^2/2)$, on a pour $x>0$
+
+$$
+\begin{eqnarray*}
+ g'(x) & = & \left(-\frac{1}{x^2}-\frac{3}{x^4} -x (x^{-1}-x^{-3}) \right)\exp(-x^2/2)   \\ 
+& = & \left( -1 -\frac{3}{x^4} \right) \exp(-x^2/2) 
+\end{eqnarray*}
+$$
+
+Par ailleurs, si $h : x \to \sqrt{2\pi} \mathbb{P}(Z>x)$, on a $h'(x) = - \exp(-x^2/2)$ de sorte que 
+$g'(x) <h'(x),$ pour tout $x >0$. 
+
+Comme $g(x) \to -\infty$ lorsque $x \searrow 0$, alors que $h(0) = \sqrt{\pi/2}$, on déduit, comme souhaité, que 
+
+$$g(x)  \le h(x), \ \forall x >0 $$
+
+
+:::
+
+
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ (calcul d'une loi conditionnelle discrète) 
+
+Soient $X_1,...,X_n$ des variables de Poisson, indépendantes, de paramètres respectifs $\lambda_1,...,\lambda_n$.
+
+1. Déterminer la loi de $Y:=\sum_{k=1}^n X_k$. 
+1. Pour $r \in \mathbb{N}$, que vaut la loi conditionnelle de $(X_1,...,X_n)$ sachant $Y=r$?
+
+
+::: {.content-visible when-profile="solution"}
+ 
+
+1. On a pour tout $t \in \mathbb{R}$, en utilisant  l'indépendance des $(X_k, 1 \le k \le n)$ à la première ligne ci-dessous,  
+
+$$
+\begin{eqnarray*}
+ \Phi_Y(t) & = & \prod_{k=1}^n \Phi_{X_k}(t) \\ & = & \prod_{k=1}^n \exp(\lambda_k (\exp(it)-1)) \\ & = & 
+\exp(\Lambda (\exp(it)-1) 
+\end{eqnarray*}
+$$
+
+où $\Lambda = \sum_{k=1}^n \lambda_k$. 
+La fonction caractéristique caractérisant la loi, on déduit que $Y \sim \mathrm{Poisson}(\Lambda)$. 
+1. Soient $(\ell_1,\ell_2, \dots,\ell_n) \in \mathbb{N}^n$. 
+Si $\sum_{k=1}^n \ell_k \ne r$ on a bien sûr $\{(X_1,...,X_n)= (\ell_1,... \ell_n)\} \cap \{Y=r\} = \emptyset$ donc 
+$$ \mathbb{P}((X_1,X_2, \dots ,X_n) = (\ell_1, \ell_2, \dots, \ell_n)  \mid Y=r) = 0$$ 
+Si $(\ell_1,\ell_2, \dots, \ell_n) \in \mathbb{N}^n$ sont tels que $\sum_{k=1}^n \ell_k = n$, on a $\{Y=r\} \supset \{(X_1,X_2, \dots,X_n)= (\ell_1, \ell_2, \dots, \ell_n)\}$ et donc en utilisant l'indépendance des $(X_k)_{1 \le k \le n} $ à la deuxième ligne ci-dessous 
+
+$$
+\begin{eqnarray*}
+ \mathbb{P}((X_1, X_2, \dots,X_n) = (\ell_1,\ell_2, \dots, \ell_n) \mid Y =r) & = & \frac{\mathbb{P}(X_1=\ell_1, X_2= \ell_2, \dots, X_n = \ell_r)}{\mathbb{P}(Y=r)} \\ & = & 
+\frac{\prod_{k=1}^n \frac{\lambda_k^{\ell_k}\exp(-\lambda_k)}{\ell_k!}}{\frac{\exp(-\Lambda) \Lambda^r}{r!} } 
+\\& = & {r \choose \ell_1, \ell_2, \dots,\ell_n} \prod_{k=1}^n \left(\frac{\lambda_k}{\Lambda}\right)^{\ell_k}, 
+\end{eqnarray*}
+$$
+
+avec ${r \choose \ell_1, \ell_2, \dots, \ell_n} =\frac{r!}{\ell_1! \ell_2! \dots \ell_n!}$ le coefficient multinômial de $(\ell_1,...,\ell_n)$ parmi $r$.
+
+On conclut que la loi conditionnelle de $(X_1,...,X_n)$ sachant $\{Y=r\}$ est une loi mutinômiale de paramètres $\left(r,\frac{\lambda_1}{\Lambda}, \frac{\lambda_2}{\Lambda}, \dots, \frac{\lambda_n}{\Lambda}\right)$.   
+
+
+
+:::
+
+{{< pagebreak >}}
+
+
+# Lois jointes
+
+## Exemples divers
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+
+
+On suppose que le nombre $X$ d'oeufs pondus par un insecte suit une loi de Poisson de paramètre $\lambda>0$ et que la probabilité qu'un oeuf meurt sans éclore est, indépendamment des autres oeufs, égale à $1-p$, où $p \in ]0,1[$. 
+
+1. Démontrer que le nombre $Y$ d'oeufs qui arrivent à éclosion suit une loi de Poisson de paramètre $\lambda p$. 
+1. Quelle est la loi jointe de $(Y,Z)$, où $Z= X-Y$ est le nombre d'oeufs morts avant éclosion? 
+
+
+::: {.content-visible when-profile="solution"}
+
+Quitte à introduire des variables $(\xi_i, i \ge 1)$ indépendantes de $X$, et i.i.d suivant la loi de Bernoulli de paramètre $p$ ($\xi_i=1$ si le $i$-ième oeuf arrive à éclosion),  
+
+$$Y = \sum_{k=1}^X \xi_i, \quad Z = \sum_{k=1}^X (1-\xi_i),$$
+
+où par convention $\sum_{k=1}^0 \dots = 0$. 
+
+On a donc pour $(s,t) \in \mathbb{R}^2$, en utilisant l'indépendance de $X$ et des $(\xi_i, i \ge 1)$ à la quatrième ligne ci-dessous, puis le fait que les $(\xi_i, i \ge 1)$ sont i.i.d suivant une loi  Ber$(p)$ à la suivante :  
+
+$$
+\begin{eqnarray*}
+ \Phi_{(Y,Z)}(s,t) & = & \mathbb{E}[\exp(isY + itZ)] \\ 
+& = & \mathbb{E}\left[\exp\left(is \sum_{k=1}^X \xi_k + it \sum_{k=1}^X (1-\xi_k)\right)\right] 
+\\ & = & \sum_{j \in \mathbb{N}} \mathbb{E}\left[\mathbf{1}_{\{X= j\}} \exp\left(is \sum_{k=1}^j \xi_k + it \sum_{k=1}^j (1-\xi_k)\right)\right] 
+\\ & = & \sum_{j \in \mathbb{N}} \frac{\lambda^j \exp(-\lambda)}{j!} \mathbb{E}\left[\prod_{k=1}^j  \exp(is \xi_k + it(1-\xi_k))\right] 
+\\ & = & \sum_{j \in \mathbb{N}} \frac{\lambda^j \exp(-\lambda)}{j!}  \bigg(p\exp(is) + (1-p)\exp(it)\bigg)^j 
+\\ & = & \exp(-\lambda + \lambda p \exp(is) + \lambda(1-p)\exp(it)) 
+\\ & = & \exp(\lambda p (\exp(is)-1)) \exp(\lambda(1-p) (\exp(it)-1)) 
+\end{eqnarray*}
+$$
+
+On déduit que $(Y,Z)$ est un couple de variables de Poisson indépendantes, de paramètres respectifs $\lambda p, \lambda(1-p)$. 
+
+:::
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ (Somme d'exponentielles et $\chi^2$)
+
+Soit $\lambda>0$ et $(Y_i)_{1 \le i \le n}$ des variables i.i.d,  $\sim \exp(\lambda)$. 
+
+1. Calculer $\mathbb{E}[\exp(-tY_1)]$ pour $t \ge 0$.  
+1. Calculer $\mathbb{E}\left[\exp(-t\sum_{i=1}^n) Y_i \right]$ pour $t \ge 0$. 
+1. Montrer que la densité de la variable $X= \sum_{i=1}^n Y_i$ est proportionnelle à $x^{n-1} \exp(-\lambda x) \mathbf{1}_{x \ge 0}$. 
+En déduire la valeur de cette densité. 
+1.  Soient $X_n, n \ge 1$ des variables i.i.d, $\sim \mathcal{N}(0,1)$. On pose $\chi^2(n):=\sum_{i=1}^n X_i^2$, $Z:=X_1X_2 +X_3X_4$. \\ 
+Calculer $\Phi_{\chi^2(n)}, \Phi_Z$. 
+ Pouvez-vous deviner la distribution de $Z$ (on pourra utiliser un résultat d'un exercice précédent)? 
+
+
+
+::: {.content-visible when-profile="solution"}
+
+
+1. $\mathbb{E}[\exp(-tY_1)] = \frac{\lambda}{\lambda+t}, t \ge 0$
+1. $\mathbb{E}\left[\exp(-t\sum_{i=1}^n) Y_i \right] = \left(\frac{\lambda}{\lambda+t}\right)^n, \ t \ge 0$.
+1. On montre cette assertion par récurrence sur $n \in \mathbb{N}^*$. L'assertion est évidente pour $n=1$ (avec facteur de proportionalité $c_1:=\lambda$). 
+Supposons la vraie au rang $n$ et posons $Z_{n+1} = \sum_{i=1}^{n+1} Y_i$. Comme $Y_{n+1}$ est indépendante de $Z_n$ le vecteur $(Z_n, Y_{n+1})$ possède la densité jointe sur $\mathbb{R}^2$ : 
+$$ f_{(Z_n, Y_{n+1})}(z,y) = f_{Z_n}(z) f_{Y_{n+1}}(y) = c_n  \lambda z^{n-1} \exp(-\lambda z - \lambda y) \mathbf{1}_{\{z \ge 0, y \ge 0\}}, (z,y) \in \mathbb{R}^2$$ 
+Soit $\phi : \mathbb{R} \to \mathbb{R}$ borélienne positive 
+
+$$
+\begin{eqnarray*}
+ \mathbb{E}[\phi(Z_{n+1})] & = & \mathbb{E}[\phi(Z_n + Y_{n+1})] 
+\\ & = & \int_{\mathbb{R}_+^2} \phi(z+y) f_{Z_n}(z) f_{Y_{n+1}}(y) \mathrm{d}z dy 
+\\ & = & \int_{\mathbb{R}_+^2} \phi(z+y)  	c_n  \lambda z^{n-1} \exp(-\lambda z - \lambda y)  \mathrm{d}z dy 
+\\ & = & \int_{u \in \mathbb{R}_+, u \ge v}  \phi(u) c_n \lambda v^{n-1} \exp(-\lambda u) du dv 
+\end{eqnarray*}
+$$
+
+où à la dernière ligne on a utilisé le changement de variable $(u,v) = (z+y,z)$ de $\mathbb{R}_+^2$ dans $\{(u,v) \in \mathbb{R}_+^2 : v \le u\}$, de jacobien $1$. 
+On a donc 
+
+$$
+\begin{eqnarray*}
+  \mathbb{E}[\phi(Z_{n+1})] & = &  \int_{u \in \mathbb{R}_+} \lambda c_n \phi(u)  \exp(-\lambda u) \int_{v =0}^u  v^{n-1} dv  du \\
+& = & \int_{\mathbb{R}_+} \phi(u) \lambda \frac{c_n}{n} u^n \exp(-\lambda u) du 
+\end{eqnarray*}
+$$
+
+et on obtient la conclusion souhaitée, avec $c_{n+1} = \frac{\lambda c_n}{n}$. 
+
+On déduit par une récurrence immédiate que $c_n = \frac{\lambda^n}{(n-1)!}, n \in \mathbb{N}^*$.   
+
+1. On a vu (exercice 12) que $X_i^2 \sim \mathrm{Gamma}(1/2,1/2)$, et par un raisonnement similaire à celui de la question précédente, on obtient que $\chi^2(n) \sim \mathrm{Gamma}(n/2,1/2)$. On peut aussi raisonner directement avec les fonctions caractéristiques, pour obtenir que 
+$$ \Phi_{\chi^2(n)}(t) = \Phi_{X_1^2}(t)^n = \left(\frac{1/2}{1/2-it}\right)^{n/2}.$$ 
+Par ailleurs pour $t \in \mathbb{R}$, 
+
+$$
+\begin{eqnarray*}
+ \Phi_{X_1X_2}(t) & = & \mathbb{E}[\exp(i t X_1 X_2)] = \int_{\mathbb{R}^2} \frac{1}{2\pi} \exp(it x_1 x_2 - x_1^2/2 - x_2^2/2) dx_1 dx_2 \\ 
+& = & \int_{\mathbb{R}} dx_1 \frac{1}{\sqrt{2\pi}} \exp(-x_1^2 /2) \int_{\mathbb{R}} dx_2 \frac{1}{\sqrt{2\pi}} \exp(it x_1 x_2 - x_2^2/2) 
+\\ & = & \int_{\mathbb{R}} \frac{1}{\sqrt{2\pi}} \exp(-x_1^2/2) \Phi_{X_2}(tx_1) dx_1
+\\ & = & \int_{\mathbb{R}}  \frac{1}{\sqrt{2\pi}} \exp(-x_1^2/2) \exp(-t^2 x_1^2 /2) dx_1
+\\ & = & \int_{\mathbb{R}} \frac{1}{\sqrt{2\pi}} \exp\left(- \frac{x_1^2 (1+t^2)}{2} \right) dx_1 
+\\ & = & \frac{1}{\sqrt{1+t^2}}
+\end{eqnarray*}
+$$
+
+et donc les $(X_i, i \ge 1)$ étant i.i.d, pour $t \in \mathbb{R}$, 
+
+$$\Phi_Z(t) = \Phi_{X_1X_2}(t) \Phi_{X_3X_4}(t) = \frac{1}{1+t^2}.$$
+
+Il s'agit de la fonction caractéristique d'une variable "exponentielle symétrique", de densité $x \to \frac{1}{2}\exp(-|x|)$ (c'est d'ailleurs une manière d'effectuer le calcul de la fonction caractéristique d'une Cauchy$(1)$). 
+On peut le vérifier directement. 
+Soit $\xi \sim \mathrm{Ber}(1/2)$, et $(X,Y)$ i.i.d suivant une loi exp$(1)$. La variable $T=\xi X -(1-\xi)Y$ a une loi exponentielle symétrique. 
+De plus pour $t \in \mathbb{R}$, 
+
+$$
+\begin{eqnarray*}
+ \Phi_T(t) & = & \mathbb{E}[\exp(it \xi X -it(1-\xi)Y)]  \\ 
+& = & \frac{1}{2} \mathbb{E}[\exp(itX)] + \frac{1}{2}\mathbb{E}[\exp(-itY)] \\
+ & = & \frac{1}{2} \frac{1}{1-it} + \frac{1}{2} \frac{1}{1+it} 
+\\ & = & \frac{\frac{1}{2}(1+it) + \frac{1}{2}(1-it)}{1+t^2} = \frac{1}{1+t^2} 
+\end{eqnarray*}
+$$
+
+comme souhaité. 
+
+::: 
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+
+
+Soit $Z = (X, Y )$, une variable aléatoire à valeurs dans $\mathbb{R}^2$. On suppose
+que $Z$ admet une densité $f$ définie par 
+
+$$f(x, y) = \frac{4}{\pi \sigma^2} \exp\left(-\frac{x^2+y^2}{\sigma^2}\right) \mathbf{1}_{\{x \ge |y|\}},$$ 
+
+où $\sigma>0$.
+
+1. Vérifier que $f$ est bien une densité de probabilité.
+1. Calculer les lois de $X$ et de $Y$ . Les variables aléatoires 
+$X$ et $Y$ sont-elles indépendantes ?
+1. Calculer la loi de $(X - Y, X + Y )$ et montrer que $X - Y$ et $X + Y$ sont indépendantes.
+
+
+::: {.content-visible when-profile="solution"}
+ 
+
+1. $f : \mathbb{R}^2 \to \mathbb{R}_+$ est continue donc borélienne
+Par symétrie des rôles de $x$ et $y$, 
+
+$$\int_{\mathbb{R}^2} f(x,y) dx dy = \int_{\mathbb{R}^2}\frac{4}{\pi \sigma^2} \exp\left(-\frac{x^2+y^2}{\sigma^2}\right) \mathbf{1}_{\{y \ge |x|\}}.$$
+
+Par parité de $x \to \exp(-\frac{x^2}{2})$, 
+
+$$\int_{\mathbb{R}^2} f(x,y) dx dy = \int_{\mathbb{R}^2}\frac{4}{\pi \sigma^2} \exp\left(-\frac{x^2+y^2}{\sigma^2}\right) \mathbf{1}_{\{x \le -|y|\}}.$$
+
+
+A nouveau par symétrie des rôles de $x$ et $y$
+
+$$\int_{\mathbb{R}^2} f(x,y) dx dy = \int_{\mathbb{R}^2}\frac{4}{\pi \sigma^2} \exp\left(-\frac{x^2+y^2}{\sigma^2}\right) \mathbf{1}_{\{y  \le -|x|\}}.$$
+
+Enfin, la réunion des $4$ ensembles $\{(x,y) \in \mathbb{R}^2: x \ge |y|\}, \{(x,y) \in \mathbb{R}^2 : y \ge |x|\},  \{(x,y) \in \mathbb{R}^2 : x \le -|y|\}, \{(x,y) \in \mathbb{R}^2 : y \le -|x|\}$ est $\mathbb{R}^2$ tout entier. L'intersection des $2$ premiers est $\{(x,y) : x = y \ge 0\}$, de mesure de Lebesgue nulle, et des considérations similaires permettent d'assurer que c'est également le cas pour l'intersection de n'importe quelle paire parmi ces $4$ ensembles. 
+On conclut que 
+
+$$
+\begin{eqnarray*}
+ \int_{\mathbb{R}^2} f(x,y) dx dy  & = & \frac{1}{4} \int_{\mathbb{R}^2}   \frac{4}{\pi \sigma^2} \exp\left(-\frac{x^2+y^2}{\sigma^2}\right) \\ 
+& = & \int_{0}^{\infty} \int_0^{2\pi} \frac{1}{\pi \sigma^2} \exp\left(-\frac{r^2}{\sigma^2}\right) r dr d\theta\\ 
+& = & \left[ \exp\left(-\frac{r^2}{\sigma^2}\right) \right]_0^{\infty} = 1,  
+\end{eqnarray*}
+$$
+
+comme souhaité. 
+1. Si $\phi : \mathbb{R} \to \mathbb{R}_+$ est borélienne 
+
+$$    
+\begin{eqnarray*}
+ \mathbb{E}[\phi(X)] & = & \int_{\mathbb{R}^2} \phi(x) f(x,y) dx dy \\ 
+ & = & \int_{\mathbb{R}_+} \phi(x) \frac{4}{\pi \sigma^2} \exp\left(-\frac{x^2}{\sigma^2}\right) \int_{-x}^x \exp\left(-\frac{y^2}{\sigma^2}\right) dy dx 
+\end{eqnarray*}
+$$
+
+On déduit que $X$ possède la densité $f_X$ telle que 
+$$f_X(x) =  \frac{4}{\pi \sigma^2} \exp\left(-\frac{x^2}{\sigma^2}\right) \int_{-x}^x \exp\left(-\frac{y^2}{\sigma^2}\right) dy \mathbf{1}_{\{x \ge 0\}}$$ 
+
+*Remarque* : Avec $\mathrm{erf}(x) = \int_{0}^x \frac{2}{\sqrt{\pi}} \exp\left(-u^2\right) du$, on peut réexprimer 
+
+$$\frac{1}{\sigma \sqrt{\pi}} \int_{-x}^x \exp\left(-\frac{y^2}{\sigma^2}\right) dy =  \mathrm{erf}\left(\frac{x}{\sigma}\right),$$
+
+de sorte que 
+
+$$f_X(x) =  \frac{4}{\sigma \sqrt{\pi} } \exp\left(-\frac{x^2}{\sigma^2}\right) \mathrm{erf}\left(\frac{x}{\sigma}\right) \mathbf{1}_{\{x \ge 0\}}$$ 
+ 
+Toujours pour $\phi: \mathbb{R} \to \mathbb{R}_+$ borélienne, on a 
+
+$$
+\begin{eqnarray*}
+ \mathbb{E}[\phi(Y)] & = & \int_{\mathbb{R}^2} \phi(y) f(x,y) dx dy \\ 
+ & = & \int_{\mathbb{R}} \phi(y) \frac{4}{\pi \sigma^2} \exp\left(-\frac{y^2}{\sigma^2}\right) \int_{|y|}^{\infty} \exp\left(-\frac{x^2}{\sigma^2}\right) dx dy 
+\end{eqnarray*}
+$$
+
+On déduit que $Y$ possède la densité $f_Y$ telle que 
+$$f_Y(y) =  \frac{4}{\pi \sigma^2} \exp\left(-\frac{y^2}{\sigma^2}\right) \int_{|y|}^{\infty} \exp\left(-\frac{x^2}{\sigma^2}\right) dx $$ 
+
+*Remarque*  : On a 
+$$\int_{|y|}^{\infty} \frac{2}{\sqrt{\pi}} \exp\left(-u^2\right) du = \frac{1}{2}(1 - \mathrm{erf}(|y|))= \frac{1}{2}\mathrm{erfc}(|y|)$$ 
+et donc 
+$$\int_{|y|}^{\infty} \frac{1}{\sigma \sqrt{\pi}} \exp \left( -\frac{x^2}{\sigma^2} \right)  dx  = \frac{1}{2}\mathrm{erfc}\left(\frac{|y|}{\sigma}\right),$$  
+de sorte que 
+$$ f_Y(y) =  \frac{2}{ \sigma \sqrt{\pi}} \exp\left(-\frac{y^2}{\sigma^2}\right)  \mathrm{erfc}\left(\frac{|y|}{\sigma}\right).$$ 
+Enfin puisque par exemple $\mathbb{P}(X \ge Y \ge 1) =\mathbb{P}(Y \ge 1)$ on a $\mathbb{P}(X \ge 1, Y \ge 1) \ne \mathbb{P}(X \ge 1) \mathbb{P}(Y \ge 1)$ et les variables $X$ et $Y$ ne sont pas indépendantes.  
+
+1. Soit $\psi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne, on a 
+$$
+\begin{eqnarray*}
+ \mathbb{E}[\psi(X-Y,X+Y)] & = & \int_{\mathbb{R}^2} \psi(x-y,x+y) f(x,y) dx dy \\ 
+& = & \int_{\mathbb{R}^2} \psi(x-y,y+y)  \frac{4}{\pi \sigma^2} \exp\left(-\frac{x^2+y^2}{\sigma^2}\right)  \mathbf{1}_{\{x \ge |y|\}} 
+\end{eqnarray*}
+$$
+
+Notons que $G: \begin{cases} & \{(x,y) \in \mathbb{R}^2 : x \ge |y|\} \to \{(u,v) \in \mathbb{R}_+^2\} \\ & (x,y) \to (u,v) =(x+y,x-y) \end{cases}$
+est un $\mathcal{C}^1$-difféomorphisme (d'inverse $G^{-1} : (u,v) \to (x,y)$ avec $x = \frac{u+v}{2}, y = \frac{u-v}{2}$), de jacobien $2$. Par la formule de changement de variables, et en remarquant que $u^2 + v^2 = 2(x^2+y^2)$, on obtient  
+
+$$\begin{eqnarray*}
+ \mathbb{E}[\psi(X-Y, X+Y)] & = & \int_{\mathbb{R}_+^2}  \psi(u,v) \frac{2}{\pi \sigma^2} \exp\left(-\frac{u^2 + v^2}{2\sigma^2}\right)  du dv \\ 
+& = & \int_{\mathbb{R}^2} \psi(u,v) f_U(u) f_V(v) du dv 
+\end{eqnarray*}
+$$
+
+avec $$f_U(u) = f_V(u) = \frac{2}{\sigma \sqrt{2\pi}} \exp\left(-\frac{u^2}{2\sigma^2} \right) \mathbf{1}_{\{u \ge 0\}},$$
+qui est la densité de $|Z|$ où $Z \sim \mathcal{N}(0,1)$. 
+
+On conclut que $(X+Y, X-Y)$ sont i.i.d. suivant la loi de $|Z|$. 
+
+:::
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ 
+
+
+1. Soit $X_1,...,X_n$ des variables i.i.d, $\sim \mathcal{N}(0,1)$, et $Z=\sum_{i=1}^n \alpha_i X_i$ (où les $\alpha_i, i=1,...,n$ sont de rééls fixés). Quelle est la loi de $Z$?
+1. Soit $(X_1,...,X_n) \sim \mathcal{N}(0,A)$. Quelle est la loi de 
+  $Z=\sum_{i=1}^n \alpha_i X_i$?
+1. Soit $(X_1,...,X_n) \sim \mathcal{N}(0,A)$. Quelle est la loi de $(Z_1,Z_2)$, où, pour des rééls $\alpha_{i,1}, \alpha_{i,2}, i=1,...,n$ fixés, 
+$$  Z_1=\sum_{i=1}^n \alpha_{i,1} X_i,  Z_2=\sum_{i=1}^n \alpha_{i,2} X_i.$$
+1. Généraliser la question précédente en exprimant la loi de 
+$$ (Z_1,...,Z_n) =  (X_1,...,X_n) P,$$
+où $P$ est une matrice $n \times n$.
+1. Soient $X,Y$ deux variables indépendantes, $\sim \mathrm{Unif}[0,1]$.
+Quelle est la loi de $S=X+Y$?
+1. Soient $X, Y$ des variables indépendantes de loi respectives 
+$\Gamma(a,c), \Gamma(b,c)$, où $a,b,c>0$. On pose $S=X+Y, 
+T= \frac{X}{X+Y}$ Quelle est la loi du couple $(S,T)$?
+1. Soient $X,Y$ deux variables indépendantes, $\sim \mathrm{Unif}[0,1]$.
+On pose $U = \sqrt{-2\log(X)} \cdot \cos(2\pi Y), V = \sqrt{-2\log(X)} \cdot \sin(2\pi Y)$. Quelle est la loi du couple $(X,Y)$?
+1. Soient $X,Y$ deux variables indépendantes, $\sim \mathcal{N}(0,1)$. 
+On pose $T = \frac{Y}{X}$. Quelle est la loi de $T$?
+1. Soient $(X,Y)$ un couple de variables indépendantes, $\sim \mathcal{N}(0,1)$. On pose $U=X, V= X^2 + Y^2$. Quelle est la loi de $(U,V)$?
+2. Soit $X$ de densité $\exp(-x) \mathbf{1}_{\mathbb{R}_+}(x)$. 
+On pose $U = [X]$ et $V= X-[X]$,  la partie entière, resp. 
+la partie décimale de $X$. Quelle est la loi de $(U,V)$?  
+
+
+::: {.content-visible when-profile="solution"}
+
+ 
+1. En utilisant d'abord l'indépendance des $(X_k, 1 \le k \le n)$ à la deuxième ligne ci-dessous, puis le fait que $\Phi_{X_k}(u) =\exp(-u^2/2)$ à la suivante, on obtient que pour $t \in \mathbb{R}$,
+
+$$ 
+\begin{eqnarray*}
+ \Phi_{Z}(t) & = & \mathbb{E}\left[\exp\left(it \sum_{k=1}^n \alpha_k X_k \right) \right] \\ 
+& = & \prod_{k=1}^n \Phi_{X_k}(t \alpha_k) \\ 
+& = & \exp\left( - \frac{t^2}{2} \sum_{k=1}^n \alpha_k^2 \right) 
+\end{eqnarray*}
+$$
+
+et on déduit que $Z \sim \mathcal{N}\left(0, \sum_{k=1}^n \alpha_k^2\right)$. 
+1. Lorsque $X$ est un vecteur gaussien, toute combinaison linéaire des coordonnées de $X$ suit une loi gaussienne. 
+Comme les coordonnées de $X$ sont ici centrées, il en va de même pour $Z$. Par ailleurs 
+
+$$
+\begin{eqnarray*}
+ \mathrm{Var}(Z) & = & \sum_{k=1}^n \sum_{\ell=1}^n \alpha_k \alpha_{\ell} \mathrm{Cov}(X_k, X_{\ell}) \\ & = & \alpha^T A \alpha. 
+\end{eqnarray*}
+$$
+
+Finalement $Z \sim \mathcal{N}(0,\alpha^T A \alpha)$, autrement dit 
+$$\Phi_Z(t) = \exp\left(-t^2\frac{\alpha^T A \alpha}{2} \right).$$  
+1. Soit $(u,v) \in \mathbb{R}^2$, on a 
+$$uZ_1+vZ_2 = \sum_{i=1}^n (\alpha_{i,1} + v \alpha_{i,2}) X_i,$$
+et d'après la question précédente, ceci est distribué suivant une loi $\mathcal{N}(0, (u \alpha_1 + v \alpha_2)^T A (u\alpha_1+v \alpha_2))$, et donc  
+$$\Phi_{uZ_1+vZ_2}(1) = \mathbb{E}[\exp (iu Z_1+ivZ_2)] = \Phi_{(Z_1,Z_2)}(u,v) = \exp\left( - \frac{(u\alpha_1+ v \alpha_2)^T A (u \alpha_1+v\alpha_2)}{2} \right).$$ 
+Reste à observer que $u\alpha_1+v\alpha_2$ est le produit d'une matrice, disons $P$ à $n$ lignes et deux colonnes, la première ayant les coordonnées de $\alpha_1$ la deuxième celle de $\alpha_2$, par le vecteur $\begin{pmatrix} u \\ v \end{pmatrix}$.
+On conclut que $Z \sim \mathcal{N}(0, P^T A P)$ 
+
+1.  La matrice $P$ joue le même rôle que la matrice de la question précédent (à ceci près qu'elle possède désormais $n$ lignes et $n$ colonnes). Par le même raisonnement qu'à la question précédente, on trouve que $Z \sim \mathcal{N}(0,P^T A P)$.   
+1. Puisque $X$ et $Y$ sont indépendantes et à densité, $(X,Y)$ possède la densité jointe $f_{(X,Y)}$ telle que $f_{(X,Y)}(x,y) = f_X(x) f_Y(y)$. On a donc pour $\phi: \mathbb{R}^2 \to \mathbb{R}_+$ borélienne, 
+
+$$\begin{eqnarray*} \mathbb{E}[\phi(X+Y)] & = & \int_{[0,1]^2} \phi(x+y) \mathrm{d}x \mathrm{d}y \end{eqnarray*}$$
+ 
+On fait le changement de variables  $\begin{cases} & [0,1]^2 \to \{(s,t) \in [0,2] \times [0,1] :  t+1 \ge s \ge t \} \\ & (x,y) \to ( s=x+y, t=y) \end{cases}$, de jacobien $1$, et on trouve 
+
+$$\begin{eqnarray*}\mathbb{E}[\phi(X+Y)] & = & \int_{0}^2 ds \phi(s) \int_{\max(s-1,0)}^{\min(s,1)} \mathrm{d}t\\ & = &  \int_0^2 \phi(s) \min(s, 1-s) \mathrm{d}s \end{eqnarray*}$$
+   
+et on déduit que $S$ possède la densité $f_S$, où 
+$$f_S(s) = \begin{cases} & s \mbox{ si } 0 \le s \le 1 \\ & (1-s) \mbox{ si } 1 \le s \le 2 \\ & 0 \mbox{ sinon.} \end{cases}$$ 
+ 
+1.  D'après l'énoncé, $(X,Y)$ possède la densité  
+$$f_{(X,Y)}(x,y) = \frac{c^{a+b}}{\Gamma(a)\Gamma(b)} x^{a-1} y^{b-1} \exp(-c(x+y)) \mathbf{1}_{\{x > 0, y > 0\}}.$$
+Pour $\phi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne on a donc 
+$$\mathbb{E}[\phi(S,T)] = \int_{(\mathbb{R}_+^*)^2} \phi\left(x+y, \frac{x}{x+y}\right)   \frac{c^{a+b}}{\Gamma(a)\Gamma(b)} x^{a-1} y^{b-1} \exp(-c(x+y)) dx dy $$ 
+On effectue alors le changement de variables via le $\mathcal{C}^1$-difféomorphisme :  
+$$G : \begin{cases} & (\mathbb{R}_+^*)^2 \to \mathbb{R}_+^* \times (0,1) \\ & (x,y) \to \left(x+y, \frac{x}{x+y}\right) \end{cases}$$
+d'inverse $$G^{-1} : \begin{cases} &  \mathbb{R}_+^* \times (0,1)  \to (\mathbb{R}_+^*)^2  \\ & (s,t) \to (st, s(1-t) \end{cases}$$
+dont le jacobien est $|J^{-1}| = s$, pour obtenir 
+$$\mathbb{E}[\phi(S,T)]  =  \int_{\mathbb{R}_+^*} ds \int_0^1 dt  \phi(s,t)   \frac{c^{a+b}}{\Gamma(a)\Gamma(b)} s^{a+b-1}  \exp(-c s) t^{a-1}(1-t)^{b-1} $$ 
+et on conclut que $S \sim \mathrm{Gamma}(a+b,c)$ est indépendant de $T \sim \mathrm{Beta}(a,b)$. 
+
+1. L'application 
+$$\Psi : \begin{cases}  & [0,1]^2 \to \mathbb{R}^2  \\ & (x,y) \to (u,v) = \left(\sqrt{-2\ln(x)} \cos(2\pi v),  \sqrt{-2\ln(x)} \sin(2\pi y)\right) \end{cases}$$ 
+est un $\mathcal{C}^1$-difféomorphisme, composée de $(x,y) \to (r,\theta) = (\sqrt{-2\ln(x)},2\pi y)$ et $(r, \theta) \to (u,v) = (r \cos(\theta), r \sin(\theta))$. Le Jacobien de $\Psi$ est $2\pi \exp((u^2+v^2)/2)$ et on déduit que pour $\phi$ continue bornée de $\mathbb{R}^2$ dans $\mathbb{R}$, 
+$$\begin{eqnarray*} \mathbb{E}[\phi(U,V)] & = & \int_{0}^1 \int_0^1 dx dy \phi \left(\sqrt{-2\ln(x)} \cos(2\pi y), \sqrt{-2\ln(x)} \sin(2\pi y)\right) \\ & = & \int_{\mathbb{R}^2} du dv \phi(u,v) \frac{1}{2\pi} \exp(-u^2/2) \exp(-v^2/2), \end{eqnarray*}$$
+
+et finalement que $(U,V) \sim \mathcal{N}(0,I_2)$. 
+
+1. Notons d'abord que $\mathbb{P}(X=0)=0$ de sorte que $Z$ est définie p.s. 
+Par ailleurs $(X,Y) \sim \mathcal{N}(0,Id_2)$ et a la densité correspondante. 
+
+On a, pour $\phi: \mathbb{R}^2 \to \mathbb{R}$ bornée mesurable, gr\^ace au changement de variables de $\mathbb{R}^* \times \mathbb{R}^*$ dans lui-même, qui à $(x,y)$ associe  $(x,z)=(x,\frac{y}{x})$ (et dont l'inverse du jacobien vaut $|x|$) :   
+
+$$\begin{eqnarray*} \mathbb{E}[\phi(X,Z)] & = & \frac{1}{2\pi} \int_{(\mathbb{R}^*)^2} \phi(x, \frac{y}{x}) \exp(-x^2/2-y^2/2) dx dy \\ & = & \frac{1}{2\pi} \int_{(\mathbb{R}^*)^2} \phi(x, z) |x| \exp\left(-\frac{x^2}{2} (1+z^2)\right) dx \mathrm{d}z   \end{eqnarray*}$$
+ 
+et donc $(X,Z)$ a densité 
+
+$$f_{(X,Z)}(x,z) = \frac{1}{2\pi}  |x| \exp\left(-\frac{x^2}{2} (1+z^2)\right).$$
+
+On en déduit que 
+
+$$\begin{eqnarray*} f_Z(z) & = & 2 \int_{\mathbb{R}_+} \frac{1}{2\pi}  x z^2 \exp\left(-\frac{x^2}{2} (1+z^2)\right) dx = \frac{1}{\pi} \frac{1}{1+z^2}, \end{eqnarray*}$$
+
+de sorte que $Z \sim \mathrm{Cauchy}(1)$. 
+
+1. Quitte à considérer les $\mathcal{C}^1$-difféomorphisme
+    
+    $$G : \begin{cases} & \mathbb{R} \times \mathbb{R}_-^* \to \{(u,v) \in \mathbb{R} \times \mathbb{R}_+^* : v \ge u^2\} \\ (x,y) \to (x, x^2+y^2) \end{cases}, \ H: \begin{cases} & \mathbb{R} \times \mathbb{R}_+ \to \{(u,v) \in \mathbb{R} \times \mathbb{R}_+^* : v \ge u^2\} \\ (x,y) \to (x, x^2+y^2) \end{cases},$$ 
+       
+    dont les jacobiens sont tous deux égaux à $2|y| = 2 \sqrt{u-v^2}$, on obtient pour $\phi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne (les deux intégrales fournissent des  contributions identiques) :  
+
+    $$\begin{eqnarray*}\mathbb{E}[\phi(U,V)]   =  2 \int_{\mathbb{R} \times \mathbb{R}_+} \phi(u,v) \frac{\exp\le(-\frac{v}{2}\right)}{4 \pi \sqrt{u-v^2}} \mathbf{1}_{\{v \ge u^2\}}du dv \end{eqnarray*}$$
+ 
+    et on conclut que $(U,V)$ possède la densité $f_{(U,V)}$ telle que pour tout $(u,v) \in \mathbb{R}^2$, 
+
+    $$f_{(U,V)}(u,v) = \frac{\exp\left(-\frac{v}{2}\right)}{2 \pi \sqrt{u-v^2}} \mathbf{1}_{\{v \ge u^2\}}.$$  
+
+    *Remarque* : On peut recalculer à partir de cette densité les marginales, mais il est évident que $X \sim \mathcal{N}(0,1)$, et on avait vu plus haut que  $X^2+Y^2 \sim \exp(1/2)$. 
+
+1. On a pour $\phi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne 
+
+    $$\begin{eqnarray*} \mathbb{E}[\phi(U,V)] & = &  \int_{\mathbb{R}_+} \phi( [x], x-[x])  \exp(-x) dx \\ & = & \sum_{n \ge 0} \int_n^{n+1} \phi(n, x-n) \exp(-x) dx \\ & = & \sum_{n \ge 0} \int_0^1 \phi(n,v) \exp(-n) \exp(-v) du \end{eqnarray*}$$
+ 
+    Si $g : \mathbb{R} \to \mathbb{R}_+$, $h : \mathbb{R} \to \mathbb{R}_+$ boréliennes, quitte à considérer $\phi(u,v) = g(u) h(v)$ on obtient 
+
+    $$\begin{eqnarray*}\mathbb{E}[g(U) h(V)] & = & \sum_{n \ge 0} g(n) \exp(-1)^n (1-\exp(-1)) \int_0^1 h(v) \frac{\exp(-v)}{1-\exp(-1)} du \\  & = & \mathbb{E}[g(U)] \mathbb{E}[h(V)]  \end{eqnarray*}$$
+ 
+    On conclut que $U$ et $V$ sont indépendantes, avec $U + 1 \sim  \mathrm{Geom}(1-\exp(-1))$ et $V$ de densité $f_V$ avec, pour tout $ v\in \mathbb{R}$,  
+
+    $$ f_V(v) = \frac{1}{1-\exp(-1)} \exp(-v) \mathbf{1}_{(0,1)}(v).$$   
+
+    *Remarque* : La loi de $V$ est celle d'une variable exponentielle de paramètre $1$ conditionnée à être plus petite que $1$. 
+
+
+:::
+
+
+
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+
+
+Soient $X_1, X_2$ deux variables indépendantes et identiquement distribuées suivant la loi $\mathrm{Unif}\{1,2,3\}$. 
+
+On note $U = \min\{X_1,X_2\}$, $V= \max\{X_1,X_2\}$ et enfin $S= U+V$.
+
+1. Déterminer la loi jointe de $(U, V)$ et $(V, S)$.
+1. En déduire les lois de $U, V$, et $S$. Calculer les lois de $UV$ et $VS$.
+1. Calculer les covariances et les coefficients de corrélation de $(U, V)$ et $(V, S)$. 
+
+
+::: {.content-visible when-profile="solution"}
+ 
+
+1. Par hypothèse, la loi de $(X_1,X_2)$ est uniforme sur $\{1,2,3\}^2$, et on déduit, quitte à disjoindre les cas, que  
+
+    $$\begin{eqnarray*} && \mathbb{P}((U,V) =(1,1)) = \mathbb{P}(X_1=1, X_2=1) = 1/9 \\  && \mathbb{P}((U,V)=(1,2)) = \mathbb{P}(X_1=1,X_2=2) + \mathbb{P}(X_1=2,X_2=1) = 2/9 \\ && \mathbb{P}((U,V) = (1,3)) =  \mathbb{P}(X_1=1,X_2=3) + \mathbb{P}(X_1=3,X_2=1) = 2/9 \\ && \mathbb{P}((U,V) = (2,2)) = \mathbb{P}(X_1=2, X_2=2) = 1/9 \\  && \mathbb{P}((U,V)=(2,3)) = \mathbb{P}(X_1=2,X_2=3) + \mathbb{P}(X_1=3,X_2=2) = 2/9 \\ && \mathbb{P}((U,V)=(3,3)) = \mathbb{P}(X_1=3,X_2=3) = 1/9 \end{eqnarray*}$$
+ 
+
+    La même disjonction de cas conduit à la loi de $(V,S)$ : 
+
+    $$\begin{eqnarray*} && \mathbb{P}(V=1,S=2) = 1/9 \\  && \mathbb{P}(V=2,S=3) = 2/9 \\  && \mathbb{P}(V=3,S=4) = 2/9 \\ && \mathbb{P}(V=2,S=4) = 1/9 \\ && \mathbb{P}(V=3, S=5) = 2/9 \\  && \mathbb{P}(V=3, S=6) = 1/9  \end{eqnarray*}$$
+  
+
+1. On en déduit (on peut également faire un raisonnement direct)  
+
+   $$\begin{eqnarray*} && \mathbb{P}(U=1) = 5/9, \ \mathbb{P}(U=2)=1/3, \ \mathbb{P}(U=3)=1/9 \\  && \mathbb{P}(V=1) = 1/9, \ \mathbb{P}(V=2) = 1/3,\ \mathbb{P}(V=3)=5/9 \\ && \mathbb{P}(S=2) = \mathbb{P}(S=6) = 1/9, \ \mathbb{P}(S=3)=\mathbb{P}(S=5) = 2/9. \ \mathbb{P}(S=4)=1/3 \end{eqnarray*}$$
+
+
+    La loi de $UV$ se déduit facilement de la loi jointe de $(U,V)$ calculée à la question précédente 
+
+    $$\mathbb{P}(UV=1) = \mathbb{P}(UV=4) = pp(UV=9) = 1/9, \ \mathbb{P}(UV=2) = \mathbb{P}(UV=3) = \mathbb{P}(UV=6) = 2/9.$$ 
+
+De même pour la loi de $VS$
+    
+    $$\mathbb{P}(VS=2) = \mathbb{P}(VS=8) = \mathbb{P}(VS=18) = 1/9, \ \mathbb{P}(VS=6) = \mathbb{P}(VS=12) = \mathbb{P}(VS=15) = 2/9$$ 
+
+1. On déduit de la question précédente 
+
+    $$\mathbb{E}[U]=\frac{14}{9}, \ \mathbb{E}[V]=\frac{22}{9}, \ \mathbb{E}[UV]=4,\ \mathrm{Cov}(U,V) = \frac{16}{81},$$
+
+     et 
+
+    $$ \mathrm{Var}(U) = \frac{38}{81} = \mathrm{Var}(V), \ \ \rho(U,V)= \frac{8}{19}.$$ 
+
+    Par ailleurs 
+
+    $$\mathbb{E}[V]= \frac{22}{9}, \ \mathbb{E}[S]=4, \ \mathbb{E}[VS]=\frac{94}{9}, \ \mathrm{Cov}(V,S) = \frac{2}{3}.$$   
+
+    et 
+    
+    $$\mathrm{Var}(V) = \frac{38}{9}, \mathrm{Var}(S) = \frac{2}{3}, \rho(V,S) \approx 0.397.$$ 
+
+::: 
+
+## Le cadre gaussien
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+
+
+On considère deux variables indépendantes $Y \sim \mathcal{N}(0,1)$ et    
+$$\varepsilon= \begin{cases} & 1 \mbox{ avec probabilité } p \\ & -1 \mbox{ avec probabilité } 1-p, \end{cases}$$  
+où $p \in (0,1)$. 
+
+1. Quelle est la loi de $Z= \varepsilon$ 
+1. Quelle est la loi de $Y+Z$? 
+1. Le vecteur $(Y,Z)$ est-il un vecteur gaussien? 
+
+
+
+::: {.content-visible when-profile="solution"}
+ 
+
+1. Soit $\phi : \mathbb{R} \to \mathbb{R}_+$ borélienne
+   
+    $$\begin{eqnarray*}\mathbb{E}[\phi(\varepsilon] & = & \mathbb{E}[\phi(Y) \mathbf{1}_{\{\varepsilon}] + \mathbb{E}[\phi(-Y) \mathbf{1}_{\{\varepsilon}}]  \\ & = & p \mathbb{E}[\phi(Y)] + (1-p) \mathbb{E}[\phi(-Y)] \\ & = & p \int_{\mathbb{R}} \phi(z) \frac{1}{\sqrt{2\pi}} \exp(-z^2/2) \mathrm{d}z + (1-p) \int_{\mathbb{R}} \phi(-z) \frac{1}{\sqrt{2\pi}} \exp(-z^2/2) \mathrm{d}z  \\ & = & \int_{\mathbb{R}} \phi(z) \frac{1}{\sqrt{2\pi}} \exp(-z^2/2) \mathrm{d}z \end{eqnarray*}$$
+ 
+    où on a effectué le changement de variables $u=-z$ pour voir que  $\int_{\mathbb{R}} \phi(-z) \frac{1}{\sqrt{2\pi}} \exp(-z^2/2) \mathrm{d}z = \int_{\mathbb{R}} \phi(u) \frac{1}{\sqrt{2\pi}} \exp(-u^2/2) du$. On conclut que $Z \sim \mathcal{N}(0,1)$. 
+
+1. On a $Y+Z = (1+\varepsilon  et donc pour $\phi$ comme ci-dessus 
+
+    $$\mathbb{E}[\phi(Y+Z)] = (1-p)\phi(0) + p\int_{\mathbb{R}} \phi(u) \frac{1}{2 \sqrt{2\pi}} \exp(-u^2/8) du.$$
+
+    En particulier la loi de $Y+Z$ n'est ni discrète ni à densité, donc pas gaussienne. 
+
+1. Non, puisque $Y+Z$ n'est pas gaussienne. 
+
+::: 
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+
+
+Soit $(X,Y,Z)$ le vecteur aléatoire gaussien d'espérance $(1,1,0)$ et de matrice de covariance 
+
+$$K = \begin{pmatrix} 2 & 1 & 1 \\ 1 & 2 & 2 \\ 1 & 2 & 2  \end{pmatrix}.$$ 
+
+1. Ecrire la fonction caractéristique de $(X,Y,Z)$.  
+1. Trouver la loi de $2X+Y+Z$, de $4X-2Y+Z$, enfin de $Y-Z$. 
+1. Le vecteur $(X,Y)$ admet-il une densité dans $\mathbb{R}^2$. Si oui, laquelle?
+1. Pour $a \in \mathbb{R}$ on définit $u_a : \mathbb{R}^3 \to \mathbb{R}^3$ de matrice 
+
+    $$A = \begin{pmatrix} 1/\sqrt{2} & 0 & 0 \\ a & -2a & 0 \\ 0 & 1 & -1\end{pmatrix}.$$ 
+
+    Déterminer la loi de $u_a(X-1,Y-1,Z)$ en fonction de $a$.
+
+    Pour quelle valeur de $a$ les deux premières coordonnées de $u_a(X-1,Y-1,Z)$ suivent-ils une loi normale centrée réduite sur $\mathbb{R}^2$?  
+ 
+
+::: {.content-visible when-profile="solution"}
+ 
+Dans les questions 2,3,4 ci-dessous, on fait usage de la Prop 3 du cours : si $V \sim \mathcal{N}(m,K)$ est un vecteur gaussien de dimension $d$ et $P$ est une matrice à $p$ lignes et $d$ colonnes, on a $X \sim \mathcal{N}(Pm, P K P^T)$. 
+Ici $d=3$, $m$ est le vecteur de coordonnées $(1,1,0)$, et $K$ la matrice précisée dans l'énoncé. 
+ 
+1. D'après le cours (Prop 2), pour tout $t \in \mathbb{R}^3$ de coordonnées $(t_1,t_2,t_3)$,  
+
+$$\begin{eqnarray*} \Phi_X(t) & = & \exp(it^Tm + PKP^T) \\  &  = & \exp\bigg(i(t_1+t_2) - (t_1^2+t_2^2+t_3^2+t_1 t_2+t_1 t_3+2t_2 t_3)\bigg) \end{eqnarray*}$$
+ 
+1. On applique le résultat général avec $P = (2 \ \ 1 \ \ 1)$ puis avec $P=(4 \ -2 \ \ 1)$, et enfn avec $P=(0 \ \ 1 \ -1)$ pour obtenir 
+
+    $$2X+Y+Z \sim \mathcal{N}(3,24), \quad 4X-2Y+Z \sim \mathcal{N}(2, 26), \quad Y-Z \sim \mathcal{N}(1,0)$$
+
+    Dans le troisième cas notons que $\mathbb{P}(Y-Z = 1)=1$, de sorte que $Y-Z$ n'a pas de densité. 
+
+1. On a $\begin{pmatrix} X \\ Y \end{pmatrix} \sim \mathcal{N} \left( \mu=\begin{pmatrix} 1 \\ 1 \end{pmatrix}, \Sigma = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}\right)$. On a  $\det(\Sigma)=3$, et est $\Sigma^{-1} = \frac{1}{3} \begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}$, et donc ce vecteur possède la densité $f$ sur $\mathbb{R}^2$, où  pour $x \in \mathbb{R}^2$ de coordonnées $(x_1,x_2)$,  
+
+    $$\begin{eqnarray*} f(x) & = & \frac{1}{2\pi\sqrt{3}} \exp(-\frac{1}{2} (x-\mu)^T \Sigma^{-1} (x-\mu) \\ & = & \frac{1}{2 \pi \sqrt{3}} \exp\left(-\frac{1}{3} ((x_1-1)^2 + (x_2-1)^2 - (x_1-1)(x_2-1)) \right) \end{eqnarray*}$$
+ 
+1. On obtient ici que  
+
+    $$A \begin{pmatrix} X \\ Y \\ Z \end{pmatrix} \sim \mathcal{N} \left( \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 1 & 0 & 0 \\ 0 & 6a^2 & 0 \\ 0 & 0 & 0 \end{pmatrix} \right),$$
+
+    de sorte qu'on a le résultat souhaité pour $a \in \left\{-\frac{1}{\sqrt{6}}, \frac{1}{\sqrt{6}} \right\}$ 
+
+
+:::
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+
+
+Soit $\rho\in ]-1,1[$ et $(X,Y)$ un vecteur gaussien centré de matrice de covariances $M = \begin{pmatrix} 1 & \rho \\ \rho & 1 \end{pmatrix}$. On notera $\sigma = \sqrt{1-\rho^2}$. 
+ 
+1. Calculer det($M$), $M^{-1}$, puis exprimer la densité $f_{(X,Y)}$ du vecteur $(X,Y)$. 
+1. Montrer que  
+
+    $$g_x(y) := \frac{f_{(X,Y)}(x,y)}{f_X(x)} = \frac{1}{\sigma \sqrt{2\pi}} \exp \left( - \frac{1}{2(1-\rho^2)} \left(y-\rho x\right)^2\right).$$
+
+    Montrer que pour tout $x \in \mathbb{R}$, $y \to g_x(y)$ définit une densité. 
+    
+1. Si on note $Y_x$ une variable de densité $g_x$, que pouvez-vous dire sur la loi de $Y_x$?   
+1. Trouver $\alpha$, $\beta$ deux réels tels que $(X, \alpha X + \beta Y)$ suit la loi normale centrée réduite.
+
+Remarquer que l'on peut écrire $Y= -\frac{\alpha}{\beta} X +\frac{1}{\beta}(\alpha X + \beta Y)$. Sauriez-vous dire pourquoi cette écriture est intéressante? 
+ 
+
+::: {.content-visible when-profile="solution"}
+
+ 
+1. On a $\det(M) = 1-\rho^2 \ne 0$, $M^{-1} =  \frac{1}{1-\rho^2}  \begin{pmatrix} 1 & - \rho \\ -\rho & 1 \end{pmatrix}$, et donc $\begin{pmatrix} X \\ Y \end{pmatrix}$ possède la densité $f_{(X,Y)}$ où, pour $ \begin{pmatrix} x \\ y \end{pmatrix} \in \mathbb{R}^2$,   
+
+    $$\begin{eqnarray*} f_{(X,Y)}(x) & = & \frac{1}{2\pi \sqrt{1-\rho^2}} \exp\left(-\frac{1}{2} \begin{pmatrix} x \\ y \end{pmatrix}^T M^{-1} \begin{pmatrix} x \\ y \end{pmatrix}  \right)\\  & = & \frac{1}{2\pi \sigma} \exp\left(- \frac{1}{2 \sigma^2} \left(x^2 + y^2 - 2 \rho x y \right) \right) \end{eqnarray*}$$
+  
+1. $X \sim \mathcal{N}(0,1)$ donc $f_X(x) = \frac{1}{\sqrt{2\pi}} \exp(-x^2/2), x \in \mathbb{R}$. On a donc, pour $y \in \mathbb{R}$  
+
+    $$\begin{eqnarray*}  g_x(y) & = & \frac{1}{\sigma \sqrt{2 \pi}} \exp\left( \frac{1}{2(1-\rho^2)} (x^2+y^2 - 2\rho x y) + \frac{1}{2} x^2 \right) \\  & = & \frac{1}{\sigma \sqrt{2\pi}} \exp\left( \frac{1}{2(1-\rho^2)} \left( - \frac{1}{2} (\rho^2 x^2 - 2 \rho x y + y ^2) \right)\right) \\ & = &  \frac{1}{\sigma \sqrt{2\pi}} \exp\left( \frac{1}{2(1-\rho^2)} \left( - \frac{1}{2} (y-\rho x)^2 \right) \right) \end{eqnarray*}$$
+ 
+    comme souhaité,  et donc $Y_x \sim \mathcal{N}(\rho x, 1-\rho^2)$. 
+
+1. Comme $\begin{pmatrix} X \\ \alpha X + \beta Y \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ \alpha & \beta \end{pmatrix}$ d'après Prop 3 du cours  
+
+    $$\begin{pmatrix} X \\ \alpha X + \beta Y \end{pmatrix}  \sim \mathcal{N}\left( \begin{pmatrix} 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 1 & 0 \\ \alpha & \beta \end{pmatrix} \begin{pmatrix} 1 & \rho \\ \rho & 1 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ \alpha & \beta \end{pmatrix}^T\right)$$
+
+    et donc
+  
+    $$\begin{pmatrix} X \\ \alpha X + \beta Y \end{pmatrix}  \sim \mathcal{N}\left( \begin{pmatrix} 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 1 & 0 \\ \alpha & \beta \end{pmatrix}\begin{pmatrix} 1 & \alpha+\rho \beta \\ \rho & \rho \alpha + \beta \end{pmatrix} \right) \sim \mathcal{N}\left( \begin{pmatrix} 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 1 & \alpha+ \rho \beta \\ \alpha + \rho \beta  & \alpha^2 + 2 \rho \alpha \beta + \beta^2  \end{pmatrix} \right)$$ 
+
+     Pour obtenir le résultat souhaité il faut et il suffit que $\begin{cases} & \alpha + \rho \beta = 0 \\ & \alpha^2 + 2\rho \alpha \beta + \beta ^2 = 1 \end{cases}$, 
+
+    En remplaçant $\alpha= -\rho \beta$ dans la deuxième équation il vient que nécessairement
+
+    $$\rho^2 \beta^2 - 2 \rho \alpha \beta + \beta ^2  = (1-\rho)^2 \beta ^2 = 1,$$
+
+    et on obtient que $(\alpha,\beta) \in \left\{ \left( \frac{\rho}{1-\rho}, -\frac{1}{1-\rho}\right), \left(\frac{-\rho}{1-\rho},\frac{1}{1-\rho}\right) \right\}$ 
+
+    On a alors, comme indiqué dans l'énoncé 
+
+    $$Y =  \rho X + (1-\rho) \left(-\frac{\rho}{1-\rho} X + \frac{1}{1-\rho} Y \right),$$
+
+    et quitte à poser $Z =  -\frac{\rho}{1-\rho} X + \frac{1}{1-\rho} Y$ qui est une normale centrée réduite indépendante de $X$, on a 
+
+    $$Y = \rho X + (1-\rho) Z,$$
+
+    qui permet de comprendre comment $Y$ dépend de $X$. 
+
+La décomposition sera en particulier très utile pour caculer espérance et loi conditionnelle de $Y$ sachant $X$.  
+   
+::: 
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+
+
+Montrer que le vecteur aléatoire de dimension $3$ de moyenne $m = (7,0,1)$ et de matrice de covariances 
+
+$$K = \begin{pmatrix} 10 & -1 & 4 \\ -1 & 1 & -1 \\ 4 & -1 & 2 \end{pmatrix}$$
+
+appartient presque sûrement à un hyperplan affine de $\mathbb{R}^3$ que l'on déterminera. 
+
+::: {.content-visible when-profile="solution"}
+ 
+En résolvant $K x = 0$ on trouve $\ker(K) = \mathrm{Vect} \left\{ \begin{pmatrix} -1\\ 2\\  3 \end{pmatrix}  \right\}$.
+On a donc
+
+$$\ker(K)^{\perp} = \left\{ (x,y,z) \in \mathbb{R}^3 : -x + 2y + z =0 \right\}$$ 
+
+D'après le cours, $\mathbb{P}(X - m \in \ker(K)^{\perp}) =1$, de sorte que p.s. 
+
+$$ X \in \left\{  (x,y,z) \in \mathbb{R}^3 : -x + 2y + z = -6 \right\}.$$
+ 
+:::
+
+{{< pagebreak >}}
+
+
+# Notions de théorie de la mesure
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+
+
+1. Soient $E$ et $F$ deux espaces, $f$ une application de $E$ dans $F$ et $\mathcal{F}$ une
+tribu sur $F$. Montrer que $\mathcal{E}_f:=\{f^{-1}(A), A \in \mathcal{F}\}$ est une tribu sur $E$. La fonction $f : (E, \mathcal{E}_f) \to (F,\mathcal{F})$ est-elle mesurable?
+1. Supposons $E= \mathbb{R}$, $(F, \mathcal{F})= (\mathbb{R}, \mathcal{B}(\mathbb{R}))$ et $f: x \to x^2$.
+
+   - Montrer que $\mathcal{E}_f := \big\{A \in \mathcal{B}(\mathbb{R}), A = -A \big\}$.
+   - (*) Déterminer l'ensemble des fonctions mesurables de $(\mathbb{R}, \mathcal{E}_f)$ dans $(\mathbb{R},\mathcal{B}(\mathbb{R}))$.
+
+
+::: {.content-visible when-profile="solution"}
+ 
+
+
+:::
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+
+
+Dans cet exercice, $\mu$ est une mesure sur $(\mathbb{R},\mathcal{B}(\mathbb{R}))$ qui vérifie les conditions suivantes :
+
+
+C1
+: $\forall x \in R, \ \mu(\{x\}) = 0$.
+
+C2
+: Pour tous réels $a < b : \mu([a, b]) < +\infty$.
+
+
+1. La mesure de Lebesgue $\lambda$ sur $\mathbb{R}$ vérifie-t-elle ces conditions? Et la mesure de Dirac $\delta_0$? Quid de la loi d'une variable de Poisson de paramètre $a \ge 0$? et de la loi d'une variable uniforme sur $[0,1]$?
+2. Calculer $\lim_{n \to \infty} \mu\left( \big]-\frac{1}{n}, \frac{1}{n}\big[ \right)$.
+3. Calculer $\mu(\mathbb{Q})$.
+4. Soit $A \in \mathcal{B}(\mathbb{R})$. On définit la fonction $f_A$ comme suit :
+
+    $$f_A : \begin{cases} & \mathbb{R} \to [0,+\infty[ \\ & x \mapsto f_A(x) = \mu(A \cap [-|x|,|x|])\end{cases}$$
+
+    Pourquoi la fonction $f_A$ est-elle bien définie ? Calculer $f_A(x)$ pour $A = \mathbb{Q}$.
+
+1. On suppose dans cette question que $\mu = \lambda$. Représenter graphiquement l'allure de $f_A$ pour $A = \mathbb{R}$.
+2. Même question pour $A = [0, 1]$. 
+
+
+
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ (Mesure image)
+
+Situation générale. Premiers exemples.
+: Soient $(F,\mathcal{F})$ et $(G,\mathcal{G})$ des espaces mesurables,
+$\phi : F \to G$ une fonction mesurable. Soit $\mu$ une mesure sur
+$(F, \mathcal{F})$. On définit $\nu : \mathcal{G} \to [0,+\infty]$ par $\nu(A) = \mu(\phi^{-1}(A))$.
+
+    1. Montrer que $\nu$ est une mesure sur $(G,\mathcal{G})$. On dit que c'est la mesure image de $\mu$ par $\phi$, et on la note également $\phi \circ \mu$.
+    2. On choisit $\mu = \delta_{a}$, où $a \in F$, et on suppose dans cette question que les singletons sont des éléments de $\mathcal{G}$. Déterminer $\phi \circ \delta_a$.
+    3. On suppose que $\mu$ est une mesure de probabilité sur $(F, \mathcal{F})$ (i.e. $\mu$ est une mesure vérifiant $\mu(F)=1$). On fixe $B \in \mathcal{F}$ et on choisit $(G,\mathcal{G}) =
+    (\mathbb{R},\mathcal{B}(\mathbb{R}))$. Déterminer $(\mathbf{1}_{B})\circ \mu$.
+
+
+Variable aléatoire. Image d'une variable aléatoire
+: Il est important de noter que la définition de "loi" d'une variable aléatoire réelle est étroitement liée à la notion de mesure image. Par exemple, supposons $(\Omega, \mathcal{F}, \mathbb{P})$ est un espace probabilisé, et
+que $X : \Omega \to \mathbb{R}$ est une variable aléatoire réelle (c'est-à-dire que $X$ définit une application mesurable de $(\Omega, \mathcal{F})$ vers $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$). Alors la loi de $X$, notée $P_X$, n'est autre que la mesure image $X \circ \mathbb{P}$, qui est une mesure de probabilité sur $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$.
+
+Supposons maintenant que $X$ est une variable aléatoire réelle de loi $P_X$, et que $f : \mathbb{R} \to \mathbb{R}$ est borélienne. Quelle est la loi $P_Y$ de la variable aléatoire $Y=f(X)$?
+
+
+
+
+
+
+
+
+
+# Convergence(s)
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ (LFGN et TCL)
+
+%Soit $X$ une variable aléatoire à valeurs réelles, rappelons que %$\Phi_{\vec{X}}(\vec{t}) := E[\exp(i\vec{t}.\vec{X})]$.
+Soient $X$ un variable aléatoire réelle, telle que $E[|X|]<\infty$,   
+et $(X_i, i \ge 1)$ une suite de variables indépendantes et identiquement distribuées, de même loi que $X$. On fixe $x_0 \in \mathbb{R}$ et on définit $S_0 =x_0, S_n = x_0 + \sum_{i=1}^{n} X_i , n \ge 1$.  
+
+1. Pour $n \in \mathbb{N}$, exprimer $\Phi_{S_n/n}$ en fonction de $n, x_0, \Phi_{X}$. La suite de fonctions $(\Phi_{S_n/n})_{n \in \mathbb{N}}$ possède-t-elle une limite simple?  
+1. On suppose ici que $X$ est tel que $E[X]=0$, $E[X^2]=\sigma^2<\infty$. Pour $n \in \mathbb{N}$, exprimer $\Phi_{\frac{S_n}{\sqrt{n}}}$ en fonction de $n, x_0, \Phi_{X}$. La suite  $(\Phi_{\frac{S_n}{\sqrt{n}}})_{n \in \mathbb{N}}$ possède-t-elle une limite simple?  
+ 
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ 
+
+On joue à un jeu équilibré, on remporte un euro à chaque main gagnée, et on perd un euro à chaque main perdue. On note $G_n$ le gain algébrique lorsque $n$ mains ont été jouées. 
+
+1. 
+Soit $\alpha >0, A>0$ fixés. En utilisant l'inégalité de Bienaymé-Chebychev, trouver un majorant de la quantité 
+$\mathbb{P}(G_n \ge A n^{\alpha}).$
+Interpréter le résultat. 
+1. Discuter l'ordre de grandeur, lorsque $n \to \infty$, de la borne obtenue en fonction de $A$ et $\alpha$. 
+Peut-on être plus précis sur l'ordre de grandeur de $\mathbb{P}(G_n \ge A n^{\alpha})$ lorsque $\alpha \le 1/2$? Qu'obtient-on en particulier lorsque $\alpha=1/2$? 
+  
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ (Convergence en loi d'une variable uniforme) 
+
+1.  Soit, pour $n \ge 1$, $X_n \sim \mathrm{Unif}(\{1,...,n\})$ (i.e $\forall i \in \{1,..,n\},\ P(X_n =i)=1/n$). Montrer que la suite $n^{-1}X_n$ possède une limite en loi, que l'on déterminera. 
+1. On considère maintenant $X_n \sim \mathrm{Unif}\left( \left\{\frac{1}{2^n}, \frac{2}{2^n},...,\frac{2^n}{2^n}\right\} \right).$ Montrer que $X_n$ possède une limite en loi. Voyez-vous le lien avec la définition de l'intégrale de Riemann?  
+
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+ Géométrique et exponentielle
+
+1. Soit $\lambda >0$ et $X \sim \exp(\lambda)$. Montrer que $\lceil X \rceil$ suit une loi géométrique dont on déterminera le paramètre en fonction de $\lambda$.
+
+ 
+
+1. Le but de cette deuxième partie est de montrer comment on peut "construire" une variable exponentielle à partir d'une variable géométrique. Dans la suite $\lambda>0$ est fixé. 
+
+1.  On rappelle qu'une variable géométrique de paramètre $p$ représente l'indice de premier succès d'une suite d'essais i.i.d, $\sim\mathrm{Ber}(p)$. \\
+Pour $\delta>0$ on considère  $Y_{\delta} \sim \mathrm{Geom}(p_{\delta})$ où  $p_{\delta}:= \delta\lambda$.  
+Calculer $P(Y_{\delta} > m)$ en fonction de $m, \delta$. 
+
+1. On suppose que les tentatives suivant une loi de Bernoulli ont lieu aux temps  $\delta, 2\delta, 3\delta, \ldots$. 
+Montrer que la probabilité qu'aucun succès n'ait été observé jusqu'au temps $t$ converge vers $e^{-\lambda t}$ lorsque $\delta \to 0$ (On remarquera que lorsque $\delta$ est très petit, au temps $t$, environ $t/\delta$ tentatives ont eu lieu). Ainsi, le temps de premier succès est approximativement une variable exponentielle de paramètre $\lambda$. 
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+*Approximation de la loi binômiale par une loi de  Poisson*
+
+On rappelle qu'une variable $X$ qui suit la loi de Poisson de paramètre $\lambda>0$ vérifie   
+$P(X=k)= \exp(-\lambda) \lambda^k/k!, k \in \mathbb{N}$
+
+1. Que vaut $E[X], \mathrm{Var}[X]$? 
+1. Soit $Y_n \sim \mathrm{Bin}(n,p_n)$, avec $np_n \to \lambda >0$. Montrer que, 
+pour $k \in \mathbb{N}$ fixé, $P(Y_n=k) \to P(X=k)$ lorsque $n \to \infty$, $np_n \to \lambda$.  
+
+1. Application :
+ Un avion transporte 416 passagers.  La compagnie aérienne qui l'affrète a remarqué qu'en moyenne, un passager qui réserve sa place ne se présente pas à l'enregistrement avec probabilité $0.01$, et pour simplifier on suppose que les événements de présence des passagers sont mutuellement indépendants. Afin d'anticiper les absences, la compagnie vend
+ $420$ réservations pour chacun des vols de l'avion. Sur quelle proportion de vols la compagnie sera-t-elle forcée de refuser des clients (on utilisera une approximation poissonienne de la loi binômiale)? 
+1. Même question, mais on utilisera cette fois le théorème de la limite centrale pour évaluer la proportion.    
+
+
+
+
+{{< pagebreak >}}
+ 
+
+
+
+
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| fig-cap: |
+#|     Intégrale $\Pi(t)$ de la Loi Normale Centrée Réduite $\mathcal{N}(0;\,1)$
+#|
+#|     $$\Pi(t)=P(X \leq t) = \int_{-\infty}^t\frac{1}{\sqrt{2\pi}}\ e^{-\frac{x^2}{2}}dx\ \ \mbox{ et }\ \ \Pi(-t)=1 - \Pi(t).$$
+
+
+ggplot2::ggplot() +
+  ggplot2::stat_function(
+    xlim=c(-3, 3),
+    fun=pnorm
+  ) +
+  ggplot2::geom_hline(yintercept = 1, linetype = "dotted") +
+  ggplot2::geom_hline(yintercept = 0, linewidth=.2) +
+  ggplot2::geom_vline(xintercept = 0, linewidth=.2)
+```

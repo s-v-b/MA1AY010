@@ -6,25 +6,41 @@ editor: source
 
 ::: callout-important
 
-
+La semaine I (8-12 septembre 2025)  est consacrée aux révisions de Licence. On (re)-présentera beaucoup de définitions, quelques
+outils essentiels, et on tentera d'utiliser ces définitions et outils sur la liste d'exercices des feuilles de TD.   
 
 :::
 
 ## Préparer/Revoir
 
-📖 Read the [syllabus](/course-syllabus.html)
-
-📖 Read the [support](/course-support.html) resources
+- Espace probabilisable 
+  - Tribu/$\sigma$-algèbre
+  - Tribu borélienne
+  - Tribu de Lebesgue
+  - Lemme des classes monotones
+- Loi de probabilité, mesure positive, $\sigma$-additivité
+- Fonctions mesurables et variables aléatoires
+- Espérance, variance, moments
+- Théorèmes de convergence (monotone, Fatou, dominée)
+- Indépendance (Évenements, Tribus)
 
 ## Exercices
 
-🖥️ [Lab 0 -](/_slides/lab-0.html)[Meet](/slides/lab-0.html)[+ greet](/_slides/lab-0.html)
+[Feuille TD I](/exercices/td1.html)
 
-🖥️ [Lecture 1 - Welcome to STA 210](/slides/lec-1.html)
+Corrigés : 
+
+- 1 (transformation affine), 
+- 2 (minima, maxima), 
+- 10 (transformées de Laplace), 
+- 11 (densité de la loi du carré), 
+- 17 (somme de Poisson indépendantes, conditionnement discret), 
+- 18 (sommes aléatoires de variables indépendantes).
 
 ## Exercices supplémentaires
 
-📋 [AE 0 - Movies](/ae/ae-0-movies.html)
+[Feuille TD I suppléments](/exercices/td1-supplement.html)
+
 
 
 <br><br>
