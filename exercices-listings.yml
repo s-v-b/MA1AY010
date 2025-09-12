@@ -1,0 +1,10 @@
+- title: "TD I : Rappels de Licence"
+  author: "Master I ISIFAR UParis Cité"
+  date: "2025-09-08"
+  path: "exercices/td1.html"
+  categories: [Variables aléatoires réelles]
+- title: "TD I supplément : Rappels de Licence"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-09-11"
+  path: "exercices/td1-supplement.html"
+  categories: [Variables aléatoires réelles, Branchement]

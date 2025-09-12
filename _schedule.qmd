@@ -1,0 +1,53 @@
+
+
+
+## Week 1 
+
+Setup
+: Branching Processes, Bins  and balls, Random graphs
+
+Real valued random variables
+: Definitions, characterization
+
+## Week 2
+
+Random vectors
+: Definitions, joint distributions, independence, change of variable
+
+
+
+
+
+## Week 3 
+
+Conditional expectation
+: Definition, main properties, toolkit
+
+Exam 1
+: Week 1 and 2
+
+## Week 4
+
+Conditional expectation (cont'd)
+: tookit continued
+
+## Week 5
+
+Convergences
+: $L^p$, almost sure, in probability, in law
+
+## Week 6 
+
+
+Gaussian vectors
+: Definition, conditioning, Cochran
+
+Limit theorems 
+: LLN, CLT
+
+Exam 2 
+: Week 1 to 5 
+
+
+
+

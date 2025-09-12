@@ -1,8 +1,8 @@
 ---
-title: "Enseignants"
+title: "MA1AY010 : Enseignants"
 ---
 
-## Instructeur
+## Instructeurs
 
 ![](images/team/svb.png){style="float:right;padding: 0 0 0 10px;" fig-alt="S. Boucheron" width="200"}
 
@@ -13,3 +13,9 @@ title: "Enseignants"
 | Lundi 11:00 am - 12:00 pm | Sophie Germain 5013                                                                                                              |
 
 
+
+[**S. Abbes**](http://stephane-v-boucheron.fr/) est professeur dans l'Équipe de Statistique du Laboratoire de Probabilités, Statistiques et Modélisation (Université Paris Cité, Sorbonne Université, CNRS).
+
+| Consultations                  | Bureau                                                                                                                  |
+|-------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| Lundi 11:00 am - 12:00 pm | Sophie Germain 5013                                                                                                              |

@@ -8,8 +8,10 @@ staging/
 .Rhistory
 .RData
 .Ruserdata
+nextcloud/
 
 /.quarto/
 _site/
 *.key
 *speaker.html
+**/*.quarto_ipynb
