@@ -1,0 +1,332 @@
+[
+  {
+    "objectID": "weeks/week-1.html",
+    "href": "weeks/week-1.html",
+    "title": "Semaine 1",
+    "section": "",
+    "text": "Important\n\n\n\nLa semaine I (8-12 septembre 2025) est consacrée aux révisions de Licence. On (re)-présentera beaucoup de définitions, quelques outils essentiels, et on tentera d’utiliser ces définitions et outils sur la liste d’exercices des feuilles de TD.",
+    "crumbs": [
+      "Agenda",
+      "Week 1"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1.html#préparerrevoir",
+    "href": "weeks/week-1.html#préparerrevoir",
+    "title": "Semaine 1",
+    "section": "Préparer/Revoir",
+    "text": "Préparer/Revoir\n\nEspace probabilisable\n\nTribu/\\(\\sigma\\)-algèbre\nTribu borélienne\nTribu de Lebesgue\nLemme des classes monotones\n\nLoi de probabilité, mesure positive, \\(\\sigma\\)-additivité\nFonctions mesurables et variables aléatoires\nEspérance, variance, moments\nThéorèmes de convergence (monotone, Fatou, dominée)\nIndépendance (Évenements, Tribus)",
+    "crumbs": [
+      "Agenda",
+      "Week 1"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1.html#exercices",
+    "href": "weeks/week-1.html#exercices",
+    "title": "Semaine 1",
+    "section": "Exercices",
+    "text": "Exercices\nFeuille TD I\nCorrigés :\n\n1 (transformation affine),\n2 (minima, maxima),\n10 (transformées de Laplace),\n11 (densité de la loi du carré),\n17 (somme de Poisson indépendantes, conditionnement discret),\n18 (sommes aléatoires de variables indépendantes).",
+    "crumbs": [
+      "Agenda",
+      "Week 1"
+    ]
+  },
+  {
+    "objectID": "weeks/week-1.html#exercices-supplémentaires",
+    "href": "weeks/week-1.html#exercices-supplémentaires",
+    "title": "Semaine 1",
+    "section": "Exercices supplémentaires",
+    "text": "Exercices supplémentaires\nFeuille TD I suppléments\n\n\nRetour à l’agenda ⏎",
+    "crumbs": [
+      "Agenda",
+      "Week 1"
+    ]
+  },
+  {
+    "objectID": "exercices/td1.html",
+    "href": "exercices/td1.html",
+    "title": "Variables aléatoires réelles",
+    "section": "",
+    "text": "NoteTD I : Révisions de Licence\n\n\n\n\n8 Septembre 2025-12 Septembre 2025\nMaster I Isifar\nProbabilités"
+  },
+  {
+    "objectID": "exercices/td1.html#fonctions-de-répartition",
+    "href": "exercices/td1.html#fonctions-de-répartition",
+    "title": "Variables aléatoires réelles",
+    "section": "Fonctions de répartition",
+    "text": "Fonctions de répartition\n\nExercice 1\n(transformation affine)\nSoit \\(X\\) une variable aléatoire réelle, \\(F_X\\) sa fonction de répartition, \\(a, b\\) deux réels fixés, et \\(Y := aX+b\\)\n\nOn suppose dans cette question que \\(a=1\\). Comment déduire \\(F_Y\\) de \\(F_X\\)?\nSi (la loi de) \\(X\\) admet une densité, en est-il de même de \\(Y\\)? Si oui, exprimer dans ce cas \\(f_Y\\) à l’aide de \\(f_X\\).\nOn suppose dans cette question que \\(b=0\\) et \\(a&gt;0\\). Comment déduire \\(F_Y\\) de \\(F_X\\)?\nSi (la loi de ) \\(X\\) admet une densité, à quelle condition sur \\(a\\) en est-il de même de (la loi de) \\(Y\\)? Exprimer dans ce cas \\(f_Y\\) à l’aide de \\(f_X\\).\nRépondre aux mêmes questions lorsque \\(b=0\\) et \\(a=-1\\)?\nRépondre enfin aux mêmes questions lorsque \\(a\\) et \\(b\\) sont quelconques.\n\n\n\nExercice 2\n(Minimum, maximum de variables indépendantes)\nSoient \\(X_i, i \\ge 1\\), des variables indépendantes. Pour \\(k \\ge 2\\), on note \\(Y_k = \\min (X_1,...,X_k)\\), \\(Z_k = \\max(X_1,...,X_k).\\)\n\nDans cette question on s’intéresse à \\(k=2\\).\nComment déduire \\(F_{Y_2}\\) de \\(F_{X_1}, F_{X_2}\\)? Même question pour \\(F_{Z_2}\\).\nGénéraliser à \\(k\\) quelconque.\nQuelle est la loi de \\(Z_k\\) lorsque les \\(\\{X_i, i \\ge 1\\}\\) sont i.i.d., \\(\\sim \\mathrm{Unif}[0,1]\\)?\nQuelle est la loi de \\(Y_k\\) lorsque les \\(\\{X_i, i \\ge 1\\}\\) sont des variables exponentielles indépendantes, avec \\(X_i \\sim \\text{Exp}(\\lambda_i)\\) (où pour tout \\(i\\), \\(\\lambda_i &gt;0\\))?\n\n\n\nExercice 3\nOn suppose que \\(X \\sim \\mathcal{N}(0,1)\\). Que valent\n\\[\\mathbb{P}(X \\le 1), \\quad \\mathbb{P}(-1.23 \\le X \\le 0.43), \\quad \\mathbb{P}(X&gt;0.32)?\\]\n\n\nExercice 4\nOn suppose que l’écart à la taille moyenne \\(T=15.5\\) des individus d’une population suit une loi normale centrée réduite.\nDans quel intervalle centré en \\(T\\) se situent les tailles de \\(99\\%\\) des individus de la population?\n\n\nExercice 5\nEtant donnée X une variable aléatoire gaussienne de paramètres \\(\\mu\\) et \\(\\sigma^2\\), donner la probabilité que \\(|X - \\mu|\\) dépasse \\(k\\sigma\\) pour \\(k = 1, 2, 3\\).\nSuggestion: On commencera par montrer que \\(\\sigma^{-1}(X-\\mu)\\) suit une loi normale centrée réduite.\nReprendre les questions de l’exercice précédent lorsque \\(\\mu=2, \\sigma=2\\).\nReprendre les questions de l’exercice précédent lorsque \\(\\mu=0, \\sigma=1/2\\)."
+  },
+  {
+    "objectID": "exercices/td1.html#densités",
+    "href": "exercices/td1.html#densités",
+    "title": "Variables aléatoires réelles",
+    "section": "Densités",
+    "text": "Densités\n\nExercice 6\nDans les cas suivants, trouver la valeur de \\(C\\) pour que \\(f\\) soit une densité de probabilité.\n\n\\(f(x) = C \\frac{1}{\\sqrt{x (1-x)}}, 0 &lt;x &lt;1,\\)\n\\(f(x) = C \\exp(-x-\\exp(-x)), x \\in \\mathbb{R},\\)\n\\(f(x) = C \\frac{1}{1+x^2}\\).\n\n\n\nExercice 7\n(Mélange)\nOn suppose que \\(X\\) et \\(Y\\) sont deux variables de densités respectives \\(f_X, f_Y\\), et que \\(\\alpha \\in [0,1]\\). Montrer que \\(g : = \\alpha f_X + (1-\\alpha) f_Y\\) est également une densité de probabilité.\nTrouver une variable aléatoire dont \\(g\\) est la densité.\n\n\nExercice 8\nSoit \\(X\\) de densité \\(f\\), et \\((\\alpha, \\beta) \\in \\overline{\\mathbb{R}}^2\\) sont supposés tels que \\[\\mathbb{P}(\\alpha &lt; X &lt; \\beta) =1\\] On suppose que \\(g\\) est un \\(C^{1}\\)-difféomorphisme croissant de \\((\\alpha, \\beta)\\) sur \\((g(\\alpha),g(\\beta))\\).\n\nMontrer que \\(g(X)\\) a pour densité \\(\\frac{f(g^{-1}(x))}{g'(g^{-1}(x))} \\mathbf{1}_{\\{x \\in (g(\\alpha), g(\\beta))\\}}\\).\nQuelle est la densité de la variable \\(aX+b\\), où \\(a&gt;0\\) et \\(b\\in \\mathbb{R}\\) sont fixés?\n\nSoit \\(Y \\sim \\mathcal{N}(0,1)\\). Quelle est la densité de \\(Z = \\exp(Y)\\)?"
+  },
+  {
+    "objectID": "exercices/td1.html#lois-usuelles-calculs-de-loi",
+    "href": "exercices/td1.html#lois-usuelles-calculs-de-loi",
+    "title": "Variables aléatoires réelles",
+    "section": "Lois usuelles, calculs de loi",
+    "text": "Lois usuelles, calculs de loi\n\nExercice 9\n(Fonctions de répartition et fonctions caractéristiques de lois usuelles)\n\n\n\n\n\n\nAttention : dans le cas d’une variable continue, quand on calcule \\(\\Phi_X\\) on %doit intégrer sur \\(\\mathbb{R}\\) une fonction complexe. Trois méthodes sont envisageables.\nParfois on peut intégrer séparément partie réelle et partie imaginaire.\nParfois il est utile de se servir de la formule de Cauchy. En particulier, cette formule assure que si \\(f\\) est une fonction holomorphe, si \\(\\mathcal{C}\\) est un contour fermé “raisonnable” (en particulier tout cercle ou polygone régulier), et enfin si \\(\\overset{\\circ}{\\mathcal{C}}\\) désigne l’ensemble des points se trouvant à l’intérieur de ce contour, alors\n\\[\\forall a \\in \\overset{\\circ}{\\mathcal{C}}, \\quad f(a) = \\frac{1}{2\\pi i} \\oint_{\\mathcal{C}}  \\frac{f(z)}{z-a} \\mathrm{d}z.\\]\nAttention : cette formule montre bien que l’on ne peut pas traiter l’intégrale d’une fonction complexe en faisant “comme si” \\(i\\) était réél (!) La méthode des résidus est en outre une conséquence directe de la formule de Cauchy.\nEnfin, on peut utiliser le prolongement analytique (voir l’exemple de la fonction \\(\\Gamma\\)).\n\n\n\n\nExprimer le plus simplement \\(F_X\\) dans les cas suivants (on pourra se contenter de tracer l’allure du graphe de la fonction de répartition lorsque celle-ci ne possède pas d’expression simple).\n\n\\(n \\in \\mathbb{N}^*, p \\in [0,1], X \\sim \\text{Bin}(n,p)\\),\n\\(\\lambda&gt;0, X \\sim \\text{Poisson}(\\lambda)\\),\n\\(a&gt;0, X\\sim \\text{Unif}[-a,a]\\),\n\\(\\lambda&gt;0, X \\sim \\mathbf{exp}(\\lambda)\\),\n\\(\\lambda&gt;0, s \\in \\mathbb{N}^*\\), \\(X \\sim \\Gamma(\\lambda, s)\\) (on rappelle que la densité \\(f_X\\) de \\(X \\sim \\Gamma(\\lambda,s)\\) est telle que \\(f_X(x) =\\frac{1}{\\Gamma(s)} \\lambda^s x^{s-1}\\exp(-\\lambda x) \\mathbf{1}_{[0,\\infty[}(x), x \\in \\mathbb{R}\\)),\n\\(X \\sim \\mathcal{N}(0,1)\\),\n\\(\\mu \\in \\mathbb{R}, \\sigma&gt;0, X \\sim \\mathcal{N}(\\mu,\\sigma^2)\\).\n\n\\(a&gt;0, X \\sim \\mathrm{Cauchy}(a)\\) (on rappelle que la densité \\(f_X\\) de la loi de Cauchy de paramètre \\(a\\) est telle que \\(f_X(x) = \\frac{a}{\\pi(x^2+a^2)}, x\\in \\mathbb{R}\\)).\n\n(*) \\(X \\sim \\mathrm{stable}(1/2)\\) (cette loi a pour densité \\(\\sqrt{2\\pi x^{-3}} \\exp(-1/2x)\\mathbf{1}_{[0,\\infty[}(x).\\))\n\nLesquelles parmi ces variables possèdent une densité?\n\nExprimer le plus simplement \\(\\Phi_X\\) pour les \\(7\\) premières variables de la première question ci-dessus. En déduire, ou trouver par un calcul direct, \\(E[X],\\) et \\(\\mathrm{Var}[X]\\).\n\n\n\nExercice 10\nPour des valeurs de \\(t\\) que l’on précisera, calculer la transformée de Laplace \\(L(t) := \\mathbb{E}[\\exp(-t X)]\\) et la fonction génératrice des moments \\(G(u) := \\mathbb{E}[u^X]\\) de la variable \\(X\\) dans les cas suivants.\n\n\\(X \\sim \\mathrm{Ber}(p)\\), où \\(p \\in [0,1]\\),\n\\(X \\sim \\mathrm{Bin}(n,p)\\), où \\(n \\in \\mathbb{N}^*, p \\in [0,1]\\),\n\\(X \\sim \\mathrm{Geom}(p)\\), où \\(p \\in [0,1]\\),\n\\(X \\sim \\mathrm{Poisson}(\\lambda)\\), où \\(\\lambda&gt;0\\),\n\n\\(X=Y_1+...+Y_n\\), où les \\(Y_i, 1 \\le i \\le n\\) sont des variables indépendantes, et \\(Y_i \\sim \\mathrm{Poisson}(\\lambda_i)\\), avec \\(\\lambda_i &gt;0\\).\n\n\n\nExercice 11\nSoit \\(X\\) une v.a.r. de densité \\(f\\). Quelle est la densité de \\(X^2\\)? Qu’obtient-on dans le cas où \\(X \\sim \\mathcal{N}(0,1)\\)?\n\n\nExercice 12\nSoit \\(X \\sim \\exp(1)\\). Calculer la densité des variables suivantes :\n\n\\(Y = aX+b\\), où \\(a&gt;0\\) et \\(b \\in \\mathbb{R}\\). Qu’observe-t-on dans le cas où \\(b=0\\)?\n\n\\(Z = X^2\\).\n\\(U = \\exp(-X)\\).\n\n\n\nExercice 13\nTrouver la loi de \\(\\arcsin(X)\\) lorsque\n\n\\(X \\sim \\mathrm{Unif}[0,1]\\),\n\\(X \\sim \\mathrm{Unif}[-1,1]\\).\n\n\n\nExercice 14\nOn souhaite peindre un mur (infini!) en utilisant un arroseur automatique qui effectue des demi-révolutions successives. Pour simplifier le modèle, on représentera le mur par une droite verticale \\(\\Delta\\), et l’arroseur par une source ponctuelle \\(O\\) située à \\(1\\) mètre du mur, et émettant en tout instant \\(t\\) de façon parfaitement rectiligne dans la direction \\(\\overset{\\rightarrow}{u}(t)\\). On note \\(M\\) la projection orthogonale de \\(O\\) sur \\(\\Delta\\) et \\(\\theta(t)\\) l’angle entre \\(O \\overset{\\rightarrow}{u}(t)\\) et \\(\\overset{\\rightarrow}{OM}\\). L’intersection de \\(O\\overset{\\rightarrow}{u}\\) avec \\(\\Delta\\) est notée \\(H(\\theta)\\).\nOn suppose en outre que lors d’une demi-révolution, \\(\\theta(t)\\) parcourt exactement l’intervalle \\((-\\pi/2,\\pi/2)\\).\nOn fait l’hypothèse que la demi-révolution s’effectue à vitesse angulaire constante, et on se demande quelle sera la répartition de l’épaisseur de la couche de peinture le long de \\(\\Delta\\) après un nombre entier de demi-révolutions.\n\nJustifier qu’une particule de peinture choisie uniformément au hasard parmi toutes les particules est envoyée suivant un angle \\(\\theta \\sim \\mathrm{Unif}(-\\pi/2,\\pi/2)\\). Une telle particule se pose alors en \\(H(\\theta)\\), On note \\(h(\\theta)\\) l’ordonnée de \\(H(\\theta)\\) (c’est également la distance algébrique entre \\(O\\) et \\(H\\)).\nExprimer \\(h(\\theta)\\) en fonction de \\(\\theta\\). Quelle est la loi de \\(h(\\theta)\\)? Que pouvez-vous en déduire sur la distribution de l’épaisseur de la couche de peinture le long du mur?\nA posteriori, quelle critique peut-on formuler sur le modèle?\n\n\n\nExercice 15\nSoit \\(X \\sim \\mathrm{Cauchy}\\) (de paramètre \\(1\\)).\nQuelle est la loi de\n\n\\(Y:=\\frac{1}{X}\\)?\n\\(Z:= \\frac{1}{1+X^2}\\)?\n\n\n\nExercice 16\nSoit \\(Z \\sim \\mathcal{N}(0,1)\\). Montrer que pour tout \\(x&gt;0\\),\n\\[\\left(x^{-1}-x^{-3}\\right) \\exp(-x^2/2) \\le \\sqrt{2\\pi} \\mathbb{P}(Z&gt;x) \\le x^{-1} \\exp(-x^2/2).\\]\nIndication : on pourra penser à utiliser le changement de variable \\(y=x+z\\) pour obtenir l’inégalité de droite, et on commencera par calculer la dérivée de \\(\\left(x^{-1}-x^{-3}\\right) \\exp(-x^2/2)\\) pour obtenir celle de gauche.\n\n\nExercice 17\n(calcul d’une loi conditionnelle discrète)\nSoient \\(X_1,...,X_n\\) des variables de Poisson, indépendantes, de paramètres respectifs \\(\\lambda_1,...,\\lambda_n\\).\n\nDéterminer la loi de \\(Y:=\\sum_{k=1}^n X_k\\).\nPour \\(r \\in \\mathbb{N}\\), que vaut la loi conditionnelle de \\((X_1,...,X_n)\\) sachant \\(Y=r\\)?"
+  },
+  {
+    "objectID": "exercices/td1.html#exemples-divers",
+    "href": "exercices/td1.html#exemples-divers",
+    "title": "Variables aléatoires réelles",
+    "section": "Exemples divers",
+    "text": "Exemples divers\n\nExercice 18\nOn suppose que le nombre \\(X\\) d’oeufs pondus par un insecte suit une loi de Poisson de paramètre \\(\\lambda&gt;0\\) et que la probabilité qu’un oeuf meurt sans éclore est, indépendamment des autres oeufs, égale à \\(1-p\\), où \\(p \\in ]0,1[\\).\n\nDémontrer que le nombre \\(Y\\) d’oeufs qui arrivent à éclosion suit une loi de Poisson de paramètre \\(\\lambda p\\).\nQuelle est la loi jointe de \\((Y,Z)\\), où \\(Z= X-Y\\) est le nombre d’oeufs morts avant éclosion?\n\n\n\nExercice 19\n(Somme d’exponentielles et \\(\\chi^2\\))\nSoit \\(\\lambda&gt;0\\) et \\((Y_i)_{1 \\le i \\le n}\\) des variables i.i.d, \\(\\sim \\exp(\\lambda)\\).\n\nCalculer \\(\\mathbb{E}[\\exp(-tY_1)]\\) pour \\(t \\ge 0\\).\n\nCalculer \\(\\mathbb{E}\\left[\\exp(-t\\sum_{i=1}^n) Y_i \\right]\\) pour \\(t \\ge 0\\).\nMontrer que la densité de la variable \\(X= \\sum_{i=1}^n Y_i\\) est proportionnelle à \\(x^{n-1} \\exp(-\\lambda x) \\mathbf{1}_{x \\ge 0}\\). En déduire la valeur de cette densité.\nSoient \\(X_n, n \\ge 1\\) des variables i.i.d, \\(\\sim \\mathcal{N}(0,1)\\). On pose \\(\\chi^2(n):=\\sum_{i=1}^n X_i^2\\), \\(Z:=X_1X_2 +X_3X_4\\). \\ Calculer \\(\\Phi_{\\chi^2(n)}, \\Phi_Z\\). Pouvez-vous deviner la distribution de \\(Z\\) (on pourra utiliser un résultat d’un exercice précédent)?\n\n\n\nExercice 20\nSoit \\(Z = (X, Y )\\), une variable aléatoire à valeurs dans \\(\\mathbb{R}^2\\). On suppose que \\(Z\\) admet une densité \\(f\\) définie par\n\\[f(x, y) = \\frac{4}{\\pi \\sigma^2} \\exp\\left(-\\frac{x^2+y^2}{\\sigma^2}\\right) \\mathbf{1}_{\\{x \\ge |y|\\}},\\]\noù \\(\\sigma&gt;0\\).\n\nVérifier que \\(f\\) est bien une densité de probabilité.\nCalculer les lois de \\(X\\) et de \\(Y\\) . Les variables aléatoires \\(X\\) et \\(Y\\) sont-elles indépendantes ?\nCalculer la loi de \\((X - Y, X + Y )\\) et montrer que \\(X - Y\\) et \\(X + Y\\) sont indépendantes.\n\n\n\nExercice 21\n\nSoit \\(X_1,...,X_n\\) des variables i.i.d, \\(\\sim \\mathcal{N}(0,1)\\), et \\(Z=\\sum_{i=1}^n \\alpha_i X_i\\) (où les \\(\\alpha_i, i=1,...,n\\) sont de rééls fixés). Quelle est la loi de \\(Z\\)?\nSoit \\((X_1,...,X_n) \\sim \\mathcal{N}(0,A)\\). Quelle est la loi de \\(Z=\\sum_{i=1}^n \\alpha_i X_i\\)?\nSoit \\((X_1,...,X_n) \\sim \\mathcal{N}(0,A)\\). Quelle est la loi de \\((Z_1,Z_2)\\), où, pour des rééls \\(\\alpha_{i,1}, \\alpha_{i,2}, i=1,...,n\\) fixés, \\[  Z_1=\\sum_{i=1}^n \\alpha_{i,1} X_i,  Z_2=\\sum_{i=1}^n \\alpha_{i,2} X_i.\\]\nGénéraliser la question précédente en exprimant la loi de \\[ (Z_1,...,Z_n) =  (X_1,...,X_n) P,\\] où \\(P\\) est une matrice \\(n \\times n\\).\nSoient \\(X,Y\\) deux variables indépendantes, \\(\\sim \\mathrm{Unif}[0,1]\\). Quelle est la loi de \\(S=X+Y\\)?\nSoient \\(X, Y\\) des variables indépendantes de loi respectives \\(\\Gamma(a,c), \\Gamma(b,c)\\), où \\(a,b,c&gt;0\\). On pose \\(S=X+Y,\nT= \\frac{X}{X+Y}\\) Quelle est la loi du couple \\((S,T)\\)?\nSoient \\(X,Y\\) deux variables indépendantes, \\(\\sim \\mathrm{Unif}[0,1]\\). On pose \\(U = \\sqrt{-2\\log(X)} \\cdot \\cos(2\\pi Y), V = \\sqrt{-2\\log(X)} \\cdot \\sin(2\\pi Y)\\). Quelle est la loi du couple \\((X,Y)\\)?\nSoient \\(X,Y\\) deux variables indépendantes, \\(\\sim \\mathcal{N}(0,1)\\). On pose \\(T = \\frac{Y}{X}\\). Quelle est la loi de \\(T\\)?\nSoient \\((X,Y)\\) un couple de variables indépendantes, \\(\\sim \\mathcal{N}(0,1)\\). On pose \\(U=X, V= X^2 + Y^2\\). Quelle est la loi de \\((U,V)\\)?\nSoit \\(X\\) de densité \\(\\exp(-x) \\mathbf{1}_{\\mathbb{R}_+}(x)\\). On pose \\(U = [X]\\) et \\(V= X-[X]\\), la partie entière, resp. la partie décimale de \\(X\\). Quelle est la loi de \\((U,V)\\)?\n\n\n\nExercice 22\nSoient \\(X_1, X_2\\) deux variables indépendantes et identiquement distribuées suivant la loi \\(\\mathrm{Unif}\\{1,2,3\\}\\).\nOn note \\(U = \\min\\{X_1,X_2\\}\\), \\(V= \\max\\{X_1,X_2\\}\\) et enfin \\(S= U+V\\).\n\nDéterminer la loi jointe de \\((U, V)\\) et \\((V, S)\\).\nEn déduire les lois de \\(U, V\\), et \\(S\\). Calculer les lois de \\(UV\\) et \\(VS\\).\nCalculer les covariances et les coefficients de corrélation de \\((U, V)\\) et \\((V, S)\\)."
+  },
+  {
+    "objectID": "exercices/td1.html#le-cadre-gaussien",
+    "href": "exercices/td1.html#le-cadre-gaussien",
+    "title": "Variables aléatoires réelles",
+    "section": "Le cadre gaussien",
+    "text": "Le cadre gaussien\n\nExercice 23\nOn considère deux variables indépendantes \\(Y \\sim \\mathcal{N}(0,1)\\) et\n\\[\\varepsilon= \\begin{cases} & 1 \\mbox{ avec probabilité } p \\\\ & -1 \\mbox{ avec probabilité } 1-p, \\end{cases}\\]\noù \\(p \\in (0,1)\\).\n\nQuelle est la loi de \\(Z= \\varepsilon\\)\nQuelle est la loi de \\(Y+Z\\)?\nLe vecteur \\((Y,Z)\\) est-il un vecteur gaussien?\n\n\n\nExercice 24\nSoit \\((X,Y,Z)\\) le vecteur aléatoire gaussien d’espérance \\((1,1,0)\\) et de matrice de covariance\n\\[K = \\begin{pmatrix} 2 & 1 & 1 \\\\ 1 & 2 & 2 \\\\ 1 & 2 & 2  \\end{pmatrix}.\\]\n\nEcrire la fonction caractéristique de \\((X,Y,Z)\\).\n\nTrouver la loi de \\(2X+Y+Z\\), de \\(4X-2Y+Z\\), enfin de \\(Y-Z\\).\nLe vecteur \\((X,Y)\\) admet-il une densité dans \\(\\mathbb{R}^2\\). Si oui, laquelle?\nPour \\(a \\in \\mathbb{R}\\) on définit \\(u_a : \\mathbb{R}^3 \\to \\mathbb{R}^3\\) de matrice\n\\[A = \\begin{pmatrix} 1/\\sqrt{2} & 0 & 0 \\\\ a & -2a & 0 \\\\ 0 & 1 & -1\\end{pmatrix}.\\]\nDéterminer la loi de \\(u_a(X-1,Y-1,Z)\\) en fonction de \\(a\\).\nPour quelle valeur de \\(a\\) les deux premières coordonnées de \\(u_a(X-1,Y-1,Z)\\) suivent-ils une loi normale centrée réduite sur \\(\\mathbb{R}^2\\)?\n\n\n\nExercice 25\nSoit \\(\\rho\\in ]-1,1[\\) et \\((X,Y)\\) un vecteur gaussien centré de matrice de covariances \\(M = \\begin{pmatrix} 1 & \\rho \\\\ \\rho & 1 \\end{pmatrix}\\). On notera \\(\\sigma = \\sqrt{1-\\rho^2}\\).\n\nCalculer det(\\(M\\)), \\(M^{-1}\\), puis exprimer la densité \\(f_{(X,Y)}\\) du vecteur \\((X,Y)\\).\nMontrer que\n\\[g_x(y) := \\frac{f_{(X,Y)}(x,y)}{f_X(x)} = \\frac{1}{\\sigma \\sqrt{2\\pi}} \\exp \\left( - \\frac{1}{2(1-\\rho^2)} \\left(y-\\rho x\\right)^2\\right).\\]\nMontrer que pour tout \\(x \\in \\mathbb{R}\\), \\(y \\to g_x(y)\\) définit une densité.\nSi on note \\(Y_x\\) une variable de densité \\(g_x\\), que pouvez-vous dire sur la loi de \\(Y_x\\)?\n\nTrouver \\(\\alpha\\), \\(\\beta\\) deux réels tels que \\((X, \\alpha X + \\beta Y)\\) suit la loi normale centrée réduite.\n\nRemarquer que l’on peut écrire \\(Y= -\\frac{\\alpha}{\\beta} X +\\frac{1}{\\beta}(\\alpha X + \\beta Y)\\). Sauriez-vous dire pourquoi cette écriture est intéressante?\n\n\nExercice 26\nMontrer que le vecteur aléatoire de dimension \\(3\\) de moyenne \\(m = (7,0,1)\\) et de matrice de covariances\n\\[K = \\begin{pmatrix} 10 & -1 & 4 \\\\ -1 & 1 & -1 \\\\ 4 & -1 & 2 \\end{pmatrix}\\]\nappartient presque sûrement à un hyperplan affine de \\(\\mathbb{R}^3\\) que l’on déterminera."
+  },
+  {
+    "objectID": "exercices-listings.html",
+    "href": "exercices-listings.html",
+    "title": "TDs",
+    "section": "",
+    "text": "Note\n\n\n\nLes séances d’exercice sont organisées autour des feuilles de TD. Sentez vous libres d’attaquer les exercices à l’avance.\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Titre\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Tags\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitre\n\n\n\nTags\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nTD I : Rappels de Licence\n\n\nVariables aléatoires réelles\n\n\n\n\n\n\nSep 11, 2025\n\n\nTD I supplément : Rappels de Licence\n\n\nVariables aléatoires réelles, Branchement\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\nTipSuggestion",
+    "crumbs": [
+      "TDs"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html",
+    "href": "course-syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Cliquer ici pour télécharger une copie PDF du syllabus.",
+    "crumbs": [
+      "Informations",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#informations",
+    "href": "course-syllabus.html#informations",
+    "title": "Syllabus",
+    "section": "Informations",
+    "text": "Informations\n\n\n\n\n\n\n\n\n\n\nJour\nHoraire\nSalle\n\n\n\n\nCours/Exercices\nLundi\n13:30 - 16:30\nSophie Germain 1015\n\n\nExercices\nMardi\n8:30 - 10:30\nHalle aux Farines 227C\n\n\nCours/Exercices\nJeudi\n13:30 - 16:30\nSophie Germain 1015",
+    "crumbs": [
+      "Informations",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#objectifs",
+    "href": "course-syllabus.html#objectifs",
+    "title": "Syllabus",
+    "section": "Objectifs",
+    "text": "Objectifs\nA la fin du premier semestre, vous saurez…\n\nDéfinir, caractériser une loi de probabilité sur un espace simple.\nÉtablir et utiliser les différents types de convergence de variables aléatoires.\nManipuler les espérances conditionnelles.\nManipuler les vecteurs gaussiens (en dimension finie).",
+    "crumbs": [
+      "Informations",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#bibliographie",
+    "href": "course-syllabus.html#bibliographie",
+    "title": "Syllabus",
+    "section": "Bibliographie",
+    "text": "Bibliographie\nBerger, Q., Caravenna, F., & Dai Pra, P. (2021). Probabilità (Vol. 9). Springer.\n\nEn italien Via ENT Paris Cité\nEn français Via ENT Paris Cité",
+    "crumbs": [
+      "Informations",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#cours-et-exercices",
+    "href": "course-syllabus.html#cours-et-exercices",
+    "title": "Syllabus",
+    "section": "Cours et exercices",
+    "text": "Cours et exercices",
+    "crumbs": [
+      "Informations",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#validation",
+    "href": "course-syllabus.html#validation",
+    "title": "Syllabus",
+    "section": "Validation",
+    "text": "Validation\n\nContrôle continu\n\n\nExamens\nL’examen de session I dure trois heures, il porte sur l’ensemble du cours",
+    "crumbs": [
+      "Informations",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#notation",
+    "href": "course-syllabus.html#notation",
+    "title": "Syllabus",
+    "section": "Notation",
+    "text": "Notation",
+    "crumbs": [
+      "Informations",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#intégrité",
+    "href": "course-syllabus.html#intégrité",
+    "title": "Syllabus",
+    "section": "Intégrité",
+    "text": "Intégrité\nTL;DR: Ne trichez pas!",
+    "crumbs": [
+      "Informations",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#assiduité",
+    "href": "course-syllabus.html#assiduité",
+    "title": "Syllabus",
+    "section": "Assiduité",
+    "text": "Assiduité",
+    "crumbs": [
+      "Informations",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#sauvez-les-dates",
+    "href": "course-syllabus.html#sauvez-les-dates",
+    "title": "Syllabus",
+    "section": "Sauvez les dates!",
+    "text": "Sauvez les dates!\n\nContrôle Continu 1 Mardi 7 octobre 2025\n\nContrôle Continu 2 Mardi 21 octobre 2025\nContrôle Continu 3\n\nExamen entre le Lundi 8 et le Vendredi 19 décembre\nExamen session II en juin 2026\n\nCliquer ici for l’emploi du temps.",
+    "crumbs": [
+      "Informations",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-links.html",
+    "href": "course-links.html",
+    "title": "Quelques liens",
+    "section": "",
+    "text": "Entrepot GitHub du cours\n🔗 sur GitHub\n\n\nEntrepot GitHub des Notes de cours\n🔗 sur GitHub\n\n\nPortail Moodle du cours\n🔗 sur Moodle",
+    "crumbs": [
+      "Informations",
+      "Liens"
+    ]
+  },
+  {
+    "objectID": "course-faq.html",
+    "href": "course-faq.html",
+    "title": "FAQ",
+    "section": "",
+    "text": "Pas nécessairement.",
+    "crumbs": [
+      "Informations",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "course-faq.html#les-corrigés-des-exercices-sont-ils-disponibles-en-ligne",
+    "href": "course-faq.html#les-corrigés-des-exercices-sont-ils-disponibles-en-ligne",
+    "title": "FAQ",
+    "section": "",
+    "text": "Pas nécessairement.",
+    "crumbs": [
+      "Informations",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "course-faq.html#comment-travailler-avec-les-cahiers-de-simulation",
+    "href": "course-faq.html#comment-travailler-avec-les-cahiers-de-simulation",
+    "title": "FAQ",
+    "section": "Comment travailler avec les cahiers de simulation ?",
+    "text": "Comment travailler avec les cahiers de simulation ?\n\nEn R\n\nTélécharger et installer R 4.x.y: https://cran.r-project.org/\nTélécharger et installer RStudio: https://dailies.rstudio.com/\nInstaller Quarto CLI: https://quarto.org/docs/getting-started/installation.html\nInstaller Git: https://happygitwithr.com/install-git.html\nInstaller tout package utile avec install.packages(\"___\") (voir aussi le package pak)\n\n\n\nEn Python",
+    "crumbs": [
+      "Informations",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "course-team.html",
+    "href": "course-team.html",
+    "title": "MA1AY010 : Enseignants",
+    "section": "",
+    "text": "S. Boucheron est professeur dans l’Équipe de Statistique du Laboratoire de Probabilités, Statistiques et Modélisation (Université Paris Cité, Sorbonne Université, CNRS).\n\n\n\n\n\n\n\nConsultations\nBureau\n\n\n\n\nLundi 11:00 am - 12:00 pm\nSophie Germain 5013\n\n\n\nS. Abbes est professeur dans l’Équipe de Statistique du Laboratoire de Probabilités, Statistiques et Modélisation (Université Paris Cité, Sorbonne Université, CNRS).\n\n\n\n\n\n\n\nConsultations\nBureau\n\n\n\n\nLundi 11:00 am - 12:00 pm\nSophie Germain 5013",
+    "crumbs": [
+      "Informations",
+      "Enseignants"
+    ]
+  },
+  {
+    "objectID": "course-team.html#instructeurs",
+    "href": "course-team.html#instructeurs",
+    "title": "MA1AY010 : Enseignants",
+    "section": "",
+    "text": "S. Boucheron est professeur dans l’Équipe de Statistique du Laboratoire de Probabilités, Statistiques et Modélisation (Université Paris Cité, Sorbonne Université, CNRS).\n\n\n\n\n\n\n\nConsultations\nBureau\n\n\n\n\nLundi 11:00 am - 12:00 pm\nSophie Germain 5013\n\n\n\nS. Abbes est professeur dans l’Équipe de Statistique du Laboratoire de Probabilités, Statistiques et Modélisation (Université Paris Cité, Sorbonne Université, CNRS).\n\n\n\n\n\n\n\nConsultations\nBureau\n\n\n\n\nLundi 11:00 am - 12:00 pm\nSophie Germain 5013",
+    "crumbs": [
+      "Informations",
+      "Enseignants"
+    ]
+  },
+  {
+    "objectID": "exercices/td1-supplement.html",
+    "href": "exercices/td1-supplement.html",
+    "title": "MA1AY010 Probabilités",
+    "section": "",
+    "text": "NoteTD I : Révisions de Licence (exercices supplémentaires)\n\n\n\n\n8 Septembre 2025-12 Septembre 2025\nMaster I Isifar\nProbabilités"
+  },
+  {
+    "objectID": "exercices/td1-supplement.html#pour-aller-plus-loin",
+    "href": "exercices/td1-supplement.html#pour-aller-plus-loin",
+    "title": "MA1AY010 Probabilités",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\n\nExercice 1 (un (contre)-exemple à garder en tête)\nOn note \\(C\\) l’ensemble de Cantor, qui est obtenu, récursivement, en enlevant \\(I_1^{(1)} : = (1/3,2/3)\\) à l’intervalle \\([0,1]\\), puis en enlevant les tiers intermédiaires \\(I_2^{(1)} = (1/9,2/9), I_2^{(2)}= (7/9,8/9)\\) des deux intervalles restants, et ainsi de suite, de sorte qu’à l’etape \\(n\\) on enlève \\(2^{n-1}\\) intervalles tous de taille \\(1/3^n\\), notés \\(I_n^{(j)},j=1...2^{n-1}\\).\nOn définit la fonction croissante :\n\\[F(x) := \\begin{cases}  0 & \\text{ si } x \\le 0 \\\\    1 & \\text{ si } x \\ge 1 \\\\ \\frac{2j-1}{2^n} \\text{ si } x \\in I_n^{(j)}. \\end{cases}\\]\n\nLa fonction \\(F\\) est-elle continue?\nDans quel ensemble la variable \\(X\\), de fonction de répartition \\(F\\) —définie ci-dessus— prend elle ses valeurs? Que vaut \\(\\mathbb{E}[X]\\)? Que vaut \\(\\mathbb{P}(|X-\\mathbb{E}[X]|&lt;1/8)\\)? Pour \\(x \\in C\\), que vaut \\(\\mathbb{P}(X=x)\\)?\nJustifier que la variable \\(X\\) est uniforme sur \\(C\\). Admet-elle une densité sur \\([0,1]\\)?\n\nQuelle est la loi de \\(Y=F(X)\\)?\nPourrait-on ainsi définir une variable aléatoire uniforme sur \\(\\mathbb{Q}\\cap [0,1]\\)?\nSoient \\(\\{X_j, j \\in \\mathbb{N}^* \\}\\) une famille de variables i.i.d., distribuées suivant la loi de Bernoulli de parmaètre \\(1/2\\). On définit \\(X=2 \\sum_{j \\ge 1} \\frac{X_j}{3^j}\\). Quelle est la loi de \\(X\\)?\nCalculer \\(\\Phi_X\\) et montrer qu’elle est constante sur \\(\\{3^k \\pi, k \\in \\mathbb{N}^* \\}\\).\n\n\n\nExercice 2\nDans ce qui suit \\(||.||\\) désigne la norme euclidienne.\nPour \\(\\varepsilon \\in (0,1)\\), \\(n \\in \\mathbb{N}\\)\non note \\(A_{n, \\varepsilon} := \\{ x \\in \\mathbb{R}^n : (1-\\varepsilon)(n/3)^{1/2} \\le ||x|| \\le (1+\\varepsilon)(n/3)^{1/2}\\}\\), et \\(C_n=[-1,1]^n\\).\nMontrer que pour tout \\(\\varepsilon \\in (0,1)\\), la mesure de Lebesgue de \\(C_n \\cap A_{n, \\varepsilon}^c\\) est négligeable, pour \\(n \\to \\infty\\), devant celle de \\(C_n\\).\nIndication : On notera qu’un point générique dans \\(C_n\\) a pour coordonnées \\((X_1,...,X_n)\\), avec \\(\\{X_i, i \\ge 1\\}\\) une famille de variables aléatoires i.i.d, uniformes sur \\([-1,1]\\).\nNote : Ceci signifie que pour \\(\\varepsilon\\) aussi petit qu’on souhaite le prendre, lorsque \\(n\\) est grand, la majeure partie du volume de l’hypercube \\(C_n\\) se trouve dans la couronne \\(A_{n,\\varepsilon}\\) (!)\n\n\nExercice 3\nSoit \\(X \\sim \\Gamma(1,s)\\). On définit \\(Y \\sim \\mathrm{Poisson}(X)\\), (c’est-à-dire que conditionnellement à \\(X=x\\), \\(Y \\sim \\mathrm{Poisson}(x)\\)).\n\nCalculer \\(\\Phi_Y\\).\nMontrer que lorsque \\(s \\to \\infty\\), \\[\\frac{Y-E[Y]}{\\sqrt{\\mathrm{var}(Y)}} \\overset{(\\mathrm{loi})}{\\longrightarrow} Z,\\] où \\(Z \\sim \\mathcal{N}(0,1)\\). Y a-t-il un lien avec le théorème central limite?\n\n\n\nExercice 4\n(Une remarque importante sur la convergence en loi.)\nSoit, pour \\(n \\ge 1\\), \\(X_n\\) un variable aléatoire dont la fonction de répartition est définie par \\[ F_n(x) = x - \\frac{\\sin(2n \\pi x)}{2n\\pi}, \\ 0 \\le x \\le 1.\\]\n\nMontrer que \\(X_n\\) converge en loi vers une variable \\(X\\) (dont on décrira la loi).\n\nVérifier que \\(X_n\\) et \\(X\\) sont des variables à densité. On note \\(f_n := F_n'\\) la densité de \\(X_n\\), \\(f\\) celle de \\(X\\). A-t-on \\(f_n \\underset{n \\to \\infty}{\\rightarrow} f\\) simplement?\n\n\n\nExercice 5\n(Le problème des anniversaires)\nOn cherche a approximer la probabilité que parmi \\(N\\) personnes, au moins deux (resp. trois) aient leur anniversaire le même jour.\n\nPour \\(1 \\le i &lt;j \\le N\\), on note \\(E_{ij}\\) l’événement que les personnes \\(i,j\\) aient le même anniversaire. Quelle est la probabilité de \\(E_{ij}\\)? Dans la suite de l’exercice on omet de considérer le cas des \\(29\\) février. Que vaut alors \\(P(E_{ij})\\)? Montrer que les événements \\(E_{12}, E_{23}, E_{13}\\) sont indépendants deux à deux, mais pas mutuellement indépendants. Exprimer la probabilité qu’il y ait au moins deux personnes qui aient leur anniversaire le même jour.\nLe but de cette question n’est pas d’obtenir un résultat exact, mais de faire une approximation assez bonne de la probabilité que parmi \\(N\\) personnes, il y en ait au moins deux qui partagent le même anniversaire. On admettra donc que dans la suite on fait l’approximation que les \\(\\{E_{ij}, 1 \\le i &lt; j \\le N\\}\\) sont mutuellement indépendants. Quelle est alors la loi du nombre de couples ayant le même anniversaire? Approximer le résultat pour \\(N=30, N=60\\).\n\nPar une méthode similaire, approximer la probabilité que parmi \\(60\\) personnes, il y en ait au moins trois qui ont leur anniversaire le même jour. Finalement, approximer la probabilité de cet événement lorsque \\(N=90\\).\n\n\n\nExercice 6\n(Quelques variantes du modèle de branchement aléatoire)\nOn considère le modèle de branchement aléatoire qui est un modèle pour l’évolution d’une population haploïde.\nOn part initialement de \\(Z_0\\) ancêtres, et on note \\(Z_n\\) le nombre total d’individus de la génération \\(n\\).\nOn fait l’hypothèse (pas très réaliste) que tous les individus ont exactement le même temps de vie (disons \\(1\\)), et que de plus deux générations distinctes ne cohabitent pas. Ainsi chacun des ancêtre meurt au temps \\(1\\), et donne naissance à un nombre aléatoire d’individus, de façon indépendante de ses contemporains. Tous les individus qui sont nés au temps \\(1\\) forment la génération \\(1\\). La génération \\(1\\) meurt au temps \\(2\\) en donnant naissance à la génération \\(2\\), etc…\nFormellement, on se donne une loi de branchement \\(\\nu\\) sur les entiers positifs, telle que \\(\\nu(1)&lt; 1\\) et \\(\\sum_{k \\ge 0} k \\nu(k) = \\mu \\in [0,\\infty)\\) On introduit alors une famille \\((X,X_{i,k}, i \\ge 0, k\\ge 1)\\) de variables aléatoires i.i.d, toutes de loi \\(\\mu\\). Si jamais la génération \\(i\\) possède un \\(k\\)-ième individu, \\(X_{i,k}\\) désigne le nombre de ses descendants.\n\nPour \\(n \\ge 1\\), exprimer \\(Z_n\\) en fonction de \\(Z_{n-1}\\) et des \\((X_{n-1,k}, k \\ge 1)\\).\nOn note \\(G_{X}(t) = E[t^{X}]\\), \\(G_{Z_n}(t) = E[t^{Z_n}]\\) (qui ne sont autres, modulo un simple changement de variable, que les fonctions génératrice des moments de \\(X\\), \\(Z_n\\)). Exprimer \\(G_{Z_n}\\) en fonction de \\(G_X, G_{Z_0}\\).\nOn note \\(\\zeta\\) le probabilité d’extinction. A quelle condition sur \\(\\mu\\) a-t-on \\(\\zeta=1\\) p.s.?\nIndication : On pourra considérer la suite \\(\\zeta_n = \\mathbb{P}(Z_n=0)\\)\nUne première martingale, Calculer \\(\\mathbb{E}[Z_{n-1}|Z_n]\\). On pose \\(M_{n}=Z_n/\\mu^n\\). Calculer \\(\\mathbb{E}[M_{n+1}|M_n]\\).\n\nPour plus de détails, on pourra voir l’introduction du livre de D.WILLIAMS, Probability with martingales, Cambridge University Press, 1991.\n\nOn considère (dans cette question uniquement) un processus de branchement avec immigration. On garde la même dynamique : à sa mort, un individu donne naissance à un nombre al'atoire de descendants suivant la loi \\(\\mu\\). De plus, chaque génération voit maintenant arriver un nombre aléatoire d’immigrants, indistinguables des individus déjà présents.\nFormellement, on se donne une loi \\(\\nu\\) sur \\(\\mathbb{N}\\) et on introduit \\(Y,Y_1,...Y_n\\) des variables \\(i.i.d.\\) de loi \\(\\nu\\). La génération \\(n\\) reçoit \\(Y_n\\) individus au temps \\(n\\). On note \\(G_Y(t)= E[t^{Y}]\\). Trouver une relation entre \\(G_{Z_n}, G_Y\\) et \\(G_{Z_0}\\).\nEnfin, on considère un processus de branchement dont les individus n’ont pas tous un temps de vie égal à \\(1\\). Pour simplifier un peu, on va seulement considérer la descendance d’un unique ancêtre, i.e. on pose \\(Z_0=1\\). \\ Formellement, on se donne une loi \\(P_{T}\\) sur \\(\\mathbb{R}_+\\), dont la densité est notée \\(f_T\\). On définit famille de variables aléatoires \\((T_{i}, i \\in \\mathbb{N})\\) i.i.d, de loi \\(P_T\\). On peut numéroter les individus en les classant suivant leur date de naissance. On définit alors \\(T_i\\) comme le temps de vie du \\(i\\)-ième individu.\nPour \\(t \\ge 0\\), on note \\(Z_t\\) le nombre total d’individus qui sont en vie au temps \\(t\\). On note enfin \\(G_t(s) = E[s^{Z_t}]\\).\n\n\nMontrer que \\(G_t(s) = \\int_0^{\\infty} E[s^{Z_t} |T_0 =u] f_T(u) du\\)\n\nEn déduire \\[ G_t(s) = \\int_0^t G_X(G_{t-u}(s))f_T(u) du + \\int_t^{\\infty} sf_T(u) du.\\]\n\nDans le cas où \\(f_T(s)= \\lambda \\exp(-\\lambda s)\\), montrer alors que \\[\\frac{\\partial t}{\\partial t} G_t(s) = \\lambda \\left[ G_X(G_t(s)) - G_t(s)\\right]  \\]"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MA15Y010 Probabilités et Extrêmes",
+    "section": "",
+    "text": "Cette page résume le déroulement du semestre\n\n\n\n\n\n\n\n\n\n\n\n\n\nSemaine\nDate\nThème(s)\nPréparer\nCours\nExercices\nÉvaluation\n\n\n\n\n1\n8 Sep\nRévisions Licence\n\n\nTD 1\n\n\n\n\n9 Sep\nRévisions Licence\n\n\nTD 1\n\n\n\n\n11 Sep\nRévisions Licence: théoremes de convergence (intégration)\n\n\nTD 1\n\n\n\n2\n15 Sep\n\n\n\n\n\n\n\n\n16 Sep\n\n\n\n\n\n\n\n\n18 Sep",
+    "crumbs": [
+      "Informations",
+      "Agenda"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2.html",
+    "href": "weeks/week-2.html",
+    "title": "Semaine 2",
+    "section": "",
+    "text": "Important\n\n\n\nLa semaine I (15-19 septembre 2025) est encore consacrée aux révisions de Licence.",
+    "crumbs": [
+      "Agenda",
+      "Week 2"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2.html#préparerrevoir",
+    "href": "weeks/week-2.html#préparerrevoir",
+    "title": "Semaine 2",
+    "section": "Préparer/Revoir",
+    "text": "Préparer/Revoir\n\nEspaces produits, tribus produits\nLois produits\nThéorème de Fubini\nCalculs de densités image\nEspérances, moments, Espaces \\(L^p\\)\nConvergences p.s. et convergences dans \\(L^p\\)\nInégalité de Jensen et conséquences\nProcessus de branchement aléatoire",
+    "crumbs": [
+      "Agenda",
+      "Week 2"
+    ]
+  },
+  {
+    "objectID": "weeks/week-2.html#exercices",
+    "href": "weeks/week-2.html#exercices",
+    "title": "Semaine 2",
+    "section": "Exercices",
+    "text": "Exercices\nFeuille TD I Feuille TD I suppléments\n\nTD I.18 (sommes aléatoires de variables indépendantes) (fin).\nSupplément TD I Exercice 1 (Cantor), Exercice 5 (Anniversaires)\nTD I.7\nTD I….\n\n\nBack to course schedule ⏎",
+    "crumbs": [
+      "Agenda",
+      "Week 2"
+    ]
+  }
+]
