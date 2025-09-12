@@ -5,8 +5,6 @@ project:
     - "weeks/"
     - "!slides/"
     - "!labs/"
-    - "!hw/"
-    - "!ae/"
     - "!supplemental/"
   output-dir: _site
 
@@ -28,7 +26,7 @@ website:
 
   sidebar:
     background: "#D9E3E4"
-    logo: "images/logo.png"
+    logo: "images/pexels-shvetsa-6664247.jpg"
     pinned: true
     align: center
     tools:
@@ -37,26 +35,28 @@ website:
         text: "GitHub organization"
       - icon: person-fill
         text: "Moodle"
-        href: https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/13b6446a-a6c6-4222-8cfb-c36d1f70802b
+        href: https://moodle.u-pariscite.fr/course/view.php?id=13045
 
     style: "docked"
     search: true
     collapse-level: 1
     contents:
-      - section: "Course information"
+      - section: "Informations"
         contents:
           - href: course-overview.qmd
-            text: Overview
+            text: En bref
           - href: course-syllabus.qmd
             text: Syllabus
           - href: course-team.qmd
-            text: Teaching team
+            text: Enseignants
           - href: index.qmd
-            text: Schedule
+            text: Agenda
           - href: course-links.qmd
-            text: Useful links
+            text: Liens 
           - href: course-faq.qmd
             text: FAQ
+      - href: exercices-listings.qmd
+        text: TDs
       - section: "Agenda"
         contents:
           - href: weeks/week-1.qmd
