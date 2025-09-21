@@ -19,7 +19,13 @@ engine: knitr
 
 
 
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
 
+requireNamespace('quarto')
+```
 
 
 
