@@ -1,6 +1,7 @@
 ---
 title: "MA15Y010  Probabilités et Extrêmes"
 tbl-colwidths: [5,10,30,5,5,5,5,5,5,5]
+date: '2025-09-19'
 ---
 
 Cette page résume le déroulement du semestre
@@ -12,8 +13,19 @@ Cette page résume le déroulement du semestre
 |  [1](/weeks/week-1.html)  | 8 Sep 2025 |    Révisions Licence         |           |         |  [TD 1](/exercices/td1.qmd)                                                                                                                |                   |
 |   | 9 Sep  |   Révisions Licence     |            |         |      [TD 1](/exercices/td1.qmd)           |                   |
 |   | 11 Sep  | Révisions Licence: théoremes de convergence (intégration)  |            |         |                                                                                                          [TD 1](/exercices/td1.qmd)       |                   |
-|  [2](/weeks/week-2.html)  | 15 Sep  |            |            |         |                                                                                                                 |                   |
-|   | 16 Sep  |            |            |         |                                                                                                                 |                   |
-|   | 18 Sep  |            |            |         |   
-
+|  [2](/weeks/week-2.html)  | 15 Sep  |  Révisions Licence: Espaces roduits          |            |         |                                                                                                                 |                   |
+|   | 16 Sep  | Changement de variables. Calcul Gamma/Beta           |            |         |                                                                                                                 |                   |
+|   | 18 Sep  | Fonctions génératrices/Conditionnement discret  |            |         |   
+|  [3](/weeks/week-3.html)  | 22 Sep  |  Moments, Espaces $L^p$      |            |         |                                                                                                                 |                   |
+|   | 23 Sep  | Espérance conditionnelle           |            |         |                                                                                                                 |                   |
+|   | 25 Sep  | Conditionnement  |            |         |   
+|  [4](/weeks/week-4.html)  | 29 Sep  |        |            |         |                                                                                                                 |                   |
+|   | 30 Sep  |                |            |         |                                                                                                                 |                   |
+|   | 2 Oct  |         |            |         |   
+|  [5](/weeks/week-5.html)  | 6 Oct   |        |            |         |                                                                                                                 |                   |
+|   | 7  Oct  | CC 1           |            |         |                                                                                                                 |                   |
+|   | 9 Oct  |   |            |         |   
+|  [6](/weeks/week-6.html)  | 13 Oct   |        |            |         |                                                                                                                 |                   |
+|   | 14  Oct  |            |            |         |                                                                                                                 |                   |
+|   | 16 Oct  |  CC 2  |            |         |
 :::

@@ -1,0 +1,5 @@
+```{r}
+#| eval: true    # true si l'exercice est visible 
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```

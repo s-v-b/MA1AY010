@@ -1,0 +1,176 @@
+---
+#title: "Questions : semaine I"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2025-09-08"
+
+format:
+  pdf:
+    output-file: quizz_a.pdf
+    class: exam
+    include-in-header:
+      - text: "\\lhead{{\\sf  Probabilités \\\\ Questionnaire 1}}"
+  html:
+    output-file: quizz_a.html
+
+engine: knitr
+---
+
+
+
+
+
+
+
+
+
+```{r}
+#| echo: false
+#| eval: true
+
+cnt_exo <- 1
+```
+
+
+
+::: {.callout-note}
+
+### Questionnaire I 
+
+- 8 Septembre 2025-12 Septembre 2025
+
+- Master I Isifar
+
+- **Probabilités** 
+
+:::
+
+
+
+```{r}
+#| echo: false
+#| eval: true
+
+cnt_exo <- 1
+```
+
+
+### Question `r cnt_exo`
+
+```{r}
+#| eval: true    # true si l'exercice est visible 
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+i. Est-il vrai qu'une fonction croissante sur $\mathbb{R}$ est toujours mesurable ?
+i. Si $X,Y$  sont indépendantes, de lois à densité sur $\mathbb{R}$, est-il vrai que
+  $\mathbb{P} \{ X= Y \}=0$?
+
+
+### Question `r cnt_exo`
+
+
+{{< include _increment.qmd >}}
+
+
+
+
+Soit $X$ une variable aléatoire réelle, dont la loi admet une densité $f$ par rapport à
+la mesure de Lebesgue. Soit $a$ un réel positif et $b$ un réel quelconque.
+
+
+i. La loi de la variable aléatoire $aX +b$ admet-elle une densité ?
+i. Si oui, exprimer cette densité en fonction de $f, a, b$.
+
+
+### Question `r cnt_exo`
+
+
+{{< include _increment.qmd >}}
+
+Sur un espace de probabilité $(\Omega, \mathcal{F}, P)$, on dispose d'une famille infinie
+de variables aléatoires indépendantes $X_1, X_2, \ldots, X_n, \dots$ toutes distribuées selon
+la loi exponentielle standard (densité $\mathrm{e}^{-x}$ sur $[0, \infty)$).
+
+On définit $Y_n = \sum_{i=1}^n \left( X_i/i - \frac{1}{i}\right)$ pour tout $n$.
+
+
+i. Calculer l'espérance et la variance de $Y_n$.
+i. La suite $(Y_n)_n$ converge-t-elle dans $\mathcal{L}_2$ ?
+i. Si oui, pouvez-vous caractériser la loi de la limite?
+
+
+### Question `r cnt_exo`  (Inégalité d'association)
+
+
+{{< include _increment.qmd >}}
+
+
+Soit $X$ une variable aléatoire réelle sur un espace de probabilité $(\Omega, \mathcal{F}, P)$
+et  $f,g$ deux fonctions croissantes positives sur $\mathbb{R}$.
+
+Montrer que
+$$
+\mathbb{E} \left[ f(X) g(X)\right] \geq \mathbb{E}\left[ f(X)\right]  \times \mathbb{E} \left[ g(X) \right] \, .
+$$
+
+
+### Question `r cnt_exo`
+
+
+{{< include _increment.qmd >}}
+
+Soit $X_1, \ldots, X_n$ une suite de variables aléatoires i.i.d. selon une loi exponentielle.
+On note $(X_{i,n})_{i\leq n}$ le réarrangement croissant de $X_1, \ldots, X_n$, (les statisques d'ordre)
+
+
+i. Quelle est la loi de $X_{1,n}$, le minimum ?
+i. Quelle est la loi de $X_{2,n} - X_{1, n}$ ?
+i. Quelle est la densité jointe de la loi de $(X_{i,n})_{i\leq n}$ ?
+i. Quelle est la densité jointe de la loi de $(X_{i,n} - X_{i-1,n})_{i\leq n}$ avec la convention $X_{0,n}=0$?
+
+
+
+### Question `r cnt_exo`
+
+
+{{< include _increment.qmd >}}
+
+Soit $X$ une variable aléatoire distribuée selon une loi binomiale de 
+paramètres $n$ et $p \in (0,1)$. Montrer que
+$$
+\frac{1}{\mathbb{E}X+1} < \mathbb{E}\frac{1}{X+1} \leq \frac{1}{\mathbb{E}X + p} \, .
+$$
+Montrer que si $X$ est distribuée selon une loi de Poisson 
+$$
+\mathbb{E}\frac{1}{X+1} = \frac{1 - \mathrm{e}^{-\mathbb{E}X}}{\mathbb{E}X} \, .
+$$
+On note $E$ l'événement $\{ X >0 \}$ montrer que 
+$$
+\mathbb{E}_{P (\cdot|E)}\left[ \frac{1}{X}\right] \geq \mathbb{E}\frac{1}{X+1} \, .
+$$
+
+
+### Question `r cnt_exo`
+
+
+{{< include _increment.qmd >}}
+
+
+
+Le jeu oppose un présentateur à un candidat (le joueur). Ce joueur est placé devant trois portes fermées. Derrière l'une d'elles se trouve une voiture et derrière chacune des deux autres se trouve une chèvre. Il doit tout d'abord désigner une porte. Puis le présentateur doit ouvrir une porte qui n'est ni celle choisie par le candidat, ni celle cachant la voiture (le présentateur sait quelle est la bonne porte dès le début). Le candidat a alors le droit d'ouvrir la porte qu'il a choisie initialement, ou d'ouvrir la troisième porte.
+
+On suppose que l'organisateur du jeu place la voiture uniformément au hasard derrière l'une des trois portes avant la partie.
+
+Les questions qui se posent au candidat sont :
+
+
+i. Que doit-il faire ?
+i. Quelles sont ses chances de gagner la voiture en agissant au mieux ?
+
+
+
+
+
+

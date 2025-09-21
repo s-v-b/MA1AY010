@@ -1,39 +1,47 @@
 ---
 title: "Week 3"
 subtitle: "TBA"
-editor: visual
-draft: true
+editor: source
+draft: false
 ---
 
 ::: callout-important
--   We're back to in person classes this week! See [here](/course-syllabus.html#course-info) for class locations. And don't forget to wear your mask! 😷
--   Due dates:
-    -   AE 2: Fri, Jan 21, 11:59pm ET
+
+La semaine III (22-26 septembre 2025)  est  consacrée aux calculs de moments, et au conditionnement.
+
 :::
 
-## Prepare
+## Préparer/Voir/Revoir
 
-📖 Read Introduction to Modern Statistics, Sec 24.1: [Case study: Sandwich store](https://openintro-ims.netlify.app/inf-model-slr.html#case-study-sandwich-store)
+::: {}
 
-📖 Read Introduction to Modern Statistics, Sec 24.2: [Randomization test for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#randslope)
+- Espérances, moments, Espaces $L^p$ (2025-09-22)
+- Conditionnement (2025-09-23 et 2025-09-25) 
 
-📖 Read Introduction to Modern Statistics, Sec 24.3: [Bootstrap confidence interval for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#bootbeta1)
+:::
 
-## Participate
+::: {}
 
-🖥️ [Lecture 4 - SLR: Prediction + model evaluation](/slides/lec-4.html)
+- [Voir Notes, Espérances, Moments, Espaces $L^p$, ...](https://s-v-b.github.io/MA1AY010-CN/031-moments.html)
+- [Voir Notes, Conditionnement](https://s-v-b.github.io/MA1AY010-CN/https://s-v-b.github.io/MA1AY010-CN/)
 
-🖥️ [Lecture 5 - SLR: Simulation-based inference](/slides/lec-5.html)
 
-## Practice
+:::
 
-📋 [Application Exercise 2 - Bike rentals in DC](/ae/ae-2-dcbikeshare.html)
 
-## Perform
+## Exercices
 
-None.
+- [Feuille TD II](/exercices/td2.qmd)
+- [Feuille TD II supplément](/exercices/td2-supplement.qmd)
+- [Questionnaire I](/exercices/quizz_a.qmd)
 
-<br><br>
+
+<!-- - TD I.18 (sommes aléatoires de variables indépendantes) (*fin*).
+- Supplément TD I Exercice 5 (Anniversaires)
+- TD I.7
+- TD I.... -->
+
+
 
 ::: {style="font-size: 0.875em;"}
 Back to [course schedule](/ "Course schedule") ⏎

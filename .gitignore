@@ -15,3 +15,5 @@ _site/
 *.key
 *speaker.html
 **/*.quarto_ipynb
+
+PROBA_M1_MIDS/

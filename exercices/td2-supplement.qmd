@@ -1,0 +1,166 @@
+---
+#title: "Exercices : semaine III"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2025-09-19"
+
+format:
+  pdf:
+    output-file: td2-supplement.pdf
+    class: exam
+    include-in-header:
+      - text: "\\lhead{{\\sf  Probabilités \\\\ TD 2 supplement}}"
+  html:
+    output-file: td2-supplement.html
+
+engine: knitr
+---
+
+
+
+```{r}
+#| echo: false
+#| eval: true
+
+cnt_exo <- 1
+```
+
+
+
+::: {.callout-note}
+
+### TD II : Espérances et lois conditionnelles (supplément)
+
+  22 Septembre 2025-26 Septembre 2025
+
+- Master I Isifar
+
+- **Probabilités** 
+
+:::
+
+
+### Exercice `r cnt_exo`  (Questionnaire)
+
+```{r}
+#| eval: true    # true si l'exercice est visible 
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+
+Soient $(\Omega; \mathcal{A}; P)$ un espace de probabilité, $X$ et $Y$ des v.a.r., $T$ une v.a. à valeurs
+dans $\mathbb{R}^d$. 
+
+Que peut-on dire, sous réserve d'hypothèses d'intégrabilité adéquates, des espérances conditionnelles suivantes :
+
+
+1. $\mathbb{E}(f(T)\mid T)$ avec $f : \mathbb{R}^d \to \mathbb{R}$ borélienne,
+1. $\mathbb{E}(X\mid T)$ avec $X$ $\ \sigma(T)$-mesurable, 
+2. $\mathbb{E}(XY \mid T)$ avec $X \ \sigma(T)$-mesurable, 
+3. $\mathbb{E}(f(X)\mid T)$ avec $f : \mathbb{R}^d \to \mathbb{R}$ borélienne, $X$ et $T$ indépendantes, 
+4. $\mathbb{E}(\mathbb{E}(X \mid T))$, 
+5. $\mathbb{E}[S_{10} |S_{8}]$ lorsque $S_n = \sum_{i=1}^n X_i$ et les $(X_i)_{i \ge 1}$ sont i.i.d., 
+6. $\mathbb{E}[S_{31}\mid X_1]$ lorsque $S_n = \sum_{i=1}^n X_i$ et les $(X_i)_{i \ge 1}$ sont i.i.d., 
+7. $\mathbb{E}[\Pi_{4} \mid \Pi_2]$ lorsque  $\Pi_n = \prod_{i=1}^n X_i$ et les $(X_i)_{i \ge 1}$ sont i.i.d., 
+8. $\mathbb{E}[\phi(X,Y) \mid Y]$ lorsque $X$ et $Y$ sont indépendantes, 
+9. $\mathbb{E}[f(S_2+X_8) \mid S_2]$, lorsque $S_n = \sum_{i=1}^n X_i$ et les $(X_i)_{i \ge 1}$ sont i.i.d. 
+
+
+::: {.content-visible when-profile="solution"}
+ 
+
+
+1.[(i)] $f(T)$ est $\sigma(T)$-mesurable donc 
+$$ \mathbb{E}[f(T) \mid T] = f(T)$$
+1.[(ii)] si $X$ est $\sigma(T)$-mesurable 
+$$ \mathbb{E}[X \mid T] = X.$$ 
+1.[(iii)] Si $X$ est $\sigma(T)$-mesurable notons déjà que $X \mathbb{E}[Y \mid T]$ l'est également.
+
+FIxons $A'\in \sigma(T)$.
+ 
+ Traitons d'abord le cas $X = \mathbb{I}_A$, pour  $A \in \sigma(T)$. Par définition de $\mathbb{E}[Y \mid T]$ on a, 
+$$mathbb{E}[ X Y \mathbb{I}_{A'}] & = & \mathbb{E}[\mathbb{I}_{A} Y \mathbb{I}_{A'}] \\ 
+& = & \mathbb{E}[\mathbb{I}_A \mathbb{E}[Y \mid T] \mathbb{I}_{A'}] $$ 
+et donc dans ce cas $\mathbb{E}[XY \mid T] = X \mathbb{E}[Y \mid T]$. 
+
+Si $X = \sum_{i=1}^N \alpha_i \mathbb{I}_{A_i}$, avec $A_i \in \sigma(T), 1 \le i \le N$, on a donc par linéarité de l'espérance 
+$$ \mathbb{E}[ X Y \mathbb{I}_{A'}]  = \sum_{i=1}^N \alpha_i \mathbb{E}[\mathbb{I}_{A_i} \mathbb{E}[Y \mid T] \mathbb{I}_{A'}] = \mathbb{E}\left[ X \mathbb{E}[Y \mid T] \mathbb{I}_{A'}\right] $$ 
+
+Si $X$ est une v.a.r positive, $\sigma(T)$-mesurable, il existe une suite de v.a. simples 
+$$ X_n = \sum_{k=0}^{n 2^n -1} \frac{k}{2^n} \mathbb{I}_{\{\frac{k}{2^n} \le X < \frac{k+1}{2^n} \}} + n \mathbb{I}_{\{X \ge n\}}$$ 
+i.e. de la forme $\sum_{i=1}^N \alpha_i \mathbb{I}_{A_i}$ avec $A_i \in \sigma(T), 1 \le i \le N$ qui converge p.s. vers $X$.  
+D'après ce qui précède,
+$$   \mathbb{E}[ X_n Y \mathbb{I}_{A'}]  = \mathbb{E}\left[ X_n \mathbb{E}[Y \mid T] \mathbb{I}_{A'}\right].$$
+Par convergence dominée ($|X_n| \le |X|$) on peut passer à la limite lorsque $n \to \infty$ dans l'égalité précédente pour assurer 
+   $$   \mathbb{E}[ X Y \mathbb{I}_{A'}]  = \mathbb{E}\left[ X \mathbb{E}[Y \mid T] \mathbb{I}_{A'}\right].$$
+
+Enfin si $X$ est une v.a.r, $X = X^+-X_-$, avec $X_+ = \max(X,0)$ qui est clairement $\sigma(T)$-mesurable, tout comme $X_-$. On peut donc appliquer ce qui précède et conclure 
+$$   \mathbb{E}[ X Y \mathbb{I}_{A'}]  = \mathbb{E}\left[ X \mathbb{E}[Y \mid T] \mathbb{I}_{A'}\right].$$
+Comme le raisonnement est valable pour tout $A' \in \sigma(T)$, on conclut que 
+$$ \mathbb{E}[XY \mid T] = X \mathbb{E}[Y \mid T].$$ 
+
+1.[(iv)] Si $X$ et $T$ sont indépendantes, i.e. $\sigma(X)$ et $\sigma(T)$ indépendantes, alors $f(X)$ étant $\sigma(X)$-mesurable, on a également que $f(X)$ et $T$ sont indépendantes. 
+On déduit que si $A \in \sigma(T)$. 
+$$ \mathbb{E}[f(X) \mathbb{I}_A] = \mathbb{E}[f(X)]  \mathbb{P}(A) = \mathbb{E}[\mathbb{I}_A \mathbb{E}[f(X)]]. $$ 
+Evidemment $\mathbb{E}[f(X)]$ est $\sigma(T)$-mesurable, et on conclut que $\mathbb{E}[f(X) \mid T] = \mathbb{E}[f(X)]$. 
+
+1.[(v)] Soit $\Omega \in \sigma(T)$. Par définition de l'espérance conditionnelle 
+$$ \mathbb{E}[\mathbb{E}[X \mid T]] = \mathbb{E}[\mathbb{E}[X \mid T] \mathbb{I}_{\Omega}] = \mathbb{E}[X \mathbb{I}_{\Omega}] = \mathbb{E}[X].$$  
+
+1.[(vi)] $\mathbb{E}[S_{10} \mid S_8] = \mathbb{E}[S_8 + X_9 + X_{10} \mid S_8] = S_8 + \mathbb{E}[X_9] + \mathbb{E}[X_{10}] = S_8 + 2 \mathbb{E}[X_1]$, 
+
+où, pour la deuxième égalité ci-dessus on a utilisé la linéarité de l'espérance, (i) pour $\mathbb{E}[S_8 \mid S_8]=S_8$, puis (iv) avec  l'indépendance de $X_9, X_{10},S_8$ car les $(X_i, i \ge 1)$ sont indépendantes. 
+Pour la troisième égalité on a utilisé que les $(X_i, i \ge 1)$ sont i.d 
+
+1.[(vii)] De manière similaire au point précédent 
+$$ \mathbb{E}[S_{31} \mid X_1] = X_1 + 30 \mathbb{E}[X_1].$$
+
+1.[(viii)] En utilisant (iii), puis l'indépendance de $X_3, X_4$ et $\Pi_2$ on obtient
+$$ \mathbb{E}[\Pi_4 \mid \Pi_2] = \Pi_2 \mathbb{E}[X_3X_4 \mid \Pi_2] = \Pi_2 \mathbb{E}[X_3]\mathbb{E}[X_4] = \Pi_2 \mathbb{E}[X_1]^2,$$
+pour la dernière égalité, on a utlisé que les $(X_i, i \ge 1)$ sont i.d.
+
+1.[(ix)] Soit, pour $y \in \mathbb{R}$, $\psi(y) = \mathbb{E}[\phi(X,y)] = \int_{\mathbb{R}} \phi(x,y) d \mathbb{P}_X(x)$ de sorte que $\psi(Y)$ est clairement $\sigma(Y)$-mesurable. 
+On a pour $A \in \sigma(Y)$, qu'il existe $B$ tel que $A = Y^{-1}(B)$, i.e. $\mathbb{I}_A(\omega) = \mathbb{I}_B(Y(\omega))$ et donc, par Fubini 
+$$mathbb{E}[\phi(X,Y) \mathbb{I}_A] & = & \int_{\mathbb{R}^2} \phi(x,y) \mathbb{I}_B(y) d \mathbb{P}_X \otimes d \mathbb{P}_Y(x,y) \\
+& = & \int_{\mathbb{R}} \mathbb{I}_B(y) \left(\int_{\mathbb{R}} \phi(x,y) d \mathbb{P}_X(x) \right) d \mathbb{P}_Y(y) \\ 
+& = &  \int_{\mathbb{R}} \mathbb{I}_B(y)  \psi(y) dy = \mathbb{E}[\psi(Y) \mathbb{I}_B(Y)] = \mathbb{E}[\psi(Y) \mathbb{I}_A] $$
+ 
+1.[(x)] D'après la question précédente 
+$ \mathbb{E}[f(S_2+X_8) \mid S_2] = \psi(S_2),$
+avec $ \psi(s) = \mathbb{E}[f(s+X_8)]$. 
+ 
+:::
+
+
+
+### Exercice `r cnt_exo`
+
+```{r}
+#| eval: true    # true si l'exercice est visible 
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+
+
+On considère un processus de Galton-Watson de loi de branchement 
+$$ \mathbb{P}(\xi=0)= \mathbb{P}(\xi=2)=1/2.$$ issu à la génération $0$ d'un unique individu ancestral. On note $Z_n$ la taille de la population à la génération $n$.
+  
+Exprimer $\mathbb{E}[(Z_{2}-1)^2 \mid Z_1].$
+
+::: {.content-visible when-profile="solution"}
+ 
+On a $Z_2 = \sum_{i=1}^{Z_1} \xi_{1,i}$, avec les $(\xi_{1,i}, i \ge 1)$ indépendants de $Z_1$ et i.i.d. 
+
+Pour tout $f : \mathbb{R}_+ \to \mathbb{R}_+$  on a donc (EF5) : 
+$$ \mathbb{E}[f(Z_2) \mid Z_1] = \psi(Z_1), \mbox{ où } \psi(n) = \mathbb{E}\left[f\left(\sum_{i=1}^n \xi_{1,i}\right)\right]$$ 
+Ici, on a  
+$$psi(n) & = & \mathbb{E}\left[\left(\sum_{i=1}^n \xi_{i,1} - 1\right)^2\right] \\ 
+& = & \mathbb{E}\left[\sum_{i,j=1}^n \xi_{1,i} \xi_{1,j}\right] - 2 \sum_{i=1}^n \mathbb{E}[\xi_{1,i}] + 1 \\
+& = & 2n + (n^2 -n) -2n +1 = n^2 -n +1, $$
+ en utilisant que $\mathbb{E}[\xi_{1,i}^2] = 2$, et $\mathbb{E}[\xi_{1,i} \xi_{1,j}]=1$ si $i \ne j$.  Finalement 
+$$ \mathbb{E}[(Z_2-1)^2 \mid Z_1] = Z_1^2-Z_1+1.$$ 
+ 
+
+:::
+

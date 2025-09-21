@@ -8,3 +8,17 @@
   date: "2025-09-11"
   path: "exercices/td1-supplement.html"
   categories: [Variables aléatoires réelles, Branchement]
+- title: "TD II : Conditionnement"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-09-22"
+  path: "exercices/td2.html"
+  categories: [Conditionnement, Branchement]
+- title: "TD II : Conditionnement  (supplément)"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-09-22"
+  path: "exercices/td2-supplément.html"
+  categories: [Conditionnement, Branchement]
+- title: "Questionnaire I"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-09-22"
+  path: "exercices/quizz_a.html"
