@@ -1,6 +1,6 @@
-# Website for STA 210 at Duke University (Spring 2022)
+# Website for MASpring 2022)
 
-🔗 https://sta210-s22.github.io/website/
+🔗 https://s-v-b.github.io/MA1AY010
 
 ## Colors
 
