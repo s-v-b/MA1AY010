@@ -1,5 +1,38 @@
 [
   {
+    "objectID": "weeks/week-3.html",
+    "href": "weeks/week-3.html",
+    "title": "Week 3",
+    "section": "",
+    "text": "Important\n\n\n\nLa semaine III (22-26 septembre 2025) est consacrée aux calculs de moments, et au conditionnement.",
+    "crumbs": [
+      "Agenda",
+      "Week 3"
+    ]
+  },
+  {
+    "objectID": "weeks/week-3.html#préparervoirrevoir",
+    "href": "weeks/week-3.html#préparervoirrevoir",
+    "title": "Week 3",
+    "section": "Préparer/Voir/Revoir",
+    "text": "Préparer/Voir/Revoir\n\n\nEspérances, moments, Espaces \\(L^p\\) (2025-09-22)\nConditionnement (2025-09-23 et 2025-09-25)\n\n\n\n\nVoir Notes, Espérances, Moments, Espaces \\(L^p\\), …\nVoir Notes, Conditionnement",
+    "crumbs": [
+      "Agenda",
+      "Week 3"
+    ]
+  },
+  {
+    "objectID": "weeks/week-3.html#exercices",
+    "href": "weeks/week-3.html#exercices",
+    "title": "Week 3",
+    "section": "Exercices",
+    "text": "Exercices\n\nFeuille TD II\nFeuille TD II supplément\nQuestionnaire I\n\n\n\nBack to course schedule ⏎",
+    "crumbs": [
+      "Agenda",
+      "Week 3"
+    ]
+  },
+  {
     "objectID": "weeks/week-1.html",
     "href": "weeks/week-1.html",
     "title": "Semaine 1",
@@ -44,6 +77,13 @@
     ]
   },
   {
+    "objectID": "exercices/td2.html",
+    "href": "exercices/td2.html",
+    "title": "MA1AY010 Probabilités",
+    "section": "",
+    "text": "NoteTD II : Espérances et lois conditionnelles\n\n\n\n22 Septembre 2025-26 Septembre 2025\n\nMaster I Isifar\nProbabilités\n\n\n\n\nExercice 1\n\n\n\n\n\n\nNoteCours\n\n\n\nEspérance conditionnelle par rapport à une tribu engendrée par une partition dénombrable.\n\n\n\nSoit \\((A_n, n \\in \\mathbb{N}^*)\\) une partition de \\(\\Omega\\) et \\(\\mathcal{F}= \\sigma(A_n, n \\ge 1)\\) la tribu engendrée par les \\(A_n, n \\ge 1\\). Rappelons qu’une v.a.r. \\(Y\\) est \\(\\mathcal{F}\\)-mesurable si et seulement si il existe une suite de réls \\((a_n)\\) telle que \\(Y= \\sum_{n \\ge 1} a_n \\mathbf{1}_{A_n}\\). Exprimer \\(\\mathbb{E}[X \\mid \\mathcal{F}]\\).\nSoient \\(X,Y\\) deux variables i.i.d. \\(\\sim\\) Ber\\((p)\\). On considère \\(\\mathcal{G} = \\sigma(\\{X+Y=0\\})\\). Calculer \\(\\mathbb{E}[X \\mid \\mathcal{G}], \\mathbb{E}[Y\\mid \\mathcal{G}]\\). Les variables obtenues sont-elles toujours indépendantes?\n\n\n\nExercice 2\n\n\n\n\n\n\nNoteCours\n\n\n\nConditionnement continu\n\n\nSoient \\((X,Y)\\) un couple de v.a. réelles intégrables de densité jointe \\(f\\), \\(g : \\mathbb{R}^2 \\to \\mathbb{R}\\) borélienne telle que \\(g(X,Y) \\in \\mathbb{L}^1\\).\nRappeler l’expression de \\(\\phi, \\psi\\) telles que \\[\\mathbb{E}[g(X,Y)\\mid Y] = \\phi(Y), \\quad \\mathbb{E}[g(X,Y)|X] = \\psi(X).\\]\n\nOn considère \\((X,Y)\\) de densité jointe \\(f(x,y)= \\frac{1}{x} \\mathbf{1}_{\\{0 \\le y \\le x \\le 1\\}}.\\) Quelle est la loi de \\(X\\)? Calculer la distribution conditionnelle \\(f_{Y \\mid X}\\) de \\(Y\\) sachant \\(X\\). Calculer \\(\\mathbb{P}(X^2 +Y^2 \\le 1 |X)\\), puis en déduire \\(\\mathbb{P}(X^2+Y^2 \\le 1)\\).\nPour simplifier l’expression obtenue on pourra utiliser que \\(x \\to \\sqrt{1-x^2} - \\tanh^{-1}(\\sqrt{1-x^2}) = \\sqrt{1-x^2}-\\frac{1}{2} \\ln(1+\\sqrt{1-x^2}) + \\frac{1}{2} \\ln(1-\\sqrt{1-x^2})\\) est une primitive de \\(x \\to \\frac{\\sqrt{1-x^2}}{x}\\).\nDans le cas général, montrer que \\(\\mathbb{E}[\\mathbb{E}[Y|X]] = \\mathbb{E}[Y]\\). Que vaut \\(\\mathbb{E}[Y]\\) dans l’exemple de la question précédente?\nMontrer, dans le cas général, que \\[ \\mathbb{E}[\\mathbb{E}[Y|X] g(X)] = \\mathbb{E}[Yg(X)],\\] pour toute fonction \\(g\\) telle que les deux espérances sont définies. Que vaut \\(\\mathbb{E}[Y g(X) \\mid X]\\)?\n\n\n\nExercice 3\n\n\n\n\n\n\nNotePartiel passé\n\n\n\n\n\n\nSoient \\(0 \\le r \\le p \\le 1\\) tels que \\(1-2p+r \\ge 0\\).\nSoient \\(X_1, X_2\\) tels que\n\\[\\begin{eqnarray*}\n&&  \\mathbb{P}(X_1=1, X_2=1)=r, \\quad   \\mathbb{P}(X_1=0, X_2=1)=p-r, \\\\\n&& \\mathbb{P}(X_1=1, X_2=0)=p-r, \\quad  \\mathbb{P}(X_1=0, X_2=0)=1-2p+r.\n\\end{eqnarray*}\\]\n\nQuelle est la loi de \\(X_1\\)? celle de \\(X_2\\)?\nCalculer \\(Y = \\mathbb{E}[X_1\\mid X_2]\\) et vérifier que \\[Y= \\begin{cases} & \\frac{p-r}{1-p} \\mbox{ avec probabilité } 1-p\\\\\n& \\frac{r}{p} \\mbox{ avec probabilité } p.\\end{cases}\\]\nRappelons que par définition \\(\\mathrm{Var}[X_1 \\mid X_2] = \\mathbb{E}[X_1^2\\mid X_2] - \\mathbb{E}[X_1\\mid X_2]^2\\). Montrer que \\[\\mathrm{Var}[X_1 \\mid X_2] = \\left( \\frac{p-r}{1-p} - \\left(\\frac{p-r}{1-p}\\right)^2\n\\right) \\mathbf{1}_{\\{X_2=0\\}} + \\left( \\frac{r}{p} - \\left(\\frac{r}{p}\\right)^2 \\right)\n\\mathbf{1}_{\\{X_2=1\\}}.\\]\nQue vaut \\(\\mathrm{Var}(\\mathbb{E}[X_1\\mid X_2])\\)? \\(\\mathbb{E}[\\mathrm{Var}[X_1\\mid X_2]]\\)? Vérifier qu’on a bien \\[\\mathrm{Var}(X_1) = \\mathrm{Var}(\\mathbb{E}[X_1\\mid X_2]) + \\mathbb{E}[\\mathrm{Var}[X_1\\mid X_2]].\\]\n\n\n\nExercice 4\nSoit \\((X_n)\\) une suite de v.a. .i.i.d intégrables, et \\(S_n = \\sum_{i=1}^n X_i\\).\n\nQue valent \\(\\mathbb{E}[X_1\\mid X_2], \\mathbb{E}[S_n \\mid X_1], \\mathbb{E}[S_n \\mid S_{n-1}]?\\)\nMontrer que si les paires de variables \\((X,Z)\\), \\((Y,Z)\\) ont la même loi jointe, alors pour toute fonction réelle positive (ou satisfaisant une condition d’intégrabilité), \\(\\mathbb{E}[f(X)\\mid Z] = \\mathbb{E}[f(Y)\\mid Z]\\). En déduire \\(\\mathbb{E}[X_1 \\mid S_n]\\).\n\n\n\nExercice 5\n\n\n\n\n\n\nNote(Examen passé)\n\n\n\n\n\n\nSoit \\((X_n, n \\ge 0)\\) une suite de variables i.i.d, avec \\(X_1 \\sim \\text{Ber}(1/2)\\). On pose \\(S_n = \\sum_{i=1}^n (X_i -1/2)\\), \\(\\mathcal{F}_n= \\sigma(X_1,...,X_n)\\).\nCalculer \\(\\mathbb{E}[S_n \\mid \\mathcal{F}_5]\\) en fonction de \\(n\\). Quelle est la loi de cette variable aléatoire?\n\n\nExercice 6\n\n\n\n\n\n\nNotePartiel passé\n\n\n\n\n\n\nSoient \\(\\{\\mathbf{e}_i, i \\in \\mathbb{N} \\}\\) des variables i.i.d exponentielles de paramètre \\(1\\). Pour \\(n \\in \\mathbb{N}^*\\) on note \\(S_n := \\sum_{i=1}^n \\mathbf{e}_i\\).\n\nOn note \\(f_n\\) la fonction de densité de la variable \\(S_n\\). Montrer que pour tout \\(t \\ge 0\\) \\[ f_n(t) = \\frac{t^{n-1}}{(n-1)!} \\exp(-t).\\]\nPour \\(t &gt;0, n \\in \\mathbb{N}^*\\), que vaut \\(\\mathbb{P}(S_n \\le t)\\)?\nOn fixe \\(t&gt;0\\) et on suppose \\(X_t \\sim \\mathrm{Poisson}(t)\\). Que vaut \\(\\mathbb{P}(X_t \\ge n)\\), pour \\(n \\in \\mathbb{N}^*\\)?\nSur la demi-droite \\(\\mathbb{R}_+\\) on place les points \\(S_1, S_2, S_3,...\\). On note \\(N_t\\) le nombre de ces points qui tombent dans l’intervalle \\([0,t]\\). Exprimer l’événement \\(\\{N_t \\ge n\\} = \\{S_n \\le t\\}\\). Déterminer la loi de \\(N_t\\) à l’aide des questions préc'dentes.\n\nMontrer que, conditionnellement à \\(\\{N_t=1\\}\\), la loi de \\(\\mathbf{e}_1\\) est uniforme sur \\([0,t]\\).\nConditionnellement à \\(\\{N_t=2\\}\\), quelle est la loi du vecteur \\((\\mathbf{e}_1; \\mathbf{e}_2)\\)?\n\n\n\nExercice 7\n\n\n\n\n\n\nNoteCC2 2023\n\n\n\n\n\n\nOn considère \\[ X \\sim \\mathcal{N} \\left( \\begin{pmatrix} -1 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 2 & 1 & -1 & -1 \\\\ 1 & 2 & -1 & 0 \\\\ -1 & -1 & 3 & -1 \\\\ -1 & 0 & -1 & 5 \\end{pmatrix}\\right).\\]\n\nCalculer \\(\\mathbb{E}[X_3 \\mid X_4]\\), et déterminer la loi conditionnelle de \\(X_3\\) sachant \\(X_4\\).\n\nOn pose \\(A = \\begin{pmatrix} 2  & 1 \\\\ 1 & 2 \\end{pmatrix}\\), \\(B= \\begin{pmatrix} -1 & -1 \\\\ -1 & 0 \\end{pmatrix}\\). Calculer \\(BA^{-1}\\), puis vérifier que \\[B A^{-1} B^T = \\begin{pmatrix} \\frac{2}{3} & \\frac{1}{3} \\vspace{0.1cm} \\\\ \\frac{1}{3} & \\frac{2}{3}\\end{pmatrix}.\\]\nDéterminer \\(\\mathbb{E}\\left[\\begin{pmatrix} X_3 \\\\ X_4 \\end{pmatrix} \\ \\bigg| \\ \\begin{pmatrix} X_1 \\\\ X_2 \\end{pmatrix}\\right]\\). et la loi conditionnelle de \\(\\begin{pmatrix} X_3 \\\\ X_4 \\end{pmatrix}\\) sachant \\(\\begin{pmatrix} X_1 \\\\ X_2 \\end{pmatrix}\\).\n\n\n\nExercice 8\n\n\n\n\n\n\n(Partiel passé)\n\n\n\nSoit \\((X_1,X_2,X_3) \\sim \\mathcal{N}(\\mu, M)\\) où \\[\\mu = \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix}, \\quad M = \\begin{pmatrix} 2 & 1 & 0 \\\\ 1 & 2 & 1 \\\\ 0 & 1 & 2 \\end{pmatrix}.\\]\n\nQuelle est la loi du couple \\((X_1,X_2)\\)?\nDéterminer \\(\\alpha\\) un réel tel que $Y = X_1 + X_2 $ est indépendante de \\(X_1\\). Que vaut \\(\\mathbb{E}[Y]\\)? \\(\\text{Var}(Y)\\)?\nEn déduire \\(\\mathbb{E}[X_2 \\mid X_1]\\). Quelle est la loi conditionnelle de \\(X_2\\) sachant \\(X_1\\)?\nDéterminer un réel \\(\\beta\\) tels que \\(Z=\\beta X_1 + X_3\\) est indépendante de \\(X_1\\). En déduire \\[ \\mathbb{E}[X_3 \\mid X_1], \\quad \\mathbb{E}[X_3^2 \\mid X_1].\\]\nCalculer \\(\\mathbb{E}\\left[X_1^2X_2 + X_3^2 X_1 \\mid X_1\\right]\\).\n\n\n\nExercice 9\n\n\n\n\n\n\nNoteExamen passé\n\n\n\n\n\n\nSoit \\((X_1,X_2,X_3) \\sim \\mathcal{N}(\\mu,M)\\), où \\[ \\mu = \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\qquad M=  \\begin{pmatrix} 1 & 1/2 & 2 \\\\ 1/2 & 1 & 1 \\\\ 2 & 1 & 3 \\end{pmatrix}.\\] Calculer \\(\\mathbb{E}[X_1+2X_2 \\mid X_3].\\) Quelle est la loi conditionnelle de \\(X_1+2X_2\\) sachant \\(X_3\\)?\n\n\nExercice 10\n\n\n\n\n\n\nNote(CC2 2023)\n\n\n\n\n\n\nOn suppose dans cet exercice que \\((X,Y)\\) est un couple de variables aléatoires tel que pour toute \\(\\phi : \\mathbb{R}^2\\to \\mathbb{R}_+\\) borélienne, \\[ \\mathbb{E}[\\phi(X,Y)] = \\sum_{n \\ge 1} \\frac{2}{3^{n}\\sqrt{2\\pi n}}  \\int_{\\mathbb{R}} \\phi(n,y) \\exp\\left(-\\frac{y^2}{2n}\\right) dy.\\]\n\nMontrer que \\(X \\sim \\mathrm{Geom}(2/3)\\).\nVérifier que pour une fonction \\(f : \\mathbb{R} \\to \\mathbb{C}\\) telle que \\(f(Y) \\in \\mathbb{L}^1\\), on a\n\\[ \\mathbb{E}[f(Y) \\mid X] = \\sum_{n \\ge 1} \\left(\\int_{\\mathbb{R}} \\frac{1}{\\sqrt{ 2\\pi n}} f(y) \\exp\\left(-\\frac{y^2}{2n} \\right) dy \\right) \\mathbb{I}_{\\{X=n\\}}\\] %1. En déduire que pour tout \\(k \\in \\mathbb{N}\\), %\\[\\mathbb{E}[Y^k \\mid X] = \\frac{k!}{X^{2k}}\\]\nCalculer \\(\\mathbb{E}[\\exp(itY) \\mid X]\\), \\(t \\in \\mathbb{R}\\), quelle est la loi conditionnelle de \\(Y\\) sachant \\(X\\) ?\nDéduire que si \\(t\\in \\mathbb{R}\\) \\[ \\mathbb{E}[\\exp(itY)] = \\frac{2 \\exp\\left(-\\frac{t^2}{2}\\right)}{3-\\exp\\left(-\\frac{t^2}{2}\\right)}.\\]\n\n\n\nExercice 11\n\n\n\n\n\n\nNotePartiel passé\n\n\n\n\n\n\n\nPartie I\nOn considère le couple \\((X,Z)\\) de densité jointe \\[ f(x,z) := (z-x)\\exp(-z) \\mathbf{1}_{\\{z \\ge x \\ge 0\\}}.\\]\n\nCalculer la loi de \\(X\\), puis celle de \\(Z\\).\nEn déduire que \\[ f_{X \\mid Z}(x \\mid z) = \\frac{2(z-x)}{z^2} \\mathbf{1}_{\\{0 \\le x \\le z, z &gt;0\\}}.\\]\nCalculer \\(\\mathbb{E}[X \\mid Z]\\), puis \\(\\mathrm{Var}[X\\mid Z]\\).\nCalculer \\(f_{Z \\mid X}(z \\mid x)\\), puis démontrer que \\(\\mathbb{E}[Z \\mid X] = X + 2\\).\nQuelle est la loi du couple \\((X, Z-X)\\)? En déduire la loi de \\(Z-X\\).\n\n\n\nPartie II\n\nSoit \\(z &gt;0\\). On suppose que \\(U_1^z \\sim \\mathrm{Unif}[0,z]\\), \\(U_2^z \\sim\n\\mathrm{Unif}[0,z]\\) et que \\(U_1^z\\) est indépendante de \\(U_2^z\\). Calculer la densité de \\(\\min(U_1^z, U_2^z)\\).\nOn suppose à présent que {}, \\(U_1^Z \\sim \\mathrm{Unif}[0,Z]\\), \\(U_2^Z \\sim \\mathrm{Unif}[0,Z]\\) et que \\(U_1^Z\\) est (toujours conditionnellement à \\(Z\\)) indépendante de \\(U_2^Z\\). Montrer que, conditionnellement à \\(Z\\), \\(\\mathrm{min}(U_1^Z, U_2^Z)\\) a la même loi que X.\nSoient \\(X_1,X_2,X_3\\) trois variables indépendantes, toutes trois distribuées suivant la distribution exponentielle de paramètre \\(1\\). On note \\(S= X_1+X_2+X_3\\). Déterminer la loi de \\((X_1,S)\\). \\ Que vaut \\(\\mathbb{E}[X_1\\mid S]\\)? \\(\\mathbb{E}[S \\mid X_1]\\)?\\ Montrer finalement que conditionnellement à \\(S\\), le couple \\((X_1,X_1+X_2)\\) a la même loi que \\(\\left(\\mathrm{min}(U_1^S, U_2^S), \\mathrm{max}(U_1^S, U_2^S)\\right)\\).\n\n\n\n\nExercice 12\n\n\n\n\n\n\nNotePartiel passé\n\n\n\n\n\n\nPour \\((x,y) \\in \\mathbb{R}^2\\) on définit\n\\[f(x,y) := \\frac{4y}{x^3} \\mathbf{1}_{\\{0&lt;x&lt;1, 0&lt;y &lt;x^2\\}}.\\]\nVérifier que \\(f\\) est bien une densité de probabilité, puis calculer les densités marginales \\(f_X\\), \\(f_Y\\).\nCalculer \\(f_{Y\\mid X}(y \\mid x)\\) et en déduire que \\[\\mathbb{E}[Y \\mid X] = \\frac{2}{3} X^2.\\]\nMontrer que \\[ f_{X \\mid Y}(x\\mid y) = \\frac{2y}{1-y} \\frac{1}{x^3} \\mathbf{1}_{\\{0&lt;x&lt;1, 0&lt;y &lt;x^2\\}},\\] puis calculer \\(\\mathbb{E}[X \\mid Y]\\).\n\n\nExercice 13\n\n\n\n\n\n\nNoteCC2 2023\n\n\n\n\n\n\nDans cet exercice on suppose que \\[ \\begin{pmatrix} X \\\\ Y\\end{pmatrix} \\sim \\mathcal{N} \\left( \\begin{pmatrix} 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 2 & 1 \\\\ 1 & 1 \\end{pmatrix} \\right),\\]\net on pose \\(U= X^2\\).\n\nVérifier que \\(U \\sim \\mathrm{Gamma}(1/2,1/4)\\).\nMontrer que \\((X,Y)\\) possède une densité jointe \\(g\\) que l’on déterminera.\n\nMontrer que \\((U,Y)\\) possède la densité jointe \\[ f(u,y) = \\frac{1}{{ 4} \\pi \\sqrt{u}} \\left( \\exp\\left(- \\frac{u}{2} - y^2 + y \\sqrt{u} \\right) + \\exp\\left(-\\frac{u}{2}- y^2 - y\\sqrt{u} \\right) \\right) \\mathbb{I}_{\\{u &gt;0\\}}. \\]\nCalculer \\(f_{Y \\mid U}(y \\mid u)\\). En déduire \\(\\mathbb{E}[Y \\mid U], \\mathbb{E}[Y^2 \\mid U]\\) et \\(\\mathrm{Var}(Y \\mid U)\\). Vérifier qu’on a bien \\[\\mathrm{Var}[Y] = \\mathbb{E}[\\mathrm{Var}[Y \\mid U]] + \\mathrm{Var}[\\mathbb{E}[Y \\mid U]]\\, .\\]\nOn suppose que conditionnellement à \\(U\\), \\(\\xi\\) et \\(Z\\) sont indépendantes avec \\(\\xi \\sim \\mathrm{Ber}(1/2)\\) et \\(Z \\sim \\mathcal{N}\\left(\\frac{\\sqrt{U}}{2},\\frac{1}{2}\\right)\\). Montrer que conditionnellement à \\(U\\), \\((2\\xi-1) Z\\) a même loi que \\(Y\\). Vérifier alors les calculs de la question précédente.\n\n\n\n\n\n\n\nTipIndications\n\n\n\n\nrappelle que pour \\(a&gt;0, \\lambda &gt;0\\), la densité d’une variable \\(G \\sim \\mathrm{Gamma}(a,\\lambda)\\) est donnée par \\[ f_G(x) = \\frac{\\lambda^a x^{a-1}}{\\Gamma(a)} \\exp(-\\lambda x) \\mathbb{I}_{\\{x &gt;0 \\}}\\]\n\nOn fera attention à distinguer les domaines \\(D_1 = \\mathbb{R}_-^*\\times \\mathbb{R}\\) et \\(D_2 = \\mathbb{R}_+^* \\times \\mathbb{R}\\) pour pouvoir considérer les \\(\\mathcal{C}^1\\)-difféomorphismes \\(\\displaystyle{\\Psi_1 : \\begin{cases} \\!\\!&\\!\\! D_1 \\to \\mathbb{R}_+^* \\times \\mathbb{R} \\\\ \\!\\!&\\!\\! (x,y) \\to (x^2,y) \\end{cases}, \\ \\ \\Psi_2 :  \\begin{cases} \\!\\!&\\!\\! D_2 \\to \\mathbb{R}_+^* \\times \\mathbb{R} \\\\ \\!\\!&\\!\\! (x,y) \\to (x^2,y)\\end{cases}}\\).\n\nPour \\(\\alpha \\in \\mathbb{R}\\), les deux premiers moments de la variable \\(\\zeta \\sim \\mathcal{N}\\left(\\alpha \\frac{\\sqrt{u}}{2}, \\frac{1}{2}\\right)\\) sont \\[\\begin{align*}\n\\mathbb{E}[\\zeta]\n& = \\int_{\\mathbb{R}} \\frac{1}{\\sqrt{\\pi}} y \\exp\\left(-  \\left(y - \\alpha \\frac{\\sqrt{u}}{2}\\right)^2 \\right) dy \\\\\n& = \\alpha \\frac{\\sqrt{u}}{2},  \\\\\n\\mathbb{E}[\\zeta^2]\n& = \\mathbb{E}[\\zeta]^2+ \\mathrm{Var}[\\zeta] = \\int_{\\mathbb{R}} \\frac{1}{\\sqrt{\\pi}} y^2 \\exp\\left(-  \\left(y - \\alpha \\frac{\\sqrt{u}}{2}\\right)^2 \\right) dy \\\\\n& = \\alpha^2 \\frac{u}{4} + \\frac{1}{2}\n\\end{align*}\\]\n\n\n\n\n\nExercice 14\n\n\n\n\n\n\nNoteRattrapage passé\n\n\n\n\n\n\nSoit \\(X=(X_1,X_2,X_3) \\sim \\mathcal{N}(0,M)\\), où\n\\[M := \\begin{pmatrix} 2& 2 &-2  \\\\ 2& 5 & 1 \\\\ -2 & 1 & 5 \\end{pmatrix},\\]\n\nMontrer que \\(\\det(M)=0\\). Le vecteur \\(X\\) possède-t-il une densité dans \\(\\mathbb{R}^3\\)?\nTrouver \\(a \\in \\mathbb{R}\\) tel que \\(X_1\\) et \\(Y=X_2-a X_1\\) soient indépendantes. Calculer \\(\\mathrm{Var}(Y)\\) et en déduire la loi de \\((X_1,Y)\\).\nTrouver la loi conditionnelle de \\(X_2\\) sachant \\(X_1\\).\n\n\n\nExercice 15\nOn considère \\(X_0 =0\\), et \\((X_n)_{n \\ge 1}\\) une suite de variables aléatoires réelles indépendantes, identiquement distribuées suivant la loi normale centrée réduite.\nOn introduit les variables\n\\[Y_i = \\frac{X_i-X_{i-1}}{i}, i \\ge 1.\\]\nPour \\(n \\ge 1\\), montrer que le vecteur \\((Y_1,...,Y_n)\\) est gaussien, puis calculer le vecteur moyenne et la matrice de covariances de \\((Y_1,...,Y_n)\\).\nCalculer, pour \\(n \\ge 1\\), \\(\\mathbb{E}[Y_{n+1}\\mid Y_n]\\).\n\n\nExercice 16\nSoient \\((X,Y)\\) dont la loi jointe a pour densité \\(f(x,y) = x(y-x) \\exp(-y), 0 \\le x \\le y &lt;\\infty\\). On introduit la notation \\(f_{X|Y}(x|y) := f(x,y)/f_Y(y)\\) lorsque le quotient est \\(&gt;0\\), \\(0\\) sinon.\n\nExprimer \\(f_{X|Y}(x|y)\\), puis \\(f_{Y|X}(y|x)\\).\nEn déduire les expressions de \\(\\mathbb{E}[X|Y], \\mathbb{E}[Y|X]\\).\n\n\n\nExercice 17\nSoient \\(Y,Z\\) deux v.a.r. indépendantes \\(\\sim \\mathrm{exp}(\\lambda)\\) où \\(\\lambda&gt;0\\). On pose \\(X= Y+Z\\). Quelle est la loi conditionnelle de \\(Y\\) sachant \\(X\\)? Que vaut \\(\\mathbb{E}[Y|X]\\)? En déduire l’expression de \\(\\mathbb{E}[Y|X]\\)\n\n\nExercice 18\nSoient \\(X\\) et \\(Y\\) deux variables aléatoires indépendantes, toutes deux normales centrées réduites. On définit pour \\(\\sigma_1 &gt;0, \\sigma_2&gt;0, |\\rho|\\le 1\\), \\[U = \\sigma_1 X, \\quad V= \\sigma_2 \\rho X + \\sigma_2 \\sqrt{1- \\rho^2} Y.\\]\n\nQuelle est la loi de \\((U,V)\\)?\nQue vaut \\(\\mathbb{E}[UV]\\)?\nQue vaut \\(\\mathbb{E}[U \\mid V]? \\mathbb{E}[V \\mid U]? \\mathrm{Var}[U \\mid V]? \\mathrm{Var}[V \\mid U]?\\)\n\n\n\nExercice 19\nSoit \\(Z = (X, Y )\\) un vecteur aléatoire gaussien à valeurs dans \\(\\mathbb{R}^2\\). On suppose que \\(E(X) = E(Y ) = 0\\), \\(\\mathrm{Var}(X) = \\mathrm{Var}(Y ) = 1\\) et que \\(\\mathrm{Cov}(X; Y ) = \\rho\\) avec \\(|\\rho|^2 \\ne 1\\). On pose \\(U = X -\\rho Y , V = \\sqrt{1-\\rho^2} Y\\).\n\nQuelles sont les lois de \\(U\\) et \\(V\\) ? Les v.a. \\(U\\) et \\(V\\) sont-elles indépendantes ?\nCalculer \\(\\mathbb{E}(U^2V^2), \\mathbb{E}(U V^3), \\mathbb{E}(V^4)\\). En déduire \\(\\mathbb{E}(X^2Y^2)\\).\nRetrouver ce dernier résultat par conditionnement.\n\n\n\nExercice 20\nSoient \\(U, V, W\\) trois v.a.r. gaussiennes centrées réduites. On pose \\[Z =\\frac{U + VW}{\\sqrt{1+W^2}}.\\]\n\nQuelle est la loi conditionnelle de \\(Z\\) sachant \\(W\\)?\nEn déduire que \\(Z\\) et \\(W\\) sont indépendantes et donner la loi de \\(Z\\).\n\n\n\nExercice 21\nSoient \\(X_1\\) et \\(X_2\\) des v.a. indépendantes, de lois exponentielles de paramètres respectifs \\(\\lambda_1\\) et \\(\\lambda_2\\).\n\nCalculer \\(\\mathbb{E}[\\max(X_1,X_2) \\mid X_1]\\).\nCalculer \\(\\mathbb{E}[\\max(X_1;X_2)]\\).\n\n\n\nExercice 22\nOn pose \\(h(x) = \\frac{1}{\\Gamma(a+1)} \\exp(-x)x^{a-1}\\) (\\(a &gt; 0\\) fixé) et \\(D = \\{0 &lt; y &lt; x\\}\\). Soit \\(f(x, y) = h(x)\\mathbf{1}_D(x, y)\\):\n\nMontrer que \\(f\\) est une densité de probabilité sur \\(\\mathbb{R}^2\\). On considère dans la suite un couple \\((X, Y)\\) de v.a.r. de densité \\(f\\).\nLes v.a. \\(X\\) et \\(Y/X\\) sont-elles indépendantes?\nQuelle est la loi conditionnelle de \\(Y\\) sachant \\(X\\) ?\nSoit \\(U\\) une v.a.r. indépendante du couple \\((X, Y)\\) telle que \\(\\mathbb{P}(U = 1) = p\\) et \\(\\mathbb{P}(U = 0) = 1 - p\\). On pose \\(Z = UX + (1 - U)Y\\). Quelle est l’espérance conditionnelle de \\(Z\\) sachant \\(X\\)?\n\n\n\nExercice 23\nSoit \\((X_n, n \\in \\mathbb{N})\\) une suite de v.a.r.i.i.d. de densité \\(f\\) et fonction de répartition \\(F\\). Soient \\(N := \\min\\{ n \\ge 1 : X_n &gt;X_0\\}\\) et\n\\(M := \\min \\{n \\ge 1 : X_0 \\ge X_1 \\ge ... \\ge X_{n-1} &lt;X_n \\}.\\)\n\nTrouver \\(\\mathbb{P}(N=n)\\), puis montrer que la fonction de répartition de \\(X_N\\) est \\(F +(1-F) \\log(1-F)\\) (on pourra conditionner par les événements \\(\\{N=n\\}, n \\in \\mathbb{N}\\)).\nExprimer \\(\\mathbb{P}(M=m), m \\ge 1\\).\nOn suppose dans cette question que \\(f = \\mathbf{1}_{[0,1]}\\). Pour \\(x \\in (0,1)\\) on introduit \\(R^x := \\min\\{ n \\ge 1 : X_1+...+X_n &gt;x \\}\\). Montrer que \\(\\mathbb{E}[\\mathbf{1}_{\\{R^x&gt;n\\}} \\mid X_n] = \\Phi(X_n)\\) où \\(\\Phi(u) = \\mathbb{I}_{\\{u&lt;x\\}}  \\mathbb{P}(R^{x-u} &gt; n-1)\\). En déduire \\(H_n(x):= \\mathbb{P}(R^x&gt;n)\\).\n\n\n\nExercice 24\nSoient \\(X\\) et \\(Y\\) deux v.a.r. indépendantes de loi uniforme sur \\([0, 1]\\).\n\nQuelle est l’espérance conditionnelle de \\((Y - X)_+\\) sachant \\(X\\)?\nQuelle est la loi conditionnelle de \\((Y - X)_+\\) sachant \\(X\\)?\n\n\n\nExercice 25\nSoient \\(X_1, X_2, X_3\\) trois v. a. r. gaussiennes centrées réduites indépendantes. On pose \\(U = 2X_1 - X_2 - X_3, V = X_1 + X_2 + X_3, W = 3X_1 + X_2 - 4X_3\\).\n\nQuelles sont les lois de \\(U, V\\) et \\(W\\)? Quels sont les couples de v.a. indépendantes parmi les couples \\((U, V), (U,W), (V,W)\\)?\nMontrer qu’il existe \\(a \\in \\mathbb{R}\\) tel que \\(W = aU + Z\\) avec \\(U\\) et \\(Z\\) indépendantes. En déduire \\(\\mathbb{E}(W \\mid U)\\).\n\n\n\nExercice 26\nSoient \\(X\\) et \\(Y\\) deux v. a. r. gaussiennes centrées réduites indépendantes. On pose \\(Z = X + Y\\) , \\(W = X - Y\\).\n\nMontrer que \\(Z\\) et \\(W\\) sont indépendantes. Quelle est la loi de \\(W\\)?\nEn déduire l’espérance conditionnelle et la loi conditionnelle de \\(X\\) sachant \\(Z\\).\nCalculer \\(\\mathbb{E}(XY \\mid Z)\\) et \\(\\mathbb{E}(XYZ \\mid Z)\\)."
+  },
+  {
     "objectID": "exercices/td1.html",
     "href": "exercices/td1.html",
     "title": "Variables aléatoires réelles",
@@ -86,13 +126,76 @@
     "text": "Le cadre gaussien\n\nExercice 23\nOn considère deux variables indépendantes \\(Y \\sim \\mathcal{N}(0,1)\\) et\n\\[\\varepsilon= \\begin{cases} & 1 \\mbox{ avec probabilité } p \\\\ & -1 \\mbox{ avec probabilité } 1-p, \\end{cases}\\]\noù \\(p \\in (0,1)\\).\n\nQuelle est la loi de \\(Z= \\varepsilon\\)\nQuelle est la loi de \\(Y+Z\\)?\nLe vecteur \\((Y,Z)\\) est-il un vecteur gaussien?\n\n\n\nExercice 24\nSoit \\((X,Y,Z)\\) le vecteur aléatoire gaussien d’espérance \\((1,1,0)\\) et de matrice de covariance\n\\[K = \\begin{pmatrix} 2 & 1 & 1 \\\\ 1 & 2 & 2 \\\\ 1 & 2 & 2  \\end{pmatrix}.\\]\n\nEcrire la fonction caractéristique de \\((X,Y,Z)\\).\n\nTrouver la loi de \\(2X+Y+Z\\), de \\(4X-2Y+Z\\), enfin de \\(Y-Z\\).\nLe vecteur \\((X,Y)\\) admet-il une densité dans \\(\\mathbb{R}^2\\). Si oui, laquelle?\nPour \\(a \\in \\mathbb{R}\\) on définit \\(u_a : \\mathbb{R}^3 \\to \\mathbb{R}^3\\) de matrice\n\\[A = \\begin{pmatrix} 1/\\sqrt{2} & 0 & 0 \\\\ a & -2a & 0 \\\\ 0 & 1 & -1\\end{pmatrix}.\\]\nDéterminer la loi de \\(u_a(X-1,Y-1,Z)\\) en fonction de \\(a\\).\nPour quelle valeur de \\(a\\) les deux premières coordonnées de \\(u_a(X-1,Y-1,Z)\\) suivent-ils une loi normale centrée réduite sur \\(\\mathbb{R}^2\\)?\n\n\n\nExercice 25\nSoit \\(\\rho\\in ]-1,1[\\) et \\((X,Y)\\) un vecteur gaussien centré de matrice de covariances \\(M = \\begin{pmatrix} 1 & \\rho \\\\ \\rho & 1 \\end{pmatrix}\\). On notera \\(\\sigma = \\sqrt{1-\\rho^2}\\).\n\nCalculer det(\\(M\\)), \\(M^{-1}\\), puis exprimer la densité \\(f_{(X,Y)}\\) du vecteur \\((X,Y)\\).\nMontrer que\n\\[g_x(y) := \\frac{f_{(X,Y)}(x,y)}{f_X(x)} = \\frac{1}{\\sigma \\sqrt{2\\pi}} \\exp \\left( - \\frac{1}{2(1-\\rho^2)} \\left(y-\\rho x\\right)^2\\right).\\]\nMontrer que pour tout \\(x \\in \\mathbb{R}\\), \\(y \\to g_x(y)\\) définit une densité.\nSi on note \\(Y_x\\) une variable de densité \\(g_x\\), que pouvez-vous dire sur la loi de \\(Y_x\\)?\n\nTrouver \\(\\alpha\\), \\(\\beta\\) deux réels tels que \\((X, \\alpha X + \\beta Y)\\) suit la loi normale centrée réduite.\n\nRemarquer que l’on peut écrire \\(Y= -\\frac{\\alpha}{\\beta} X +\\frac{1}{\\beta}(\\alpha X + \\beta Y)\\). Sauriez-vous dire pourquoi cette écriture est intéressante?\n\n\nExercice 26\nMontrer que le vecteur aléatoire de dimension \\(3\\) de moyenne \\(m = (7,0,1)\\) et de matrice de covariances\n\\[K = \\begin{pmatrix} 10 & -1 & 4 \\\\ -1 & 1 & -1 \\\\ 4 & -1 & 2 \\end{pmatrix}\\]\nappartient presque sûrement à un hyperplan affine de \\(\\mathbb{R}^3\\) que l’on déterminera."
   },
   {
-    "objectID": "exercices-listings.html",
-    "href": "exercices-listings.html",
-    "title": "TDs",
+    "objectID": "exercices/quizz_a.html",
+    "href": "exercices/quizz_a.html",
+    "title": "MA1AY010 Probabilités",
     "section": "",
-    "text": "Note\n\n\n\nLes séances d’exercice sont organisées autour des feuilles de TD. Sentez vous libres d’attaquer les exercices à l’avance.\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Titre\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Tags\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitre\n\n\n\nTags\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nTD I : Rappels de Licence\n\n\nVariables aléatoires réelles\n\n\n\n\n\n\nSep 11, 2025\n\n\nTD I supplément : Rappels de Licence\n\n\nVariables aléatoires réelles, Branchement\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\nTipSuggestion",
+    "text": "NoteQuestionnaire I\n\n\n\n\n8 Septembre 2025-12 Septembre 2025\nMaster I Isifar\nProbabilités\n\n\n\n\nQuestion 1\n\nEst-il vrai qu’une fonction croissante sur \\(\\mathbb{R}\\) est toujours mesurable ?\nSi \\(X,Y\\) sont indépendantes, de lois à densité sur \\(\\mathbb{R}\\), est-il vrai que \\(\\mathbb{P} \\{ X= Y \\}=0\\)?\n\n\n\nQuestion 2\nSoit \\(X\\) une variable aléatoire réelle, dont la loi admet une densité \\(f\\) par rapport à la mesure de Lebesgue. Soit \\(a\\) un réel positif et \\(b\\) un réel quelconque.\n\nLa loi de la variable aléatoire \\(aX +b\\) admet-elle une densité ?\nSi oui, exprimer cette densité en fonction de \\(f, a, b\\).\n\n\n\nQuestion 3\nSur un espace de probabilité \\((\\Omega, \\mathcal{F}, P)\\), on dispose d’une famille infinie de variables aléatoires indépendantes \\(X_1, X_2, \\ldots, X_n, \\dots\\) toutes distribuées selon la loi exponentielle standard (densité \\(\\mathrm{e}^{-x}\\) sur \\([0, \\infty)\\)).\nOn définit \\(Y_n = \\sum_{i=1}^n \\left( X_i/i - \\frac{1}{i}\\right)\\) pour tout \\(n\\).\n\nCalculer l’espérance et la variance de \\(Y_n\\).\nLa suite \\((Y_n)_n\\) converge-t-elle dans \\(\\mathcal{L}_2\\) ?\nSi oui, pouvez-vous caractériser la loi de la limite?\n\n\n\nQuestion 4 (Inégalité d’association)\nSoit \\(X\\) une variable aléatoire réelle sur un espace de probabilité \\((\\Omega, \\mathcal{F}, P)\\) et \\(f,g\\) deux fonctions croissantes positives sur \\(\\mathbb{R}\\).\nMontrer que \\[\n\\mathbb{E} \\left[ f(X) g(X)\\right] \\geq \\mathbb{E}\\left[ f(X)\\right]  \\times \\mathbb{E} \\left[ g(X) \\right] \\, .\n\\]\n\n\nQuestion 5\nSoit \\(X_1, \\ldots, X_n\\) une suite de variables aléatoires i.i.d. selon une loi exponentielle. On note \\((X_{i,n})_{i\\leq n}\\) le réarrangement croissant de \\(X_1, \\ldots, X_n\\), (les statisques d’ordre)\n\nQuelle est la loi de \\(X_{1,n}\\), le minimum ?\nQuelle est la loi de \\(X_{2,n} - X_{1, n}\\) ?\nQuelle est la densité jointe de la loi de \\((X_{i,n})_{i\\leq n}\\) ?\nQuelle est la densité jointe de la loi de \\((X_{i,n} - X_{i-1,n})_{i\\leq n}\\) avec la convention \\(X_{0,n}=0\\)?\n\n\n\nQuestion 6\nSoit \\(X\\) une variable aléatoire distribuée selon une loi binomiale de paramètres \\(n\\) et \\(p \\in (0,1)\\). Montrer que \\[\n\\frac{1}{\\mathbb{E}X+1} &lt; \\mathbb{E}\\frac{1}{X+1} \\leq \\frac{1}{\\mathbb{E}X + p} \\, .\n\\] Montrer que si \\(X\\) est distribuée selon une loi de Poisson \\[\n\\mathbb{E}\\frac{1}{X+1} = \\frac{1 - \\mathrm{e}^{-\\mathbb{E}X}}{\\mathbb{E}X} \\, .\n\\] On note \\(E\\) l’événement \\(\\{ X &gt;0 \\}\\) montrer que \\[\n\\mathbb{E}_{P (\\cdot|E)}\\left[ \\frac{1}{X}\\right] \\geq \\mathbb{E}\\frac{1}{X+1} \\, .\n\\]\n\n\nQuestion 7\nLe jeu oppose un présentateur à un candidat (le joueur). Ce joueur est placé devant trois portes fermées. Derrière l’une d’elles se trouve une voiture et derrière chacune des deux autres se trouve une chèvre. Il doit tout d’abord désigner une porte. Puis le présentateur doit ouvrir une porte qui n’est ni celle choisie par le candidat, ni celle cachant la voiture (le présentateur sait quelle est la bonne porte dès le début). Le candidat a alors le droit d’ouvrir la porte qu’il a choisie initialement, ou d’ouvrir la troisième porte.\nOn suppose que l’organisateur du jeu place la voiture uniformément au hasard derrière l’une des trois portes avant la partie.\nLes questions qui se posent au candidat sont :\n\nQue doit-il faire ?\nQuelles sont ses chances de gagner la voiture en agissant au mieux ?"
+  },
+  {
+    "objectID": "course-team.html",
+    "href": "course-team.html",
+    "title": "MA1AY010 : Enseignants",
+    "section": "",
+    "text": "S. Boucheron est professeur dans l’Équipe de Statistique du Laboratoire de Probabilités, Statistiques et Modélisation (Université Paris Cité, Sorbonne Université, CNRS).\n\n\n\n\n\n\n\nConsultations\nBureau\n\n\n\n\nLundi 11:00 am - 12:00 pm\nSophie Germain 5013\n\n\n\nS. Abbes est professeur dans l’Équipe de Statistique du Laboratoire de Probabilités, Statistiques et Modélisation (Université Paris Cité, Sorbonne Université, CNRS).\n\n\n\n\n\n\n\nConsultations\nBureau\n\n\n\n\nLundi 11:00 am - 12:00 pm\nSophie Germain 5013",
     "crumbs": [
-      "TDs"
+      "Informations",
+      "Enseignants"
+    ]
+  },
+  {
+    "objectID": "course-team.html#instructeurs",
+    "href": "course-team.html#instructeurs",
+    "title": "MA1AY010 : Enseignants",
+    "section": "",
+    "text": "S. Boucheron est professeur dans l’Équipe de Statistique du Laboratoire de Probabilités, Statistiques et Modélisation (Université Paris Cité, Sorbonne Université, CNRS).\n\n\n\n\n\n\n\nConsultations\nBureau\n\n\n\n\nLundi 11:00 am - 12:00 pm\nSophie Germain 5013\n\n\n\nS. Abbes est professeur dans l’Équipe de Statistique du Laboratoire de Probabilités, Statistiques et Modélisation (Université Paris Cité, Sorbonne Université, CNRS).\n\n\n\n\n\n\n\nConsultations\nBureau\n\n\n\n\nLundi 11:00 am - 12:00 pm\nSophie Germain 5013",
+    "crumbs": [
+      "Informations",
+      "Enseignants"
+    ]
+  },
+  {
+    "objectID": "course-faq.html",
+    "href": "course-faq.html",
+    "title": "FAQ",
+    "section": "",
+    "text": "Pas nécessairement.",
+    "crumbs": [
+      "Informations",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "course-faq.html#les-corrigés-des-exercices-sont-ils-disponibles-en-ligne",
+    "href": "course-faq.html#les-corrigés-des-exercices-sont-ils-disponibles-en-ligne",
+    "title": "FAQ",
+    "section": "",
+    "text": "Pas nécessairement.",
+    "crumbs": [
+      "Informations",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "course-faq.html#comment-travailler-avec-les-cahiers-de-simulation",
+    "href": "course-faq.html#comment-travailler-avec-les-cahiers-de-simulation",
+    "title": "FAQ",
+    "section": "Comment travailler avec les cahiers de simulation ?",
+    "text": "Comment travailler avec les cahiers de simulation ?\n\nEn R\n\nTélécharger et installer R 4.x.y: https://cran.r-project.org/\nTélécharger et installer RStudio: https://dailies.rstudio.com/\nInstaller Quarto CLI: https://quarto.org/docs/getting-started/installation.html\nInstaller Git: https://happygitwithr.com/install-git.html\nInstaller tout package utile avec install.packages(\"___\") (voir aussi le package pak)\n\n\n\nEn Python",
+    "crumbs": [
+      "Informations",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "course-links.html",
+    "href": "course-links.html",
+    "title": "Quelques liens",
+    "section": "",
+    "text": "Entrepot GitHub du cours\n🔗 sur GitHub\n\n\nEntrepot GitHub des Notes de cours\n🔗 sur GitHub\n\n\nPortail Moodle du cours\n🔗 sur Moodle",
+    "crumbs": [
+      "Informations",
+      "Liens"
     ]
   },
   {
@@ -199,76 +302,20 @@
     "href": "course-syllabus.html#sauvez-les-dates",
     "title": "Syllabus",
     "section": "Sauvez les dates!",
-    "text": "Sauvez les dates!\n\nContrôle Continu 1 Mardi 7 octobre 2025\n\nContrôle Continu 2 Mardi 21 octobre 2025\nContrôle Continu 3\n\nExamen entre le Lundi 8 et le Vendredi 19 décembre\nExamen session II en juin 2026\n\nCliquer ici for l’emploi du temps.",
+    "text": "Sauvez les dates!\n\nContrôle Continu 1 Mardi 7 octobre 2025 (Programme : semaines I à III)\nContrôle Continu 2 Jeudi 16 octobre 2025 (Programme : semaines I à V)\nContrôle Continu 3 Novembre\nExamen entre le Lundi 8 et le Vendredi 19 décembre\nExamen session II en juin 2026\n\nCliquer ici for l’emploi du temps.",
     "crumbs": [
       "Informations",
       "Syllabus"
     ]
   },
   {
-    "objectID": "course-links.html",
-    "href": "course-links.html",
-    "title": "Quelques liens",
+    "objectID": "exercices-listings.html",
+    "href": "exercices-listings.html",
+    "title": "TDs",
     "section": "",
-    "text": "Entrepot GitHub du cours\n🔗 sur GitHub\n\n\nEntrepot GitHub des Notes de cours\n🔗 sur GitHub\n\n\nPortail Moodle du cours\n🔗 sur Moodle",
+    "text": "Note\n\n\n\nLes séances d’exercice sont organisées autour des feuilles de TD. Sentez vous libres d’attaquer les exercices à l’avance.\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Titre\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Tags\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitre\n\n\n\nTags\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\nTD I : Rappels de Licence\n\n\nVariables aléatoires réelles\n\n\n\n\n\n\nSep 11, 2025\n\n\nTD I supplément : Rappels de Licence\n\n\nVariables aléatoires réelles, Branchement\n\n\n\n\n\n\nSep 22, 2025\n\n\nTD II : Conditionnement\n\n\nConditionnement, Branchement\n\n\n\n\n\n\nSep 22, 2025\n\n\nTD II : Conditionnement (supplément)\n\n\nConditionnement, Branchement\n\n\n\n\n\n\nSep 22, 2025\n\n\nQuestionnaire I\n\n\n \n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\nTipSuggestion",
     "crumbs": [
-      "Informations",
-      "Liens"
-    ]
-  },
-  {
-    "objectID": "course-faq.html",
-    "href": "course-faq.html",
-    "title": "FAQ",
-    "section": "",
-    "text": "Pas nécessairement.",
-    "crumbs": [
-      "Informations",
-      "FAQ"
-    ]
-  },
-  {
-    "objectID": "course-faq.html#les-corrigés-des-exercices-sont-ils-disponibles-en-ligne",
-    "href": "course-faq.html#les-corrigés-des-exercices-sont-ils-disponibles-en-ligne",
-    "title": "FAQ",
-    "section": "",
-    "text": "Pas nécessairement.",
-    "crumbs": [
-      "Informations",
-      "FAQ"
-    ]
-  },
-  {
-    "objectID": "course-faq.html#comment-travailler-avec-les-cahiers-de-simulation",
-    "href": "course-faq.html#comment-travailler-avec-les-cahiers-de-simulation",
-    "title": "FAQ",
-    "section": "Comment travailler avec les cahiers de simulation ?",
-    "text": "Comment travailler avec les cahiers de simulation ?\n\nEn R\n\nTélécharger et installer R 4.x.y: https://cran.r-project.org/\nTélécharger et installer RStudio: https://dailies.rstudio.com/\nInstaller Quarto CLI: https://quarto.org/docs/getting-started/installation.html\nInstaller Git: https://happygitwithr.com/install-git.html\nInstaller tout package utile avec install.packages(\"___\") (voir aussi le package pak)\n\n\n\nEn Python",
-    "crumbs": [
-      "Informations",
-      "FAQ"
-    ]
-  },
-  {
-    "objectID": "course-team.html",
-    "href": "course-team.html",
-    "title": "MA1AY010 : Enseignants",
-    "section": "",
-    "text": "S. Boucheron est professeur dans l’Équipe de Statistique du Laboratoire de Probabilités, Statistiques et Modélisation (Université Paris Cité, Sorbonne Université, CNRS).\n\n\n\n\n\n\n\nConsultations\nBureau\n\n\n\n\nLundi 11:00 am - 12:00 pm\nSophie Germain 5013\n\n\n\nS. Abbes est professeur dans l’Équipe de Statistique du Laboratoire de Probabilités, Statistiques et Modélisation (Université Paris Cité, Sorbonne Université, CNRS).\n\n\n\n\n\n\n\nConsultations\nBureau\n\n\n\n\nLundi 11:00 am - 12:00 pm\nSophie Germain 5013",
-    "crumbs": [
-      "Informations",
-      "Enseignants"
-    ]
-  },
-  {
-    "objectID": "course-team.html#instructeurs",
-    "href": "course-team.html#instructeurs",
-    "title": "MA1AY010 : Enseignants",
-    "section": "",
-    "text": "S. Boucheron est professeur dans l’Équipe de Statistique du Laboratoire de Probabilités, Statistiques et Modélisation (Université Paris Cité, Sorbonne Université, CNRS).\n\n\n\n\n\n\n\nConsultations\nBureau\n\n\n\n\nLundi 11:00 am - 12:00 pm\nSophie Germain 5013\n\n\n\nS. Abbes est professeur dans l’Équipe de Statistique du Laboratoire de Probabilités, Statistiques et Modélisation (Université Paris Cité, Sorbonne Université, CNRS).\n\n\n\n\n\n\n\nConsultations\nBureau\n\n\n\n\nLundi 11:00 am - 12:00 pm\nSophie Germain 5013",
-    "crumbs": [
-      "Informations",
-      "Enseignants"
+      "TDs"
     ]
   },
   {
@@ -286,11 +333,18 @@
     "text": "Pour aller plus loin\n\nExercice 1 (un (contre)-exemple à garder en tête)\nOn note \\(C\\) l’ensemble de Cantor, qui est obtenu, récursivement, en enlevant \\(I_1^{(1)} : = (1/3,2/3)\\) à l’intervalle \\([0,1]\\), puis en enlevant les tiers intermédiaires \\(I_2^{(1)} = (1/9,2/9), I_2^{(2)}= (7/9,8/9)\\) des deux intervalles restants, et ainsi de suite, de sorte qu’à l’etape \\(n\\) on enlève \\(2^{n-1}\\) intervalles tous de taille \\(1/3^n\\), notés \\(I_n^{(j)},j=1...2^{n-1}\\).\nOn définit la fonction croissante :\n\\[F(x) := \\begin{cases}  0 & \\text{ si } x \\le 0 \\\\    1 & \\text{ si } x \\ge 1 \\\\ \\frac{2j-1}{2^n} \\text{ si } x \\in I_n^{(j)}. \\end{cases}\\]\n\nLa fonction \\(F\\) est-elle continue?\nDans quel ensemble la variable \\(X\\), de fonction de répartition \\(F\\) —définie ci-dessus— prend elle ses valeurs? Que vaut \\(\\mathbb{E}[X]\\)? Que vaut \\(\\mathbb{P}(|X-\\mathbb{E}[X]|&lt;1/8)\\)? Pour \\(x \\in C\\), que vaut \\(\\mathbb{P}(X=x)\\)?\nJustifier que la variable \\(X\\) est uniforme sur \\(C\\). Admet-elle une densité sur \\([0,1]\\)?\n\nQuelle est la loi de \\(Y=F(X)\\)?\nPourrait-on ainsi définir une variable aléatoire uniforme sur \\(\\mathbb{Q}\\cap [0,1]\\)?\nSoient \\(\\{X_j, j \\in \\mathbb{N}^* \\}\\) une famille de variables i.i.d., distribuées suivant la loi de Bernoulli de parmaètre \\(1/2\\). On définit \\(X=2 \\sum_{j \\ge 1} \\frac{X_j}{3^j}\\). Quelle est la loi de \\(X\\)?\nCalculer \\(\\Phi_X\\) et montrer qu’elle est constante sur \\(\\{3^k \\pi, k \\in \\mathbb{N}^* \\}\\).\n\n\n\nExercice 2\nDans ce qui suit \\(||.||\\) désigne la norme euclidienne.\nPour \\(\\varepsilon \\in (0,1)\\), \\(n \\in \\mathbb{N}\\)\non note \\(A_{n, \\varepsilon} := \\{ x \\in \\mathbb{R}^n : (1-\\varepsilon)(n/3)^{1/2} \\le ||x|| \\le (1+\\varepsilon)(n/3)^{1/2}\\}\\), et \\(C_n=[-1,1]^n\\).\nMontrer que pour tout \\(\\varepsilon \\in (0,1)\\), la mesure de Lebesgue de \\(C_n \\cap A_{n, \\varepsilon}^c\\) est négligeable, pour \\(n \\to \\infty\\), devant celle de \\(C_n\\).\nIndication : On notera qu’un point générique dans \\(C_n\\) a pour coordonnées \\((X_1,...,X_n)\\), avec \\(\\{X_i, i \\ge 1\\}\\) une famille de variables aléatoires i.i.d, uniformes sur \\([-1,1]\\).\nNote : Ceci signifie que pour \\(\\varepsilon\\) aussi petit qu’on souhaite le prendre, lorsque \\(n\\) est grand, la majeure partie du volume de l’hypercube \\(C_n\\) se trouve dans la couronne \\(A_{n,\\varepsilon}\\) (!)\n\n\nExercice 3\nSoit \\(X \\sim \\Gamma(1,s)\\). On définit \\(Y \\sim \\mathrm{Poisson}(X)\\), (c’est-à-dire que conditionnellement à \\(X=x\\), \\(Y \\sim \\mathrm{Poisson}(x)\\)).\n\nCalculer \\(\\Phi_Y\\).\nMontrer que lorsque \\(s \\to \\infty\\), \\[\\frac{Y-E[Y]}{\\sqrt{\\mathrm{var}(Y)}} \\overset{(\\mathrm{loi})}{\\longrightarrow} Z,\\] où \\(Z \\sim \\mathcal{N}(0,1)\\). Y a-t-il un lien avec le théorème central limite?\n\n\n\nExercice 4\n(Une remarque importante sur la convergence en loi.)\nSoit, pour \\(n \\ge 1\\), \\(X_n\\) un variable aléatoire dont la fonction de répartition est définie par \\[ F_n(x) = x - \\frac{\\sin(2n \\pi x)}{2n\\pi}, \\ 0 \\le x \\le 1.\\]\n\nMontrer que \\(X_n\\) converge en loi vers une variable \\(X\\) (dont on décrira la loi).\n\nVérifier que \\(X_n\\) et \\(X\\) sont des variables à densité. On note \\(f_n := F_n'\\) la densité de \\(X_n\\), \\(f\\) celle de \\(X\\). A-t-on \\(f_n \\underset{n \\to \\infty}{\\rightarrow} f\\) simplement?\n\n\n\nExercice 5\n(Le problème des anniversaires)\nOn cherche a approximer la probabilité que parmi \\(N\\) personnes, au moins deux (resp. trois) aient leur anniversaire le même jour.\n\nPour \\(1 \\le i &lt;j \\le N\\), on note \\(E_{ij}\\) l’événement que les personnes \\(i,j\\) aient le même anniversaire. Quelle est la probabilité de \\(E_{ij}\\)? Dans la suite de l’exercice on omet de considérer le cas des \\(29\\) février. Que vaut alors \\(P(E_{ij})\\)? Montrer que les événements \\(E_{12}, E_{23}, E_{13}\\) sont indépendants deux à deux, mais pas mutuellement indépendants. Exprimer la probabilité qu’il y ait au moins deux personnes qui aient leur anniversaire le même jour.\nLe but de cette question n’est pas d’obtenir un résultat exact, mais de faire une approximation assez bonne de la probabilité que parmi \\(N\\) personnes, il y en ait au moins deux qui partagent le même anniversaire. On admettra donc que dans la suite on fait l’approximation que les \\(\\{E_{ij}, 1 \\le i &lt; j \\le N\\}\\) sont mutuellement indépendants. Quelle est alors la loi du nombre de couples ayant le même anniversaire? Approximer le résultat pour \\(N=30, N=60\\).\n\nPar une méthode similaire, approximer la probabilité que parmi \\(60\\) personnes, il y en ait au moins trois qui ont leur anniversaire le même jour. Finalement, approximer la probabilité de cet événement lorsque \\(N=90\\).\n\n\n\nExercice 6\n(Quelques variantes du modèle de branchement aléatoire)\nOn considère le modèle de branchement aléatoire qui est un modèle pour l’évolution d’une population haploïde.\nOn part initialement de \\(Z_0\\) ancêtres, et on note \\(Z_n\\) le nombre total d’individus de la génération \\(n\\).\nOn fait l’hypothèse (pas très réaliste) que tous les individus ont exactement le même temps de vie (disons \\(1\\)), et que de plus deux générations distinctes ne cohabitent pas. Ainsi chacun des ancêtre meurt au temps \\(1\\), et donne naissance à un nombre aléatoire d’individus, de façon indépendante de ses contemporains. Tous les individus qui sont nés au temps \\(1\\) forment la génération \\(1\\). La génération \\(1\\) meurt au temps \\(2\\) en donnant naissance à la génération \\(2\\), etc…\nFormellement, on se donne une loi de branchement \\(\\nu\\) sur les entiers positifs, telle que \\(\\nu(1)&lt; 1\\) et \\(\\sum_{k \\ge 0} k \\nu(k) = \\mu \\in [0,\\infty)\\) On introduit alors une famille \\((X,X_{i,k}, i \\ge 0, k\\ge 1)\\) de variables aléatoires i.i.d, toutes de loi \\(\\mu\\). Si jamais la génération \\(i\\) possède un \\(k\\)-ième individu, \\(X_{i,k}\\) désigne le nombre de ses descendants.\n\nPour \\(n \\ge 1\\), exprimer \\(Z_n\\) en fonction de \\(Z_{n-1}\\) et des \\((X_{n-1,k}, k \\ge 1)\\).\nOn note \\(G_{X}(t) = E[t^{X}]\\), \\(G_{Z_n}(t) = E[t^{Z_n}]\\) (qui ne sont autres, modulo un simple changement de variable, que les fonctions génératrice des moments de \\(X\\), \\(Z_n\\)). Exprimer \\(G_{Z_n}\\) en fonction de \\(G_X, G_{Z_0}\\).\nOn note \\(\\zeta\\) le probabilité d’extinction. A quelle condition sur \\(\\mu\\) a-t-on \\(\\zeta=1\\) p.s.?\nIndication : On pourra considérer la suite \\(\\zeta_n = \\mathbb{P}(Z_n=0)\\)\nUne première martingale, Calculer \\(\\mathbb{E}[Z_{n-1}|Z_n]\\). On pose \\(M_{n}=Z_n/\\mu^n\\). Calculer \\(\\mathbb{E}[M_{n+1}|M_n]\\).\n\nPour plus de détails, on pourra voir l’introduction du livre de D.WILLIAMS, Probability with martingales, Cambridge University Press, 1991.\n\nOn considère (dans cette question uniquement) un processus de branchement avec immigration. On garde la même dynamique : à sa mort, un individu donne naissance à un nombre al'atoire de descendants suivant la loi \\(\\mu\\). De plus, chaque génération voit maintenant arriver un nombre aléatoire d’immigrants, indistinguables des individus déjà présents.\nFormellement, on se donne une loi \\(\\nu\\) sur \\(\\mathbb{N}\\) et on introduit \\(Y,Y_1,...Y_n\\) des variables \\(i.i.d.\\) de loi \\(\\nu\\). La génération \\(n\\) reçoit \\(Y_n\\) individus au temps \\(n\\). On note \\(G_Y(t)= E[t^{Y}]\\). Trouver une relation entre \\(G_{Z_n}, G_Y\\) et \\(G_{Z_0}\\).\nEnfin, on considère un processus de branchement dont les individus n’ont pas tous un temps de vie égal à \\(1\\). Pour simplifier un peu, on va seulement considérer la descendance d’un unique ancêtre, i.e. on pose \\(Z_0=1\\). \\ Formellement, on se donne une loi \\(P_{T}\\) sur \\(\\mathbb{R}_+\\), dont la densité est notée \\(f_T\\). On définit famille de variables aléatoires \\((T_{i}, i \\in \\mathbb{N})\\) i.i.d, de loi \\(P_T\\). On peut numéroter les individus en les classant suivant leur date de naissance. On définit alors \\(T_i\\) comme le temps de vie du \\(i\\)-ième individu.\nPour \\(t \\ge 0\\), on note \\(Z_t\\) le nombre total d’individus qui sont en vie au temps \\(t\\). On note enfin \\(G_t(s) = E[s^{Z_t}]\\).\n\n\nMontrer que \\(G_t(s) = \\int_0^{\\infty} E[s^{Z_t} |T_0 =u] f_T(u) du\\)\n\nEn déduire \\[ G_t(s) = \\int_0^t G_X(G_{t-u}(s))f_T(u) du + \\int_t^{\\infty} sf_T(u) du.\\]\n\nDans le cas où \\(f_T(s)= \\lambda \\exp(-\\lambda s)\\), montrer alors que \\[\\frac{\\partial t}{\\partial t} G_t(s) = \\lambda \\left[ G_X(G_t(s)) - G_t(s)\\right]  \\]"
   },
   {
+    "objectID": "exercices/td2-supplement.html",
+    "href": "exercices/td2-supplement.html",
+    "title": "MA1AY010 Probabilités",
+    "section": "",
+    "text": "NoteTD II : Espérances et lois conditionnelles (supplément)\n\n\n\n22 Septembre 2025-26 Septembre 2025\n\nMaster I Isifar\nProbabilités\n\n\n\n\nExercice 1 (Questionnaire)\nSoient \\((\\Omega; \\mathcal{A}; P)\\) un espace de probabilité, \\(X\\) et \\(Y\\) des v.a.r., \\(T\\) une v.a. à valeurs dans \\(\\mathbb{R}^d\\).\nQue peut-on dire, sous réserve d’hypothèses d’intégrabilité adéquates, des espérances conditionnelles suivantes :\n\n\\(\\mathbb{E}(f(T)\\mid T)\\) avec \\(f : \\mathbb{R}^d \\to \\mathbb{R}\\) borélienne,\n\\(\\mathbb{E}(X\\mid T)\\) avec \\(X\\) \\(\\ \\sigma(T)\\)-mesurable,\n\\(\\mathbb{E}(XY \\mid T)\\) avec \\(X \\ \\sigma(T)\\)-mesurable,\n\\(\\mathbb{E}(f(X)\\mid T)\\) avec \\(f : \\mathbb{R}^d \\to \\mathbb{R}\\) borélienne, \\(X\\) et \\(T\\) indépendantes,\n\\(\\mathbb{E}(\\mathbb{E}(X \\mid T))\\),\n\\(\\mathbb{E}[S_{10} |S_{8}]\\) lorsque \\(S_n = \\sum_{i=1}^n X_i\\) et les \\((X_i)_{i \\ge 1}\\) sont i.i.d.,\n\\(\\mathbb{E}[S_{31}\\mid X_1]\\) lorsque \\(S_n = \\sum_{i=1}^n X_i\\) et les \\((X_i)_{i \\ge 1}\\) sont i.i.d.,\n\\(\\mathbb{E}[\\Pi_{4} \\mid \\Pi_2]\\) lorsque \\(\\Pi_n = \\prod_{i=1}^n X_i\\) et les \\((X_i)_{i \\ge 1}\\) sont i.i.d.,\n\\(\\mathbb{E}[\\phi(X,Y) \\mid Y]\\) lorsque \\(X\\) et \\(Y\\) sont indépendantes,\n\\(\\mathbb{E}[f(S_2+X_8) \\mid S_2]\\), lorsque \\(S_n = \\sum_{i=1}^n X_i\\) et les \\((X_i)_{i \\ge 1}\\) sont i.i.d.\n\n\n\nExercice 2\nOn considère un processus de Galton-Watson de loi de branchement \\[ \\mathbb{P}(\\xi=0)= \\mathbb{P}(\\xi=2)=1/2.\\] issu à la génération \\(0\\) d’un unique individu ancestral. On note \\(Z_n\\) la taille de la population à la génération \\(n\\).\nExprimer \\(\\mathbb{E}[(Z_{2}-1)^2 \\mid Z_1].\\)"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "MA15Y010 Probabilités et Extrêmes",
     "section": "",
-    "text": "Cette page résume le déroulement du semestre\n\n\n\n\n\n\n\n\n\n\n\n\n\nSemaine\nDate\nThème(s)\nPréparer\nCours\nExercices\nÉvaluation\n\n\n\n\n1\n8 Sep\nRévisions Licence\n\n\nTD 1\n\n\n\n\n9 Sep\nRévisions Licence\n\n\nTD 1\n\n\n\n\n11 Sep\nRévisions Licence: théoremes de convergence (intégration)\n\n\nTD 1\n\n\n\n2\n15 Sep\n\n\n\n\n\n\n\n\n16 Sep\n\n\n\n\n\n\n\n\n18 Sep",
+    "text": "Cette page résume le déroulement du semestre\n\n\n\n\n\n\n\n\n\n\n\n\n\nSemaine\nDate\nThème(s)\nPréparer\nCours\nExercices\nÉvaluation\n\n\n\n\n1\n8 Sep 2025\nRévisions Licence\n\n\nTD 1\n\n\n\n\n9 Sep\nRévisions Licence\n\n\nTD 1\n\n\n\n\n11 Sep\nRévisions Licence: théoremes de convergence (intégration)\n\n\nTD 1\n\n\n\n2\n15 Sep\nRévisions Licence: Espaces roduits\n\n\n\n\n\n\n\n16 Sep\nChangement de variables. Calcul Gamma/Beta\n\n\n\n\n\n\n\n18 Sep\nFonctions génératrices/Conditionnement discret\n\n\n\n\n\n\n3\n22 Sep\nMoments, Espaces \\(L^p\\)\n\n\n\n\n\n\n\n23 Sep\nEspérance conditionnelle\n\n\n\n\n\n\n\n25 Sep\nConditionnement\n\n\n\n\n\n\n4\n29 Sep\n\n\n\n\n\n\n\n\n30 Sep\n\n\n\n\n\n\n\n\n2 Oct\n\n\n\n\n\n\n\n5\n6 Oct\n\n\n\n\n\n\n\n\n7 Oct\nCC 1\n\n\n\n\n\n\n\n9 Oct\n\n\n\n\n\n\n\n6\n13 Oct\n\n\n\n\n\n\n\n\n14 Oct\n\n\n\n\n\n\n\n\n16 Oct\nCC 2",
     "crumbs": [
       "Informations",
       "Agenda"
@@ -301,7 +355,7 @@
     "href": "weeks/week-2.html",
     "title": "Semaine 2",
     "section": "",
-    "text": "Important\n\n\n\nLa semaine I (15-19 septembre 2025) est encore consacrée aux révisions de Licence.",
+    "text": "Important\n\n\n\nLa semaine II (15-19 septembre 2025) est encore consacrée aux révisions de Licence.",
     "crumbs": [
       "Agenda",
       "Week 2"
@@ -312,7 +366,7 @@
     "href": "weeks/week-2.html#préparerrevoir",
     "title": "Semaine 2",
     "section": "Préparer/Revoir",
-    "text": "Préparer/Revoir\n\nEspaces produits, tribus produits\nLois produits\nThéorème de Fubini\nCalculs de densités image\nEspérances, moments, Espaces \\(L^p\\)\nConvergences p.s. et convergences dans \\(L^p\\)\nInégalité de Jensen et conséquences\nProcessus de branchement aléatoire",
+    "text": "Préparer/Revoir\n\n\nEspaces produits, tribus produits (2025-09-15)\nLois produits (2025-09-15)\nThéorème de Fubini (2025-09-15)\nCalculs de densités image, formules de changement de variable (2025-09-16)\nEspérances, moments, Espaces \\(L^p\\) (2025-09-16)\nConditionnement discret (2025-09-18)\nProcessus de branchement aléatoire (2025-09-18)\n\n\n\n\n\nVoir Notes, Espaces produits, etc\nVoir Notes, calculs de densité image\nVoir Notes, Fonctions génératrices\nVoir Notes, Conditionnement discret\nVoir Notes, Espérances, Moments, Espaces \\(L^p\\), …",
     "crumbs": [
       "Agenda",
       "Week 2"
@@ -323,7 +377,7 @@
     "href": "weeks/week-2.html#exercices",
     "title": "Semaine 2",
     "section": "Exercices",
-    "text": "Exercices\nFeuille TD I Feuille TD I suppléments\n\nTD I.18 (sommes aléatoires de variables indépendantes) (fin).\nSupplément TD I Exercice 1 (Cantor), Exercice 5 (Anniversaires)\nTD I.7\nTD I….\n\n\nBack to course schedule ⏎",
+    "text": "Exercices\nFeuille TD I Feuille TD I suppléments\n\nTD I.18 (sommes aléatoires de variables indépendantes) (fin).\nSupplément TD I Exercice 5 (Anniversaires)\nTD I.7\nTD I….\n\n\nBack to course schedule ⏎",
     "crumbs": [
       "Agenda",
       "Week 2"
