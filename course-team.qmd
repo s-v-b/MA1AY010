@@ -14,8 +14,5 @@ title: "MA1AY010 : Enseignants"
 
 
 
-[**S. Abbes**](http://stephane-v-boucheron.fr/) est professeur dans l'Équipe de Statistique du Laboratoire de Probabilités, Statistiques et Modélisation (Université Paris Cité, Sorbonne Université, CNRS).
+[**S. Abbes**](https://www.irif.fr/~abbes) est professeur à l'IRIF (Université Paris Cité, CNRS).
 
-| Consultations                  | Bureau                                                                                                                  |
-|-------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Lundi 11:00 am - 12:00 pm | Sophie Germain 5013                                                                                                              |

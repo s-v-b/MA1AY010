@@ -23,7 +23,7 @@ La semaine III (22-26 septembre 2025)  est  consacrée aux calculs de moments, e
 ::: {}
 
 - [Voir Notes, Espérances, Moments, Espaces $L^p$, ...](https://s-v-b.github.io/MA1AY010-CN/031-moments.html)
-- [Voir Notes, Conditionnement](https://s-v-b.github.io/MA1AY010-CN/https://s-v-b.github.io/MA1AY010-CN/)
+- [Voir Notes, Conditionnement](https://s-v-b.github.io/MA1AY010-CN/06-conditioning.html)
 
 
 :::

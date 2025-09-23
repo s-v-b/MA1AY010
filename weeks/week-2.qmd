@@ -33,9 +33,9 @@ La semaine II (15-19 septembre 2025)  est encore consacrée aux révisions de Li
 ::: {}
 
 - [Voir Notes, Espaces produits, etc](https://s-v-b.github.io/MA1AY010-CN/022-product-measures.html)
-- [Voir Notes, calculs de densité *image*](https://s-v-b.github.io/MA1AY010-CN/https://s-v-b.github.io/MA1AY010-CN/032-acfamilies.html)
-- [Voir Notes, Fonctions génératrices](https://s-v-b.github.io/MA1AY010-CN/https://s-v-b.github.io/MA1AY010-CN/0225-pgf.html)
-- [Voir Notes, Conditionnement discret](https://s-v-b.github.io/MA1AY010-CN/https://s-v-b.github.io/MA1AY010-CN/)
+- [Voir Notes, calculs de densité *image*](https://s-v-b.github.io/MA1AY010-CN/032-acfamilies.html)
+- [Voir Notes, Fonctions génératrices](https://s-v-b.github.io/MA1AY010-CN/0225-pgf.html)
+- [Voir Notes, Conditionnement discret](https://s-v-b.github.io/MA1AY010-CN/)
 - [Voir Notes, Espérances, Moments, Espaces $L^p$, ...](https://s-v-b.github.io/MA1AY010-CN/031-moments.html)
 
 

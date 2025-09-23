@@ -1,0 +1,274 @@
+---
+#title: "Exercices : semaine I"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2025-09-08"
+
+format:
+  pdf:
+    output-file: td3.pdf
+    class: exam
+    include-in-header:
+      - text: "\\lhead{{\\sf  Probabilités \\\\ TD III}}"
+  html:
+    output-file: td3.html
+
+engine: knitr
+---
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+
+
+
+```{r}
+#| echo: false
+#| eval: true
+
+cnt_exo <- 1
+```
+
+
+
+::: {.callout-note}
+
+### TD III : Processus de branchement  
+
+- 18 Septembre 2025-25 Septembre 2025
+
+- Master I ISIFAR
+
+- **Probabilités** 
+
+:::
+
+
+### Exercice `r cnt_exo` (Modélisation)
+
+```{r}
+#| eval: true    # true si l'exercice est visible 
+#| echo: false
+cnt_exo <-  cnt_exo + 1
+```
+On note $Q$ la loi de reproduction (loi sur $(\mathbb{N}, 2^{\mathbb{N}})$. On note $\mu$ son espérance. 
+
+On convient de $\mathbb{N}^* = \mathbb{N}\setminus \{0\}$.
+
+Pour chaque génération, on se donne une suite  infinie d'entiers, soit un élément de $\mathbb{N}^{\mathbb{N}^*}$.
+L'ensemble $\mathbb{N}^{\mathbb{N}^*}$ n'est pas dénombrable. 
+
+Pour représenter la suite des générations,  on se donne un élément de $\left(\mathbb{N}^{\mathbb{N}^*}\right)^{\mathbb{N}}$.
+Cet ensemble est en bijection avec $\mathbb{N}^{\mathbb{N}^* \times \mathbb{N}}$. On convient de $\Omega = \mathbb{N}^{\mathbb{N}^* \times \mathbb{N}}$. Pour $\omega \in \Omega$, $X^n_j(\omega)$ est le nombre d'enfants de l'individus $j \in \mathbb{N}^*$ dans la génération $n \in \mathbb{N}$.
+
+Comme $\Omega$ n'est pas dénombrable, on ne choisit pas l'ensemble de ses parties comme tribu.  
+
+Pour la génération $n \in \mathbb{N}$, pour $k \in \mathbb{N}^*$,  $\mathcal{G}^n_k$ est la tribu (de parties de $\mathbb{N}^{\mathbb{N}^*}$) engendrée par $X^n_{1}, X^n_2, \ldots, X^n_k$, et $\mathcal{G}^n$ est la tribu engendrée par $\left(\mathcal{G}^n_k\right)_{k \in \mathbb{N}^*}$. La tribu $\mathcal{G}^n= \sigma\left(\left(\mathcal{G}^n_k\right)_{k \in \mathbb{N}^*} \right)$ est la tribu engendrée  par les événements 
+cylindriques décrivant la génération $n$.
+
+Pour chaque $n$, $\mathcal{F}_n = \sigma \left( \cup_{m\leq n}  \mathcal{G}^m \right)$, la tribu engendrée par les $(X^m_j)_{m \leq n, j \in \mathbb{N}^*}$. 
+
+Enfin $\mathcal{F} = \sigma\left( \cup_n \mathcal{F}_n \right)$. 
+
+Pour chaque $n$, on munit la $n^{\text{ieme}}$ génération de la loi produit infinie qui étend les lois produits finies définies sur $\mathcal{G}^n_k$:
+$$P\left\{ \bigwedge_{j \leq k} X^n_j = x^n_j\right\}  = \prod_{j \leq k } Q\left\{X^n_j = x^n_j \right\}$$
+pour $(x^n_j)_{1\leq j\leq k} \in \mathbb{N}^k$
+
+
+On munit $(\Omega, \mathcal{F})$ de la loi produit infinie qui étend les les lois produits définies sur les $n$ premières générations. 
+
+La taille des générations $(Z_n)_{n \in \mathbb{N}}$ est définie récurrence. On a $Z_0=1$ et
+$$Z_{n+1} = \sum_{j=1}^{Z_n} X^n_j$$
+
+Pour tout $n$, $Z_n$ est $\mathcal{F}_{n-1}$-mesurable (vérification par récurrence sur $n$)
+
+Pour tout $n$, $\mathcal{F}_{n-1}$ est indépendante de $\mathcal{G}^n$
+
+
+### Exercice `r cnt_exo` 
+
+
+{{< include _increment.qmd >}}
+
+
+Espérance conditionnelle de $Z_{n+1}$ sachant $\mathcal{F}_{n-1}$,  $\sigma(Z_n)$ 
+
+\begin{align*}
+  \mathbb{E}\left[ Z_{n+1} \mid \mathcal{F}_{n-1} \right] 
+    & =   \mathbb{E}\left[ \sum_{j=1}^{Z_n} X^n_j \mid \mathcal{F}_{n-1} \right] \\
+    & =   \mathbb{E}\left[ \sum_{j=1}^{\infty} \mathbb{I}_{j \leq Z_n} X^n_j \mid \mathcal{F}_{n-1} \right] \\
+    & =   \sum_{j=1}^{\infty} \mathbb{I}_{j \leq Z_n} \mathbb{E}\left[  X^n_j \mid \mathcal{F}_{n-1} \right] \\
+    & =   \sum_{j=1}^{\infty} \mathbb{I}_{j \leq Z_n} \mathbb{E}\left[  X^n_j \right] \\
+    & =   \sum_{j=1}^{Z_n} \mu \\
+    & =   \mu \times Z_n 
+\end{align*}
+On peut même conclure:   
+$$\mathbb{E}\left[ Z_{n+1} \mid Z_n  \right]  = \mu \times Z_n$$
+
+
+### Exercice `r cnt_exo`
+
+{{< include _increment.qmd >}}
+
+$$\mathbb{E} Z_{n+1} = \mathbb{E}\left[\mathbb{E}\left[ Z_{n+1} \mid Z_n  \right] \right]= \mu \times \mathbb{E} Z_n$$
+D'où:
+$$\mathbb{E} Z_n = \mu^n$$
+
+### Exercice `r cnt_exo` 
+
+
+{{< include _increment.qmd >}}
+
+Extinction dans le cas sous-critique
+
+$$E = \cup_{n} \{ Z_n =0 \} = \cup_n \cap_{m \geq n} \{ Z_m = 0\}$$
+
+$$\Omega \setminus E  = \cap_n \{ Z_n > 0\}$$
+Pour chaque $k$ 
+$$P \left\{ \cap_n \{ Z_n > 0\} \right\}  \leq P \{ Z_k > 0\}$$
+
+Comme la suite des événements $\{ Z_n > 0\}$ est décroissante, 
+
+$$P \left\{ \cap_n \{ Z_n > 0\} \right\}  \leq   \lim_n P \{ Z_n > 0\}$$.
+Comme 
+$$P \{ Z_n > 0\} \leq \mathbb{E} Z_n$$
+on conclut dans le cas sous-critique $\mu <1$, que 
+$$P \left\{ \cap_n \{ Z_n > 0\} \right\}=0$$
+Soit 
+$$P\{ E\} =1$$
+(extinction presque sûre).
+
+
+### Exercice `r cnt_exo` 
+`
+
+{{< include _increment.qmd >}}
+
+Une équation satisfaite par $p_E$
+
+$$E = \cup_{k=1}^\infty \{Z_1=k\} \cap_{j=1}^k {E_j}$$
+
+
+\begin{align*}
+p_{E} 
+  & = \mathbb{E} \left[ \mathbb{E}[  \mathbb{I}_E  \mid Z_1]\right] \\
+  & = \mathbb{E} \left[ p_E^{Z_1}\right] \\
+  & = G_Q(p_E)
+\end{align*}
+car $Z_1 \sim Q$.
+
+La probabilité d'extinction satisfait l'équation:
+$$p_E = G_Q(p_E)$$
+
+
+La @fig-point-fixe illustre le problème posé par l'équation $p_E=G_Q(p_E)$ lorsque 
+la loi de reproduction $Q$ est la loi de Poisson de paramètre $\mu=1.5$. Les deux intersections entre la courbe en trait plein et la droite pointillée représentent 
+les deux solutions de l'équation $p_E = G_Q(p_E)$. 
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| label: fig-point-fixe
+#| message: false
+#| warning: false
+#| fig-cap: |
+#|   Fonction génératrice de la loi de Poisson  de paramètre $\mu=1.5$: $s \mapsto \exp(s(\mu-1))$. La droite pointillée
+#|   représente l'équation $y=x$. La droite en tiret l'équation $y= 1 + \mu(x-1)$ 
+
+requireNamespace("ggplot2")
+mu <-  1.5 
+
+p  <- ggplot2::ggplot() +
+  ggplot2::stat_function(fun = \(s) exp(mu*(s-1)), xlim=c(0,1)) 
+
+p +  
+  ggplot2::ylim(c(0,1)) + 
+  ggplot2::coord_fixed() + 
+  ggplot2::geom_abline(slope = 1, intercept = 0, linetype='dotted') +
+  ggplot2::geom_abline(slope = mu, intercept = 1-mu, linetype='dashed') +
+  ggplot2::annotate(geom="point", x=0, y=exp(-mu)) +
+  ggplot2::theme_bw()
+
+```
+
+
+
+### Exercice `r cnt_exo` 
+
+{{< include _increment.qmd >}}
+
+
+Étude des de l'équation $x=G_Q(x)$. 
+
+Comme série entière de rayon de convergence $\geq 1$, dérivable en $1$, $G_Q$ possède
+les propriétés suivantes:
+
+- $G_Q$ est croissante et convexe sur $[0,1]$, indéfiniment dérivable sur $]0,1[$
+- La dérivée de $G_Q$ en $x=1$ est égale à l'espérance de la loi de reproduction $Q$, soit $\mu$.
+
+La fonction $x \mapsto G_Q(x) -x$ est convexe, de dérivée $G'_Q-1$ sur $[0,1]$. 
+
+Si  $\mu< 1$, la dérivée croît jusqu'à $0$ atteint en $x=1$. $G_Q(x)-x$ décroit donc de
+$Q(0)$ à $0$ entre $0$ et $1$.   L'équation   $x=G_Q(x)$ ne possède qu'une seule racine (triviale), $x=1$. On retrouve le fait que $p_E$ soit égal à $1$ dans le cas sous-critique.  
+
+Si  $\mu > 1$, $G'_Q(0) -1= Q(\{1\})-1 < 0$ et $G'_Q(1)-1 = \mu-1>0$, $G_Q' -1$ s'annule 
+en un $\theta \in ]0,1[$, est négative sur $[0,\theta]$, positive sur $[\theta,1]$. La fonction  $G_Q(x)-x$  décroit de $0$ à $\theta$, croit de $\theta$ à $1$. Elle est positive en $0$ et nulle en $1$, elle s'annule donc une seule fois en tre $0$ et $\theta$. Dans le cas sur-critique, l'équation $x=G_Q(x)$ admet une racine non-triviale entre $0$ et $1$. 
+
+Pour déterminer $p_E$ dans le cas sur-critique, il faut déterminer la racine de
+l'équation $x=G_Q(x)$ qui est égale à $p_E$. 
+
+### Exercice `r cnt_exo` 
+
+{{< include _increment.qmd >}}
+
+
+Pour déterminer $p_E$ dans le cas sur-critique, nous allons étudier la suite 
+$\left(P\{ Z_n=0\}\right)_n$. C'est une suite croissante, majorée par $1$. Elle possède 
+une limite dans $[0,1]$, et $p_E = \lim_{n} \uparrow P\{Z_n =0\}$. 
+
+On note $P\{Z_1=0\} = Q\{0\}$ ou encore $P\{Z_1=0\} = G_Q(0)$. 
+
+La relation entre $P\{Z_n=0\}$ et $G_Q$ est (relativement) simple et pas inattendue. 
+
+Si on note $G_{Z_n}$ la fonction génératrice de la loi de $Z_n$,  
+on a d'abord $G_{Z_1}=G_Q$.
+
+
+\begin{align*}
+\mathbb{E} \left[s^{Z_{n+1}} \mid \sigma(Z_n) \right]
+ & = \mathbb{E} \left[s^{\sum_{i=1}^{Z_n}  X^n_i} \mid \sigma(Z_n) \right] \\
+ & = \mathbb{E} \left[\prod_{i=1}^{Z_n} s^{X^n_i} \mid \sigma(Z_n) \right] \\
+ & = \prod_{i=1}^{Z_n} \mathbb{E} \left[ s^{X^n_i} \mid \sigma(Z_n) \right] \\
+ & = \prod_{i=1}^{Z_n} G_Q(s) \\
+ & = (G_Q(s))^{Z_n} \, . 
+\end{align*}
+
+On en déduit:
+$$G_{Z_{n+1}}(s) = \mathbb{E} \left[(G_Q(s))^{Z_n}\right] = G_{Z_n} (G_Q(s))$$ 
+
+D'où (par récurrence sur $n$) :
+$$G_{Z_n} = \underbrace{G_Q \circ \ldots \circ G_Q}_{n \text{ fois}}$$
+
+Comme 
+$$P\{ Z_n = 0\} = G_{Z_n}(0)$$
+on a 
+$$P\{ Z_n = 0\} =  \underbrace{G_Q \circ \ldots \circ G_Q}_{n \text{ fois}}(0)$$
+la suite $P\{ Z_n = 0\}$, vérifie la récurrence $u_{n+1} = G_Q(u_n)$ avec $u_1=Q\{0\}$.
+
+Notons $\tau$ la solution non-triviale de $x=G_Q(x)$.
+
+Si $u \in [0, \tau[$, alors 
+$$u < G_Q(u) < \tau$$
+
+Cette observation permet de déduire que la suite $(u_n)_n$ définie par $u_{n+1} = G_Q(u_n)$ et $u_1=Q\{0\}$ et croissante et majorée par $\tau$. Elle admet une limite qui est un point fixe de $G_Q$, c'est donc $\tau$. 
+
+On peut donc conclure que dans le cas sur-critique, la probabilité d'extinction est la solution non-triviale de l'équation $x=G_Q(x)$.  

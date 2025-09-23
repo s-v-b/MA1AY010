@@ -31,29 +31,27 @@ Berger, Q., Caravenna, F., & Dai Pra, P. (2021). *Probabilità* (Vol. 9). Spring
   
 ## Cours et exercices
 
+- [Notes de cours (~ Poly)](://s-v-b.github.io/MA1AY010-CN)
+- 
 
 ## Validation
 
 ### Contrôle continu
 
+4 épreuves (Examen terminal inclus)
 
 ### Examens
 
-L'examen de session I dure trois heures, il porte sur l'ensemble du cours 
-
-## Notation
-
+L'examen terminal de session I dure trois heures, il porte sur l'ensemble du cours 
 
 ## Intégrité
 
 **TL;DR: Ne trichez pas!**
 
-## Assiduité
-
 
 ## Sauvez les dates!
 
-- Contrôle Continu 1  Mardi 7 octobre 2025  (Programme : semaines I à III)
+- Contrôle Continu 1  **Mardi 7 octobre 2025**  (Programme : semaines I à III)
 - Contrôle Continu 2  Jeudi 16  octobre 2025 (Programme : semaines I à V)
 - Contrôle Continu 3  Novembre 
 - Examen entre le Lundi 8 et le Vendredi 19 décembre
