@@ -31,8 +31,8 @@ Berger, Q., Caravenna, F., & Dai Pra, P. (2021). *Probabilità* (Vol. 9). Spring
   
 ## Cours et exercices
 
-- [Notes de cours (~ Poly)](://s-v-b.github.io/MA1AY010-CN)
-- 
+- [Notes de cours (~ Poly)](https://s-v-b.github.io/MA1AY010-CN)
+- [Exercices](/exercices/)
 
 ## Validation
 

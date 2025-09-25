@@ -134,20 +134,18 @@ $$f(x) = \gamma \lambda \exp(-\lambda (x-1)) \mathbf{1}_{[1,3/2]}(x) + \frac{1}{
 
 où $\gamma (1-\exp(-\lambda/2)) = 3/4$. On a alors 
 
-$$
-\begin{eqnarray*}
+\begin{align*}
  \mathbb{E}[X] & = & \gamma \int_1^{3/2} \lambda x \exp(-\lambda (x-1)) + \frac{1}{4} \frac{15}{8} 
  \\ & = & \gamma (1-\exp(-\lambda/2))- \frac{\gamma}{2}\exp(-\lambda/2) + \frac{\gamma}{\lambda} (1-\exp(-\lambda/2)) +\frac{15}{32} 
 \\ & = & \frac{3}{4} \left(1+\frac{1}{\lambda} \right) - \frac{\gamma}{2} \exp(-\lambda/2) + \frac{15}{32}. 
-\end{eqnarray*}
-$$ 
+\end{align*} 
 
 Par exemple pour $\lambda=5$ on obtient $\mathbb{E}[X] \approx 1.302$, et dans tous les cas $\mathbb{E}[X] \in (1,2)$. 
 
 :::
 
 
-### Exercice `r cnt_exo`
+### Exercice `r cnt_exo` (transformation affine)
 
 ```{r}
 #| eval: true
@@ -155,7 +153,7 @@ Par exemple pour $\lambda=5$ on obtient $\mathbb{E}[X] \approx 1.302$, et dans t
 cnt_exo <-  cnt_exo + 1
 ```
 
- (transformation affine)
+ 
 
 Soit $X$ une variable aléatoire réelle, $F_X$ sa fonction de répartition,  $a, b$ deux réels fixés, et $Y := aX+b$ 
 
@@ -172,7 +170,7 @@ Soit $X$ une variable aléatoire réelle, $F_X$ sa fonction de répartition,  $a
 4. Répondre enfin aux mêmes questions lorsque $a$ et $b$ sont quelconques. 
   
 
-::: {.content-visible when-profile="solution"}
+::: {.content-visible when-profile="corrige"}
  
 Soit $F_Y$ la fonction de répartition de $Y$. 
  
@@ -215,7 +213,8 @@ de sorte que $Y$ possède la densité $f_Y$ où $f_Y(v) = \frac{1}{|a|} f_X\left
 :::
 
 
-### Exercice `r cnt_exo`
+### Exercice `r cnt_exo`  (Minimum, maximum de variables indépendantes)
+
 
 ```{r}
 #| eval: true
@@ -223,8 +222,7 @@ de sorte que $Y$ possède la densité $f_Y$ où $f_Y(v) = \frac{1}{|a|} f_X\left
 cnt_exo <-  cnt_exo + 1
 ```
 
- (Minimum, maximum de variables indépendantes)
-
+ 
 
 Soient $X_i, i \ge 1$, des variables indépendantes. 
 Pour $k \ge 2$, on note $Y_k = \min (X_1,...,X_k)$, $Z_k = \max(X_1,...,X_k).$    
@@ -241,7 +239,7 @@ Pour $k \ge 2$, on note $Y_k = \min (X_1,...,X_k)$, $Z_k = \max(X_1,...,X_k).$
 5. Quelle est la loi de $Y_k$ lorsque les $\{X_i, i \ge 1\}$ sont des variables *exponentielles* indépendantes, avec $X_i \sim \text{Exp}(\lambda_i)$ (où pour tout $i$, $\lambda_i >0$)?  
 
 
-::: {.content-visible when-profile="solution"}
+::: {.content-visible when-profile="corrige"}
  
 
 1. On a pour tout $x \in \mathbb{R}$, 
@@ -326,10 +324,16 @@ On suppose que l'écart à la taille moyenne $T=15.5$ des individus d'une popula
 Dans quel intervalle centré en $T$ se situent les tailles de $99\%$ des individus de la population? 
 
 ::: {.content-visible when-profile="solution"}
- 
+
+::: {.callout-note}
+
+### Solution
+
 D'après la table, pour $Z \sim \mathcal{N}(0,1)$, on a $\mathbb{P}(Z \le 2.57) \approx 0.9949),$ et  $\mathbb{P}(Z \le 2.58) \approx 0.9951$, de sorte que  $\mathbb{P}(|Z| \ge 2.57) \approx 0.0102$, et  $\mathbb{P}(|Z| \ge 2.58) \approx 0.0098$. 
 
 On déduit que les tailles de $99\%$ de la population se situent entre $15.5 - 2,58 = 12.92$ et $15.5+2.58 = 18.08$. 
+
+:::
 
 ::: 
 
@@ -352,7 +356,11 @@ Reprendre les questions de l'exercice précédent lorsque $\mu=2, \sigma=2$.
 Reprendre les questions de l'exercice précédent lorsque $\mu=0, \sigma=1/2$.  
 
 ::: {.content-visible when-profile="solution"}
- 
+
+::: {.callout-note}
+
+### Solution
+
 Puisque $(X-\mu)/\sigma \sim \mathcal{N}(0,1)$ on a 
 
 $$\mathbb{P}(|X- \mu| \ge k \sigma)= \mathbb{P}(|Z| \ge k),$$
@@ -381,6 +389,8 @@ $$\mathbb{P}(X \le 1) = \mathbb{P}(Z \le 2) \approx 0.9772$$
 $$\mathbb{P}(-1.23 \le X \le 0.43 ) = \mathbb{P}(-2.46 \le Z \le 0.86) \approx 0.8051 - (1-0.9931) = 0.7982,$$
 
 $$\mathbb{P}(X>0.32) = \mathbb{P}(Z > 0.64) \approx 1-0.7389 = 0.2611$$ 
+
+:::
 
 ::: 
 
@@ -448,7 +458,9 @@ on conclut que $g$ est bien une densité de probabilité.
 
 Soit $\xi \sim \mathrm{Ber}(\alpha)$, indépendante de $(X,Y)$. Alors $Z= \xi X + (1-\xi)Y$ possède la densité $g$. En effet, en utilisant l'indépendance de $\xi$ et $(X,Y)$ à la deuxième ligne ci-dessous,  
 
-$$\begin{eqnarray*} \mathbb{P}(Z \le x) & = & \mathbb{P}(\xi=1,  X \le x) + \mathbb{P}(\xi=0, Y \le x) \\ & = & \mathbb{P}(\xi=1) \mathbb{P}(X \le x) + \mathbb{P}(\xi=0) \mathbb{P}(Y \le x) \\ & = & \alpha F_X(x) + (1-\alpha) F_Y(x) \\ & = & \int_{-\infty}^x (\alpha f_X(x) + (1-\alpha)f_Y(x)) dx \end{eqnarray*}$$
+\begin{align*}
+ \mathbb{P}(Z \le x) & = & \mathbb{P}(\xi=1,  X \le x) + \mathbb{P}(\xi=0, Y \le x) \\ & = & \mathbb{P}(\xi=1) \mathbb{P}(X \le x) + \mathbb{P}(\xi=0) \mathbb{P}(Y \le x) \\ & = & \alpha F_X(x) + (1-\alpha) F_Y(x) \\ & = & \int_{-\infty}^x (\alpha f_X(x) + (1-\alpha)f_Y(x)) dx 
+\end{align*}
 
 :::
 
@@ -686,7 +698,9 @@ Qu'obtient-on dans le cas où $X \sim \mathcal{N}(0,1)$?
 
 Soit $\phi : \mathbb{R} \to \mathbb{R}$ borélienne positive. et $Y=X^2$. On a, en effectuant le changement de variables $u=x^2$ à la quatrième ligne ci-dessous, 
 
-$$\begin{eqnarray*} \mathbb{E}[\phi(Y^2)] & = & \mathbb{E}[\phi(X^2)] \\ & = & \int_{\mathbb{R}} \phi(x^2) f(x) dx \\ & = & \int_{\mathbb{R}_-}\phi(x^2) f(x) dx + \int_{\mathbb{R}_+} \phi(x^2) f(x) dx \\ & = & \int_{0}^{\infty} \phi(u) f(-\sqrt{u}) \frac{du}{2\sqrt{u}} + \int_0^{\infty} \phi(u) f(\sqrt{u})\frac{du}{2\sqrt{u}} \\& = & \int_0^{\infty} \phi(u) \frac{f(-\sqrt{u}) + f(\sqrt{u})}{2\sqrt{u}} du \end{eqnarray*}$$
+\begin{align*}
+ \mathbb{E}[\phi(Y^2)] & = & \mathbb{E}[\phi(X^2)] \\ & = & \int_{\mathbb{R}} \phi(x^2) f(x) dx \\ & = & \int_{\mathbb{R}_-}\phi(x^2) f(x) dx + \int_{\mathbb{R}_+} \phi(x^2) f(x) dx \\ & = & \int_{0}^{\infty} \phi(u) f(-\sqrt{u}) \frac{du}{2\sqrt{u}} + \int_0^{\infty} \phi(u) f(\sqrt{u})\frac{du}{2\sqrt{u}} \\  & = & \int_0^{\infty} \phi(u) \frac{f(-\sqrt{u}) + f(\sqrt{u})}{2\sqrt{u}} du 
+\end{align*}
 
 Comme l'égalité ci-dessus est valable pour toute $\phi : \mathbb{R} \to \mathbb{R}$ borélienne positive, on conclut que $Y$ possède la densité 
 
@@ -729,14 +743,16 @@ Soit $X \sim \exp(1)$. Calculer la densité des variables suivantes :
 
 2. D'après l'exercice précédent 
 
-    $$ f_Z(u) = \frac{\exp(- \sqrt{u})}{\sqrt{u}} \mathbf{1}_{\{u>0\}}, u \in \mathbb{R}.$$
+    $$f_Z(u) = \frac{\exp(- \sqrt{u})}{\sqrt{u}} \mathbf{1}_{\{u>0\}}, u \in \mathbb{R}.$$
 
 3. Soit $\phi : \mathbb{R} \to \mathbb{R}_+$ borélienne, on a, en effectuant le changement de variables $u=\exp(-x)$ à la troisième ligne ci-dessous 
 
-    $$\begin{eqnarray*}
-    \mathbb{E}[\phi(U)] & = & \mathbb{E}[\phi(\exp(-X)] \\ & = & 
-    \int_0^{\infty} \phi(\exp(-x)) \exp(-x) dx \\ & = &  \int_{0}^1 \phi(u) du, 
-    \end{eqnarray*}$$
+    \begin{align*}
+    \mathbb{E}[\phi(U)] 
+    & = \mathbb{E}[\phi(\exp(-X)] \\ 
+    & =  \int_0^{\infty} \phi(\exp(-x)) \exp(-x) dx \\ 
+    & =  \int_{0}^1 \phi(u) du, 
+    \end{align*}
  
     et, comme cette égalité est valable pour tout $\phi : \mathbb{R} \to \mathbb{R}_+$ borélienne, on conclut que $U \sim \mathrm{Unif}[0,1]$. 
 
@@ -764,17 +780,21 @@ Trouver la loi de $\arcsin(X)$ lorsque
 
 1.  Soit $\phi : \mathbb{R} \to \mathbb{R}_+$ borélienne, on a, en effectuant le changement de variables $u=\arcsin(x)$ à la deuxième ligne ci-dessous
   
-    $$\begin{eqnarray*}
-     \mathbb{E}[\phi(\arcsin(X))] & = & \int_0^1 \phi(\arcsin(x)) dx  \\ & = & \int_0^{\pi/2} \phi(u) \cos(u) du. 
-    \end{eqnarray*}$$
+    \begin{align*}
+     \mathbb{E}[\phi(\arcsin(X))] 
+     & =  \int_0^1 \phi(\arcsin(x)) dx  \\ 
+     & =  \int_0^{\pi/2} \phi(u) \cos(u) du. 
+     \end{align*}
  
 On conclut que $Y=\arcsin(X)$ possède la densité $u \to f_Y(u) = \cos(u) \mathbf{1}_{[0,\pi/2]}(u)$. 
 
 1. Soit $\phi : \mathbb{R} \to \mathbb{R}_+$ borélienne, on a, en effectuant le changement de variables $u=\arcsin(x)$ à la deuxième ligne ci-dessous
    
-    $$\begin{eqnarray*}
-    \mathbb{E}[\phi(\arcsin(X))] & = & \frac{1}{2} \int_{-1}^1 \phi(\arcsin(x)) dx  \\ & = & \frac{1}{2} \int_{-\pi/2}^{\pi/2} \phi(u) \cos(u) du. 
-    \end{eqnarray*}$$
+    \begin{align*}
+    \mathbb{E}[\phi(\arcsin(X))] 
+    & =  \frac{1}{2} \int_{-1}^1 \phi(\arcsin(x)) dx  \\ 
+    & =  \frac{1}{2} \int_{-\pi/2}^{\pi/2} \phi(u) \cos(u) du.    
+    \end{align*}
  
     On conclut que $Y=\arcsin(X)$ possède la densité $u \to f_Y(u) = \frac{\cos(u)}{2} \mathbf{1}_{[-\pi/2,\pi/2]}(u)$. 
 
@@ -821,7 +841,12 @@ Quelle est la loi de $h(\theta)$? Que pouvez-vous en déduire sur la distributio
 
 2. On a $h(\theta) = \tan(\theta)$, et donc si on pose $X = h(\theta)$ et si $\phi : \mathbb{R} \to \mathbb{R}_+$ est borélienne on a (on effectue le changement de variables $x=\tan(\theta)$ à la troisième ligne ci-dessous) 
 
-    $$\begin{eqnarray*} \mathbb{E}[\phi(X)] & = & \mathbb{E}[\phi(\tan(\theta))] \\ & = & \int_{-\pi/2}^{\pi/2} \frac{2}{\pi} \phi(\tan(\theta)) d\theta \\ & = &  \int_{-\infty}^{\infty} \frac{1}{\pi} \frac{\phi(x)}{1+x^2} dx  \end{eqnarray*}$$
+    \begin{align*}
+    \mathbb{E}[\phi(X)] 
+    & = \mathbb{E}[\phi(\tan(\theta))] \\ 
+    & = \int_{-\pi/2}^{\pi/2} \frac{2}{\pi} \phi(\tan(\theta)) d\theta \\ 
+    & = \int_{-\infty}^{\infty} \frac{1}{\pi} \frac{\phi(x)}{1+x^2} dx  
+    \end{align*}
  
     de sorte que $X$ a pour densité $f_X: x \to \frac{1}{\pi(1+x^2)}$. 
 
@@ -855,13 +880,25 @@ Quelle est la loi de
 
     Si $\phi : \mathbb{R} \to \mathbb{R}_+$ est borélienne on a (on effectue le changement de variables $y=\frac{1}{x}$ à la toisième ligne ci-dessous) 
 
-    $$\begin{eqnarray*} \mathbb{E}[\phi(Y)] & = & \mathbb{E}[\phi(\frac{1}{X})] \\ & = & \int_{-\infty}^{0} \frac{\phi(1/x)}{\pi(1+x^2)} dx  + \int_{0}^{\infty} \frac{\phi(1/x)}{\pi(1+x^2)} dx \\ & = & \int_{-\infty}^0 \frac{\phi(y)}{\pi y^2(1+\frac{1}{y^2})} dy + \int_0^{\infty} \frac{\phi(y)}{\pi y^2(1+\frac{1}{y^2})} dy \\  & = & \int_{-\infty}^{\infty}  \frac{\phi(y)}{\pi (1+y^2)} dy \end{eqnarray*}$$
+    \begin{align*}
+    \mathbb{E}[\phi(Y)] 
+    & =  \mathbb{E}[\phi(\frac{1}{X})] \\ 
+    & =  \int_{-\infty}^{0} \frac{\phi(1/x)}{\pi(1+x^2)} dx  + \int_{0}^{\infty} \frac{\phi(1/x)}{\pi(1+x^2)} dx \\ 
+    & = \int_{-\infty}^0 \frac{\phi(y)}{\pi y^2(1+\frac{1}{y^2})} dy + \int_0^{\infty} \frac{\phi(y)}{\pi y^2(1+\frac{1}{y^2})} dy \\  
+    & =  \int_{-\infty}^{\infty}  \frac{\phi(y)}{\pi (1+y^2)} dy 
+    \end{align*}
  
     de sorte que $Y \sim \mathrm{Cauchy}(1)$. 
 
 1. Si $\phi : \mathbb{R} \to \mathbb{R}_+$ est borélienne on a (on effectue le changement de variables $z=\frac{1}{1+x^2}$ à la toisième ligne ci-dessous) 
  
-   $$\begin{eqnarray*} \mathbb{E}[\phi(Z)] & = & \mathbb{E}[\phi(\frac{1}{1+X^2})] \\ & = & \int_{-\infty}^{0} \frac{\phi(\frac{1}{1+x^2})}{\pi(1+x^2)} dx  + \int_{0}^{\infty} \frac{\phi(\frac{1}{1+x^2})}{\pi(1+x^2)} dx \\ & = & 2 \int_{0}^1 \frac{z \phi(z)}{\pi} \frac{1}{2 z^2\sqrt{\frac{1}{z}-1}}  \\  & = & \int_{0}^{1} \frac{\phi(z)}{\pi\sqrt{z(1-z)}} \end{eqnarray*}$$
+   \begin{align*}
+    \mathbb{E}[\phi(Z)] 
+    & =  \mathbb{E}[\phi(\frac{1}{1+X^2})] \\ 
+    & =  \int_{-\infty}^{0} \frac{\phi(\frac{1}{1+x^2})}{\pi(1+x^2)} dx  + \int_{0}^{\infty} \frac{\phi(\frac{1}{1+x^2})}{\pi(1+x^2)} dx \\ 
+    & =  2 \int_{0}^1 \frac{z \phi(z)}{\pi} \frac{1}{2 z^2\sqrt{\frac{1}{z}-1}}  \\ 
+    & =  \int_{0}^{1} \frac{\phi(z)}{\pi\sqrt{z(1-z)}} 
+    \end{align*}
  
     de sorte que $Z \sim \mathrm{Beta}(1/2,1/2)$. 
 
@@ -893,23 +930,19 @@ $$\left(x^{-1}-x^{-3}\right) \exp(-x^2/2) \le \sqrt{2\pi} \mathbb{P}(Z>x) \le x^
  
 On a pour $x >0$, en effectuant le changement de variables $y=x+z$ suggéré dans l'énoncé 
 
-$$
-\begin{eqnarray*}
+\begin{align*}
  \sqrt{2\pi} \mathbb{P}(Z>x) & = & \int_{x}^{\infty} \exp(-y^2/2) dy 
 \\ & = & \int_0^{\infty} \exp(-x^2/2-xz-z^2/2) \mathrm{d}z 
 \\ & = & \exp(-x^2/2) \int_{\mathbb{R}_+} \exp(-zx - z^2/2) \mathrm{d}z 
 \\ & \le & \exp(-x^2/2) \int_{\mathbb{R}_+} \exp(-zx) \mathrm{d}z = x^{-1} \exp(-x^2/2) 
-\end{eqnarray*}
-$$ 
+\end{align*} 
 
 Par ailleurs, si $g : x \to (x^{-1}-x^{-3})(\exp(-x^2/2)$, on a pour $x>0$
 
-$$
-\begin{eqnarray*}
+\begin{align*}
  g'(x) & = & \left(-\frac{1}{x^2}-\frac{3}{x^4} -x (x^{-1}-x^{-3}) \right)\exp(-x^2/2)   \\ 
 & = & \left( -1 -\frac{3}{x^4} \right) \exp(-x^2/2) 
-\end{eqnarray*}
-$$
+\end{align*}
 
 Par ailleurs, si $h : x \to \sqrt{2\pi} \mathbb{P}(Z>x)$, on a $h'(x) = - \exp(-x^2/2)$ de sorte que 
 $g'(x) <h'(x),$ pour tout $x >0$. 
@@ -945,12 +978,10 @@ Soient $X_1,...,X_n$ des variables de Poisson, indépendantes, de paramètres re
 
 1. On a pour tout $t \in \mathbb{R}$, en utilisant  l'indépendance des $(X_k, 1 \le k \le n)$ à la première ligne ci-dessous,  
 
-$$
-\begin{eqnarray*}
+\begin{align*}
  \Phi_Y(t) & = & \prod_{k=1}^n \Phi_{X_k}(t) \\ & = & \prod_{k=1}^n \exp(\lambda_k (\exp(it)-1)) \\ & = & 
 \exp(\Lambda (\exp(it)-1) 
-\end{eqnarray*}
-$$
+\end{align*}
 
 où $\Lambda = \sum_{k=1}^n \lambda_k$. 
 La fonction caractéristique caractérisant la loi, on déduit que $Y \sim \mathrm{Poisson}(\Lambda)$. 
@@ -959,13 +990,11 @@ Si $\sum_{k=1}^n \ell_k \ne r$ on a bien sûr $\{(X_1,...,X_n)= (\ell_1,... \ell
 $$ \mathbb{P}((X_1,X_2, \dots ,X_n) = (\ell_1, \ell_2, \dots, \ell_n)  \mid Y=r) = 0$$ 
 Si $(\ell_1,\ell_2, \dots, \ell_n) \in \mathbb{N}^n$ sont tels que $\sum_{k=1}^n \ell_k = n$, on a $\{Y=r\} \supset \{(X_1,X_2, \dots,X_n)= (\ell_1, \ell_2, \dots, \ell_n)\}$ et donc en utilisant l'indépendance des $(X_k)_{1 \le k \le n} $ à la deuxième ligne ci-dessous 
 
-$$
-\begin{eqnarray*}
+\begin{align*}
  \mathbb{P}((X_1, X_2, \dots,X_n) = (\ell_1,\ell_2, \dots, \ell_n) \mid Y =r) & = & \frac{\mathbb{P}(X_1=\ell_1, X_2= \ell_2, \dots, X_n = \ell_r)}{\mathbb{P}(Y=r)} \\ & = & 
 \frac{\prod_{k=1}^n \frac{\lambda_k^{\ell_k}\exp(-\lambda_k)}{\ell_k!}}{\frac{\exp(-\Lambda) \Lambda^r}{r!} } 
-\\& = & {r \choose \ell_1, \ell_2, \dots,\ell_n} \prod_{k=1}^n \left(\frac{\lambda_k}{\Lambda}\right)^{\ell_k}, 
-\end{eqnarray*}
-$$
+\\ & = & {r \choose \ell_1, \ell_2, \dots,\ell_n} \prod_{k=1}^n \left(\frac{\lambda_k}{\Lambda}\right)^{\ell_k}, 
+\end{align*}
 
 avec ${r \choose \ell_1, \ell_2, \dots, \ell_n} =\frac{r!}{\ell_1! \ell_2! \dots \ell_n!}$ le coefficient multinômial de $(\ell_1,...,\ell_n)$ parmi $r$.
 
@@ -1008,8 +1037,7 @@ où par convention $\sum_{k=1}^0 \dots = 0$.
 
 On a donc pour $(s,t) \in \mathbb{R}^2$, en utilisant l'indépendance de $X$ et des $(\xi_i, i \ge 1)$ à la quatrième ligne ci-dessous, puis le fait que les $(\xi_i, i \ge 1)$ sont i.i.d suivant une loi  Ber$(p)$ à la suivante :  
 
-$$
-\begin{eqnarray*}
+\begin{align*}
  \Phi_{(Y,Z)}(s,t) & = & \mathbb{E}[\exp(isY + itZ)] \\ 
 & = & \mathbb{E}\left[\exp\left(is \sum_{k=1}^X \xi_k + it \sum_{k=1}^X (1-\xi_k)\right)\right] 
 \\ & = & \sum_{j \in \mathbb{N}} \mathbb{E}\left[\mathbf{1}_{\{X= j\}} \exp\left(is \sum_{k=1}^j \xi_k + it \sum_{k=1}^j (1-\xi_k)\right)\right] 
@@ -1017,8 +1045,7 @@ $$
 \\ & = & \sum_{j \in \mathbb{N}} \frac{\lambda^j \exp(-\lambda)}{j!}  \bigg(p\exp(is) + (1-p)\exp(it)\bigg)^j 
 \\ & = & \exp(-\lambda + \lambda p \exp(is) + \lambda(1-p)\exp(it)) 
 \\ & = & \exp(\lambda p (\exp(is)-1)) \exp(\lambda(1-p) (\exp(it)-1)) 
-\end{eqnarray*}
-$$
+\end{align*}
 
 On déduit que $(Y,Z)$ est un couple de variables de Poisson indépendantes, de paramètres respectifs $\lambda p, \lambda(1-p)$. 
 
@@ -1056,24 +1083,20 @@ Supposons la vraie au rang $n$ et posons $Z_{n+1} = \sum_{i=1}^{n+1} Y_i$. Comme
 $$ f_{(Z_n, Y_{n+1})}(z,y) = f_{Z_n}(z) f_{Y_{n+1}}(y) = c_n  \lambda z^{n-1} \exp(-\lambda z - \lambda y) \mathbf{1}_{\{z \ge 0, y \ge 0\}}, (z,y) \in \mathbb{R}^2$$ 
 Soit $\phi : \mathbb{R} \to \mathbb{R}$ borélienne positive 
 
-$$
-\begin{eqnarray*}
+\begin{align*}
  \mathbb{E}[\phi(Z_{n+1})] & = & \mathbb{E}[\phi(Z_n + Y_{n+1})] 
 \\ & = & \int_{\mathbb{R}_+^2} \phi(z+y) f_{Z_n}(z) f_{Y_{n+1}}(y) \mathrm{d}z dy 
 \\ & = & \int_{\mathbb{R}_+^2} \phi(z+y)  	c_n  \lambda z^{n-1} \exp(-\lambda z - \lambda y)  \mathrm{d}z dy 
 \\ & = & \int_{u \in \mathbb{R}_+, u \ge v}  \phi(u) c_n \lambda v^{n-1} \exp(-\lambda u) du dv 
-\end{eqnarray*}
-$$
+\end{align*}
 
 où à la dernière ligne on a utilisé le changement de variable $(u,v) = (z+y,z)$ de $\mathbb{R}_+^2$ dans $\{(u,v) \in \mathbb{R}_+^2 : v \le u\}$, de jacobien $1$. 
 On a donc 
 
-$$
-\begin{eqnarray*}
+\begin{align*}
   \mathbb{E}[\phi(Z_{n+1})] & = &  \int_{u \in \mathbb{R}_+} \lambda c_n \phi(u)  \exp(-\lambda u) \int_{v =0}^u  v^{n-1} dv  du \\
 & = & \int_{\mathbb{R}_+} \phi(u) \lambda \frac{c_n}{n} u^n \exp(-\lambda u) du 
-\end{eqnarray*}
-$$
+\end{align*}
 
 et on obtient la conclusion souhaitée, avec $c_{n+1} = \frac{\lambda c_n}{n}$. 
 
@@ -1083,16 +1106,14 @@ On déduit par une récurrence immédiate que $c_n = \frac{\lambda^n}{(n-1)!}, n
 $$ \Phi_{\chi^2(n)}(t) = \Phi_{X_1^2}(t)^n = \left(\frac{1/2}{1/2-it}\right)^{n/2}.$$ 
 Par ailleurs pour $t \in \mathbb{R}$, 
 
-$$
-\begin{eqnarray*}
+\begin{align*}
  \Phi_{X_1X_2}(t) & = & \mathbb{E}[\exp(i t X_1 X_2)] = \int_{\mathbb{R}^2} \frac{1}{2\pi} \exp(it x_1 x_2 - x_1^2/2 - x_2^2/2) dx_1 dx_2 \\ 
 & = & \int_{\mathbb{R}} dx_1 \frac{1}{\sqrt{2\pi}} \exp(-x_1^2 /2) \int_{\mathbb{R}} dx_2 \frac{1}{\sqrt{2\pi}} \exp(it x_1 x_2 - x_2^2/2) 
 \\ & = & \int_{\mathbb{R}} \frac{1}{\sqrt{2\pi}} \exp(-x_1^2/2) \Phi_{X_2}(tx_1) dx_1
 \\ & = & \int_{\mathbb{R}}  \frac{1}{\sqrt{2\pi}} \exp(-x_1^2/2) \exp(-t^2 x_1^2 /2) dx_1
 \\ & = & \int_{\mathbb{R}} \frac{1}{\sqrt{2\pi}} \exp\left(- \frac{x_1^2 (1+t^2)}{2} \right) dx_1 
 \\ & = & \frac{1}{\sqrt{1+t^2}}
-\end{eqnarray*}
-$$
+\end{align*}
 
 et donc les $(X_i, i \ge 1)$ étant i.i.d, pour $t \in \mathbb{R}$, 
 
@@ -1103,14 +1124,12 @@ On peut le vérifier directement.
 Soit $\xi \sim \mathrm{Ber}(1/2)$, et $(X,Y)$ i.i.d suivant une loi exp$(1)$. La variable $T=\xi X -(1-\xi)Y$ a une loi exponentielle symétrique. 
 De plus pour $t \in \mathbb{R}$, 
 
-$$
-\begin{eqnarray*}
+\begin{align*}
  \Phi_T(t) & = & \mathbb{E}[\exp(it \xi X -it(1-\xi)Y)]  \\ 
 & = & \frac{1}{2} \mathbb{E}[\exp(itX)] + \frac{1}{2}\mathbb{E}[\exp(-itY)] \\
  & = & \frac{1}{2} \frac{1}{1-it} + \frac{1}{2} \frac{1}{1+it} 
 \\ & = & \frac{\frac{1}{2}(1+it) + \frac{1}{2}(1-it)}{1+t^2} = \frac{1}{1+t^2} 
-\end{eqnarray*}
-$$
+\end{align*}
 
 comme souhaité. 
 
@@ -1159,23 +1178,21 @@ $$\int_{\mathbb{R}^2} f(x,y) dx dy = \int_{\mathbb{R}^2}\frac{4}{\pi \sigma^2} \
 Enfin, la réunion des $4$ ensembles $\{(x,y) \in \mathbb{R}^2: x \ge |y|\}, \{(x,y) \in \mathbb{R}^2 : y \ge |x|\},  \{(x,y) \in \mathbb{R}^2 : x \le -|y|\}, \{(x,y) \in \mathbb{R}^2 : y \le -|x|\}$ est $\mathbb{R}^2$ tout entier. L'intersection des $2$ premiers est $\{(x,y) : x = y \ge 0\}$, de mesure de Lebesgue nulle, et des considérations similaires permettent d'assurer que c'est également le cas pour l'intersection de n'importe quelle paire parmi ces $4$ ensembles. 
 On conclut que 
 
-$$
-\begin{eqnarray*}
- \int_{\mathbb{R}^2} f(x,y) dx dy  & = & \frac{1}{4} \int_{\mathbb{R}^2}   \frac{4}{\pi \sigma^2} \exp\left(-\frac{x^2+y^2}{\sigma^2}\right) \\ 
-& = & \int_{0}^{\infty} \int_0^{2\pi} \frac{1}{\pi \sigma^2} \exp\left(-\frac{r^2}{\sigma^2}\right) r dr d\theta\\ 
-& = & \left[ \exp\left(-\frac{r^2}{\sigma^2}\right) \right]_0^{\infty} = 1,  
-\end{eqnarray*}
-$$
+\begin{align*}
+\int_{\mathbb{R}^2} f(x,y) dx dy  
+& =  \frac{1}{4} \int_{\mathbb{R}^2}   \frac{4}{\pi \sigma^2} \exp\left(-\frac{x^2+y^2}{\sigma^2}\right) \\ 
+& =  \int_{0}^{\infty} \int_0^{2\pi} \frac{1}{\pi \sigma^2} \exp\left(-\frac{r^2}{\sigma^2}\right) r dr d\theta\\ 
+& = \left[ \exp\left(-\frac{r^2}{\sigma^2}\right) \right]_0^{\infty} = 1,  
+\end{align*}
 
 comme souhaité. 
 1. Si $\phi : \mathbb{R} \to \mathbb{R}_+$ est borélienne 
 
-$$    
-\begin{eqnarray*}
+
+\begin{align*}
  \mathbb{E}[\phi(X)] & = & \int_{\mathbb{R}^2} \phi(x) f(x,y) dx dy \\ 
  & = & \int_{\mathbb{R}_+} \phi(x) \frac{4}{\pi \sigma^2} \exp\left(-\frac{x^2}{\sigma^2}\right) \int_{-x}^x \exp\left(-\frac{y^2}{\sigma^2}\right) dy dx 
-\end{eqnarray*}
-$$
+\end{align*}
 
 On déduit que $X$ possède la densité $f_X$ telle que 
 $$f_X(x) =  \frac{4}{\pi \sigma^2} \exp\left(-\frac{x^2}{\sigma^2}\right) \int_{-x}^x \exp\left(-\frac{y^2}{\sigma^2}\right) dy \mathbf{1}_{\{x \ge 0\}}$$ 
@@ -1190,12 +1207,10 @@ $$f_X(x) =  \frac{4}{\sigma \sqrt{\pi} } \exp\left(-\frac{x^2}{\sigma^2}\right) 
  
 Toujours pour $\phi: \mathbb{R} \to \mathbb{R}_+$ borélienne, on a 
 
-$$
-\begin{eqnarray*}
+\begin{align*}
  \mathbb{E}[\phi(Y)] & = & \int_{\mathbb{R}^2} \phi(y) f(x,y) dx dy \\ 
  & = & \int_{\mathbb{R}} \phi(y) \frac{4}{\pi \sigma^2} \exp\left(-\frac{y^2}{\sigma^2}\right) \int_{|y|}^{\infty} \exp\left(-\frac{x^2}{\sigma^2}\right) dx dy 
-\end{eqnarray*}
-$$
+\end{align*}
 
 On déduit que $Y$ possède la densité $f_Y$ telle que 
 $$f_Y(y) =  \frac{4}{\pi \sigma^2} \exp\left(-\frac{y^2}{\sigma^2}\right) \int_{|y|}^{\infty} \exp\left(-\frac{x^2}{\sigma^2}\right) dx $$ 
@@ -1209,21 +1224,19 @@ $$ f_Y(y) =  \frac{2}{ \sigma \sqrt{\pi}} \exp\left(-\frac{y^2}{\sigma^2}\right)
 Enfin puisque par exemple $\mathbb{P}(X \ge Y \ge 1) =\mathbb{P}(Y \ge 1)$ on a $\mathbb{P}(X \ge 1, Y \ge 1) \ne \mathbb{P}(X \ge 1) \mathbb{P}(Y \ge 1)$ et les variables $X$ et $Y$ ne sont pas indépendantes.  
 
 1. Soit $\psi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne, on a 
-$$
-\begin{eqnarray*}
+\begin{align*}
  \mathbb{E}[\psi(X-Y,X+Y)] & = & \int_{\mathbb{R}^2} \psi(x-y,x+y) f(x,y) dx dy \\ 
 & = & \int_{\mathbb{R}^2} \psi(x-y,y+y)  \frac{4}{\pi \sigma^2} \exp\left(-\frac{x^2+y^2}{\sigma^2}\right)  \mathbf{1}_{\{x \ge |y|\}} 
-\end{eqnarray*}
-$$
+\end{align*}
 
 Notons que $G: \begin{cases} & \{(x,y) \in \mathbb{R}^2 : x \ge |y|\} \to \{(u,v) \in \mathbb{R}_+^2\} \\ & (x,y) \to (u,v) =(x+y,x-y) \end{cases}$
 est un $\mathcal{C}^1$-difféomorphisme (d'inverse $G^{-1} : (u,v) \to (x,y)$ avec $x = \frac{u+v}{2}, y = \frac{u-v}{2}$), de jacobien $2$. Par la formule de changement de variables, et en remarquant que $u^2 + v^2 = 2(x^2+y^2)$, on obtient  
 
-$$\begin{eqnarray*}
- \mathbb{E}[\psi(X-Y, X+Y)] & = & \int_{\mathbb{R}_+^2}  \psi(u,v) \frac{2}{\pi \sigma^2} \exp\left(-\frac{u^2 + v^2}{2\sigma^2}\right)  du dv \\ 
-& = & \int_{\mathbb{R}^2} \psi(u,v) f_U(u) f_V(v) du dv 
-\end{eqnarray*}
-$$
+\begin{align*}
+ \mathbb{E}[\psi(X-Y, X+Y)] 
+ & = \int_{\mathbb{R}_+^2}  \psi(u,v) \frac{2}{\pi \sigma^2} \exp\left(-\frac{u^2 + v^2}{2\sigma^2}\right)  du dv \\ 
+& =  \int_{\mathbb{R}^2} \psi(u,v) f_U(u) f_V(v) du dv 
+\end{align*}
 
 avec $$f_U(u) = f_V(u) = \frac{2}{\sigma \sqrt{2\pi}} \exp\left(-\frac{u^2}{2\sigma^2} \right) \mathbf{1}_{\{u \ge 0\}},$$
 qui est la densité de $|Z|$ où $Z \sim \mathcal{N}(0,1)$. 
@@ -1271,23 +1284,22 @@ la partie décimale de $X$. Quelle est la loi de $(U,V)$?
  
 1. En utilisant d'abord l'indépendance des $(X_k, 1 \le k \le n)$ à la deuxième ligne ci-dessous, puis le fait que $\Phi_{X_k}(u) =\exp(-u^2/2)$ à la suivante, on obtient que pour $t \in \mathbb{R}$,
 
-$$ 
-\begin{eqnarray*}
+
+\begin{align*}
  \Phi_{Z}(t) & = & \mathbb{E}\left[\exp\left(it \sum_{k=1}^n \alpha_k X_k \right) \right] \\ 
-& = & \prod_{k=1}^n \Phi_{X_k}(t \alpha_k) \\ 
-& = & \exp\left( - \frac{t^2}{2} \sum_{k=1}^n \alpha_k^2 \right) 
-\end{eqnarray*}
-$$
+& =  \prod_{k=1}^n \Phi_{X_k}(t \alpha_k) \\ 
+& =  \exp\left( - \frac{t^2}{2} \sum_{k=1}^n \alpha_k^2 \right) 
+\end{align*}
 
 et on déduit que $Z \sim \mathcal{N}\left(0, \sum_{k=1}^n \alpha_k^2\right)$. 
 1. Lorsque $X$ est un vecteur gaussien, toute combinaison linéaire des coordonnées de $X$ suit une loi gaussienne. 
 Comme les coordonnées de $X$ sont ici centrées, il en va de même pour $Z$. Par ailleurs 
 
-$$
-\begin{eqnarray*}
- \mathrm{Var}(Z) & = & \sum_{k=1}^n \sum_{\ell=1}^n \alpha_k \alpha_{\ell} \mathrm{Cov}(X_k, X_{\ell}) \\ & = & \alpha^T A \alpha. 
-\end{eqnarray*}
-$$
+\begin{align*}
+ \mathrm{Var}(Z) 
+ & = \sum_{k=1}^n \sum_{\ell=1}^n \alpha_k \alpha_{\ell} \mathrm{Cov}(X_k, X_{\ell}) \\ 
+ & = \alpha^T A \alpha. 
+\end{align*}
 
 Finalement $Z \sim \mathcal{N}(0,\alpha^T A \alpha)$, autrement dit 
 $$\Phi_Z(t) = \exp\left(-t^2\frac{\alpha^T A \alpha}{2} \right).$$  
@@ -1301,11 +1313,17 @@ On conclut que $Z \sim \mathcal{N}(0, P^T A P)$
 1.  La matrice $P$ joue le même rôle que la matrice de la question précédent (à ceci près qu'elle possède désormais $n$ lignes et $n$ colonnes). Par le même raisonnement qu'à la question précédente, on trouve que $Z \sim \mathcal{N}(0,P^T A P)$.   
 1. Puisque $X$ et $Y$ sont indépendantes et à densité, $(X,Y)$ possède la densité jointe $f_{(X,Y)}$ telle que $f_{(X,Y)}(x,y) = f_X(x) f_Y(y)$. On a donc pour $\phi: \mathbb{R}^2 \to \mathbb{R}_+$ borélienne, 
 
-$$\begin{eqnarray*} \mathbb{E}[\phi(X+Y)] & = & \int_{[0,1]^2} \phi(x+y) \mathrm{d}x \mathrm{d}y \end{eqnarray*}$$
+\begin{align*}
+\mathbb{E}[\phi(X+Y)] & =  \int_{[0,1]^2} \phi(x+y) \mathrm{d}x \mathrm{d}y 
+\end{align*}
  
 On fait le changement de variables  $\begin{cases} & [0,1]^2 \to \{(s,t) \in [0,2] \times [0,1] :  t+1 \ge s \ge t \} \\ & (x,y) \to ( s=x+y, t=y) \end{cases}$, de jacobien $1$, et on trouve 
 
-$$\begin{eqnarray*}\mathbb{E}[\phi(X+Y)] & = & \int_{0}^2 ds \phi(s) \int_{\max(s-1,0)}^{\min(s,1)} \mathrm{d}t\\ & = &  \int_0^2 \phi(s) \min(s, 1-s) \mathrm{d}s \end{eqnarray*}$$
+\begin{align*}
+\mathbb{E}[\phi(X+Y)] 
+& =  \int_{0}^2 ds \phi(s) \int_{\max(s-1,0)}^{\min(s,1)} \mathrm{d}t\\ 
+& =   \int_0^2 \phi(s) \min(s, 1-s) \mathrm{d}s 
+\end{align*}
    
 et on déduit que $S$ possède la densité $f_S$, où 
 $$f_S(s) = \begin{cases} & s \mbox{ si } 0 \le s \le 1 \\ & (1-s) \mbox{ si } 1 \le s \le 2 \\ & 0 \mbox{ sinon.} \end{cases}$$ 
@@ -1324,7 +1342,9 @@ et on conclut que $S \sim \mathrm{Gamma}(a+b,c)$ est indépendant de $T \sim \ma
 1. L'application 
 $$\Psi : \begin{cases}  & [0,1]^2 \to \mathbb{R}^2  \\ & (x,y) \to (u,v) = \left(\sqrt{-2\ln(x)} \cos(2\pi v),  \sqrt{-2\ln(x)} \sin(2\pi y)\right) \end{cases}$$ 
 est un $\mathcal{C}^1$-difféomorphisme, composée de $(x,y) \to (r,\theta) = (\sqrt{-2\ln(x)},2\pi y)$ et $(r, \theta) \to (u,v) = (r \cos(\theta), r \sin(\theta))$. Le Jacobien de $\Psi$ est $2\pi \exp((u^2+v^2)/2)$ et on déduit que pour $\phi$ continue bornée de $\mathbb{R}^2$ dans $\mathbb{R}$, 
-$$\begin{eqnarray*} \mathbb{E}[\phi(U,V)] & = & \int_{0}^1 \int_0^1 dx dy \phi \left(\sqrt{-2\ln(x)} \cos(2\pi y), \sqrt{-2\ln(x)} \sin(2\pi y)\right) \\ & = & \int_{\mathbb{R}^2} du dv \phi(u,v) \frac{1}{2\pi} \exp(-u^2/2) \exp(-v^2/2), \end{eqnarray*}$$
+\begin{align*}
+ \mathbb{E}[\phi(U,V)] & = & \int_{0}^1 \int_0^1 dx dy \phi \left(\sqrt{-2\ln(x)} \cos(2\pi y), \sqrt{-2\ln(x)} \sin(2\pi y)\right) \\ & = & \int_{\mathbb{R}^2} du dv \phi(u,v) \frac{1}{2\pi} \exp(-u^2/2) \exp(-v^2/2), 
+\end{align*}
 
 et finalement que $(U,V) \sim \mathcal{N}(0,I_2)$. 
 
@@ -1333,7 +1353,11 @@ Par ailleurs $(X,Y) \sim \mathcal{N}(0,Id_2)$ et a la densité correspondante.
 
 On a, pour $\phi: \mathbb{R}^2 \to \mathbb{R}$ bornée mesurable, gr\^ace au changement de variables de $\mathbb{R}^* \times \mathbb{R}^*$ dans lui-même, qui à $(x,y)$ associe  $(x,z)=(x,\frac{y}{x})$ (et dont l'inverse du jacobien vaut $|x|$) :   
 
-$$\begin{eqnarray*} \mathbb{E}[\phi(X,Z)] & = & \frac{1}{2\pi} \int_{(\mathbb{R}^*)^2} \phi(x, \frac{y}{x}) \exp(-x^2/2-y^2/2) dx dy \\ & = & \frac{1}{2\pi} \int_{(\mathbb{R}^*)^2} \phi(x, z) |x| \exp\left(-\frac{x^2}{2} (1+z^2)\right) dx \mathrm{d}z   \end{eqnarray*}$$
+\begin{align*}
+ \mathbb{E}[\phi(X,Z)] 
+ & = \frac{1}{2\pi} \int_{(\mathbb{R}^*)^2} \phi(x, \frac{y}{x}) \exp(-x^2/2-y^2/2) dx dy \\ 
+ & = \frac{1}{2\pi} \int_{(\mathbb{R}^*)^2} \phi(x, z) |x| \exp\left(-\frac{x^2}{2} (1+z^2 \right) dx \mathrm{d}z   
+\end{align*}
  
 et donc $(X,Z)$ a densité 
 
@@ -1341,7 +1365,9 @@ $$f_{(X,Z)}(x,z) = \frac{1}{2\pi}  |x| \exp\left(-\frac{x^2}{2} (1+z^2)\right).$
 
 On en déduit que 
 
-$$\begin{eqnarray*} f_Z(z) & = & 2 \int_{\mathbb{R}_+} \frac{1}{2\pi}  x z^2 \exp\left(-\frac{x^2}{2} (1+z^2)\right) dx = \frac{1}{\pi} \frac{1}{1+z^2}, \end{eqnarray*}$$
+\begin{align*}
+ f_Z(z) & = & 2 \int_{\mathbb{R}_+} \frac{1}{2\pi}  x z^2 \exp\left(-\frac{x^2}{2} (1+z^2)\right) dx = \frac{1}{\pi} \frac{1}{1+z^2}, 
+\end{align*}
 
 de sorte que $Z \sim \mathrm{Cauchy}(1)$. 
 
@@ -1349,27 +1375,40 @@ de sorte que $Z \sim \mathrm{Cauchy}(1)$.
     
     $$G : \begin{cases} & \mathbb{R} \times \mathbb{R}_-^* \to \{(u,v) \in \mathbb{R} \times \mathbb{R}_+^* : v \ge u^2\} \\ (x,y) \to (x, x^2+y^2) \end{cases}, \ H: \begin{cases} & \mathbb{R} \times \mathbb{R}_+ \to \{(u,v) \in \mathbb{R} \times \mathbb{R}_+^* : v \ge u^2\} \\ (x,y) \to (x, x^2+y^2) \end{cases},$$ 
        
-    dont les jacobiens sont tous deux égaux à $2|y| = 2 \sqrt{u-v^2}$, on obtient pour $\phi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne (les deux intégrales fournissent des  contributions identiques) :  
+    dont les jacobiens sont tous deux égaux à $2|y| = 2 \sqrt{u-v^2}$, 
+    on obtient pour $\phi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne (les deux intégrales fournissent des  contributions identiques) :  
 
-    $$\begin{eqnarray*}\mathbb{E}[\phi(U,V)]   =  2 \int_{\mathbb{R} \times \mathbb{R}_+} \phi(u,v) \frac{\exp\le(-\frac{v}{2}\right)}{4 \pi \sqrt{u-v^2}} \mathbf{1}_{\{v \ge u^2\}}du dv \end{eqnarray*}$$
+    \begin{align*}
+    \mathbb{E}[\phi(U,V)]  
+    &  =  2 \int_{\mathbb{R} \times \mathbb{R}_+} \phi(u,v) \frac{\exp\left(-\frac{v}{2}\right)}{4 \pi \sqrt{u-v^2}} \mathbf{I}_{\{v \ge u^2\}}du dv 
+    \end{align*}
  
     et on conclut que $(U,V)$ possède la densité $f_{(U,V)}$ telle que pour tout $(u,v) \in \mathbb{R}^2$, 
 
-    $$f_{(U,V)}(u,v) = \frac{\exp\left(-\frac{v}{2}\right)}{2 \pi \sqrt{u-v^2}} \mathbf{1}_{\{v \ge u^2\}}.$$  
+    $$f_{(U,V)}(u,v) = \frac{\exp\left(-\frac{v}{2}\right)}{2 \pi \sqrt{u-v^2}} \mathbf{I}_{\{v \ge u^2\}}.$$  
 
     *Remarque* : On peut recalculer à partir de cette densité les marginales, mais il est évident que $X \sim \mathcal{N}(0,1)$, et on avait vu plus haut que  $X^2+Y^2 \sim \exp(1/2)$. 
 
 1. On a pour $\phi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne 
 
-    $$\begin{eqnarray*} \mathbb{E}[\phi(U,V)] & = &  \int_{\mathbb{R}_+} \phi( [x], x-[x])  \exp(-x) dx \\ & = & \sum_{n \ge 0} \int_n^{n+1} \phi(n, x-n) \exp(-x) dx \\ & = & \sum_{n \ge 0} \int_0^1 \phi(n,v) \exp(-n) \exp(-v) du \end{eqnarray*}$$
+    \begin{align*}
+    \mathbb{E}[\phi(U,V)] 
+    & =  \int_{\mathbb{R}_+} \phi( [x], x-[x])  \exp(-x) dx \\ 
+    & =  \sum_{n \ge 0} \int_n^{n+1} \phi(n, x-n) \exp(-x) dx \\ 
+    & =  \sum_{n \ge 0} \int_0^1 \phi(n,v) \exp(-n) \exp(-v) du 
+    \end{align*}
  
     Si $g : \mathbb{R} \to \mathbb{R}_+$, $h : \mathbb{R} \to \mathbb{R}_+$ boréliennes, quitte à considérer $\phi(u,v) = g(u) h(v)$ on obtient 
 
-    $$\begin{eqnarray*}\mathbb{E}[g(U) h(V)] & = & \sum_{n \ge 0} g(n) \exp(-1)^n (1-\exp(-1)) \int_0^1 h(v) \frac{\exp(-v)}{1-\exp(-1)} du \\  & = & \mathbb{E}[g(U)] \mathbb{E}[h(V)]  \end{eqnarray*}$$
+    \begin{align*}
+    \mathbb{E}[g(U) h(V)] 
+    & =  \sum_{n \ge 0} g(n) \exp(-1)^n (1-\exp(-1)) \int_0^1 h(v) \frac{\exp(-v)}{1-\exp(-1)} du \\  
+    & =  \mathbb{E}[g(U)] \mathbb{E}[h(V)]  
+    \end{align*}
  
     On conclut que $U$ et $V$ sont indépendantes, avec $U + 1 \sim  \mathrm{Geom}(1-\exp(-1))$ et $V$ de densité $f_V$ avec, pour tout $ v\in \mathbb{R}$,  
 
-    $$ f_V(v) = \frac{1}{1-\exp(-1)} \exp(-v) \mathbf{1}_{(0,1)}(v).$$   
+    $$f_V(v) = \frac{1}{1-\exp(-1)} \exp(-v) \mathbf{1}_{(0,1)}(v).$$   
 
     *Remarque* : La loi de $V$ est celle d'une variable exponentielle de paramètre $1$ conditionnée à être plus petite que $1$. 
 
@@ -1404,17 +1443,35 @@ On note $U = \min\{X_1,X_2\}$, $V= \max\{X_1,X_2\}$ et enfin $S= U+V$.
 
 1. Par hypothèse, la loi de $(X_1,X_2)$ est uniforme sur $\{1,2,3\}^2$, et on déduit, quitte à disjoindre les cas, que  
 
-    $$\begin{eqnarray*} && \mathbb{P}((U,V) =(1,1)) = \mathbb{P}(X_1=1, X_2=1) = 1/9 \\  && \mathbb{P}((U,V)=(1,2)) = \mathbb{P}(X_1=1,X_2=2) + \mathbb{P}(X_1=2,X_2=1) = 2/9 \\ && \mathbb{P}((U,V) = (1,3)) =  \mathbb{P}(X_1=1,X_2=3) + \mathbb{P}(X_1=3,X_2=1) = 2/9 \\ && \mathbb{P}((U,V) = (2,2)) = \mathbb{P}(X_1=2, X_2=2) = 1/9 \\  && \mathbb{P}((U,V)=(2,3)) = \mathbb{P}(X_1=2,X_2=3) + \mathbb{P}(X_1=3,X_2=2) = 2/9 \\ && \mathbb{P}((U,V)=(3,3)) = \mathbb{P}(X_1=3,X_2=3) = 1/9 \end{eqnarray*}$$
+    \begin{align*}
+    & \mathbb{P}((U,V) =(1,1)) = \mathbb{P}(X_1=1, X_2=1) = 1/9 \\  
+    & \mathbb{P}((U,V)=(1,2)) = \mathbb{P}(X_1=1,X_2=2) + \mathbb{P}(X_1=2,X_2=1) = 2/9 \\ 
+    & \mathbb{P}((U,V) = (1,3)) =  \mathbb{P}(X_1=1,X_2=3) + \mathbb{P}(X_1=3,X_2=1) = 2/9 \\ 
+    & \mathbb{P}((U,V) = (2,2)) = \mathbb{P}(X_1=2, X_2=2) = 1/9 \\  
+    & \mathbb{P}((U,V)=(2,3)) = \mathbb{P}(X_1=2,X_2=3) + \mathbb{P}(X_1=3,X_2=2) = 2/9 \\ 
+    & \mathbb{P}((U,V)=(3,3)) = \mathbb{P}(X_1=3,X_2=3) = 1/9 
+    \end{align*}
  
 
     La même disjonction de cas conduit à la loi de $(V,S)$ : 
 
-    $$\begin{eqnarray*} && \mathbb{P}(V=1,S=2) = 1/9 \\  && \mathbb{P}(V=2,S=3) = 2/9 \\  && \mathbb{P}(V=3,S=4) = 2/9 \\ && \mathbb{P}(V=2,S=4) = 1/9 \\ && \mathbb{P}(V=3, S=5) = 2/9 \\  && \mathbb{P}(V=3, S=6) = 1/9  \end{eqnarray*}$$
+    \begin{align*}
+    & \mathbb{P}(V=1,S=2) = 1/9 \\  
+    & \mathbb{P}(V=2,S=3) = 2/9 \\  
+    & \mathbb{P}(V=3,S=4) = 2/9 \\ 
+    & \mathbb{P}(V=2,S=4) = 1/9 \\ 
+    & \mathbb{P}(V=3, S=5) = 2/9 \\  
+    & \mathbb{P}(V=3, S=6) = 1/9  
+    \end{align*}
   
 
 1. On en déduit (on peut également faire un raisonnement direct)  
 
-   $$\begin{eqnarray*} && \mathbb{P}(U=1) = 5/9, \ \mathbb{P}(U=2)=1/3, \ \mathbb{P}(U=3)=1/9 \\  && \mathbb{P}(V=1) = 1/9, \ \mathbb{P}(V=2) = 1/3,\ \mathbb{P}(V=3)=5/9 \\ && \mathbb{P}(S=2) = \mathbb{P}(S=6) = 1/9, \ \mathbb{P}(S=3)=\mathbb{P}(S=5) = 2/9. \ \mathbb{P}(S=4)=1/3 \end{eqnarray*}$$
+   \begin{align*}
+   & \mathbb{P}(U=1) = 5/9, \ \mathbb{P}(U=2)=1/3, \ \mathbb{P}(U=3)=1/9 \\  
+   & \mathbb{P}(V=1) = 1/9, \ \mathbb{P}(V=2) = 1/3,\ \mathbb{P}(V=3)=5/9 \\ 
+   & \mathbb{P}(S=2) = \mathbb{P}(S=6) = 1/9, \ \mathbb{P}(S=3)=\mathbb{P}(S=5) = 2/9. \ \mathbb{P}(S=4)=1/3 
+   \end{align*}
 
 
     La loi de $UV$ se déduit facilement de la loi jointe de $(U,V)$ calculée à la question précédente 
@@ -1431,7 +1488,7 @@ De même pour la loi de $VS$
 
      et 
 
-    $$ \mathrm{Var}(U) = \frac{38}{81} = \mathrm{Var}(V), \ \ \rho(U,V)= \frac{8}{19}.$$ 
+    $$\mathrm{Var}(U) = \frac{38}{81} = \mathrm{Var}(V), \ \ \rho(U,V)= \frac{8}{19}.$$ 
 
     Par ailleurs 
 
@@ -1439,7 +1496,7 @@ De même pour la loi de $VS$
 
     et 
     
-    $$\mathrm{Var}(V) = \frac{38}{9}, \mathrm{Var}(S) = \frac{2}{3}, \rho(V,S) \approx 0.397.$$ 
+    $$\mathrm{Var}(V) = \frac{38}{9}, \mathrm{Var}(S) = \frac{2}{3}, \rho(V,S) \approx 0.397$$ 
 
 ::: 
 
@@ -1470,7 +1527,13 @@ où $p \in (0,1)$.
 
 1. Soit $\phi : \mathbb{R} \to \mathbb{R}_+$ borélienne
    
-    $$\begin{eqnarray*}\mathbb{E}[\phi(\varepsilon] & = & \mathbb{E}[\phi(Y) \mathbf{1}_{\{\varepsilon}] + \mathbb{E}[\phi(-Y) \mathbf{1}_{\{\varepsilon}}]  \\ & = & p \mathbb{E}[\phi(Y)] + (1-p) \mathbb{E}[\phi(-Y)] \\ & = & p \int_{\mathbb{R}} \phi(z) \frac{1}{\sqrt{2\pi}} \exp(-z^2/2) \mathrm{d}z + (1-p) \int_{\mathbb{R}} \phi(-z) \frac{1}{\sqrt{2\pi}} \exp(-z^2/2) \mathrm{d}z  \\ & = & \int_{\mathbb{R}} \phi(z) \frac{1}{\sqrt{2\pi}} \exp(-z^2/2) \mathrm{d}z \end{eqnarray*}$$
+    \begin{align*}
+    \mathbb{E}[\phi(\varepsilon] 
+    & =  \mathbb{E}[\phi(Y) \mathbf{1}_{\{\varepsilon}] + \mathbb{E}[\phi(-Y) \mathbf{1}_{\{\varepsilon}}]  \\ 
+    & =  p \mathbb{E}[\phi(Y)] + (1-p) \mathbb{E}[\phi(-Y)] \\ 
+    & =  p \int_{\mathbb{R}} \phi(z) \frac{1}{\sqrt{2\pi}} \exp(-z^2/2) \mathrm{d}z + (1-p) \int_{\mathbb{R}} \phi(-z) \frac{1}{\sqrt{2\pi}} \exp(-z^2/2) \mathrm{d}z  \\ 
+    & =  \int_{\mathbb{R}} \phi(z) \frac{1}{\sqrt{2\pi}} \exp(-z^2/2) \mathrm{d}z 
+    \end{align*}
  
     où on a effectué le changement de variables $u=-z$ pour voir que  $\int_{\mathbb{R}} \phi(-z) \frac{1}{\sqrt{2\pi}} \exp(-z^2/2) \mathrm{d}z = \int_{\mathbb{R}} \phi(u) \frac{1}{\sqrt{2\pi}} \exp(-u^2/2) du$. On conclut que $Z \sim \mathcal{N}(0,1)$. 
 
@@ -1517,7 +1580,11 @@ Ici $d=3$, $m$ est le vecteur de coordonnées $(1,1,0)$, et $K$ la matrice préc
  
 1. D'après le cours (Prop 2), pour tout $t \in \mathbb{R}^3$ de coordonnées $(t_1,t_2,t_3)$,  
 
-$$\begin{eqnarray*} \Phi_X(t) & = & \exp(it^Tm + PKP^T) \\  &  = & \exp\bigg(i(t_1+t_2) - (t_1^2+t_2^2+t_3^2+t_1 t_2+t_1 t_3+2t_2 t_3)\bigg) \end{eqnarray*}$$
+\begin{align*}
+ \Phi_X(t) 
+ & = \exp(it^Tm + PKP^T) \\  
+ &  =  \exp\bigg(i(t_1+t_2) - (t_1^2+t_2^2+t_3^2+t_1 t_2+t_1 t_3+2t_2 t_3)\bigg) 
+\end{align*}
  
 1. On applique le résultat général avec $P = (2 \ \ 1 \ \ 1)$ puis avec $P=(4 \ -2 \ \ 1)$, et enfn avec $P=(0 \ \ 1 \ -1)$ pour obtenir 
 
@@ -1527,7 +1594,11 @@ $$\begin{eqnarray*} \Phi_X(t) & = & \exp(it^Tm + PKP^T) \\  &  = & \exp\bigg(i(t
 
 1. On a $\begin{pmatrix} X \\ Y \end{pmatrix} \sim \mathcal{N} \left( \mu=\begin{pmatrix} 1 \\ 1 \end{pmatrix}, \Sigma = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}\right)$. On a  $\det(\Sigma)=3$, et est $\Sigma^{-1} = \frac{1}{3} \begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}$, et donc ce vecteur possède la densité $f$ sur $\mathbb{R}^2$, où  pour $x \in \mathbb{R}^2$ de coordonnées $(x_1,x_2)$,  
 
-    $$\begin{eqnarray*} f(x) & = & \frac{1}{2\pi\sqrt{3}} \exp(-\frac{1}{2} (x-\mu)^T \Sigma^{-1} (x-\mu) \\ & = & \frac{1}{2 \pi \sqrt{3}} \exp\left(-\frac{1}{3} ((x_1-1)^2 + (x_2-1)^2 - (x_1-1)(x_2-1)) \right) \end{eqnarray*}$$
+    \begin{align*}
+    f(x) 
+    & =  \frac{1}{2\pi\sqrt{3}} \exp(-\frac{1}{2} (x-\mu)^T \Sigma^{-1} (x-\mu) \\ 
+    & =  \frac{1}{2 \pi \sqrt{3}} \exp\left(-\frac{1}{3} ((x_1-1)^2 + (x_2-1)^2 - (x_1-1)(x_2-1)) \right) 
+    \end{align*}
  
 1. On obtient ici que  
 
@@ -1569,11 +1640,20 @@ Remarquer que l'on peut écrire $Y= -\frac{\alpha}{\beta} X +\frac{1}{\beta}(\al
  
 1. On a $\det(M) = 1-\rho^2 \ne 0$, $M^{-1} =  \frac{1}{1-\rho^2}  \begin{pmatrix} 1 & - \rho \\ -\rho & 1 \end{pmatrix}$, et donc $\begin{pmatrix} X \\ Y \end{pmatrix}$ possède la densité $f_{(X,Y)}$ où, pour $ \begin{pmatrix} x \\ y \end{pmatrix} \in \mathbb{R}^2$,   
 
-    $$\begin{eqnarray*} f_{(X,Y)}(x) & = & \frac{1}{2\pi \sqrt{1-\rho^2}} \exp\left(-\frac{1}{2} \begin{pmatrix} x \\ y \end{pmatrix}^T M^{-1} \begin{pmatrix} x \\ y \end{pmatrix}  \right)\\  & = & \frac{1}{2\pi \sigma} \exp\left(- \frac{1}{2 \sigma^2} \left(x^2 + y^2 - 2 \rho x y \right) \right) \end{eqnarray*}$$
+    \begin{align*}
+    f_{(X,Y)}(x) 
+    & = \frac{1}{2\pi \sqrt{1-\rho^2}} \exp\left(-\frac{1}{2} \begin{pmatrix} x \\ y \end{pmatrix}^T M^{-1} \begin{pmatrix} x \\ y \end{pmatrix}  \right)\\  
+    & =  \frac{1}{2\pi \sigma} \exp\left(- \frac{1}{2 \sigma^2} \left(x^2 + y^2 - 2 \rho x y \right) \right) 
+    \end{align*}
   
 1. $X \sim \mathcal{N}(0,1)$ donc $f_X(x) = \frac{1}{\sqrt{2\pi}} \exp(-x^2/2), x \in \mathbb{R}$. On a donc, pour $y \in \mathbb{R}$  
 
-    $$\begin{eqnarray*}  g_x(y) & = & \frac{1}{\sigma \sqrt{2 \pi}} \exp\left( \frac{1}{2(1-\rho^2)} (x^2+y^2 - 2\rho x y) + \frac{1}{2} x^2 \right) \\  & = & \frac{1}{\sigma \sqrt{2\pi}} \exp\left( \frac{1}{2(1-\rho^2)} \left( - \frac{1}{2} (\rho^2 x^2 - 2 \rho x y + y ^2) \right)\right) \\ & = &  \frac{1}{\sigma \sqrt{2\pi}} \exp\left( \frac{1}{2(1-\rho^2)} \left( - \frac{1}{2} (y-\rho x)^2 \right) \right) \end{eqnarray*}$$
+    \begin{align*}
+    g_x(y) 
+    & =  \frac{1}{\sigma \sqrt{2 \pi}} \exp\left( \frac{1}{2(1-\rho^2)} (x^2+y^2 - 2\rho x y) + \frac{1}{2} x^2 \right) \\  
+    & = \frac{1}{\sigma \sqrt{2\pi}} \exp\left( \frac{1}{2(1-\rho^2)} \left( - \frac{1}{2} (\rho^2 x^2 - 2 \rho x y + y ^2) \right)\right) \\ 
+    & =   \frac{1}{\sigma \sqrt{2\pi}} \exp\left( \frac{1}{2(1-\rho^2)} \left( - \frac{1}{2} (y-\rho x)^2 \right) \right) 
+    \end{align*}
  
     comme souhaité,  et donc $Y_x \sim \mathcal{N}(\rho x, 1-\rho^2)$. 
 
