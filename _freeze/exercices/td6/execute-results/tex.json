@@ -1,0 +1,15 @@
+{
+  "hash": "16be3087f13acdbdab12cf536b99f5d9",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\n#title: \"Exercices : semaine IV\"\n# subtitle: \"M1 ISIFAR MA1AY010\"\n\n# date: \"2025-09-08\"\n\nformat:\n  pdf:\n    output-file: td6.pdf\n    class: exam\n    include-in-header:\n      - text: \"\\\\lhead{{\\\\sf  Probabilités \\\\\\\\ TD VI}}\"\n  html:\n    output-file: td6.html\n\nengine: knitr\ndraft: true\n---\n\n\n\n\n\n::: {.cell}\n\n:::\n\n\n\n\n\n\n::: {.cell}\n\n:::\n\n\n\n\n::: {.callout-note}\n\n### TD VI : Gaussiennes   \n\n- 13 Octobre 2025-17 octobre 2025\n\n- Master I ISIFAR\n\n- **Probabilités** \n\n:::\n\n\n### Exercice 1\n\n\n::: {.cell}\n\n:::\n\n\n\n\n\n\n### Exercice 2\n\n\n::: {.cell}\n\n:::\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}
