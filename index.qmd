@@ -18,10 +18,10 @@ Cette page résume le déroulement du semestre
 |   | 18 Sep  | Fonctions génératrices/Conditionnement discret  |            |         |   
 |  [3](/weeks/week-3.html)  | 22 Sep  |  Moments, Espaces $L^p$      |            |         |                                                                                                                 |                   |
 |   | 23 Sep  | Espérance conditionnelle           |            |         |                                                                                                                  |                   |
-|   | 25 Sep  | Conditionnement  |            |         |  [TD 2](/exercices/td2.qmd)  [TD 2 supplément](/exercices/td2-supplement.qmd) | |
-|  [4](/weeks/week-4.html)  | 29 Sep  |        |            |         |                                                                                                                 |                   |
-|   | 30 Sep  |                |            |         |                                                                                                                 |                   |
-|   | 2 Oct  |         |            |         |   
+|   | 25 Sep  | Conditionnement  |            |         |  [TD 2](/exercices/td2.qmd) [TD 2 supplément](/exercices/td2-supplement.qmd) | |
+|  [4](/weeks/week-4.html)  | 29 Sep  |  Caractérisations       |            |         |                                                                                                             [TD4](/exercices/td4.qmd)     |                   |
+|   | 30 Sep  |  Caractérisations              |            |         |                                                                                                                 |                   |
+|   | 2 Oct  |     Caractérisations    |            |         |   
 |  [5](/weeks/week-5.html)  | 6 Oct   |        |            |         |                                                                                                                 |                   |
 |   | 7  Oct  | CC 1           |            |         |                                                                                                                 |                   |
 |   | 9 Oct  |   |            |         |   

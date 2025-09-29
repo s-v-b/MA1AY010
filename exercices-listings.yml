@@ -22,3 +22,23 @@
   author: "Master I MIDS UParis Cité"
   date: "2025-09-22"
   path: "exercices/quizz_a.html"
+- title: "TD III : Branchement"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-09-22"
+  path: "exercices/td3.html"
+  categories: [Conditionnement, Branchement]
+- title: "TD IV : Conditionnement"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-09-29"
+  path: "exercices/td4.html"
+  categories: [Conditionnement]
+# - title: "TD V : Convergences"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-10-06"
+#   path: "exercices/td5.html"
+#   categories: [Convergences, LGN, TCL]
+# - title: "TD VI : Gaussiennes"
+#   author: "Master I MIDS UParis Cité"
+#   date: "2025-10-13"
+#   path: "exercices/td6.html"
+#   categories: [Gaussiennes]
