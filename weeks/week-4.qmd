@@ -34,14 +34,8 @@ La semaine IV (29 septembre- 2 octobre 2025)  est  consacrée aux caractérisati
 
 
 - [Feuille TD IV](/exercices/td4.qmd)
-<!-- - [Feuille TD IV supplément](/exercices/td4-supplement.qmd) -->
-<!-- - [Questionnaire II](/exercices/quizz_b.qmd) -->
-
-
-<!-- - TD I.18 (sommes aléatoires de variables indépendantes) (*fin*).
-- Supplément TD I Exercice 5 (Anniversaires)
-- TD I.7
-- TD I.... -->
+- [Corrections TD I](/corriges/td1.html)
+  
 
 
 

@@ -1,0 +1,7 @@
+project:
+  render:
+    - corriges/
+
+
+website:
+  page-navigation: true
