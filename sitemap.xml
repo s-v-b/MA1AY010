@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://s-v-b.github.io/MA1AY010/weeks/week-5.html</loc>
+    <lastmod>2025-09-30T12:13:27.776Z</lastmod>
+  </url>
+  <url>
     <loc>https://s-v-b.github.io/MA1AY010/weeks/week-3.html</loc>
-    <lastmod>2025-09-22T09:38:27.452Z</lastmod>
+    <lastmod>2025-09-30T11:47:23.774Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010/weeks/week-1.html</loc>
     <lastmod>2025-09-12T11:28:03.981Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA1AY010/exercices/td3.html</loc>
+    <lastmod>2025-09-30T11:45:29.661Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010/exercices/td2-supplement.html</loc>
@@ -58,7 +66,7 @@
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010/index.html</loc>
-    <lastmod>2025-09-29T19:42:29.132Z</lastmod>
+    <lastmod>2025-09-30T12:06:23.146Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010/weeks/week-2.html</loc>
@@ -66,10 +74,14 @@
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010/weeks/week-4.html</loc>
-    <lastmod>2025-09-29T19:45:00.060Z</lastmod>
+    <lastmod>2025-09-30T11:47:53.140Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010/corriges/td1.html</loc>
     <lastmod>2025-09-29T19:57:38.591Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s-v-b.github.io/MA1AY010/corriges/td3.html</loc>
+    <lastmod>2025-09-30T11:45:29.661Z</lastmod>
   </url>
 </urlset>
