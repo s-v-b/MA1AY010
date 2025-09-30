@@ -34,6 +34,7 @@ La semaine III (22-26 septembre 2025)  est  consacrée aux calculs de moments, e
 - [Feuille TD II](/exercices/td2.qmd)
 - [Feuille TD II supplément](/exercices/td2-supplement.qmd)
 - [Questionnaire I](/exercices/quizz_a.qmd)
+- [Feuille TD III Branchement](/exercices/td3.qmd)
 
 
 <!-- - TD I.18 (sommes aléatoires de variables indépendantes) (*fin*).

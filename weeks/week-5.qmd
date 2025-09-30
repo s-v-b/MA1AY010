@@ -1,43 +1,49 @@
 ---
 title: "Week 5"
-subtitle: "TBA"
-editor: visual
-draft: true
+subtitle: "Convernces"
+editor: source
+draft: false
 ---
 
+
 ::: callout-important
--   Due date: Lab 2 - Fri, Feb 4, 5pm ET
--   Exam 1 released on Fri, Feb 4, due Mon, Feb 7 at 11:59pm
+
+La semaine V (6- 9 octobre 2025)  est  consacrée aux modes de convergence en calcul des probabilités :
+
+- Convergence presque sûre, en probabilité, en loi
+- Loi(s) des grands nombres
+- Théorème central limite
+
 :::
 
-## Prepare
+## Préparer/Voir/Revoir
 
-📖 Read Introduction to Modern Statistics, Sec 8.1: [Indicator and categorical predictors](https://openintro-ims.netlify.app/model-mlr.html#ind-and-cat-predictors)
+::: {}
 
-📖 Read Introduction to Modern Statistics, Sec 8.2: [Many predictors in a model](https://openintro-ims.netlify.app/model-mlr.html#many-predictors-in-a-model)
+- Loi faible des grands nombres 
+- Théorème central limite
+  
+:::
 
-📖 Read Introduction to Modern Statistics, Sec 8.3: [Adjusted R-squared](https://openintro-ims.netlify.app/model-mlr.html#adjusted-r-squared)
+::: {}
 
-## Participate
+- [Convergence en probabilité/presque sûre et loi des grands nombres](https://s-v-b.github.io/MA1AY010-CN/05-convergences-1.html)
+- [Convergence en loi et TCL](https://s-v-b.github.io/MA1AY010-CN/08-convergence-3.html)
 
-🖥️ [Lab 3 - Coffee ratings](/slides/lab-3.html)
+:::
 
-🖥️ [Lecture 8 - Multiple linear regression (MLR)](/slides/lec-8.html)
 
-🖥️ [Lecture 9 - Exam 1 review](/slides/lec-9.html)
+## Exercices
 
-## Practice
 
-📋 [Application Exercise 4 - Exam 1 Review](/ae/ae-4-exam-1-review.html)
+- [Feuille TD V](/exercices/td5.qmd)
+  
+- [Corrections TD II](/corriges/td2.html)
+- [Corrections TD IV](/corriges/td4.html)  
 
-## Perform
 
-⌨️ [Lab 3 - Coffee ratings](labs/lab-3.html)
-
-✅ [Exam 1](/exams/exam-1.html)
-
-<br><br>
 
 ::: {style="font-size: 0.875em;"}
 Back to [course schedule](/ "Course schedule") ⏎
 :::
+

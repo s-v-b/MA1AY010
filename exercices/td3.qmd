@@ -14,7 +14,7 @@ format:
     output-file: td3.html
 
 engine: knitr
-draft: true
+draft: false
 ---
 
 
@@ -52,6 +52,21 @@ cnt_exo <- 1
 
 :::
 
+Un processus de Galton-Watson (processus de branchement homogène) est un processus stochastique en temps discret utilisé pour modéliser l’évolution d’une population où chaque individu se reproduit indépendamment des autres, suivant une même loi de probabilité donnée (appelée *loi de reproduction*).
+
+Il a été introduit au XIXᵉ siècle par Francis Galton et Henry Watson our étudier la probabilité d’extinction des noms de famille (nobles). On commence avec une *génération initiale* (génération $0$) formée d'un individu.
+Chaque individu de la génération $n$ engendre un nombre aléatoire de descendants distribué selon la loi de reproduction.
+Les descendants forment la génération suivante ($n+1$). Les nombres de descendants des individus de la géneration $n$ forment 
+une famille indépendante. Le nombre d'individus dans la génération $n$ est noté $Z_n$.
+
+La question centrale (et angoissante) est : la population s’éteint-elle presque sûrement ($Z_n \to 0$) ou bien survit-elle avec une probabilité non nulle ?
+
+On note $Q$ la *loi de reproduction* (loi sur $(\mathbb{N}, 2^{\mathbb{N}})$. On note $\mu$ son espérance. On note $G_Q$ 
+la fonction génératrice des probabilités de la loi $Q$.  
+On convient de $\mathbb{N}^* = \mathbb{N}\setminus \{0\}$.
+
+
+
 
 ### Exercice `r cnt_exo` (Modélisation)
 
@@ -60,12 +75,18 @@ cnt_exo <- 1
 #| echo: false
 cnt_exo <-  cnt_exo + 1
 ```
-On note $Q$ la loi de reproduction (loi sur $(\mathbb{N}, 2^{\mathbb{N}})$. On note $\mu$ son espérance. 
 
-On convient de $\mathbb{N}^* = \mathbb{N}\setminus \{0\}$.
+
+Proposer une formalisation, c'est à dire un univers $\Omega$, une tribu $\mathcal{F}$ de parties de $\Omega$, et une loi de probabilité $P$ sur $(\Omega, \mathcal{F})$ sur lesquels on peut définir la collection de variables aléatoires $Z_0, Z_1, \ldots, Z_n, \ldots$. Préciser la loi conditionnelle de $Z_{n+1}$ sachant $\{ Z_n =k\},  k \in \mathbb{N}$.    
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note title="Solution"}
 
 Pour chaque génération, on se donne une suite  infinie d'entiers, soit un élément de $\mathbb{N}^{\mathbb{N}^*}$.
 L'ensemble $\mathbb{N}^{\mathbb{N}^*}$ n'est pas dénombrable. 
+
 
 Pour représenter la suite des générations,  on se donne un élément de $\left(\mathbb{N}^{\mathbb{N}^*}\right)^{\mathbb{N}}$.
 Cet ensemble est en bijection avec $\mathbb{N}^{\mathbb{N}^* \times \mathbb{N}}$. On convient de $\Omega = \mathbb{N}^{\mathbb{N}^* \times \mathbb{N}}$. Pour $\omega \in \Omega$, $X^n_j(\omega)$ est le nombre d'enfants de l'individus $j \in \mathbb{N}^*$ dans la génération $n \in \mathbb{N}$.
@@ -93,6 +114,10 @@ Pour tout $n$, $Z_n$ est $\mathcal{F}_{n-1}$-mesurable (vérification par récur
 
 Pour tout $n$, $\mathcal{F}_{n-1}$ est indépendante de $\mathcal{G}^n$
 
+:::
+
+:::
+
 
 ### Exercice `r cnt_exo` 
 
@@ -100,7 +125,11 @@ Pour tout $n$, $\mathcal{F}_{n-1}$ est indépendante de $\mathcal{G}^n$
 {{< include _increment.qmd >}}
 
 
-Espérance conditionnelle de $Z_{n+1}$ sachant $\mathcal{F}_{n-1}$,  $\sigma(Z_n)$ 
+Calculer l'espérance conditionnelle de $Z_{n+1}$ sachant  $\sigma(Z_n)$ 
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note title="Solution"}
 
 \begin{align*}
   \mathbb{E}\left[ Z_{n+1} \mid \mathcal{F}_{n-1} \right] 
@@ -114,21 +143,62 @@ Espérance conditionnelle de $Z_{n+1}$ sachant $\mathcal{F}_{n-1}$,  $\sigma(Z_n
 On peut même conclure:   
 $$\mathbb{E}\left[ Z_{n+1} \mid Z_n  \right]  = \mu \times Z_n$$
 
+:::
+
+:::
+
 
 ### Exercice `r cnt_exo`
 
 {{< include _increment.qmd >}}
 
+Calculer $\mathbb{E} Z_n$ en fonction de $\mu$  et $n$.
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note title="Solution"}
+
 $$\mathbb{E} Z_{n+1} = \mathbb{E}\left[\mathbb{E}\left[ Z_{n+1} \mid Z_n  \right] \right]= \mu \times \mathbb{E} Z_n$$
 D'où:
 $$\mathbb{E} Z_n = \mu^n$$
+
+:::
+
+:::
+
+::: {.content-visible when-profile="solution"}
+
+{{< pagebreak >}}
+
+:::
+
+::: {.callout-important}
+
+### Convention 
+
+Selon la valeur de $\mu$ (espérance de la loi de reproduction), on distingue trois cas :
+
+- $\mu<1$, cas sous-critique
+- $\mu=1$, cas critique
+- $\mu>1$, cas sur-critique 
+
+Dans tous les cas, on note $p_E$ la probabilité d'extinction (probabilité de l'événement $\cup_{n \in \mathbb{N}} \{ Z_n =0\}$). 
+
+
+:::
+
 
 ### Exercice `r cnt_exo` 
 
 
 {{< include _increment.qmd >}}
 
-Extinction dans le cas sous-critique
+Cacluler $p_E$, la probabilité d'xxtinction dans le cas sous-critique.
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note title="Solution"}
 
 $$E = \cup_{n} \{ Z_n =0 \} = \cup_n \cap_{m \geq n} \{ Z_m = 0\}$$
 
@@ -147,13 +217,20 @@ Soit
 $$P\{ E\} =1$$
 (extinction presque sûre).
 
+:::
+
+:::
 
 ### Exercice `r cnt_exo` 
-`
 
 {{< include _increment.qmd >}}
 
-Une équation satisfaite par $p_E$
+Montrer que dans tous les cas, $p_E$ est solution de l'équation $G_Q(x)=x \, .$
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note title="Solution"}
 
 $$E = \cup_{k=1}^\infty \{Z_1=k\} \cap_{j=1}^k {E_j}$$
 
@@ -201,6 +278,17 @@ p +
 
 ```
 
+:::
+
+:::
+
+
+
+::: {.content-visible when-profile="solution"}
+
+{{< pagebreak >}}
+
+:::
 
 
 ### Exercice `r cnt_exo` 
@@ -208,7 +296,11 @@ p +
 {{< include _increment.qmd >}}
 
 
-Étude des de l'équation $x=G_Q(x)$. 
+Étudier les solutions de l'équation $x=G_Q(x)$. 
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note title="Solution"}
 
 Comme série entière de rayon de convergence $\geq 1$, dérivable en $1$, $G_Q$ possède
 les propriétés suivantes:
@@ -227,10 +319,20 @@ en un $\theta \in ]0,1[$, est négative sur $[0,\theta]$, positive sur $[\theta,
 Pour déterminer $p_E$ dans le cas sur-critique, il faut déterminer la racine de
 l'équation $x=G_Q(x)$ qui est égale à $p_E$. 
 
+:::
+
+:::
+
 ### Exercice `r cnt_exo` 
 
 {{< include _increment.qmd >}}
 
+Déterminer $p_E$ dans le cas sur-critique. 
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note title="Solution"}
 
 Pour déterminer $p_E$ dans le cas sur-critique, nous allons étudier la suite 
 $\left(P\{ Z_n=0\}\right)_n$. C'est une suite croissante, majorée par $1$. Elle possède 
@@ -273,3 +375,7 @@ $$u < G_Q(u) < \tau$$
 Cette observation permet de déduire que la suite $(u_n)_n$ définie par $u_{n+1} = G_Q(u_n)$ et $u_1=Q\{0\}$ et croissante et majorée par $\tau$. Elle admet une limite qui est un point fixe de $G_Q$, c'est donc $\tau$. 
 
 On peut donc conclure que dans le cas sur-critique, la probabilité d'extinction est la solution non-triviale de l'équation $x=G_Q(x)$.  
+
+:::
+
+:::

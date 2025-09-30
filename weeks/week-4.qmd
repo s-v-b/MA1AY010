@@ -35,7 +35,7 @@ La semaine IV (29 septembre- 2 octobre 2025)  est  consacrée aux caractérisati
 
 - [Feuille TD IV](/exercices/td4.qmd)
 - [Corrections TD I](/corriges/td1.html)
-  
+- [Corrections TDIII](/corriges/td3.html)  
 
 
 
