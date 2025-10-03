@@ -90,6 +90,16 @@ L'indice $n$ représente le temps, $S_n$ la position à l'instant $n$.
 
 :::
 
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note}
+
+### Solution
+
+:::
+
+:::
+
 
 ### Exercice `r cnt_exo` (marches aléatoires biaisées i)
 
@@ -135,6 +145,16 @@ $$
 appartient-il à la tribu $\mathcal{F}_m$ pour un $m$ donné ? est-il un événement de $\mathcal{F}$ ?
 a.  Si $E$ est  un événement, quelle est sa probabilité ?
 
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note}
+
+### Solution
+
+:::
+
+:::
+
 
 ::: {.callout-note}
 
@@ -167,13 +187,22 @@ a. Pourquoi peut-on considérer que $S_T$ est une variable aléatoire ?
 a. Quelle est l'espérance de $S_T$ ?
 a. Montrer que $\mathbb{E} S_T = \Delta \mathbb{E} T$ En déduire $\mathbb{E} T$.
 
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note}
+
+### Solution
+
+:::
+
+:::
 
 ### Exercice `r cnt_exo` 
 
 {{< include _increment.qmd >}}
 
 Les variables $X_1, X_2, \ldots, X_n, \ldots$ sont des variables de Bernoulli de probabilité
-de succès $p \in (0,1)$, indépendantes. On définit $T_1 = \min \{i : X_i=1\}$ (temps du premier succès), $T_1 = \min \{i : i > T_1, X_i=1\}$ (temps du premier succès après $T_1$),
+de succès $p \in (0,1)$, indépendantes. On définit $T_1 = \min \{i : X_i=1\}$ (temps du premier succès), $T_2 = \min \{i : i > T_1, X_i=1\}$ (temps du premier succès après $T_1$),
 et récursivement $T_{n+1} = \min \{ i : i > T_n, X_i =1\}$ (temps du $n+1$eme succès).
 
 On admet l'existence d'un espace de probabilité $(\Omega, \mathcal{F}, P)$ où $\Omega = \{0,1\}^{\mathbb{N}}$, $\mathcal{F}$ est
@@ -188,6 +217,27 @@ a. Calculer $P \{ T_1 = k  \wedge T_2 = k+j\}$ pour $k, j \in \mathbb{N}$
 a. Calculer $P \{ T_2 = k  \}$ pour $k \in \mathbb{N}$
 a. Calculer $\mathbb{E}T_2$
 a. Calculer $\mathbb{E} T_n$
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note}
+
+### Solution
+
+a. Les événements de la forme $\{ T_n \leq m\}$ sont dans $\sigma(X_1, \ldots X_m)$, car la seule connaissance de $X_1, \ldots, X_m$ suffit pour déterminer si le $i^{\text(eme)}$ succès survient avant le temps $m$. Donc les événements de la forme  $\{ T_n \leq m\}$ sont tous dans la tribu des cylindres $\sigma\left(\cup_m \sigma(X_1, \ldots X_m) \right)$. Tout événement de 
+la forme $\{ T_n \in A\}$ avec $A \subset \mathbb{N} \cup \{ \infty\}$, appartient à la tribu 
+engendrée par les événements $\{ T_n \leq m\}$, donc à la tribu  $\sigma\left(\cup_m \sigma(X_1, \ldots X_m) \right)$. 
+a. $P\{ T_1 > k  \} = (1-p)^k$ ($T_1$ suit une loi géométrique)
+a. $P\{ T_1 = k  \} = P\{ T_1 > k-1  \} - P\{ T_1 > k  \} = (1-p)^{k-1} p$ pour $k\geq 1$
+a. $\mathbb{E} T_1 =  \sum_{k=0}^\infty P\{ T_1 > k  \} = \frac{1}{p}$
+a. $P \{ T_1 = k  \wedge T_2 = k+j\} = (1-p)^{k-1} p (1-p)^{j-1} p$ pour $k, j \in \mathbb{N}\setminus \{0\}$, $T_1 \perp\!\!\!\perp T_2-T_1$ et $T_2-T_1 \sim T_1$  
+a. $P \{ T_2 = k  \} = \sum_{j=1}^{k-1} (1-p)^{j-1} p (1-p)^{k-j-1} p = p \binom{k-1}{1} (1-p)^{k-2} p$  pour $k\geq 2$ 
+a. $\mathbb{E} T_2 = 2 \mathbb{E} T_1 = \frac{2}{p}$
+a. $\mathbb{E} T_n = n \mathbb{E} T_1 = \frac{n}{p}$
+
+:::
+
+:::
 
 
 ### Exercice `r cnt_exo` 
