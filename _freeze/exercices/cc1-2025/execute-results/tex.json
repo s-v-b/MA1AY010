@@ -1,0 +1,15 @@
+{
+  "hash": "6cdf7c12259b0c7c0e058c8df9ee0a7f",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\n#title: \"Exercices : semaine IV\"\n# subtitle: \"M1 ISIFAR MA1AY010\"\n\n# date: \"2025-09-08\"\n\nformat:\n  pdf:\n    output-file: cc1-2025.pdf\n    class: exam\n    include-in-header:\n      - text: \"\\\\lhead{{\\\\sf  Probabilités \\\\\\\\ CC  I}}\"\n  # html:\n  #   output-file: td7.html\n\nengine: knitr\ndraft: true\n---\n\n\n\n\n\n::: {.cell}\n\n:::\n\n\n\n\n\n\n::: {.cell}\n\n:::\n\n\n\n\n::: {.callout-note}\n\n### CC I  :    \n\n- 7 Octobre 2025\n\n- Master I ISIFAR\n\n- Durée : 1 heure 30 \n\n- **Probabilités** \n\n:::\n\n\n::: {.callout-caution}\n\n- Aide-mémoire : une feuille A4 recto verso autorisée\n- Aucun autre document autorisé\n- Aucun moyen de communication électronique autorisé\n\n:::\n\n\n### Exercice 1\n\n\n::: {.cell}\n\n:::\n\n\n\n<!-- Fonctions génératrices -->\n\n<!-- Grimmet et Striztacker p. 175 -->\n\nSoit  $X$ une variable binomiale à paramètres $n$ (fixé) et $V$ aléatoire  uniformément distribué\nsur $[0,1]$  ($X \\sim  \\text{Binom}(n, V)$). \n\ni. Calculer la fonction génératrice de la loi de $X$ \ni. Quelle est l'espérance de $X$ ?\ni. Que vaut $P\\{X = k\\}$ pour $k \\in \\{0,n\\}$ ?\n\n\n\n### Exercice 2\n\n\n::: {.cell}\n\n:::\n\n\n\n<!-- Variation sur les processus de branchements -->\n\nOn se donne un processus de branchement avec une distribution de reproduction Poissonienne de paramètre $\\mu>0$. On note $Z_0=1, Z_1, \\ldots$ les effectifs des différentes générations.  \n\ni. Calculer la fonction génératrice de la loi de $Z_2$\ni. Quelle est la probabilité que l'extinction ait lieu exactement à la génération $2$? \ni. Quelle est la probabilité que que l'extinction ait lieu exactement à la génération $n$? \n\n\n### Exercice 3\n\n\n::: {.cell}\n\n:::\n\n\n\n<!-- Lois image. Formule de transfert -->\n\nSoit $X \\sim \\mathrm{U}(-\\pi/2,\\pi/2)$ (loi uniforme sur $[-\\pi/2,\\pi/2]$), on définit $Y =\\cos(X)$.\n\ni. La loi de $Y$ est-elle absolument continue?\ni. Si oui, déterminer une version de sa densité.\n\n\n### Exercice 4\n\n\n::: {.cell}\n\n:::\n\n\n\n\nSoit $X_1, \\ldots, X_n, \\ldots$ des variables aléatoires distribuées indépendamment selon une\nloi de Pareto de paramètre $\\alpha>0$, $P\\{ X_1\\geq t \\} =  t^{-\\alpha}, t \\geq 1$. \nSoit $N$ indépendante des $X_i$, distribuée selon une loi de Poisson de paramètre $\\mu>0.$ On définit $Z$ par $Z = \\max_{i \\leq N} X_i$.\n\n*Remarque:* Si $N=0$, on convient de $\\max_{i\\leq N} X_i = 0$. \n\ni. Calculer la fonction de répartition de la loi de $Z$.\ni. La loi de $Z$ possède-t-elle une espérance finie?  \n\n### Exercice 5\n\n\n::: {.cell}\n\n:::\n\n\n\n<!-- Transformation,  -->\n\nLe couple aléatoire $(X,Y)$ à valeur sur $]0,\\infty)^2$ admet pour densité $f$. \n\nQuelle est la densité de la loi de $XY$ ? ",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}
