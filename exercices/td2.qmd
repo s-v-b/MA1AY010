@@ -81,30 +81,47 @@ Calculer $\mathbb{E}[X \mid \mathcal{G}], \mathbb{E}[Y\mid \mathcal{G}]$. Les va
  
 
 
+::: {.callout-note}
+
+### Solution
+
+
 1. Nécessairement $Y:=\mathbb{E}[X \mid \mathcal{F}]$ est $\mathcal{F}$-mesurable et donc on peut le chercher sous la forme $\sum_{n \ge 1} a_n \mathbb{I}_{A_n}$. 
 
 Comme $A_n \in \mathcal{F}$ on doit nécessairement avoir de plus 
-$$ \mathbb{E}[X \mathbb{I}_{A_n}] = \mathbb{E}[Y \mathbb{I}_{A_n}] = a_n  \mathbb{P}(A_n),$$
+$$\mathbb{E}[X \mathbb{I}_{A_n}] = \mathbb{E}[Y \mathbb{I}_{A_n}] = a_n  \mathbb{P}(A_n),$$
+
 car $(A_n, n \ge 1)$ est une partition de $\Omega$. 
 On déduit que 
-$$ a_n = \frac{\mathbb{E}[X \mathbb{I}_{A_n}]}{ \mathbb{P}(A_n)}, \ n \ge 1.$$
+$$a_n = \frac{\mathbb{E}[X \mathbb{I}_{A_n}]}{ \mathbb{P}(A_n)}, \ n \ge 1.$$
+
 et donc 
-$$ \mathbb{E}[X \mid \mathcal{F}] = \sum_{n \ge 1}   \frac{\mathbb{E}[X \mathbb{I}_{A_n}]}{ \mathbb{P}(A_n)} \mathbb{I}_{A_n}.$$
-1. On a $\cG = \{\emptyset, \{X = Y = 0\}, \{X=1\} \cup \{Y=1\}, \Omega\}$, et on est dans la situation précédente avec une partition à deux éléments non dégénérés 
+
+$$\mathbb{E}[X \mid \mathcal{F}] = \sum_{n \ge 1}   \frac{\mathbb{E}[X \mathbb{I}_{A_n}]}{ \mathbb{P}(A_n)} \mathbb{I}_{A_n}.$$
+
+1. On a $\mathcal{G} = \{\emptyset, \{X = Y = 0\}, \{X=1\} \cup \{Y=1\}, \Omega\}$, et on est dans la situation précédente avec une partition à deux éléments non dégénérés 
 $A_1 = \{X=Y = 0\}, A_2 = A_1^c = \{X=1\} \cup \{Y=1\}$.  
 
 On a donc 
-$$mathbb{E}[X \mid \cG] & = & \frac{\mathbb{E}[X \mathbb{I}_{A_1}]}{ \mathbb{P}(A_1)} \mathbb{I}_{A_1} +  \frac{\mathbb{E}[X \mathbb{I}_{A_2}]}{ \mathbb{P}(A_2)} \mathbb{I}_{A_2} \\ 
-& = & \frac{2}{3}  \mathbb{I}_{A_2} $$ 
+
+\begin{align*}
+\mathbb{E}[X \mid \mathcal{G}] & =  \frac{\mathbb{E}[X \mathbb{I}_{A_1}]}{ \mathbb{P}(A_1)} \mathbb{I}_{A_1} +  \frac{\mathbb{E}[X \mathbb{I}_{A_2}]}{ \mathbb{P}(A_2)} \mathbb{I}_{A_2} \\ 
+& =  \frac{2}{3}  \mathbb{I}_{A_2} 
+\end{align*}
+
 en utilisant que $\mathbb{E}[X \mathbb{I}_{A_1}] =0, \mathbb{E}[X \mathbb{I}_{A_2}] = \frac{1}{2},  \mathbb{P}(A_2) = \frac{3}{4}$.
 
 
-Par le même raisonnement ($X$ et $Y$ jouent des r\^oles symétriques) 
-$$ \mathbb{E}[Y \mid \cG] = \frac{2}{3}  \mathbb{I}_{A_2}$$
+Par le même raisonnement ($X$ et $Y$ jouent des rôles symétriques) 
 
-On obtient que $\mathbb{E}[X \mid \cG] = \mathbb{E}[Y \mid \cG] = \frac{2}{3} \mathbb{I}_{A_2}$, ces variables ne sont clairement pas indépendantes. 
+$$\mathbb{E}[Y \mid \mathcal{G}] = \frac{2}{3}  \mathbb{I}_{A_2}$$
+
+On obtient que $\mathbb{E}[X \mid \mathcal{G}] = \mathbb{E}[Y \mid \mathcal{G}] = \frac{2}{3} \mathbb{I}_{A_2}$, ces variables ne sont clairement pas indépendantes. 
 
 :::
+
+:::
+
  
 
 
@@ -139,7 +156,7 @@ Calculer $\mathbb{P}(X^2 +Y^2 \le 1 |X)$, puis en déduire $\mathbb{P}(X^2+Y^2 \
 1. Dans le cas général, montrer que $\mathbb{E}[\mathbb{E}[Y|X]] = \mathbb{E}[Y]$. Que vaut $\mathbb{E}[Y]$ dans l'exemple de la question précédente?
 
 1. Montrer, dans le cas général, que 
-$$ \mathbb{E}[\mathbb{E}[Y|X] g(X)] = \mathbb{E}[Yg(X)],$$
+$$\mathbb{E}[\mathbb{E}[Y|X] g(X)] = \mathbb{E}[Yg(X)],$$
 pour toute fonction $g$ telle que les deux espérances sont définies. 
 Que vaut $\mathbb{E}[Y g(X) \mid X]$? 
 
@@ -147,56 +164,99 @@ Que vaut $\mathbb{E}[Y g(X) \mid X]$?
 
 ::: {.content-visible when-profile="solution"}
  
+::: {.callout-note}
+
+### Solution
+
+
 Lorsque $(X,Y)$ a densité jointe $f$, rappelons que si on pose
-$$f_{Y \mid X}(y \mid x) = \begin{cases} \frac{f(x,y)}{f_X(x)}  & \mbox{ si } f_X(x)>0 \\ 
+
+$$
+f_{Y \mid X}(y \mid x) = \begin{cases} \frac{f(x,y)}{f_X(x)}  & \mbox{ si } f_X(x)>0 \\ 
 0 & \mbox{ sinon} \end{cases}, \quad f_{X \mid Y}(x \mid y) = \begin{cases} \frac{f(x,y)}{f_Y(y)}  & \mbox{ si } f_Y(y)>0 \\ 
-0 & \mbox{ sinon} \end{cases}, $$
-$$ \phi(y) = \int_{\mathbb{R}} g(x,y) f_{X \mid Y}(x \mid y) dx \quad \ \psi(x) = \int_{\mathbb{R}} g(x,y) f_{Y \mid X}(y \mid x) dy, $$ alors 
+0 & \mbox{ sinon} \end{cases}, 
+$$
+
+$$\phi(y) = \int_{\mathbb{R}} g(x,y) f_{X \mid Y}(x \mid y) dx \quad \ \psi(x) = \int_{\mathbb{R}} g(x,y) f_{Y \mid X}(y \mid x) dy, 
+$$ 
+
+alors 
 $$\mathbb{E}[g(X,Y) \mid Y]= \phi(Y), \qquad \mathbb{E}[g(X,Y) \mid X] = \psi(X).$$  
-Montrons par exemple la deuxième assertion : si $A \in \sigma(X)$, i.e. il existe $B \in \cB(\mathbb{R})$ tel que $A = X^{-1}(B),$ et $\mathbb{I}_A(\omega) = \mathbb{I}_B(X(\omega))$, de sorte que (l'usage de Fubini à la troisième ligne ci-dessous est justifié car $(x,y) \to |g(x,y)|\mathbb{I}_B(x)$ est $ \mathbb{P}_{(X,Y)}$-intégrable puisque $(x,y) \to |g(x,y)|$ l'est ) :   
-$$mathbb{E}[g(X,Y) \mathbb{I}_A] & = & \int_{\mathbb{R}^2} g(x,y) \mathbb{I}_B(x) f(x,y) dx dy  \\ 
-& = & \int_{\mathbb{R}^2} g(x,y) f_{Y \mid X}(y \mid x) f_X(x)  \mathbb{I}_B(x) dx dy \\ 
-& = & \int_{\mathbb{R}}  \left(\int_{\mathbb{R}}  g(x,y) f_{Y \mid X}(y \mid x)\right) \mathbb{I}_B(x) f_X(x) dx \\ 
-& = & \mathbb{E}[\psi(X) \mathbb{I}_B(X)] = \mathbb{E}[\psi(X) \mathbb{I}_A] $$ 
+
+Montrons par exemple la deuxième assertion : si $A \in \sigma(X)$, i.e. il existe $B \in \mathcal{B}(\mathbb{R})$ tel que $A = X^{-1}(B),$ et $\mathbb{I}_A(\omega) = \mathbb{I}_B(X(\omega))$, de sorte que (l'usage de Fubini à la troisième ligne ci-dessous est justifié car $(x,y) \to |g(x,y)|\mathbb{I}_B(x)$ est $\mathbb{P}_{(X,Y)}$-intégrable puisque $(x,y) \to |g(x,y)|$ l'est ) :   
+
+\begin{align*}
+\mathbb{E}[g(X,Y) \mathbb{I}_A] & =  \int_{\mathbb{R}^2} g(x,y) \mathbb{I}_B(x) f(x,y) dx dy  \\ 
+& =  \int_{\mathbb{R}^2} g(x,y) f_{Y \mid X}(y \mid x) f_X(x)  \mathbb{I}_B(x) dx dy \\ 
+& =  \int_{\mathbb{R}}  \left(\int_{\mathbb{R}}  g(x,y) f_{Y \mid X}(y \mid x)\right) \mathbb{I}_B(x) f_X(x) dx \\ 
+& =  \mathbb{E}[\psi(X) \mathbb{I}_B(X)] = \mathbb{E}[\psi(X) \mathbb{I}_A] 
+\end{align*}
+
 comme souhaité. 
 
 
+:::
+
+
+::: {.callout-note}
+
+### Solution (suite)
 
 
 
-1. $X$ a densité $f_X$ avec $f_X$ nulle en dehors de $[0,1]$ et 
-$$ f_X(x) = \int_{\mathbb{R}} f(x,y) dy = \frac{1}{x} \int_{0}^x dy = 1, 0 \le x \le 1,$$
-on déduit que $X \sim \mathrm{Unif}[0,1]$. 
+1. $X$ a densité a pour $f_X$ avec $f_X$ nulle en dehors de $[0,1]$ et 
+
+    $$f_X(x) = \int_{\mathbb{R}} f(x,y) dy = \frac{1}{x} \int_{0}^x dy = 1, 0 \le x \le 1,$$
+
+    on déduit que $X \sim \mathrm{Unif}[0,1]$. 
  
-Par ailleurs  
-$$ f_{Y \mid X} (y \mid x) = \frac{1}{x} \mathbb{I}_{\{0 \le y \le x\}}.$$
-{\em Remarque } : Cela signifie que sachant $X$, $Y \sim \mathrm{Unif}[0,X]$. 
+    Par ailleurs  
+    
+    $$f_{Y \mid X} (y \mid x) = \frac{1}{x} \mathbb{I}_{\{0 \le y \le x\}}.$$
 
-On en déduit 
-$$  \mathbb{P}(X^2 + Y^2 \le 1 \mid X) =  \mathbb{P}(Y^2 \le 1-X^2 \mid X) = \begin{cases} 1 & \mbox{ si } X \le \frac{1}{\sqrt{2}}  \\ \frac{\sqrt{1-X^2}}{X} & \mbox{ sinon. } \end{cases}.$$ 
+    *Remarque* : Cela signifie que sachant $X$, $Y \sim \mathrm{Unif}[0,X]$. 
 
-On a alors, puisque $X \sim \mathrm{Unif}[0,1]$, et en utilisant l'indication   
-$$&  \mathbb{P}(X^2+Y^2 \le 1)  =  \mathbb{E}[ \mathbb{P}(X^2+Y^2\le 1 \mid X)] \\ & = & \frac{1}{\sqrt{2}} + \int_{\frac{1}{\sqrt{2}}}^{1} \frac{\sqrt{1-x^2}}{x} dx \\ 
-& = & \frac{1}{\sqrt{2}} + \left[  \sqrt{1-x^2}-\frac{1}{2} \ln(1+\sqrt{1-x^2}) + \frac{1}{2} \ln(1-\sqrt{1-x^2})\right]_{\frac{1}{\sqrt{2}}}^{1}\\ 
-& = & \frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}} + \frac{1}{2} \ln\left(1+ \frac{1}{\sqrt{2}}\right) - \frac{1}{2} \ln\left(1-\frac{1}{\sqrt{2}}\right) = \ln(\sqrt{2}+1). $$   
-1. Comme $Y$ est intégrable on peut appliquer Fubini à la troisième ligne ci-dessous et  se servir du fait que  
-$\ \forall (x,y) \in \mathbb{R}^2, \ f_X(x) f_{Y \mid X}(y \mid x) = f(x,y)$ pour voir que 
-$$mathbb{E}[\mathbb{E}[Y \mid X]] & = & \mathbb{E}[\psi(X)] = \int_{\mathbb{R}} \psi(x) f_X(x) dx \\ 
-& = & \int_{\mathbb{R}} \int_{\mathbb{R}} y  f_{Y\mid X}(y \mid x) dy f_X(x) dx 
-\\ & = &  \int_{\mathbb{R}^2} y f(x,y) dx dy = \mathbb{E}[Y] $$  
+    On en déduit 
+    
+    $$\mathbb{P}(X^2 + Y^2 \le 1 \mid X) =  \mathbb{P}(Y^2 \le 1-X^2 \mid X) = \begin{cases} 1 & \mbox{ si } X \le \frac{1}{\sqrt{2}}  \\ \frac{\sqrt{1-X^2}}{X} & \mbox{ sinon. } \end{cases}.$$ 
+
+    On a alors, puisque $X \sim \mathrm{Unif}[0,1]$, et en utilisant l'indication   
+    
+    \begin{align*}
+     &  \mathbb{P}(X^2+Y^2 \le 1)  =  \mathbb{E}[ \mathbb{P}(X^2+Y^2\le 1 \mid X)] \\ & =  \frac{1}{\sqrt{2}} + \int_{\frac{1}{\sqrt{2}}}^{1} \frac{\sqrt{1-x^2}}{x} dx \\  & = \frac{1}{\sqrt{2}} + \left[  \sqrt{1-x^2}-\frac{1}{2} \ln(1+\sqrt{1-x^2}) + \frac{1}{2} \ln(1-\sqrt{1-x^2})\right]_{\frac{1}{\sqrt{2}}}^{1}\\   & =  \frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}} + \frac{1}{2} \ln\left(1+ \frac{1}{\sqrt{2}}\right) - \frac{1}{2} \ln\left(1-\frac{1}{\sqrt{2}}\right) = \ln(\sqrt{2}+1). 
+    \end{align*}
+
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
+
+1. Comme $Y$ est intégrable on peut appliquer Fubini à la troisième ligne ci-dessous et  se servir du fait que   $\forall (x,y) \in \mathbb{R}^2, \ f_X(x) f_{Y \mid X}(y \mid x) = f(x,y)$ pour voir que 
+
+    \begin{align*}\mathbb{E}[\mathbb{E}[Y \mid X]] & =  \mathbb{E}[\psi(X)] = \int_{\mathbb{R}} \psi(x) f_X(x) dx \\  & =  \int_{\mathbb{R}} \int_{\mathbb{R}} y  f_{Y\mid X}(y \mid x) dy f_X(x) dx \\ & =   \int_{\mathbb{R}^2} y f(x,y) dx dy = \mathbb{E}[Y]
+    \end{align*} 
 
 Dans l'exemple précédent on a $\mathbb{E}[Y \mid X] = \frac{X}{2}$ et donc 
+
 $$\mathbb{E}[Y]= \mathbb{E}[\mathbb{E}[Y \mid X]] = \frac{\mathbb{E}[X]}{2} = \frac{1}{4}.$$
 
-1. On peut appliquer Fubini à la troisième ligne ci-dessous car $\mathbb{E}[|Y g(X)|]<\infty$, et se servir du fait que  
-$\ \forall (x,y) \in \mathbb{R}^2, \ f_X(x) f_{Y \mid X}(y \mid x) = f(x,y)$
-$$mathbb{E}[\mathbb{E}[Y \mid X] g(X)] & = & \mathbb{E}[\psi(X) g(X)] = \int_{\mathbb{R}} \psi(x) g(x) f_X(x) dx \\ 
-& = & \int_{\mathbb{R}} \int_{\mathbb{R}} y  f_{Y\mid X}(y \mid x) dy g(x) f_X(x) dx 
-\\ & = &  \int_{\mathbb{R}^2} y g(x) f(x,y) dx dy = \mathbb{E}[Y g(X)] $$  
-Pour $B \in \cB(\mathbb{R})$, quitte à considérer la fonction $\hat{g} = g \mathbb{I}_B$, 
+1. On peut appliquer Fubini à la troisième ligne ci-dessous car $\mathbb{E}[|Y g(X)|]<\infty$, et se servir du fait que   $\forall (x,y) \in \mathbb{R}^2, \ f_X(x) f_{Y \mid X}(y \mid x) = f(x,y)$
+
+\begin{align*}
+\mathbb{E}[\mathbb{E}[Y \mid X] g(X)] & =  \mathbb{E}[\psi(X) g(X)] = \int_{\mathbb{R}} \psi(x) g(x) f_X(x) dx \\ & =  \int_{\mathbb{R}} \int_{\mathbb{R}} y  f_{Y\mid X}(y \mid x) dy g(x) f_X(x) dx \\ & =  \int_{\mathbb{R}^2} y g(x) f(x,y) dx dy = \mathbb{E}[Y g(X)] 
+\end{align*} 
+
+Pour $B \in \mathcal{B}(\mathbb{R})$, quitte à considérer la fonction $\hat{g} = g \mathbb{I}_B$, 
 on déduit 
-$$ \mathbb{E}[Y g(X) \mathbb{I}_B(X)] = \mathbb{E}[\psi(X) g(X) \mathbb{I}_B]$$ de sorte que  
-$$ \mathbb{E}[Y g(X) \mid X] = g(X) \mathbb{E}[Y \mid X] = g(X) \psi(X) $$
+
+$$\mathbb{E}[Y g(X) \mathbb{I}_B(X)] = \mathbb{E}[\psi(X) g(X) \mathbb{I}_B]$$ 
+
+de sorte que  
+
+$$\mathbb{E}[Y g(X) \mid X] = g(X) \mathbb{E}[Y \mid X] = g(X) \psi(X)$$
+
+:::
 
 :::
 
@@ -230,49 +290,75 @@ Soient $X_1, X_2$ tels que
 
 1. Quelle est la loi de $X_1$? celle de $X_2$?
 2. Calculer $Y = \mathbb{E}[X_1\mid X_2]$ et vérifier que
-$$Y= \begin{cases} & \frac{p-r}{1-p} \mbox{ avec probabilité } 1-p\\ 
-& \frac{r}{p} \mbox{ avec probabilité } p.\end{cases}$$
-1. Rappelons que par définition $\mathrm{Var}[X_1 \mid X_2] = \mathbb{E}[X_1^2\mid X_2] - \mathbb{E}[X_1\mid X_2]^2$. Montrer que 
-$$\mathrm{Var}[X_1 \mid X_2] = \left( \frac{p-r}{1-p} - \left(\frac{p-r}{1-p}\right)^2
+ 
+    $$Y= \begin{cases} & \frac{p-r}{1-p} \mbox{ avec probabilité } 1-p\\ & \frac{r}{p} \mbox{ avec probabilité } p.\end{cases}$$
+
+1. Rappelons que par définition $\text{Var}[X_1 \mid X_2] = \mathbb{E}[X_1^2\mid X_2] - \mathbb{E}[X_1\mid X_2]^2$. Montrer que 
+    
+    $$\mathrm{Var}[X_1 \mid X_2] = \left( \frac{p-r}{1-p} - \left(\frac{p-r}{1-p}\right)^2
 \right) \mathbf{1}_{\{X_2=0\}} + \left( \frac{r}{p} - \left(\frac{r}{p}\right)^2 \right)
 \mathbf{1}_{\{X_2=1\}}.$$
-1. Que vaut $\mathrm{Var}(\mathbb{E}[X_1\mid X_2])$? $\mathbb{E}[\mathrm{Var}[X_1\mid X_2]]$?
-Vérifier qu'on a bien
-$$\mathrm{Var}(X_1) = \mathrm{Var}(\mathbb{E}[X_1\mid X_2]) + \mathbb{E}[\mathrm{Var}[X_1\mid X_2]].$$
+
+1. Que vaut $\mathrm{Var}(\mathbb{E}[X_1\mid X_2])$? $\mathbb{E}[\mathrm{Var}[X_1\mid X_2]]$? Vérifier qu'on a bien
+
+    $$\mathrm{Var}(X_1) = \mathrm{Var}(\mathbb{E}[X_1\mid X_2]) + \mathbb{E}[\mathrm{Var}[X_1\mid X_2]].$$
 
 
 
 
 ::: {.content-visible when-profile="solution"}
- 
+
+::: {.callout-note}
+
+### Solution
 
 
 1. $X_1$, comme $X_2$, prend ses valeurs dans $\{0,1\}$. 
-On a $ \mathbb{P}(X_1=1) = r+ p-r$ de sorte que $X_1 \sim \mathrm{Ber}(p)$, 
-et $ \mathbb{P}(X_2=1) = r+ p-r$ de sorte qu'également $X_2 \sim \mathrm{Ber}(p)$. 
+On a $\mathbb{P}(X_1=1) = r+ p-r$ de sorte que $X_1 \sim \mathrm{Ber}(p)$, 
+et $\mathbb{P}(X_2=1) = r+ p-r$ de sorte qu'également $X_2 \sim \mathrm{Ber}(p)$. 
 1. On a (cf EF3)  
-$$mathbb{E}[X_1 \mid X_2] & = & \frac{\mathbb{E}[X_1 \mathbb{I}_{\{X_2 = 1\}}]}{ \mathbb{P}(X_2 =1)} \mathbb{I}_{\{X_2=1\}} +  \frac{\mathbb{E}[X_1 \mathbb{I}_{\{X_2 = 0\}}]}{ \mathbb{P}(X_2 =0)} \mathbb{I}_{\{X_2=0\}}  \\ & = & \frac{r}{p} \mathbb{I}_{\{X_2=1\}} + \frac{p-r}{1-p} \mathbb{I}_{\{X_2=0\}} $$ 
 
-Remarquons que $ \mathbb{P}(Y = \frac{r}{p}) =  \mathbb{P}(X_2=1) = p,  \mathbb{P}(Y = \frac{p-r}{1-p}) =  \mathbb{P}(X_2=0) = 1-p$. 
+    \begin{align*} 
+    \mathbb{E}[X_1 \mid X_2] & =  \frac{\mathbb{E}[X_1 \mathbb{I}_{\{X_2 = 1\}}]}{ \mathbb{P}(X_2 =1)} \mathbb{I}_{\{X_2=1\}} +  \frac{\mathbb{E}[X_1 \mathbb{I}_{\{X_2 = 0\}}]}{ \mathbb{P}(X_2 =0)} \mathbb{I}_{\{X_2=0\}}  \\ & =  \frac{r}{p} \mathbb{I}_{\{X_2=1\}} + \frac{p-r}{1-p} \mathbb{I}_{\{X_2=0\}}
+    \end{align*} 
+
+Remarquons que $\mathbb{P}(Y = \frac{r}{p}) =  \mathbb{P}(X_2=1) = p,  \mathbb{P}(Y = \frac{p-r}{1-p}) =  \mathbb{P}(X_2=0) = 1-p$. 
 Autrement dit $Y$ est une variable qui prend deux valeurs, $\frac{r}{p}$ sur l'événement $\{X_2=1\}$ (qui est bien de probabilité $p$) et $\frac{p-r}{1-p}$ sur l'événement complémentaire (qui est bien de probabilité $1-p$). 
 
 
 1. On a p.s. $X_1^2 = X_1$ puisque $X_1$ prend ses valeurs dans $\{0,1\}$ et donc $\mathbb{E}[X_1^2 \mid X_2 ]= \mathbb{E}[X_1 \mid X_2]$. Par ailleurs un rapide calcul assure que 
-$$ \mathbb{E}[X_1 \mid X_2]^2 =  \frac{r^2}{p^2} \mathbb{I}_{\{X_2=1\}} + \frac{(p-r)^2}{(1-p)^2} \mathbb{I}_{\{X_2=0\}},$$
-et on obtient donc la formule souhaitée.  
-1.	D'après la question 2, 
-$ Y = c + \left|\frac{r}{p}- \frac{p-r}{1-p}\right| \xi,$ où $\xi \sim \mathrm{Ber}(p)$. 
-On obtient donc 
-$$mathrm{Var}(Y) = \left(\frac{r}{p}- \frac{p-r}{1-p}\right)^2 p(1-p) & = &  \frac{r^2(1-p)}{p} + \frac{p (p-r)^2}{1-p} - 2r (p-r) \\ & = & 
-\frac{r^2}{p} - r^2 + \frac{(p-r)^2}{1-p} - (p-r)^2 - 2r (p-r) \\ 
-& = & \frac{r^2}{p} + \frac{(p-r)^2}{1-p} -(r+(p-r))^2 $$  
-Par ailleurs d'après la question 3, 
-$$ \mathbb{E}[\mathrm{Var}[X_1 \mid X_2]]) = \left( \frac{p-r} - \frac{(p-r)^2}{1-p}
-\right)  + \left( r - \frac{r^2}{p} \right) = p - \frac{(p-r)^2}{1-p} - \frac{r^2}{p}.$$
 
-On a donc 
-$$ \mathrm{Var}(Y) + \mathbb{E}[\mathrm{Var}[X_1 \mid X_2]] =  p - p^2= \mathrm{Var}[X_1].$$
+    $$\mathbb{E}[X_1 \mid X_2]^2 =  \frac{r^2}{p^2} \mathbb{I}_{\{X_2=1\}} + \frac{(p-r)^2}{(1-p)^2} \mathbb{I}_{\{X_2=0\}},$$
+    
+    et on obtient donc la formule souhaitée.  
 
+:::
+
+
+
+::: {.callout-note}
+
+### Solution  (suite)
+
+
+
+1.	D'après la question 2,  $Y = c + \left|\frac{r}{p}- \frac{p-r}{1-p}\right| \xi,$ où $\xi \sim \mathrm{Ber}(p)$. On obtient donc 
+
+    \begin{align*}
+    \text{Var}(Y) & = \left(\frac{r}{p}- \frac{p-r}{1-p}\right)^2 p(1-p) & =   \frac{r^2(1-p)}{p} + \frac{p (p-r)^2}{1-p} - 2r (p-r) \\ & =   \frac{r^2}{p} - r^2 + \frac{(p-r)^2}{1-p} - (p-r)^2 - 2r (p-r) \\ 
+    & = \frac{r^2}{p} + \frac{(p-r)^2}{1-p} -(r+(p-r))^2
+    \end{align*}
+
+    Par ailleurs d'après la question 3, 
+
+    $$\mathbb{E}[\mathrm{Var}[X_1 \mid X_2]]) = \left( \frac{p-r} - \frac{(p-r)^2}{1-p} \right)  + \left( r - \frac{r^2}{p} \right) = p - \frac{(p-r)^2}{1-p} - \frac{r^2}{p}.$$
+
+    On a donc 
+    
+    $$\mathrm{Var}(Y) + \mathbb{E}[\mathrm{Var}[X_1 \mid X_2]] =  p - p^2= \mathrm{Var}[X_1].$$
+
+
+:::
 
 :::
 
@@ -294,7 +380,9 @@ Soit $(X_n)$ une suite de v.a. .i.i.d intégrables, et $S_n = \sum_{i=1}^n X_i$.
    
 ::: {.content-visible when-profile="solution"}
  
+::: {.callout-note}
 
+### Solution
 
 1. Puisque $X_1$ est indépendant de $X_2$ on a (EF2)  
 $$\mathbb{E}[X_1 \mid X_2] = \mathbb{E}[X_1].$$
@@ -303,21 +391,30 @@ tandis que (EF1) : $\mathbb{E}[X_1 \mid X_1] = X_1$. On conclut en faisant usage
 $$\mathbb{E}[S_n \mid X_1] = X_1 + (n-1) \mathbb{E}[X_1].$$
 Par un raisonnement similaire, $\mathbb{E}[S_{n-1} \mid S_{n-1}] = S_{n-1}$, tandis que $X_n$ étant indépendant de $S_{n-1}$ on a $\mathbb{E}[X_n \mid S_{n-1}] = \mathbb{E}[X_1]$. En utilisant que $S_n = S_{n-1}+X_n$, la linéarité de $\mathbb{E}[\cdot \mid \cdot]$ permet de conclure que 
 $$\mathbb{E}[S_n \mid S_{n-1}] = S_{n-1} + \mathbb{E}[X_1].$$  
-1. Supposons que $ \mathbb{P}_{(X,Z)} =  \mathbb{P}_{(Y,Z)}$, et que $X \in \mathbb{L}^1$, notons $T= \mathbb{E}[X \mid Z]$ (qui est, par définition, $\sigma(Z)$-mesurable). Soit $A \in \sigma(Z)$, de sorte que $A = Z^{-1}(B)$ pour un $B$ dans la tribu dont on a muni l'espace dans lequel $Z$ prend ses valeurs. 
+1. Supposons que $\mathbb{P}_{(X,Z)} =  \mathbb{P}_{(Y,Z)}$, et que $X \in \mathbb{L}^1$, notons $T= \mathbb{E}[X \mid Z]$ (qui est, par définition, $\sigma(Z)$-mesurable). Soit $A \in \sigma(Z)$, de sorte que $A = Z^{-1}(B)$ pour un $B$ dans la tribu dont on a muni l'espace dans lequel $Z$ prend ses valeurs. 
 Alors 
-$$ \mathbb{E}[Y \mathbb{I}_A] = \mathbb{E}[Y \mathbb{I}_B(Z)] = \mathbb{E}[X \mathbb{I}_B(Z)] = \mathbb{E}[X \mathbb{I}_A] = \mathbb{E}[T \mathbb{I}_A],$$
+$$\mathbb{E}[Y \mathbb{I}_A] = \mathbb{E}[Y \mathbb{I}_B(Z)] = \mathbb{E}[X \mathbb{I}_B(Z)] = \mathbb{E}[X \mathbb{I}_A] = \mathbb{E}[T \mathbb{I}_A],$$
 donc $T = \mathbb{E}[Y \mid Z]$. 
+
+
+:::
+
+
+::: {.callout-note}
+
+### Solution  (suite)
 
 On peut faire le même raisonement avec $f(X), f(Y)$, ou simplement remarquer que 
 $\mathbb{P}_{(X,Z)} =  \mathbb{P}_{(Y,Z)} \ \Rightarrow \  \mathbb{P}_{(f(X),Z)} =  \mathbb{P}_{(f(Y),Z)}$. 
 
-Comme les $X_i, 1 \le i \le n$ jouent des r\^oles parfaitement symétriques dans $S_n$ puisqu'elles sont i.i.d, on a 
+Comme les $X_i, 1 \le i \le n$ jouent des rôles parfaitement symétriques dans $S_n$ puisqu'elles sont i.i.d, on a 
 $\mathbb{P}_{(X_i,S_n)} =  \mathbb{P}_{(X_1, S_n)}$ pour tout $1 \le i \le n$. On déduit de ce qui précède que 
 $\mathbb{E}[X_1 \mid S_n] = \mathbb{E}[X_i \mid S_n], 1 \le i \le n$. 
 Mais alors par linéarité 
 $$ S_n= \mathbb{E}[S_n \mid S_n]  = \sum_{i=1}^n  \mathbb{E}[X_i \mid S_n] = n \mathbb{E}[X_1 \mid S_n],$$
 et on conclut que $\mathbb{E}[X_1 \mid S_n] = \frac{S_n}{n}$.    
 
+:::
 
 :::
 
@@ -342,13 +439,20 @@ Soit $(X_n, n \ge 0)$ une suite de variables i.i.d, avec $X_1 \sim \text{Ber}(1/
 Calculer $\mathbb{E}[S_n \mid \mathcal{F}_5]$ en fonction de $n$. Quelle est la loi de cette variable aléatoire?  
 
 ::: {.content-visible when-profile="solution"}
- Si $n \le 5$, $S_5$ est $\mathcal{F}_5$ mesurable et donc (EF1) ;  
-$$ \mathbb{E}[S_n \mid \mathcal{F}_5] = S_n \quad \forall n \le 5$$. 
+
+::: {.callout-note}
+
+### Solution 
+
+Si $n \le 5$, $S_5$ est $\mathcal{F}_5$ mesurable et donc (EF1) ;  
+$$\mathbb{E}[S_n \mid \mathcal{F}_5] = S_n \quad \forall n \le 5$$. 
 Comme dans l'exercice précédent, puisque $X_i$ est indépendant de $\mathcal{F}_5$ pour tout $i \ge 6$, on a 
-$$ \mathbb{E}[(X_i-1/2) \mid \mathcal{F}_5] = \mathbb{E}[X_i-1/2]= 0.$$
+$$\mathbb{E}[(X_i-1/2) \mid \mathcal{F}_5] = \mathbb{E}[X_i-1/2]= 0.$$
 Donc 
-$$ \mathbb{E}[S_n \mid \mathcal{F}_5] = S_5 \ \ \forall n \ge 5.$$
+$$\mathbb{E}[S_n \mid \mathcal{F}_5] = S_5 \ \ \forall n \ge 5.$$
 Enfin $S_k+\frac{k}{2} \sim \mathrm{Bin}(k,1/2)$.  
+
+:::
 
 :::
 
@@ -392,71 +496,130 @@ Déterminer la loi de $N_t$ à l'aide des questions préc\'dentes.
 ::: {.content-visible when-profile="solution"}
 
 
+::: {.callout-note}
+
+### Solution
 
 1. On montre l'assertion souhaitée par récurrence sur $n \in \mathbb{N}^*$. L'assertion est trivialement vérifiée pour $n=1$ puisqu'on reconna\^\i t en $f_1$ la densité d'une $\exp(1)$ et donc de $S_1 = \mathbf{e}_1$.
 
 Soit $n \in \mathbb{N}^*$, supposons que $S_n$ a densité $f_n$, comme $(S_n, \mathbf{e}_{n+1})$ sont indépendantes, le couple a densité 
-$$ g(s,t) = f_n(s) \exp(-t) \mathbb{I}_{s \ge 0, t \ge 0}$$ et donc  
-$$mathbb{E}[\phi(S_{n+1})] & = & \mathbb{E}[\phi(S_n + \mathbf{e}_{n+1})] \\ 
-& = & \int_{\mathbb{R}_+^2} \phi(s+t)  \frac{s^{n-1}}{(n-1)!} \exp(-s-t) ds dt $$ 
+
+$$g(s,t) = f_n(s) \exp(-t) \mathbb{I}_{s \ge 0, t \ge 0}$$
+
+et donc  
+
+\begin{align*}
+\mathbb{E}[\phi(S_{n+1})] & =  \mathbb{E}[\phi(S_n + \mathbf{e}_{n+1})] \\ 
+& =  \int_{\mathbb{R}_+^2} \phi(s+t)  \frac{s^{n-1}}{(n-1)!} \exp(-s-t) ds dt
+\end{align*} 
+
 Avec $(u,v)=(s+t,t)$ on a un $\mathcal{C}^1$-difféomorphisme de $\mathbb{R}_+^2$ dans $\{(u,v) \in \mathbb{R}_+^2 : v \le u\}$, de jacobien $1$, et donc par changement de variables, on obtient comme souhaité :  
-$$ \mathbb{E}[\phi(S_{n+1}] = \int_{\mathbb{R}_+} du \phi(u) \exp(-u) \left(\int_0^u \frac{(u-v)^{n-1}}{(n-1)!} dv\right) = \int_{\mathbb{R}_+} \phi(u) f_{n+1}(u) du$$    
+
+$$\mathbb{E}[\phi(S_{n+1}] = \int_{\mathbb{R}_+} du \phi(u) \exp(-u) \left(\int_0^u \frac{(u-v)^{n-1}}{(n-1)!} dv\right) = \int_{\mathbb{R}_+} \phi(u) f_{n+1}(u) du$$    
  
 
-{\em Remarque } Avec des exponentielles indépendantes de paramètre commun $\lambda$, on obtient la densité d'une $\Gamma(n, \lambda)$ pour la somme, ici on est dans le cas $\lambda=1$. 
+*Remarque :* Avec des exponentielles indépendantes de paramètre commun $\lambda$, on obtient la densité d'une $\Gamma(n, \lambda)$ pour la somme, ici on est dans le cas $\lambda=1$. 
+
+
+:::
+
+
+::: {.callout-note}
+
+### Solution (suite)
 
 1. On a 
-$$\mathbb{P}(S_n \ge t) & = & \int_{t}^{\infty} f_n(u) du $$ 
-Cette intégrale se calcule, en fonction de $n, t$, au moyen d'intégrations par parties successives : 
-$$ \int_t^{\infty} f_n(u) du = \left[ \frac{u^{n-1}}{(n-1)!} \right]_t^{\infty} + \int_t^{\infty} f_{n-1}(u) du.$$ 
-Comme $\int_t^{\infty} f_1(u) du = \exp(-t)$, une récurrence immédiate fournit donc que 
-$$ \int_t^{\infty} f_n(u) du = \exp(-t) \sum_{k=0}^{n-1} \frac{t^{n-1}}{(n-1)!}.$$ 
+  
+    \begin{align*}
+    \mathbb{P}(S_n \ge t) & = \int_{t}^{\infty} f_n(u) du 
+    \end{align*}
 
-1. Soit $n \in \mathbb{N}^*$, on a 
-$$ \mathbb{P}(X_t  \ge n) = \exp(-t) \sum_{k \ge n} \frac{t^k}{k!}$$
-et on remarque d'après la question précédente que ceci vaut précisément $1- \mathbb{P}(S_n \ge t) =  \mathbb{P}(S_n \le t)$ (pour la dernière égalité on a utilisé que $S_n$ possède une densité pour assurer que $ \mathbb{P}(S_n=t) =0$). 
+    Cette intégrale se calcule, en fonction de $n, t$, au moyen d'intégrations par parties successives : 
+
+    $$\int_t^{\infty} f_n(u) du = \left[ \frac{u^{n-1}}{(n-1)!} \right]_t^{\infty} + \int_t^{\infty} f_{n-1}(u) du.$$ 
+
+    Comme $\int_t^{\infty} f_1(u) du = \exp(-t)$, une récurrence immédiate fournit donc que 
+
+    $$\int_t^{\infty} f_n(u) du = \exp(-t) \sum_{k=0}^{n-1} \frac{t^{n-1}}{(n-1)!}.$$ 
+
+2. Soit $n \in \mathbb{N}^*$, on a 
+
+    $$\mathbb{P}(X_t  \ge n) = \exp(-t) \sum_{k \ge n} \frac{t^k}{k!}$$
+
+    et on remarque d'après la question précédente que ceci vaut précisément $1- \mathbb{P}(S_n \ge t) =  \mathbb{P}(S_n \le t)$ (pour la dernière égalité on a utilisé que $S_n$ possède une densité pour assurer que $\mathbb{P}(S_n=t) =0$). 
+
+:::
+
+
+::: {.callout-note}
+
+### Solution (suite)
 
 1. Par définition $N_t \ge n$ ssi au moins $n$ points parmi $\{S_1,S_2,\dots,S_n, \dots\}$ tombent dans l'intervalle $[0,t]$. 
 Comme $(S_k, k \ge 0)$ est p.s. croissante ceci se produit (p.s.) lorsque $S_n \le t$ et on on déduit que 
-$$\{N_t \ge n\} = \{S_n \le t\}$$
 
-La variable $N_t$ est à valeurs dans $\mathbb{N}$, et on a pour tout $n \in \mathbb{N}$ (cf la question précédente pour $n\in \mathbb{N}^*$, on a ajouté la cas trivial $n=0$), 
-$$  \mathbb{P}(N_t \ge n) =  \mathbb{P}(X_t \ge n). $$
-Mais ces valeurs caractérisent la fonction de répartition de $N_t$, et donc la loi de $N_t$, et on conclut que $N_t \sim \mathrm{Poisson}(t)$. 
+    $$\{N_t \ge n\} = \{S_n \le t\}$$
+
+    La variable $N_t$ est à valeurs dans $\mathbb{N}$, et on a pour tout $n \in \mathbb{N}$ (cf la question précédente pour $n\in \mathbb{N}^*$, on a ajouté la cas trivial $n=0$), 
+ 
+    $$\mathbb{P}(N_t \ge n) =  \mathbb{P}(X_t \ge n). $$
+    
+    Mais ces valeurs caractérisent la fonction de répartition de $N_t$, et donc la loi de $N_t$, et on conclut que $N_t \sim \mathrm{Poisson}(t)$. 
+
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
 
 
 1. On a $\{N_t=1\} = \{\mathbf{e}_1 \le t, \mathbf{e}_2 > t- \mathbf{e}_1\}$.
 
-Par ailleurs, $(\mathbf{e}_1, \mathbf{e}_2)$ sont indépendantes et possèdent donc la densité jointe 
-$$ f_{(\mathbf{e}_1,\mathbf{e}_2}(u,v) = \exp(-u)\exp(-v) \mathbb{I}_{\{u \ge 0\}} \mathbb{I}_{\{v \ge 0\}}$$
-Pour $\phi : \mathbb{R} \to \mathbb{R}_+$ borélienne, on en déduit que 
-$$& \mathbb{E}[\phi(\mathbf{e}_1) \mid N_t=1]  =  \frac{\mathbb{E}[\phi(\mathbf{e}_1) \mathbb{I}_{\{N_t = 1\}}]}{ \mathbb{P}(N_t = 1)} \\ & =&
- \frac{\mathbb{E}[\phi(\mathbf{e}_1) \mathbb{I}_{\{\mathbf{e}_1 \le t, \mathbf{e}_2 > t-\mathbf{e}_1\}}]}{t \exp(-t)} 
-\\ & = & \frac{\exp(t)}{t} \int_{\mathbb{R}} \int_{\mathbb{R}} \phi(u) \exp(-u)\exp(-v) \mathbb{I}_{\{0 \le u \le t\}} \mathbb{I}_{\{0\le t-u < v\}} du dv 
-\\ & = & \frac{\exp(t)}{t} \int_{\mathbb{R}} du \phi(u) \exp(-u) \mathbb{I}_{[0,t]}(u) \int_{t-u}^{\infty} \exp(-v) dv 
-\\ & = & \frac{\exp(t)}{t} \int_{\mathbb{R}} du \phi(u) \exp(-u) \mathbb{I}_{[0,t]}(u) \exp(u-t) \\
-& = & \int_{\mathbb{R}}\phi(u) \frac{\mathbb{I}_{[0,t]}(u)}{t} du, 
- $$ 
-où on a utilisé Fubini-Tonelli à la troisième ligne ci-dessus. 
+    Par ailleurs, $(\mathbf{e}_1, \mathbf{e}_2)$ sont indépendantes et possèdent donc la densité jointe 
 
-On conclut, gr\^ace au théorème de caractérisation habituel, que la loi conditionnelle de $\mathbf{e}_1$ sachant $\{N_t=1\}$ est $\mathrm{Unif}[0,t]$, 
-1. On effectue un raisonnement similaire à celui de la question qui précède. 
-On a 
-$$\{N_t=2\} = \{S_1 \le t, \mathbf{e}_3 > t- S_1\}= \left\{\mathbf{e}_1 \le t, \mathbf{e}_2 \le t-\mathbf{e}_1, \mathbf{e}_3 > t - (\mathbf{e}_1+\mathbf{e}_2)\right\}.$$
+    $$f_{(\mathbf{e}_1,\mathbf{e}_2}(u,v) = \exp(-u)\exp(-v) \mathbb{I}_{\{u \ge 0\}} \mathbb{I}_{\{v \ge 0\}}$$
 
-Par ailleurs, $(\mathbf{e}_1, \mathbf{e}_2,\mathbf{e}_3)$ sont indépendantes et possèdent donc la densité jointe 
-$$ f_{(\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3}(u,v,w) = \exp(-u)\exp(-v)\exp(-w) \mathbb{I}_{\{u \ge 0\}} \mathbb{I}_{\{v \ge 0\}}\mathbb{I}_{\{w \ge 0\}}.$$
-Pour $\phi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne, on en déduit que 
-$$&  \mathbb{E}[\phi(\mathbf{e}_1,\mathbf{e}_2) \mid N_t=2]  =  \frac{\mathbb{E}[\phi(\mathbf{e}_1, \mathbf{e}_2) \mathbb{I}_{\{N_t = 2\}}]}{ \mathbb{P}(N_t = 2)} \\ & =&
- \frac{\mathbb{E}[\phi(\mathbf{e}_1, \mathbf{e}_2) \mathbb{I}_{\{\mathbf{e}_1 \le t, \mathbf{e}_2 \le t-\mathbf{e}_1, \mathbf{e}_3 > t - (\mathbf{e}_1+\mathbf{e}_2)\}}]}{\frac{t^2}{2} \exp(-t)} 
-\\ & = & \frac{2\exp(t)}{t^2} \int_{\mathbb{R}^3}  \phi(u,v) \exp(-u-v)\exp(-w) \mathbb{I}_{\{0\le u \le u+v \le t\}} \mathbb{I}_{\{w>t-(u+v)\}} du dv dw 
-\\ & = & \frac{2\exp(t)}{t^2} \int_{\mathbb{R}^2} du dv \phi(u,v) \exp(-u-v) \mathbb{I}_{\{0\le u \le u+v \le t\}} \int_{t-(u+v)}^{\infty} \exp(-w) dw 
-\\ & = & \frac{2\exp(t)}{t^2} \int_{\mathbb{R}} du \phi(u) \exp(-u-v) \mathbb{I}_{\{0\le u \le u+v \le t\}} \exp(u+v-t) = \int_{\mathbb{R}}\phi(u,v) \frac{2\mathbb{I}_{\{0\le u \le u+v \le t\}}}{t^2} du, 
- $$ 
+    Pour $\phi : \mathbb{R} \to \mathbb{R}_+$ borélienne, on en déduit que 
+
+    \begin{align*}
+     \mathbb{E}[\phi(\mathbf{e}_1) \mid N_t=1]  & =  \frac{\mathbb{E}[\phi(\mathbf{e}_1) \mathbb{I}_{\{N_t = 1\}}]}{ \mathbb{P}(N_t = 1)} \\ & = \frac{\mathbb{E}[\phi(\mathbf{e}_1) \mathbb{I}_{\{\mathbf{e}_1 \le t, \mathbf{e}_2 > t-\mathbf{e}_1\}}]}{t \exp(-t)} 
+     \\ & =  \frac{\exp(t)}{t} \int_{\mathbb{R}} \int_{\mathbb{R}} \phi(u) \exp(-u)\exp(-v) \mathbb{I}_{\{0 \le u \le t\}} \mathbb{I}_{\{0\le t-u < v\}} du dv 
+     \\ & =  \frac{\exp(t)}{t} \int_{\mathbb{R}} du \phi(u) \exp(-u) \mathbb{I}_{[0,t]}(u) \int_{t-u}^{\infty} \exp(-v) dv 
+     \\ & =  \frac{\exp(t)}{t} \int_{\mathbb{R}} du \phi(u) \exp(-u) \mathbb{I}_{[0,t]}(u) \exp(u-t) \\
+    & =  \int_{\mathbb{R}}\phi(u) \frac{\mathbb{I}_{[0,t]}(u)}{t} du, 
+    \end{align*}
+
+    où on a utilisé Fubini-Tonelli à la troisième ligne ci-dessus. 
+
+    On conclut, gr\^ace au théorème de caractérisation habituel, que la loi conditionnelle de $\mathbf{e}_1$ sachant $\{N_t=1\}$ est $\mathrm{Unif}[0,t]$, 
+
+    1. On effectue un raisonnement similaire à celui de la question qui précède. 
+
+    On a 
+
+    $$\{N_t=2\} = \{S_1 \le t, \mathbf{e}_3 > t- S_1\}= \left\{\mathbf{e}_1 \le t, \mathbf{e}_2 \le t-\mathbf{e}_1, \mathbf{e}_3 > t - (\mathbf{e}_1+\mathbf{e}_2)\right\}.$$
+
+    Par ailleurs, $(\mathbf{e}_1, \mathbf{e}_2,\mathbf{e}_3)$ sont indépendantes et possèdent donc la densité jointe 
+
+    $$f_{(\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3}(u,v,w) = \exp(-u)\exp(-v)\exp(-w) \mathbb{I}_{\{u \ge 0\}} \mathbb{I}_{\{v \ge 0\}}\mathbb{I}_{\{w \ge 0\}}.$$
+
+    Pour $\phi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne, on en déduit que 
+
+    \begin{align*}
+      \mathbb{E}[\phi(\mathbf{e}_1,\mathbf{e}_2) \mid N_t=2] 
+      & =  \frac{\mathbb{E}[\phi(\mathbf{e}_1, \mathbf{e}_2) \mathbb{I}_{\{N_t = 2\}}]}{ \mathbb{P}(N_t = 2)} \\ 
+      & = \frac{\mathbb{E}[\phi(\mathbf{e}_1, \mathbf{e}_2) \mathbb{I}_{\{\mathbf{e}_1 \le t, \mathbf{e}_2 \le t-\mathbf{e}_1, \mathbf{e}_3 > t - (\mathbf{e}_1+\mathbf{e}_2)\}}]}{\frac{t^2}{2} \exp(-t)} \\ 
+      & =  \frac{2\exp(t)}{t^2} \int_{\mathbb{R}^3}  \phi(u,v) \exp(-u-v)\exp(-w) \mathbb{I}_{\{0\le u \le u+v \le t\}} \mathbb{I}_{\{w>t-(u+v)\}} du dv dw \\ 
+      & =  \frac{2\exp(t)}{t^2} \int_{\mathbb{R}^2} du dv \phi(u,v) \exp(-u-v) \mathbb{I}_{\{0\le u \le u+v \le t\}} \int_{t-(u+v)}^{\infty} \exp(-w) dw \\ 
+      & =  \frac{2\exp(t)}{t^2} \int_{\mathbb{R}} du \phi(u) \exp(-u-v) \mathbb{I}_{\{0\le u \le u+v \le t\}} \exp(u+v-t) = \int_{\mathbb{R}}\phi(u,v) \frac{2\mathbb{I}_{\{0\le u \le u+v \le t\}}}{t^2} du, 
+    \end{align*}
+    
 et on conclut que la loi conditionnelle de $(\mathbf{e}_1, \mathbf{e}_2)$ sachant $\{N_t=2\}$ a pour densité 
 $\frac{2\mathbb{I}_{\{u \ge 0\}} \mathbb{I}_{\{v \ge 0\}} \mathbb{I}_{\{u+v \le t\}}}{t^2}$. 
 
 Autrement dit, la loi conditionnelle de $(\mathbf{e}_1, \mathbf{e}_2)$ sachant $\{N_t=2\}$ est uniforme sur le triangle $\{(u,v) \in [0,t]^2 : u+v \le t\}$. 
+
+:::
 
 :::
 
@@ -491,14 +654,27 @@ et la loi conditionnelle de $\begin{pmatrix} X_3 \\ X_4 \end{pmatrix}$ sachant $
 ::: {.content-visible when-profile="solution"}
 
 
+::: {.callout-note}
+
+### Solution
+
 
 1. D'après l'énoncé $\displaystyle{\begin{pmatrix} X_3 \\ X_4 \end{pmatrix} \sim \mathcal{N} \left( \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \begin{pmatrix}   3 & -1 \\  -1 & 5 \end{pmatrix}\right)}$, et donc d'après la formule du cours, sachant $X_4$, $X_3 \sim \mathcal{N}\left(1 -\frac{X_4}{5},\frac{14}{5}\right)$.
 En particulier $\mathbb{E}[X_3 \mid X_4] = 1 - \frac{X_4}{5}$. 
 1. On a $A^{-1} = \begin{pmatrix} \frac{2}{3} & -\frac{1}{3} \\ -\frac{1}{3} & \frac{2}{3} \end{pmatrix}$, et donc 
-$$ B A^{-1} = \begin{pmatrix} -\frac{1}{3} & -\frac{1}{3} \\ -\frac{2}{3} & \frac{1}{3} \end{pmatrix},$$ 
+
+$$B A^{-1} = \begin{pmatrix} -\frac{1}{3} & -\frac{1}{3} \\ -\frac{2}{3} & \frac{1}{3} \end{pmatrix},$$ 
 et 
-$$ BA^{-1}B^T = \begin{pmatrix} -\frac{1}{3} & -\frac{1}{3} \\ -\frac{2}{3} & \frac{1}{3} \end{pmatrix}  \begin{pmatrix} -1 & -1 \\ -1 & 0 \end{pmatrix} = \begin{pmatrix} \frac{2}{3} & \frac{1}{3} \\ \frac{1}{3} & \frac{2}{3}\end{pmatrix}, $$
+
+$$BA^{-1}B^T = \begin{pmatrix} -\frac{1}{3} & -\frac{1}{3} \\ -\frac{2}{3} & \frac{1}{3} \end{pmatrix}  \begin{pmatrix} -1 & -1 \\ -1 & 0 \end{pmatrix} = \begin{pmatrix} \frac{2}{3} & \frac{1}{3} \\ \frac{1}{3} & \frac{2}{3}\end{pmatrix},$$
 comme souhaité. 
+
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
+
 
 1. D'après le cours, sachant $\begin{pmatrix} X_1 \\ X_2 \end{pmatrix}$, la loi conditionnelle de $\begin{pmatrix} X_3 \\ X_4 \end{pmatrix}$ est gaussienne, centrée en 
 $$\mathbb{E}\left[\begin{pmatrix} X_3 \\ X_4 \end{pmatrix} \ \bigg| \ \begin{pmatrix} X_1 \\ X_2 \end{pmatrix}\right] = BA^{-1} \begin{pmatrix} X_1 +1 \\ X_2 \end{pmatrix} + \begin{pmatrix} 1 \\ 0 \end{pmatrix}  = \begin{pmatrix} \frac{2}{3} - \frac{1}{3}X_1 - \frac{1}{3} X_2 \\ - \frac{2}{3} -\frac{2}{3}X_1 + \frac{1}{3}X_2 \end{pmatrix},$$
@@ -506,6 +682,8 @@ et de matrice de covariances
 $$ \begin{pmatrix} 3 & -1 \\ -1 & 5 \end{pmatrix} - BA^{-1}B^T =  \begin{pmatrix} \frac{7}{3} & \frac{-4}{3} \vspace{0.1cm}\\ \frac{-4}{3} & \frac{13}{3}\end{pmatrix}.$$ 
  
  
+:::
+
 :::
 
 
@@ -535,39 +713,60 @@ $Y = \alpha X_1 + X_2 $ est indépendante de $X_1$. Que vaut $\mathbb{E}[Y]$? $\
 1. En déduire $\mathbb{E}[X_2 \mid X_1]$. Quelle est la loi conditionnelle de $X_2$ sachant $X_1$?
 1. Déterminer un réel $\beta$ tels que $Z=\beta X_1 + X_3$ est
 indépendante de $X_1$. En déduire
-$$ \mathbb{E}[X_3 \mid X_1], \quad \mathbb{E}[X_3^2 \mid X_1].$$
+$$\mathbb{E}[X_3 \mid X_1], \quad \mathbb{E}[X_3^2 \mid X_1].$$
 1. Calculer $\mathbb{E}\left[X_1^2X_2 + X_3^2 X_1 \mid X_1\right]$.
 
 
 
 ::: {.content-visible when-profile="solution"}
  
+::: {.callout-note}
 
+### Solution
 
 1. $(X_1,X_2)$ est un vecteur gaussien (comme image d'un vecteur gaussien par une application linéaire, en l'occurrence une projection), et on lit directement sur $\mu, M$ moyennes et covariances. On a donc $(X_1,X_2) \sim \mathcal{N}(m,A)$, avec $m = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$ et $A = \begin{pmatrix} 2 & 1 \\ 1 & 2\end{pmatrix}$. 
 1. Quel que soit $\alpha \in \mathbb{R}$, $(X_1,Y)$ est un vecteur gaussien comme image du vecteur gaussien $(X_1,X_2)$ par l'application linéaire de matrice $\begin{pmatrix} 1 & 0 \\ \alpha & 1\end{pmatrix}$. 
 
 Par théorème caractérisant l'indépendance des coordonnées d'un vecteur gaussien, $X_1$ est indépendant de $Y$ ssi $\mathrm{Cov}(X_1,Y)=0$. 
 Or 
-$$ \mathrm{Cov}(X_1,Y)= \alpha \mathrm{Var}[X_1] + 1 = 2\alpha +1,$$
+$$\mathrm{Cov}(X_1,Y)= \alpha \mathrm{Var}[X_1] + 1 = 2\alpha +1,$$
 et donc on a l'indépendance souhaitée lorsque $\alpha=-\frac{1}{2}$.
 1. Puisque $-\frac{1}{2}X_1+X_2$ est indépendant de $X_1$ on a donc 
-$$mathbb{E}[X_2 \mid X_1 ] & = & \mathbb{E}\left[\frac{1}{2}X_1 +\left(-\frac{1}{2}X_1+X_2\right) \mid X_1\right] \\ & = & \frac{1}{2}X_1 + \mathbb{E}\left[-\frac{1}{2}X_1 + X_2\right] = \frac{1}{2}X_1 -\frac{1}{2}.$$  
+2. 
+\begin{align*}
+\mathbb{E}[X_2 \mid X_1 ] & =  \mathbb{E}\left[\frac{1}{2}X_1 +\left(-\frac{1}{2}X_1+X_2\right) \mid X_1\right] \\ & =  \frac{1}{2}X_1 + \mathbb{E}\left[-\frac{1}{2}X_1 + X_2\right] = \frac{1}{2}X_1 -\frac{1}{2}.
+\end{align*} 
 Par ailleurs, $\mathrm{Var}\left(-\frac{1}{2}X_1+X_2\right) = \frac{1}{4} \mathrm{Var}(X_1) - \mathrm{Cov}(X_1,X_2) + \mathrm{Var}(X_2) = \frac{3}{2}$ et donc $-\frac{1}{2}X_1+X_2 \sim \mathcal{N}\left(-\frac{1}{2}, \frac{3}{2}\right)$. 
 L'écriture $X_2 = \frac{1}{2}X_1 + \left(-\frac{1}{2}X_1+X_2\right)$ permet donc d'affirmer que sachant $X_1$, la loi conditionnelle de $X_2$ est 
 $\mathcal{N}\left(\frac{1}{2}X_1-\frac{1}{2}, \frac{3}{2} \right)$. 
+
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
+
+
 1. Ici $\mathrm{Cov}(X_1,X_3) = 0$ et donc $X_1$ et $X_3$ sont indépendants, il suffit donc de prendre $\beta=0$.
 On trouve donc ici que 
-$$ \mathbb{E}[X_3 \mid X_1] = \mathbb{E}[X_3] = -1$$
+$$\mathbb{E}[X_3 \mid X_1] = \mathbb{E}[X_3] = -1$$
 et que sachant $X_1$, la loi conditionnelle de $X_3$ reste la loi de $X_3$, i.e. $\mathcal{N}\left(-1, 2 \right)$. 
 Par ailleurs
-$$mathbb{E}[X_3^2 \mid X_1] & = &  \mathbb{E}[X_3^2] = \mathbb{E}[X_3]^2 + \mathrm{Var}[X_3] \\ 
-& = &  1 + 2 = 3.$$ 
+
+\begin{align*}
+\mathbb{E}[X_3^2 \mid X_1] & =   \mathbb{E}[X_3^2] = \mathbb{E}[X_3]^2 + \mathrm{Var}[X_3] \\ 
+& =  1 + 2 = 3.
+\end{align*}
+
 1. On a, en utilisant les propriétés de l'espérance conditionnelle et les question précédentes, puis en simplifiant  
-$$mathbb{E}[X_1^2X_2 + X_3^2X_1 \mid X_1] & = & X_1^2 \mathbb{E}[X_2 \mid X_1] + X_1 \mathbb{E}[X_3^2\mid X_1 ] \\ 
- & = & X_1^2 \left(\frac{1}{2}X_1 -\frac{1}{2}\right) + 3X_1  \\ 
-& = & \frac{1}{2}X_1^3 -\frac{1}{2} X_1^2 + 3X_1 $$ 
+\begin{align*}
+\mathbb{E}[X_1^2 X_2 + X_3^2 X_1 \mid X_1] & =  X_1^2 \mathbb{E}[X_2 \mid X_1] + X_1 \mathbb{E}[X_3^2\mid X_1 ] \\ 
+ & =  X_1^2 \left(\frac{1}{2}X_1 -\frac{1}{2}\right) + 3X_1  \\ 
+& =  \frac{1}{2}X_1^3 -\frac{1}{2} X_1^2 + 3X_1
+\end{align*}
  
+:::
+
 :::
 
 ### Exercice `r cnt_exo`
@@ -591,28 +790,51 @@ Calculer $\mathbb{E}[X_1+2X_2 \mid X_3].$ Quelle est la loi conditionnelle de $X
 
 ::: {.content-visible when-profile="solution"}
  
+::: {.callout-note}
+
+### Solution
+
+
 Comme dans l'exercice précédent on peut commencer par chercher $\alpha$ tel que $Y=\alpha X_3 + X_1 + 2X_2$ est indépendant de $X_3$. 
 Bien s\^ur, $(Y,X_3)$ est un vecteur gaussien puisque c'est l'image de $(X_1,X_2,X_3)$ par une application linéaire. 
-Donc on a l'indépendance voulue lorsque $ \mathrm{Cov}(Y,X_3) =0$, i.e. lorsque 
+Donc on a l'indépendance voulue lorsque $\mathrm{Cov}(Y,X_3) =0$, i.e. lorsque 
 $$ 0 = \alpha \mathrm{Var}(X_3) + \mathrm{Cov}(X_1,X_3)+2 \mathrm{Cov}(X_2,X_3) = 3\alpha + 2 + 2,$$
 et donc il faut prendre $\alpha = -\frac{4}{3}$. 
 
 On a alors 
-$$ \mathbb{E}[X_1+2X_2 \mid X_3] = \frac{4}{3}X_3 + \mathbb{E}[-\frac{4}{3}X_3 + X_1 + 2X_2] = \frac{4}{3}X_3+2.$$
+$$\mathbb{E}[X_1+2X_2 \mid X_3] = \frac{4}{3}X_3 + \mathbb{E}[-\frac{4}{3}X_3 + X_1 + 2X_2] = \frac{4}{3}X_3+2.$$
 
 Par ailleurs, 
-$$mathrm{Var}(Y) & = & \frac{16}{9} \mathrm{Var}(X_3) + \mathrm{Var}(X_1) + 4 \mathrm{Var}(X_2) - \frac{8}{3} \mathrm{Cov}(X_3,X_1) - \frac{16}{3} \mathrm{Cov}(X_2,X_3) + 4 \mathrm{Cov}(X_1,X_2)  \\ 
-& = & \frac{16}{3} + 1 + 4 - \frac{16}{3} -\frac{16}{3} + 2 = \frac{5}{3} $$ 
+
+\begin{align*}
+\text{Var}(Y) & =  \frac{16}{9} \mathrm{Var}(X_3) + \mathrm{Var}(X_1) + 4 \mathrm{Var}(X_2) - \frac{8}{3} \mathrm{Cov}(X_3,X_1) - \frac{16}{3} \mathrm{Cov}(X_2,X_3) + 4 \mathrm{Cov}(X_1,X_2)  \\ 
+& =  \frac{16}{3} + 1 + 4 - \frac{16}{3} -\frac{16}{3} + 2 = \frac{5}{3}
+\end{align*}
 et on déduit que sachant $X_3$, la loi conditionnelle de $X_1+2X_2$ est $\mathcal{N}\left( \frac{4}{3}X_3+2, \frac{5}{3} \right)$.   
 
+:::
 
-{\em Alternativement}, on peut utiliser les formules du cours. D'abord, avec $K=  \begin{pmatrix} 1 & 2 & 0 \\ 0 & 0 & 1 \end{pmatrix}$
-$$\begin{pmatrix} X_1+2X_2 \\ X_3 \end{pmatrix} = K \begin{pmatrix} X_1 \\ X_2 \\X_3 \end{pmatrix} \sim \mathcal{N}\left( K \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, K M K^T \right) \sim \mathcal{N} \left( \begin{pmatrix} 2 \\ 0 \end{pmatrix}, \begin{pmatrix} 7 & 4 \\ 4 & 3 \end{pmatrix}\right). $$
+::: {.callout-note}
+
+### Solution (suite)
+
+
+*Alternativement*, on peut utiliser les formules du cours. D'abord, avec $K=  \begin{pmatrix} 1 & 2 & 0 \\ 0 & 0 & 1 \end{pmatrix}$
+
+$$
+\begin{pmatrix} X_1+2X_2 \\ X_3 \end{pmatrix} = K \begin{pmatrix} X_1 \\ X_2 \\X_3 \end{pmatrix} \sim \mathcal{N}\left( K \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, K M K^T \right) \sim \mathcal{N} \left( \begin{pmatrix} 2 \\ 0 \end{pmatrix}, \begin{pmatrix} 7 & 4 \\ 4 & 3 \end{pmatrix}\right).
+$$
+
 On peut alors appliquer la méthode précédente à ce vecteur, ou la formule du cours pour le conditionnement avec $\theta = X_1+2X_2, \xi=X_3$, 
 $\mu_{\theta} = 2, \mu_{\xi} = 0, \ M_{\theta \xi} = M_{\xi \theta} = 4, M_{\xi \xi} = 3, M_{\theta \theta}=7$, pour obtenir 
-$$ \mathbb{E}[X_1+2X_2 \mid X_3] = \mu_{\theta} + M_{\theta \xi} M_{\xi \xi}^{-1} (\xi-\mu_{\xi}) = 2 + \frac{4}{3} X_3,$$ 
+
+$$\mathbb{E}[X_1+2X_2 \mid X_3] = \mu_{\theta} + M_{\theta \xi} M_{\xi \xi}^{-1} (\xi-\mu_{\xi}) = 2 + \frac{4}{3} X_3,$$ 
+
 et 
-$$ \mathrm{Var}[X_1+2X_2 \mid X_3] = M_{\theta \theta} - M_{\theta \xi} M_{\xi \xi}^{-1} M_{\xi \theta} = 7 - \frac{16}{3} = \frac{5}{3}.$$ 
+
+$$\mathrm{Var}[X_1+2X_2 \mid X_3] = M_{\theta \theta} - M_{\theta \xi} M_{\xi \xi}^{-1} M_{\xi \theta} = 7 - \frac{16}{3} = \frac{5}{3}.$$ 
+
+:::
 
 :::
 
@@ -631,50 +853,66 @@ cnt_exo <-  cnt_exo + 1
 :::
 
 On suppose dans cet exercice que $(X,Y)$ est un couple de variables aléatoires tel que pour toute $\phi : \mathbb{R}^2\to \mathbb{R}_+$ borélienne, 
-$$ \mathbb{E}[\phi(X,Y)] = \sum_{n \ge 1} \frac{2}{3^{n}\sqrt{2\pi n}}  \int_{\mathbb{R}} \phi(n,y) \exp\left(-\frac{y^2}{2n}\right) dy.$$ 
+$$\mathbb{E}[\phi(X,Y)] = \sum_{n \ge 1} \frac{2}{3^{n}\sqrt{2\pi n}}  \int_{\mathbb{R}} \phi(n,y) \exp\left(-\frac{y^2}{2n}\right) dy.$$ 
 
 
 
 1. Montrer que $X \sim \mathrm{Geom}(2/3)$. 
 1. Vérifier que pour une fonction $f : \mathbb{R} \to \mathbb{C}$ telle que $f(Y) \in \mathbb{L}^1$, on a  
-$$ \mathbb{E}[f(Y) \mid X] = \sum_{n \ge 1} \left(\int_{\mathbb{R}} \frac{1}{\sqrt{ 2\pi n}} f(y) \exp\left(-\frac{y^2}{2n} \right) dy \right) \mathbb{I}_{\{X=n\}}$$ 
+$$\mathbb{E}[f(Y) \mid X] = \sum_{n \ge 1} \left(\int_{\mathbb{R}} \frac{1}{\sqrt{ 2\pi n}} f(y) \exp\left(-\frac{y^2}{2n} \right) dy \right) \mathbb{I}_{\{X=n\}}$$ 
 %1. En déduire que pour tout $k \in \mathbb{N}$, 
 %$$\mathbb{E}[Y^k \mid X] = \frac{k!}{X^{2k}}$$ 
 1. Calculer $\mathbb{E}[\exp(itY) \mid X]$, $t \in \mathbb{R}$, quelle est la loi conditionnelle de $Y$ sachant $X$ ?
 1. Déduire que si $t\in \mathbb{R}$ 
-$$ \mathbb{E}[\exp(itY)] = \frac{2 \exp\left(-\frac{t^2}{2}\right)}{3-\exp\left(-\frac{t^2}{2}\right)}.$$ 
+$$\mathbb{E}[\exp(itY)] = \frac{2 \exp\left(-\frac{t^2}{2}\right)}{3-\exp\left(-\frac{t^2}{2}\right)}.$$ 
  
 
 ::: {.content-visible when-profile="solution"}
  
 
+::: {.callout-note}
+
+### Solution
 
 1. Notons que pour tout $n \ge 1$, $\int_{\mathbb{R}} \frac{1}{\sqrt{2\pi n}} \exp\left(-\frac{y^2}{2n}\right) dy =1$ (on intègre sur $\mathbb{R}$ la densité d'une variable de loi $\mathcal{N}(0,n)$). On en déduit (quitte à considérer $\phi(X,Y) = \mathbb{I}_{\{X= n\}}$)  
 $$  \mathbb{P}(X=n) = \mathbb{E}[\mathbb{I}_{\{X=n\}}] =  \frac{2}{3^{n}}  \int_{\mathbb{R}} \frac{1}{\sqrt{2\pi n}} \exp\left(-\frac{y^2}{2n}\right) dy = \frac{2}{3^n},$$
 et il découle que $X \sim \mathrm{Geom}(2/3)$.  
 1. Les événements $\{\{X=n\}, n \ge 1\}$ forment une partition de $\Omega$,  on est dans le cadre de EF3 pour $\mathrm{Re}(f), \mathrm{Im}(f)$ et quitte à utiliser la linéarité de l'espérance, on obtient  
-$$ \mathbb{E}[f(Y) \mid X] = \sum_{n \ge 1} \frac{\mathbb{E}[f(Y) \mathbb{I}_{\{X=n\}}]}{ \mathbb{P}(X=n)} \mathbb{I}_{\{X=n\}}.$$ 
+$$\mathbb{E}[f(Y) \mid X] = \sum_{n \ge 1} \frac{\mathbb{E}[f(Y) \mathbb{I}_{\{X=n\}}]}{ \mathbb{P}(X=n)} \mathbb{I}_{\{X=n\}}.$$ 
 Quitte à considérer $\phi(X,Y) = \mathrm{Re(f(Y))} \mathbb{I}_{\{X=n\}}$ puis $\phi_2(X,Y) = \mathrm{Im(f(Y))} \mathbb{I}_{\{X=n\}}$ et utiliser la linéarité de l'espérance, on obtient   
-$$ \mathbb{E}[f(Y) \mathbb{I}_{\{X=n\}}] = \frac{2}{3^{n} \sqrt{2 \pi n}}  \int_{\mathbb{R}}  f(y) \exp\left(-\frac{y^2}{2n}\right)  dy,$$
+$$\mathbb{E}[f(Y) \mathbb{I}_{\{X=n\}}] = \frac{2}{3^{n} \sqrt{2 \pi n}}  \int_{\mathbb{R}}  f(y) \exp\left(-\frac{y^2}{2n}\right)  dy,$$
 et donc 
 $$ \frac{\mathbb{E}[f(Y) \mathbb{I}_{\{X=n\}}]}{ \mathbb{P}(X=n)} = \int_{\mathbb{R}} \frac{1}{\sqrt{2 \pi n}} f(y) \exp\left(-\frac{y^2}{2n}\right) dy,$$
 ce qui conduit à la formule souhaitée. 
 
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
+
+
 1. Puisque la fonction caractéristique d'une variable suivant la loi $\mathcal{N}(0,n)$ est $t \to \exp\left( -\frac{t^2 n}{2} \right)$ on a 
 $$  \int_{\mathbb{R}} \exp(ity) \frac{1}{\sqrt{2 \pi n}}  \exp\left(-\frac{y^2}{2n}\right) dy = \exp\left(-\frac{t^2 n}{2} \right)$$
 de sorte que 
-$$ \mathbb{E}[\exp(itY) \mid X] = \exp\left(-\frac{t^2 X}{2} \right).$$ 
+$$\mathbb{E}[\exp(itY) \mid X] = \exp\left(-\frac{t^2 X}{2} \right).$$ 
 La loi conditionnelle de $Y$ sachant  $X$ est donc $\mathcal{N}(0,X)$. 
 
 1. On a gr\^ace à la propriété de tour et la question précédente  
-$$mathbb{E}[\exp(itY)] & = & \mathbb{E}[\mathbb{E}[\exp(itY) \mid X]] = \mathbb{E}\left[\exp\left(-\frac{t^2 X}{2}\right)\right] \\ 
-& = & \sum_{n \ge 1} \frac{2}{3^n} \exp\left(-\frac{t^2 n}{2}\right) \\ 
-& = & \frac{2 \exp\left(-\frac{t^2}{2}\right)}{3} \sum_{n \ge 1}  \left(\frac{\exp\left(-\frac{t^2}{2}\right)}{3}\right)^{n-1} 
-\\ & = & \frac{2 \exp\left(-\frac{t^2}{2}\right)}{3} \sum_{n' \ge 0}  \left(\frac{\exp\left(-\frac{t^2}{2}\right)}{3}\right)^{n'}
-\\ & = &  \frac{2 \exp\left(-\frac{t^2}{2}\right)}{3} \frac{1}{1-\frac{\exp\left(-\frac{t^2}{2}\right)}{3}} 
-\\ & = & \frac{2 \exp\left(-\frac{t^2}{2}\right)}{3-\exp\left(-\frac{t^2}{2}\right)} $$ 
-comme souhaité. 
- 
+   
+    \begin{align*}
+    \mathbb{E}[\exp(itY)] & =  \mathbb{E}[\mathbb{E}[\exp(itY) \mid X]] = \mathbb{E}\left[\exp\left(-\frac{t^2 X}{2}\right)\right] \\ 
+    & =  \sum_{n \ge 1} \frac{2}{3^n} \exp\left(-\frac{t^2 n}{2}\right) \\ 
+    & =  \frac{2 \exp\left(-\frac{t^2}{2}\right)}{3} \sum_{n \ge 1}  \left(\frac{\exp\left(-\frac{t^2}{2}\right)}{3}\right)^{n-1} 
+    \\ & =  \frac{2 \exp\left(-\frac{t^2}{2}\right)}{3} \sum_{n' \ge 0}  \left(\frac{\exp\left(-\frac{t^2}{2}\right)}{3}\right)^{n'}
+    \\ & =   \frac{2 \exp\left(-\frac{t^2}{2}\right)}{3} \frac{1}{1-\frac{\exp\left(-\frac{t^2}{2}\right)}{3}} 
+    \\ & =  \frac{2 \exp\left(-\frac{t^2}{2}\right)}{3-\exp\left(-\frac{t^2}{2}\right)}
+    \end{align*}
+
+    comme souhaité. 
+
+:::
+
 :::  
 
 ### Exercice `r cnt_exo`
@@ -702,119 +940,212 @@ $$ f(x,z) := (z-x)\exp(-z) \mathbf{1}_{\{z \ge x \ge 0\}}.$$
 
 1. Calculer la loi de $X$, puis celle de $Z$.
 1. En déduire que
-$$ f_{X \mid Z}(x \mid z) = \frac{2(z-x)}{z^2} \mathbf{1}_{\{0 \le x \le z, z >0\}}.$$
+
+    $$f_{X \mid Z}(x \mid z) = \frac{2(z-x)}{z^2} \mathbf{1}_{\{0 \le x \le z, z >0\}}.$$
+
 1. Calculer $\mathbb{E}[X \mid Z]$, puis $\mathrm{Var}[X\mid Z]$.
-1. Calculer $f_{Z \mid X}(z \mid x)$, puis démontrer que
-$\mathbb{E}[Z \mid X] = X + 2$.
+1. Calculer $f_{Z \mid X}(z \mid x)$, puis démontrer que $\mathbb{E}[Z \mid X] = X + 2$.
 1. Quelle est la loi du couple $(X, Z-X)$? En déduire la loi de $Z-X$.
 
 ::: {.content-visible when-profile="solution"}
 
+::: {.callout-note}
 
+### Solution
 
 1. La variable de $X$ possède la densité $f_X$ avec pour $x \in \mathbb{R}$, 
-$$_X(x) & = & \int_{\mathbb{R}} dz f(x,z) = \mathbb{I}_{\{x \ge 0\}} \int_{x}^{\infty} (z-x) \exp(-z) dz 
-\\ & = & \mathbb{I}_{\{x \ge 0\}} \int_0^{\infty} y \exp(-(y+x)) dy \\   
-& = & \mathbb{I}_{\{ x \ge 0\}} \exp(-x) $$ 
+
+    \begin{align*}
+    f_X(x) & =  \int_{\mathbb{R}} dz f(x,z) = \mathbb{I}_{\{x \ge 0\}} \int_{x}^{\infty} (z-x) \exp(-z) dz 
+    \\ & =  \mathbb{I}_{\{x \ge 0\}} \int_0^{\infty} y \exp(-(y+x)) dy \\   
+    & =  \mathbb{I}_{\{ x \ge 0\}} \exp(-x)
+    \end{align*}
+
 en utilisant le changement de variables $y = z-x$ et le fait que $\int_{0}^{\infty} y \exp(y)$ vaut $1$ (par exemple en reconnaissant l'espérance d'une exponentielle standard, ou alors en effectuant une i.p.p). On conclut que $X \sim \exp(1)$. 
 
 La variable $Z$ possède la densité $f_Z$ avec pour $z \in \mathbb{R}$, 
-$$f_Z(z) & = & \int_{\mathbb{R}} dx f(x,z) = \mathbb{I}_{\{z \ge 0\}} \exp(-z) \int_{0}^{z} (z-x)  dz 
-\\ & = & \mathbb{I}_{\{z \ge 0\}} \exp(-z) \frac{z^2}{2} $$ 
+
+\begin{align*}
+f_Z(z) 
+    & =  \int_{\mathbb{R}} dx f(x,z) \\ 
+    & = \mathbb{I}_{\{z \ge 0\}} \exp(-z) \int_{0}^{z} (z-x)  dz \\ 
+    & =  \mathbb{I}_{\{z \ge 0\}} \exp(-z) \frac{z^2}{2}
+\end{align*}
+
 et on conclut que $Z \sim \Gamma(2,1)$. 
-1. 
-On a donc 
-$$ f_{X \mid Z}(x \mid z) = \begin{cases} \frac{f(x,z)}{f_Z(z)} & \mbox{si } z > 0 \\ 0 & \mbox{sinon}\end{cases} = \frac{2(z-x)}{z^2} \mathbf{1}_{\{0 \le x \le z, z >0\}}.$$ 
+
+
+:::
+
+
+::: {.callout-note}
+
+### Solution (suite)
+
+
+1. On a donc 
+
+    $$f_{X \mid Z}(x \mid z) = \begin{cases} \frac{f(x,z)}{f_Z(z)} & \mbox{si } z > 0 \\ 0 & \mbox{sinon}\end{cases} = \frac{2(z-x)}{z^2} \mathbf{1}_{\{0 \le x \le z, z >0\}}.$$ 
+
 1. On déduit pour $z >0$, 
-$$Phi(z) & := & \int_{\mathbb{R}} x f_{X \mid Z}(x \mid z) dx \\ 
-& = & \int_{0}^{x} \frac{2 x(z-x)}{z^2} dx = \frac{z^3 - \frac{2}{3}z^3}{z^2} = \frac{z}{3} $$ 
-et on conclut d'après le résultat EF4 que $\mathbb{E}[X \mid Z] = \Phi_1(Z) = \frac{Z}{3}$. 
 
-De plus pour $z>0$, 
-$$Phi_2(z) & : = & \int_{\mathbb{R}} x^2 f_{X \mid Z}(x \mid z) dx \\ 
-& = & \int_0^x \frac{2x^2(z-x)}{z^2} dx = \frac{2}{3} z^2 - \frac{1}{2} z^2 = \frac{z^2}{6} $$ 
-de sorte, toujours par le même résultat, que $\mathbb{E}[X^2 \mid Z] = \Phi_2(Z) = \frac{Z^2}{6}$. 
+    \begin{align*}
+    Phi(z) 
+    & :=  \int_{\mathbb{R}} x f_{X \mid Z}(x \mid z) dx \\ 
+    & =  \int_{0}^{x} \frac{2 x(z-x)}{z^2} dx = \frac{z^3 - \frac{2}{3}z^3}{z^2} = \frac{z}{3}
+    \end{align*} 
 
-On déduit que 
-$$ \mathrm{Var}[X \mid Z] = \mathbb{E}[X^2 \mid Z] - (\mathbb{E}[X \mid Z])^2 = \frac{Z^2}{6} - \frac{Z^2}{9} = \frac{Z^2}{18}.$$
+    et on conclut d'après le résultat EF4 que $\mathbb{E}[X \mid Z] = \Phi_1(Z) = \frac{Z}{3}$. 
+
+    De plus pour $z>0$, 
+
+    \begin{align*}
+    \Phi_2(z) 
+    & : =  \int_{\mathbb{R}} x^2 f_{X \mid Z}(x \mid z) dx \\ 
+    & =  \int_0^x \frac{2x^2(z-x)}{z^2} dx = \frac{2}{3} z^2 - \frac{1}{2} z^2 = \frac{z^2}{6}
+    \end{align*}
+
+    de sorte, toujours par le même résultat, que $\mathbb{E}[X^2 \mid Z] = \Phi_2(Z) = \frac{Z^2}{6}$. 
+
+    On déduit que 
+
+    $$\mathrm{Var}[X \mid Z] = \mathbb{E}[X^2 \mid Z] - (\mathbb{E}[X \mid Z])^2 = \frac{Z^2}{6} - \frac{Z^2}{9} = \frac{Z^2}{18}.$$
  
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
+
+
 1. On a 
-$$ f_{Z\mid X}(z \mid x) = \begin{cases} \frac{f(x,z)}{f_X(x)} & \mbox{si } x > 0 \\ 0 & \mbox{sinon}\end{cases} = (z-x) \exp(-(z-x)) \mathbf{1}_{\{0 < x \le z\}}.$$ 
+
+\begin{align*}
+f_{Z\mid X}(z \mid x) = \begin{cases} \frac{f(x,z)}{f_X(x)} & \mbox{si } x > 0 \\ 0 & \mbox{sinon}\end{cases} = (z-x) \exp(-(z-x)) \mathbf{1}_{\{0 < x \le z\}}.
+\end{align*}
+
 On déduit que pour $x >0$, 
-$$Psi(x) & := & \int_{\mathbb{R}} z f_{Z \mid X}(z \mid x) dz \\ 
-& = & \int_{x}^{\infty} z (z-x) \exp(-(z-x)) dx 
-\\& = &  \int_{0}^{\infty} (x+u) u \exp(-u) du \\ 
-& = & \left[ -(x+u)u \exp(-u) \right]_{0}^{\infty} + \int_0^{\infty} (x+2u) \exp(-u) du \\ 
-& = & \left[ -(x+2u) \exp(-u)\right]_0^{\infty} + \int_0^{\infty} 2 \exp(-u) du = x + 2, $$
+
+\begin{align*}
+\Psi(x) & :=  \int_{\mathbb{R}} z f_{Z \mid X}(z \mid x) dz \\ 
+& =  \int_{x}^{\infty} z (z-x) \exp(-(z-x)) dx \\ 
+& =   \int_{0}^{\infty} (x+u) u \exp(-u) du \\ 
+& =  \left[ -(x+u)u \exp(-u) \right]_{0}^{\infty} + \int_0^{\infty} (x+2u) \exp(-u) du \\ 
+& =  \left[ -(x+2u) \exp(-u)\right]_0^{\infty} + \int_0^{\infty} 2 \exp(-u) du = x + 2,
+\end{align*}
+
 et on obtient, toujours par EF4, comme souhaité, que $\mathbb{E}[Z \mid X] = \Psi(X)=X+2$. 
 
 1. Soit $\phi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne, par le changement de variables $(x,z) \to (x,z-x)$ de $\{(z,x) : 0 \le x \le z\}$ dans $\mathbb{R}_+^2$ on obtient 
-$$mathbb{E}[\phi(X, Z-X)] & = & \int_{\mathbb{R}_+^2} \phi(x, z-x) (z-x) \exp(-z) \mathbb{I}_{\{z \ge x\}} dx dz \\
-& = & \int_{\mathbb{R}_+^2} \phi(u,v) \exp(-u) v \exp(-v) du dv $$ 
+2. 
+
+\begin{align*}
+\mathbb{E}[\phi(X, Z-X)] 
+& =  \int_{\mathbb{R}_+^2} \phi(x, z-x) (z-x) \exp(-z) \mathbb{I}_{\{z \ge x\}} dx dz \\
+& =  \int_{\mathbb{R}_+^2} \phi(u,v) \exp(-u) v \exp(-v) du dv
+\end{align*}
+
 et on obtient que $X \sim \exp(1)$ est indépendante de $Z-X \sim \mathrm{Gamma}(2,1)$. 
+
+:::
 
 :::
 
 #### Partie II
 
 
-1. Soit $z >0$. On suppose que $U_1^z \sim \mathrm{Unif}[0,z]$, $U_2^z \sim
-\mathrm{Unif}[0,z]$ et que $U_1^z$ est indépendante de $U_2^z$.
+1. Soit $z >0$. On suppose que $U_1^z \sim \mathrm{Unif}[0,z]$, $U_2^z \sim \mathrm{Unif}[0,z]$ et que $U_1^z$ est indépendante de $U_2^z$.
 Calculer la densité de $\min(U_1^z, U_2^z)$.
-1. On suppose à présent que {\em conditionnellement à $Z$},
+1. On suppose à présent que conditionnellement à $Z$,
 $U_1^Z \sim \mathrm{Unif}[0,Z]$, $U_2^Z \sim \mathrm{Unif}[0,Z]$ et que $U_1^Z$ est
 (toujours conditionnellement à $Z$) indépendante de $U_2^Z$.
 Montrer que, conditionnellement à $Z$,  $\mathrm{min}(U_1^Z, U_2^Z)$ a la même loi
 que X.
 1. Soient $X_1,X_2,X_3$ trois variables indépendantes, toutes trois distribuées
 suivant la distribution exponentielle de paramètre $1$. On note $S= X_1+X_2+X_3$.
-Déterminer la loi de $(X_1,S)$. \\
-Que vaut $\mathbb{E}[X_1\mid S]$? $\mathbb{E}[S \mid X_1]$?\\
+Déterminer la loi de $(X_1,S)$. 
+Que vaut $\mathbb{E}[X_1\mid S]$? $\mathbb{E}[S \mid X_1]$?
 Montrer finalement que conditionnellement à $S$, le couple $(X_1,X_1+X_2)$ a la même
 loi que $\left(\mathrm{min}(U_1^S, U_2^S), \mathrm{max}(U_1^S, U_2^S)\right)$.
 
 ::: {.content-visible when-profile="solution"}
  
+::: {.callout-note}
 
+### Solution
 
 1. La fonction de répartition $F$ de $U_1^z$ (et donc de $U_2^z$ puisqu'elle a la même loi est donnée entre $0$ et $z$ par $F(x) = \frac{x}{z}, 0 \le x \le z$. On déduit que pour $0 \le x \le z$, en utilisant l'indépendance de $U_1^z, U_2^z$ à la deuxième ligne ci-dessous, 
-$$\mathbb{P}(\min(U_1^z, U_2^z) > x) & = &  \mathbb{P}(U_1^z > x)  \mathbb{P}(U_2^z > x) \\ 
-& = & (1 - F(x))^2 = \left(1-\frac{x}{z}\right)^2$$ 
-et on déduit que la densité de $\min(U_1^z,U_2^z)$ est donnée par 
-$$ g_z(x) = \frac{2}{z} \left(1-\frac{x}{z}\right)\mathbb{I}_{[0,z]}(x), \ x \in \mathbb{R}.$$   
-1. D'après la question précédente, conditionnellement à $Z$, $\min(U_1^Z,U_2^Z)$ possède la densité conditionnelle $g_Z$.  
-Par ailleurs, la densité conditionnelle de $X$ sachant $Z$ est $f_{X|Z}$ calculée à la question I.2 est p.p. égale à $g_Z$. 
-On conclut que conditionnellement à $Z$, les variables $X$ et $\min(U_1^Z,U_2^Z)$ ont la même loi. 
-1. 
-Tout d'abord, par indépendance des trois variables exponentielles, $(X_1,X_2,X_3)$ a densité donnée par  
-$$ f(x_1,x_2,x_3) = \exp(-x_1-x_2-x_3) \mathbb{I}_{\{x_1\ge 0, x_2 \ge 0, x_3 \ge 0\}}, \quad (x_1,x_2,x_3) \in \mathbb{R}^3.$$
-On en déduit pour $\phi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne, en utilisant à la deuxiième ligne le changement de variables $(x_1,x_2,x_3) \to (u=x_1,v=x_1+x_2,w=x_1+x_2+x_3)$ de $\mathbb{R}_+^3$ dans $\{(u,v,w) \in \mathbb{R}_+^3 : u \le v \le w\}$ 
-$$mathbb{E}[\phi(X_1,S)] & = & \int_{\mathbb{R}_+^3} \phi(x_1,x_1+x_2+x_3) \exp(-x_1-x_2-x_3) dx_1 dx_2 dx_3 \\ 
-& = & \int_{\mathbb{R}_+^3 : u \le v \le w} \phi(u,w) \exp(-w) du dv dw  
-\\ & = &  \int_{\mathbb{R}_+^2 : u \le w} \phi(u,w) (w-u) \exp(-w) $$ 
-et on déduit que $(X_1,S)$ a même loi que $(X,Z)$. 
+
+    \begin{align*}
+    \mathbb{P}(\min(U_1^z, U_2^z) > x) 
+    & =   \mathbb{P}(U_1^z > x)  \mathbb{P}(U_2^z > x) \\ 
+    & =  (1 - F(x))^2 = \left(1-\frac{x}{z}\right)^2
+    \end{align*}
+
+    et on déduit que la densité de $\min(U_1^z,U_2^z)$ est donnée par 
+
+    $$g_z(x) = \frac{2}{z} \left(1-\frac{x}{z}\right)\mathbb{I}_{[0,z]}(x), \ x \in \mathbb{R}.$$   
 
 
+1. D'après la question précédente, conditionnellement à $Z$, $\min(U_1^Z,U_2^Z)$ possède la densité conditionnelle $g_Z$.  Par ailleurs, la densité conditionnelle de $X$ sachant $Z$ est $f_{X|Z}$ calculée à la question I.2 est p.p. égale à $g_Z$.  On conclut que conditionnellement à $Z$, les variables $X$ et $\min(U_1^Z,U_2^Z)$ ont la même loi. 
 
+
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
+
+1. Tout d'abord, par indépendance des trois variables exponentielles, $(X_1,X_2,X_3)$ a densité donnée par  
+
+    $$f(x_1,x_2,x_3) = \exp(-x_1-x_2-x_3) \mathbb{I}_{\{x_1\ge 0, x_2 \ge 0, x_3 \ge 0\}}, \quad (x_1,x_2,x_3) \in \mathbb{R}^3.$$
+
+    On en déduit pour $\phi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne, en utilisant à la deuxiième ligne le changement de variables $(x_1,x_2,x_3) \to (u=x_1,v=x_1+x_2,w=x_1+x_2+x_3)$ de $\mathbb{R}_+^3$ dans $\{(u,v,w) \in \mathbb{R}_+^3 : u \le v \le w\}$ 
+
+    \begin{align*}
+    \mathbb{E}[\phi(X_1,S)] 
+    & =  \int_{\mathbb{R}_+^3} \phi(x_1,x_1+x_2+x_3) \exp(-x_1-x_2-x_3) dx_1 dx_2 dx_3 \\ 
+    & =  \int_{\mathbb{R}_+^3 : u \le v \le w} \phi(u,w) \exp(-w) du dv dw  \\ 
+    & =   \int_{\mathbb{R}_+^2 : u \le w} \phi(u,w) (w-u) \exp(-w) 
+    \end{align*} 
+
+    et on déduit que $(X_1,S)$ a même loi que $(X,Z)$. 
+
+
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
 
 Puisque les deux vecteurs ont même loi jointe, on peut utiliser la partie I pour déduire que  
-$$ \mathbb{E}[X_1 \mid S] = \frac{S}{3}, \quad \mathbb{E}[S \mid X_1] = X_1 +2.$$
+
+$$\mathbb{E}[X_1 \mid S] = \frac{S}{3}, \quad \mathbb{E}[S \mid X_1] = X_1 +2.$$
+
 On peut aussi prouver ces résultats directement (cf exercice 5) 
 
 
 D'après le calcul en début de question, la densité du triplet $(X_1.X_1+X_2.S)$ est donnée par 
-$$ h(u,v,w) = \mathbb{I}_{\{0< u \le v \le w\}} \exp(-w) \quad (u,v,w) \in \mathbb{R}^3. $$
+
+$$h(u,v,w) = \mathbb{I}_{\{0< u \le v \le w\}} \exp(-w) \quad (u,v,w) \in \mathbb{R}^3.$$
+
 Quitte à noter $T=X_1.V=X_1+X_2$ on a donc  
-$$ h_{(T,V) \mid S} ((t,v) \mid s) = \frac{2}{s^2} \mathbb{I}_{0< t < v < s}. $$
+
+$$h_{(T,V) \mid S} ((t,v) \mid s) = \frac{2}{s^2} \mathbb{I}_{0< t < v < s}.$$
 
 Par ailleurs, la densité conditionnelle de $(U_1^S,U_2^S)$ sachant $S$ est donnée par 
+
 $$\frac{1}{w^2}\mathbb{I}_{[0,w]^2}(u,v), (u,v) \in \mathbb{R}^2.$$ 
-Bien s\^ur ceci peut être récrit 
-$$ \frac{1}{w^2} \mathbb{I}_{\{0<u<v<w\}} + \mathbb{I}_{\{0<v<u<w\}}, (u,v) \in \mathbb{R}^2,$$
+
+Ceci peut être récrit 
+
+$$\frac{1}{w^2} \mathbb{I}_{\{0<u<v<w\}} + \mathbb{I}_{\{0<v<u<w\}}, (u,v) \in \mathbb{R}^2,$$
+
 la première partie correspondant aux cas où la première uniforme réalise le $\min$ des deux, et la deuxième partie aux cas où elle réalise le $\max$. 
  
-Comme $(U_1^S,U_2^S)$ jouent, conditionnellement à $S$, des r\^oles parfaitement symétriques, on déduit que $h_{(U,V) \mid S}$ est la densité de la statistique d'ordre de ces deux variables, ce qui est le résultat souhaité.  
+Comme $(U_1^S,U_2^S)$ jouent, conditionnellement à $S$, des rôles parfaitement symétriques, on déduit que $h_{(U,V) \mid S}$ est la densité de la statistique d'ordre de ces deux variables, ce qui est le résultat souhaité.  
 
+:::
 
 :::
 
@@ -844,74 +1175,140 @@ Vérifier que $f$ est bien une densité de probabilité, puis calculer les densi
 
 ::: {.content-visible when-profile="solution"}
 
+::: {.callout-note}
+
+### Solution
+
+
 Il est clair que $f$ est à valeurs dans $\mathbb{R}_+$. Reste à vérifier que  $\int_{\mathbb{R}^{2}} f(x,y)dx dy =1$. 
 Comme $f$ est positive, on peut appliquer Fubini pour voir qu'on peut choisir un ordre quelconque d'intégration. 
-Commen\c cons par exemple par intégrer en $y$, on obtient : 
-$$\int_{\mathbb{R}^{2}} f(x,y)dx dy &=& \int_{0}^1 \left(\int_{0}^{x^2} f(x,y) dy \right) dx \\ & = & \int_{0}^1 \left(\int_{0}^{x^2} y dy \right) \frac{4}{x^3} dx
-\\ & = & \int_{0}^1 \frac{x^4}{2} \frac{4}{x^3} dx \\ & =& \int_0^1 2x dx = \left[ x^2 \right]_0^1 =1, 
-$$  
-et on conclut que $f$ est bien une densité de probabilité sur $\mathbb{R}^2$ (on remarquera qu'étant donnée la présence de l'indicatrice, un vecteur $(X,Y)$ de densité $f$ est presque s\^urement à valeurs dans le carré ouvert $(0,1)^2$, et même presque s\^urement à valeurs dans la partie du carré qui se trouve strictement sous la parabole $y=x^2$. En particulier, les lois marginales sont toutes deux supportées par $(0,1)$.). 
+Commençons par exemple par intégrer en $y$, on obtient : 
+
+\begin{align*}
+\int_{\mathbb{R}^{2}} f(x,y)dx dy 
+& = \int_{0}^1 \left(\int_{0}^{x^2} f(x,y) dy \right) dx \\ 
+& = \int_{0}^1 \left(\int_{0}^{x^2} y dy \right) \frac{4}{x^3} dx \\ 
+& = \int_{0}^1 \frac{x^4}{2} \frac{4}{x^3} dx \\ 
+& = \int_0^1 2x dx = \left[ x^2 \right]_0^1 =1, 
+\end{align*}
+
+et on conclut que $f$ est bien une densité de probabilité sur $\mathbb{R}^2$ (on remarquera qu'étant donnée la présence de l'indicatrice, un vecteur $(X,Y)$ de densité $f$ est presque sûrement à valeurs dans le carré ouvert $(0,1)^2$, et même presque sûrement à valeurs dans la partie du carré qui se trouve strictement sous la parabole $y=x^2$. En particulier, les lois marginales sont toutes deux supportées par $(0,1)$.). 
+
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
 
 
 Pour $x \in (0,1)$,  
-$$f_X(x) = \int_{0}^{x^2} f(x,y) dy = 2x. 
-$$ 
+
+$$f_X(x) = \int_{0}^{x^2} f(x,y) dy = 2x.$$
+
 de sorte que $f_X(x) = 2x \mathbf{1}_{(0,1)}(x)$. 
 
 Enfin, pour $y \in (0,1)$, on a 
-$$f_Y(y) &= &\int_{\sqrt{y}}^1 f(x,y) dx \\&=& 2y \int_{\sqrt{y}}^1 \frac{2}{x^3} dx \\&=& 2y \left[ \frac{-1}{x^2} \right]_{\sqrt{y}}^1 = 2y \left(-1+\frac{1}{y}\right) = 2(1-y)$$  
+
+\begin{align*}
+f_Y(y) 
+&= \int_{\sqrt{y}}^1 f(x,y) dx \\
+&= 2y \int_{\sqrt{y}}^1 \frac{2}{x^3} dx \\
+&= 2y \left[ \frac{-1}{x^2} \right]_{\sqrt{y}}^1 = 2y \left(-1+\frac{1}{y}\right) = 2(1-y)
+\end{align*}  
+
 de sorte que $f_Y(y) = 2(1-y) \mathbf{1}_{(0,1)}(y)$. 
-}
+
+
+:::
 
 :::
 
  
 Calculer $f_{Y\mid X}(y \mid x)$ et en déduire que 
+
 $$\mathbb{E}[Y \mid X] = \frac{2}{3} X^2.$$ 
 
 
 ::: {.content-visible when-profile="solution"}
  
+::: {.callout-note}
+
+### Solution
+
 Rappelons que 
-$$ f_{Y\mid X}(y \mid x) = \begin{cases} & \frac{f(x,y)}{f_X(x)} \mbox{ si } f_X(x) \ne 0 \\ & 0 \mbox{ sinon.}\end{cases} $$
+
+$$f_{Y\mid X}(y \mid x) = \begin{cases} & \frac{f(x,y)}{f_X(x)} \mbox{ si } f_X(x) \ne 0 \\ & 0 \mbox{ sinon.}\end{cases}$$
 
 On a donc  
-$$_{Y\mid X}(y \mid x) = \begin{cases} & \frac{2y}{x^4} \mathbf{1}_{\{0<y <x^2\}} \mbox{ si } x \in (0,1) \\ & 0 \mbox{ sinon.} \end{cases} $$ 
+
+$$f_{Y\mid X}(y \mid x) = \begin{cases} & \frac{2y}{x^4} \mathbf{1}_{\{0<y <x^2\}} \text{ si } x \in (0,1) \\ & 0 \mbox{ sinon.} \end{cases}$$ 
 
 On a alors $\mathbb{E}[Y \mid X] = \psi(X)$, où   
-$$psi(x)  =  \int_{\mathbb{R}} y f_{Y \mid X}(y \mid x) dy. $$ 
-En particulier $\psi$ a pour support $(0,1)$ et si $x \in (0,1)$,  
-$$psi(x) & = & 
-  \int_{0}^{x^2} y \frac{2y}{x^4}  dy \\ &  = & \frac{2}{x^4} \left[ \frac{y^3}{3} \right]_0^{x^2} = \frac{2x^2}{3}. $$ 
-On conclut que 
-$$ \mathbb{E}[Y \mid X] = \frac{2}{3} X^2.$$ 
 
+$$\psi(x)  =  \int_{\mathbb{R}} y f_{Y \mid X}(y \mid x) dy.$$
+
+En particulier $\psi$ a pour support $(0,1)$ et si $x \in (0,1)$,  
+
+\begin{align*}
+\psi(x) 
+  & =  \int_{0}^{x^2} y \frac{2y}{x^4}  dy \\ 
+  & =  \frac{2}{x^4} \left[ \frac{y^3}{3} \right]_0^{x^2} = \frac{2x^2}{3}. 
+\end{align*}
+
+On conclut que 
+
+$$\mathbb{E}[Y \mid X] = \frac{2}{3} X^2.$$ 
+
+
+:::
 
 :::
 
 
 
 
-
 Montrer que 
-$$ f_{X \mid Y}(x\mid y) = \frac{2y}{1-y} \frac{1}{x^3} \mathbf{1}_{\{0<x<1, 0<y <x^2\}},$$ 
+
+$$f_{X \mid Y}(x\mid y) = \frac{2y}{1-y} \frac{1}{x^3} \mathbf{1}_{\{0<x<1, 0<y <x^2\}},$$ 
+
 puis calculer $\mathbb{E}[X \mid Y]$. 
+
 
 ::: {.content-visible when-profile="solution"}
 
+::: {.callout-note}
+
+### Solution
+
 Comme dans la question précédente, 
-$$_{X\mid Y}(x \mid y) & = & \begin{cases} & \frac{f(x,y)}{f_Y(y)} \mbox{ si } f_Y(y) \ne 0 \\ & 0 \mbox{ sinon,} \end{cases} \\ 
-& = & \begin{cases} & \frac{4y}{2(1-y)x^3}\mathbf{1}_{\{0<x<1, 0<y<x^2\}} \mbox{ si } y \in (0,1) \\ & 0 \mbox{ sinon,} \end{cases} $$ 
+
+\begin{align*}
+f_{X\mid Y}(x \mid y) 
+& =  \begin{cases} & \frac{f(x,y)}{f_Y(y)} \mbox{ si } f_Y(y) \ne 0 \\ & 0 \text{ sinon,} \end{cases} \\ 
+& =  \begin{cases} \frac{4y}{2(1-y)x^3}\mathbf{1}_{\{0<x<1, 0<y<x^2\}} & \text{ si } y \in (0,1) \\  0 & \text{ sinon,} \end{cases}
+\end{align*}
+
 ce qui est le résultat recherché puisque si $0<x<1$ et $0<y<x^2$, on a bien $y \in (0,1).$ 
 
 On a alors $\mathbb{E}[X \mid Y] = \phi(Y)$, où
-$$phi(y)  =  \int_{\mathbb{R}} x f_{X \mid Y}(x \mid y) dx. $$  
-En particulier $\phi$ a pour support $(0,1)$ et si $y \in (0,1)$, 
-$$phi(y) & = & 
-  \frac{2y}{1-y} \int_{\sqrt{y}}^{1} \frac{1}{x^2}  dx \\ &  = & \frac{2y}{1-y} \left[ -\frac{1}{x} \right]_{\sqrt{y}}^{1} \\ &=& \frac{2y}{1-y} \left(-1+\frac{1}{\sqrt{y}} \right) = 2 \sqrt{y} \frac{1-\sqrt{y}}{1-y} = 2\frac{\sqrt{y}}{1+\sqrt{y}}. $$
-Finalement 
-$$ \mathbb{E}[X \mid Y] = 2 \frac{\sqrt{Y}}{1+\sqrt{Y}}.$$ 
 
+$$\phi(y)  =  \int_{\mathbb{R}} x f_{X \mid Y}(x \mid y) dx. $$  
+
+En particulier $\phi$ a pour support $(0,1)$ et si $y \in (0,1)$, 
+
+\begin{align*}
+\phi(y) 
+ & = \frac{2y}{1-y} \int_{\sqrt{y}}^{1} \frac{1}{x^2}  dx \\ 
+ & = \frac{2y}{1-y} \left[ -\frac{1}{x} \right]_{\sqrt{y}}^{1} \\ 
+ & = \frac{2y}{1-y} \left(-1+\frac{1}{\sqrt{y}} \right) \\
+ & = 2 \sqrt{y} \frac{1-\sqrt{y}}{1-y} = 2\frac{\sqrt{y}}{1+\sqrt{y}}. 
+\end{align*}
+
+Finalement 
+
+$$\mathbb{E}[X \mid Y] = 2 \frac{\sqrt{Y}}{1+\sqrt{Y}}.$$ 
+
+:::
 
 :::
 
@@ -934,7 +1331,10 @@ cnt_exo <-  cnt_exo + 1
 
 
 Dans cet exercice on suppose que 
-$$ \begin{pmatrix} X \\ Y\end{pmatrix} \sim \mathcal{N} \left( \begin{pmatrix} 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} \right),$$  
+
+$$
+\begin{pmatrix} X \\ Y\end{pmatrix} \sim \mathcal{N} \left( \begin{pmatrix} 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} \right),
+$$  
 et on pose $U= X^2$.
 
 
@@ -957,18 +1357,22 @@ Montrer que conditionnellement à $U$, $(2\xi-1) Z$ a même loi que $Y$. Vérifi
 ### Indications 
  
 1. rappelle que pour $a>0, \lambda >0$,  la densité d'une variable $G \sim \mathrm{Gamma}(a,\lambda)$ est donnée par 
-$$ f_G(x) = \frac{\lambda^a x^{a-1}}{\Gamma(a)} \exp(-\lambda x) \mathbb{I}_{\{x >0 \}}$$   
+    
+    $$f_G(x) = \frac{\lambda^a x^{a-1}}{\Gamma(a)} \exp(-\lambda x) \mathbb{I}_{\{x >0 \}}$$   
+
 1. On fera attention à distinguer les domaines $D_1 = \mathbb{R}_-^*\times \mathbb{R}$ et $D_2 = \mathbb{R}_+^* \times \mathbb{R}$ pour pouvoir considérer les $\mathcal{C}^1$-difféomorphismes 
-$\displaystyle{\Psi_1 : \begin{cases} \!\!&\!\! D_1 \to \mathbb{R}_+^* \times \mathbb{R} \\ \!\!&\!\! (x,y) \to (x^2,y) \end{cases}, \ \ \Psi_2 :  \begin{cases} \!\!&\!\! D_2 \to \mathbb{R}_+^* \times \mathbb{R} \\ \!\!&\!\! (x,y) \to (x^2,y)\end{cases}}$.  
+$\displaystyle{\Psi_1 : \begin{cases} \!\!&\!\! D_1 \to \mathbb{R}_+^* \times \mathbb{R} \\ \!\!&\!\! (x,y) \to (x^2,y) \end{cases}, \ \ \Psi_2 :  \begin{cases} \!\!&\!\! D_2 \to \mathbb{R}_+^* \times \mathbb{R} \\ \!\!&\!\! (x,y) \to (x^2,y)\end{cases}}$.
+
 1. Pour $\alpha \in \mathbb{R}$, les deux premiers moments de la variable $\zeta \sim \mathcal{N}\left(\alpha \frac{\sqrt{u}}{2}, \frac{1}{2}\right)$ sont 
-\begin{align*} 
- \mathbb{E}[\zeta] 
- & = \int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} y \exp\left(-  \left(y - \alpha \frac{\sqrt{u}}{2}\right)^2 \right) dy \\ 
- & = \alpha \frac{\sqrt{u}}{2},  \\ 
-\mathbb{E}[\zeta^2] 
-& = \mathbb{E}[\zeta]^2+ \mathrm{Var}[\zeta] = \int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} y^2 \exp\left(-  \left(y - \alpha \frac{\sqrt{u}}{2}\right)^2 \right) dy \\
-& = \alpha^2 \frac{u}{4} + \frac{1}{2} 
-\end{align*}
+   
+   \begin{align*} 
+    \mathbb{E}[\zeta] 
+    & = \int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} y \exp\left(-  \left(y - \alpha \frac{\sqrt{u}}{2}\right)^2 \right) dy \\ 
+    & = \alpha \frac{\sqrt{u}}{2},  \\ 
+   \mathbb{E}[\zeta^2] 
+   & = \mathbb{E}[\zeta]^2+ \mathrm{Var}[\zeta] = \int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} y^2 \exp\left(-  \left(y - \alpha \frac{\sqrt{u}}{2}\right)^2 \right) dy \\
+   & = \alpha^2 \frac{u}{4} + \frac{1}{2} 
+   \end{align*}
 
 
 :::
@@ -977,72 +1381,140 @@ $\displaystyle{\Psi_1 : \begin{cases} \!\!&\!\! D_1 \to \mathbb{R}_+^* \times \m
 ::: {.content-visible when-profile="solution"}
 
 
+::: {.callout-note}
+
+### Solution
 
 1. On a $U= X^2$ avec $X \sim \mathcal{N}(0,2)$. Pour $\phi : \mathbb{R} \to \mathbb{R}_+$ borélienne, on obtient donc 
-$$\mathbb{E}[\phi(U)] & = & \int_{\mathbb{R}} \phi(x^2) \frac{1}{2 \sqrt{\pi}} \exp(-x^2) dx \\ 
-& = & \int_{\mathbb{R}_-^*} \phi(x^2) \frac{1}{2 \sqrt{\pi}} \exp\left(-\frac{x^2}{4}\right) dx + \int_{\mathbb{R}_+^*} \phi(x^2) \frac{1}{2 \sqrt{\pi}} \exp\left(-\frac{x^2}{4}\right) dx $$ 
-En effectuant le changement de variables $u=x^2$ dans chacune des deux intégrales ci-dessus on obtient 
-$$ \mathbb{E}[\phi(U)] = \int_{\mathbb{R}_+^*} \phi(u) \frac{1}{2\sqrt{\pi}} \exp\left(-\frac{u}{4}\right) du, $$
+\begin{align*}
+\mathbb{E}[\phi(U)] 
+& = \int_{\mathbb{R}} \phi(x^2) \frac{1}{2 \sqrt{\pi}} \exp(-x^2) dx \\ 
+& = \int_{\mathbb{R}_-^*} \phi(x^2) \frac{1}{2 \sqrt{\pi}} \exp\left(-\frac{x^2}{4}\right) dx + \int_{\mathbb{R}_+^*} \phi(x^2) \frac{1}{2 \sqrt{\pi}} \exp\left(-\frac{x^2}{4}\right) dx
+\end{align*} 
+En effectuant le changement de variables $u=x^2$ dans chacune des deux intégrales ci-dessus on obtient
+
+$$\mathbb{E}[\phi(U)] = \int_{\mathbb{R}_+^*} \phi(u) \frac{1}{2\sqrt{\pi}} \exp\left(-\frac{u}{4}\right) du,$$
+
 et on conclut que 
-$$ f_U(u) = \frac{1}{2\sqrt{\pi}} \exp\left(-\frac{u}{4} \right) \mathbb{I}_{\{u>0\}},$$
+
+$$f_U(u) = \frac{1}{2\sqrt{\pi}} \exp\left(-\frac{u}{4} \right) \mathbb{I}_{\{u>0\}},$$
+
 ce qui est bien la densité d'une $\mathrm{Gamma}(1/2,1/4)$. 
 1. D'après le cours, un vecteur gaussien bi-dimensionnel suivant la loi $\mathcal{N}(0,\Sigma)$ a une densité sur $\mathbb{R}^2$ ssi $\mathrm{det}(\Sigma) \ne 0$ et cette densité au point $(x,y)$ vaut  
-$$ \frac{1}{2\pi \sqrt{\mathrm{det}(\Sigma)}} \exp\left(- \frac{1}{2} \begin{pmatrix} x & y \end{pmatrix} \Sigma^{-1} \begin{pmatrix} x \\ y \end{pmatrix} \right). $$
+
+$$\frac{1}{2\pi \sqrt{\mathrm{det}(\Sigma)}} \exp\left(- \frac{1}{2} \begin{pmatrix} x & y \end{pmatrix} \Sigma^{-1} \begin{pmatrix} x \\ y \end{pmatrix} \right).$$
+
+
+:::
+
+
+::: {.callout-note}
+
+### Solution (suite)
+
+
 Ici $\Sigma =  \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$, donc $\mathrm{det}(\Sigma) = 1$, 
 $\Sigma^{-1}= \begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}$, et on obtient donc 
-$$ g(x,y) = \frac{1}{2 \pi} \exp\left( -\frac{x^2}{2} - xy - y^2\right) $$
+
+$$g(x,y) = \frac{1}{2 \pi} \exp\left( -\frac{x^2}{2} - xy - y^2\right)$$
+
 1. Soit $\phi: \mathbb{R}^2 \to \mathbb{R}_+$ borélienne, on a d'après la question précédente 
-$$mathbb{E}[\phi(U,Y)] & = & \int_{\mathbb{R}^2} \phi(x^2,y) \frac{1}{2 \pi} \exp\left( -\frac{x^2}{2} - xy - y^2\right) 
- \\ & = & \int_{\mathbb{R}_-^* \times \mathbb{R}} \phi(x^2,y) \frac{1}{2\pi} \exp\left( -\frac{x^2}{2} - xy - y^2\right) dc dy \\ && \qquad + \int_{\mathbb{R}_+^* \times \mathbb{R}}  \phi(x^2,y) \frac{1}{2\pi} \exp\left( -\frac{x^2}{2} - xy - y^2\right) dx dy $$ 
+
+    \begin{align*}
+    \mathbb{E}[\phi(U,Y)] 
+    & =  \int_{\mathbb{R}^2} \phi(x^2,y) \frac{1}{2 \pi} \exp\left( -\frac{x^2}{2} - xy - y^2\right) 
+    \\ 
+    & =  \int_{\mathbb{R}_-^* \times \mathbb{R}} \phi(x^2,y) \frac{1}{2\pi} \exp\left( -\frac{x^2}{2} - xy - y^2\right) dc dy \\ 
+    & \qquad + \int_{\mathbb{R}_+^* \times \mathbb{R}}  \phi(x^2,y) \frac{1}{2\pi} \exp\left( -\frac{x^2}{2} - xy - y^2\right) dx dy
+    \end{align*}
+
 L'application $(x,y) \to (u=x^2,y)$ est un changement de variables de $\mathbb{R}_-^* \times \mathbb{R} \to \mathbb{R}_+^* \times \mathbb{R}$, avec $x = -\sqrt{u}$, et de  $\mathbb{R}_+^* \times \mathbb{R} \to \mathbb{R}_+^* \times \mathbb{R}$ avec $x = \sqrt{u}$, dont le jacobien inverse est $\frac{1}{2\sqrt{u}}$. On obtient donc : 
-$$mathbb{E}[\phi(U,Y)] & = & \int_{\mathbb{R}_+^* \times \mathbb{R}} \frac{1}{4\pi \sqrt{u}} \left(\exp\left( -\frac{u}{2} + \sqrt{u} y - y^2\right) +  \exp\left( -\frac{u}{2} - \sqrt{u} y - y^2\right) \right)du dy$$ 
+
+
+\begin{align*}
+\mathbb{E}[\phi(U,Y)] 
+    & = \int_{\mathbb{R}_+^* \times \mathbb{R}} \frac{1}{4\pi \sqrt{u}} \left(\exp\left( -\frac{u}{2} + \sqrt{u} y - y^2\right) +  \exp\left( -\frac{u}{2} - \sqrt{u} y - y^2\right) \right)du dy
+\end{align*} 
+
 ce qui conduit bien au résultat souhaité. 
 
-{\em Remarque} : Comme 
-$$\int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} \exp\left(-\frac{u}{4} + \sqrt{u} y -y^2\right) dy = \int_{\mathbb{R}}  \frac{1}{\sqrt{\pi}} \exp\left(-\frac{u}{4} - \sqrt{u} y -y^2\right) dy = 1,$$
+*Remarque* : Comme 
+
+$$\int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} \exp\left(-\frac{u}{4} + \sqrt{u} y -y^2\right) dy = \int_{\mathbb{R}}  \frac{1}{\sqrt{\pi}} \exp\left(-\frac{u}{4} - \sqrt{u} y -y^2\right) dy = 1,
+$$
+
 puisque la première intégrale est celle de la densité d'une variable $\sim \mathcal{N}(-\sqrt{u}/2,1/2)$, et la deuxième intégrale celle de la densité d'une variable $\mathcal{N}(\sqrt{u}/2,1/2)$, on retrouve bien que 
 
-$$ f_U(u) = \int_{\mathbb{R}} f(u,y)  dy = \frac{2}{4\sqrt{\pi u}} \exp\left(-\frac{u}{4}\right) \mathbb{I}_{\{u >0\}},$$
+$$f_U(u) = \int_{\mathbb{R}} f(u,y)  dy = \frac{2}{4\sqrt{\pi u}} \exp\left(-\frac{u}{4}\right) \mathbb{I}_{\{u >0\}},$$
+
 comme à la question 1. 
 
-1.  On a donc 
-$$ f_{Y \mid U}(y \mid u) =   \frac{1}{2\sqrt{\pi}} \left( \exp\left(- \frac{u}{4} - y^2 - y \sqrt{u} \right) + \exp\left(-\frac{u}{4}- y^2+y\sqrt{u} \right) \right) \mathbb{I}_{\{u >0\}}.$$ 
-Remarquons que 
-$$ \int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} y \exp\left(- \frac{u}{4} - y^2 + y \sqrt{u} \right) dy = \int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} \exp\left(-  \left(y - \frac{\sqrt{u}}{2}\right)^2 \right) dy$$ est la moyenne d'une variable $\sim \mathcal{N}(-\sqrt{u},1/2)$, elle vaut donc $-\frac{\sqrt{u}}{2}$.
+:::
 
- Par le même raisonnement, $ \int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} y^2 \exp\left(- \frac{u}{4} - y^2 + y \sqrt{u} \right) dy$ est l'espérance du carré de cette même variable, et vaut donc 
+::: {.callout-note}
+
+### Solution (suite)
+
+
+1.  On a donc 
+
+$$f_{Y \mid U}(y \mid u) =   \frac{1}{2\sqrt{\pi}} \left( \exp\left(- \frac{u}{4} - y^2 - y \sqrt{u} \right) + \exp\left(-\frac{u}{4}- y^2+y\sqrt{u} \right) \right) \mathbb{I}_{\{u >0\}}.$$ 
+
+Remarquons que 
+
+$$\int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} y \exp\left(- \frac{u}{4} - y^2 + y \sqrt{u} \right) dy = \int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} \exp\left(-  \left(y - \frac{\sqrt{u}}{2}\right)^2 \right) dy$$ 
+
+est la moyenne d'une variable $\sim \mathcal{N}(-\sqrt{u},1/2)$, elle vaut donc $-\frac{\sqrt{u}}{2}$.
+
+Par le même raisonnement, $\int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} y^2 \exp\left(- \frac{u}{4} - y^2 + y \sqrt{u} \right) dy$ est l'espérance du carré de cette même variable, et vaut donc 
 $\frac{1}{2}+\frac{u}{4}$. 
 
 
-De même, $ \int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} y \exp\left(- \frac{u}{4} - y^2 - y \sqrt{u} \right) dy$ est la moyenne d'une variable $\sim \mathcal{N}(\frac{\sqrt{u}}{2},1/2)$, et vaut donc $\frac{\sqrt{u}}{2}$, tandis que   $ \int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} y^2 \exp\left(- \frac{u}{4} - y^2 + y \sqrt{u} \right) dy$ est l'espérance du carré de cette même variable, et vaut donc $\frac{1}{2}+\frac{u}{4}$. 
+De même, $\int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} y \exp\left(- \frac{u}{4} - y^2 - y \sqrt{u} \right) dy$ est la moyenne d'une variable $\sim \mathcal{N}(\frac{\sqrt{u}}{2},1/2)$, et vaut donc $\frac{\sqrt{u}}{2}$, tandis que   $\int_{\mathbb{R}} \frac{1}{\sqrt{\pi}} y^2 \exp\left(- \frac{u}{4} - y^2 + y \sqrt{u} \right) dy$ est l'espérance du carré de cette même variable, et vaut donc $\frac{1}{2}+\frac{u}{4}$. 
 
 On a donc 
-$$ \int_{\mathbb{R}} y f_{Y \mid U}(y \mid u) dy = -\frac{1}{4}\sqrt{u}+\frac{1}{4}\sqrt{u}=0, \quad \mbox{ donc } \mathbb{E}[Y \mid U]=0$$
-tandis que 
-$$ \int_{\mathbb{R}} y^2 f_{Y \mid U}(y \mid u) dy = \frac{1}{4}(u+2) + \frac{1}{4}(u+2) = u+2 \quad \mbox{ donc } \mathbb{E}[Y^2 \mid U] = \frac{1}{2} +\frac{U}{4}.$$
-Enfin 
-$$ \mathrm{Var}[Y \mid U] = \mathbb{E}[Y^2 \mid U] - \mathbb{E}[Y \mid U]^2= \frac{1}{2}+\frac{U}{4}.$$
 
-Bien s\^ur $\mathrm{Var}[\mathbb{E}[Y \mid U]]=0$.
- Comme $\mathbb{E}[U] = \frac{1}{2} \times \left(\frac{1}{4}\right)^{-1} = 2$, on a bien 
-$$ \mathbb{E}[\mathrm{Var}[Y \mid U]] = \frac{1}{2} + \frac{1}{2} = 1,$$
+$$\int_{\mathbb{R}} y f_{Y \mid U}(y \mid u) dy = -\frac{1}{4}\sqrt{u}+\frac{1}{4}\sqrt{u}=0, \quad \mbox{ donc } \mathbb{E}[Y \mid U]=0$$
+
+tandis que 
+
+$$\int_{\mathbb{R}} y^2 f_{Y \mid U}(y \mid u) dy = \frac{1}{4}(u+2) + \frac{1}{4}(u+2) = u+2 \quad \mbox{ donc } \mathbb{E}[Y^2 \mid U] = \frac{1}{2} +\frac{U}{4}.$$
+
+Enfin 
+
+$$\mathrm{Var}[Y \mid U] = \mathbb{E}[Y^2 \mid U] - \mathbb{E}[Y \mid U]^2= \frac{1}{2}+\frac{U}{4}.$$
+
+Bien s\^ur $\mathrm{Var}[\mathbb{E}[Y \mid U]]=0$. Comme $\mathbb{E}[U] = \frac{1}{2} \times \left(\frac{1}{4}\right)^{-1} = 2$, on a bien 
+
+$$\mathbb{E}[\mathrm{Var}[Y \mid U]] = \frac{1}{2} + \frac{1}{2} = 1,$$
+
 et on a bien $\mathrm{Var}(Y) = 1 = \mathbb{E}[\mathrm{Var}[Y \mid U]]+\mathrm{Var}[\mathbb{E}[Y \mid U]]$. 
  
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
 
 1. La densité d'une variable $\zeta \sim \mathcal{N}\left(\frac{\sqrt{u}}{2}, \frac{1}{2}\right)$ est donnée par 
-$$ f_{\zeta}(y) = \frac{1}{\sqrt{\pi}} \exp\left(-  \left(y -  \frac{\sqrt{u}}{2}\right)^2 \right), \ y \in \mathbb{R}.$$ 
+
+$$f_{\zeta}(y) = \frac{1}{\sqrt{\pi}} \exp\left(-  \left(y -  \frac{\sqrt{u}}{2}\right)^2 \right), \ y \in \mathbb{R}.$$ 
+
 Celle de $-\zeta \sim \mathcal{N}\left(-\frac{\sqrt{u}}{2}, \frac{1}{2}\right)$ est donc donnée par 
-$$ f_{-\zeta}(y) = \frac{1}{\sqrt{\pi}} \exp\left(-  \left(y +  \frac{\sqrt{u}}{2}\right)^2 \right), \ y \in \mathbb{R}.$$ 
+
+$$f_{-\zeta}(y) = \frac{1}{\sqrt{\pi}} \exp\left(-  \left(y +  \frac{\sqrt{u}}{2}\right)^2 \right), \ y \in \mathbb{R}.$$ 
 
 Si $\xi \sim \mathrm{Ber}(1/2)$, la variable $(2\xi-1) \zeta$ a donc densité 
 $\frac{1}{2} \left(f_{\zeta}(y) + \frac{1}{2} f_{-\zeta}(y)\right), y \in \mathbb{R}$, et on déduit que la densité conditionnelle de $(2\xi -1) Z$ sachant $U$ au point $(y,u)$ est donnée par $f_{Y \mid U}(y \mid u)$. 
 Ainsi $(U,Y)$ et $(U, (2\xi-1)Z)$ ont même loi. 
 
 On retrouve bien : 
-$$ \mathbb{E}[Y \mid U] = \mathbb{E}[(2\xi-1)Z \mid U] = \frac{1}{2} \left( \frac{\sqrt{U}}{2} - \frac{\sqrt{U}}{2}\right) =0, \quad \mathbb{E}(Y^2 \mid U) = \mathbb{E}[Z^2 \mid U] = \frac{U}{4}+\frac{1}{2}$$
+
+$$\mathbb{E}[Y \mid U] = \mathbb{E}[(2\xi-1)Z \mid U] = \frac{1}{2} \left( \frac{\sqrt{U}}{2} - \frac{\sqrt{U}}{2}\right) =0, \quad \mathbb{E}(Y^2 \mid U) = \mathbb{E}[Z^2 \mid U] = \frac{U}{4}+\frac{1}{2}$$
 
 
- 
+:::
+
 :::
  
 
@@ -1076,7 +1548,9 @@ $$M := \begin{pmatrix} 2& 2 &-2  \\ 2& 5 & 1 \\ -2 & 1 & 5 \end{pmatrix},$$
 
 ::: {.content-visible when-profile="solution"}
  
+::: {.callout-note}
 
+### Solution
 
 1. On trouve $\ker(M) = \mathrm{Vect} \left\{ \begin{pmatrix} 2 \\ -1 \\ 1 \end{pmatrix} \right\}$ de dimension $1$, donc $\det(M)=0$. 
 Le vecteur $X$ est donc p.s. à valeurs dans $\mathrm{Ker}(M)^{\perp} = \{(x,y,z) \in \mathbb{R}^3 : 2x - y + z =0\}$, en particulier il ne possède pas de densité sur $\mathbb{R}^3$.    
@@ -1086,6 +1560,7 @@ $\mathrm{Cov}(X_1,X_2-aX_1)=0$ ssi $a=1$.
  
 On conclut que conditionnellement à $X_1$, $X_2 \sim \mathcal{N}(X_1,3)$.   
 
+:::
 
 :::
 
@@ -1116,9 +1591,14 @@ calculer le vecteur moyenne et la matrice de covariances de $(Y_1,...,Y_n)$.
 
 ::: {.content-visible when-profile="solution"}
 
-Fixons $n \ge 1$ et notons $\xx_n = (X_1,...,X_n), \yy_n=(Y_1,...,Y_n)$. 
+::: {.callout-note}
 
-Les variables $\{X_i\}_{i=1}^n$ étant des gaussiennes centrées réduites indépendantes, on a déjà montré (par exemple à la première question du partiel) que $(X_1,...,X_n)$ est un vecteur gaussien (et d'ailleurs $\xx_n \sim \mathcal{N}(0,I_n)$).  
+### Solution
+
+
+Fixons $n \ge 1$ et notons $\mathbf{X}_n = (X_1,...,X_n), \mathbf{Y}_n=(Y_1,...,Y_n)$. 
+
+Les variables $\{X_i\}_{i=1}^n$ étant des gaussiennes centrées réduites indépendantes, on a déjà montré (par exemple à la première question du partiel) que $(X_1,...,X_n)$ est un vecteur gaussien (et d'ailleurs $\mathbf{X}_n \sim \mathcal{N}(0,I_n)$).  
 
 Notons alors 
 
@@ -1130,9 +1610,16 @@ $$A_n := \begin{pmatrix} 1 & 0 & 0 & 0 & \dots & 0 & 0 \\
                          \vdots &  &  &        & \ddots & \ddots & \\  
                           0 & 0 & 0& 0 & \dots & -1/n & 1/n \end{pmatrix},$$
 
-de sorte que $\yy_n = A_n \xx_n$, et le vecteur $\yy_n$ est donc bien un vecteur gaussien en tant que transformation linéaire du vecteur gaussien $\xx_n$. 
+de sorte que $\mathbf{Y}_n = A_n \mathbf{X}_n$, et le vecteur $\mathbf{Y}_n$ est donc bien un vecteur gaussien en tant que transformation linéaire du vecteur gaussien $\mathbf{X}_n$. 
 
-D'après un théorème du cours, on a alors que $\yy_n \sim \mathcal{N}(A_n 0, A_n I_n A_n^T)$, i.e. $\yy_n \sim \mathcal{N}(0,A_n A_n^T)$, 
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
+
+
+D'après un théorème du cours, on a alors que $\mathbf{Y}_n \sim \mathcal{N}(A_n 0, A_n I_n A_n^T)$, i.e. $\mathbf{Y}_n \sim \mathcal{N}(0,A_n A_n^T)$, 
 où   
 $$ 
 A_n A_n^T = \begin{pmatrix} 1 & -1/2 & 0 & 0 & \dots & 0 & 0 \\ 
@@ -1146,24 +1633,33 @@ $$
 
 :::
 
+:::
+
 Calculer, pour $n \ge 1$, $\mathbb{E}[Y_{n+1}\mid Y_n]$.
 
 ::: {.content-visible when-profile="solution"}
 
- Pour $a \in \mathbb{R}$ on peut toujours écrire $Y_{n+1} = Y_{n+1} + a Y_n - a Y_n$. 
+::: {.callout-note}
 
-Comme le vecteur $\yy_{n+1}$ est gaussien, la variable $Y_{n+1}+aY_n$ est indépendante de $Y_n$ si et seulement si $ \mathrm{cov}(Y_{n+1}+a Y_n, Y_n)=0.$ Or 
+### Solution
+
+Pour $a \in \mathbb{R}$ on peut toujours écrire $Y_{n+1} = Y_{n+1} + a Y_n - a Y_n$. 
+
+Comme le vecteur $\mathbf{Y}_{n+1}$ est gaussien, la variable $Y_{n+1}+aY_n$ est indépendante de $Y_n$ si et seulement si $\mathrm{cov}(Y_{n+1}+a Y_n, Y_n)=0.$ Or 
 $$\mathrm{cov}(Y_{n+1}+a Y_n, Y_n)= -\frac{1}{n(n+1)} + \frac{2a}{n^2},$$
 qui s'annule pour $a = \frac{n}{2(n+1)}$. 
 
 On a alors, en utilisant cette indépendance et le fait que les variables $Y_n, Y_{n+1}$ sont centrées :  
-$$mathbb{E}[Y_{n+1} \mid \mathcal{F}_n] & = &\mathbb{E}[( Y_{n+1} + \frac{n}{2(n+1)} Y_n )\mid \mathcal{F}_n] - \mathbb{E}[\frac{n}{2(n+1)} Y_n \mid \mathcal{F}_n] \\ 
-& = & \mathbb{E}[Y_{n+1} + \frac{n}{2(n+1)} Y_n] - \frac{n}{2(n+1)} Y_n \\ 
-& = & - \frac{n}{2(n+1)} Y_n. $$ 
+
+\begin{align*}
+\mathbb{E}[Y_{n+1} \mid \mathcal{F}_n] & = \mathbb{E}[( Y_{n+1} + \frac{n}{2(n+1)} Y_n )\mid \mathcal{F}_n] - \mathbb{E}[\frac{n}{2(n+1)} Y_n \mid \mathcal{F}_n] \\ 
+& =  \mathbb{E}[Y_{n+1} + \frac{n}{2(n+1)} Y_n] - \frac{n}{2(n+1)} Y_n \\ 
+& =  - \frac{n}{2(n+1)} Y_n. 
+\end{align*} 
 
 
 
-
+:::
 
 :::
 
@@ -1195,34 +1691,62 @@ On introduit la notation $f_{X|Y}(x|y) := f(x,y)/f_Y(y)$ lorsque le quotient est
 
 ::: {.content-visible when-profile="solution"}
  
+::: {.callout-note}
 
+### Solution
 
 1. Calculons d'abord les densités marginales.  
-$$_X(x) & = & \mathbb{I}_{\{x>0\}} \int_x^{\infty} x(y-x) \exp(-y) dy \\ 
-& = & \mathbb{I}_{\{x > 0\}} x \exp(-x)  \int_0^{\infty} u \exp(-u) du = \mathbb{I}_{\{x > 0\}} x \exp(-x) $$ 
-de sorte que $X \sim \mathrm{Gamma}(2,1)$. 
-Par ailleurs 
-$$_Y(y) & = & \mathbb{I}_{\{y >0\}} \exp(-y) \int_0^y x(y-x) dx \\ 
-& = & \mathbb{I}_{\{y >0\}} \exp(-y) \left( \frac{y^3}{2} - \frac{y^3}{3} \right) =  \mathbb{I}_{\{y >0\}} \exp(-y) \frac{y^3}{6} $$ 
-de sorte que $Y \sim \mathrm{Gamma}(4,1)$. 
 
-On déduit 
-$$ f_{X \mid Y} (x \mid y) = \frac{6x(y-x)}{y^3} \mathbb{I}_{\{0 < x < y\}},$$
-$$ f_{Y \mid X} (y \mid x) = (y-x) \exp(-(y-x)) \mathbb{I}_{\{0 < x < y\}}.$$  
+    \begin{align*}
+    f_X(x) & =  \mathbb{I}_{\{x>0\}} \int_x^{\infty} x(y-x) \exp(-y) dy \\ 
+    & =  \mathbb{I}_{\{x > 0\}} x \exp(-x)  \int_0^{\infty} u \exp(-u) du = \mathbb{I}_{\{x > 0\}} x \exp(-x)
+    \end{align*}
 
-{\em Remarque } : On peut assez facilement interpréter cette deuxième densité conditionnelle : sachant $X$, $Y = X + U$ où $U \sim \Gamma(2,1)$ indépendante de $X$.
+    de sorte que $X \sim \mathrm{Gamma}(2,1)$. 
+
+    Par ailleurs 
+    
+    \begin{align*}
+    f_Y(y) 
+    & =  \mathbb{I}_{\{y >0\}} \exp(-y) \int_0^y x(y-x) dx \\ 
+    & =  \mathbb{I}_{\{y >0\}} \exp(-y) \left( \frac{y^3}{2} - \frac{y^3}{3} \right) =  \mathbb{I}_{\{y >0\}} \exp(-y) \frac{y^3}{6}
+    \end{align*}
+
+    de sorte que $Y \sim \mathrm{Gamma}(4,1)$. 
+
+    On déduit 
+
+    $$f_{X \mid Y} (x \mid y) = \frac{6x(y-x)}{y^3} \mathbb{I}_{\{0 < x < y\}},$$
+
+    $$f_{Y \mid X} (y \mid x) = (y-x) \exp(-(y-x)) \mathbb{I}_{\{0 < x < y\}}.$$  
+
+    *Remarque*  : On peut assez facilement interpréter cette deuxième densité conditionnelle : sachant $X$, $Y = X + U$ où $U \sim \Gamma(2,1)$ indépendante de $X$.
+
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
+
 
 1. On a 
-$$ \int_{\mathbb{R}} x f_{X \mid Y}(x \mid y) dx = \int_0^y \frac{6x^2(y-x)}{y^3} dx = 2y - \frac{3}{2}y= \frac{y}{2},$$
-et on conclut que $\mathbb{E}[X \mid Y] = \frac{Y}{2}$. 
+ 
+    $$\int_{\mathbb{R}} x f_{X \mid Y}(x \mid y) dx = \int_0^y \frac{6x^2(y-x)}{y^3} dx = 2y - \frac{3}{2}y= \frac{y}{2},$$
 
-D'autre part 
-$$int_{\mathbb{R}} y f_{Y \mid X}(y \mid x) dy & = & \int_{x}^{\infty}  y (y-x) \exp(-(y-x)) dy \\ 
-& = & \int_0^{\infty} (u+x) u \exp(-u) du \\ 
-& = & \left[ -(u+x)u \exp(-u) \right]_{0}^{\infty} + \int_0^{\infty} (2u+x) \exp(-u) du \\ 
-& = & \left[ -(2u+x) \exp(-u) \right]_0^{\infty} + \int_0^{\infty} 2 \exp(-u) du = x + 2 $$ 
-et on conclut que $\mathbb{E}[Y \mid X] = X+2$.  
+    et on conclut que $\mathbb{E}[X \mid Y] = \frac{Y}{2}$. 
 
+    D'autre part 
+
+    \begin{align*}
+    \int_{\mathbb{R}} y f_{Y \mid X}(y \mid x) dy & = \int_{x}^{\infty}  y (y-x) \exp(-(y-x)) dy \\ 
+    & =  \int_0^{\infty} (u+x) u \exp(-u) du \\ 
+    & =  \left[ -(u+x)u \exp(-u) \right]_{0}^{\infty} + \int_0^{\infty} (2u+x) \exp(-u) du \\ 
+    & =  \left[ -(2u+x) \exp(-u) \right]_0^{\infty} + \int_0^{\infty} 2 \exp(-u) du = x + 2
+    \end{align*} 
+
+    et on conclut que $\mathbb{E}[Y \mid X] = X+2$.  
+
+:::
 
 :::
 
@@ -1241,22 +1765,36 @@ Soient $Y,Z$ deux v.a.r. indépendantes $\sim \mathrm{exp}(\lambda)$ où $\lambd
 
 ::: {.content-visible when-profile="solution"}
  
+::: {.callout-note}
+
+### Solution
+
 Remarquons déjà que par le même raisonnement que dans l'exercice 5 on trouve $\mathbb{E}[Y \mid X] = \frac{X}{2}$. 
 
 Pour le reste on peut faire un raisonnement similaire aux exercices 11, 15. D'abord, pour $\phi  : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne, 
-$$mathbb{E}[\phi(Y, Y+Z)] & = & \int_{\mathbb{R}_+^2} \phi(y,y+z) \lambda^2 \exp(-\lambda (y+z)) dy dz \\ 
- & = & \int_{\mathbb{R}_+^2} \mathbb{I}_{\{y \le x\}} \phi(y,x) \lambda^2 \exp(-\lambda x) dy dx $$ 
+
+\begin{align*}
+\mathbb{E}[\phi(Y, Y+Z)] & = 
+  \int_{\mathbb{R}_+^2} \phi(y,y+z) \lambda^2 \exp(-\lambda (y+z)) dy dz \\ 
+ & =  \int_{\mathbb{R}_+^2} \mathbb{I}_{\{y \le x\}} \phi(y,x) \lambda^2 \exp(-\lambda x) dy dx 
+\end{align*} 
+
 de sorte que $f_{(Y,X)}(y,x) = \mathbb{I}_{\{0<y<x\}} \lambda^2 \exp(-\lambda x), \ (x,y) \in \mathbb{R}^2$. 
 
 Comme  $X \sim \mathrm{Gamma}(2,1)$ on a 
-$ f_X(x) = \lambda^2 \exp(-\lambda x) \mathbb{I}_{\{x >0\}}, x \in \mathbb{R}$  
+
+$f_X(x) = \lambda^2 \exp(-\lambda x) \mathbb{I}_{\{x >0\}}, x \in \mathbb{R}$  
 
 et donc 
-$$ f_{Y \mid X}(y \mid x) = \frac{1}{x}  \mathbb{I}_{\{0 < y < x \}}$$ 
+
+$$f_{Y \mid X}(y \mid x) = \frac{1}{x}  \mathbb{I}_{\{0 < y < x \}}$$ 
+
 de sorte que la loi conditionnelle de $Y$ sachant $X$ est $\mathrm{Unif}[0,X]$. 
 On conclut que $\mathbb{E}[Y \mid X] = \frac{X}{2}.$ 
+
 :::
 
+:::
 
 
 
@@ -1270,6 +1808,7 @@ cnt_exo <-  cnt_exo + 1
 
 
 Soient $X$ et $Y$ deux variables aléatoires indépendantes, toutes deux normales centrées réduites. On définit pour $\sigma_1 >0, \sigma_2>0, |\rho|\le 1$, 
+
 $$U = \sigma_1 X, \quad V= \sigma_2 \rho X + \sigma_2 \sqrt{1- \rho^2} Y.$$ 
 
 
@@ -1280,24 +1819,39 @@ $$U = \sigma_1 X, \quad V= \sigma_2 \rho X + \sigma_2 \sqrt{1- \rho^2} Y.$$
 
 ::: {.content-visible when-profile="solution"}
 
+::: {.callout-note}
+
+### Solution
 
 1. On a $\begin{pmatrix} U \\ V \end{pmatrix} = \begin{pmatrix} \sigma_1 & 0 \\ \sigma_2 \rho & \sigma_2 \sqrt{1-\rho^2} \end{pmatrix} \begin{pmatrix} X \\ Y \end{pmatrix}$, avec $\begin{pmatrix} X \\ Y \end{pmatrix} \sim \mathcal{N}(0,I_2)$. Or $\begin{pmatrix} \sigma_1 & 0 \\ \sigma_2 \rho & \sigma_2 \sqrt{1-\rho^2} \end{pmatrix} I_2 \begin{pmatrix} \sigma_1 & 0 \\ \sigma_2 \rho & \sigma_2 \sqrt{1-\rho^2} \end{pmatrix}^T = \begin{pmatrix} \sigma_1^2 & \sigma_1 \sigma_2 \rho \\ \sigma_1 \sigma_2 \rho & \sigma_2^2 \end{pmatrix}$, on déduit donc que $\begin{pmatrix} U \\ V \end{pmatrix}  \sim \mathcal{N}\left( \begin{pmatrix} 0 \\ 0 \end{pmatrix},  \begin{pmatrix} \sigma_1^2 & \sigma_1 \sigma_2 \rho \\ \sigma_1 \sigma_2 \rho & \sigma_2^2 \end{pmatrix}\right).$
 
 1. On a $\mathbb{E}[UV]=\mathrm{Cov}(UV) = \sigma_1\sigma_2 \rho$ d'après la question précédente. 
 1. D'après les formules du cours, avec $\theta = U, \xi =V$, $\mu_{\theta}=\mu_{\xi}=0, M_{\theta \xi} = M_{\xi\theta} = \sigma_1\sigma_2 \rho, M_{\theta \theta} = \sigma_1^2$ et $MM_{\xi \xi} = \sigma_2^2$, on trouve que 
-$$ \mathbb{E}[U \mid V] = M_{\theta \xi} M_{\xi\xi}^{-1} \xi = \frac{\sigma_1 \rho}{\sigma_2} V, \qquad \mathrm{Var}[U \mid V ] = M_{\theta \theta} - M_{\theta \xi} M_{\xi \xi } M_{\xi \theta} = \sigma_1^2(1-\rho^2)$$
+
+$$\mathbb{E}[U \mid V] = M_{\theta \xi} M_{\xi\xi}^{-1} \xi = \frac{\sigma_1 \rho}{\sigma_2} V, \qquad \mathrm{Var}[U \mid V ] = M_{\theta \theta} - M_{\theta \xi} M_{\xi \xi } M_{\xi \theta} = \sigma_1^2(1-\rho^2)$$
+
+:::
+
+
+::: {.callout-note}
+
+### Solution (suite)
+
 
 De manière symétrique on trouve que  
-$$ \mathbb{E}[V \mid U] = \frac{\sigma_2 \rho}{\sigma_1} U, \qquad \mathrm{Var}[V \mid U] = \sigma_2^2 (1-\rho^2).$$
+
+$$\mathbb{E}[V \mid U] = \frac{\sigma_2 \rho}{\sigma_1} U, \qquad \mathrm{Var}[V \mid U] = \sigma_2^2 (1-\rho^2).$$
 
 
-{\em Remarque } : $\mathrm{Cov}(\alpha U + V, U) = \alpha \sigma_1^2 + \rho \sigma_1 \sigma_2$, on trouve donc pour $\alpha = - \frac{\sigma_2 \rho}{\sigma_1}$ que 
+*Remarque*  : $\mathrm{Cov}(\alpha U + V, U) = \alpha \sigma_1^2 + \rho \sigma_1 \sigma_2$, on trouve donc pour $\alpha = - \frac{\sigma_2 \rho}{\sigma_1}$ que 
 $$ V = \frac{\sigma_2 \rho}{\sigma_1} U + \left( - \frac{\sigma_2 \rho}{\sigma_1}U + V \right),$$
 la première partie de la somme étant bien s\^ur $\sigma(U)$-mesurable, alors que la deuxième en est indépendante, et suit la loi $\mathcal{N}(0,\sigma_2^2(1-\rho^2))$. On retrouve donc bien que  conditionnellement à $U, V \sim \mathcal{N}\left( \frac{\sigma_2 \rho}{\sigma_1} U, \sigma_2^2(1-\rho^2)\right)$.
 
 \medskip
 
 {\em Remarque 2} : $\sigma_1^2$ est la variance de $U$, $\sigma_2^2$ celle de $V$, et $\rho$ est le coefficient de corrélation de $U$ et $V$. L'énoncé de l'exercice fournit donc une mani\ ere de fabriquer un vecteur gaussien $2$-dimensionnel et non dégénéré quelconque à partir d'un vecteur gaussien centré réduit.  
+
+:::
 
 :::
 
@@ -1325,6 +1879,10 @@ On pose $U = X -\rho Y , V = \sqrt{1-\rho^2} Y$.
 
 ::: {.content-visible when-profile="solution"}
 
+::: {.callout-note}
+
+### Solution
+
 
 1. On a  $\begin{pmatrix} U \\ V \end{pmatrix} = \begin{pmatrix} 1 & -\rho \\ 0 & \sqrt{1-\rho^2} \end{pmatrix} \begin{pmatrix} X \\ Y \end{pmatrix}$, avec $\begin{pmatrix} X \\ Y \end{pmatrix} \sim \mathcal{N}\left(\begin{pmatrix} 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 1 & \rho \\ \rho & 1\end{pmatrix} \right)$. Or 
  $\begin{pmatrix} 1 & -\rho \\ 0 & \sqrt{1-\rho^2} \end{pmatrix} \begin{pmatrix} 1 & \rho \\ \rho & 1\end{pmatrix}   \begin{pmatrix} 1 & 0 \\ - \rho & \sqrt{1-\rho^2} \end{pmatrix} = \begin{pmatrix} \sigma_1^2 & \sigma_1 \sigma_2 \rho \\ \sigma_1 \sigma_2 \rho & \sigma_2^2 \end{pmatrix}$, on déduit donc que $\begin{pmatrix} U \\ V \end{pmatrix}  \sim \mathcal{N}\left( \begin{pmatrix} 0 \\ 0 \end{pmatrix},  \begin{pmatrix} 1-\rho^2 & 0 \\ 0 & 1-\rho^2 \end{pmatrix}\right),$
@@ -1334,14 +1892,22 @@ autrement dit $U$ et $V$ sont i.i.d de loi $\mathcal{N}(0,1-\rho^2)$.
 1. On déduit 
 $$\mathbb{E}[U^2V^2] = (1-\rho^2)^2, \quad \mathbb{E}[UV^3] = 0, \quad \mathbb{E}[V^4] = 3(1-\rho^2).$$
 On a donc ($V$ et $Y$ ne diffèrent que par une constante multiplicative donc $U$ est indépendant de $Y$
-$$ \mathbb{E}[X^2 Y^2] = \mathbb{E}[(U+\rho Y)^2 Y^2] = \mathbb{E}[U^2] \mathbb{E}[Y^2] + 2 \rho \mathbb{E}[U] \mathbb{E}[Y^3] + \rho^2 \mathbb{E}[Y^4] = (1-\rho^2) +3\rho^2 = 1+2\rho^2.$$
+$$\mathbb{E}[X^2 Y^2] = \mathbb{E}[(U+\rho Y)^2 Y^2] = \mathbb{E}[U^2] \mathbb{E}[Y^2] + 2 \rho \mathbb{E}[U] \mathbb{E}[Y^3] + \rho^2 \mathbb{E}[Y^4] = (1-\rho^2) +3\rho^2 = 1+2\rho^2.$$
+
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
 
 
 1. On a vu que $U=X-\rho Y$ est indépendant de $Y$ (et suit une $\mathcal{N}(0,1-\rho^2)$, donc sachant $Y$, $X \sim \mathcal{N}(\rho Y, 1-\rho^2)$. 
 En particulier $\mathbb{E}[X^2 \mid Y] =  \mathbb{E}[X \mid Y]^2 + \mathrm{Var}[X \mid Y] = \rho^2 Y^2 + 1-\rho^2.$
 On a donc 
-$$ \mathbb{E}[X^2 Y^2] = \mathbb{E}[\mathbb{E}[X^2 Y^2 \mid Y]] = \mathbb{E}[\rho^2 Y^4 + (1-\rho^2)Y^2] = 3 \rho^2 + (1-\rho^2) = 1+2\rho^2.$$
+$$\mathbb{E}[X^2 Y^2] = \mathbb{E}[\mathbb{E}[X^2 Y^2 \mid Y]] = \mathbb{E}[\rho^2 Y^4 + (1-\rho^2)Y^2] = 3 \rho^2 + (1-\rho^2) = 1+2\rho^2.$$
 
+
+:::
 
  
 
@@ -1370,7 +1936,9 @@ $$Z =\frac{U + VW}{\sqrt{1+W^2}}.$$
 
 ::: {.content-visible when-profile="solution"}
 
+::: {.callout-note}
 
+### Solution
 
 1. Pour $\alpha \in \mathbb{R}$, la loi de $\frac{U+ \alpha V}{\sqrt{1+\alpha^2}}$ est gaussienne, centrée, et de variance 
 $$ \frac{\mathrm{Var}(U) + 2\alpha \mathrm{Cov}(U,V) + \alpha^2 \mathrm{Var}(V)}{1+\alpha^2} = 1.$$ 
@@ -1379,20 +1947,34 @@ On déduit que sachant $W$, $Z \sim \mathcal{N}(0,1)$
 1. La loi conditionnelle de $Z$ sachant $W$ ne dépend pas de $W$ (et c'est sa loi), on déduit que $Z$ et $W$ sont indépendantes. 
 La loi de $Z$ est $\mathcal{N}(0,1)$. 
 
-\medskip
+:::
 
-{\em Raisonnement alternatif} : 
+::: {.callout-note}
+
+### Solution (suite)
+
+*Raisonnement alternatif* :
+
 Par hypothèse, $(U,V,W)$ possède la densité jointe 
-$$ f(u,v,w) = \frac{1}{(2\pi)^{3/2}} \exp\left(-\frac{1}{2}(u^2+v^2+w^2) \right), \quad (u,v,w) \in \mathbb{R}^3.$$ 
-Calculons la densité de $(W,Z)$. Soit $\phi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne. On va utiliser le changement de variables $\Psi : \begin{cases} & \mathbb{R}^3 \to \mathbb{R}^3 \\  & (u,v,w) \to (z,s,t) \end{cases}$ avec $ z=\frac{u+vw}{\sqrt{1+w^2}}, s=v, t=w$. Il s'agit bien d'un $\mathcal{C}^1$-difféomorphisme, d'inverse  
+
+$$f(u,v,w) = \frac{1}{(2\pi)^{3/2}} \exp\left(-\frac{1}{2}(u^2+v^2+w^2) \right), \quad (u,v,w) \in \mathbb{R}^3.$$ 
+
+Calculons la densité de $(W,Z)$. Soit $\phi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne. On va utiliser le changement de variables $\Psi : \begin{cases} & \mathbb{R}^3 \to \mathbb{R}^3 \\  & (u,v,w) \to (z,s,t) \end{cases}$ avec $z=\frac{u+vw}{\sqrt{1+w^2}}, s=v, t=w$. Il s'agit bien d'un $\mathcal{C}^1$-difféomorphisme, d'inverse  
 $u=z\sqrt{1+t^2}-  st, v=s, w=t$ et de jacobien inverse $\sqrt{1+t^2}$ 
-$$mathbb{E}[\phi(W,Z)] & = &  \frac{1}{(2\pi)^{3/2}}\int_{\mathbb{R}^3}\phi\left(w,\frac{u+vw}{\sqrt{1+w^2}}\right) \exp\left(-\frac{1}{2}(u^2+v^2+w^2) \right) du dv dw \\ 
-& = & \frac{1}{(2\pi)^{3/2}}\int_{\mathbb{R}^3}  \phi(t,z)  \sqrt{1+t^2} \exp\left(-\frac{1}{2} \left(z^2(1+s^2) + s^2 t^2 -2z t s \sqrt{1+t^2}+ s^2 + t^2\right)\right) ds dt dz 
-\\ & =& \int_{\mathbb{R}^2} \frac{1}{(2\pi)} \exp\left( -\frac{1}{2} (z^2+t^2)\right) dt dz \int_{\mathbb{R}}\frac{\sqrt{1+t^2}}{\sqrt{2\pi}} \exp\left( -\frac{1}{2} (s\sqrt{1+t^2} -zt)^2\right) ds $$ 
+
+\begin{align*}
+\mathbb{E}[\phi(W,Z)] & =   \frac{1}{(2\pi)^{3/2}}\int_{\mathbb{R}^3}\phi\left(w,\frac{u+vw}{\sqrt{1+w^2}}\right) \exp\left(-\frac{1}{2}(u^2+v^2+w^2) \right) du dv dw \\ 
+& =  \frac{1}{(2\pi)^{3/2}}\int_{\mathbb{R}^3}  \phi(t,z)  \sqrt{1+t^2} \exp\left(-\frac{1}{2} \left(z^2(1+s^2) + s^2 t^2 -2z t s \sqrt{1+t^2}+ s^2 + t^2\right)\right) ds dt dz 
+\\ & = \int_{\mathbb{R}^2} \frac{1}{(2\pi)} \exp\left( -\frac{1}{2} (z^2+t^2)\right) dt dz \int_{\mathbb{R}}\frac{\sqrt{1+t^2}}{\sqrt{2\pi}} \exp\left( -\frac{1}{2} (s\sqrt{1+t^2} -zt)^2\right) ds 
+\end{align*}
+
 Comme $\int_{\mathbb{R}}\frac{\sqrt{1+t^2}}{\sqrt{2\pi}} \exp\left( -\frac{1}{2} (s\sqrt{1+t^2} -zt)^2\right) ds = 1$ (on reconna\^\i t l'intégrale sur $\mathbb{R}$ de la densité d'une $\mathcal{N}(\frac{zt}{\sqrt{1+t^2}}, \frac{1}{\sqrt{1+t^2}})$, on obtient 
-   $$mathbb{E}[\phi(W,Z)]  = \int_{\mathbb{R}^2} \frac{1}{(2\pi)} \exp\left( -\frac{1}{2} (s^2+t^2)\right) $$ 
+
+$$\mathbb{E}[\phi(W,Z)]  = \int_{\mathbb{R}^2} \frac{1}{(2\pi)} \exp\left( -\frac{1}{2} (s^2+t^2)\right)$$
+
 et on conclut que $(W,Z)$ est un vecteur gaussien bi-dimensionnel, centré réduit, et on retrouve les résultats précédents.
 
+:::
 
 :::
 
@@ -1416,30 +1998,50 @@ $\mathbb{E}[\max(X_1,X_2) \mid X_1]$.
 
 ::: {.content-visible when-profile="solution"}
  
+::: {.callout-note}
 
+### Solution
 
 1. $X_2 \sim \exp(\lambda_2)$ et possède donc la propriété d'absence de mémoire. 
-Pour $a>0$ est fixé on a donc  
-$$& X_2 \begin{cases} & \le a \mbox{ avec probabilité } 1- \exp(-\lambda_2 a) \\ 
-& = a + \mathbf{e}_2 \mbox{ avec probabilité } \exp(-\lambda_2 a) \end{cases}, \quad \mbox{ et donc } \\ 
-&& \max(X_2,a) = \begin{cases} &   a \mbox{ avec probabilité } 1- \exp(-\lambda_2 a) \\ 
-&  a + \mathbf{e}_2 \mbox{ avec probabilité } \exp(-\lambda_2 a) \end{cases}.$$  
+Pour $a>0$  fixé on a donc 
+
+<!-- \begin{align*}
+X_2 & = \begin{cases} & \le a & \text{ avec probabilité } 1- \exp(-\lambda_2 a) \\ 
+ a + \mathbf{e}_2 & \text{ avec probabilité } \exp(-\lambda_2 a) \end{cases}, \quad \text{ et donc } \\ 
+ \max(X_2,a) & = 
+ \begin{cases}   a & \mbox{ avec probabilité } 1- \exp(-\lambda_2 a) \\ 
+a + \mathbf{e}_2 & \mbox{ avec probabilité } \exp(-\lambda_2 a) \end{cases}.
+\end{align*}   -->
+
 On en déduit que 
-$$  \mathbb{E}[X_1 \mathbb{I}_{\{X_1 \ge X_2\}} \mid X_1] = X_1 (1-\exp(-\lambda_2 X_1)), \quad \mathbb{E}[X_2 \mathbb{I}_{\{X_2 \ge X_1\}} \mid X_1] = \left(X_1+\frac{1}{\lambda_2}\right) \exp(-\lambda_2 X_1),$$ 
+
+$$\mathbb{E}[X_1 \mathbb{I}_{\{X_1 \ge X_2\}} \mid X_1] = X_1 (1-\exp(-\lambda_2 X_1)), \quad \mathbb{E}[X_2 \mathbb{I}_{\{X_2 \ge X_1\}} \mid X_1] = \left(X_1+\frac{1}{\lambda_2}\right) \exp(-\lambda_2 X_1),$$ 
+
 et donc 
+
 $$\mathbb{E}[\max(X_1,X_2) \mid X_1] = X_1 + \frac{1}{\lambda_2} \exp(-\lambda_2 X_1)$$
  
 1. On a pour $t \ge 0$, 
-$ \mathbb{E}[\exp(-t X_1)] = \frac{\lambda_1}{\lambda_1+t}$ et donc 
-$$ \mathbb{E}[\max(X_1,X_2)] = \mathbb{E}[\mathbb{E}[\max(X_1,X_2) \mid X_1]] = \frac{1}{\lambda_1} + \frac{1}{\lambda_2} \frac{\lambda_1}{\lambda_1+\lambda_2} = \frac{\lambda_1^2 + \lambda_1\lambda_2 + \lambda_2^2}{\lambda_1\lambda_2(\lambda_1+\lambda_2)}.$$
+$\mathbb{E}[\exp(-t X_1)] = \frac{\lambda_1}{\lambda_1+t}$ et donc 
 
-{\em Remarque, vérification} : Soit $Y = \max(X_1,X_2)$, on a $F_Y(t) = F_{X_1}(t)F_{X_2}(t) = (1-\exp(-\lambda_1 t)) (1-\exp(-\lambda_1 t))  \mathbb{I}_{\{t \ge 0\}}$. 
-On déduit 
-$$_Y(t) & = & \left( \lambda_1 \exp(-\lambda_1 t) (1-\exp(-\lambda_2 t)) + \lambda_2 \exp(-\lambda_2 t) (1-\exp(-\lambda_1 t)) \right) \mathbb{I}_{\{t \ge 0\}} 
-\\ & = & \left(\lambda_1 \exp(-\lambda_1 t) + \lambda_2 \exp(-\lambda_2 t) - (\lambda_1+\lambda_2) \exp(-(\lambda_1+\lambda_2)t) \right) \mathbb{I}_{\{t \ge 0\}}.$$ 
+$$\mathbb{E}[\max(X_1,X_2)] = \mathbb{E}[\mathbb{E}[\max(X_1,X_2) \mid X_1]] = \frac{1}{\lambda_1} + \frac{1}{\lambda_2} \frac{\lambda_1}{\lambda_1+\lambda_2} = \frac{\lambda_1^2 + \lambda_1\lambda_2 + \lambda_2^2}{\lambda_1\lambda_2(\lambda_1+\lambda_2)}.$$
+
+Remarque, vérification : Soit $Y = \max(X_1,X_2)$, on a $F_Y(t) = F_{X_1}(t)F_{X_2}(t) = (1-\exp(-\lambda_1 t)) (1-\exp(-\lambda_1 t))  \mathbb{I}_{\{t \ge 0\}}$. 
+On déduit
+
+\begin{align*}
+f_Y(t) & =  \left( \lambda_1 \exp(-\lambda_1 t) (1-\exp(-\lambda_2 t)) + \lambda_2 \exp(-\lambda_2 t) (1-\exp(-\lambda_1 t)) \right) \mathbb{I}_{\{t \ge 0\}} 
+\\ & =  \left(\lambda_1 \exp(-\lambda_1 t) + \lambda_2 \exp(-\lambda_2 t) - (\lambda_1+\lambda_2) \exp(-(\lambda_1+\lambda_2)t) \right) \mathbb{I}_{\{t \ge 0\}}.
+\end{align*}
+
 On calcule alors facilement  
+
 $$\mathbb{E}[Y] = \int_{\mathbb{R}} t f_Y(t) dt = \frac{1}{\lambda_1} + \frac{1}{\lambda_2}- \frac{1}{\lambda_1+\lambda_2},$$
+
 et on retrouve le résultat précédent. 
+
+:::
+
 :::
 
 ### Exercice `r cnt_exo`
@@ -1469,22 +2071,41 @@ conditionnelle de $Z$ sachant $X$?
 ::: {.content-visible when-profile="solution"}
 
 
+::: {.callout-note}
+
+### Solution
 
 1. Comme $h(x)$ ne dépend pas de $y$, on a pour $x \in \mathbb{R}$, 
-$$ \int_{\mathbb{R}} f(x,y) dy = x h(x) \mathbb{I}_{\{x >0\}} = \frac{x^a}{\Gamma(a+1)} \exp(-x) \mathbb{I}_{\{x >0\}},$$
+$$\int_{\mathbb{R}} f(x,y) dy = x h(x) \mathbb{I}_{\{x >0\}} = \frac{x^a}{\Gamma(a+1)} \exp(-x) \mathbb{I}_{\{x >0\}},$$
 et on reconna\^\i t là la densité d'une variable $\Gamma(a,1)$. On a donc 
-$$ \int_{\mathbb{R}^2} f(x,y) dx dy = \int_{\mathbb{R}_+}  \frac{x^a}{\Gamma(a+1)} \exp(-x) dx = 1.$$
+$$\int_{\mathbb{R}^2} f(x,y) dx dy = \int_{\mathbb{R}_+}  \frac{x^a}{\Gamma(a+1)} \exp(-x) dx = 1.$$
 
 1. Notons $T = \frac{Y}{X}$, on a pour $\phi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne, en utilisant le changement de variables $\Psi : \begin{cases} & D \to \mathbb{R}_+^* \times (0,1) \\ & (x,y) \to \left(x, t=\frac{y}{x}\right)\end{cases}$ de jacobien inverse $x$,   
-$$mathbb{E}[\phi(X,T)] & = & \int_{\mathbb{R}^2} \phi(x,\frac{y}{x})  \frac{x^{a-1}}{\Gamma(a+1)} \exp(-x) \mathbb{I}_{\{0<y<x\}}dx dy \\ 
-& = & \int_{\mathbb{R}^2} \phi(x,t)  \frac{x^{a-1}}{\Gamma(a+1)} \exp(-x) \mathbb{I}_{\{x >0\}} \mathbb{I}_{(0,1)}(t) dx dz $$ 
+
+\begin{align*}
+\mathbb{E}[\phi(X,T)] & =  \int_{\mathbb{R}^2} \phi(x,\frac{y}{x})  \frac{x^{a-1}}{\Gamma(a+1)} \exp(-x) \mathbb{I}_{\{0<y<x\}}dx dy \\ 
+& =  \int_{\mathbb{R}^2} \phi(x,t)  \frac{x^{a-1}}{\Gamma(a+1)} \exp(-x) \mathbb{I}_{\{x >0\}} \mathbb{I}_{(0,1)}(t) dx dz
+\end{align*}
+
 et on conclut que $X$ et $T$ sont indépendantes, de lois respectives $\Gamma(a,1)$, $\mathrm{Unif}[0,1]$. 
+
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
+
 1. D'après ce qui précède, $Y = TX$, avec $T$ indépendante de $X$, 
 $\sim \mathrm{Unif}[0,1]$. 
 Remarquons que si $a>0$, $aT \sim \mathrm{Unif}[0,a]$. On déduit que sachant $X$, la loi conditionnelle de $Y$ est $\mathrm{Unif}[0,X]$. 
 1. On a en utilisant que $\mathbb{E}[XS \mid X] = X \mathbb{E}[S \mid X]$, puis l'indépendance de $X,U,Z$,  
-$$\mathbb{E}[Z \mid X] & = & \mathbb{E}[UX \mid X] + \mathbb{E}[(1-U)TX \mid X]\\
-& = & X \mathbb{E}[U] + X \mathbb{E}[T(1-U)] = X \mathbb{E}[U] + X \mathbb{E}[T]\mathbb{E}[1-U] = \frac{3}{4} X.$$ 
+
+\begin{align*}
+\mathbb{E}[Z \mid X] & =  \mathbb{E}[UX \mid X] + \mathbb{E}[(1-U)TX \mid X]\\
+& =  X \mathbb{E}[U] + X \mathbb{E}[T(1-U)] = X \mathbb{E}[U] + X \mathbb{E}[T]\mathbb{E}[1-U] = \frac{3}{4} X.
+\end{align*} 
+
+:::
 
 :::
 
@@ -1511,41 +2132,68 @@ $M := \min \{n \ge 1 : X_0 \ge X_1 \ge ... \ge X_{n-1} <X_n \}.$
 ::: {.content-visible when-profile="solution"}
 
 
+::: {.callout-note}
+
+### Solution
 
 1. Puisque les $(X_i, i \ge 1)$ sont à densité elles sont p.s. toutes distinctes, et puisqu'elles sont i.i.d elles sont échangeables. 
 Autrement dit, pour tout $n \in \mathbb{N}^*$, pour tout $\sigma_n$ permutation de $\{0,\dots,n\}$, $(X_0,...,X_n)$ a même loi que $(X_{\sigma_n(0)},\dots,X_{\sigma_n(n)})$. 
 
 Il s'ensuit que pour tout $n \in \mathbb{N}^*$ l'application $\tau_{n-1} : \{0,...,n-1\} \to \{0,...,n-1\}$ telle que 
 $ X_{\tau_{n-1}(0)} > X_{\tau_{n-1}(1)} > \dots > X_{\tau_{n-1}(n-1)}$ est uniforme dans les permutations de $\{0, \dots,n-1\}$. En particulier, 
-$$&  \mathbb{P}(\max(X_0,...,X_{n-1}) = X_0)  =   \mathbb{P}(\tau_n(0) =0 ) = \frac{1}{n}, \\
-   \mathbb{P}(N=n) & = &  \mathbb{P}(\max(X_0,...,X_{n-1}) = X_0, \max(X_0,...,X_n)=X_n) \\ &= &  \mathbb{P}(\tau_{n+1}(0) = n, \tau_{n+1}(1)=0) =  \frac{1}{n(n+1)}. $$
+
+$$
+\mathbb{P}(\max(X_0,...,X_{n-1}) = X_0)   =   \mathbb{P}(\tau_n(0) =0 ) = \frac{1}{n}
+$$
+
+\begin{align*}
+\mathbb{P}(N=n) 
+    & =   \mathbb{P}(\max(X_0,...,X_{n-1}) = X_0, \max(X_0,...,X_n)=X_n) \\ 
+    &=  \mathbb{P}(\tau_{n+1}(0) = n, \tau_{n+1}(1)=0) \\
+    & =  \frac{1}{n(n+1)}. 
+\end{align*}
 
 Par ailleurs, le maximum de $(n+1)$ telles variables i.i.d a pour fonction de répartition $F^{n+1}$. Or, sachant $\{N=n\}$, $X_N$ réalise ce maximum, on a donc 
 $$\mathbb{P}(X_N < a \mid N=n)  = F(a)^{n+1} $$  
 Il découle que 
-$$  \mathbb{P}(X_N < a) = \sum_{n \in \mathbb{N}^*}  \mathbb{P}(N=n)  \mathbb{P}(X_N < a \mid N=n) = \sum_{n \in \mathbb{N}^*} \frac{F(a)^{n+1}}{n(n+1)}.$$
+
+$$\mathbb{P}(X_N < a) = \sum_{n \in \mathbb{N}^*}  \mathbb{P}(N=n)  \mathbb{P}(X_N < a \mid N=n) = \sum_{n \in \mathbb{N}^*} \frac{F(a)^{n+1}}{n(n+1)}.$$
+
 Or si $y < 1$,  
-$$ y + (1-y) \log(1-y) = y -(1-y)\sum_{ n \ge 1} \frac{y^n}{n} = y -\sum_{n \ge 1} \frac{y^n}{n}  + \sum_{n \ge 1} \frac{y^{n+1}}{n} = \sum_{n \ge 1} \frac{y^{n+1}}{n(n+1)},$$
+
+$$y + (1-y) \log(1-y) = y -(1-y)\sum_{ n \ge 1} \frac{y^n}{n} = y -\sum_{n \ge 1} \frac{y^n}{n}  + \sum_{n \ge 1} \frac{y^{n+1}}{n} = \sum_{n \ge 1} \frac{y^{n+1}}{n(n+1)},$$
+
 et on vérifie que l'égalité reste vraie si $y=1$. 
 On conclut, comme souhaité, que 
-$$ \sum_{n \in \mathbb{N}^*} \frac{F(a)^{n+1}}{n(n+1)} = F(a) + (1-F(a)) \log(1-F(a)).$$
+
+$$\sum_{n \in \mathbb{N}^*} \frac{F(a)^{n+1}}{n(n+1)} = F(a) + (1-F(a)) \log(1-F(a)).$$
+
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
+
 
 1. On a 
-$$ \mathbb{P}(M=m) =  \mathbb{P}(\tau_m = Id, \tau_{m+1} \ne Id) =  \mathbb{P}(\tau_m = Id)- \mathbb{P}(\tau_{m+1}=Id) = \frac{1}{m!}- \frac{1}{(m+1)!} = \frac{m}{(m+1)!}$$
+$$\mathbb{P}(M=m) =  \mathbb{P}(\tau_m = Id, \tau_{m+1} \ne Id) =  \mathbb{P}(\tau_m = Id)- \mathbb{P}(\tau_{m+1}=Id) = \frac{1}{m!}- \frac{1}{(m+1)!} = \frac{m}{(m+1)!}$$
 
 
 1. On a $\{R^x>n\} = \{X_1+\dots+X_n < x\} = \{X_1+\dots +X_{n-1} < x-X_n\} = \{X_n <x, R^{x-X_n}>n-1\}$.
 On déduit que sachant $X_n$, 
-$$R^x \begin{cases} & \le n \mbox{ si } X_n \ge x \mbox{ ou si } X_1+\dots + X_{n-1} \ge x-X_n \\ 
-    &  < n \mbox{ si } X_n <x, \mbox{ et } R^{x-X_n} > n-1 \end{cases}.$$
+
+$$R^x \begin{cases} & \le n \mbox{ si } X_n \ge x \mbox{ ou si } X_1+\dots + X_{n-1} \ge x-X_n \\     &  < n \mbox{ si } X_n <x, \mbox{ et } R^{x-X_n} > n-1 \end{cases}.$$
+
 ce qui conduit à l'égalité souhaitée gr\^ace à EF5.
 
 On a donc 
+
 $$ H_n(x) = \mathbb{E}[\Phi(X_n)] = \int_0^1  \Phi(u) du =\int_0^x H_{n-1}(x-u) du = \int_0^x H_{n-1}(v) dv$$
+
 et donc $H_n$ est la primitive de $H_{n-1}$ nulle en $0$. 
 Comme $H_1(x) =  \mathbb{P}(X_1 \le x) = x$, on conclut que $H_n(x) = \frac{x^n}{n!}$ 
  
-
+:::
 
 :::
  
@@ -1570,30 +2218,48 @@ Soient $X$ et $Y$ deux v.a.r. indépendantes de loi uniforme sur $[0, 1]$.
 
 ::: {.content-visible when-profile="solution"}
  
+::: {.callout-note}
 
+### Solution
 
 1. Comme $(X,Y)$ est uniforme sur $[0,1]^2$, si $a \in [0,1]$, on a  
-$$mathbb{E}[(Y-X)^+ \mathbb{I}_{\{X \le a\}}] & = & \int_0^a \int_0^1 (y-x)^+ dx dy \\ 
-& = & \int_0^a \left(\int_x^1 (y-x) dy\right) dx = \frac{1-(1-a)^3}{6} $$ 
+
+\begin{align*}
+\mathbb{E}[(Y-X)^+ \mathbb{I}_{\{X \le a\}}] & =  \int_0^a \int_0^1 (y-x)^+ dx dy \\ 
+& =  \int_0^a \left(\int_x^1 (y-x) dy\right) dx \\
+& = \frac{1-(1-a)^3}{6} 
+\end{align*}
+
 On cherche donc $\mathbb{E}[(Y-X)^+ \mid X]$ sous la forme $f(X)$ avec une fonction $f$ telle que 
-$$ \mathbb{E}[f(X) \mathbb{I}_{\{X \le a\}}] = \int_0^a f(u) du = \frac{1-(1-a)^3}{6},$$
+
+$$\mathbb{E}[f(X) \mathbb{I}_{\{X \le a\}}] = \int_0^a f(u) du = \frac{1-(1-a)^3}{6},$$
+
 et donc $f(u) = \frac{(1-u)^2}{2}$, ce qui permet de conclure que 
-$$ \mathbb{E}[(Y-X)^+ \mid X] = \frac{(1-X)^2}{2}.$$ 
+
+$$\mathbb{E}[(Y-X)^+ \mid X] = \frac{(1-X)^2}{2}.$$ 
 
 1. Pour $a \in [0,1]$, $(Y-a)^+ = 0 \mathbb{I}_{\{Y \le a\}} + (Y-a) \mathbb{I}_{\{Y > a\}}$. 
 De plus, sachant $\{Y>a\}$, la loi conditionnelle de $Y-a$ est uniforme sur $[0,1-a]$. 
 Autrement dit, 
+
 $$(Y-a)^+ =  \xi Z$$
+
 où $\xi \sim \mathrm{Ber}(1-a)$ indépendante de $Z \sim \mathrm{Unif}[0,1-a]$, et si $\phi: \mathbb{R} \to \mathbb{R}_+$ est borélienne, on a 
-$$ \mathbb{E}[\phi(Y-a)^+] = a \phi(0) + \int_0^{1-a} \phi(u) du.$$ 
+
+$$\mathbb{E}[\phi(Y-a)^+] = a \phi(0) + \int_0^{1-a} \phi(u) du.$$ 
 
 
 Conditionnellement \ a $X$, définissons $\xi_X \sim \mathrm{Ber}(1-X)$, indépendamment de $Z_X \sim \mathrm{Unif}[0,1-X]$ . 
 Alors d'après ce qui précède, 
+
 $$\mathbb{E}[\phi(Y-X)^+ \mid X] = X \phi(0) + \int_0^{1-X} \phi(u) du.$$ 
+
 Autrement dit, sachant $X$, 
-$$ (Y-X)^+ = \xi_X Z_X.$$  
+
+$$(Y-X)^+ = \xi_X Z_X.$$  
   
+:::
+
 :::
 
 ### Exercice `r cnt_exo`
@@ -1617,15 +2283,22 @@ En déduire $\mathbb{E}(W \mid U)$.
 
 ::: {.content-visible when-profile="solution"}
 
+::: {.callout-note}
 
+### Solution
 
 1. On a 
-$$ \begin{pmatrix} U \\ V \\ W \end{pmatrix} = \begin{pmatrix} 2 & -1 & -1 \\ 1 & 1 & 1 \\ 3 & 1 & -4 \end{pmatrix} \begin{pmatrix} X_1 \\ X_2 \\ X_3 \end{pmatrix}, \mbox{ et }  \begin{pmatrix} 2 & -1 & -1 \\ 1 & 1 & 1 \\ 3 & 1 & -4 \end{pmatrix}  \begin{pmatrix} 2 & -1 & -1 \\ 1 & 1 & 1 \\ 3 & 1 & -4 \end{pmatrix}^T = \begin{pmatrix} 6 & 0 & 9 \\ 0 & 3 & 0 \\ 9 & 0 & 26 \end{pmatrix},  $$
+
+$$\begin{pmatrix} U \\ V \\ W \end{pmatrix} = \begin{pmatrix} 2 & -1 & -1 \\ 1 & 1 & 1 \\ 3 & 1 & -4 \end{pmatrix} \begin{pmatrix} X_1 \\ X_2 \\ X_3 \end{pmatrix}, \mbox{ et }  \begin{pmatrix} 2 & -1 & -1 \\ 1 & 1 & 1 \\ 3 & 1 & -4 \end{pmatrix}  \begin{pmatrix} 2 & -1 & -1 \\ 1 & 1 & 1 \\ 3 & 1 & -4 \end{pmatrix}^T = \begin{pmatrix} 6 & 0 & 9 \\ 0 & 3 & 0 \\ 9 & 0 & 26 \end{pmatrix},$$
+
 de sorte que $\begin{pmatrix} U \\ V \\ W \end{pmatrix} \sim \mathcal{N}\left(\begin{pmatrix} 0 \\ 0 \\0 \end{pmatrix}, \begin{pmatrix} 6 & 0 & 9 \\ 0 & 3 & 0 \\ 9 & 0 & 26 \end{pmatrix} \right)$. 
+
 En particulier $U$ et $V$ sont indépendants, tout comme $V$ et $W$, en revanche $U$ et $W$ ne le sont pas. 
 
 1. Pour que $W-aU$ soit indépendant de $U$ il faut et il suffit que $\mathrm{Cov}(W-aU, U) = 9-6a = 0$ et il faut donc choisir $a=\frac{3}{2}$. 
 On peut en déduire que sachant $U$, la loi conditionnelle de $W$ est $\mathcal{N}(\frac{3}{2}U, \frac{25}{2})$, et en particuler que $\mathbb{E}[W \mid U]= \frac{3}{2}U$.  
+
+:::
 
 :::
 
@@ -1649,6 +2322,9 @@ pose $Z = X + Y$ , $W = X - Y$.
 
 ::: {.content-visible when-profile="solution"}
 
+::: {.callout-note}
+
+### Solution
 
 1. On a ici 
 $$  \begin{pmatrix} Z \\ W \end{pmatrix} = \begin{pmatrix} 1 & 1  \\ 1 & -1  \end{pmatrix} \begin{pmatrix} U \\ V  \end{pmatrix}, \mbox{ et }  \begin{pmatrix} 1 & 1  \\ 1 & -1    \end{pmatrix}\begin{pmatrix} 1 & 1  \\ 1 & -1    \end{pmatrix} = \begin{pmatrix}2 & 0 \\ 0 &2 \end{pmatrix},$$
@@ -1658,13 +2334,17 @@ En particulier $Z$ et $W$ sont indépendantes et $W \sim \mathcal{N}(0,2)$.
 1. On a $X = \frac{Z+W}{2}$ et donc d'apr\ es ce qui précède, sachant $Z$, la loi condiitonnelle de $X$ est $\mathcal{N}\left(\frac{1}{2}Z, \frac{1}{2}\right)$, et 
 en particulier $\mathbb{E}[X \mid Z] = \frac{1}{2}Z$. 
 1. On a d'après ce qui précède, et les propriétés de l'espérance conditionnelle 
-$$mathbb{E}[XY \mid Z] & = & \mathbb{E}[\frac{Z+W}{2} \frac{Z-W}{2} \mid Z] \\ & = & \frac{Z^2}{4} - \frac{Z \mathbb{E}[W]}{2} + \frac{\mathbb{E}[W^2]}{4} \\ 
-& = & \frac{Z^2}{4} + \frac{1}{2}.$$ 
+
+\begin{align*}
+\mathbb{E}[XY \mid Z] & =  \mathbb{E}[\frac{Z+W}{2} \frac{Z-W}{2} \mid Z] \\ & =  \frac{Z^2}{4} - \frac{Z \mathbb{E}[W]}{2} + \frac{\mathbb{E}[W^2]}{4} \\ 
+& =  \frac{Z^2}{4} + \frac{1}{2}.
+\end{align*} 
 
 On déduit que 
-$$ \mathbb{E}[XYZ \mid Z] = Z \mathbb{E}[XY \mid Z] = \frac{Z^3}{4} + \frac{Z}{2}.$$ 
+$$\mathbb{E}[XYZ \mid Z] = Z \mathbb{E}[XY \mid Z] = \frac{Z^3}{4} + \frac{Z}{2}.$$ 
 
 
+:::
 
 :::
 
@@ -1674,4 +2354,4 @@ $$ \mathbb{E}[XYZ \mid Z] = Z \mathbb{E}[XY \mid Z] = \frac{Z^3}{4} + \frac{Z}{2
 
 
 
- 
+

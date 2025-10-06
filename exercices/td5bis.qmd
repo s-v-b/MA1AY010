@@ -1,0 +1,110 @@
+
+
+---
+#title: "Exercices : semaine V"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2025-09-06"
+
+format:
+  pdf:
+    output-file: td5.pdf
+    class: exam
+    include-in-header:
+      - text: "\\lhead{{\\sf  Probabilités \\\\ TD V}}"
+  html:
+    output-file: td5.html
+
+engine: knitr
+draft: true
+---
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+
+
+
+```{r}
+#| echo: false
+#| eval: true
+
+cnt_exo <- 1
+```
+
+
+
+::: {.callout-note}
+
+### TD IV : Caractérisations   
+
+- Octobre 2025
+
+- Master I ISIFAR
+
+- **Probabilités** 
+
+:::
+
+
+
+
+### Exercice `r cnt_exo`
+
+{{< include _increment.qmd >}}
+
+
+On définit la densité $f_a$ par $f_a(x) = \frac{a}{\pi(x^2 + a^2)}$ pour $a>0$. Si $X \sim f_a, Y \sim f_b, X \perp\!\!\!\perp Y$ quelle est la densité de la loi de $X+Y$? 
+
+*Suggestion: passez par les fonctions caractéristiques.*
+
+
+
+### Exercice `r cnt_exo`
+
+{{< include _increment.qmd >}}
+
+On considère une suite de variables aléatoires $(X_n)_{n \geq 1}$ sur $(\Omega,\mathcal{A},\mathbb{P})$ de loi $\mathbb{P}(X_1=1)=1/2=1-\mathbb{P}(X_1=-1)$.
+On se donne un entier $x$ entre $0$ et $n$ et on pose $S_n=x+\sum_{k=1}^n X_k$, et $\tau_x=\inf\{t \geq 0, S_t=0 \text{ ou } S_t=n\}$. Le but de l'exercice est de calculer $u_x=\mathbb{E}(\tau_x)$.
+
+- Calculer $u_0$ et $u_n$.
+- Écrire une équation reliant $u_k$, $u_{k+1}$ et $u_{k-1}$.
+- Poser $v_k=u_k-u_{k-1}$ et en déduire $u_k$, puis $\max_{k \in [0,n]} u_k$.
+- Ecrire un *programme* permettant de simuler des réalisations aléatoires de $\tau_x$.
+- Estimer *numériquement* les $u_k$ à partir des simulations de la question précédente. 
+- Représenter graphiquement les estimations de $u_k$ en fonction de $k$.
+
+
+### Exercice `r cnt_exo` (Théorème d'approximation de Weierstrass)
+
+{{< include _increment.qmd >}}
+
+Soit $f : [0, 1] → \mathbb{R}$ une fonction continue.
+
+Soit  $S_n$  une variable aléatoire distribuée selon une loi binomiale de paramètres $n$ et $x \in (0,1)$. 
+
+Montrer que : 
+
+$$
+\lim_n \sup_{0\leq x \leq 1} \left| f(x) - \sum_{k=0}^n \binom{n}{k} x^k  (1-x)^{n-k} f\left(\frac{k}{n}\right)\right| = 0 
+$$
+
+*Suggestion:* Utiliser 
+$$
+\mathbb{E}(Z) = \mathbb{E}(Z \mathbb{I}_A ) + \mathbb{E}(Z \mathbb{I}_{A^c} )
+$$ 
+avec $Z = f (x) − f (S_n/n )$
+et 
+$$
+A = \{|S_n/n − x| > δ\}, 
+$$
+
+Le théorème d'approximation de Weierstrass s'énonce:  toute fonction continue sur $[0, 1]$ peut être approchée uniformément par des polynômes.
