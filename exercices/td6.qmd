@@ -6,12 +6,12 @@
 
 format:
   pdf:
-    output-file: td6.pdf
+    output-file: td6bis.pdf
     class: exam
     include-in-header:
-      - text: "\\lhead{{\\sf  Probabilités \\\\ TD VI}}"
+      - text: "\\lhead{{\\sf  Probabilités \\\\ TD VI bis}}"
   html:
-    output-file: td6.html
+    output-file: td6bis.html
 
 engine: knitr
 draft: true
@@ -42,9 +42,9 @@ cnt_exo <- 1
 
 ::: {.callout-note}
 
-### TD VI : Gaussiennes   
+### TD VII : Gaussiennes   
 
-- 13 Octobre 2025-17 octobre 2025
+- 20 Octobre 2025-24 octobre 2025
 
 - Master I ISIFAR
 

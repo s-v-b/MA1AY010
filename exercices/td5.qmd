@@ -1,17 +1,17 @@
 ---
-#title: "Exercices : semaine IV"
+#title: "Exercices : semaine V"
 # subtitle: "M1 ISIFAR MA1AY010"
 
 # date: "2025-09-08"
 
 format:
   pdf:
-    output-file: td5.pdf
+    output-file: td6.pdf
     class: exam
     include-in-header:
-      - text: "\\lhead{{\\sf  Probabilités \\\\ TD V}}"
+      - text: "\\lhead{{\\sf  Probabilités \\\\ TD VI}}"
   html:
-    output-file: td5.html
+    output-file: td6.html
 
 engine: knitr
 draft: true
@@ -44,7 +44,7 @@ cnt_exo <- 1
 
 ### TD V : Convergences   
 
-- 6 Octobre 2025-10 octobre 2025
+- 13 Octobre 2025-17 octobre 2025
 
 - Master I ISIFAR
 

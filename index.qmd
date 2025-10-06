@@ -22,9 +22,9 @@ Cette page résume le déroulement du semestre
 |  [4](/weeks/week-4.html)  | 29 Sep  |  Caractérisations       |            |         |                                                                                                             [TD4](/exercices/td4.qmd)     |                   |
 |   | 30 Sep  |  Caractérisations              |            |         |                                                                       [Corrections TD1](/corriges/td1.html)                                          |                   |
 |   | 2 Oct  |     Caractérisations    |            |         |  [Corrections TD3](/corriges/td3.html)  | |
-|  [5](/weeks/week-5.html)  | 6 Oct   |  Convergences       |            |         |    TD 5                                                                                                             |                   |
-|   | 7  Oct  | CC 1           |            |         |                                                                                                                 |                   |
-|   | 9 Oct  |  Convergences  |            |         |   
+|  [5](/weeks/week-5.html)  | 6 Oct   |  Convergences       |            |         |    [TD 5](/exercices/td5.html)                                                                                                             |                   |
+|   | 7  Oct  | Convergences           |            |         |                                                                                                                 |                   |
+|   | 9 Oct  |  Convergences  et CC 1|            |         |   
 |  [6](/weeks/week-6.html)  | 13 Oct   |  Convergences      |            |         |                                                                                                                 |                   |
 |   | 14  Oct  |   Vecteurs gaussiens          |            |         |                                                                                                             TD 6     |                   |
 |   | 16 Oct  |  Vecteurs gaussiens  + CC 2  |            |         |

@@ -1,6 +1,6 @@
 ---
 title: "Week 5"
-subtitle: "Convernces"
+subtitle: "Convergences"
 editor: source
 draft: false
 ---
@@ -13,6 +13,9 @@ La semaine V (6- 9 octobre 2025)  est  consacrée aux modes de convergence en ca
 - Convergence presque sûre, en probabilité, en loi
 - Loi(s) des grands nombres
 - Théorème central limite
+
+**CC 1** : déplacé du mardi 7 septembre au jeudi 9 septembre (durée 1h30 de 15h à 16h30).
+
 
 :::
 
@@ -36,7 +39,7 @@ La semaine V (6- 9 octobre 2025)  est  consacrée aux modes de convergence en ca
 ## Exercices
 
 
-- [Feuille TD V](/exercices/td5.qmd)
+- [Feuille TD V](/exercices/td5.html)
   
 - [Corrections TD II](/corriges/td2.html)
 - [Corrections TD IV](/corriges/td4.html)  

@@ -32,6 +32,11 @@
   date: "2025-09-29"
   path: "exercices/td4.html"
   categories: [Conditionnement]
+- title: "TD V : Convergences/Caractérisations"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-10-06"
+  path: "exercices/td5.html"
+  categories: [Convergences, Caractérisations]
 # - title: "TD V : Convergences"
 #   author: "Master I MIDS UParis Cité"
 #   date: "2025-10-06"
