@@ -7,9 +7,14 @@
 format:
   pdf:
     output-file: td1-supplement.pdf
-    class: exam
     include-in-header:
-      - text: "\\lhead{{\\sf  Probabilités \\\\ TD 1 Supplément}}"
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD I.b}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD I.b}
+          \pagestyle{style-td1}
+
   html:
     output-file: td1-supplement.html
 
@@ -18,12 +23,6 @@ engine: knitr
 
 
 
-```{r}
-#| echo: false
-#| eval: true
-
-cnt_exo <- 1
-```
 
 
 ::: {.callout-note}
@@ -40,13 +39,12 @@ cnt_exo <- 1
 
 ## Pour aller plus loin
 
-### Exercice `r cnt_exo` (un (contre)-exemple à garder en tête)
+::: {#exr-   name="un (contre)-exemple à garder en tête"} 
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
+
 
 On note $C$ l'*ensemble de Cantor*, qui est obtenu, récursivement, en enlevant $I_1^{(1)} : = (1/3,2/3)$ à l'intervalle $[0,1]$, puis en enlevant les tiers intermédiaires $I_2^{(1)} = (1/9,2/9), I_2^{(2)}= (7/9,8/9)$ des deux intervalles restants, et ainsi de suite, de sorte qu'à l'etape $n$ on enlève  $2^{n-1}$ intervalles tous de taille $1/3^n$, notés $I_n^{(j)},j=1...2^{n-1}$. 
 
@@ -67,13 +65,10 @@ $$F(x) := \begin{cases}  0 & \text{ si } x \le 0 \\    1 & \text{ si } x \ge 1 \
 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-   name=""} 
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
 Dans ce qui suit $||.||$ désigne la norme euclidienne. 
 
@@ -88,13 +83,12 @@ Montrer que pour tout $\varepsilon \in (0,1)$, la mesure de Lebesgue de $C_n \ca
 *Note* : Ceci signifie que pour $\varepsilon$ aussi petit qu'on souhaite le prendre, lorsque $n$ est grand, la majeure partie du volume de l'hypercube $C_n$ se trouve dans la couronne $A_{n,\varepsilon}$ (!) 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-   name=""} 
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
+
 
  
 
@@ -106,13 +100,12 @@ $$\frac{Y-E[Y]}{\sqrt{\mathrm{var}(Y)}} \overset{(\mathrm{loi})}{\longrightarrow
 où $Z \sim \mathcal{N}(0,1)$. Y a-t-il un lien avec le théorème central limite? 
  
 
-### Exercice `r cnt_exo`
+::: {#exr-   name=""} 
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
+
 
  (Une remarque importante sur la convergence en loi.)
 
@@ -125,13 +118,12 @@ $$ F_n(x) = x - \frac{\sin(2n \pi x)}{2n\pi}, \ 0 \le x \le 1.$$
 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-   name=""} 
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
+
 
  (Le problème des anniversaires)
 
@@ -142,13 +134,12 @@ On cherche a approximer la probabilité que parmi $N$ personnes, au moins deux (
 1. Par une méthode similaire, approximer la probabilité que parmi $60$ personnes, il y en ait au moins trois qui ont leur anniversaire le même jour. Finalement, approximer la probabilité de cet événement lorsque $N=90$. 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-   name=""} 
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
+
 
  (Quelques variantes du modèle de branchement aléatoire)
 

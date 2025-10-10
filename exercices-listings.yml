@@ -35,15 +35,10 @@
 - title: "TD V : Convergences/Caractérisations"
   author: "Master I MIDS UParis Cité"
   date: "2025-10-06"
-  path: "exercices/td5.html"
-  categories: [Convergences, Caractérisations]
-# - title: "TD V : Convergences"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-10-06"
-#   path: "exercices/td5.html"
-#   categories: [Convergences, LGN, TCL]
-# - title: "TD VI : Gaussiennes"
-#   author: "Master I MIDS UParis Cité"
-#   date: "2025-10-13"
-#   path: "exercices/td6.html"
-#   categories: [Gaussiennes]
+  path: "exercices/td5-bis.html"
+  categories: [Convergences, Caractérisations, LGN, TCL]
+- title: "TD VI : Gaussiennes"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-10-13"
+  path: "exercices/td6.html"
+  categories: [Gaussiennes]

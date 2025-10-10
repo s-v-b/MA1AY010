@@ -7,9 +7,17 @@
 format:
   pdf:
     output-file: td7.pdf
-    class: exam
     include-in-header:
-      - text: "\\lhead{{\\sf  Probabilités \\\\ TD VII}}"
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD VII}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD VII}
+          \pagestyle{style-td1}
+
+    include-before-body: 
+      text: |
+        \counterwithout{theorem}{section}
   html:
     output-file: td7.html
 
@@ -31,13 +39,6 @@ requireNamespace('quarto')
 
 
 
-```{r}
-#| echo: false
-#| eval: true
-
-cnt_exo <- 1
-```
-
 
 
 ::: {.callout-note}
@@ -53,16 +54,9 @@ cnt_exo <- 1
 :::
 
 
-### Exercice `r cnt_exo`
-
-{{< include _increment.qmd >}}
 
 
 
-
-### Exercice `r cnt_exo`
-
-{{< include _increment.qmd >}}
 
 
 
@@ -135,7 +129,9 @@ existants. Pour cette raison, le paramètre $\theta$ peut être
 interprété comme un coefficient d'ambition dans le modèle.
 
 
-## Exercice `r cnt_exo` (Loi de la partition aléatoire)
+::: {#exr-1 name="Loi de la partition aléatoire"}
+
+:::
 
 La première loi des partis politiques correspond à la loi de la
 partition aléatoire $B_n$ pour tout $n \geq 1$, tandis que la
@@ -143,7 +139,7 @@ seconde loi des partis politiques correspond à la loi du profil
 $(C_{n,1}, C_{n,2}, \ldots,)$ des tailles des blocs de $B_n$ (un
 profil pour chaque $n\geq 1$).
 
-::: {.callout-note}
+::: {#thm-premiere-loi}
 
 
 ### Théorème 1 (Première loi).
@@ -154,11 +150,9 @@ $$
 
 :::
 
-::: {.callout-note}
+::: {#cor-seconde-loi name="Seconde loi"}
 
-### Corollaire 1 (Seconde loi).
-
- Pour tout temps $n \geq 1$ et tout
+Pour tout temps $n \geq 1$ et tout
 $1 \leq k \leq n$, soit $C_{n,k}$ le nombre de partis politiques de
 taille $k$ au temps $n$, de sorte que
 $n = C_{n,1} +2C_{n,2} +\ldots +nC_{n,n}$. Alors pour tout $n$-uplet
@@ -181,21 +175,25 @@ différents. Le théorème suivant donne les deux premiers moments de
 l'entier aléatoire $|B_n |$.
 
 
-::: {.callout-note}
+::: {#thm-diversite name="Diversité politique"}
 
-\emph{Théorème 2 (Diversité politique).} Pour tout $n \geq 1$, la
+Pour tout $n \geq 1$, la
 moyenne et la variance de $|B_n|$ sont données par
+
 $$\mathbb{E} |B_n| = \sum_{k=0}^{n-1} \frac{\theta}{\theta+k}
-$$ et
+$$ 
+
+et
+
 $$\operatorname{var}(|B_n|) =  \sum_{k=0}^{n-1} \frac{\theta k}{(\theta+k)^2}
 $$
 
 :::
 
 
-::: {.callout-note}
+::: {#thm-micros-partis name="Loi des micro partis"}
 
-\emph{Théorème 3 (Loi des micro partis).} Pour tout temps $n \geq 1$,
+Pour tout temps $n \geq 1$,
 le nombre $C_{n,1}$ de partis politiques réduits à leur créateur
 vérifie 
 $$\mathbb{E}C_{n,1}= \frac{n\theta}{n-1+\theta}
@@ -219,22 +217,21 @@ $|B_n | = 1$. Le théorème suivant montre que le modèle des partis politiques 
 pluraliste.
 
 
-::: {.callout-note}
+::: {#thm-parti-unique  Name="Parti unique"}
 
-\emph{Théorème 4 (Parti unique)}. Pour tout
-$n \geq 2$, la probabilité que le paysage politique soit réduit à un
+Pour tout $n \geq 2$, la probabilité que le paysage politique soit réduit à un
 parti unique vaut
-$$\Pr \Big\{ C_{n,n} =1 \Big\} = \frac{\Gamma(n)\Gamma(\theta+1)}{\Gamma(n+\theta)}
+
+$$
+\Pr \Big\{ C_{n,n} =1 \Big\} = \frac{\Gamma(n)\Gamma(\theta+1)}{\Gamma(n+\theta)}
 $$
 
 :::
-\hypertarget{fluctuations}{%
-\subsection{Fluctuations}\label{fluctuations}}
-\text{}
 
-:::
 
-\emph{Théorème 5.} La convergence en probabilité suivante a lieu : 
+:::  {#thm-5  name=""}
+
+La convergence en probabilité suivante a lieu : 
 
 $$
 \lim_n \frac{|B_n|}{\log(n)} = \theta \qquad\text{en probabilité.}
@@ -247,9 +244,9 @@ $$
 
 Le théorème suivant précise les fluctuations autour de la moyenne.
 
-::: {.callout-note}
+::: {#thm-6  name=""}
 
-\emph{Théorème 6.} La convergence en loi suivante a lieu : Pour une
+La convergence en loi suivante a lieu : Pour une
 suite $(a_n)_n$ bien choisie
 
 $$
@@ -259,7 +256,9 @@ $$
 :::
 
 
-##  Exercice `r cnt_exo` (Approche du théorème 6)
+::: {#exr-6 name="Approche du théorème 6"} 
+
+:::
 
 
 Pour établir le théorème 6, on peut procéder en deux temps: montrer
@@ -284,47 +283,48 @@ $$
 
 :::
 
-:::  {.callout-note}
+:::  {#thm-evts-rares  name="Loi des événements rares (version facile)"}
 
-\emph{Théorème: Loi des événements rares (version facile)} Soit un
-entier $n\geq 1$ et $S_n =\xi_1+\ldots +\xi_n$ la somme de $n$
+Soit un entier $n\geq 1$ et $S_n =\xi_1+\ldots +\xi_n$ la somme de $n$
 variables aléatoires \emph{indépendantes} $\xi_1,\ldots,\xi_n$ de lois
 de Bernoulli de paramètres respectifs $p_1,\ldots,p_n$ dans $]0,1]$.
 On note $\mu_n$ la loi de $S_n$ et $\nu_n$ la loi de Poisson
 d'espérance $p_1 +\ldots +p_n.$
-$$\mathrm{d}_{\text{TV}}(\mu_n,\nu_n)\leq \sum_{i=1}^n p_i^2 \, .
+
+$$
+\mathrm{d}_{\text{TV}}(\mu_n,\nu_n)\leq \sum_{i=1}^n p_i^2 \, .
 $$
 
 :::
 
-::: {.callout-note}
+::: {#thm-evts-rares  name="Loi des événements rares (version fine)"}
 
-\emph{Théorème: Loi des événements rares (version fine)} Soit un entier
-$n\geq 1$ et $S_n =\xi_1+\ldots +\xi_n$ la somme de $n$ variables
+Soit un entier $n\geq 1$ et $S_n =\xi_1+\ldots +\xi_n$ la somme de $n$ variables
 aléatoires \emph{indépendantes} $\xi_1,\ldots,\xi_n$ de lois de
 Bernoulli de paramètres respectifs $p_1,\ldots,p_n$ dans $]0,1]$. On
 note $\mu_n$ la loi de $S_n$ et $\nu_n$ la loi de Poisson
 d'espérance $p_1 +\ldots +p_n.$
+
 $$\mathrm{d}_{\text{TV}}(\mu_n,\nu_n)\leq \frac{\sum_{i=1}^n p_i^2}{\sum_{i=1}^n p_i} \, .
 $$
 
 :::
 
-## Questions
+## Questions  {.unnumbered}
 
 Si on butte sur une question où il est demandé de démontrer un énoncé,
 on a le droit d'utiliser cet énoncé pour répondre aux questions
 suivantes.
 
 
-1. Établir les deux formules du théorème 2.
-1. Montrer le théorème 4 (probabilité d'obtenir un parti unique)
+1. Établir les deux formules du [théorème @thm-diversite].
+1. Montrer [le théorème @thm-parti-unique] (probabilité d'obtenir un parti unique)
 1. Montrer que la suite $\mathbb{I}_{C_{n,n}=1}$ tend presque sûrement vers $0$.
 1. Calculer $\mathbb{E}[C_{n+1,1} \mid \sigma(C_{n,1})]$.
-1. Calculer $\mathbb{E}[C_{n,1}]$ pour $n\geq 1$. (Prouver première formule du Théorème 3).
+1. Calculer $\mathbb{E}[C_{n,1}]$ pour $n\geq 1$. (Prouver première formule du [Théorème @thm-diversite]).
 1. Calculer $\operatorname{var}\big(C_{n+1,1} \mid \sigma(C_{n,1})\big)$
 1. Calculer $\operatorname{var}\big(C_{n,1} \big)$ pour $n\geq 1$. (Prouver deuxième formule du Théorème 3).
-1. Établir l'équation qui relie $G_{n+1}$ $G_n$ et $G'_n$. (Prouver troisième formule du Théorème 3).
+1. Établir l'équation qui relie $G_{n+1}$ $G_n$ et $G'_n$. (Prouver troisième formule du [Théorème @thm-micros-partis]).
 1. Calculer la fonction génératrice $G_n$ de la loi de $C_{n,1}$ lorsque $\theta=1$
 1. Établir une relation entre $\mathbb{E}[C_{n+1,2}]$ et $\mathbb{E}[C_{n,2}]$ $\mathbb{E}[C_{n,1}]$.
 1. Montrer que $\lim_{n \to \infty}\mathbb{E}C_{n,2} = \frac{\theta}{2}$.
@@ -350,5 +350,5 @@ de même espérance
 1. Si $P_X$ et $P_Y$ sont à distance en variation $d$, quelle est
 la distance en variation entre les lois de $\sigma X+\mu$ et de $\sigma Y + \mu$?
 1.Montrer que si $X_n \sim \text{Poisson}(n)$ alors $(X_n-n)/\sqrt{n} \rightsquigarrow \mathcal{N}(0,1)$
-1. Montrer le théorème 6 (en utilisant la version fine de la loi des événements rares).
+1. Montrer @thm-6 (en utilisant la version fine de la loi des événements rares).
 

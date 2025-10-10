@@ -1,20 +1,26 @@
 ---
-#title: "Exercices : semaine IV"
+#title: "Exercices : semaine VI"
 # subtitle: "M1 ISIFAR MA1AY010"
 
-# date: "2025-09-08"
+# date: "2025-10-13"
 
 format:
   pdf:
-    output-file: td6bis.pdf
-    class: exam
+    output-file: td6.pdf
     include-in-header:
-      - text: "\\lhead{{\\sf  Probabilités \\\\ TD VI bis}}"
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD VI}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD VI}
+          \pagestyle{style-td1}
+
   html:
-    output-file: td6bis.html
+    output-file: td6.html
 
 engine: knitr
-draft: true
+categories: [Convergences, Fourier, Gaussiennes, "Temps d'arrêt"]
+draft: false
 ---
 
 
@@ -31,20 +37,15 @@ requireNamespace('quarto')
 
 
 
-```{r}
-#| echo: false
-#| eval: true
 
-cnt_exo <- 1
-```
 
 
 
 ::: {.callout-note}
 
-### TD VII : Gaussiennes   
+# TD VI : Gaussiennes   
 
-- 20 Octobre 2025-24 octobre 2025
+- 13 Octobre 2025-17 octobre 2025
 
 - Master I ISIFAR
 
@@ -53,13 +54,52 @@ cnt_exo <- 1
 :::
 
 
-### Exercice `r cnt_exo`
 
-{{< include _increment.qmd >}}
-
+::: {#exr-gauss-1 name="Lemme de Stein"}
 
 
+:::
 
-### Exercice `r cnt_exo`
+::: {#exr-truc-pisier-1  name="Maxima de Gaussiennes"}
 
-{{< include _increment.qmd >}}
+:::
+
+::: {#exr-truc-pisier-2 name="Concentration gaussienne"}
+
+:::
+
+
+::: {#exr-poincare name="Inégalité de Poincaré"}
+
+:::
+
+::: {#exr-conditionnement-gaussien-1  name="Conditionnement gaussien"}
+
+
+:::
+
+
+::: {#exr-norme-gaussienne-1  name="Norme de vecteurs gaussiens non centrés"}
+
+
+:::
+
+::: {#exr-norme-gaussienne-2  name="Norme de vecteurs gaussiens centrés"}
+
+
+:::
+
+::: {#exr-cochran-1  name="Théorème de Cochran"}
+
+
+:::
+
+::: {#exr-cochran-2  name="Théorème de Cochran 2"}
+
+
+:::
+
+::: {#exr-student-1  name="Théorème de Student"}
+
+
+:::

@@ -7,9 +7,14 @@
 format:
   pdf:
     output-file: td4.pdf
-    class: exam
     include-in-header:
-      - text: "\\lhead{{\\sf  Probabilités \\\\ TD IV}}"
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD IV}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD IV}
+          \pagestyle{style-td1}
+    
   html:
     output-file: td4.html
 
@@ -101,10 +106,11 @@ L'indice $n$ représente le temps, $S_n$ la position à l'instant $n$.
 :::
 
 
-### Exercice `r cnt_exo` (marches aléatoires biaisées i)
 
-{{< include _increment.qmd >}}  
 
+:::  {#exr-brw-1  name="Marches aléatoires biaisées i"}  
+
+:::
 
 
 a. Quelle est la loi de $S_n$ ?
@@ -118,9 +124,11 @@ a. Quelle est la variance de $S_n$ ?
 
 Si $Y_1, \ldots, Y_n$ sont des variables aléatoires indépendantes telles que
 $a_i \leq Y_i \leq b_i$ (les $Y_i$ sont bornées), alors 
+
 $$
 P \left\{  Z - \mathbb{E} Z \geq t  \right\} \leq \mathrm{e}^{- 2 \frac{t^2}{\sum_{i=1}^n (b_i-a_i)^2}}
 $$
+
 avec $Z = \sum_{i=1}^n Y_i$.
 
 :::
@@ -129,10 +137,10 @@ avec $Z = \sum_{i=1}^n Y_i$.
 
 
 
-### Exercice `r cnt_exo`  (marches aléatoires biaisées ii)
 
-{{< include _increment.qmd >}}
+:::  {#exr-brw-2  name="Marches aléatoires biaisées ii"}
 
+:::
 
 Pour $0 \leq \tau \leq  n \Delta$,
 
@@ -175,10 +183,11 @@ et $S_T(\omega) =0$ si $T(\omega) =\infty$.
 :::
 
 
-### Exercice `r cnt_exo` (marches aléatoires biaisées iii)
 
-{{< include _increment.qmd >}}
+
+:::  {#exr-brw-3  name="Marches aléatoires biaisées iii"}
   
+:::
 
 a. Pourquoi peut-on considérer que $T$ est une variable aléatoire (à valeur dans $\mathbb{N} \cup \{\infty\}$) ?
 a. Quelle est la probabilité que $T = \infty$ ?
@@ -197,11 +206,12 @@ a. Montrer que $\mathbb{E} S_T = \Delta \mathbb{E} T$ En déduire $\mathbb{E} T$
 
 :::
 
-### Exercice `r cnt_exo` 
+ 
 
-{{< include _increment.qmd >}}
+:::  {#exr-negbin  name="Binomiale négative"}
 
-Les variables $X_1, X_2, \ldots, X_n, \ldots$ sont des variables de Bernoulli de probabilité
+Les variables $X_1, :::
+X_2, \ldots, X_n, \ldots$ sont des variables de Bernoulli de probabilité
 de succès $p \in (0,1)$, indépendantes. On définit $T_1 = \min \{i : X_i=1\}$ (temps du premier succès), $T_2 = \min \{i : i > T_1, X_i=1\}$ (temps du premier succès après $T_1$),
 et récursivement $T_{n+1} = \min \{ i : i > T_n, X_i =1\}$ (temps du $n+1$eme succès).
 
@@ -240,10 +250,11 @@ a. $\mathbb{E} T_n = n \mathbb{E} T_1 = \frac{n}{p}$
 :::
 
 
-### Exercice `r cnt_exo` 
 
-{{< include _increment.qmd >}}
 
+:::  {#exr-binzballs  name="Allocations aléatoires"}
+
+:::
 
 
 On dispose de $n$ urnes numérotées de $1$ à $n$ et de $n$ boules. Les boules sont réparties de manière uniforme dans les urnes (chaque boule se comporte de manière indépendante des autres et a probabilité $1/n$ de tomber dans chaque urne). On note $U_i$ la variable aléatoire désignant le nombre de boules qui tombent dans l'urne $i$. Dans la suite  $\alpha >1$ est  un réel.
@@ -288,10 +299,10 @@ a. En utilisant l'inégalité de Markov,
 :::
 
 
-### Exercice `r cnt_exo`  (Restitution Organisée de Connaissances)
 
-{{< include _increment.qmd >}}
+:::  {#exr-roc  name="Restitution Organisée de Connaissances"}
 
+:::
 
 - Soient $A, B, C$ trois événements dans un espace probabilisé. A-t-on  toujours: $A \perp\!\!\!\perp B \text{ et } B \perp\!\!\!\perp C \Rightarrow A \perp\!\!\!\perp C$?
 - Soient $P$ et $Q$ deux lois de probabilités sur $(\Omega, \mathcal{F})$, on définit l'ensemble $\mathcal{M} = \big\{ A : A \in \mathcal{F}, P(A)=Q(A)\}$.  Répondre par *vrai/faux/je ne sais pas* aux questions suivantes:
@@ -321,11 +332,12 @@ a. En utilisant l'inégalité de Markov,
 
 :::
 
-### Exercice `r cnt_exo`
 
 
-{{< include _increment.qmd >}}
 
+:::  {#exr-size-biased  name="Distributions biaisées par la taille"}
+
+:::
 
 Si $X$ est une variable aléatoire positive intégrable, la version *biaisée par la taille* de  $X$ est la variable aléatoire $X^*$ dont la loi $Q$ est absolument continue par rapport à celle de $X$ (notée $P$) et dont la densité (par rapport à celle de $X$)
 est proportionnelle à $X$: 
@@ -353,11 +365,12 @@ transformée de Laplace d'une loi sur $[0, \infty)$?
 :::
 
 
-### Exercice `r cnt_exo`
 
 
-{{< include _increment.qmd >}}
 
+:::  {#exr-gaussian-friends  name="Amies des gaussiennes"}
+
+:::
 
 ::: {.callout-note}
 
@@ -375,10 +388,13 @@ La loi normale centrée réduite $\mathcal{N}(0,1)$ admet pour densité $x\mapst
 - Si $X \sim \mathcal{N}(0,1)$ et $\epsilon$ vaut $\pm 1$ avec probabilité $1/2$  (variable de Rademacher) avec   $X \perp\!\!\!\perp \epsilon$, donner une densité de la loi de $Y = \epsilon X$. $Y$ et $X$ sont-elles indépendantes ?
 
 
-### Exercice `r cnt_exo`
+::: {#exr-   name=""} 
 
-{{< include _increment.qmd >}}
+:::
 
+:::  {#exr-reflexion  name="Principe de réflexion"}
+
+:::
 
 Principe de réflexion
 
@@ -402,11 +418,12 @@ Quand $n$  est clair d'après le contexte on peut les noter $X_{(1)} \leq \ldots
 
 :::
 
-### Exercice `r cnt_exo`
+ 
 
-{{< include _increment.qmd >}}
+:::  {#exr-order-1  name="Statistiques d'ordre"}
 
-a. Vérifier que la loi jointe des statistiques d'ordre est absolument continue par rapport 
+a. Vérifier que la l:::
+oi jointe des statistiques d'ordre est absolument continue par rapport 
 à la loi de l'échantillon.
 a. On suppose que $X$ est une variable aléatoire réelle, absolument continue, de densité continue. Montrer que l'échantillon est presque sûrement formé de valeurs deux à deux distinctes. 
 a. Donner la densité de la loi jointe des statistiques d'ordre.
@@ -416,14 +433,22 @@ a.  Montrer que conditionnellement à $X_{k:n}=x$, la suite
     $$(X_{i:n}-X_{k:n})_{i=k+1,\ldots, n}$$  
 
     est distribuée comme les statistiques d'ordre d'un $n-k$ échantillon de la loi d'excès au dessus de $x$  (fonction de survie $\overline{F}(x+\cdot)/\overline{F}(x))$ avec la convention $\overline{F}=1-F$). 
-a. Si $X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi exponentielle d'espérance $1$ (densité $\mathbb{I}_{x>0} \mathrm{e}^{-x}$), et $X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n} $ les statistiques d'ordre associées, montrer que:
 
-  i. avec la convention $X_{0:n}=0$, les écarts $(X_{i:n}-X_{i-1:n})_{1\leq i\leq n}$ (\emph{spacings}) forment une
+(Représentation de Rényi)
+
+:::  {#exr-order-2  name="Statistiques d'ordre d'un échantillon exponentiel"}
+
+Cet exercice reprend:::
+ les conventions de l'exercice précédent. On s'intéresse maintenant aux statistiques d'ordre d'un échantillon exponentiel.
+
+a. Si $X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi exponentielle d'espérance $1$ (densité $\mathbb{I}_{x>0} \mathrm{e}^{-x}$), et $X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}$ les statistiques d'ordre associées, montrer que:
+
+  i. avec la convention $X_{0:n}=0$, les écarts $(X_{i:n}-X_{i-1:n})_{1\leq i\leq n}$ (*spacings*) forment une
   collection de variables aléatoires indépendantes ;
   i. $X_{i:n}-X_{i-1:n}$ est distribuée selon une loi exponentielle
   d'espérance $\tfrac{1}{i}$ .
 
-a. Maintenant, $X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi exponentielle d'espérance $1$ (densité $\mathbb{I}_{x>0} \mathrm{e}^{-x}$), et $X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}$ les statistiques d'ordre associées, et $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infini,  telle que $k_n/n$ tende vers une limite finie (éventuellement nulle).  Montrer que
+a. Maintenant  $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infini,  telle que $k_n/n$ tend vers une limite finie (éventuellement nulle).  Montrer que
 
     $$\frac{X_{k_n:n} -\mathbb{E} X_{k_n:n} }{\sqrt{\operatorname{var}(X_{k_n:n} )}}$$ 
     

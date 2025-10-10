@@ -7,9 +7,14 @@
 format:
   pdf:
     output-file: td3.pdf
-    class: exam
     include-in-header:
-      - text: "\\lhead{{\\sf  Probabilités \\\\ TD III}}"
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD III}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD III}
+          \pagestyle{style-td1}
+
   html:
     output-file: td3.html
 
@@ -30,13 +35,6 @@ requireNamespace('quarto')
 
 
 
-
-```{r}
-#| echo: false
-#| eval: true
-
-cnt_exo <- 1
-```
 
 
 
@@ -68,13 +66,9 @@ On convient de $\mathbb{N}^* = \mathbb{N}\setminus \{0\}$.
 
 
 
-### Exercice `r cnt_exo` (Modélisation)
+::: {#exr-bp-1   name="Branchement (Modélisation)"} 
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
 
 
 Proposer une formalisation, c'est à dire un univers $\Omega$, une tribu $\mathcal{F}$ de parties de $\Omega$, et une loi de probabilité $P$ sur $(\Omega, \mathcal{F})$ sur lesquels on peut définir la collection de variables aléatoires $Z_0, Z_1, \ldots, Z_n, \ldots$. Préciser la loi conditionnelle de $Z_{n+1}$ sachant $\{ Z_n =k\},  k \in \mathbb{N}$.    
@@ -119,10 +113,10 @@ Pour tout $n$, $\mathcal{F}_{n-1}$ est indépendante de $\mathcal{G}^n$
 :::
 
 
-### Exercice `r cnt_exo` 
+::: {#exr-bp-2   name="Branchement, Espérance conditionnelle"} 
 
 
-{{< include _increment.qmd >}}
+:::
 
 
 Calculer l'espérance conditionnelle de $Z_{n+1}$ sachant  $\sigma(Z_n)$ 
@@ -148,9 +142,9 @@ $$\mathbb{E}\left[ Z_{n+1} \mid Z_n  \right]  = \mu \times Z_n$$
 :::
 
 
-### Exercice `r cnt_exo`
+::: {#exr-bp-3   name="Branchement. Espérance taille des générations"}
 
-{{< include _increment.qmd >}}
+:::
 
 Calculer $\mathbb{E} Z_n$ en fonction de $\mu$  et $n$.
 
@@ -188,12 +182,11 @@ Dans tous les cas, on note $p_E$ la probabilité d'extinction (probabilité de l
 :::
 
 
-### Exercice `r cnt_exo` 
+::: {#exr-bp-4   name="Branchement. Cas sous-critique"} 
 
+:::
 
-{{< include _increment.qmd >}}
-
-Cacluler $p_E$, la probabilité d'xxtinction dans le cas sous-critique.
+Cacluler $p_E$, la probabilité d'extinction dans le cas sous-critique.
 
 
 ::: {.content-visible when-profile="solution"}
@@ -221,9 +214,9 @@ $$P\{ E\} =1$$
 
 :::
 
-### Exercice `r cnt_exo` 
+::: {#exr-bp-5   name="Branchement. Cas sûr-critique"} 
 
-{{< include _increment.qmd >}}
+:::
 
 Montrer que dans tous les cas, $p_E$ est solution de l'équation $G_Q(x)=x \, .$
 
@@ -291,10 +284,10 @@ p +
 :::
 
 
-### Exercice `r cnt_exo` 
+::: {#exr-bp-6   name="Branchement. Cas sur-critique I"} 
 
-{{< include _increment.qmd >}}
 
+:::
 
 Étudier les solutions de l'équation $x=G_Q(x)$. 
 
@@ -323,9 +316,9 @@ l'équation $x=G_Q(x)$ qui est égale à $p_E$.
 
 :::
 
-### Exercice `r cnt_exo` 
+::: {#exr-bp-7   name="Branchement. Cas sur-critique II"} 
 
-{{< include _increment.qmd >}}
+:::
 
 Déterminer $p_E$ dans le cas sur-critique. 
 

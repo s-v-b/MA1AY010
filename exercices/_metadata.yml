@@ -1,19 +1,17 @@
 website:
   page-navigation: true
 
-toc: true
-toc-depth: 3
-toc-collapse: 2
-toc-title: " "
-
+toc: false
+number-sections: false
 engine: knitr
+lang: fr
 
 execute:
   echo: true
   eval: false
   collapse: true
 
-callout-appearance: simple
+callout-appearance: minimal
 
 editor: 
   markdown: 
@@ -30,13 +28,18 @@ format:
     code-fold: false
     toc: false
     highlight-style: arrow
-    documentclass: exam
-    classoption: [10pt,titlepage=false]
     keep-tex: false
-    include-in-header:
-      - file: ./macros.tex
+    documentclass: memoir
+    classoption: [11pt, a4paper, twoside, article, titlepage=false]
+    largemargins: false
+    smallmargin: .5in         # outer margin (small).
+    spinemargin: .5in      
+    include-in-header: 
+      - file: before_header_td.tex
     include-before-body: 
-      - text: "\\renewcommand{\\contentsname}{}"
+      text: |
+        \counterwithout{exercise}{section}
+
 
 prefer-html: true
-
+## callout-appearance: minimal

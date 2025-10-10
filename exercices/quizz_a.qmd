@@ -7,9 +7,14 @@
 format:
   pdf:
     output-file: quizz_a.pdf
-    class: exam
     include-in-header:
-      - text: "\\lhead{{\\sf  Probabilités \\\\ Questionnaire 1}}"
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small Quizz I}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small Quizz II}
+          \pagestyle{style-td1}
+
   html:
     output-file: quizz_a.html
 
@@ -24,12 +29,7 @@ engine: knitr
 
 
 
-```{r}
-#| echo: false
-#| eval: true
 
-cnt_exo <- 1
-```
 
 
 
@@ -55,23 +55,21 @@ cnt_exo <- 1
 ```
 
 
-### Question `r cnt_exo`
+::: {#exr- name=""}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+
+
 
 i. Est-il vrai qu'une fonction croissante sur $\mathbb{R}$ est toujours mesurable ?
 i. Si $X,Y$  sont indépendantes, de lois à densité sur $\mathbb{R}$, est-il vrai que
   $\mathbb{P} \{ X= Y \}=0$?
 
 
-### Question `r cnt_exo`
+::: {#exr- name=""}
 
 
-{{< include _increment.qmd >}}
+
+
 
 
 
@@ -84,10 +82,11 @@ i. La loi de la variable aléatoire $aX +b$ admet-elle une densité ?
 i. Si oui, exprimer cette densité en fonction de $f, a, b$.
 
 
-### Question `r cnt_exo`
+::: {#exr- name=""}
 
 
-{{< include _increment.qmd >}}
+
+
 
 Sur un espace de probabilité $(\Omega, \mathcal{F}, P)$, on dispose d'une famille infinie
 de variables aléatoires indépendantes $X_1, X_2, \ldots, X_n, \dots$ toutes distribuées selon
@@ -101,10 +100,11 @@ i. La suite $(Y_n)_n$ converge-t-elle dans $\mathcal{L}_2$ ?
 i. Si oui, pouvez-vous caractériser la loi de la limite?
 
 
-### Question `r cnt_exo`  (Inégalité d'association)
+::: {#exr- name=""}  (Inégalité d'association)
 
 
-{{< include _increment.qmd >}}
+
+
 
 
 Soit $X$ une variable aléatoire réelle sur un espace de probabilité $(\Omega, \mathcal{F}, P)$
@@ -116,10 +116,11 @@ $$
 $$
 
 
-### Question `r cnt_exo`
+::: {#exr- name=""}
 
 
-{{< include _increment.qmd >}}
+
+
 
 Soit $X_1, \ldots, X_n$ une suite de variables aléatoires i.i.d. selon une loi exponentielle.
 On note $(X_{i,n})_{i\leq n}$ le réarrangement croissant de $X_1, \ldots, X_n$, (les statisques d'ordre)
@@ -132,10 +133,11 @@ i. Quelle est la densité jointe de la loi de $(X_{i,n} - X_{i-1,n})_{i\leq n}$ 
 
 
 
-### Question `r cnt_exo`
+::: {#exr- name=""}
 
 
-{{< include _increment.qmd >}}
+
+
 
 Soit $X$ une variable aléatoire distribuée selon une loi binomiale de 
 paramètres $n$ et $p \in (0,1)$. Montrer que
@@ -152,10 +154,11 @@ $$
 $$
 
 
-### Question `r cnt_exo`
+::: {#exr- name=""}
 
 
-{{< include _increment.qmd >}}
+
+
 
 
 

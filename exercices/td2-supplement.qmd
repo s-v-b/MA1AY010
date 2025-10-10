@@ -7,9 +7,13 @@
 format:
   pdf:
     output-file: td2-supplement.pdf
-    class: exam
     include-in-header:
-      - text: "\\lhead{{\\sf  Probabilités \\\\ TD 2 supplement}}"
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD II.b}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD II.b}
+          \pagestyle{style-td1}
   html:
     output-file: td2-supplement.html
 
@@ -40,13 +44,12 @@ cnt_exo <- 1
 :::
 
 
-### Exercice `r cnt_exo`  (Questionnaire)
+::: {#exr-1   name="Questionnaire"} 
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+::: 
+
+
+
 
 
 Soient $(\Omega; \mathcal{A}; P)$ un espace de probabilité, $X$ et $Y$ des v.a.r., $T$ une v.a. à valeurs
@@ -134,13 +137,12 @@ avec $ \psi(s) = \mathbb{E}[f(s+X_8)]$.
 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-2   name=""} 
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
+
 
 
 On considère un processus de Galton-Watson de loi de branchement 

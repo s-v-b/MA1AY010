@@ -7,15 +7,18 @@
 format:
   pdf:
     output-file: td1.pdf
-    class: exam
     include-in-header:
-      - text: "\\lhead{{\\sf  Probabilités \\\\ TD 1}}"
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD I}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD I}
+          \pagestyle{style-td1}
+
   html:
     output-file: td1.html
 
 engine: knitr
-
-callout-appearance: minimal
 ---
 
 
@@ -32,12 +35,7 @@ requireNamespace('quarto')
 
 
 
-```{r}
-#| echo: false
-#| eval: true
 
-cnt_exo <- 1
-```
 
 
 
@@ -77,13 +75,8 @@ la *fonction caractérique* de (la loi) de $X$
 
 ::: {.content-hidden}
 
-### Exercice `r cnt_exo`
 
-```{r}
-#| eval: false    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+
 
  
 
@@ -165,13 +158,11 @@ Par exemple pour $\lambda=5$ on obtient $\mathbb{E}[X] \approx 1.302$, et dans t
 :::
 
 
-### Exercice `r cnt_exo` (transformation affine)
+::: {#exr-1  name="Transformation affine"} 
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
  
 
@@ -242,14 +233,10 @@ Soit $F_Y$ la fonction de répartition de $Y$.
 :::
 
 
-### Exercice `r cnt_exo`  (Minimum, maximum de variables indépendantes)
+::: {#exr-2  name="Minimum, maximum de variables indépendantes"} 
 
+:::
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
 
  
 
@@ -311,13 +298,10 @@ $$F_{Z_2}(x) = F_{Y_1}(x) F_{Y_2}(x).$$
 ::: 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-3  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
  
 
@@ -349,13 +333,10 @@ désignée par `pnorm()`, la fonction réciproque (fonction quantile) est désig
 ::: 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-4  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
  
 
@@ -377,13 +358,10 @@ On déduit que les tailles de $99\%$ de la population se situent entre $15.5 - 2
 
 ::: 
 
-### Exercice `r cnt_exo`
+::: {#exr-5  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
 
 
@@ -437,13 +415,10 @@ $$\mathbb{P}(X>0.32) = \mathbb{P}(Z > 0.64) \approx 1-0.7389 = 0.2611$$
 
 ## Densités
 
-### Exercice `r cnt_exo`
+::: {#exr-6  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
  
 
@@ -476,13 +451,10 @@ et il faut donc poser $C=\frac{1}{\pi}$ pour que $f$ soit une densité de probab
 
 :::
 
-### Exercice `r cnt_exo`
+::: {#exr-7  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
   (Mélange)
 
@@ -514,13 +486,10 @@ Soit $\xi \sim \mathrm{Ber}(\alpha)$, indépendante de $(X,Y)$. Alors $Z= \xi X 
 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-8  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
  
 
@@ -555,13 +524,10 @@ $$\frac{1}{x \sqrt{2\pi}} \exp\left(-\frac{\ln(x)^2}{2}\right) \mathbf{1}_{\{x >
 
 ## Lois usuelles, calculs de loi
 
-### Exercice `r cnt_exo`
+::: {#exr-10  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
  (Fonctions de répartition et fonctions caractéristiques de lois usuelles)
 
@@ -702,13 +668,10 @@ $$ \mathbb{E}[X] = \mathrm{Var}[X] = \lambda.$$
 :::
 
 
-### Exercice `r cnt_exo`
+::: {#exr-11  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
 
 
@@ -735,13 +698,10 @@ Pour des valeurs de $t$ que l'on précisera, calculer la transformée de Laplace
 :::
 
 
-### Exercice `r cnt_exo`
+::: {#exr-12  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
  
 
@@ -773,13 +733,10 @@ de sorte que $Y \sim \Gamma(1/2,1/2)$.
 
 :::
 
-### Exercice `r cnt_exo`
+::: {#exr-13  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
 
 
@@ -821,13 +778,10 @@ Soit $X \sim \exp(1)$. Calculer la densité des variables suivantes :
 
 ::: 
 
-### Exercice `r cnt_exo`
+::: {#exr-14  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
  
 
@@ -867,13 +821,10 @@ On conclut que $Y=\arcsin(X)$ possède la densité $u \to f_Y(u) = \cos(u) \math
 :::
 
 
-### Exercice `r cnt_exo`
+::: {#exr-15  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
  
 
@@ -923,13 +874,10 @@ Quelle est la loi de $h(\theta)$? Que pouvez-vous en déduire sur la distributio
 ::: 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-16  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
  
 
@@ -978,13 +926,10 @@ Quelle est la loi de
 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-17  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
 
 
@@ -1029,13 +974,9 @@ $$g(x)  \le h(x), \ \forall x >0 $$
 
 
 
-### Exercice `r cnt_exo`  (calcul d'une loi conditionnelle discrète)
+::: {#exr-18  name="Calcul d'une loi conditionnelle discrète"} 
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
 
   
 
@@ -1085,13 +1026,10 @@ On conclut que la loi conditionnelle de $(X_1,...,X_n)$ sachant $\{Y=r\}$ est un
 
 ## Exemples divers
 
-### Exercice `r cnt_exo`
+::: {#exr-19  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
 
 
@@ -1129,13 +1067,10 @@ On déduit que $(Y,Z)$ est un couple de variables de Poisson indépendantes, de 
 
 :::
 
-### Exercice `r cnt_exo`
+::: {#exr-20  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
  (Somme d'exponentielles et $\chi^2$)
 
@@ -1216,13 +1151,10 @@ comme souhaité.
 
 ::: 
 
-### Exercice `r cnt_exo`
+::: {#exr-21  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
 
 
@@ -1329,13 +1261,10 @@ On conclut que $(X+Y, X-Y)$ sont i.i.d. suivant la loi de $|Z|$.
 
 :::
 
-### Exercice `r cnt_exo`
+::: {#exr-22  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
  
 
@@ -1505,13 +1434,10 @@ de sorte que $Z \sim \mathrm{Cauchy}(1)$.
 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-23  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
 
 
@@ -1591,13 +1517,10 @@ De même pour la loi de $VS$
 
 ## Le cadre gaussien
 
-### Exercice `r cnt_exo`
+::: {#exr-24  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
 
 
@@ -1641,13 +1564,10 @@ où $p \in (0,1)$.
 
 ::: 
 
-### Exercice `r cnt_exo`
+::: {#exr-25  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
 
 
@@ -1708,13 +1628,10 @@ Ici $d=3$, $m$ est le vecteur de coordonnées $(1,1,0)$, et $K$ la matrice préc
 :::
 
 
-### Exercice `r cnt_exo`
+::: {#exr-26  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
 
 
@@ -1789,13 +1706,10 @@ La décomposition sera en particulier très utile pour caculer espérance et loi
 
 ::: 
 
-### Exercice `r cnt_exo`
+::: {#exr-27  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
 
 
@@ -1827,13 +1741,10 @@ $$ X \in \left\{  (x,y,z) \in \mathbb{R}^3 : -x + 2y + z = -6 \right\}.$$
 
 # Notions de théorie de la mesure
 
-### Exercice `r cnt_exo`
+::: {#exr-28  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
 
 
@@ -1851,13 +1762,10 @@ tribu sur $F$. Montrer que $\mathcal{E}_f:=\{f^{-1}(A), A \in \mathcal{F}\}$ est
 
 :::
 
-### Exercice `r cnt_exo`
+::: {#exr-29  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
 
 
@@ -1887,13 +1795,10 @@ C2
 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-30  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
  (Mesure image)
 
@@ -1908,8 +1813,7 @@ $(F, \mathcal{F})$. On définit $\nu : \mathcal{G} \to [0,+\infty]$ par $\nu(A) 
     (\mathbb{R},\mathcal{B}(\mathbb{R}))$. Déterminer $(\mathbf{1}_{B})\circ \mu$.
 
 
-Variable aléatoire. Image d'une variable aléatoire
-: Il est important de noter que la définition de "loi" d'une variable aléatoire réelle est étroitement liée à la notion de mesure image. Par exemple, supposons $(\Omega, \mathcal{F}, \mathbb{P})$ est un espace probabilisé, et
+Variable aléatoire. Image d'une variable aléatoire: Il est important de noter que la définition de "loi" d'une variable aléatoire réelle est étroitement liée à la notion de mesure image. Par exemple, supposons $(\Omega, \mathcal{F}, \mathbb{P})$ est un espace probabilisé, et
 que $X : \Omega \to \mathbb{R}$ est une variable aléatoire réelle (c'est-à-dire que $X$ définit une application mesurable de $(\Omega, \mathcal{F})$ vers $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$). Alors la loi de $X$, notée $P_X$, n'est autre que la mesure image $X \circ \mathbb{P}$, qui est une mesure de probabilité sur $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$.
 
 Supposons maintenant que $X$ est une variable aléatoire réelle de loi $P_X$, et que $f : \mathbb{R} \to \mathbb{R}$ est borélienne. Quelle est la loi $P_Y$ de la variable aléatoire $Y=f(X)$?
@@ -1924,13 +1828,10 @@ Supposons maintenant que $X$ est une variable aléatoire réelle de loi $P_X$, e
 
 # Convergence(s)
 
-### Exercice `r cnt_exo`
+::: {#exr-31  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
  (LFGN et TCL)
 
@@ -1943,13 +1844,10 @@ et $(X_i, i \ge 1)$ une suite de variables indépendantes et identiquement distr
  
 
 
-### Exercice `r cnt_exo`
+::: {#exr-32  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
  
 
@@ -1964,13 +1862,10 @@ Peut-on être plus précis sur l'ordre de grandeur de $\mathbb{P}(G_n \ge A n^{\
   
 
 
-### Exercice `r cnt_exo`
+::: {#exr-33  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
  (Convergence en loi d'une variable uniforme) 
 
@@ -1979,13 +1874,10 @@ cnt_exo <-  cnt_exo + 1
 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-34  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
  Géométrique et exponentielle
 
@@ -2003,13 +1895,10 @@ Calculer $P(Y_{\delta} > m)$ en fonction de $m, \delta$.
 Montrer que la probabilité qu'aucun succès n'ait été observé jusqu'au temps $t$ converge vers $e^{-\lambda t}$ lorsque $\delta \to 0$ (On remarquera que lorsque $\delta$ est très petit, au temps $t$, environ $t/\delta$ tentatives ont eu lieu). Ainsi, le temps de premier succès est approximativement une variable exponentielle de paramètre $\lambda$. 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-35  name=""}
 
-```{r}
-#| eval: true
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
 
 *Approximation de la loi binômiale par une loi de  Poisson*
 
@@ -2052,5 +1941,6 @@ ggplot2::ggplot() +
   ) +
   ggplot2::geom_hline(yintercept = 1, linetype = "dotted") +
   ggplot2::geom_hline(yintercept = 0, linewidth=.2) +
-  ggplot2::geom_vline(xintercept = 0, linewidth=.2)
+  ggplot2::geom_vline(xintercept = 0, linewidth=.2) +
+  ggplot2::theme_minimal()
 ```

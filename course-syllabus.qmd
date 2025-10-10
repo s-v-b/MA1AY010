@@ -28,11 +28,13 @@ Berger, Q., Caravenna, F., & Dai Pra, P. (2021). *Probabilità* (Vol. 9). Spring
 
 - [En italien  Via ENT Paris Cité](https://link-springer-com.ezproxy.u-paris.fr/book/10.1007/978-88-470-4006-9)
 - [En français Via ENT Paris Cité](https://univ-scholarvox-com.ezproxy.u-paris.fr/book/88950479)
+
+Grimmett, G., & Stirzaker, D. (2020). One thousand exercises in probability. Oxford University Press.
   
 ## Cours et exercices
 
 - [Notes de cours (~ Poly)](https://s-v-b.github.io/MA1AY010-CN)
-- [Exercices](/exercices/)
+- [Exercices](/exercices-listings.qmd)
 
 ## Validation
 
@@ -51,8 +53,8 @@ L'examen terminal de session I dure trois heures, il porte sur l'ensemble du cou
 
 ## Sauvez les dates!
 
-- Contrôle Continu 1  **Jeudi 9 octobre 2025**  ~~**Mardi 7 octobre 2025**~~  (Programme : semaines I à III)
-- Contrôle Continu 2  Jeudi 16  octobre 2025 (Programme : semaines I à V)
+- Contrôle Continu 1  Jeudi 9 octobre 2025  ~~Mardi 7 octobre 2025~~  (Programme : semaines I à III)
+- Contrôle Continu 2  **Jeudi 16  octobre 2025** (Programme : semaines I à V)
 - Contrôle Continu 3  Novembre 
 - Examen entre le Lundi 8 et le Vendredi 19 décembre
 - Examen session II en juin 2026

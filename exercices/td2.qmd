@@ -7,9 +7,14 @@
 format:
   pdf:
     output-file: td2.pdf
-    class: exam
     include-in-header:
-      - text: "\\lhead{{\\sf  Probabilités \\\\ TD 2}}"
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD II}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD II}
+          \pagestyle{style-td1}
+
   html:
     output-file: td2.html
 
@@ -51,13 +56,11 @@ cnt_exo <- 1
 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-1  name="Espérance conditionnelle/tribu atomique"}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
 
 ::: {.callout-note}
@@ -125,21 +128,13 @@ On obtient que $\mathbb{E}[X \mid \mathcal{G}] = \mathbb{E}[Y \mid \mathcal{G}] 
  
 
 
-### Exercice `r cnt_exo`
-
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
-
-::: {.callout-note}
-
-### Cours 
-
-Conditionnement continu
+::: {#exr-2  name="Conditionnement continu"}
 
 :::
+
+
+
+
 
 
 Soient $(X,Y)$ un couple de v.a. réelles intégrables de densité jointe $f$, $g : \mathbb{R}^2 \to \mathbb{R}$ borélienne telle que $g(X,Y) \in \mathbb{L}^1$. 
@@ -155,7 +150,7 @@ Calculer $\mathbb{P}(X^2 +Y^2 \le 1 |X)$, puis en déduire $\mathbb{P}(X^2+Y^2 \
 
 1. Dans le cas général, montrer que $\mathbb{E}[\mathbb{E}[Y|X]] = \mathbb{E}[Y]$. Que vaut $\mathbb{E}[Y]$ dans l'exemple de la question précédente?
 
-1. Montrer, dans le cas général, que 
+2. Montrer, dans le cas général, que 
 $$\mathbb{E}[\mathbb{E}[Y|X] g(X)] = \mathbb{E}[Yg(X)],$$
 pour toute fonction $g$ telle que les deux espérances sont définies. 
 Que vaut $\mathbb{E}[Y g(X) \mid X]$? 
@@ -262,13 +257,11 @@ $$\mathbb{E}[Y g(X) \mid X] = g(X) \mathbb{E}[Y \mid X] = g(X) \psi(X)$$
 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-3  name="Partiel passé"}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
 ::: {.callout-note}
 
@@ -363,13 +356,11 @@ Autrement dit $Y$ est une variable qui prend deux valeurs, $\frac{r}{p}$ sur l'�
 :::
 
 
-### Exercice `r cnt_exo`
+::: {#exr-4  name="Conditionnement"}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
 
 Soit $(X_n)$ une suite de v.a. .i.i.d intégrables, et $S_n = \sum_{i=1}^n X_i$. 
@@ -419,13 +410,11 @@ et on conclut que $\mathbb{E}[X_1 \mid S_n] = \frac{S_n}{n}$.
 :::
 
 
-### Exercice `r cnt_exo`
+::: {#exr-5  name="Examen passé"}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
 ::: {.callout-note}
 
@@ -457,19 +446,12 @@ Enfin $S_k+\frac{k}{2} \sim \mathrm{Bin}(k,1/2)$.
 :::
 
 
-### Exercice `r cnt_exo`
-
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
-
-::: {.callout-note}
-
-###  Partiel passé 
+::: {#exr-6  name="Partiel passé"}
 
 :::
+
+
+
 
 Soient $\{\mathbf{e}_i, i \in \mathbb{N} \}$ des variables i.i.d exponentielles de paramètre $1$.
 Pour $n \in \mathbb{N}^*$ on note $S_n := \sum_{i=1}^n \mathbf{e}_i$. 
@@ -481,14 +463,14 @@ Pour $n \in \mathbb{N}^*$ on note $S_n := \sum_{i=1}^n \mathbf{e}_i$.
 Montrer que pour tout $t \ge 0$ 
 $$ f_n(t) = \frac{t^{n-1}}{(n-1)!} \exp(-t).$$ 
 1. Pour $t >0, n \in \mathbb{N}^*$, que vaut $\mathbb{P}(S_n \le t)$? 
-1. On fixe $t>0$ et on suppose $X_t \sim \mathrm{Poisson}(t)$. Que vaut 
+2. On fixe $t>0$ et on suppose $X_t \sim \mathrm{Poisson}(t)$. Que vaut 
 $\mathbb{P}(X_t \ge n)$, pour $n \in \mathbb{N}^*$? 
 1. Sur la demi-droite $\mathbb{R}_+$ on place les points $S_1, S_2, S_3,...$. 
 On note $N_t$ le nombre de ces points qui tombent dans l'intervalle $[0,t]$. 
 Exprimer l'événement $\{N_t \ge n\} = \{S_n \le t\}$.
 Déterminer la loi de $N_t$ à l'aide des questions préc\'dentes.  
 1.  Montrer que, conditionnellement à $\{N_t=1\}$, la loi de $\mathbf{e}_1$ est uniforme sur $[0,t]$. 
-1.  Conditionnellement à $\{N_t=2\}$, quelle est la loi du vecteur $(\mathbf{e}_1; \mathbf{e}_2)$?  
+2.  Conditionnellement à $\{N_t=2\}$, quelle est la loi du vecteur $(\mathbf{e}_1; \mathbf{e}_2)$?  
 
 
 
@@ -623,19 +605,11 @@ Autrement dit, la loi conditionnelle de $(\mathbf{e}_1, \mathbf{e}_2)$ sachant $
 
 :::
 
-### Exercice `r cnt_exo`
-
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
-
-::: {.callout-note}
-
-###  CC2 2023
+::: {#exr-7  name="CC2 2023"}
 
 :::
+
+
 
 On considère 
 $$ X \sim \mathcal{N} \left( \begin{pmatrix} -1 \\ 0 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 2 & 1 & -1 & -1 \\ 1 & 2 & -1 & 0 \\ -1 & -1 & 3 & -1 \\ -1 & 0 & -1 & 5 \end{pmatrix}\right).$$ 
@@ -687,20 +661,13 @@ $$ \begin{pmatrix} 3 & -1 \\ -1 & 5 \end{pmatrix} - BA^{-1}B^T =  \begin{pmatrix
 :::
 
 
-### Exercice `r cnt_exo`
-
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
-
-
-::: {.callout-note}
-
-(Partiel passé)
+::: {#exr-8  name="Partiel passé"}
 
 :::
+
+
+
+
 
 Soit $(X_1,X_2,X_3) \sim \mathcal{N}(\mu, M)$ où
 $$\mu = \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}, \quad M = \begin{pmatrix} 2 & 1 & 0 \\ 1 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}.$$
@@ -708,10 +675,10 @@ $$\mu = \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}, \quad M = \begin{pmatrix} 2 
 
 
 1. Quelle est la loi du couple $(X_1,X_2)$?
-1. Déterminer $\alpha$ un réel tel que
+2. Déterminer $\alpha$ un réel tel que
 $Y = \alpha X_1 + X_2 $ est indépendante de $X_1$. Que vaut $\mathbb{E}[Y]$? $\text{Var}(Y)$? 
 1. En déduire $\mathbb{E}[X_2 \mid X_1]$. Quelle est la loi conditionnelle de $X_2$ sachant $X_1$?
-1. Déterminer un réel $\beta$ tels que $Z=\beta X_1 + X_3$ est
+2. Déterminer un réel $\beta$ tels que $Z=\beta X_1 + X_3$ est
 indépendante de $X_1$. En déduire
 $$\mathbb{E}[X_3 \mid X_1], \quad \mathbb{E}[X_3^2 \mid X_1].$$
 1. Calculer $\mathbb{E}\left[X_1^2X_2 + X_3^2 X_1 \mid X_1\right]$.
@@ -769,19 +736,12 @@ Par ailleurs
 
 :::
 
-### Exercice `r cnt_exo`
-
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
-
-::: {.callout-note}
-
-### Examen passé
+::: {#exr-9  name="Examen passé"}
 
 :::
+
+
+
 
 
 Soit $(X_1,X_2,X_3) \sim \mathcal{N}(\mu,M)$, où 
@@ -838,19 +798,12 @@ $$\mathrm{Var}[X_1+2X_2 \mid X_3] = M_{\theta \theta} - M_{\theta \xi} M_{\xi \x
 
 :::
 
-### Exercice `r cnt_exo`
-
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
-
-::: {.callout-note}
-
-### (CC2 2023) 
+::: {#exr-10  name="CC2 2023"}
 
 :::
+
+
+
 
 On suppose dans cet exercice que $(X,Y)$ est un couple de variables aléatoires tel que pour toute $\phi : \mathbb{R}^2\to \mathbb{R}_+$ borélienne, 
 $$\mathbb{E}[\phi(X,Y)] = \sum_{n \ge 1} \frac{2}{3^{n}\sqrt{2\pi n}}  \int_{\mathbb{R}} \phi(n,y) \exp\left(-\frac{y^2}{2n}\right) dy.$$ 
@@ -858,12 +811,12 @@ $$\mathbb{E}[\phi(X,Y)] = \sum_{n \ge 1} \frac{2}{3^{n}\sqrt{2\pi n}}  \int_{\ma
 
 
 1. Montrer que $X \sim \mathrm{Geom}(2/3)$. 
-1. Vérifier que pour une fonction $f : \mathbb{R} \to \mathbb{C}$ telle que $f(Y) \in \mathbb{L}^1$, on a  
+2. Vérifier que pour une fonction $f : \mathbb{R} \to \mathbb{C}$ telle que $f(Y) \in \mathbb{L}^1$, on a  
 $$\mathbb{E}[f(Y) \mid X] = \sum_{n \ge 1} \left(\int_{\mathbb{R}} \frac{1}{\sqrt{ 2\pi n}} f(y) \exp\left(-\frac{y^2}{2n} \right) dy \right) \mathbb{I}_{\{X=n\}}$$ 
 %1. En déduire que pour tout $k \in \mathbb{N}$, 
 %$$\mathbb{E}[Y^k \mid X] = \frac{k!}{X^{2k}}$$ 
 1. Calculer $\mathbb{E}[\exp(itY) \mid X]$, $t \in \mathbb{R}$, quelle est la loi conditionnelle de $Y$ sachant $X$ ?
-1. Déduire que si $t\in \mathbb{R}$ 
+2. Déduire que si $t\in \mathbb{R}$ 
 $$\mathbb{E}[\exp(itY)] = \frac{2 \exp\left(-\frac{t^2}{2}\right)}{3-\exp\left(-\frac{t^2}{2}\right)}.$$ 
  
 
@@ -898,7 +851,7 @@ de sorte que
 $$\mathbb{E}[\exp(itY) \mid X] = \exp\left(-\frac{t^2 X}{2} \right).$$ 
 La loi conditionnelle de $Y$ sachant  $X$ est donc $\mathcal{N}(0,X)$. 
 
-1. On a gr\^ace à la propriété de tour et la question précédente  
+1. On a grâce à la propriété de tour et la question précédente  
    
     \begin{align*}
     \mathbb{E}[\exp(itY)] & =  \mathbb{E}[\mathbb{E}[\exp(itY) \mid X]] = \mathbb{E}\left[\exp\left(-\frac{t^2 X}{2}\right)\right] \\ 
@@ -915,19 +868,12 @@ La loi conditionnelle de $Y$ sachant  $X$ est donc $\mathcal{N}(0,X)$.
 
 :::  
 
-### Exercice `r cnt_exo`
-
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
-
-::: {.callout-note}
-
-### Partiel passé
+::: {#exr-11  name="Partiel passé"}
 
 :::
+
+
+
  
 
 
@@ -1151,19 +1097,12 @@ Comme $(U_1^S,U_2^S)$ jouent, conditionnellement à $S$, des rôles parfaitement
 
 
 
-### Exercice `r cnt_exo`
-
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
-
-::: {.callout-note}
-
-###  Partiel passé
+::: {#exr-12  name="Partiel passé"}
 
 :::
+
+
+
 
 Pour $(x,y) \in \mathbb{R}^2$ on définit 
 
@@ -1313,21 +1252,9 @@ $$\mathbb{E}[X \mid Y] = 2 \frac{\sqrt{Y}}{1+\sqrt{Y}}.$$
 :::
 
 
-### Exercice `r cnt_exo`
-
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
-
-
-::: {.callout-note}
-
-###  CC2 2023
+::: {#exr-14  name="CC2 2023"}
 
 :::
- 
 
 
 Dans cet exercice on suppose que 
@@ -1339,8 +1266,8 @@ et on pose $U= X^2$.
 
 
 1. Vérifier que $U \sim \mathrm{Gamma}(1/2,1/4)$. 
-1. Montrer que $(X,Y)$ possède une densité jointe $g$ que l'on déterminera.  
-1. Montrer que $(U,Y)$ possède la densité jointe 
+2. Montrer que $(X,Y)$ possède une densité jointe $g$ que l'on déterminera.  
+3. Montrer que $(U,Y)$ possède la densité jointe 
 $$ f(u,y) = \frac{1}{{ 4} \pi \sqrt{u}} \left( \exp\left(- \frac{u}{2} - y^2 + y \sqrt{u} \right) + \exp\left(-\frac{u}{2}- y^2 - y\sqrt{u} \right) \right) \mathbb{I}_{\{u >0\}}. $$
 1. Calculer $f_{Y \mid U}(y \mid u)$. En déduire $\mathbb{E}[Y \mid U], \mathbb{E}[Y^2 \mid U]$ et $\mathrm{Var}(Y \mid U)$. 
 Vérifier qu'on a bien
@@ -1519,19 +1446,12 @@ $$\mathbb{E}[Y \mid U] = \mathbb{E}[(2\xi-1)Z \mid U] = \frac{1}{2} \left( \frac
  
 
 
-### Exercice `r cnt_exo`
-
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
-
-::: {.callout-note}
-
-###  Rattrapage passé
+::: {#exr-16  name="Rattrapage passé"}
 
 :::
+
+
+
 
 
 Soit $X=(X_1,X_2,X_3) \sim \mathcal{N}(0,M)$, où    
@@ -1541,8 +1461,8 @@ $$M := \begin{pmatrix} 2& 2 &-2  \\ 2& 5 & 1 \\ -2 & 1 & 5 \end{pmatrix},$$
 
 
 1.  Montrer que $\det(M)=0$. Le vecteur $X$ possède-t-il une densité dans $\mathbb{R}^3$? 
-1.  Trouver $a \in \mathbb{R}$ tel que $X_1$ et $Y=X_2-a X_1$ soient indépendantes. Calculer $\mathrm{Var}(Y)$ et en déduire la loi de $(X_1,Y)$. 
-1.  Trouver la loi conditionnelle de $X_2$ sachant $X_1$. 
+2.  Trouver $a \in \mathbb{R}$ tel que $X_1$ et $Y=X_2-a X_1$ soient indépendantes. Calculer $\mathrm{Var}(Y)$ et en déduire la loi de $(X_1,Y)$. 
+3.  Trouver la loi conditionnelle de $X_2$ sachant $X_1$. 
 
 
 
@@ -1564,13 +1484,11 @@ On conclut que conditionnellement à $X_1$, $X_2 \sim \mathcal{N}(X_1,3)$.
 
 :::
 
-### Exercice `r cnt_exo`
+::: {#exr-17  name="Combinaison linéaire de gaussiennes"}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
 
 
@@ -1671,13 +1589,11 @@ On a alors, en utilisant cette indépendance et le fait que les variables $Y_n, 
 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-18  name="Loi jointe à densité"}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
 Soient $(X,Y)$ dont la loi jointe a pour densité 
 $f(x,y) = x(y-x) \exp(-y), 0 \le x \le y <\infty$. 
@@ -1751,13 +1667,11 @@ On introduit la notation $f_{X|Y}(x|y) := f(x,y)/f_Y(y)$ lorsque le quotient est
 :::
 
 
-### Exercice `r cnt_exo`
+::: {#exr-19  name="Exponentielles conditionnées"}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
 
 Soient $Y,Z$ deux v.a.r. indépendantes $\sim \mathrm{exp}(\lambda)$ où $\lambda>0$. On pose $X= Y+Z$. Quelle est la loi conditionnelle de $Y$ sachant $X$? Que vaut $\mathbb{E}[Y|X]$? En déduire l'expression de $\mathbb{E}[Y|X]$
@@ -1798,13 +1712,11 @@ On conclut que $\mathbb{E}[Y \mid X] = \frac{X}{2}.$
 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-20  name="Gaussiennes corrélées"}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
 
 Soient $X$ et $Y$ deux variables aléatoires indépendantes, toutes deux normales centrées réduites. On définit pour $\sigma_1 >0, \sigma_2>0, |\rho|\le 1$, 
@@ -1856,13 +1768,11 @@ la première partie de la somme étant bien s\^ur $\sigma(U)$-mesurable, alors q
 :::
 
 
-### Exercice `r cnt_exo`
+::: {#exr-21  name="Gaussiennes corrélées (2)"}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
 
 Soit $Z = (X, Y )$ un vecteur aléatoire gaussien à valeurs dans $\mathbb{R}^2$. On suppose que
@@ -1917,13 +1827,11 @@ $$\mathbb{E}[X^2 Y^2] = \mathbb{E}[\mathbb{E}[X^2 Y^2 \mid Y]] = \mathbb{E}[\rho
 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-22  name="Gaussiennes"}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
 
 Soient $U, V, W$ trois v.a.r. gaussiennes centrées réduites. On pose
@@ -1978,21 +1886,18 @@ et on conclut que $(W,Z)$ est un vecteur gaussien bi-dimensionnel, centré rédu
 
 :::
 
-### Exercice `r cnt_exo`
+::: {#exr-24  name="Maxima d'exponentielles"}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
 
 Soient $X_1$ et $X_2$ des v.a. indépendantes, de lois exponentielles de paramètres
 respectifs $\lambda_1$ et $\lambda_2$.
 
 
-1. Calculer
-$\mathbb{E}[\max(X_1,X_2) \mid X_1]$. 
+1. Calculer  $\mathbb{E}[\max(X_1,X_2) \mid X_1]$. 
 1. Calculer $\mathbb{E}[\max(X_1;X_2)]$.
  
 
@@ -2044,13 +1949,11 @@ et on retrouve le résultat précédent.
 
 :::
 
-### Exercice `r cnt_exo`
+::: {#exr-25  name="Densités jointes"}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
 
 On pose $h(x) = \frac{1}{\Gamma(a+1)} \exp(-x)x^{a-1}$ ($a > 0$ fixé) et 
@@ -2109,13 +2012,11 @@ Remarquons que si $a>0$, $aT \sim \mathrm{Unif}[0,a]$. On déduit que sachant $X
 
 :::
 
-### Exercice `r cnt_exo`
+::: {#exr-26  name=""}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
 
 Soit $(X_n, n \in \mathbb{N})$ une suite de v.a.r.i.i.d. de densité $f$ et fonction de répartition $F$. Soient
@@ -2200,13 +2101,11 @@ Comme $H_1(x) =  \mathbb{P}(X_1 \le x) = x$, on conclut que $H_n(x) = \frac{x^n}
 
 
 
-### Exercice `r cnt_exo`
+::: {#exr-27  name=""}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
 
 Soient $X$ et $Y$ deux v.a.r. indépendantes de loi uniforme sur $[0, 1]$.
@@ -2262,13 +2161,11 @@ $$(Y-X)^+ = \xi_X Z_X.$$
 
 :::
 
-### Exercice `r cnt_exo`
+::: {#exr-28  name=""}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
 
 Soient $X_1, X_2, X_3$ trois v. a. r. gaussiennes centrées réduites indépendantes. On
@@ -2302,13 +2199,11 @@ On peut en déduire que sachant $U$, la loi conditionnelle de $W$ est $\mathcal{
 
 :::
 
-### Exercice `r cnt_exo`
+::: {#exr-29  name=""}
 
-```{r}
-#| eval: true    # true si l'exercice est visible 
-#| echo: false
-cnt_exo <-  cnt_exo + 1
-```
+:::
+
+
 
 
 Soient $X$ et $Y$ deux v. a. r. gaussiennes centrées réduites indépendantes. On

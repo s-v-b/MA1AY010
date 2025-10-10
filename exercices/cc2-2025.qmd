@@ -1,0 +1,70 @@
+---
+#title: "Exercices : semaine IV"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2025-09-08"
+
+format:
+  pdf:
+    output-file: cc2-2025.pdf
+    include-in-header:
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small CC II}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small CC II}
+          \pagestyle{style-td1}
+
+engine: knitr
+draft: true
+---
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+
+
+
+
+
+
+::: {.callout-note}
+
+### CC II/IV  :    
+
+- 16 Octobre 2025
+
+- Master I ISIFAR
+
+- Durée : 1 heure 30 
+
+- **Probabilités** 
+
+:::
+
+
+::: {.callout-caution}
+
+- Aide-mémoire : une feuille A4 recto verso autorisée
+- Aucun autre document autorisé
+- Aucun moyen de communication électronique autorisé
+
+:::
+
+
+
+::: {#exr-   name=""} 
+
+:::
+
+{{< include _increment.qmd >}}
+
+
