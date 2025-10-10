@@ -1,0 +1,15 @@
+{
+  "hash": "9d78b7537068a8b65faa5addc05d3123",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\n#title: \"Exercices : semaine IV\"\n# subtitle: \"M1 ISIFAR MA1AY010\"\n\n# date: \"2025-09-08\"\n\nformat:\n  pdf:\n    output-file: cc2-2025.pdf\n    include-in-header:\n      - file: before_header_td.tex\n      - text: |\n          \\copypagestyle{style-td1}{mystyle}\n          \\makeevenhead{style-td1}{\\sffamily\\small Probabilités et Extrêmes}{}{\\sffamily\\small CC II}\n          \\makeoddhead{style-td1}{\\sffamily\\small Probabilités et Extrêmes}{}{\\sffamily\\small CC II}\n          \\pagestyle{style-td1}\n\nengine: knitr\ndraft: true\n---\n\n\n\n\n\n::: {.cell}\n\n:::\n\n\n\n\n\n\n\n\n::: {.callout-note}\n\n### CC II/IV  :    \n\n- 16 Octobre 2025\n\n- Master I ISIFAR\n\n- Durée : 1 heure 30 \n\n- **Probabilités** \n\n:::\n\n\n::: {.callout-caution}\n\n- Aide-mémoire : une feuille A4 recto verso autorisée\n- Aucun autre document autorisé\n- Aucun moyen de communication électronique autorisé\n\n:::\n\n\n\n::: {#exr-   name=\"\"} \n\n:::\n\n\n\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}
