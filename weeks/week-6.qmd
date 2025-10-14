@@ -1,36 +1,53 @@
 ---
-title: "Week 6"
-subtitle: "MLR: Model building and comparison"
-editor: visual
-draft: true
+title: "Semaine 6"
+subtitle: "Vecteurs gaussiens"
+editor: source
+draft: false
 ---
 
+
 ::: callout-important
-Due dates: Exam 1 - Mon, Feb 7 at 11:59pm
+
+La semaine V (13- 17 octobre 2025)  est  consacrée aux vecteurs gaussiens :
+
+- Convergence presque sûre, en probabilité, en loi
+- Loi(s) des grands nombres
+- Théorème central limite
+
+**CC 2** : jeudi 17 octobre (durée 1h30 de 15h à 16h30).
+
+
 :::
 
-## Prepare
+## Préparer/Voir/Revoir
 
-No reading (take a break after the exam! 😴)
+::: {}
 
-## Participate
+- Loi faible des grands nombres 
+- Théorème central limite
+- Caractérisations
+  
+:::
 
-🖥️ [Lecture 10 - MLR: Types of predictors](/slides/lec-10.html)
+::: {}
 
-🖥️ [Lecture 11 - MLR: Model comparison](/slides/lec-11.html)
+- [Vecteurs gaussiens](https://s-v-b.github.io/MA1AY010-CN/https://s-v-b.github.io/MA1AY010-CN/09-gaussian-vectors.html)
+- [Convergence en probabilité/presque sûre et loi des grands nombres](https://s-v-b.github.io/MA1AY010-CN/05-convergences-1.html)
+- [Convergence en loi et TCL](https://s-v-b.github.io/MA1AY010-CN/08-convergence-3.html)
 
-## Practice
+:::
 
-No application exercises
 
-## Perform
+## Exercices
 
-No lab
 
-✅ [Exam 1](/exams/exam-1.html)
+- [Feuille TD VI](/exercices/td6.html)
+- [Feuille TD V](/exercices/td5-bis.html)
+   
+- [Correction  CC 1](/corriges/cc1-2025.pdf)
 
-<br><br>
 
 ::: {style="font-size: 0.875em;"}
 Back to [course schedule](/ "Course schedule") ⏎
 :::
+

@@ -67,8 +67,8 @@ website:
             text: "Week 4"
           - href: weeks/week-5.qmd
             text: "Week 5"
-          # - href: weeks/week-6.qmd
-          #   text: "Week 6"
+          - href: weeks/week-6.qmd
+            text: "Week 6"
 #          - href: weeks/week-7.qmd
 #            text: "Week 7"
 #          - href: weeks/week-8.qmd

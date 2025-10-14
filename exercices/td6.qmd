@@ -19,7 +19,7 @@ format:
     output-file: td6.html
 
 engine: knitr
-categories: [Convergences, Fourier, Gaussiennes, "Temps d'arrêt"]
+categories: [Convergences, Fourier, Gaussiennes, "Temps d'arrêt", Conditionnement]
 draft: false
 ---
 
@@ -60,46 +60,142 @@ requireNamespace('quarto')
 
 :::
 
+Vérifier que les deux propriétés suivantes sont équivalentes:
+
+1. $X \sim \mathcal{N}(0,1)$ 
+2. Pour toute fonction $g$ absolument continue avec une  dérivée $g'$ telle que $\mathbb{E}[ |X g(X)|]<\infty$, on a 
+    
+    a. $g'(X)$  intégrable  
+    b. $\mathbb{E}[g'(X)] = \mathbb{E}[Xg(X)]$
+
+
+::: {#exr-rotation-invariance  name="Invariance par rotation"}
+
+Si $X \sim \mathcal{N}(0, \text{Id}_n)$, et $A$ est une matrice orthogonale  ($A \times A^\top = A^\top \times A =\text{Id}_n$), comment est distribué $A X$ ?  
+
+
+:::
+
 ::: {#exr-truc-pisier-1  name="Maxima de Gaussiennes"}
 
-:::
-
-::: {#exr-truc-pisier-2 name="Concentration gaussienne"}
 
 :::
 
+Vérifier que si $X_1, \ldots, X_n \sim_{\text{i.i.d.}} \mathcal{N}(0,1)$:
 
-::: {#exr-poincare name="Inégalité de Poincaré"}
-
-:::
-
-::: {#exr-conditionnement-gaussien-1  name="Conditionnement gaussien"}
+$$\mathbb{E}\left[\max(X_1, \ldots, X_n) \right] \leq \sqrt{2 \ln n}$$
 
 
-:::
+*Suggestion :* Majorer $\mathbb{E} \mathrm{e}^{\lambda \max(X_1, \ldots, X_n )}$ en comparant à $\mathbb{E} \sum_{i=1}^n \mathrm{e}^{\lambda X_i}$. 
+Comparer $\mathbb{E}  \mathrm{e}^{\lambda \max(X_1, \ldots, X_n )}$ et 
+$\mathrm{e}^{ \lambda \mathbb{E} \max(X_1, \ldots, X_n )}$.
 
 
-::: {#exr-norme-gaussienne-1  name="Norme de vecteurs gaussiens non centrés"}
 
 
-:::
+
+
+
 
 ::: {#exr-norme-gaussienne-2  name="Norme de vecteurs gaussiens centrés"}
 
 
 :::
 
-::: {#exr-cochran-1  name="Théorème de Cochran"}
+Montrer que $X$ est un vecteur gaussien centré, la loi du carré de la norme euclidienne de $X$ ne dépend que des valeurs propres de la matrice de covariance. 
+
+::: {#exr-cochran-1  name="Norme de vecteurs gaussiens non centrés"}
 
 
 :::
 
-::: {#exr-cochran-2  name="Théorème de Cochran 2"}
+Montrer que $X$ est un vecteur gaussien standard et $\mu$ un vecteur, la loi du carré de la norme euclidienne de $X + \mu$ ne dépend que la norme de $\mu$. 
+
+Montrer que 
+
+$$P \left\{ \Vert X + \mu \Vert \leq x \right\} \leq P \left\{ \Vert X \Vert \leq x \right\}$$
+
+*Suggestion :* vérifier que c'est vrai en dimension 1, utiliser un argument de couplage. 
+
+<!-- ::: {#exr-cochran-2  name="Théorème de Cochran 2"}
 
 
 :::
 
 ::: {#exr-student-1  name="Théorème de Student"}
+
+
+::: -->
+
+
+::: {#exr-mills-ratio  name="Ratios de Mills"}
+
+
+:::
+
+Soit $Z \sim \mathcal{N}(0,1)$. On note $\Phi$ la  fonction de répartition de $\mathcal{N}(0,1)$, 
+et $\phi$ sa densité.
+
+Montrer que pour tout $x>0$, 
+
+$$\left(1 - \frac{1}{x^2}\right)  \frac{1}{x} \phi(x) \leq  1 - \Phi(x) \leq \frac{1}{x} \phi(x)$$
+
+*Suggestion :* utiliser l'intégration par parties. 
+
+
+::: {#exr-prior-Gaussien name=""}
+
+Dans cet exercice $T \sim \mathcal{N}(\mu, \tau^2)$ et la distribution conditionnelle de $X$ sachant $T$ 
+est $\mathcal{N}(T, \sigma^2)$. 
+
+a. Caractériser la loi jointe de $(T,X)$.
+a. Quelle est la loi de $X$ ?
+b. Quelle est la distribution conditionnelle de $T$ sachant $X$ ? 
+
+:::
+
+
+::: {#exr-conditionnement-gaussien-1  name="Conditionnement gaussien"}
+
+:::
+
+
+Soit $\rho\in ]-1,1[$ et $(X,Y)$ un vecteur gaussien centré de matrice de covariances 
+$$M = \begin{pmatrix} 1 & \rho \\ \rho & 1 \end{pmatrix}$$
+On notera $\sigma = \sqrt{1-\rho^2}$. 
+ 
+1. Calculer $\text{det}(M)$, $M^{-1}$, puis exprimer la densité jointe $f_{(X,Y)}$ du vecteur $(X,Y)$. 
+2. Montrer que  
+
+    $$g_x(y) := \frac{f_{(X,Y)}(x,y)}{f_X(x)} = \frac{1}{\sigma \sqrt{2\pi}} \exp \left( - \frac{1}{2(1-\rho^2)} \left(y-\rho x\right)^2\right).$$
+
+    Montrer que pour tout $x \in \mathbb{R}$, $y \to g_x(y)$ définit une densité. 
+    
+3. Si on note $Y_x$ une variable de densité $g_x$, que pouvez-vous dire sur la loi de $Y_x$?   
+4. Trouver $\alpha$, $\beta$ deux réels tels 
+que $(X, \alpha X + \beta Y)$ suit la loi normale centrée réduite.
+
+Remarquer que l'on peut écrire $Y= -\frac{\alpha}{\beta} X +\frac{1}{\beta}(\alpha X + \beta Y)$. Sauriez-vous dire pourquoi cette écriture est intéressante? 
+
+
+
+::: {#exr-argaussien name=""}
+
+Dans cet exercice, $Y_1, \ldots, Y_n, \ldots$ sont i.i.d. selon $\mathcal{N}(0,1)$, $X_0$ est gaussienne $\mathcal{N}(\mu, \tau^2)$, indépendante de  $Y_1, \ldots, Y_n, \ldots$.
+
+On définit $X_1, \ldots, X_n, \ldots$ par 
+
+$$X_{i+1} = \theta X_i  + \sigma Y_{i+1}$$
+
+On note $\mathcal{F}_i = \sigma\left(X_0, X_1, \ldots, X_i \right)$.
+
+a. Calculer $\mathbb{E}[ X_{i+1} \mid \mathcal{F}_i]$.
+a. Calculer $\mathbb{E}X_i$, $\text{Var}(X_i)$.
+a. Peut-on choisir $\mu, \tau, \sigma, \theta$, pour que les $X_i$ soient tous distribués identiquement?
+a. À quelle condition sur $\theta$, les $X_i$ convergent-elles en distribution ? Préciser la limite si possible.
+a. Si $\theta$ satisfait la condition de la question précédente, calculer $\text{cov}\left(X_i, X_{i+k}\right)$, pour $i, k \in \mathbb{N}$ 
+
+
 
 
 :::

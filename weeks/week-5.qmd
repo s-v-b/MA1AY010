@@ -39,7 +39,7 @@ La semaine V (6- 9 octobre 2025)  est  consacrée aux modes de convergence en ca
 ## Exercices
 
 
-- [Feuille TD V](/exercices/td5.html)
+- [Feuille TD V](/exercices/td5-bis.html)
   
 - [Corrections TD II](/corriges/td2.html)
 - [Corrections TD IV](/corriges/td4.html)  

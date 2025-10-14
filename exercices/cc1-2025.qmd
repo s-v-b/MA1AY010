@@ -80,7 +80,7 @@ i. Quelle est l'espérance de $X$ ?
 i. Que vaut $P\{X = k\}$ pour $k \in \{0,n\}$ ?
 
 
-::: {.content-visible when-format="markdown"}
+::: {.content-visible when-profile="solution"}
 
 ::: {.callout-note}
 
@@ -136,7 +136,7 @@ i. Calculer la fonction génératrice de la loi de $Z_2$
 i. Quelle est la probabilité que l'extinction ait lieu exactement à la génération $2$? 
 i. Quelle est la probabilité que que l'extinction ait lieu exactement à la génération $n$? 
 
-::: {.content-visible when-format="markdown"}
+::: {.content-visible when-profile="solution"}
 
 ::: {.callout-note}
 
@@ -182,6 +182,46 @@ i. Quelle est la probabilité que que l'extinction ait lieu exactement à la gé
     \end{align*}
 :::
 
+
+
+::: {.callout-caution  title="Solution Chat-GPT 3.5"}
+
+On a un processus de Galton–Watson avec loi de reproduction $\mathrm{Poisson}(\mu)$. Notons la fonction génératrice de la loi des descendants
+$$
+f(s)=\mathbb{E}[s^{\xi}]=\exp\big(\mu(s-1)\big),
+$$
+où $\xi\sim\mathrm{Poisson}(\mu)$.
+
+i) Fonction génératrice de $Z_2$
+
+La fonction génératrice de $Z_n$ est la $n^{\text{ième}}$ composition de $f$ avec elle-même, donc pour $n=2$
+
+$$
+G_{Z_2}(s)=f\big(f(s)\big)
+=\exp\Big(\mu\big(\exp(\mu(s-1))-1\big)\Big).
+$$
+
+ii) Probabilité que l'extinction ait lieu *exactement* à la génération (2)
+
+L'évènement «extinction exactement à la génération 2» est ${Z_1>0  \text{ et } Z_2=0}$. On peut écrire
+$$
+\mathbb{P}(Z_2=0,Z_1>0)=\mathbb{P}(Z_2=0)-\mathbb{P}(Z_1=0).
+$$
+
+Or 
+
+$$
+\mathbb{P}(Z_1=0)=f(0)=e^{-\mu}) et (\mathbb{P}(Z_2=0)=G_{Z_2}(0)=f(f(0))=\exp!\big(\mu(e^{-\mu}-1)\big).
+$$
+Donc
+$$
+\boxed{\mathbb{P}(\text{extinction exactement en 2})=\exp!\big(\mu(e^{-\mu}-1)\big)-e^{-\mu}}
+$$
+
+On peut obtenir la même formule en conditionnant sur $Z_1=k$ et sommant 
+$$\sum_{k\ge1}\mathbb{P}(Z_1=k) \times e^{-\mu k})$$
+
+:::
 :::
 
 ::: {#exr-   name=""} 
@@ -197,7 +237,7 @@ Soit $X \sim \mathrm{U}(-\pi/2,\pi/2)$ (loi uniforme sur $[-\pi/2,\pi/2]$), on d
 i. La loi de $Y$ est-elle absolument continue?
 i. Si oui, déterminer une version de sa densité.
 
-::: {.content-visible when-format="markdown"}
+::: {.content-visible when-profile="solution"}
 
 ::: {.callout-note}
 
@@ -225,6 +265,37 @@ i. Si oui, déterminer une version de sa densité.
     
 :::
 
+::: {.callout-caution title="Solution Chat-GPT 3.5"}
+
+La loi  de $Y$ est absolument continue (sans atome) et on peut donner explicitement sa densité.
+
+Remarquons d'abord que $\cos$ envoie l'intervalle $[-\pi/2,\pi/2]$ sur $[0,1]$. Pour $y\in(0,1)$ les équations $\cos x=y$ ont exactement deux solutions dans $[-\pi/2,\pi/2]$, à savoir $x_1=\arccos y$ et $x_2=-\arccos y$. La densité de (la loi de ) $X$ est $f_X(x)=\dfrac{1}{\pi}$ sur $[-\pi/2,\pi/2]$.
+
+En utilisant la formule de changement de variable pour fonctions non monotones :
+$$
+f_Y(y)=\sum_{x:\cos x=y}\frac{f_X(x)}{|(\cos)'(x)|}
+=\frac{1}{\pi}\left(\frac{1}{|,-\sin(\arccos y),|}+\frac{1}{|,-\sin(-\arccos y),|}\right).
+$$
+Or $\sin(\arccos y)|=\sqrt{1-y^2}$ et les deux termes sont égaux, d'où pour $y\in(0,1)$
+$$
+\boxed{,f_Y(y)=\frac{2}{\pi\sqrt{1-y^2}},.}
+$$
+Enfin $f_Y(y)=0$ pour $y\notin[0,1]$. (Les points $y=0$ et $y=1$ n'ont pas d'atome : la densité diverge en $0$ et $1$ mais ces points ont probabilité nulle.)
+
+
+:::
+
+::: {.callout-caution  title="Critique de Chat-GPT 3.5"}
+
+La propriété *absolue continuité* n'est pas équivalente à  la propriété *être sans atome* (*diffuse*). 
+La ou plutôt les lois de Cantor sont des exemples de lois sans atomes qui ne sont pas absolument continues.
+
+La *formule de changement de variable pour fonctions non monotones* est vaseuse, on ne sait pas d'où elle sort, ni quel est son domaine d'application.
+
+La discussion sur la divergence de la densité à la fin est elle aussi vaseuse. 
+
+:::
+
 
 :::
 
@@ -244,7 +315,7 @@ Soit $N$ indépendante des $X_i$, distribuée selon une loi de Poisson de param�
 i. Calculer la fonction de répartition de la loi de $Z$.
 i. La loi de $Z$ possède-t-elle une espérance finie?  
 
-::: {.content-visible when-format="markdown"}
+::: {.content-visible when-profile="solution"}
 
 ::: {.callout-note}
 
@@ -284,6 +355,66 @@ i. La loi de $Z$ possède-t-elle une espérance finie?
 
 :::
 
+::: {.callout-caution title="Solution Chat-GPT 3.5"}
+
+
+Rappel : $N\sim\mathrm{Poisson}(\mu)$ indépendant des $X_i$, et pour tout $t\ge 1$
+$P(X_1\ge t)=t^{-\alpha}$, donc $P(X_1\le t)=1-t^{-\alpha}$.
+
+i) Fonction de répartition de $Z=\max_{1\le i\le N} X_i$ (avec convention $\max_{i\le0}X_i=0$)
+
+Pour $t<0$ on a évidemment $F_Z(t)=0$.
+Pour $0\le t<1$ tous les $X_i$ valent $\ge1$, donc ${Z\le t}={N=0}$ et
+$$
+F_Z(t)=P(Z\le t)=P(N=0)=e^{-\mu}.
+$$
+Pour $t\ge1$, conditionnons sur $N$ :
+$$
+P(Z\le t)=\sum_{k=0}^{\infty}P(N=k) \times P\big(\max_{1\le i\le k}X_i\le t\big)
+=\sum_{k=0}^{\infty} e^{-\mu}\frac{\mu^k}{k!}\big(1-t^{-\alpha}\big)^k.
+$$
+La somme donne une exponentielle :
+$$
+F_Z(t)=e^{-\mu}\exp!\big(\mu(1-t^{-\alpha})\big)=\exp\big(-\mu t^{-\alpha}\big),\qquad t\ge1.
+$$
+
+Ainsi, de façon compacte (et continue en (t=1)) :
+$$
+\boxed{F_Z(t)=\begin{cases}
+0 & t<0\\ 
+e^{-\mu} & 0\le t<1 \\
+\exp\big(-\mu t^{-\alpha}\big) & t\ge1.
+\end{cases}}
+$$
+
+ii) Existence (ou non) de l'espérance de $Z$
+
+Utilisons la formule $E[Z]=\int_{0}^{\infty}P(Z>t) dt$. Avec la CDF ci-dessus :
+
+$$
+\mathbb{E}[Z]=\int_0^1\big(1-e^{-\mu}\big) dt+\int_1^{\infty}\big(1-e^{-\mu t^{-\alpha}}\big) dt
+=1-e^{-\mu}+\int_1^{\infty}\big(1-e^{-\mu t^{-\alpha}}\big) dt.
+$$
+
+Pour étudier la convergence de la seconde intégrale, posons $u=t^{-\alpha}$ (donc pour $t\in[1,\infty)$, $u\in(0,1])$. On obtient
+$$
+\int_1^{\infty}\big(1-e^{-\mu t^{-\alpha}}\big) dt
+=\frac{1}{\alpha}\int_0^1\big(1-e^{-\mu u}\big)u^{-1/\alpha-1} du.
+$$
+Quand $u\to0^+$, $1-e^{-\mu u}\sim\mu u$, donc l'intégrande se comporte comme une constante fois $u^{-1/\alpha}$. L'intégrale $\int_0 u^{-1/\alpha} du$ converge près de $0$ si et seulement si $-1/\alpha>-1$, i.e. si et seulement si $\alpha>1$.
+
+Conclusion :
+$$
+\boxed{\text{E}[Z]<\infty\ \Longleftrightarrow\ \alpha>1.}
+$$
+
+Si $\alpha>1$, une expression utile est
+$$
+\boxed{\mathbb{E}[Z]=1-e^{-\mu}+\frac{1}{\alpha}\int_0^1\big(1-e^{-\mu u}\big)u^{-1/\alpha-1},du.}
+$$
+(Autrement dit l'espérance est finie pour $\alpha>1$ et infinie pour $\alpha\le1$.)
+
+
 
 :::
 
@@ -302,21 +433,32 @@ i. Si elle existe, quelle est la densité de la loi de $XY$ (une expression int�
 i. Préciser la densité lorsque $X, Y$ sont indépendantes et uniformément distribuées sur $[0,1]$
 
 
-::: {.content-visible when-format="markdown"}
+::: {.content-visible when-profile="solution"}
 
 ::: {.callout-note}
 
 ### Solution 
 
-La transformation $]0, \infty)^2 \to ]0, \infty)^2$, $\begin{pmatrix} x \\ y \end{pmatrix}\mapsto \begin{pmatrix} x \\ xy \end{pmatrix}$ est bijective, continuement différentiable, de matrice Jacobienne $\begin{pmatrix} 1 & 0 \\ y & x \end{pmatrix}$ partout inversible et de déterminant Jacobien $x$. 
+i. La transformation $]0, \infty)^2 \to ]0, \infty)^2$, $\begin{pmatrix} x \\ y \end{pmatrix}\mapsto \begin{pmatrix} x \\ xy \end{pmatrix}$ est bijective, continuement différentiable, de matrice Jacobienne $\begin{pmatrix} 1 & 0 \\ y & x \end{pmatrix}$ partout inversible et de déterminant Jacobien $x$. 
 
-La loi de $\begin{pmatrix} X \\ XY \end{pmatrix}$ admet une densité sur $]0,\infty)^2$ :
+    La loi de $\begin{pmatrix} X \\ XY \end{pmatrix}$ admet une densité sur $]0,\infty)^2$ :
 
-$$\begin{pmatrix} u \\ v \end{pmatrix}  \mapsto \frac{f(u, v/u)}{u}$$
+    $$\begin{pmatrix} u \\ v \end{pmatrix}  \mapsto \frac{f(u, v/u)}{u}$$
 
-La densité de la loi de $XY$ sur $]0,\infty)$ en $v$ est obtenue en intégrant:
+    La densité de la loi de $XY$ sur $]0,\infty)$ en $v$ est obtenue en intégrant:
 
-$$\int_{]0,\infty)} \frac{1}{u} f(u, v/u) \mathrm{d}u$$
+    $$\int_{]0,\infty)} \frac{1}{u} f(u, v/u) \mathrm{d}u$$
+
+ii. Dans cette configuration $f(x,y) = \mathbb{I}_{0<x< 1}\mathbb{I}_{0<y< 1}$. Pour $v \in (0,\infty)$ 
+
+    \begin{align*}
+    \int_{]0,\infty)} \frac{1}{u} f(u, v/u) \mathrm{d}u
+      & = \int_{]0,\infty)} \mathbb{I}_{0<u< 1}\mathbb{I}_{0<v/u< 1}\frac{1}{u}  \mathrm{d}u \\
+      & = \int_v^ 1 \frac{1}{u}\mathrm{d}u \\
+      & = \ln \frac{1}{v} \, .
+    \end{align*}
+
+    La fonction de répartition associée est $v \mapsto v - v \ln v.$
 
 :::
 
