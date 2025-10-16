@@ -1,0 +1,1 @@
+../exercices/cc1-2025.qmd

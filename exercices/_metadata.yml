@@ -28,7 +28,7 @@ format:
     code-fold: false
     toc: false
     highlight-style: arrow
-    keep-tex: false
+    keep-tex: true
     documentclass: memoir
     classoption: [11pt, a4paper, twoside, article, titlepage=false]
     largemargins: false

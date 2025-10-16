@@ -654,7 +654,7 @@ $$ \mathbb{E}[X] = \mathrm{Var}[X] = \lambda.$$
     La densité est rappelée dans l'énoncé, on a pour $x \in \mathbb{R}$, 
     $$F_X(x) = \frac{1}{\pi} \left(\frac{\pi}{2}+ \arctan\left(\frac{x}{a}\right)\right),$$ 
     et 
-    $$ \Phi_X(t) = \exp(-a|t|), t \in \mathbb{R}.$$ 
+    $$\Phi_X(t) = \exp(-a|t|), t \in \mathbb{R}.$$ 
 
 - Stable $(1/2)$
 
@@ -1033,7 +1033,7 @@ On conclut que la loi conditionnelle de $(X_1,...,X_n)$ sachant $\{Y=r\}$ est un
 
 
 
-On suppose que le nombre $X$ d'oeufs pondus par un insecte suit une loi de Poisson de paramètre $\lambda>0$ et que la probabilité qu'un oeuf meurt sans éclore est, indépendamment des autres oeufs, égale à $1-p$, où $p \in ]0,1[$. 
+On suppose que le nombre $X$ d'oeufs pondus par un insecte suit une loi de Poisson de paramètre $\lambda>0$ et que la probabilité qu'un oeuf meure sans éclore est, indépendamment des autres oeufs, égale à $1-p$, où $p \in ]0,1[$. 
 
 1. Démontrer que le nombre $Y$ d'oeufs qui arrivent à éclosion suit une loi de Poisson de paramètre $\lambda p$. 
 1. Quelle est la loi jointe de $(Y,Z)$, où $Z= X-Y$ est le nombre d'oeufs morts avant éclosion? 
