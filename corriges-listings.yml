@@ -1,0 +1,54 @@
+- title: "TD I : Rappels de Licence"
+  author: "Master I ISIFAR UParis Cité"
+  date: "2025-09-08"
+  path: "corriges/td1.html"
+  categories: [Variables aléatoires réelles]
+- title: "TD I supplément : Rappels de Licence"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-09-11"
+  path: "corriges/td1-supplement.html"
+  categories: [Variables aléatoires réelles, Branchement]
+- title: "TD II : Conditionnement"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-09-22"
+  path: "corriges/td2.html"
+  categories: [Conditionnement, Branchement]
+- title: "TD II : Conditionnement  (supplément)"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-09-22"
+  path: "corriges/td2-supplement.html"
+  categories: [Conditionnement, Branchement]
+- title: "Questionnaire I"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-09-22"
+  path: "corriges/quizz_a.html"
+- title: "TD III : Branchement"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-09-22"
+  path: "corriges/td3.html"
+  categories: [Conditionnement, Branchement]
+- title: "TD IV : Conditionnement"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-09-29"
+  path: "corriges/td4.html"
+  categories: [Conditionnement]
+- title: "TD V : Convergences/Caractérisations"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-10-06"
+  path: "corriges/td5-bis.html"
+  categories: [Convergences, Caractérisations, LGN, TCL]
+- title: "TD VI : Gaussiennes"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-10-13"
+  path: "corriges/td6.html"
+  categories: [Gaussiennes]
+- title: "Corrigé CC1"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-10-09"
+  path: "corriges/cc1-2025.pdf"
+  categories: [Fonctions génératrices, Densités, Fonctions de répartition, Processus de branchement]  
+- title: "Corrigé CC1"
+  author: "Master I MIDS UParis Cité"
+  date: "2025-10-16"
+  path: "corriges/cc2-2025.pdf"
+  categories: [Fonctions génératrices, Densités, Fonctions de répartition, Processus de branchement]

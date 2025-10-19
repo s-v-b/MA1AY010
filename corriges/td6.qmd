@@ -1,0 +1,1 @@
+../exercices/td6.qmd

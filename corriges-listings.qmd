@@ -1,0 +1,31 @@
+---
+title: "TDs"
+listing:
+  - id: "tds"
+    contents: 
+      - corriges-listings.yml
+    fields: [date, title, categories] 
+    field-display-names: 
+      title: "Titre"
+      categories: "Tags"
+    type: table  
+    table-striped: true
+    table-hover: true
+    sort: date
+---
+
+
+::: {.callout-note}
+
+Les séances d'exercice sont organisées autour des feuilles de TD. Sentez vous libres d'attaquer les exercices à l'avance. 
+
+Ne consultez les corrigés qu'en dernier recours. 
+
+:::
+
+
+
+::: {#tds}
+:::
+
+

@@ -57,7 +57,7 @@ cnt_exo <- 1
 
 ::: {#exr- name=""}
 
-
+:::
 
 
 i. Est-il vrai qu'une fonction croissante sur $\mathbb{R}$ est toujours mesurable ?
@@ -68,7 +68,7 @@ i. Si $X,Y$  sont indépendantes, de lois à densité sur $\mathbb{R}$, est-il v
 ::: {#exr- name=""}
 
 
-
+:::
 
 
 
@@ -84,7 +84,7 @@ i. Si oui, exprimer cette densité en fonction de $f, a, b$.
 
 ::: {#exr- name=""}
 
-
+:::
 
 
 
@@ -102,7 +102,7 @@ i. Si oui, pouvez-vous caractériser la loi de la limite?
 
 ::: {#exr- name=""}  (Inégalité d'association)
 
-
+:::
 
 
 
@@ -118,7 +118,7 @@ $$
 
 ::: {#exr- name=""}
 
-
+:::
 
 
 
@@ -135,7 +135,7 @@ i. Quelle est la densité jointe de la loi de $(X_{i,n} - X_{i-1,n})_{i\leq n}$ 
 
 ::: {#exr- name=""}
 
-
+:::
 
 
 
@@ -156,7 +156,7 @@ $$
 
 ::: {#exr- name=""}
 
-
+:::
 
 
 

@@ -35,6 +35,7 @@ Grimmett, G., & Stirzaker, D. (2020). One thousand exercises in probability. Oxf
 
 - [Notes de cours (~ Poly)](https://s-v-b.github.io/MA1AY010-CN)
 - [Exercices](/exercices-listings.qmd)
+- []()
 
 ## Validation
 

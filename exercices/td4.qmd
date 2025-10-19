@@ -210,6 +210,8 @@ a. Montrer que $\mathbb{E} S_T = \Delta \mathbb{E} T$ En déduire $\mathbb{E} T$
 
 :::  {#exr-negbin  name="Binomiale négative"}
 
+:::
+
 Les variables $X_1, :::
 X_2, \ldots, X_n, \ldots$ sont des variables de Bernoulli de probabilité
 de succès $p \in (0,1)$, indépendantes. On définit $T_1 = \min \{i : X_i=1\}$ (temps du premier succès), $T_2 = \min \{i : i > T_1, X_i=1\}$ (temps du premier succès après $T_1$),
@@ -396,8 +398,6 @@ La loi normale centrée réduite $\mathcal{N}(0,1)$ admet pour densité $x\mapst
 
 :::
 
-Principe de réflexion
-
 Dans cet exercice, $X_1, X_2, \ldots$ sont des variables de Rademacher indépendantes ($P\{X_i = \pm 1\} = \frac{1}{2}$), $S_n =\sum_{i=1}^n X_i, S_0=0$ et  $M_n = \max_{k \leq n} S_n$.
 
 Montrer que, pour $a> 0$,  
@@ -422,6 +422,8 @@ Quand $n$  est clair d'après le contexte on peut les noter $X_{(1)} \leq \ldots
 
 :::  {#exr-order-1  name="Statistiques d'ordre"}
 
+:::
+
 a. Vérifier que la l:::
 oi jointe des statistiques d'ordre est absolument continue par rapport 
 à la loi de l'échantillon.
@@ -437,6 +439,8 @@ a.  Montrer que conditionnellement à $X_{k:n}=x$, la suite
 (Représentation de Rényi)
 
 :::  {#exr-order-2  name="Statistiques d'ordre d'un échantillon exponentiel"}
+
+:::
 
 Cet exercice reprend:::
  les conventions de l'exercice précédent. On s'intéresse maintenant aux statistiques d'ordre d'un échantillon exponentiel.

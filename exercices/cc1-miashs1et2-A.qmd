@@ -1,0 +1,303 @@
+---
+#title: "Exercices : semaine IV"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2025-09-08"
+
+format:
+  latex:  
+    output-file: cc1-miashs1et2-2025-A.tex
+    documentclass: memoir
+    classoption: [11pt, a4paper, twoside, article, titlepage=false]
+    largemargins: false
+    smallmargin: .5in         # outer margin (small).
+    spinemargin: .5in
+    include-in-header:
+    #   - file: before_header_td.tex
+      - text: |
+          \makepagestyle{style-td1}
+          \makeevenhead{style-td1}{\sffamily\small Intégration et Probabilités}{\sffamily B}{\sffamily\small CC I MIASHS 1 \& 2}
+          \makeoddhead{style-td1}{\sffamily\small Intégration et Probabilités}{\sffamily B}{\sffamily\small CC I MIASHS 1 \& 2}
+          \makeevenfoot{style-td1}{\sffamily\small MA1AY010}{\thepage}{\sffamily\small L3 MIASHS}
+          \makeoddfoot{style-td1}{\sffamily\small L3 MIASHS}{\thepage}{\sffamily\small MA1AY010}
+          \pagestyle{style-td1}
+    include-before-body: 
+      text: |
+        \counterwithout{exercise}{section}
+
+  pdf:
+    output-file: cc1-miashs1et2-2025-A.pdf
+    include-in-header:
+    #   - file: before_header_td.tex
+      - text: |
+          \makepagestyle{style-td1}
+          \makeevenhead{style-td1}{\sffamily\small Intégration et Probabilités}{\sffamily A}{\sffamily\small CC I MIASHS 1 \& 2}
+          \makeoddhead{style-td1}{\sffamily\small Intégration et Probabilités}{\sffamily A}{\sffamily\small CC I MIASHS 1 \& 2}
+          \makeevenfoot{style-td1}{\sffamily\small MA1AY010}{\thepage}{\sffamily\small L3 MIASHS}
+          \makeoddfoot{style-td1}{\sffamily\small L3 MIASHS}{\thepage}{\sffamily\small MA1AY010}
+          \pagestyle{style-td1}
+
+engine: knitr
+draft: true
+---
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+
+
+
+
+
+
+::: {.callout-note}
+
+### CC I/IV  :    
+
+
+- Licence MIASHS 
+- 20 Octobre 2025   Durée : 1 heure 15 
+- **Intégration et Probabilités** 
+
+:::
+
+
+::: {.content-visible when-profile="zorglub"  }
+
+- Aide-mémoire : une feuille A4 recto verso autorisée
+- Aucun autre document autorisé
+- Aucun moyen de communication électronique autorisé
+
+:::
+
+
+
+::: {#exr-1-a   name=""} 
+
+
+:::
+
+**Partie I** 
+
+Dans un étang vivent $N\geqslant 1$ poissons numérotés $1$ à $N$. On pêche le poisson $i$ avec une probabilité $p_i$ ($\sum_{i=1}^N  p_i=1$).  
+Après avoir noté le numéro du poisson pêché, on le remet (délicatement) à l'eau.
+On répète cette opération $n\geq 1$ fois. Les opérations sont indépendantes les unes des autres. 
+
+i. Proposer un univers, une tribu et une loi sur la tribu pour modéliser ces pêches répétées.
+i. Quelle est la probabilité que le poisson $i$ soit pêché au moins une fois?
+i. Quelle est la probabilité que le poisson $i$ soit pêché exactement $k$ fois?
+i. Quelle est la probabilité que le poisson pêché lors de l'épreuve $n$ n'ait pas été pêché lors des $n-1$ épreuves précédentes.
+
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note title=Solution}
+
+i. $\Omega = \{1, \ldots, N\}^n$, $\mathcal{F}=2^\Omega$, $P\{\omega\} = \prod_{j=1}^n p_{\omega_j}$ pour $\omega \in \Omega$
+i. $1 - (1-p_i)^n$
+i. $\binom{n}{k} p_i^k (1-p_i)^{n-k}$
+i. $\sum_{i=1}^N (1-p_i)^{n-1}p_i$
+
+:::
+
+::: 
+
+
+
+**Partie II** 
+
+Dans le même étang, au lieu de répéter l'épreuve $n$ fois, on tire d'abord $X$ selon une loi de Poisson de paramètre $n$. 
+Si $X=k$,    on effectue ensuite $k$ pêches indépendantes selon la description plus haut. 
+
+v. Proposer un univers, une tribu et une loi sur la tribu pour modéliser ces pêches répétées un nombre aléatoire de fois.
+vi. Montrer que pour chaque poisson $i$, le nombre captures du poisson $i$ suit une loi de Poisson.
+Préciser le paramètre de la loi de Poisson. Quelle est la probabilité  que le poisson $i$ soit pêché exactement $\ell$ fois?
+vii. Quelle est la probabilité  que le poisson $i$ soit pêché exactement $\ell$ fois *et* le poisson $j$ soit pêché exactement $m$ fois ?
+
+*Rappel* : la loi de Poisson de paramètre $\mu>0$ est définie par 
+
+$$P(\{k\}) =  \mathrm{e}^{-\mu} \frac{\mu^k}{k!} \qquad \text{ pour } k \in \mathbb{N}\, .$$ 
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note title=Solution}
+
+i. $\Omega' =  \cup_{k \in \mathbb{N}} \{k\} \times \{1, \ldots, N\}^k$,  $\mathcal{F}=2^\Omega$, $P\{\omega\} = \mathrm{e}^{-n}\frac{n^{k}}{k !}\prod_{j=1}^{k} p_{\omega_j}$ pour $(k, \omega) \in \{k\} \times \{1, \ldots, N\}^k \subset \Omega'$. 
+i. $\mathrm{e}^{-np_i}\frac{(np_i)^{\ell}}{\ell !}$$\mathrm{e}^{-np_i}\frac{(np_i)^{\ell}}{\ell !}$.
+i. $\mathrm{e}^{-np_i}\frac{(np_i)^{\ell}}{\ell !} \times \mathrm{e}^{-np_j}\frac{(np_j)^{m}}{m !}$.
+
+:::
+
+::: 
+
+::: {.content-visible when-profile="zorglub"}
+
+
+::: {#exr-3-a   name=""} 
+
+:::
+
+
+
+Pour $\gamma \in \mathbb{R}$, $C>0$, on pose $F_{\gamma, C}(x) =  C \times \exp\left( - (1+\gamma x)^{-1/\gamma}\right)$ avec $x \in \mathbb{R}$ lorsque l'expression à droite à un sens.
+
+*Remarque :* pour donner un sens à $(1+\gamma x)^{-1/\gamma}$, se souvenir que cette expression se traduit en $\exp\left(- (1/\gamma) \ln (1+ \gamma x) \right)$
+
+i. Pour quelles valeurs de $C, \gamma$, $F_{\gamma, C}$   est-elle une fonction de répartition ? Lorsque c'est le cas, préciser l'intervalle sur lequel la fonction de répartition ne vaut ni $0$ ni $1$.
+ii. Pour $n \in \mathbb{N} \setminus \{0\}$, pour quelles valeurs de $C, \gamma$, $F_{\gamma, C}^m$   est-elle une fonction de répartition pour tout $n \leq m$ ? 
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note title=Solution}
+
+i. Pour $\gamma>0$, $C=1$, support : $-]-1/\gamma, \infty)$. Pour $\gamma<0$, $C=1$, support : $(-infty, -1/\gamma[$. 
+ii. Les mêmes qu'à la question précédente, les puissances entières d'une fonction de répartition sont des fonctions de répartition.
+
+
+:::
+
+:::
+
+:::
+
+::: {.content-visible when-profile="zorglub"  }
+
+::: {#exr-4-a   name=""} 
+
+:::
+
+Sur $\Omega_n = \{0,1,2\}^n$  muni  de la tribu $\mathcal{F_n}$ de ses parties  $\mathcal{F}_n = \mathcal{P}(\Omega_n)$ ou $\mathcal{F}_n = 2^{\Omega_n}$ (selon votre notation habituelle), on défini la loi $P_n$ par 
+$$P_n \{\omega\} = \frac{1}{2^n} \prod_{i=1}^n\mathbb{I}_{\omega_i\neq 1}\qquad \omega \in \Omega$$
+
+On définit $f : \cup_n \Omega_n \to [0,1]$ par $f(\omega) = \sum_{i=1}^n \omega_i 3^{-i}$ pour $\omega \in \Omega_n$.
+
+i. Que valent les quantités suivantes ? 
+
+    i. $P_n (f^{-1}([0,1/2]))$ 
+    i. $P_n (f^{-1}([1/2,2/3]))$ 
+    i. $P_n (f^{-1}([1/3^n,2/3^n]))$
+
+i. L'ensemble $\cup_n \Omega_n$  est-il dénombrable?
+i. La fermeture de $\cup_n \Omega_n$ est-elle dénombrable?
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note title=Solution}
+
+i. Que valent ???
+
+  i. $1/2$
+  i. $1/2^n$
+  i. $1/2^n$
+
+i. Oui 
+i. Non
+
+:::
+
+:::
+
+:::
+
+::: {#exr-5-a   name=""} 
+
+:::
+
+Soit $\alpha >0$, $\mu$ la mesure sur $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$ telle que pour tout $a <  b$ 
+
+$$\mu((a,b)) = \alpha \int_a^b (2-|x|)^2 \times \mathbb{I}_{[-2,2]}(x) \mathrm{d}x$$
+
+avec 
+
+$$\mathbb{I}_{[c,d]}(x) = \begin{cases} 1 & \text{ si } x \in [c,d] \\ 0 & \text{sinon}\end{cases}$$
+
+
+i. Calculer $\mu(0,1)$, $\mu(1, 3)$
+ii. Calculer la ou les valeurs de $\alpha$ pour que $\mu$ soit une probabilité
+iii. Calculer $\mu([a,b])$ pour $a<b$.  
+
+{{< pagebreak >}}
+
+
+::: {#exr-6-a name=""}
+
+:::
+
+Dans une urne on a disposé $3$ boules numérotées de $1$ à $3$. On effectue $3$ tirages successifs  uniformes *sans remises*. Les tirages sont numérotés de $1$ à $3$ (rangs des tirages). À chaque tirage, 
+on observe le numéro de la boule obtenue.
+
+i. Décrire un espace $\Omega, \mathcal{F}, P$ pour analyser l'expérience aléatoire.
+i. Quelle est la probabilité que la boule $i$ soit observée au tirage $i$ (rang $i$) ?
+i. Pour $i \neq j$, quelle est la probabilité que la boule $i$ soit observée au tirage $i$
+et la boule $j$ au tirage $j$ ?
+i. Quelle est la probabilité que pour tous les $3$ tirages, le numéro de la boule observée coïncide avec le rang du tirage ?
+i. Quelle est la probabilité que pour au moins un des $3$ tirages, le numéro de la boule observée coïncide avec le rang du tirage ? 
+i. Quelle est la probabilité que pour tous les $3$ tirages, le numéro de la boule observée soit différent du rang du tirage ?
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-caution  title="Solution Chat-GPT"}
+
+
+i. Espace probabilisé.
+
+    On peut prendre :
+
+    - $\Omega=\{(1,2,3),(1,3,2),(2,1,3),(2,3,1),(3,1,2),(3,2,1)\}$, l'ensemble des permutations des numéros $\{1,2,3\}$.
+    Un élément $\omega=(a_1,a_2,a_3)$ signifie que le tirage de rang (1) donne la boule $a_1$, le tirage de rang $2$ donne $a_2$, etc.
+    - $\mathcal{F} = 2^{\Omega}$ (la tribu de toutes les parties).
+    - $P$ mesure uniforme : pour tout $\omega\in\Omega$, $P(\{\omega\})=\tfrac{1}{6}$ (car tirages uniformes sans remise,toutes les permutations équiprobables).
+  
+i. Probabilité que la boule $i$ soit observée au tirage (rang) $i$. Fixer que la position $i$ vaut $i$ laisse libre l'arrangement des deux autres éléments : $2!=2$ permutations favorables:
+
+    $$
+    P(\text{boule }i\text{ en rang }i)=\frac{2}{6}=\frac{1}{3}.
+    $$
+
+ii. Fixer deux positions fixe aussi la troisième,  $1$ permutation favorable. Donc
+    
+    $$
+    P(\text{boule }i\text{ en }i\ \text{et}\ \text{boule }j\text{ en }j)=\frac{1}{6}.
+    $$
+
+iii. Probabilité que pour les 3 tirages, le numéro de la boule coïncide avec le rang (tous trois fixés). $1$ permutation sur $6$.
+   
+    $$
+    P(\text{tous coïncident})=\frac{1}{6}.
+    $$
+
+i. Probabilité qu’au moins un des 3 tirages coïncide (au moins un point fixe). On peut utiliser l’exclusion–inclusion ou complémentaire. Nombre de dérangements (aucun point fixe) pour $n=3$ est $2$. Donc
+   
+    $$
+    P(\text{aucun point fixe})=\frac{2}{6}=\frac{1}{3},
+    $$
+    donc
+    $$
+    P(\text{au moins un point fixe})=1-\frac{1}{3}=\frac{2}{3}.
+    $$
+
+1. Probabilité que pour tous les 3 tirages, le numéro soit différent du rang (aucun coïncide). 
+
+    $$
+    P(\text{aucune coïncidence})=\frac{2}{6}=\frac{1}{3}.
+    $$
+
+
+
+
+:::
+
+:::

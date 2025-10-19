@@ -40,12 +40,19 @@ La semaine V (13- 17 octobre 2025)  est  consacrée aux vecteurs gaussiens :
 
 ## Exercices
 
+:::  {}
 
 - [Feuille TD VI](/exercices/td6.html)
 - [Feuille TD V](/exercices/td5-bis.html)
-   
-- [Correction  CC 1](/corriges/cc1-2025.pdf)
 
+:::
+
+::: {}
+
+- [Correction  CC 1](/corriges/cc1-2025.pdf)
+- [Correction CC2](/corriges/cc2-2025.pdf)
+
+:::
 
 ::: {style="font-size: 0.875em;"}
 Back to [course schedule](/ "Course schedule") ⏎

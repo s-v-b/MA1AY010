@@ -81,105 +81,114 @@ i. Calculer $\mathbb{E} [V \mid X]$
 
 ::: {.callout-caution title="Solution avec Chat-GPT"}
 
-Travaillons ce modèle hiérarchique. On note $V\sim\mathrm{Exp}(\lambda) (\lambda>0)$ et conditionnellement à $V=v$, $X\sim_{\mid V=v}\mathrm{Pois}(v)$.
+On note $V\sim\mathrm{Exp}(\lambda) (\lambda>0)$ et conditionnellement à $V=v$, $X\sim_{\mid V=v}\mathrm{Pois}(v)$.
 
 i. Construction d'un espace probabilisé
 
-On peut prendre un espace produit muni d'une loi régulière conditionnelle. Par exemple :
+    On peut prendre un espace produit muni d'une loi régulière conditionnelle. Par exemple :
 
-$$(\Omega,\mathcal F,P)=\big((0,\infty)\times\mathbb N,\ \mathcal B((0,\infty))\otimes\mathcal P(\mathbb N),\ P\big)$$
+    $$(\Omega,\mathcal F,P)=\big((0,\infty)\times\mathbb N,\ \mathcal B((0,\infty))\otimes\mathcal P(\mathbb N),\ P\big)$$
 
-avec la loi conjointe définie par
-$$
-P(dv,k)=\underbrace{\lambda e^{-\lambda v},dv}*{V\text{ a priori}} \cdot \underbrace{e^{-v}\frac{v^{k}}{k!}}*{P(X=k\mid V=v)}.
-$$
+    avec la loi conjointe définie par sa trace sur les événements rectangulaires $\mathcal B((0,\infty) \times P(\mathbb N)$. En fait il suffit de spécifier les probabilités des événements de la forme $A \times \{k\}$ avec $A \in \mathcal B((0,\infty)$ et $k \in \mathbb{N}$: 
+    
+    $$
+    P(A \times \{k\}) = \int_{[0, \infty)} \lambda \mathrm{e}^{-\lambda v} \mathbb{I}_A(v) \mathrm{e}^{-v}\frac{v^{k}}{k!} \mathrm{d}v
+    $$
 
-
-i. Par la formule des espérances totales
-$$
-\mathbb{E}[X]=\mathbb{E}\big[\mathbb{E}[X\mid V]\big]=\mathbb{E}[V].
-$$
-Or $V\sim\mathrm{Exp}(\lambda)$ donc $\mathbb{E}[V]=1/\lambda$.
-Donc
-$$
-\boxed{\mathbb{E}[X]=\frac{1}{\lambda}.}
-$$
+i. Par la formule dite des espérances totales
+    $$
+    \mathbb{E}[X]=\mathbb{E}\big[\mathbb{E}[X\mid V]\big]=\mathbb{E}[V].
+    $$
+    Or $V\sim\mathrm{Exp}(\lambda)$ donc $\mathbb{E}[V]=1/\lambda$.
+    Donc
+    $$
+    \boxed{\mathbb{E}[X]=\frac{1}{\lambda}.}
+    $$
 
 i. Transformée de Laplace de la loi de $X$
 
-La transformée de Laplace de (la loi de ) $X$ est $L_X(t)=\mathbb{E}[e^{-tX}]$. On peut la calculer à partir de la forme marginale de $X$ ou en utilisant la loi conditionnelle :
-$$
-L_X(t)=\mathbb{E}\big[\mathbb{E}[e^{-tX}\mid V]\big]
-=\mathbb{E}\big[\exp\big(V(e^{-t}-1)\big)\big].
-$$
-Comme $V\sim\mathrm{Exp}(\lambda)$,
-$$
-L_X(t)=\int_0^{\infty} e^{v(e^{-t}-1)}\lambda e^{-\lambda v} \mathrm{d}v
-=\lambda\int_0^\infty e^{-v(1+\lambda - e^{-t})} \mathrm{d}v
-=\frac{\lambda}{1+\lambda - e^{-t}}.
-$$
-(Remarque : pour $t\ge 0$ le dénominateur est $>0$, donc la formule est valide pour $t\ge0$.
+    La transformée de Laplace de (la loi de ) $X$ est $L_X(t)=\mathbb{E}[e^{-tX}]$. On peut la calculer à partir de la forme marginale de $X$ ou en utilisant la loi conditionnelle :
+    $$
+    L_X(t)=\mathbb{E}\big[\mathbb{E}[e^{-tX}\mid V]\big] =\mathbb{E}\big[\exp\big(V(e^{-t}-1)\big)\big].
+    $$
+    Comme $V\sim\mathrm{Exp}(\lambda)$,
+    $$
+    L_X(t)=\int_0^{\infty} e^{v(e^{-t}-1)}\lambda e^{-\lambda v} \mathrm{d}v
+    =\lambda\int_0^\infty e^{-v(1+\lambda - e^{-t})} \mathrm{d}v
+    =\frac{\lambda}{1+\lambda - e^{-t}}.
+    $$
+    (Remarque : pour $t\ge 0$ le dénominateur est $>0$, donc la formule est valide pour $t\ge0$.
 
-On peut aussi remarquer que la loi marginale de $X$ est géométrique sur ${0,1,2,\dots}$ (voir ci-dessous), et la somme géométrique donne la même transformée. Ainsi
+    On peut aussi remarquer que la loi marginale de $X$ est géométrique sur ${0,1,2,\dots}$ (voir ci-dessous), et la somme géométrique donne la même transformée. Ainsi
 
-$$
-\boxed{L_X(t)=\frac{\lambda}{1+\lambda - e^{-t}}}
-$$
+    $$
+    \boxed{L_X(t)=\frac{\lambda}{1+\lambda - e^{-t}}}
+    $$
 
 i. Fonction génératrice
 
 i. $\operatorname{Var}(X)$
 
-On utilise la formule des variances totales (Pythagore):
-$$
-\operatorname{Var}(X)=\mathbb{E}[\operatorname{Var}(X\mid V)]+\operatorname{Var}(\mathbb{E}[X\mid V]).
-$$
-Pour une Poisson de paramètre $V$, $\operatorname{Var}(X\mid V)=V$ et $\mathbb{E}[X\mid V]=V$. Donc
-$$
-\operatorname{Var}(X)=\mathbb{E}[V]+\operatorname{Var}(V).
-$$
-Avec $V\sim\mathrm{Exp}(\lambda)$ on a $\mathbb{E}[V]=1/\lambda$ et $\operatorname{Var}(V)=1/\lambda^2$. D'où
-$$
-\operatorname{Var}(X)=\frac{1}{\lambda}+\frac{1}{\lambda^2}=\frac{1+\lambda}{\lambda^2}.
-$$
-(On retrouve la variance de la loi géométrique correspondante.) Donc
-$$
-\boxed{\operatorname{Var}(X)=\frac{1+\lambda}{\lambda^2}.}
-$$
+    On utilise la formule des variances totales (Pythagore):
+    $$
+    \operatorname{Var}(X)=\mathbb{E}[\operatorname{Var}(X\mid V)]+\operatorname{Var}(\mathbb{E}[X\mid V]).
+    $$
+    Pour une Poisson de paramètre $V$, $\operatorname{Var}(X\mid V)=V$ et $\mathbb{E}[X\mid V]=V$. Donc
+    $$
+    \operatorname{Var}(X)=\mathbb{E}[V]+\operatorname{Var}(V).
+    $$
+    Avec $V\sim\mathrm{Exp}(\lambda)$ on a $\mathbb{E}[V]=1/\lambda$ et $\operatorname{Var}(V)=1/\lambda^2$. D'où
+    $$
+    \operatorname{Var}(X)=\frac{1}{\lambda}+\frac{1}{\lambda^2}=\frac{1+\lambda}{\lambda^2}.
+    $$
+    (On retrouve la variance de la loi géométrique correspondante.) Donc
+    $$
+    \boxed{\operatorname{Var}(X)=\frac{1+\lambda}{\lambda^2}.}
+    $$
 
 
-*Remarque* : forme explicite de la loi marginale de $X$
+    *Remarque* : forme explicite de la loi marginale de $X$
 
-Calcul direct de $P(X=k)$:
-$$
-P(X=k)=\int_0^\infty P(X=k\mid V=v),\lambda e^{-\lambda v}dv
-=\lambda\int_0^\infty e^{-v}\frac{v^k}{k!}e^{-\lambda v}dv
-=\lambda\frac{\Gamma(k+1)}{k!}\frac{1}{(1+\lambda)^{k+1}}
-=\frac{\lambda}{(1+\lambda)^{k+1}}.
-$$
-Posant $p=\dfrac{\lambda}{1+\lambda}$, on obtient
-$$
-P(X=k)=p(1-p)^k,\qquad k=0,1,2,\dots
-$$
-c'est-à-dire une loi géométrique (avec support ${0,1,\dots}$) de paramètre $p$. De là on retrouve $\mathbb{E}[X]=\dfrac{1-p}{p}=1/\lambda$ et $\operatorname{Var}(X)=\dfrac{1-p}{p^2}=(1+\lambda)/\lambda^2$.
+    Calcul direct de $P(X=k)$:
+
+    \begin{align*}
+    P(X=k) 
+    & = \int_0^\infty \mathrm{e}^{-v} \frac{v^k}{k!} \lambda \mathrm{e}^{-\lambda v} \mathrm{d}v \\
+    & = \lambda \int_0^\infty \mathrm{e}^{-v} \frac{v^k}{k!} \mathrm{e}^{-\lambda v}\mathrm{d}v \\
+    & = \lambda\frac{\Gamma(k+1)}{k!}\frac{1}{(1+\lambda)^{k+1}} \\
+    & = \frac{\lambda}{(1+\lambda)^{k+1}}. 
+    \end{align*}
+    
+    Posant $p=\dfrac{\lambda}{1+\lambda}$, on obtient
+    
+    $$
+    P(X=k)=p(1-p)^k,\qquad k=0,1,2,\dots
+    $$
+
+    c'est-à-dire une loi géométrique (avec support $0,1,\dots$) de paramètre $p$. 
+    De là on retrouve $\mathbb{E}[X]=\dfrac{1-p}{p}=1/\lambda$ et $\operatorname{Var}(X)=\dfrac{1-p}{p^2}=(1+\lambda)/\lambda^2$.
 
 
 
-.i $\mathbb{E}[V\mid X]$
+i.  Espérance a posteriori $\mathbb{E}[V\mid X]$. La loi a posteriori de $V$ sachant $X=k$ s'obtient par la formule de Bayes :
 
-La loi a posteriori de (V) sachant (X=k) s'obtient par Bayes :
-$$
-\pi(v\mid X=k)\propto \underbrace{\lambda e^{-\lambda v}}_{\text{prior}} \cdot \underbrace{e^{-v}\frac{v^k}{k!}}_{\text{vraisemblance}}
-\propto v^k e^{-(1+\lambda)v}.
-$$
-Ceci est la densité d'une loi $\mathrm{Gamma}(k+1,1+\lambda)$ (paramétrée par le paramêtre de forme $k+1$,  le  *paramêtre d'intensité* $1+\lambda$). Son espérance est
-$$
-\mathbb{E}[V\mid X=k]=\frac{k+1}{1+\lambda}.
-$$
-Donc, en notation aléatoire,
-$$
-\boxed{\mathbb{E}[V\mid X]=\frac{X+1}{1+\lambda}.}
-$$
+    $$
+    \pi(v\mid X=k) \propto \underbrace{\lambda e^{-\lambda v}}_{\text{prior}} \cdot \underbrace{\mathrm{e}^{-v}\frac{v^k}{k!}}_{\text{vraisemblance}}
+    \propto v^k \mathrm{e}^{-(1+\lambda)v}.
+    $$
+    
+
+    Ceci est la densité d'une loi $\text{Gamma}(k+1,1+\lambda)$ (paramétrée par le paramêtre de forme $k+1$,  le  *paramêtre d'intensité* $1+\lambda$). Son espérance est
+
+    $$
+    \mathbb{E}[V\mid X=k]=\frac{k+1}{1+\lambda}.
+    $$
+    
+    Donc, en notation aléatoire,
+    
+    $$
+    \boxed{\mathbb{E}[V\mid X]=\frac{X+1}{1+\lambda}.}
+    $$
 
 
 
@@ -209,7 +218,37 @@ iv. Calculer la fonction caractéristique de la loi de $X^2+ Y^2$.
 
 
 <!-- Loi image -->
+::: {.content-visible when-profile="solution"}
 
+::: {.callout-caution title="Solution"}
+
+i. Pour $\sigma=1$, fonction de répartition pour $z \geq 0$
+
+    $$P \{ Z \leq z\} = 1 - \mathrm{e}^{-z^2/2}$$
+
+    Densité pour $z \geq 0$, $z \mathrm{e}^{-z^2/2}$
+
+    Pour $\sigma$ quelconque (positif), 
+   
+    $$P \{ Z \leq z\} = 1 - \mathrm{e}^{-z^2/(2\sigma^2)}$$
+
+    Densité pour $z \geq 0$, $z/\sigma^2 \mathrm{e}^{-z^2/(2\sigma^2)}$
+
+i. Espérance 
+
+    $$\mathbb{E} Z = \int_{0} P \{ Z > z\} \mathrm{d}z = \sigma \sqrt{\frac{\pi}{2}}$$
+
+
+i. Variance
+
+    $$\mathbb{E} Z^2 = \int_{0} 2 z P \{ Z > z\} \mathrm{d}z = 2 \sigma^2$$
+
+    $$\text{Var}(Z) = \sigma^2 \frac{4-\pi}{2}$$
+
+
+:::
+
+:::
 
 ::: {#exr-4   name=""} 
 
@@ -225,3 +264,20 @@ i. Calculer $(s,t) \mapsto \mathbb{E} \left[s^Y t^ Z\right]$
 i. On étudie maintenant une variété d'insectes pour laquelle le nombre d'oeufs pondus suit une loi géométrique ($P(\{k\})=q(1-q)^{k-1}, k>0$). Calculer la la fonction génératrice  des probabilités de la loi de $Y$ dans ces conditions. 
 i. Calculer $(s,t) \mapsto \mathbb{E} \left[s^Y t^ Z\right]$ lorsque 
 le nombre d'oeufs pondus est géométrique. 
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-caution title="Solution"}
+
+i. $G_Y(s) = G_{\text{Poi}(\lambda)}\circ G_{\text{Ber}(p)}(s) = G_{\text{Poi}(\lambda p)}(s)$
+
+i. $\mathbb{E} \left[s^Y t^ Z\right] = G_{\text{Poi}(\lambda p)}(s) \times G_{\text{Poi}(\lambda (1-p))}(t)$
+
+i. $G_Y(s) = G_{\text{Geom}(q)}\circ G_{\text{Ber}(p)}(s) = G_{\text{Poi}(\lambda p)}(s)$
+
+i. $\mathbb{E} \left[s^Y t^ Z\right] =$
+
+:::
+
+:::

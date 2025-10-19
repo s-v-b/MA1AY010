@@ -1,0 +1,1 @@
+../exercices/quizz_a.qmd

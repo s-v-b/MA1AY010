@@ -414,7 +414,7 @@ $$
 $$
 (Autrement dit l'espérance est finie pour $\alpha>1$ et infinie pour $\alpha\le1$.)
 
-
+:::
 
 :::
 

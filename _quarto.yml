@@ -55,6 +55,8 @@ website:
             text: FAQ
       - href: exercices-listings.qmd
         text: TDs
+      - href: corriges-listings.qmd
+        text: Corrigés
       - section: "Agenda"
         contents:
           - href: weeks/week-1.qmd

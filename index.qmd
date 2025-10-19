@@ -27,5 +27,5 @@ Cette page résume le déroulement du semestre
 |   | 9 Oct  |  Convergences  et [CC 1](/corriges/cc1-2025.pdf)|            |         |   
 |  [6](/weeks/week-6.html)  | 13 Oct   |  Convergences      |            |         |                                                                                                                 |                   |
 |   | 14  Oct  |   Vecteurs gaussiens          |            |         |                                                                                                             [TD 6](/exercices/td6.html)     |                   |
-|   | 16 Oct  |  Vecteurs gaussiens  + CC 2  |            |         |
+|   | 16 Oct  |  Vecteurs gaussiens  + [CC 2](/corriges/cc2-2025.pdf)  |            |         |
 :::
