@@ -2,5 +2,9 @@
   {
     "listing": "/exercices-listings.html",
     "items": []
+  },
+  {
+    "listing": "/corriges-listings.html",
+    "items": []
   }
 ]

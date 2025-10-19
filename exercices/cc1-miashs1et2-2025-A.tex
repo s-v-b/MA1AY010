@@ -1,0 +1,364 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  french,
+  11pt,
+  a4paper,
+  twoside,
+  article,
+  titlepage=false]{memoir}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\makepagestyle{style-td1}
+\makeevenhead{style-td1}{\sffamily\small Intégration et Probabilités}{\sffamily B}{\sffamily\small CC I MIASHS 1 \& 2}
+\makeoddhead{style-td1}{\sffamily\small Intégration et Probabilités}{\sffamily B}{\sffamily\small CC I MIASHS 1 \& 2}
+\makeevenfoot{style-td1}{\sffamily\small MA1AY010}{\thepage}{\sffamily\small L3 MIASHS}
+\makeoddfoot{style-td1}{\sffamily\small L3 MIASHS}{\thepage}{\sffamily\small MA1AY010}
+\pagestyle{style-td1}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table des matières}
+\else
+  \newcommand\contentsname{Table des matières}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Liste des Figures}
+\else
+  \newcommand\listfigurename{Liste des Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Liste des Tables}
+\else
+  \newcommand\listtablename{Liste des Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{Liste des Listings}}
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercice}[section]
+\theoremstyle{remark}
+\AtBeginDocument{\renewcommand*{\proofname}{Preuve}}
+\newtheorem*{remark}{Remarque}
+\newtheorem*{solution}{Solution}
+\newtheorem{refremark}{Remarque}[section]
+\newtheorem{refsolution}{Solution}[section]
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdflang={fr},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\author{}
+\date{}
+\begin{document}
+\frontmatter
+
+\counterwithout{exercise}{section}
+
+
+\mainmatter
+\begin{tcolorbox}[enhanced jigsaw, colback=white, left=2mm, arc=.35mm, breakable, rightrule=.15mm, bottomrule=.15mm, toprule=.15mm, colframe=quarto-callout-note-color-frame, opacityback=0, leftrule=.75mm]
+
+\vspace{-3mm}\textbf{CC I/IV :}\vspace{3mm}
+
+\begin{itemize}
+\tightlist
+\item
+  Licence MIASHS
+\item
+  20 Octobre 2025 Durée : 1 heure 15
+\item
+  \textbf{Intégration et Probabilités}
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{exercise}[]\protect\hypertarget{exr-1-a}{}\label{exr-1-a}
+
+~
+
+\end{exercise}
+
+\textbf{Partie I}
+
+Dans un étang vivent \(N\geqslant 1\) poissons numérotés \(1\) à \(N\).
+On pêche le poisson \(i\) avec une probabilité \(p_i\)
+(\(\sum_{i=1}^N  p_i=1\)).\\
+Après avoir noté le numéro du poisson pêché, on le remet (délicatement)
+à l'eau. On répète cette opération \(n\geq 1\) fois. Les opérations sont
+indépendantes les unes des autres.
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi}.}
+\tightlist
+\item
+  Proposer un univers, une tribu et une loi sur la tribu pour modéliser
+  ces pêches répétées.
+\item
+  Quelle est la probabilité que le poisson \(i\) soit pêché au moins une
+  fois?
+\item
+  Quelle est la probabilité que le poisson \(i\) soit pêché exactement
+  \(k\) fois?
+\item
+  Quelle est la probabilité que le poisson pêché lors de l'épreuve \(n\)
+  n'ait pas été pêché lors des \(n-1\) épreuves précédentes.
+\end{enumerate}
+
+\textbf{Partie II}
+
+Dans le même étang, au lieu de répéter l'épreuve \(n\) fois, on tire
+d'abord \(X\) selon une loi de Poisson de paramètre \(n\). Si \(X=k\),
+on effectue ensuite \(k\) pêches indépendantes selon la description plus
+haut.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{21}
+\tightlist
+\item
+  Proposer un univers, une tribu et une loi sur la tribu pour modéliser
+  ces pêches répétées un nombre aléatoire de fois.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Montrer que pour chaque poisson \(i\), le nombre captures du poisson
+  \(i\) suit une loi de Poisson. Préciser le paramètre de la loi de
+  Poisson. Quelle est la probabilité que le poisson \(i\) soit pêché
+  exactement \(\ell\) fois?
+\item
+  Quelle est la probabilité que le poisson \(i\) soit pêché exactement
+  \(\ell\) fois \emph{et} le poisson \(j\) soit pêché exactement \(m\)
+  fois ?
+\end{enumerate}
+
+\emph{Rappel} : la loi de Poisson de paramètre \(\mu>0\) est définie par
+
+\[P(\{k\}) =  \mathrm{e}^{-\mu} \frac{\mu^k}{k!} \qquad \text{ pour } k \in \mathbb{N}\, .\]
+
+\begin{exercise}[]\protect\hypertarget{exr-5-a}{}\label{exr-5-a}
+
+~
+
+\end{exercise}
+
+Soit \(\alpha >0\), \(\mu\) la mesure sur
+\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\) telle que pour tout \(a <  b\)
+
+\[\mu((a,b)) = \alpha \int_a^b (2-|x|)^2 \times \mathbb{I}_{[-2,2]}(x) \mathrm{d}x\]
+
+avec
+
+\[\mathbb{I}_{[c,d]}(x) = \begin{cases} 1 & \text{ si } x \in [c,d] \\ 0 & \text{sinon}\end{cases}\]
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi}.}
+\tightlist
+\item
+  Calculer \(\mu(0,1)\), \(\mu(1, 3)\)
+\item
+  Calculer la ou les valeurs de \(\alpha\) pour que \(\mu\) soit une
+  probabilité
+\item
+  Calculer \(\mu([a,b])\) pour \(a<b\).
+\end{enumerate}
+
+\newpage{}
+
+\begin{exercise}[]\protect\hypertarget{exr-6-a}{}\label{exr-6-a}
+
+~
+
+\end{exercise}
+
+Dans une urne on a disposé \(3\) boules numérotées de \(1\) à \(3\). On
+effectue \(3\) tirages successifs uniformes \emph{sans remises}. Les
+tirages sont numérotés de \(1\) à \(3\) (rangs des tirages). À chaque
+tirage, on observe le numéro de la boule obtenue.
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi}.}
+\tightlist
+\item
+  Décrire un espace \(\Omega, \mathcal{F}, P\) pour analyser
+  l'expérience aléatoire.
+\item
+  Quelle est la probabilité que la boule \(i\) soit observée au tirage
+  \(i\) (rang \(i\)) ?
+\item
+  Pour \(i \neq j\), quelle est la probabilité que la boule \(i\) soit
+  observée au tirage \(i\) et la boule \(j\) au tirage \(j\) ?
+\item
+  Quelle est la probabilité que pour tous les \(3\) tirages, le numéro
+  de la boule observée coïncide avec le rang du tirage ?
+\item
+  Quelle est la probabilité que pour au moins un des \(3\) tirages, le
+  numéro de la boule observée coïncide avec le rang du tirage ?
+\item
+  Quelle est la probabilité que pour tous les \(3\) tirages, le numéro
+  de la boule observée soit différent du rang du tirage ?
+\end{enumerate}
+
+
+\backmatter
+
+
+\end{document}
