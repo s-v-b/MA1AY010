@@ -120,6 +120,14 @@ i. Que vaut $P\{X = k\}$ pour $k \in \{0,n\}$ ?
 
 :::
 
+
+::: {.callout-caution  title="Attention"}
+
+Conditionnellement à $V=v$, les $Y_i$ sont indépendants (forment une famille indépendante). Mais la loi marginale de $Y_i$ n'est pas
+une loi *produit*. Les $Y_i$ forment une famille *échangeable* mais pas une famille indépendante.  
+
+:::
+
 :::
 
 ::: {#exr-   name=""} 
@@ -211,11 +219,11 @@ $$
 Or 
 
 $$
-\mathbb{P}(Z_1=0)=f(0)=e^{-\mu}) et (\mathbb{P}(Z_2=0)=G_{Z_2}(0)=f(f(0))=\exp!\big(\mu(e^{-\mu}-1)\big).
+\mathbb{P}(Z_1=0)=f(0)=e^{-\mu}) et (\mathbb{P}(Z_2=0)=G_{Z_2}(0)=f(f(0))=\exp\big(\mu(e^{-\mu}-1)\big).
 $$
 Donc
 $$
-\boxed{\mathbb{P}(\text{extinction exactement en 2})=\exp!\big(\mu(e^{-\mu}-1)\big)-e^{-\mu}}
+\boxed{\mathbb{P}(\text{extinction exactement en 2})=\exp\big(\mu(e^{-\mu}-1)\big)-e^{-\mu}}
 $$
 
 On peut obtenir la même formule en conditionnant sur $Z_1=k$ et sommant 
@@ -265,6 +273,15 @@ i. Si oui, déterminer une version de sa densité.
     
 :::
 
+
+::: {.callout-caution  title="Attention"}
+
+On ne peut pas affirmer que la loi de $Y$ est absolument continue parce $\cos$ est continue et parce que la loi de $X$ est absolument continue.
+Une fonction constante est continue mais l'image d'une loi absolument continue par une fonction constante est une loi de Dirac, qui n'est pas absolument continue.
+
+:::
+
+
 ::: {.callout-caution title="Solution Chat-GPT 3.5"}
 
 La loi  de $Y$ est absolument continue (sans atome) et on peut donner explicitement sa densité.
@@ -274,7 +291,7 @@ Remarquons d'abord que $\cos$ envoie l'intervalle $[-\pi/2,\pi/2]$ sur $[0,1]$. 
 En utilisant la formule de changement de variable pour fonctions non monotones :
 $$
 f_Y(y)=\sum_{x:\cos x=y}\frac{f_X(x)}{|(\cos)'(x)|}
-=\frac{1}{\pi}\left(\frac{1}{|,-\sin(\arccos y),|}+\frac{1}{|,-\sin(-\arccos y),|}\right).
+=\frac{1}{\pi}\left(\frac{1}{|-\sin(\arccos y)|}+\frac{1}{|-\sin(-\arccos y)|}\right).
 $$
 Or $\sin(\arccos y)|=\sqrt{1-y^2}$ et les deux termes sont égaux, d'où pour $y\in(0,1)$
 $$

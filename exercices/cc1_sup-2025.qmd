@@ -1,0 +1,161 @@
+---
+#title: "Exercices : semaine IV"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2025-09-08"
+
+format:
+  pdf:
+    output-file: cc1bis-2025.pdf
+    include-in-header:
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small CC I bis}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small CC I bis}
+          \pagestyle{style-td1}
+
+engine: knitr
+draft: true
+---
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+
+
+
+
+
+
+::: {.callout-note}
+
+### CC I Bis/IV  :    
+
+- 4 Décembre 2025
+
+- Master I ISIFAR
+
+- Durée : 1 heure 30 
+
+- **Probabilités** 
+
+:::
+
+
+::: {.callout-caution}
+
+- Aide-mémoire : une feuille A4 recto verso autorisée
+- Aucun autre document autorisé
+- Aucun moyen de communication électronique autorisé
+
+:::
+
+
+
+::: {#exr-1   name=""} 
+
+:::
+
+
+
+
+::: {.content-visible when-profile="solution"}
+
+:::
+
+Dans cet exercice, $p\ \in ]0,1[$, $q \in ]0, 1[$.  
+
+Dans cet exercice, $X$ suit une loi géométrique de paramètre $p$ ($P\{ X > n\}= (1-p)^n$ pour $n\geq 0$), soit $X \sim \text{Geom}(p)$. 
+
+i. Si $Z_1, Z_2, \ldots, Z_\ell \sim_{\text{i.i.d.}} \text{Geom}(q)$ et $S = \sum_{i=1}^\ell X_i$, calculer $P\{ S=k\}$ pour $k \in \mathbb{N}$
+i. Calculer la fonction génératrice de la loi de $S$ définie à la question précédente. 
+i. Calculer l'espérance et la  variance de la loi de $S$ définie à la question précédente.
+
+    *Maintenant, conditionnellement à $\{X=\ell\}$, $Y \sim \sum_{i=1}^{\ell} Z_i$   avec $Z_1, Z_2, \ldots, Z_\ell \sim_{\text{i.i.d.}} \text{Geom}(q)$*
+
+i. Calculer la fonction génératrice de la loi de $Y$. 
+i. Calculer l'espérance et la  variance de la loi de $Y$.
+i. Calculer $P\{X=\ell,  Y=k\}$ pour $\ell, k \in \mathbb{N}$
+i. Les variables aléatoires $X$ et $Y$ sont-elles indépendantes?
+
+
+
+
+::: {#exr-2   name=""} 
+
+:::
+
+Pour $p, q >0$, on note $G_{p,q}(s)= \frac{p}{1-qs}$ définie sur $[0,1/q)$. 
+
+i. Pour quels couples de valeurs de $(p,q)$, $G_{p,q}$ est-elle la fonction génératrice d'une loi de probabilité $P$ sur $\mathbb{N}$? 
+    
+    *Dans la suite, on suppose que $(p,q)$ est choisi de façon à ce que $G_{p,q}$ soit la fonction génératrice d'une loi de probabilité sur $\mathbb{N}$.*
+i. Calculer $P\{k\}$ pour $k \in \mathbb{N}$ (en fonction de $p$ et $q$).
+i. On suppose $X \sim P$, calculer $\mathbb{E}X$ et $\operatorname{Var}(X)$ (en fonction de $p$ et $q$).
+
+    *On suppose maintenant que $P$ est la distribution de reproduction d'un processus de branchement (Galton-Watson).*
+i. À quelle condition sur $(p,q)$, le processus de branchement est-il sous-critique ?
+i. Si le processus de branchement est sur-critique, calculer la probabilité d'extinction.
+i. Calculer l'espérance de la taille de la génération $n$.
+i. Si le processus de branchement est sous-critique, calculer l'espérance de la taille de la descendance totale. 
+
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-caution title="Solution"}
+
+:::
+
+:::
+
+
+{{< pagebreak >}}
+
+
+::: {#exr-3   name=""} 
+
+:::
+
+
+Dans cet exercice, $Y_1, \ldots, Y_n, \ldots$ sont i.i.d. selon $\mathcal{N}(0,1)$, $X_0$ est gaussienne $\mathcal{N}(\mu, \tau^2)$, indépendante de  $Y_1, \ldots, Y_n, \ldots$.
+
+On définit $X_1, \ldots, X_n, \ldots$ par la récurrence aléatoire:
+
+$$X_{i+1} = \theta X_i  + \eta Y_{i+1}$$   (avec $\theta \in \mathbb{R}, \eta \in ]0, \infty)$)
+
+On note $\mathcal{F}_i = \sigma\left(X_0, X_1, \ldots, X_i \right)$ (sous-tribu engendrée par $X_0, X_1, \ldots, X_i$).
+
+i. Exprimer  $X_n$ comme une fonction de $(X_0, Y_1, \ldots, Y_n)^\top$. Cette fonction est-elle mesurable ?
+    $(X_0, X_1, \ldots, X_n)^{\top}$ est-il un vecteur gaussien ? 
+i. Calculer $\mathbb{E}[ X_{i+1} \mid \mathcal{F}_i]$.
+i. Calculer $\operatorname{Var}[ X_{i+1} \mid \mathcal{F}_i]$.
+i. Calculer $\mathbb{E}X_i$, $\text{Var}(X_i)$.
+i. Peut-on choisir $\mu, \tau, \eta, \theta$, pour que les $X_i$ soient identiquement distribués ?
+i. À quelle condition sur $\theta$, les $X_i$ convergent-elles en distribution ? Préciser la limite si possible.
+i. Si la suite  $(X_i)_{i}$ converge en distribution, la suite converge-elle aussi presque sûrement ? 
+i. Si la suite  $(X_i)_{i}$ converge en distribution, la suite converge-elle aussi dans $L^2$, dans $L^1$, dans $L^p$ ($p\geq 1$) ? 
+i. Si $\theta$ satisfait la condition de la question précédente, calculer $\text{cov}\left(X_i, X_{i+k}\right)$, pour $i, k \in \mathbb{N}$.  
+
+
+
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-caution title="Solution"}
+
+
+:::
+
+
+:::

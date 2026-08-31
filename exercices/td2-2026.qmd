@@ -1,0 +1,258 @@
+---
+#title: "Exercices : Mesures, Fonctions mesurables"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2026-09-08"
+
+format:
+  pdf:
+    output-file: td2-2026.pdf
+    include-in-header:
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD II}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD II}
+          \pagestyle{style-td1}
+
+  html:
+    output-file: td2-2026.html
+
+engine: knitr
+draft: false
+
+categories: [Mesures, Fonctions mesurables, Probabilités]
+
+---
+
+
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+# Mesures et fonctions mesurables
+
+
+::: {#exr-mesure-positives name="Condition non-triviale"}
+
+Dans la définition d'une mesure $\mu$ sur $(X, \mathcal{A})$, peut-on se passer de la condition $$\mu(\emptyset) = 0$$ ?
+
+:::
+
+
+::: {#exr-mesure-positives-2 name="Mesures positives étranges"}
+
+Sur $(X, 2^X)$ on définit la fonction $\mu$ par $\mu(\emptyset) = 0$ et $\mu(A) = \infty$ pour toute partie non-vide $A$ de $X$.
+
+$\mu$ est-elle $\sigma$-additive ? Est-ce une mesure ?
+
+:::
+
+## Mesures positives
+
+
+
+::: {#exr-crible-eratosthene name="Crible d'Ératosthène"}
+
+:::
+
+::: {#exr-mesure-comptage name="Mesure de comptage"}
+
+1. La fonction  de $2^{\mathbb{N}}$  dans $[0, \infty]$ qui à un ensemble $A \subseteq \mathbb{N}$ associe son cardinal $|A|$ est-elle une mesure positive sur $(\mathbb{N}, 2^{\mathbb{N}})$ ?
+1. Dans la suite  $A_n$  désigne l'ensemble des multiples de $n$. Que vaut $|A_n|$ ?
+1. On considère la suite croissantes des nombres *premiers* $p_1, p_2, \ldots, p_k, \ldots$ et $B_k =\cap_{j=1}^k A_{p_j}$. Que vaut $|B_k|$ ?
+1. Que vaut $\cap_{k \in \mathbb{N}} B_k$ ?
+1. A-t-on $\left| \lim_{k \to \infty} B_k \right| = \lim_{k \to \infty} \left|  B_k \right|$ ?
+
+:::
+
+
+::: {#exr-dynkin-1 name=""}
+
+:::
+
+
+## Probabilités
+
+## Mesures $\sigma$-finies
+
+<!-- Exercices 6, 7, 9 Chap. 1 Cohn -->
+
+
+## Opérations sur les mesures
+
+Dans cette sous-section $(X, \mathcal{A})$ est un espace mesurable ($\mathcal{A}$ est une tribu de parties de $X$).
+
+
+::: {#exr-sigma-1 name="Sommes de mesures"}
+
+
+Soit $(\mu_n)_n$ une suite  de mesures sur $(X, \mathcal{A})$.
+
+On définit $\mu(A) = \sum_n \mu_n(A)$ pour $A \in \mathcal{A}$
+ 
+1. $\mu$ est-elle une mesure sur   $(X, \mathcal{A})$ ?
+
+:::
+
+::: {#exr-sigma-2 name="Suites croissantes de mesures"}
+
+
+Soit $(\mu_n)_n$ une suite croissante de mesures sur $(X, \mathcal{A})$ (pour tout $A \in \mathcal{A}$, tout $n \in \mathbb{N}$, $\mu_n(A) \leq \mu_{n+1}(A)$). 
+
+On définit $\mu(A) =\lim_n \mu_n(A)$ pour $A \in \mathcal{A}$.
+
+1. $\mu(A)$  est-elle bien définie pour tout $A \in \mathcal{A}$ ?
+1. $\mu$ définit-elle une mesure sur $(X, \mathcal{A})$ ?
+
+
+:::
+
+
+::: {#exr-sigma-3 name="Sommes de Dirac"}
+
+Dans cet exercice $\delta_x$ désigne la mesure de Dirac en $x \in \mathcal{R}$.
+
+$$\delta_x(A) = \mathbb{I}_A(x) = \begin{cases} 1 & \text{si } x \in A \\ 0 & \text{sinon} \end{cases}$$
+
+
+
+
+:::
+
+
+# Fonctions mesurables
+
+
+
+## Exemples
+
+## Propriétés
+
+<!-- Stabilité par les opérations usuelles de l'analyse -->
+
+
+::: {#exr-fontions-mesurables-1 name="Composition de fonctions mesurables"}
+
+Soit $(X, \mathcal{A})$, $(Y, \mathcal{B})$ et $(Z, \mathcal{C})$ des espaces mesurables, $f: X \to Y$ et $g: Y \to Z$ des fonctions   $\mathcal{A}/\mathcal{B}$ et  $\mathcal{B}/\mathcal{C}$ mesurables.
+
+Vérifier que $g \circ f$ est $\mathcal{A}/\mathcal{C}$ mesurable.
+
+:::
+
+
+::: {#exr-fontions-mesurables-2 name="Combinaisons linéaires de fonctions mesurables"}
+
+Soit $(X, \mathcal{A})$ et $(Y, \mathcal{B})$ des espaces mesurables, $f$, $g$ deux fonctions $\mathcal{A}/\mathcal{B}$ mesurables et $\alpha$, $\beta$ deux réels.
+
+Vérifier que $\alpha f + \beta g$ est $\mathcal{A}/\mathcal{B}$ mesurable.
+
+:::
+
+
+::: {#exr-fontions-mesurables-3 name="Produit de fonctions mesurables"}
+
+Soit $(X, \mathcal{A})$ et $(Y, \mathcal{B})$ des espaces mesurables, $f$, $g$ deux fonctions $\mathcal{A}/\mathcal{B}$ mesurables.
+
+Vérifier que $f \cdot g$ est $\mathcal{A}/\mathcal{B}$ mesurable.
+
+:::
+
+::: {#exr-fontions-mesurables-4 name="Limite simples de fonctions mesurables"}
+
+Soit $(X, \mathcal{A})$ et $(Y, \mathcal{B})$ des espaces mesurables, $(f_n)_{n \in \mathbb{N}}$, $une suite de  fonctions $\mathcal{A}/\mathcal{B}$ mesurables, telle $\forall x \in X$, la suite $(f_n(x))_{n \in \mathbb{N}}$ converge vers une limite $f(x) \in Y$.
+
+Vérifier que $f$ est $\mathcal{A}/\mathcal{B}$ mesurable.
+
+
+:::
+
+
+## Mesures image 
+
+
+::: {#exr-image-1 name="Transformation affine"}
+
+Soit $X$ une variable aléatoire réelle, dont la loi admet une densité $f$ par rapport à la mesure de Lebesgue. Soit $a$ un réel positif et $b$ un réel quelconque.
+
+
+i. La loi de la variable aléatoire $aX +b$ admet-elle une densité ?
+i. Si oui, exprimer cette densité en fonction de $f, a, b$.
+
+
+:::
+
+
+
+
+
+
+::: {#exr-image-2  name=""} 
+
+
+:::
+
+
+## Ensemble-mesure de Cantor
+
+::: {#exr-cantor-1   name="Ensemble et mesure de Cantor"} 
+
+Dans cet exercice, si $A \subseteq \mathbb{R}$ et $x \in \mathbb{R}$
+on note 
+$$x+ A = \left\{  x+y : y \in A \right\}$$
+et 
+$$x \times A = \left\{  xy : y \in A \right\}$$
+
+Si on définit la suite de sous-ensembles de $[0,1]$, par la récursion suivante :
+
+\begin{align*} 
+C_1 & = 1/3 \times C_0 \cup 2/3 + 1/3\times C_0 \\
+C_2 & = 1/3 \times C_1 \cup 2/3 + 1/3\times C_1 \\
+\vdots & \quad \vdots \\
+C_n & = 1/3 \times C_{n-1} \cup 2/3 + 1/3\times C_{n-1} \\
+\vdots & = vdots
+\end{align*}  
+
+alors $C = \cap_{n=1}^\infty C_n = \lim_{n \to \infty} C_n$.
+
+
+
+(@) Les ensembles $C_n$ sont-ils ouverts/fermés/Boréliens ?
+(@) L'ensemble $C$ est-il ouvert/fermé/Borélien ?
+(@) $C$ est-il vide ?
+(@) L'intérieur de $C$ est-il vide ? 
+(@) Quelle est la mesure de Lebesgue de $C_n$ ?
+(@) Quelle est la mesure de Lebesgue de $C$ ?
+
+
+Pour chaque $n \in \mathbb{N}$, on note $P_n$ la loi uniforme sur $C_n$, et 
+$F_n$ la fonction de répartition associée.
+
+(@) Tracer le graphe de $F_n$ pour quelques valeurs de $n$ ($n=0, 1, 2, \ldots$).
+(@) La fonction $F_n$ est-elle continue ? continue par morceaux ? 
+(@) La fonction $F_n$ est-elle croissante ? strictement croissante ?
+(@) Pouvez-vous evaluer/majorer $\sup_{x \in [0,1]} |F_n(x) - F_{n+1}(x)|$ ?
+(@) Pour $A \in \mathcal{B}([0,1])$, que vaut $P_n(A)$ ?
+
+On s'intéresse maintenant à la limite quand $n \to \infty$.
+
+(@) La suite de fonctions $(F_n)_{n \in \mathbb{N}}$ converge-t-elle simplement ? uniformément ?
+(@) Peut-on définir une limite pour $P_n(A)$ quand $n \to \infty$ ?
+(@) Peut-on définir une loi de probabilité uniforme sur $C$?
+(@) Si on répond oui à la question précédente :
+    a. Quelle est la fonction de répartition de cette loi? 
+    a. Est-elle continue? 
+    a. Est-elle dérivable/ dérivable presque partout ? 
+    a. Cette fonction de répartition est-elle l'intégrale de sa dérivée ?
+(@) Soient $\{X_j, j \in \mathbb{N}^* \}$ une famille de variables i.i.d., distribuées suivant la loi de Bernoulli de paramètre $1/2$. On définit $X=2 \sum_{j \ge 1} \frac{X_j}{3^j}$. Quelle est la loi de $X$? 
+(@) L'ensemble $C$ est-il dénombrable ?
+
+:::

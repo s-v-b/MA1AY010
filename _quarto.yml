@@ -106,3 +106,5 @@ freeze: auto
 editor: source
 
 engine: knitr
+
+extra_dependencies: ["amsmath"]

@@ -1,0 +1,200 @@
+---
+#title: "Exercices : semaine I"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2026-09-08"
+
+format:
+  pdf:
+    output-file: td1-2026.pdf
+    include-in-header:
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD I}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD I}
+          \pagestyle{style-td1}
+
+  html:
+    output-file: td1-2026.html
+
+engine: knitr
+draft: false
+
+categories: [Ensembles, Tribus, Boréliens]
+
+---
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+
+# Tribus
+
+
+## Opérations ensemblistes
+
+
+::: {#exr- name=""}
+
+:::
+
+
+::: {#exr-denom-1 name="Ensembles dénombrables ou pas"}
+
+Parmi les ensembles suivant, lesquels sont dénombrables ?
+
+1. $\mathbb{N}$
+1. $\mathbb{N}^k$, $k \in \mathbb{N}$
+1. $\cup_{k=1}^\infty \mathbb{N}^k$
+1. $\mathbb{Q}$
+1. $\mathbb{R}$
+1. $[0,1]$
+1. Les nombres *décimaux*
+1. $\{0, 1\}^{\mathbb{N}}$ (suites infinies de $0,1$)
+
+:::
+
+
+
+
+## Algèbres, $\sigma$-algèbres (tribus)
+
+
+
+
+
+::: {#exr-algebre-1 name="Sous-ensembles finis et co-finis de $\mathbb{R}$"}
+
+Soit $\mathcal{A}$ l'ensemble des parties finies et des parties *co-finies* de $\mathbb{R}$ (une partie est *co-finie* si son complémentaire est fini).
+
+1. $\mathcal{A}$ est-elle close par intersection (finie) ?
+1. $\mathcal{A}$ est-elle close par union (finie) ?
+1. $\mathcal{A}$ est-elle close par complémentation ?
+1. $\mathcal{A}$ est-elle close par union dénombrable ?
+1. $\mathcal{A}$  est-elle une tribu ($\sigma$-algèbre) ?
+:::
+
+
+::: {#exr-algebre-2 name="Sous-ensembles dénombrables et co-dénombrables de $\mathbb{R}$"}
+
+Soit $\mathcal{A}$ l'ensemble des parties dénombrables et des parties *co-dénombrables* de $\mathbb{R}$ (une partie est *co-dénombrable* si son complémentaire est dénombrable).
+
+1. $\mathcal{A}$ est-elle close par intersection (finie) ?
+1. $\mathcal{A}$ est-elle close par union (finie) ?
+1. $\mathcal{A}$ est-elle close par complémentation ?
+1. $\mathcal{A}$ est-elle close par union dénombrable ?
+1. $\mathcal{A}$  est-elle une tribu ($\sigma$-algèbre) ?
+
+:::
+
+::: {#exr-intersection   name="Intersection de tribus"}
+
+Vérifier qu'une intersection quelconque de tribus de parties d'un ensemble $X$ est 
+une tribu de parties de $X$.
+
+:::
+
+
+## Les Boréliens 
+
+::: {#exr-borel-2 name="Propriétés des ouverts"}
+
+Montrer que tout sous-ensemble ouvert de $\mathbb{R}$ peut s'écrire comme une réunion dénombrable d'intervalles ouverts. 
+ 
+:::
+
+::: {#exr-borel-1 name="Génération des boréliens"}
+
+Parmi les ensembles suivants lesquels engendrent les Boréliens de $\mathbb{R}$ ?
+
+1. Les intervalles fermés
+1. Les demi-droites $(-\infty, a], a \in \mathbb{R}$
+1. Les intervalles ouverts à extrémités rationnelles.
+1. Les intervalles ouverts à extrémités entières.
+
+
+
+
+:::
+
+::: {#exr-boreliens-Rd name="Boréliens de $\mathbb{R}^d$"}
+
+Vérifier que les Boréliens de $\mathbb{R}^d$ sont engendrés par 
+
+1. Les cubes ouverts de  $\mathbb{R}^d$ (Boules ouvertes $\ell_\infty$).
+1. Les boules ouvertes euclidiennes de $\mathbb{R}^d$ (Boules ouvertes $\ell_2$).
+1. Les boules ouvertes $\ell_1$ de $\mathbb{R}^d$.
+
+
+:::
+
+
+## $\pi$-classes et $\lambda$-classes (classes monotones)
+
+::: {#exr-classes-monotones-1 name="Variation sur le théorème $\pi/\lambda$  de Dynkin"}
+
+<!-- Cohn Exercice 6 p.40 (2eme ed.) -->
+
+On dira qu'un ensemble $\mathcal{A}$  de parties de $\mathcal{X}$  est une *classe monotone*, si 
+
+a. pour toute suite croissante $(A_n)_{n \in \mathbb{N}}$ d'élements de $\mathcal{A}$, on a $\bigcup_{n=1}^\infty A_n \in \mathcal{A}$.
+a. pour toute suite décroissante $(A_n)_{n \in \mathbb{N}}$ d'élements de $\mathcal{A}$, on a $\bigcap_{n=1}^\infty A_n \in \mathcal{A}$.
+
+Montrer que :
+
+1. Pour tout $\mathcal{B} \subset \mathcal{P}(X)$, il existe une classe monotone $\mathcal{M}(\mathcal{B})$ contenant $\mathcal{B}$ et incluse dans toute classe monotone contenant $\mathcal{B}$.
+1. Si $\mathcal{B} \subset \mathcal{P}(X)$ est close par réunion et intersection finies, par complémemtation, et contient $\mathcal{X}$, alors  $\mathcal{M}(\mathcal{B})=\sigma(\mathcal{B}$.
+
+:::
+ 
+
+::: {#exr-classes-monotones-2 name=""}
+
+
+:::
+
+## Tribu produit
+
+
+
+::: {#exr-tribu-produit-1 name="Produit de tribus boréliennes"}
+
+Vérifier que la tribu des boréliens de $\mathbb{R}^2$ ($\mathcal{B}(\mathbb{R}^2)$) coïncide avec $\sigma\left(\mathcal{B}(\mathbb{R}) \times \mathcal{B}(\mathbb{R})\right)$ (que c'est une tribu produit),
+
+:::
+
+::: {#exr-tribu-produit-2 name="Sections mesurables"}
+
+Soient $(X, \mathcal{A})$ et $(Y, \mathcal{B})$ des espaces mesurables. Soit $E \in \sigma(\mathcal{A}\times \mathcal{B})$,
+On note $E_x = \{y \in Y : y \in Y, (x,y) \in E\}$ la section de $E$ en $x$.
+
+Montrer que pour tout $x\in X$, $E_x \in \mathcal{B}$.
+
+
+<!-- D'après Cohn Lemma 5.1.2 -->
+
+:::
+
+
+::: {#exr-tribu-produit-3 name="Projections mesurables"}
+
+
+Soient $(X, \mathcal{A})$ et $(Y, \mathcal{B})$ des espaces mesurables. Soit $E \in \sigma(\mathcal{A}\times \mathcal{B})$.
+
+Montrer que 
+$$\left\{x : x \in X, \exists y \in Y (x,y) \in E\right\}$$
+
+est dans $\mathcal{A}$.
+
+:::
+
+

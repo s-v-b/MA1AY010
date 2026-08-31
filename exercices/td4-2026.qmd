@@ -1,0 +1,285 @@
+---
+#title: "Exercices : semaine II"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2026-09-08"
+
+format:
+  pdf:
+    output-file: td4-2026.pdf
+    include-in-header:
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD IV}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD IV}
+          \pagestyle{style-td1}
+
+  html:
+    output-file: td4-2026.html
+
+engine: knitr
+draft: false
+
+categories: [Fonctions de répartition, densités, Fonctions quantiles]
+
+---
+
+
+
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+# Fonctions de répartition, densités, fonctions quantiles 
+
+
+
+## Fonctions de répartition
+
+::: {#exr-fr-1 name="Propriétés des fonctions de répartition"}
+
+Vérifier que toute fonction de répartition : 
+
+1. Tend vers $1$ en $+\infty$ ;
+2. Tend vers $0$ en $-\infty$ ;
+3. Est continue à droite en tout point ;
+4. Admet une limite à gauche en tout point ;
+5. Est croissante (mais pas forcément strictement croissante) sur $\mathbb{R}$.
+
+:::
+
+
+::: {#exr-fr-2 name="Discontinuités des fonctions de répartition"}
+
+On note pour une fonction $f$ définie sur $\mathbb{R}$ et $x\in \mathbb{R}$:
+
+$$\operatorname{osc}(f,x) = \inf_{\epsilon>0} \sup_{ x-\epsilon\leq y<z \leq x+\epsilon} |f(y)-f(z)|$$
+
+@. Vérifier que $f$ est continue en $x$ si et seulement si $\operatorname{osc}(f,x)=0$
+
+Dans la suite, $F$ est une fonction de répartition. Pour chaque entier $n$, on définit $A_n$ par
+
+$$A_n =  \left\{ x : \operatorname{osc}(F,x) \geq \frac{1}{n}\right\}$$
+
+@. Montrer que $|A_n| \leq n$.
+@. Montrer que $F$ admet au plus une quantité dénombrable de points de discontinuité.
+@. Connaissez-vous une fonction de répartition qui possède une infinité de points de discontinuité ?
+
+
+
+:::
+
+
+
+
+
+## Densités 
+
+
+
+::: {#exr-ac-1 name="Loi diffuse mais pas absolument continue"}
+
+Citer une loi *diffuse* qui n'est pas *absolument continue* (par rapport à la mesure de Lebesgue).
+
+:::
+
+::: {#exr-densite-2  name="Mélange de densités"}
+
+On suppose que $X$ et $Y$ sont deux variables de densités respectives $f_X, f_Y$, et que $\alpha \in [0,1]$. Montrer que $g : = \alpha f_X + (1-\alpha) f_Y$ est également une densité de probabilité. 
+
+Trouver une variable aléatoire dont $g$ est la densité.  
+
+:::
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note title="Solution"}
+
+
+La fonction $g$ reste bien évidemment borélienne, et puisque $\alpha \in [0,1]$, positive, de plus 
+
+$$\int_{\mathbb{R}} g(x) dx = \alpha \int_{\mathbb{R}} f_X(x) dx + (1-\alpha) \int_{\mathbb{R}} f_Y(x) dx = \alpha + (1-\alpha) = 1,$$
+
+on conclut que $g$ est bien une densité de probabilité. 
+
+Soit $\xi \sim \mathrm{Ber}(\alpha)$, indépendante de $(X,Y)$. Alors $Z= \xi X + (1-\xi)Y$ possède la densité $g$. En effet, en utilisant l'indépendance de $\xi$ et $(X,Y)$ à la deuxième ligne ci-dessous,  
+
+\begin{align*}
+ \mathbb{P}(Z \le x) & =  \mathbb{P}(\xi=1,  X \le x) + \mathbb{P}(\xi=0, Y \le x) \\ & =  \mathbb{P}(\xi=1) \mathbb{P}(X \le x) + \mathbb{P}(\xi=0) \mathbb{P}(Y \le x) \\ & =  \alpha F_X(x) + (1-\alpha) F_Y(x) \\ & =  \int_{-\infty}^x (\alpha f_X(x) + (1-\alpha)f_Y(x)) dx 
+\end{align*}
+
+:::
+
+:::
+
+::: {#exr-densites-3  name="Densité image univariée"}
+
+
+
+
+ 
+
+Soit $X$ de densité $f$, et $(\alpha, \beta) \in \overline{\mathbb{R}}^2$ sont supposés tels que 
+$$\mathbb{P}(\alpha < X < \beta) =1$$ 
+On suppose que $g$ est un $C^{1}$-difféomorphisme croissant de $(\alpha, \beta)$ sur $(g(\alpha),g(\beta))$. 
+
+ 
+1. Montrer que $g(X)$ a pour densité $\frac{f(g^{-1}(x))}{g'(g^{-1}(x))} \mathbf{1}_{\{x \in (g(\alpha), g(\beta))\}}$. 
+1. Quelle est la densité de la variable $aX+b$, où $a>0$ et $b\in \mathbb{R}$ sont fixés?   
+1. Soit $Y \sim \mathcal{N}(0,1)$. Quelle est la densité de $Z = \exp(Y)$? 
+
+:::   
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note title="Solution"}
+1. Posons $T= g(X)$. Pour $h : \mathbb{R} \to \mathbb{R}_+$ mesurable, on a 
+$$\mathbb{E}[h(T)]  = \mathbb{E}[h(g(X))] = \int_{\alpha}^{\beta} h(g(x)) f(x) dx$$  
+En effectuant le changement de variables $t = g(x)$ il vient 
+$$ \mathbb{E}[h(T)]  = \int_{g(\alpha)}^{g(\beta)} \frac{h(t) f(g^{-1}(t))}{g'(g^{-1}(t))} dt. $$
+Comme ceci est valable pour tout fonction $h$ mesurable positive, on conclut que $T$ possède la densité souhaitée sur $(g(\alpha),g(\beta))$ 
+1. Ici $g : x \to ax+b$, $g^{-1} : x \to \frac{x-b}{a}$, $g'(x) = a$ pour tout $x$ et dans ce cas la densité recherchée s'exprime donc 
+$$\frac{1}{a} f\left( \frac{x-b}{a} \right) \mathbf{1}_{(a\alpha+b, a\beta+b)}(x), \ x \in \mathbb{R}.$$ 
+Quitte à prendre $\alpha = -\infty, \beta = +\infty$, on retrouve le résultat de l'exercice 2. 
+1. Ici $\alpha = - \infty, \beta=+\infty$, $f(y) = \frac{1}{\sqrt{2\pi}} \exp(-y^2/2), y \in \mathbb{R}$, et $g: x \to \exp(x)$, $g^{-1} : y \to \ln(y)$ et $g'(g^{-1}(x)) = x$. On obtient donc que la densité de  $Z$ est 
+$$\frac{1}{x \sqrt{2\pi}} \exp\left(-\frac{\ln(x)^2}{2}\right) \mathbf{1}_{\{x >0\}}.$$
+
+
+:::
+
+:::
+
+
+## Fonctions quantiles 
+
+
+::: {#exr-qu-1 name="Définitions de la médiane"}
+
+Pour une loi $P$ sur $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$, de fonction de répartition $F$, on dit que $a \in \mathbb{R}$ est une *médiane* de la loi $P$ si 
+
+$$P(-\infty, a[ \leq \frac{1}{2} \qquad\text{et}\qquad P]a, +\infty) \leq \frac{1}{2}$$
+
+
+1. Existe-t-il toujours au moins une médiane ?
+2. Décrire l'ensemble des médianes s'il n'est pas vide.
+3. Donner un exemple de loi où l'ensemble des médianes n'est pas un singleton.
+4. Quelles sont les médianes d'une loi de Cantor ?
+5. Caractériser les lois qui possèdent une unique médiane. 
+
+:::
+
+
+::: {#exr-qu-2 name="Propriétés de la médiane"}
+
+
+:::
+
+::: {#exr-qu-3 name="Propriétés de la fonction quantile"}
+
+
+:::
+
+
+## Transformation quantile et applications
+
+
+::: {#exr-transformation-qu-1 name="Transformation quantile"}
+
+Soit $F$ la  fonction de répartition d'une loi $P$ sur $\mathbb{R}$. On définit la *fonction quantile* associée $F^{\leftarrow}$ par 
+
+$$F^{\leftarrow}(u) = \inf\{x \in \mathbb{R} : F(x) \geq u\}, \quad u \in (0,1).$$
+
+1. Montrer que $F^{\leftarrow}$ est finie sur $(0,1)$
+1. Montrer que $F^{\leftarrow}$ est croissante sur $(0,1)$
+1. Montrer que $F^{\leftarrow}$ est Borel-mesurable
+1. Montrer que 
+    $$F^{\leftarrow}(u) \leq x \quad \text{si et seulement si} \quad u \leq F(x)$$
+1. Quelle est la loi de $F^{\leftarrow}(U)$ où $U$ est une variable aléatoire uniforme sur $(0,1)$ ?
+1. Montrer que deux lois de probabilité avec la même fonction de répartition sont égales (sans utiliser le lemme des classes monotones)
+
+
+:::
+
+
+::: {#exr-transformation-qu-2 name="Couplage quantile"}
+
+<!-- définition -->
+<!-- comparaison entre Binomiales de même paramètre $n$ -->
+<!--  -->
+
+:::
+
+
+
+::: {.callout-note}
+
+### Statistique des rangs/Statistiques d'ordre
+
+
+Les statistiques d'ordre $X_{1:n}\leq X_{2:n}\leq X_{n:n}$ d'un $n$-échantillon  $X_1,\ldots,X_n$
+d'observations indépendantes identiquement distribuées sont formées par le réarrangement croissant (convention) de l'échantillon. 
+
+Quand $n$  est clair d'après le contexte on peut les noter $X_{(1)} \leq \ldots \leq X_{(n)}$. 
+
+:::
+
+ 
+
+:::  {#exr-order-1  name="Statistiques d'ordre"}
+
+:::
+
+a. Vérifier que la l:::
+oi jointe des statistiques d'ordre est absolument continue par rapport 
+à la loi de l'échantillon.
+a. On suppose que $X$ est une variable aléatoire réelle, absolument continue, de densité continue. Montrer que l'échantillon est presque sûrement formé de valeurs deux à deux distinctes. 
+a. Donner la densité de la loi jointe des statistiques d'ordre.
+a. Si la loi des $X_i$  définie par sa fonction de répartition $F$, admet une densité $f$, quelle est la densité de la loi de $X_{k:n}$  pour $1\leq k\leq n$ ?  
+a.  Montrer que conditionnellement à $X_{k:n}=x$, la suite 
+
+    $$(X_{i:n}-X_{k:n})_{i=k+1,\ldots, n}$$  
+
+    est distribuée comme les statistiques d'ordre d'un $n-k$ échantillon de la loi d'excès au dessus de $x$  (fonction de survie $\overline{F}(x+\cdot)/\overline{F}(x))$ avec la convention $\overline{F}=1-F$). 
+
+(Représentation de Rényi)
+
+:::  {#exr-order-2  name="Statistiques d'ordre d'un échantillon exponentiel"}
+
+:::
+
+Cet exercice reprend:::
+ les conventions de l'exercice précédent. On s'intéresse maintenant aux statistiques d'ordre d'un échantillon exponentiel.
+
+a. Si $X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi exponentielle d'espérance $1$ (densité $\mathbb{I}_{x>0} \mathrm{e}^{-x}$), et $X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}$ les statistiques d'ordre associées, montrer que:
+
+  i. avec la convention $X_{0:n}=0$, les écarts $(X_{i:n}-X_{i-1:n})_{1\leq i\leq n}$ (*spacings*) forment une
+  collection de variables aléatoires indépendantes ;
+  i. $X_{i:n}-X_{i-1:n}$ est distribuée selon une loi exponentielle
+  d'espérance $\tfrac{1}{i}$ .
+
+a. Maintenant  $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infini,  telle que $k_n/n$ tend vers une limite finie (éventuellement nulle).  Montrer que
+
+    $$\frac{X_{k_n:n} -\mathbb{E} X_{k_n:n} }{\sqrt{\operatorname{var}(X_{k_n:n} )}}$$ 
+    
+    converge en loi vers une Gaussienne centrée réduite. 
+
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note}
+
+### Solution
+
+:::
+
+:::

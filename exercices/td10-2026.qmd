@@ -1,0 +1,84 @@
+---
+#title: "Exercices : semaine IV"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2026-09-28"
+
+format:
+  pdf:
+    output-file: td10-2026.pdf
+    include-in-header:
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD X}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD X}
+          \pagestyle{style-td1}
+
+  html:
+    output-file: td10-2026.html
+
+engine: knitr
+draft: false
+
+categories: [Concergence presque sûre, Convergence en probabilité, Loi des grands nombres]
+
+---
+
+
+
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+# Convergences presque sûre et en probabilité, lois des grands nombres
+
+
+## Convergence presque sûre 
+
+
+## Convergence en probabilité
+
+
+## Loi faible des grands nombres
+
+
+## Loi forte des grands nombres
+
+## Applications
+
+::: {#exr-weierstrass  name="Théorème d'approximation de Weierstrass"}
+
+Soit $f : [0, 1] → \mathbb{R}$ une fonction continue.
+
+Soit $S_n$ une variable aléatoire distribuée selon une loi binomiale de
+paramètres $n$ et $x \in (0,1)$.
+
+Montrer que :
+
+$$
+\lim_n \sup_{0\leq x \leq 1} \left| f(x) - \sum_{k=0}^n \binom{n}{k} x^k  (1-x)^{n-k} f\left(\frac{k}{n}\right)\right| = 0 
+$$
+
+*Suggestion:* Utiliser $$
+\mathbb{E}(Z) = \mathbb{E}(Z \mathbb{I}_A ) + \mathbb{E}(Z \mathbb{I}_{A^c} )
+$$ avec $Z = f (x) − f (S_n/n )$ et $$
+A = \{|S_n/n − x| > δ\}, 
+$$
+:::
+
+::: {.callout-note appearance="minimal"}
+Le théorème d'approximation de Weierstrass s'énonce: toute fonction
+continue sur $[0, 1]$ peut être approchée uniformément par des
+polynômes.
+:::
+
+

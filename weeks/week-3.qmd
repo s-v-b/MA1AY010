@@ -7,7 +7,9 @@ draft: false
 
 ::: callout-important
 
-La semaine III (22-26 septembre 2025)  est  consacrée aux calculs de moments, et au conditionnement.
+La semaine III (21-25 septembre 2026)  est  consacrée au conditionnement (espérance conditionnelle, noyaux de probabilité, densités conditionnelles).
+
+**CC 1** : Lundi 21 septembre (durée 1h de 15h30 à 16h30).
 
 :::
 
@@ -15,15 +17,12 @@ La semaine III (22-26 septembre 2025)  est  consacrée aux calculs de moments, e
 
 ::: {}
 
-- Espérances, moments, Espaces $L^p$ (2025-09-22)
-- Conditionnement (2025-09-23 et 2025-09-25) 
 
 :::
 
 ::: {}
 
-- [Voir Notes, Espérances, Moments, Espaces $L^p$, ...](https://s-v-b.github.io/MA1AY010-CN/031-moments.html)
-- [Voir Notes, Conditionnement](https://s-v-b.github.io/MA1AY010-CN/06-conditioning.html)
+
 
 
 :::
@@ -31,17 +30,8 @@ La semaine III (22-26 septembre 2025)  est  consacrée aux calculs de moments, e
 
 ## Exercices
 
-- [Feuille TD II](/exercices/td2.qmd)
-- [Feuille TD II supplément](/exercices/td2-supplement.qmd)
-- [Questionnaire I](/exercices/quizz_a.qmd)
-- [Feuille TD III Branchement](/exercices/td3.qmd)
-
-
-<!-- - TD I.18 (sommes aléatoires de variables indépendantes) (*fin*).
-- Supplément TD I Exercice 5 (Anniversaires)
-- TD I.7
-- TD I.... -->
-
+- [Feuille TD VII](/exercices/td7-2026.html)
+- [Feuille TD VIII](/exercices/td8-2026.html)
 
 
 ::: {style="font-size: 0.875em;"}

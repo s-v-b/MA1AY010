@@ -1,0 +1,217 @@
+::: center
+
+**Durée 3 heures**
+
+Sujet de pages recto-verso
+
+* Tout appareil électronique est interdit*
+
+ Un document sous forme d'une feuille A4 recto-verso manuscrite est
+autorisé
+
+:::
+
+**Abréviations et notations :**
+
+::: center
+
+
+  ----------------- --------------------------------------------
+  *va*              variable aléatoire
+                    presque sûrement
+  *iid*             indépendantes et identiquement distribuées
+  $\mathbf{1}(A)$   fonction indicatrice de l'événement $A$
+  ----------------- --------------------------------------------
+:::
+
+Dans cet exercice, pour $n \in \mathbb{N}$,
+$X := (X_1, \ldots, X_n)^\top \sim \mathcal{N}(\mu, \text{Id}_n)$ avec
+$\mu \in \mathbb{R}^n$ ; $\| .\|$ désigne la norme euclidienne dans
+$\mathbb{R}^n$.
+
+1.  Soit $A$ une matrice à $n$ lignes et $n$ colonnes telle que
+    $A A^\top = A^\top A =\text{Id}_n$. Quelle est la loi de la variable
+    aléatoire $\|A X\| -\|X\|$ ?
+
+2.  Quelle est la densité de la loi de $\|X\|^2$ lorsque $\mu=0$?
+
+3.  Quelle est la fonction de répartition de la loi de $Y^2$ si
+    $Y \sim \mathcal{N}(\lambda, 1)$ avec $\lambda \geq 0$ ?
+
+4.  Donnez une densité de la loi de $Y^2$ si
+    $Y \sim \mathcal{N}(\lambda, 1)$ avec $\lambda \geq 0$.
+
+5.  Donnez une densité de la loi de $\|X\|^2$ ($\mu$ général).
+
+6.  Calculez $\mathbb{E} \|X\|^2$ et
+    $\operatorname{Var}\left(\|X\|^2\right)$.
+
+7.  Calculez la fonction caractéristique (ou la transformée de Laplace,
+    au choix) de la loi de $\|X\|^2$ dans le cas où $\mu=0$.
+
+8.  Calculez la fonction caractéristique (ou la transformée de Laplace,
+    au choix) de la loi de $\|X\|^2$ dans le cas général.
+
+9.  Finalement $Z \sim \mathcal{N}(0, \text{Id}_n)$, et $\mu \neq 0$.
+    Quelles sont les assertions exactes :
+
+    1.  $\Pr\{\|Z\|^2 \leq x\} > \Pr\{\|X\|^2 \leq x\}$ pour tout $x>0$.
+
+    2.  $\Pr\{\|X\|^2 \leq x\}$ est une fonction croissante de
+        $\|\mu\|$.
+
+    3.  La variance de $\|X\|^2$ est une fonction affine de $\|\mu\|$.
+
+Soient $Z_1$, $Z_2$ et $Z$ trois variables aléatoires qui suivent des
+lois exponentielles de paramètres respectifs $1$, $1$ et $2$. C'est à
+dire $Z_1\sim \exp(1)$, $Z_2\sim \exp(1)$, $Z\sim \exp(2)$. On rappelle
+que la densité de la loi exponentielle de paramètre $\lambda >0$ est
+donnée par $$f(x) = \mathds{1}_{\{x>0\}} \lambda \exp(-\lambda x).$$ On
+définit de plus les variables aléatoires $X=\min(Z_1, Z)$ et
+$Y=\min(Z_2,Z)$.
+
+1.  Quelle est la loi de la variable aléatoire $X$ ?
+
+2.  Quelle est la loi de $\min(X,Y)$ ?
+
+3.  Montrer que $\Pr(X=Y) = \Pr(\min(Z_1,Z_2,Z) = Z)$ puis calculer
+    cette probabilité.
+
+4.  Les variables $X$ et $Y$ sont-elle indépendantes ?
+
+5.  Le vecteur aléatoire $(X,Y)$ admet-il une densité par rapport à la
+    mesure de Lebesgue ? Si oui, la calculer.
+
+<!-- -->
+
+1.  Soit $X$ une *va* réelle et $\geq0$ (on ne suppose pas
+    nécessairement $\mathbb{E}[X]<+\infty$), et soit $a>0$.
+
+    1.  Montrer que pour tout réel $y\geq0$, on a : $$\begin{gathered}
+              \sum_{k\geq1}\mathbf{1}_{\{k\leq y\}}\leq y
+            
+        \end{gathered}$$
+
+    2.  En déduire : $$\begin{gathered}
+              a\Bigl(\sum_{k\geq1}\mathbb{P}(X\geq ka)\Bigr)\leq\mathbb{E}[X]
+            
+        \end{gathered}$$
+
+2.  Soit $(X_n)_{n\geq1}$ une suite *iid* de *va* réelles intégrables.
+    Montrer que : $$\begin{gathered}
+    \text{{\slshape ps}}\quad \lim_{n\to+\infty}\frac1nX_n=0
+      
+    \end{gathered}$$ *Indication :* utiliser le lemme de Borel-Cantelli
+    et la question précédente.
+
+3.  On se place dans les mêmes hypothèses qu'à la question précédente.
+    Montrer que, pour tout réel $\alpha\in]0,1[$ : $$\begin{gathered}
+        \text{{\slshape ps}}\quad\sum_{n\geq1}e^{X_n}\alpha^n<+\infty
+      
+    \end{gathered}$$
+
+::: center
+**Problème : étude d'une chaîne de Markov**
+:::
+
+Soit $(X_n)_{n\geq0}$ la chaîne de Markov à valeurs dans $\NN$ de loi
+initiale $\delta_{\{0\}}$, mesure de Dirac en $0$, et de matrice de
+transition $P=(P_{j,k})_{j,k\geq0}$ définie ci-dessous :
+$$\begin{aligned}
+\forall j\in\NN\quad\forall k\in\NN\qquad P_{j,k}=\frac12(\delta_{0}^k+\delta^k_{j+1})
+\end{aligned}$$
+
+*Il est conseillé de traiter la première partie en premier.*
+
+::: center
+**I** --- [Première partie :]{.smallcaps} généralités
+:::
+
+1.  Représenter le graphe de la chaîne de Markov. La chaîne est-elle
+    irréductible et apériodique ?
+
+2.  *Résultat auxiliaire.* Soit $(u_n)_{n\geq0}$ une suite réelle
+    vérifiant la relation de récurrence $u_{n+1}=f(u_n)$, où $f(x)=ax+b$
+    et $a$ et $b$ sont deux réels avec $a\neq1$.
+
+    1.  Justifier que $f$ possède un unique point fixe $x_0$. Poser
+        $v_n=u_n-x_0$, établir une relation de récurrence pour la suite
+        $(v_n)_{n\geq0}$, et en déduire une expression pour le terme
+        général de $(v_n)_{n\geq0}$ en fonction de $n$ et de $v_0$.
+
+    2.  []{#item:1 label="item:1"} En déduire une expression pour le
+        terme général de $(u_n)_{n\geq0}$ en fonction de $n$ et
+        de $u_0$.
+
+::: center
+**II** --- [Deuxième partie :]{.smallcaps} convergence en loi par les
+fonctions génératrices
+:::
+
+Pour $n\geq0$, soit $G_n$ la fonction génératrice des probabilités
+de $X_n$.
+
+1.  Quelle est l'expression générale définissant $G_n(t)$, et pour
+    quelles valeurs de $t$ l'expression est-elle définie *a priori* ?
+
+2.  Donner une expression pour $G_0(t)$, puis établir la relation de
+    récurrence : $$\begin{gathered}
+    G_{n+1}(t)=\frac12\bigl(1+tG_n(t)\bigr)
+    \end{gathered}$$
+
+3.  Donner une expression pour $G_n(t)$.
+
+4.  Établir la convergence en loi de la suite $(X_n)_{n\geq0}$ et
+    identifier la loi limite.
+
+::: center
+**III** --- [Troisième partie :]{.smallcaps} convergence en loi par les
+théorèmes généraux
+:::
+
+1.  Établir l'existence et l'unicité d'une mesure de probabilité
+    invariante pour la chaîne $(X_n)_{n\geq0}$.
+
+2.  En déduire la convergence en loi de la chaîne $(X_n)_{n\geq0}$ et
+    identifier la loi limite.
+
+::: center
+**IV** --- [Quatrième partie :]{.smallcaps} étude des temps d'atteinte
+:::
+
+Pour tout entier $r\geq0$, on introduit le temps d'atteinte $T_r$ défini
+par : $$\begin{gathered}
+  T_r=\inf\{n\geq0\tq X_n=r\},\quad \text{avec la convention $\inf\emptyset=+\infty$}
+\end{gathered}$$ On pourra utiliser sans démonstration que $T_r$ est un
+temps d'arrêt. On pose aussi, pour $t\in[0,1]$ : $$\begin{gathered}
+  J_r(t)=\sum_{n\geq0}\mathbb{P}(T_r=n)t^n
+\end{gathered}$$
+
+1.  Quelles sont les lois et espérances de $T_0$ et de $T_1$ ?
+
+2.  1.  Pour des entiers $r>0$ et $k\geq r$, montrer que
+        $\mathbb{P}(T_r=k)>0$.
+
+    2.  Pour des entiers $r>0$, $n>0$ et $k\geq r$, établir la relation
+        suivante : $$\begin{gathered}
+            \mathbb{P}(T_{r+1}=k+n\,|\,T_r=k)=
+            \begin{cases}
+              \frac12,&\text{si $n=1$}\\
+              \frac12\mathbb{P}(T_{r+1}=n-1),&\text{si $n>1$}
+            \end{cases}
+          
+        \end{gathered}$$ *Indication :* pour le cas $n>1$, on pourra
+        appliquer la propriété de Markov forte relative à la fonction
+        indicatrice $Z=\mathbf1(T_{r+1}=n)$ et au temps d'arrêt $T_r$.
+
+3.  En déduire la relation suivante, valable pour tout entier $r>0$ et
+    pour tout $t\in[0,1]$ : $$\begin{gathered}
+        J_{r+1}(t)=\frac t2J_r(t)\bigl(1+J_{r+1}(t)\bigr)
+      
+    \end{gathered}$$
+
+4.  En déduire une relation de récurrence entre $\mathbb{E}(T_{r+1})$ et
+    $\mathbb{E}(T_r)$, puis calculer $\mathbb{E}(T_r)$ pour tout
+    $r\geq0$.
+
+[]{#lasytsd label="lasytsd"}

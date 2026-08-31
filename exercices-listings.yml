@@ -1,44 +1,60 @@
 - title: "TD I : Rappels de Licence"
   author: "Master I ISIFAR UParis Cité"
-  date: "2025-09-08"
-  path: "exercices/td1.html"
-  categories: [Variables aléatoires réelles]
-- title: "TD I supplément : Rappels de Licence"
+  date: "2026-09-07"
+  path: "exercices/td1-2026.html"
+  categories: [Tribus, Boréliens]
+- title: "TD II"
   author: "Master I MIDS UParis Cité"
-  date: "2025-09-11"
-  path: "exercices/td1-supplement.html"
-  categories: [Variables aléatoires réelles, Branchement]
-- title: "TD II : Conditionnement"
+  date: "2026-09-07"
+  path: "exercices/td2-2026.html"
+  categories: [Mesures, Fonctions mesurables, Probabilités]
+- title: "TD III"
   author: "Master I MIDS UParis Cité"
-  date: "2025-09-22"
-  path: "exercices/td2.html"
-  categories: [Conditionnement, Branchement]
-- title: "TD II : Conditionnement  (supplément)"
+  date: "2026-09-07"
+  path: "exercices/td3-2026.html"
+  categories: [Intégrales, Espérances]
+- title: "TD IV"
   author: "Master I MIDS UParis Cité"
-  date: "2025-09-22"
-  path: "exercices/td2-supplement.html"
-  categories: [Conditionnement, Branchement]
-- title: "Questionnaire I"
+  date: "2026-09-14"
+  path: "exercices/td4-2026.html"
+  categories: [Fonctions de répartition, densités, Fonctions quantiles]
+- title: "TD V"
   author: "Master I MIDS UParis Cité"
-  date: "2025-09-22"
-  path: "exercices/quizz_a.html"
-- title: "TD III : Branchement"
+  date: "2026-09-14"
+  path: "exercices/td5-2026.html"
+  categories: [Espérances, Moments]
+- title: "TD VI"
   author: "Master I MIDS UParis Cité"
-  date: "2025-09-22"
-  path: "exercices/td3.html"
-  categories: [Conditionnement, Branchement]
-- title: "TD IV : Conditionnement"
+  date: "2026-09-14"
+  path: "exercices/td6-2026.html"
+  categories: [Espaces produits, Lois produit, Fubini]
+- title: "TD VII"
   author: "Master I MIDS UParis Cité"
-  date: "2025-09-29"
-  path: "exercices/td4.html"
+  date: "2026-09-21"
+  path: "exercices/td7-2026.html"
+  categories: [Fonctions génératrices, Conditionnement discret]
+- title: "TD VIII"
+  author: "Master I MIDS UParis Cité"
+  date: "2026-09-21"
+  path: "exercices/td8-2026.html"
+  categories: [Caractérisations de lois, Fourier, Laplace]
+- title: "TD IX"
+  author: "Master I MIDS UParis Cité"
+  date: "2026-09-28"
+  path: "exercices/td9-2026.html"
   categories: [Conditionnement]
-- title: "TD V : Convergences/Caractérisations"
+- title: "TD X"
   author: "Master I MIDS UParis Cité"
-  date: "2025-10-06"
-  path: "exercices/td5-bis.html"
-  categories: [Convergences, Caractérisations, LGN, TCL]
-- title: "TD VI : Gaussiennes"
+  date: "2026-09-28"
+  path: "exercices/td10-2026.html"
+  categories: [Concergence presque sûre, Convergence en probabilité, Loi des grands nombres]
+- title: "TD XI"
   author: "Master I MIDS UParis Cité"
-  date: "2025-10-13"
-  path: "exercices/td6.html"
-  categories: [Gaussiennes]
+  date: "2026-10-05"
+  path: "exercices/td11-2026.html"
+  categories: [Convergence en distribution, TCL]
+- title: "TD XII"
+  author: "Master I MIDS UParis Cité"
+  date: "2026-10-12"
+  path: "exercices/td12-2026.html"
+  categories: [Vecteurs gaussiens]

@@ -19,6 +19,7 @@ format:
     output-file: td1.html
 
 engine: knitr
+draft: true
 ---
 
 
@@ -451,7 +452,7 @@ et il faut donc poser $C=\frac{1}{\pi}$ pour que $f$ soit une densité de probab
 
 :::
 
-::: {#exr-7  name=""}
+::: {#exr-7  name="Mélange de densités"}
 
 :::
 

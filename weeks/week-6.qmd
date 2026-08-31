@@ -8,13 +8,9 @@ draft: false
 
 ::: callout-important
 
-La semaine V (13- 17 octobre 2025)  est  consacrée aux vecteurs gaussiens :
+La semaine VI (12-16 octobre 2026)  est  consacrée aux vecteurs gaussiens.
 
-- Convergence presque sûre, en probabilité, en loi
-- Loi(s) des grands nombres
-- Théorème central limite
-
-**CC 2** : jeudi 17 octobre (durée 1h30 de 15h à 16h30).
+**CC 3** : jeudi 16 octobre (durée 1h30 de 15h à 16h30).
 
 
 :::
@@ -42,15 +38,11 @@ La semaine V (13- 17 octobre 2025)  est  consacrée aux vecteurs gaussiens :
 
 :::  {}
 
-- [Feuille TD VI](/exercices/td6.html)
-- [Feuille TD V](/exercices/td5-bis.html)
+- [Feuille TD XII](/exercices/td12-2026.html)
 
 :::
 
 ::: {}
-
-- [Correction  CC 1](/corriges/cc1-2025.pdf)
-- [Correction CC2](/corriges/cc2-2025.pdf)
 
 :::
 

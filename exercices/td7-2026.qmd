@@ -1,26 +1,30 @@
 ---
-#title: "Exercices : semaine I"
+#title: "Exercices : semaine III"
 # subtitle: "M1 ISIFAR MA1AY010"
 
-# date: "2025-09-08"
+# date: "2026-09-22"
 
 format:
   pdf:
-    output-file: td3.pdf
+    output-file: td7-2026.pdf
     include-in-header:
       - file: before_header_td.tex
       - text: |
           \copypagestyle{style-td1}{mystyle}
-          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD III}
-          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD III}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD VII}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD VII}
           \pagestyle{style-td1}
 
   html:
-    output-file: td3.html
+    output-file: td7-2026.html
 
 engine: knitr
-draft: true
+draft: false
+
+categories: [Fonctions génératrices, Conditionnement discret]
+
 ---
+
 
 
 
@@ -33,22 +37,55 @@ draft: true
 requireNamespace('quarto')
 ```
 
+# Fonctions génératrices et conditionnement discret
+
+## Fonctions génératrices : propriétés
+
+## Fonctions génératrices : lois composées
+
+## Fonctions génératrices : sommes de variables indépendantes
+
+## Fonctions génératrices, régularité et intégrabilité
+
+## Conditionnement discret
+
+## Conditionnement discret, applications 
+
+## Lois jointes définies par un noya
 
 
+:::  {#exr-noyau-0 name="Noyau"}
+
+<!-- Exercice 2.4.7 in Cohn -->
 
 
+Soient $(X, \mathcal{F})$ et $(Y, \mathcal{G})$ deux espaces mesurables,
+une fonction $K$ de $X \times \mathcal{G} \to [0, \infty)$ est  un noyau de $(X, \mathcal{F})$ vers $(Y, \mathcal{G})$ si  
 
-::: {.callout-note}
+- $\forall B \in \mathcal{G}, \quad K(\cdot, B)$ est $\mathcal{F}$-mesurable
+- $\forall x \in X, \quad K(x, \cdot)$ est une mesure sur $(Y, \mathcal{G})$
 
-### TD III : Processus de branchement  
+On suppose maintenant:
 
-- 18 Septembre 2025-25 Septembre 2025
+- $\mu$ est une mesure sur $(X, \mathcal{F})$
+- $f$ est une fonction $\mathcal{G}$-mesurable à valeur sur $[0, \infty]$ 
 
-- Master I ISIFAR
 
-- **Probabilités** 
+Montrer
+
+1. $B \mapsto  \int_X K(x, B) \mu(dx)$ définit une mesure sur $\mathcal{G}$
+1. $x \mapsto \int_Y  f(y) K(x, \mathrm{d}y)$
+1. $\int_Y f(y) \left( \int_X K(x, \mathrm{d}y) \mu(dx) \right)$ = $\int_X \left( \int_Y K(x, dy) f(y) \right) \mu(dx)$  
+:::
+
+
+:::  {#exr-noyau-1 name="Noyau"}
+
+<!-- Exercice 5.1.5 in Cohn -->
 
 :::
+
+
 
 Un processus de Galton-Watson (processus de branchement homogène) est un processus stochastique en temps discret utilisé pour modéliser l’évolution d’une population où chaque individu se reproduit indépendamment des autres, suivant une même loi de probabilité donnée (appelée *loi de reproduction*).
 

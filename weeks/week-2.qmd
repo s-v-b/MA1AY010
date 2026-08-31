@@ -1,7 +1,7 @@
 ---
 title: "Semaine 2"
 subtitle: ""
-date: "2025-09-15"
+date: "2026-09-15"
 editor: source
 draft: false
 ---
@@ -11,7 +11,7 @@ draft: false
 
 ::: callout-important
 
-La semaine II (15-19 septembre 2025)  est encore consacrée aux révisions de Licence. 
+La semaine II (14-18 septembre 2026)  est encore consacrée aux révisions de Licence. 
 
 :::
 
@@ -19,15 +19,14 @@ La semaine II (15-19 septembre 2025)  est encore consacrée aux révisions de Li
 
 ::: {}
 
-- Espaces produits, tribus produits (2025-09-15)
-- Lois produits  (2025-09-15)
-- Théorème de Fubini (2025-09-15)
-- Calculs de densités *image*, formules de changement de variable (2025-09-16)
-- Espérances, moments, Espaces $L^p$ (2025-09-16)
-- Conditionnement discret (2025-09-18)
-- Processus de branchement aléatoire (2025-09-18)
-- [Enregistrement du cours du 18 septembre](https://u-paris.zoom.us/rec/share/tR3l3a3IpipQz5UBXejKgrNJv1a-Tcuxnx0jD7JzVxEwf8uk_SJXydJW4mcraOu9.8BQb45N8BnA3twUD?startTime=1758195083000
-Passcode: %tsqL^#&6F)
+- Espaces produits, tribus produits (2026-09-14)
+- Lois produits  (2026-09-14)
+- Théorème de Fubini (2026-09-14)
+- Calculs de densités *image*, formules de changement de variable (2026-09-15)
+- Espérances, moments, Espaces $L^p$ (2026-09-15)
+- Conditionnement discret (2026-09-18)
+- Processus de branchement aléatoire (2026-09-18)
+
 
 :::
 
@@ -45,14 +44,16 @@ Passcode: %tsqL^#&6F)
 
 ## Exercices
 
-[Feuille TD I](/exercices/td1.html)
-[Feuille TD I suppléments](/exercices/td1-supplement.html)
+- [Feuille TD IV](/exercices/td4-2026.html)
+- [Feuille TD V](/exercices/td5-2026.html)
+- [Feuille TD VI](/exercices/td5-2026.html)
 
 
-- TD I.18 (sommes aléatoires de variables indépendantes) (*fin*).
+
+<!-- - TD I.18 (sommes aléatoires de variables indépendantes) (*fin*).
 - Supplément TD I Exercice 5 (Anniversaires)
 - TD I.7
-- TD I....
+- TD I.... -->
 
 
 

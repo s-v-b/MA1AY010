@@ -5,11 +5,11 @@ title: "MA1AY010 : Probabilités (et Extrêmes)"
 
 Bienvenue sur le site du cours *MA1AY010 : Probabilités (et Extrêmes)* de l'[Université Paris Cité](https://www.u-pariscite.fr).
 
-Le cours *Probabilités (et Extrêmes)* est un cours du Master I [ISIFAR](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/mathematiques-et-applications-K2VO47PM//master-mathematiques-et-applications-parcours-ingenierie-statistique-et-informatique-de-la-finance-de-l-assurance-et-du-risque-isifar-JS1OI0O6.html). Ce cours se déroule durant le semestre d'automne (septembre-décembre) sur 12 semaines à raison de 8 heures de cours et exercices par semaine. 
+Le cours *Probabilités* est un cours du Master I [ISIFAR](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/mathematiques-et-applications-K2VO47PM//master-mathematiques-et-applications-parcours-ingenierie-statistique-et-informatique-de-la-finance-de-l-assurance-et-du-risque-isifar-JS1OI0O6.html). Ce cours se déroule durant le semestre d'automne (septembre-décembre) sur 12 semaines à raison de 8 heures de cours et exercices par semaine. 
 
 Les six premières semaines sont consacrées à la consolidation des [acquis de licence](https://sorbonne-universite.primo.exlibrisgroup.com/permalink/33BSU_INST/1c3k0lm/alma991002836299806616), les six dernières semaines sont consacrées aux martingales et aux chaines de Markov. 
 
-Le cours *Probabilités (et Extrêmes)* est un cours de Mathématiques Appliquées. Beaucoup de résultats importants sont admis. On s'intéresse d'abord aux applications possibles. L'objectif est d'utiliser le calcul des probabilités avec rigueur. 
+Le cours *Probabilités* est un cours de Mathématiques Appliquées. Beaucoup de résultats importants sont admis. On s'intéresse d'abord aux applications possibles. L'objectif est d'utiliser le calcul des probabilités avec rigueur. 
 
 Les ressources du cours sont disponibles :
 

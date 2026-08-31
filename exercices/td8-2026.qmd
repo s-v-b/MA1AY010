@@ -1,0 +1,106 @@
+---
+#title: "Exercices : semaine III"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2026-09-21"
+
+format:
+  pdf:
+    output-file: td8-2026.pdf
+    include-in-header:
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD VIII}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD VIII}
+          \pagestyle{style-td1}
+
+  html:
+    output-file: td8-2026.html
+
+engine: knitr
+draft: false
+
+categories: [Caractérisations de lois, Fourier, Laplace]
+
+---
+
+
+
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+# Caractérisations de lois, Fourier, Laplace
+
+
+## Transformée de Laplace 
+
+::: {#exr-11  name="Transformées de Laplace utiles"}
+
+Pour des valeurs de $t$ que l'on précisera, calculer la transformée de Laplace $L(t) := \mathbb{E}[\exp(-t X)]$ et la fonction génératrice des moments $G(u) := \mathbb{E}[u^X]$ de la variable $X$ dans les cas suivants. 
+
+1. $X \sim \mathrm{Ber}(p)$, où $p \in [0,1]$, 
+1. $X \sim \mathrm{Bin}(n,p)$, où $n \in \mathbb{N}^*, p \in [0,1]$,
+1. $X \sim \mathrm{Geom}(p)$, où $p \in [0,1]$, 
+1. $X \sim \mathrm{Poisson}(\lambda)$, où $\lambda>0$,  
+1. $X=Y_1+...+Y_n$, où les $Y_i, 1 \le i \le n$ sont des variables indépendantes, et $Y_i \sim \mathrm{Poisson}(\lambda_i)$, avec $\lambda_i >0$.   
+
+:::
+
+
+
+:::  {#exr-size-biased  name="Distributions biaisées par la taille"}
+
+Si $X$ est une variable aléatoire positive intégrable, la version *biaisée par la taille* de  $X$ est la variable aléatoire $X^*$ dont la loi $Q$ est absolument continue par rapport à celle de $X$ (notée $P$) et dont la densité (par rapport à celle de $X$)
+est proportionnelle à $X$: 
+$$
+\frac{\mathrm{d}Q}{\mathrm{d}P}(x) = \frac{x}{\mathbb{E}X} \, .
+$$
+
+a. Caractériser $X^*$ lorsque $X$ est une Bernoulli.
+a. Caractériser $X^*$ lorsque $X$ est binomiale.
+a. Caractériser $X^*$ lorsque $X$ est Poisson.
+a. Caractériser $X^*$ lorsque $X$ est Gamma.
+a. Si $X$ est à valeurs entières, exprimer la fonction génératrice de $X^*$ en fonction de celle de $X$.
+a. Exprimer la transformée de Laplace de $X^*$ en fonction de celle de $X$.
+a. Si $U$ est une transformée de Laplace, dérivable à droite en $0$, $U'/U'(0)$ est-elle la
+transformée de Laplace d'une loi sur $[0, \infty)$?
+
+:::
+
+## Transformée de Laplace, inversion
+
+
+## Fonctions caractéristiques
+
+::: {#exr-quizz name="Quizz sur les fonctions caractéristiques"}
+
+- Soient $G$ et $F$  sont deux fonctions génératrices de probabilité.   Répondre par *vrai/faux* aux questions suivantes:
+
+    a. Est-il vrai que $G \times F$ est toujours une fonction génératrice ?
+    a. Est-il vrai que $G + F$ est toujours une fonction génératrice de probabilité ?
+    a. Est-il vrai que $\lambda G + (1-\lambda) F$ avec $\lambda \in [0,1]$ est toujours une fonction génératrice de probabilité ?
+
+
+- Si $\widehat{F}$ est la fonction caractéristique de la loi de $X$, et si $\epsilon \perp\!\!\!\perp X$,
+  avec $P\{\epsilon=1\}= P\{\epsilon=-1\}=1/2$, quelle est la fonction caractéristique de la loi de $\epsilon X$?
+
+:::
+
+## Fonctions caractéristiques régularité/intégrabilité
+
+
+## Fonctions caractéristiques et convolutions
+
+
+## Fonctions caractéristiques et lois stables 
+

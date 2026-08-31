@@ -1,6 +1,6 @@
 ---
-title: "Week 4"
-subtitle: "Caractérisations de lois"
+title: "Semaine 4"
+subtitle: "Conditionnement"
 editor: source
 draft: false
 ---
@@ -8,7 +8,7 @@ draft: false
 
 ::: callout-important
 
-La semaine IV (29 septembre- 2 octobre 2025)  est  consacrée aux caractérisations des lois de probabilités (Transformées de Laplace et de Fourier).
+La semaine IV (28 septembre-1 octobre 2026)  est  consacrée au conditionnement (espérance conditionnelle, noyaux de probabilité, densités conditionnelles)
 
 :::
 
@@ -33,10 +33,8 @@ La semaine IV (29 septembre- 2 octobre 2025)  est  consacrée aux caractérisati
 ## Exercices
 
 
-- [Feuille TD IV](/exercices/td4.qmd)
-- [Corrections TD I](/corriges/td1.html)
-- [Corrections TDIII](/corriges/td3.html)  
-
+- [Feuille TD IX](/exercices/td9-2026.qmd)
+- [Feuille TD X](/exercices/td10-2026.qmd)
 
 
 ::: {style="font-size: 0.875em;"}

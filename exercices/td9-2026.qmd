@@ -1,26 +1,32 @@
 ---
-#title: "Exercices : semaine IV"
+#title: "Exercices : semaine III"
 # subtitle: "M1 ISIFAR MA1AY010"
 
-# date: "2025-09-08"
+# date: "2026-09-21"
 
 format:
   pdf:
-    output-file: td4.pdf
+    output-file: td9-2026.pdf
     include-in-header:
       - file: before_header_td.tex
       - text: |
           \copypagestyle{style-td1}{mystyle}
-          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD IV}
-          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD IV}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD IX}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD IX}
           \pagestyle{style-td1}
-    
+
   html:
-    output-file: td4.html
+    output-file: td9-2026.html
 
 engine: knitr
-draft: true
+draft: false
+
+categories: [Conditionnement]
+
 ---
+
+
+
 
 
 
@@ -33,30 +39,16 @@ draft: true
 requireNamespace('quarto')
 ```
 
+# Conditionnement
 
 
-
-```{r}
-#| echo: false
-#| eval: true
-
-cnt_exo <- 1
-```
+## Espérance conditionnelle 
 
 
+## Prédiction linéaire
 
-::: {.callout-note}
 
-### TD IV : Espérance conditionnelle/Catactérisations   
-
-- 29 Septembre 2025-2 octobre 2025
-
-- Master I ISIFAR
-
-- **Probabilités** 
-
-:::
-
+## Densités conditionnelles
 
 
 
@@ -403,70 +395,4 @@ Dans cet exercice, $X_1, X_2, \ldots$ sont des variables de Rademacher indépend
 Montrer que, pour $a> 0$,  
 
 $$P\left\{ M_n > a \right\}\leq 2 P\left\{ S_n > a \right\}$$
-
-
-
-::: {.callout-note}
-
-### Statistique des rangs/Statistiques d'ordre
-
-
-Les statistiques d'ordre $X_{1:n}\leq X_{2:n}\leq X_{n:n}$ d'un $n$-échantillon  $X_1,\ldots,X_n$
-d'observations indépendantes identiquement distribuées sont formées par le réarrangement croissant (convention) de l'échantillon. 
-
-Quand $n$  est clair d'après le contexte on peut les noter $X_{(1)} \leq \ldots \leq X_{(n)}$. 
-
-:::
-
- 
-
-:::  {#exr-order-1  name="Statistiques d'ordre"}
-
-:::
-
-a. Vérifier que la l:::
-oi jointe des statistiques d'ordre est absolument continue par rapport 
-à la loi de l'échantillon.
-a. On suppose que $X$ est une variable aléatoire réelle, absolument continue, de densité continue. Montrer que l'échantillon est presque sûrement formé de valeurs deux à deux distinctes. 
-a. Donner la densité de la loi jointe des statistiques d'ordre.
-a. Si la loi des $X_i$  définie par sa fonction de répartition $F$, admet une densité $f$, quelle est la densité de la loi de $X_{k:n}$  pour $1\leq k\leq n$ ?  
-a.  Montrer que conditionnellement à $X_{k:n}=x$, la suite 
-
-    $$(X_{i:n}-X_{k:n})_{i=k+1,\ldots, n}$$  
-
-    est distribuée comme les statistiques d'ordre d'un $n-k$ échantillon de la loi d'excès au dessus de $x$  (fonction de survie $\overline{F}(x+\cdot)/\overline{F}(x))$ avec la convention $\overline{F}=1-F$). 
-
-(Représentation de Rényi)
-
-:::  {#exr-order-2  name="Statistiques d'ordre d'un échantillon exponentiel"}
-
-:::
-
-Cet exercice reprend:::
- les conventions de l'exercice précédent. On s'intéresse maintenant aux statistiques d'ordre d'un échantillon exponentiel.
-
-a. Si $X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi exponentielle d'espérance $1$ (densité $\mathbb{I}_{x>0} \mathrm{e}^{-x}$), et $X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}$ les statistiques d'ordre associées, montrer que:
-
-  i. avec la convention $X_{0:n}=0$, les écarts $(X_{i:n}-X_{i-1:n})_{1\leq i\leq n}$ (*spacings*) forment une
-  collection de variables aléatoires indépendantes ;
-  i. $X_{i:n}-X_{i-1:n}$ est distribuée selon une loi exponentielle
-  d'espérance $\tfrac{1}{i}$ .
-
-a. Maintenant  $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infini,  telle que $k_n/n$ tend vers une limite finie (éventuellement nulle).  Montrer que
-
-    $$\frac{X_{k_n:n} -\mathbb{E} X_{k_n:n} }{\sqrt{\operatorname{var}(X_{k_n:n} )}}$$ 
-    
-    converge en loi vers une Gaussienne centrée réduite. 
-
-
-
-::: {.content-visible when-profile="solution"}
-
-::: {.callout-note}
-
-### Solution
-
-:::
-
-:::
 

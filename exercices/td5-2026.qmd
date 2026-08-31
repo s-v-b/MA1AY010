@@ -1,0 +1,98 @@
+---
+#title: "Exercices : semaine II"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2026-09-08"
+
+format:
+  pdf:
+    output-file: td5-2026.pdf
+    include-in-header:
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD V}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD V}
+          \pagestyle{style-td1}
+
+  html:
+    output-file: td5-2026.html
+
+engine: knitr
+draft: false
+
+categories: [Espérances, Moments]
+
+---
+
+
+
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+# Espérances et moments
+
+
+
+::: {#exr-mediane-variationnelle name="Caractérisation de la médiane"}
+
+Soit $X$ une variable aléatoire  réelle intégrable sur $(\Omega, \mathcal{F}, P)$. 
+
+Montrer que les médianes de la loi de $X$ sont les réels qui minimisent:
+
+$$a \mapsto \mathbb{E} \left| X - a\right| \, .$$
+
+:::
+
+
+## Espérance et fonction de survie
+
+
+::: {#exr-fonction-de-survie-1 name="Fonction de survie"}
+
+:::
+
+
+::: {#exr-fonction-de-survie-2 name="Taux de hasard"}
+
+:::
+
+
+::: {#exr-fonction-de-survie-3 name="Fonction de survie"}
+
+:::
+
+
+## Inégalité de Markov et majorations  de la fonction de survie 
+
+::: {#exr-markov-1 name=""}
+
+:::
+
+## Inégalité de Lévy et variantes
+
+::: {#exr-ineq-levy-2 name="SD et MAD"}
+
+:::
+
+::: {#exr-ineq-levy-1 name="Inégalité de Lévy"}
+
+:::
+
+
+::: {#exr-ineq-levy-3 name="SD et IQR"}
+
+:::
+
+
+
+## 

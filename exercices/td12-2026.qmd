@@ -1,27 +1,32 @@
 ---
-#title: "Exercices : semaine VI"
+#title: "Exercices : semaine IV"
 # subtitle: "M1 ISIFAR MA1AY010"
 
-# date: "2025-10-13"
+# date: "2026-09-28"
 
 format:
   pdf:
-    output-file: td6.pdf
+    output-file: td12-2026.pdf
     include-in-header:
       - file: before_header_td.tex
       - text: |
           \copypagestyle{style-td1}{mystyle}
-          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD VI}
-          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD VI}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD XII}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD XII}
           \pagestyle{style-td1}
 
   html:
-    output-file: td6.html
+    output-file: td12-2026.html
 
 engine: knitr
-categories: [Convergences, Fourier, Gaussiennes, "Temps d'arrêt", Conditionnement]
-draft: true
+draft: false
+
+categories: [Vecteurs gaussiens]
+
 ---
+
+
+
 
 
 
@@ -34,31 +39,16 @@ draft: true
 requireNamespace('quarto')
 ```
 
+# Vecteurs gaussiens 
 
 
 
-
-
-
-
-::: {.callout-note}
-
-# TD VI : Gaussiennes   
-
-- 13 Octobre 2025-17 octobre 2025
-
-- Master I ISIFAR
-
-- **Probabilités** 
-
-:::
-
-
+## Gaussiennes univariées
 
 ::: {#exr-gauss-1 name="Lemme de Stein"}
 
 
-:::
+
 
 Vérifier que les deux propriétés suivantes sont équivalentes:
 
@@ -68,6 +58,10 @@ Vérifier que les deux propriétés suivantes sont équivalentes:
     a. $g'(X)$  intégrable  
     b. $\mathbb{E}[g'(X)] = \mathbb{E}[Xg(X)]$
 
+:::
+
+
+## Vecteurs gaussiens standard
 
 ::: {#exr-rotation-invariance  name="Invariance par rotation"}
 
@@ -79,7 +73,6 @@ Si $X \sim \mathcal{N}(0, \text{Id}_n)$, et $A$ est une matrice orthogonale  ($A
 ::: {#exr-truc-pisier-1  name="Maxima de Gaussiennes"}
 
 
-:::
 
 Vérifier que si $X_1, \ldots, X_n \sim_{\text{i.i.d.}} \mathcal{N}(0,1)$:
 
@@ -93,6 +86,7 @@ $\mathrm{e}^{ \lambda \mathbb{E} \max(X_1, \ldots, X_n )}$.
 
 
 
+:::
 
 
 
@@ -100,14 +94,14 @@ $\mathrm{e}^{ \lambda \mathbb{E} \max(X_1, \ldots, X_n )}$.
 ::: {#exr-norme-gaussienne-2  name="Norme de vecteurs gaussiens centrés"}
 
 
-:::
 
 Montrer que $X$ est un vecteur gaussien centré, la loi du carré de la norme euclidienne de $X$ ne dépend que des valeurs propres de la matrice de covariance. 
 
-::: {#exr-cochran-1  name="Norme de vecteurs gaussiens non centrés"}
-
 
 :::
+
+
+::: {#exr-cochran-1  name="Norme de vecteurs gaussiens non centrés"}
 
 Montrer que $X$ est un vecteur gaussien standard et $\mu$ un vecteur, la loi du carré de la norme euclidienne de $X + \mu$ ne dépend que la norme de $\mu$. 
 
@@ -116,6 +110,10 @@ Montrer que
 $$P \left\{ \Vert X + \mu \Vert \leq x \right\} \leq P \left\{ \Vert X \Vert \leq x \right\}$$
 
 *Suggestion :* vérifier que c'est vrai en dimension 1, utiliser un argument de couplage. 
+
+
+:::
+
 
 <!-- ::: {#exr-cochran-2  name="Théorème de Cochran 2"}
 
@@ -131,8 +129,6 @@ $$P \left\{ \Vert X + \mu \Vert \leq x \right\} \leq P \left\{ \Vert X \Vert \le
 ::: {#exr-mills-ratio  name="Ratios de Mills"}
 
 
-:::
-
 Soit $Z \sim \mathcal{N}(0,1)$. On note $\Phi$ la  fonction de répartition de $\mathcal{N}(0,1)$, 
 et $\phi$ sa densité.
 
@@ -141,6 +137,9 @@ Montrer que pour tout $x>0$,
 $$\left(1 - \frac{1}{x^2}\right)  \frac{1}{x} \phi(x) \leq  1 - \Phi(x) \leq \frac{1}{x} \phi(x)$$
 
 *Suggestion :* utiliser l'intégration par parties. 
+
+
+:::
 
 
 ::: {#exr-prior-Gaussien name=""}
@@ -369,3 +368,10 @@ a. Si $\theta$ satisfait la condition de la question précédente, calculer $\te
 
 
 :::
+
+
+## Loi log-normale
+
+
+
+

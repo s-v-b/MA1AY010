@@ -35,7 +35,7 @@ Grimmett, G., & Stirzaker, D. (2020). One thousand exercises in probability. Oxf
 
 - [Notes de cours (~ Poly)](https://s-v-b.github.io/MA1AY010-CN)
 - [Exercices](/exercices-listings.qmd)
-- []()
+
 
 ## Validation
 
@@ -54,10 +54,10 @@ L'examen terminal de session I dure trois heures, il porte sur l'ensemble du cou
 
 ## Sauvez les dates!
 
-- Contrôle Continu 1  Jeudi 9 octobre 2025  ~~Mardi 7 octobre 2025~~  (Programme : semaines I à III)
-- Contrôle Continu 2  **Jeudi 16  octobre 2025** (Programme : semaines I à V)
-- Contrôle Continu 3  Novembre 
-- Examen entre le Lundi 8 et le Vendredi 19 décembre
-- Examen session II en juin 2026
+- Contrôle Continu 1  Jeudi 17 Septembre 2026  (Programme : révisions)
+- Contrôle Continu 2  Lundi 5  octobre 2026  (Programme : semaines I à IV)
+- Contrôle Continu 3  Jeudi 15 octobre 2026  (Programme : semaines I à V)
+- Examen session I entre le Lundi 7 et le Vendredi 16 décembre
+- Examen session II en juin 2027
 
 Cliquer [ici](https://edt.math.univ-paris-diderot.fr/#/parcours/math/m1) for l'emploi du temps.

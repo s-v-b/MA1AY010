@@ -1,0 +1,78 @@
+---
+#title: "Exercices : semaine I suite"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2026-09-08"
+
+format:
+  pdf:
+    output-file: td3-2026.pdf
+    include-in-header:
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD III}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD III}
+          \pagestyle{style-td1}
+
+  html:
+    output-file: td3-2026.html
+
+engine: knitr
+draft: false
+
+categories: [Intégrales, Espérances]
+
+---
+
+
+
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+# Intégrales et espérances
+
+
+## Fonctions simples 
+
+Sur $\mathbb{R}$
+
+Densité
+
+## Fonctions étagées
+
+
+## Théorèmes de convergence et applications
+
+
+## Intégrales de Riemann/intégrables de Lebesgue
+
+::: {#exr-riemann-1 name="Sommes de Riemann"}
+
+
+:::
+
+::: {#exr-riemann-2 name="Sommes de Darboux"}
+
+
+:::
+
+::: {#exr-riemann-3 name="Intégrabilité au sens de Riemann"}
+
+
+:::
+
+
+::: {#exr-riemann-4 name="Caractérisation de l'intégrabilité au sens de Darboux"}
+
+
+:::

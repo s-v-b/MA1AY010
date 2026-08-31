@@ -1,0 +1,134 @@
+---
+#title: "Exercices : semaine II"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2026-09-08"
+
+format:
+  pdf:
+    output-file: td6-2026.pdf
+    include-in-header:
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD VI}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD VI}
+          \pagestyle{style-td1}
+
+  html:
+    output-file: td6-2026.html
+
+engine: knitr
+draft: false
+
+categories: [Espaces produits, Lois produit, Fubini]
+
+---
+
+
+
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+# Espaces produits, lois produit, Théorème de Fubini
+
+
+
+## Mesures *produit* 
+
+
+::: {#exr-mesure-produit-0 name="Échauffement"}
+
+Soient $(\Omega_1, \mathcal{A}, \mu)$ et $(\Omega_2, \mathcal{B}, \nu)$ des espaces mesurés.
+
+Soit $E \in \sigma(\mathcal{A}\times \mathcal{B})$, vérifier que 
+$x \mapsto  \nu(E_x)$ est une fonction $\mathcal{A}$-mesurable et 
+que $y \mapsto \mu(E^y)$ est $\mathcal{B}$-mesurable. 
+
+:::
+
+::: {#exr-mesure-produit-1 name="Mesure produit"}
+
+
+Soient $(\Omega_1, \mathcal{A}, \mu)$ et $(\Omega_2, \mathcal{B}, \nu)$ des espaces mesurés.
+
+
+On définit $\rho$ sur $\mathcal{A} \times \mathcal{B}$ par :
+
+$$\rho(A \times B) = \mu(A) \nu(B)$$
+pour tout $A \in \mathcal{A}$ et $B \in \mathcal{B}$.
+
+Montrer que la mesure produit $\rho$ définit une mesure sur $\sigma\left(\mathcal{A} \times \mathcal{B}\right)$.
+
+Discuter l'unicité de la mesure produit.
+
+:::
+
+::: {#exr-mesure-produit-2 name="Mesure de Lebesgue sur $\mathbb{R}^2$"}
+
+Noter $\lambda_2$ la mesure de Lebesgue sur $\mathbb{R}^2$, $\lambda_1$ la mesure de Lebesgue sur $\mathbb{R}$.
+
+Montrer que $\lambda_2 = \lambda_1 \times \lambda_1$ (la mesure de Lebesgue sur $\mathbb{R}^2$ est le produit des mesures de Lebesgue sur $\mathbb{R}$). 
+
+:::
+
+
+::: {#exr-mesure-produit-3 name="Mesure de Lebesgue sur $\mathbb{R}^d$"}
+
+Vérifier que que tout hyperplan de $\mathbb{R}^d$ (sous-ensemble défini par $\{ x : x \in \mathbb{R}^d,  \sum_{i=1}^d a_i x_i = c\}$ pour $a_1, \ldots, a_d, c \in \mathbb{R}$, $\sum_{i=1}^d a_i^2 > 0$) a pour mesure de Lebesgue sur $\mathbb{R}^d$ la valeur $0$.
+
+:::
+
+::: {#exr-mesure-produit-4 name="Mesure de Lebesgue sur $\mathbb{R}^d$"}
+
+## Théorème de Fubini
+
+
+::: {#exr-fubini-1 name=""}
+
+
+:::
+
+
+
+::: {#exr-fubini-2 name=""}
+
+
+:::
+
+
+::: {#exr-fubini-3 name=""}
+
+
+:::
+
+
+
+::: {#exr-concentration   name="Espaces produits de grande dimension"} 
+
+
+
+
+Dans ce qui suit $||.||$ désigne la norme euclidienne. 
+
+Pour $\varepsilon \in (0,1)$, $n \in \mathbb{N}$  
+on note $A_{n, \varepsilon} := \{ x \in \mathbb{R}^n : (1-\varepsilon)(n/3)^{1/2} \le ||x|| \le (1+\varepsilon)(n/3)^{1/2}\}$, 
+et $C_n=[-1,1]^n$. 
+
+Montrer que pour tout $\varepsilon \in (0,1)$, la mesure de Lebesgue de $C_n \cap A_{n, \varepsilon}^c$ est négligeable, pour $n \to \infty$, devant celle de $C_n$.   
+
+ *Indication* : On notera qu'un point générique dans $C_n$ a pour coordonnées $(X_1,...,X_n)$, avec $\{X_i, i \ge 1\}$ une famille de variables aléatoires i.i.d, uniformes sur $[-1,1]$.  
+
+*Note* : Ceci signifie que pour $\varepsilon$ aussi petit qu'on souhaite le prendre, lorsque $n$ est grand, la majeure partie du volume de l'hypercube $C_n$ se trouve dans la couronne $A_{n,\varepsilon}$ (!) 
+
+
+:::

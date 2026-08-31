@@ -22,7 +22,7 @@ format:
 
 categories: [Convergences, Fourier, "Temps d'arrêt"]
 engine: knitr
-draft: false
+draft: true
 ---
 
 ```{r}

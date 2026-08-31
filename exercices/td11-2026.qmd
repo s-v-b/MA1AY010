@@ -1,0 +1,78 @@
+---
+#title: "Exercices : semaine IV"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2026-09-28"
+
+format:
+  pdf:
+    output-file: td11-2026.pdf
+    include-in-header:
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD XI}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD XI}
+          \pagestyle{style-td1}
+
+  html:
+    output-file: td11-2026.html
+
+engine: knitr
+draft: false
+
+categories: [Concergence en ditribution, TCL]
+
+---
+
+
+
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+# Convergences en distribution
+
+
+## Portemanteau 
+
+
+## Théorèmes de continuité
+
+
+## TCL
+
+
+::: {#exr-tcl-poisson-gamma   name="Mélanges Gamma-Poisson"} 
+
+ 
+
+Soit $X \sim \Gamma(1,s)$. On définit $Y \sim \mathrm{Poisson}(X)$, (c'est-à-dire que conditionnellement à $X=x$, $Y \sim \mathrm{Poisson}(x)$). 
+ 
+1. Calculer $\Phi_Y$.
+1. Montrer que lorsque $s \to \infty$, 
+$$\frac{Y-E[Y]}{\sqrt{\mathrm{var}(Y)}} \overset{(\mathrm{loi})}{\longrightarrow} Z,$$ 
+où $Z \sim \mathcal{N}(0,1)$. Y a-t-il un lien avec le théorème central limite? 
+ 
+
+:::
+
+::: {#exr-tcl-2   name=""} 
+
+ (Une remarque importante sur la convergence en loi.)
+
+Soit, pour $n \ge 1$, $X_n$ un variable aléatoire dont la fonction de répartition est définie par
+$$F_n(x) = x - \frac{\sin(2n \pi x)}{2n\pi}, \ 0 \le x \le 1.$$
+ 
+1. Montrer que $X_n$ converge en loi vers une variable $X$ (dont on décrira la loi).  
+1.  Vérifier que $X_n$ et $X$ sont des variables à densité. On note $f_n := F_n'$ la densité de $X_n$, $f$ celle de $X$. A-t-on $f_n \underset{n \to \infty}{\rightarrow} f$ simplement?    
+
+:::

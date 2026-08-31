@@ -6,7 +6,7 @@ editor: source
 
 ::: callout-important
 
-La semaine I (8-12 septembre 2025)  est consacrée aux révisions de Licence. On (re)-présentera beaucoup de définitions, quelques
+La semaine I (7-11 septembre 2026)  est consacrée aux révisions de Licence. On (re)-présentera beaucoup de définitions, quelques
 outils essentiels, et on tentera d'utiliser ces définitions et outils sur la liste d'exercices des feuilles de TD.   
 
 :::
@@ -16,31 +16,28 @@ outils essentiels, et on tentera d'utiliser ces définitions et outils sur la li
 - Espace probabilisable 
   - Tribu/$\sigma$-algèbre
   - Tribu borélienne
-  - Tribu de Lebesgue
   - Lemme des classes monotones
 - Loi de probabilité, mesure positive, $\sigma$-additivité
 - Fonctions mesurables et variables aléatoires
 - Espérance, variance, moments
 - Théorèmes de convergence (monotone, Fatou, dominée)
-- Indépendance (Évenements, Tribus)
+- Indépendance (Événements, Tribus)
 
 ## Exercices
 
-[Feuille TD I](/exercices/td1.html)
+- [TD I](/exercices/td1-2026.html)
+- [TD II](/exercices/td2-2026.html)
+- [TD III](/exercices/td3-2026.html)
 
-Corrigés : 
+
+<!-- Corrigés : 
 
 - 1 (transformation affine), 
 - 2 (minima, maxima), 
 - 10 (transformées de Laplace), 
 - 11 (densité de la loi du carré), 
 - 17 (somme de Poisson indépendantes, conditionnement discret), 
-- 18 (sommes aléatoires de variables indépendantes).
-
-## Exercices supplémentaires
-
-[Feuille TD I suppléments](/exercices/td1-supplement.html)
-
+- 18 (sommes aléatoires de variables indépendantes). -->
 
 
 <br><br>
