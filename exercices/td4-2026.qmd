@@ -88,15 +88,20 @@ $$A_n =  \left\{ x : \operatorname{osc}(F,x) \geq \frac{1}{n}\right\}$$
 
 ::: {#exr-ac-1 name="Loi diffuse mais pas absolument continue"}
 
-Citer une loi *diffuse* qui n'est pas *absolument continue* (par rapport à la mesure de Lebesgue).
+Une loi de probabilité $P$ sur $\mathbb{R}$ est dite *diffuse* si $\forall x \in \mathbb{R}, P\{x\}=0$.
+
+1. Citer une loi *diffuse* qui n'est pas *absolument continue* (par rapport à la mesure de Lebesgue).
+1. La fonction de répartition d'une loi diffuse admet-elle des discontinuités ?
+1. Proposer une caractérisation des lois diffuses.
 
 :::
 
 ::: {#exr-densite-2  name="Mélange de densités"}
 
-On suppose que $X$ et $Y$ sont deux variables de densités respectives $f_X, f_Y$, et que $\alpha \in [0,1]$. Montrer que $g : = \alpha f_X + (1-\alpha) f_Y$ est également une densité de probabilité. 
+On suppose que $X$ et $Y$ sont deux variables de densités respectives $f_X, f_Y$, et que $\alpha \in [0,1]$. 
 
-Trouver une variable aléatoire dont $g$ est la densité.  
+1. Montrer que $g : = \alpha f_X + (1-\alpha) f_Y$ est également une densité de probabilité. 
+1. Construire un espace probabilisé sur lequel une variable aléatoire admet  $g$ comme densité.  
 
 :::
 
@@ -111,6 +116,21 @@ $$\int_{\mathbb{R}} g(x) dx = \alpha \int_{\mathbb{R}} f_X(x) dx + (1-\alpha) \i
 
 on conclut que $g$ est bien une densité de probabilité. 
 
+
+On définit les fonctions de répartition $F_X(t)= \int_{(-\infty, t]} f_X(u) \mathrm{d}u$,  $F_Y(t)= \int_{(-\infty, t]} f_Y(u) \mathrm{d}u$ et 
+$G(t)=\alpha F_X(t) + (1-\alpha) F_Y(t)$. 
+
+
+On part de l'espace probabilisé $([0,1], \mathcal{B}([0,1]), P)$ avec $P$ uniforme. On définit $Z(\omega) = G^\leftarrow(\omega)$. $Z$ est distribuée selon $g$ ($G$). 
+
+Cette construction passe par l'inversion de $G$. Si on dispose d'un moyen efficace d'inverser $F_X$ et $F_Y$,  on peut procéder autrement.
+On part toujours de l'espace probabilisé $([0,1], \mathcal{B}([0,1]), P)$ avec $P$ uniforme. On définit $U$ et $V$ par 
+$$U(\omega) = \mathbb{I}_{\omega \leq 1/2} \qquad \text{et} \qquad V(\omega) =2(\omega - U(\omega))\qquad \omega \in [0,1]$$.
+$U$ et $V$ sont indépendantes, $U$ suit une loi de Bernoulli de paramètre $1/2$, $V$ est uniforme sur $[0,1]$. On définit maintenant 
+$Z$ par 
+$$Z(\omega) =  U(\omega) F_X^\leftarrow(V(\omega)) + (1-U(\omega)) F_Y^\rightarrow(V(\omega)) \, .$$
+
+
 Soit $\xi \sim \mathrm{Ber}(\alpha)$, indépendante de $(X,Y)$. Alors $Z= \xi X + (1-\xi)Y$ possède la densité $g$. En effet, en utilisant l'indépendance de $\xi$ et $(X,Y)$ à la deuxième ligne ci-dessous,  
 
 \begin{align*}
@@ -124,17 +144,15 @@ Soit $\xi \sim \mathrm{Ber}(\alpha)$, indépendante de $(X,Y)$. Alors $Z= \xi X 
 ::: {#exr-densites-3  name="Densité image univariée"}
 
 
-
-
- 
-
 Soit $X$ de densité $f$, et $(\alpha, \beta) \in \overline{\mathbb{R}}^2$ sont supposés tels que 
 $$\mathbb{P}(\alpha < X < \beta) =1$$ 
-On suppose que $g$ est un $C^{1}$-difféomorphisme croissant de $(\alpha, \beta)$ sur $(g(\alpha),g(\beta))$. 
+On suppose que $g$ est un $C^{1}$-difféomorphisme *croissant* de $(\alpha, \beta)$ sur $(g(\alpha),g(\beta))$. 
 
- 
+1. Rappeler la définition du *support* de la loi $P$. 
+1. Rappeler la définition du *support* de $f$.  
+1. Ces deux définitions de *support* sont-elles liées ? 
 1. Montrer que $g(X)$ a pour densité $\frac{f(g^{-1}(x))}{g'(g^{-1}(x))} \mathbf{1}_{\{x \in (g(\alpha), g(\beta))\}}$. 
-1. Quelle est la densité de la variable $aX+b$, où $a>0$ et $b\in \mathbb{R}$ sont fixés?   
+1. Quelle est la densité de la variable $aX+b$, où $a>0$ et $b\in \mathbb{R}$ sont fixés?
 1. Soit $Y \sim \mathcal{N}(0,1)$. Quelle est la densité de $Z = \exp(Y)$? 
 
 :::   
@@ -159,6 +177,21 @@ $$\frac{1}{x \sqrt{2\pi}} \exp\left(-\frac{\ln(x)^2}{2}\right) \mathbf{1}_{\{x >
 :::
 
 
+::: {#exr-densites-4  name="Densité image par transformation linéaire"}
+
+:::
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note title="Solution"}
+
+
+:::
+
+
+:::
+
+
 ## Fonctions quantiles 
 
 
@@ -173,20 +206,36 @@ $$P(-\infty, a[ \leq \frac{1}{2} \qquad\text{et}\qquad P]a, +\infty) \leq \frac{
 2. Décrire l'ensemble des médianes s'il n'est pas vide.
 3. Donner un exemple de loi où l'ensemble des médianes n'est pas un singleton.
 4. Quelles sont les médianes d'une loi de Cantor ?
-5. Caractériser les lois qui possèdent une unique médiane. 
+<!-- 5. Caractériser les lois qui possèdent une unique médiane.  -->
+
+:::
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note title="Solution"}
+
+On définit 
+$$A =  \left\{x : F(x) \geq 1/2 \right\}$$
+
+1. Existence d'au moins une mediane
+    1. $A$ est non-vide et fermé.
+    1. $A$ contient un plus petit élément $m$.
+    1. Pour tout $n\in \mathbb{N}^*$, $P(-\infty, m-1/n] <1/2$ ($m$ est le plus petit élément de $A$), et $\lim_n F(m-1/n)= P(-\infty, m[\leq 1/2$
+    1. $P]m,\infty)=1-F(m)\leq 1/2$. 
+    1. $m$ est une médiane.
+1. L'ensemble des medianes est un intervalle fermé.
+1. Loi de Cantor (par exemple)
+1. Pour la loi de Cantor (1/3), les médianes sont les points de l'intervalle $[1/3,2/3]$
+
+
 
 :::
 
 
-::: {#exr-qu-2 name="Propriétés de la médiane"}
-
-
 :::
 
-::: {#exr-qu-3 name="Propriétés de la fonction quantile"}
 
 
-:::
 
 
 ## Transformation quantile et applications
@@ -212,15 +261,24 @@ $$F^{\leftarrow}(u) = \inf\{x \in \mathbb{R} : F(x) \geq u\}, \quad u \in (0,1).
 
 ::: {#exr-transformation-qu-2 name="Couplage quantile"}
 
-<!-- définition -->
-<!-- comparaison entre Binomiales de même paramètre $n$ -->
-<!--  -->
+Soient $F$ et $G$ deux fonctions de répartition. Construite un espace probabilisé sur lequel vivent deux variables aléatoires 
+$X$ et $Y$ distribuées selon $F$ et $G$. 
 
 :::
 
 
+::: {#exr-transformation-qu-3 name="Couplage quantile encore"}
 
-::: {.callout-note}
+Construire un espace probabilisé sur lequel vient $X$ et $Y$ distribuées selon des lois binomiales de paramètres $n$ et $0<p<q<1$, 
+de façon à ce que $X \leq  Y$ avec probabilité $1$.  
+
+Suggestion : commencer par le cas $n=1$.  
+
+Peut-on comparer les fonctions de répartition de ces lois binomiales ?
+
+:::
+
+::: {.callout-note appearance="minimal"}
 
 ### Statistique des rangs/Statistiques d'ordre
 
@@ -228,7 +286,7 @@ $$F^{\leftarrow}(u) = \inf\{x \in \mathbb{R} : F(x) \geq u\}, \quad u \in (0,1).
 Les statistiques d'ordre $X_{1:n}\leq X_{2:n}\leq X_{n:n}$ d'un $n$-échantillon  $X_1,\ldots,X_n$
 d'observations indépendantes identiquement distribuées sont formées par le réarrangement croissant (convention) de l'échantillon. 
 
-Quand $n$  est clair d'après le contexte on peut les noter $X_{(1)} \leq \ldots \leq X_{(n)}$. 
+Quand $n$  est clair d'après le contexte,  on peut aussi  les noter $X_{(1)} \leq \ldots \leq X_{(n)}$. 
 
 :::
 
@@ -236,10 +294,9 @@ Quand $n$  est clair d'après le contexte on peut les noter $X_{(1)} \leq \ldots
 
 :::  {#exr-order-1  name="Statistiques d'ordre"}
 
-:::
 
-a. Vérifier que la l:::
-oi jointe des statistiques d'ordre est absolument continue par rapport 
+
+a. Vérifier que la loi jointe des statistiques d'ordre est absolument continue par rapport 
 à la loi de l'échantillon.
 a. On suppose que $X$ est une variable aléatoire réelle, absolument continue, de densité continue. Montrer que l'échantillon est presque sûrement formé de valeurs deux à deux distinctes. 
 a. Donner la densité de la loi jointe des statistiques d'ordre.
@@ -250,16 +307,47 @@ a.  Montrer que conditionnellement à $X_{k:n}=x$, la suite
 
     est distribuée comme les statistiques d'ordre d'un $n-k$ échantillon de la loi d'excès au dessus de $x$  (fonction de survie $\overline{F}(x+\cdot)/\overline{F}(x))$ avec la convention $\overline{F}=1-F$). 
 
-(Représentation de Rényi)
-
-:::  {#exr-order-2  name="Statistiques d'ordre d'un échantillon exponentiel"}
+<!-- (Représentation de Rényi) -->
 
 :::
 
-Cet exercice reprend:::
- les conventions de l'exercice précédent. On s'intéresse maintenant aux statistiques d'ordre d'un échantillon exponentiel.
+
+:::  {#exr-order-2  name="Statistiques d'ordre d'un échantillon exponentiel"}
+
+Cet exercice reprend les conventions de l'exercice précédent. On s'intéresse maintenant aux statistiques d'ordre d'un échantillon exponentiel.
 
 a. Si $X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi exponentielle d'espérance $1$ (densité $\mathbb{I}_{x>0} \mathrm{e}^{-x}$), et $X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}$ les statistiques d'ordre associées, montrer que:
+
+  i. avec la convention $X_{0:n}=0$, les écarts $(X_{i:n}-X_{i-1:n})_{1\leq i\leq n}$ (*spacings*) forment une
+  collection de variables aléatoires indépendantes ;
+  i. $X_{i:n}-X_{i-1:n}$ est distribuée selon une loi exponentielle
+  d'espérance $\tfrac{1}{i}$ .
+<!-- 
+a. Maintenant  $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infini,  telle que $k_n/n$ tend vers une limite finie (éventuellement nulle).  Montrer que
+
+    $$\frac{X_{k_n:n} -\mathbb{E} X_{k_n:n} }{\sqrt{\operatorname{var}(X_{k_n:n} )}}$$ 
+    
+    converge en loi vers une Gaussienne centrée réduite.  -->
+
+:::
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note}
+
+### Solution
+
+:::
+
+:::
+
+
+:::  {#exr-order-2  name="Statistiques d'ordre d'un échantillon uniforme"}
+
+Cet exercice reprend les conventions de l'exercice précédent. On s'intéresse maintenant aux statistiques d'ordre d'un échantillon uniforme sur $[0,1]$.
+
+a. Si $X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi uniforme sur $[0,1]$ et $X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}$ les statistiques d'ordre associées, montrer que:
 
   i. avec la convention $X_{0:n}=0$, les écarts $(X_{i:n}-X_{i-1:n})_{1\leq i\leq n}$ (*spacings*) forment une
   collection de variables aléatoires indépendantes ;
@@ -271,15 +359,5 @@ a. Maintenant  $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infi
     $$\frac{X_{k_n:n} -\mathbb{E} X_{k_n:n} }{\sqrt{\operatorname{var}(X_{k_n:n} )}}$$ 
     
     converge en loi vers une Gaussienne centrée réduite. 
-
-
-
-::: {.content-visible when-profile="solution"}
-
-::: {.callout-note}
-
-### Solution
-
-:::
 
 :::
