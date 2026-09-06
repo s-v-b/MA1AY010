@@ -2,18 +2,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-09-19">
+<meta name="dcterms.date" content="2026-09-07">
 
 <title>MA15Y010 Probabilités et Extrêmes – MA1AY010 Probabilités</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -34,19 +40,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="./course-team.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6fb4b285bbf677c98d28c94ba92ad7ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-1801c5b58e0deaea5467676250d2b176.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-6fb4b285bbf677c98d28c94ba92ad7ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9f4d5bf3d7d28ebb3568f01b0a256482.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-44d9950e019615f8f7ea8c7b89e68f00.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9f4d5bf3d7d28ebb3568f01b0a256482.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -75,35 +80,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <meta property="og:title" content="MA15Y010 Probabilités et Extrêmes – MA1AY010 Probabilités">
 <meta property="og:description" content="Page maison du cours MA1AY010 Probabilités M1 ISIFAR (2025-26)">
@@ -443,7 +419,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 19, 2025</p>
+      <p class="date">September 7, 2026</p>
     </div>
   </div>
   
@@ -481,125 +457,125 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td style="text-align: center;"><a href="./weeks/week-1.html">1</a></td>
-<td>8 Sep 2025</td>
+<td>7 Sep 2026</td>
 <td>Révisions Licence</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"><a href="./exercices/td1.html">TD 1</a></td>
+<td style="text-align: center;"><a href="./exercices/td1-2026.html">TD I</a></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"></td>
-<td>9 Sep</td>
+<td>8 Sep</td>
 <td>Révisions Licence</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"><a href="./exercices/td1.html">TD 1</a></td>
+<td style="text-align: center;"><a href="./exercices/td2-2026.html">TD II</a></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"></td>
-<td>11 Sep</td>
+<td>10 Sep</td>
 <td>Révisions Licence: théoremes de convergence (intégration)</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"><a href="./exercices/td1.html">TD 1</a></td>
+<td style="text-align: center;"><a href="./exercices/td3-2026.html">TD III</a></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><a href="./weeks/week-2.html">2</a></td>
-<td>15 Sep</td>
+<td>14 Sep</td>
 <td>Révisions Licence: Espaces roduits</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;"><a href="./exercices/td4-2026.html">TD IV</a></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"></td>
-<td>16 Sep</td>
+<td>15 Sep</td>
 <td>Changement de variables. Calcul Gamma/Beta</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;"><a href="./exercices/td5-2026.html">TD V</a></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"></td>
-<td>18 Sep</td>
+<td>17 Sep</td>
 <td>Fonctions génératrices/Conditionnement discret</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;"><a href="./exercices/td6-2026.html">TD VI</a></td>
+<td style="text-align: center;"><strong>CC1</strong></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"><a href="./weeks/week-3.html">3</a></td>
-<td>22 Sep</td>
-<td>Moments, Espaces <span class="math inline">\(L^p\)</span></td>
+<td>21 Sep</td>
+<td>Caractérisations</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"><a href="./exercices/td3.html">TD 3</a></td>
+<td style="text-align: center;"><a href="./exercices/td7-2026.html">TD VII</a></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"></td>
-<td>23 Sep</td>
-<td>Espérance conditionnelle</td>
+<td>22 Sep</td>
+<td></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;"><a href="./exercices/td8-2026.html">TD VIII</a></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"></td>
-<td>25 Sep</td>
+<td>24 Sep</td>
 <td>Conditionnement</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"><a href="./exercices/td2.html">TD 2</a> <a href="./exercices/td2-supplement.html">TD 2 supplément</a></td>
+<td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><a href="./weeks/week-4.html">4</a></td>
+<td>28 Sep</td>
+<td>Convergence en probabilité et p.s.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><a href="./exercices/td9-2026.html">TD IX</a></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
 <td>29 Sep</td>
 <td>Caractérisations</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"><a href="./exercices/td4.html">TD4</a></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td>30 Sep</td>
-<td>Caractérisations</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><a href="./corriges/td1.html">Corrections TD1</a></td>
+<td style="text-align: center;"><a href="./exercices/td10-2026.html">TD X</a></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"></td>
-<td>2 Oct</td>
+<td>1 Oct</td>
 <td>Caractérisations</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"><a href="./corriges/td3.html">Corrections TD3</a></td>
+<td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"><a href="./weeks/week-5.html">5</a></td>
-<td>6 Oct</td>
-<td>Convergences</td>
+<td>5 Oct</td>
+<td>Convergences en distribution et TCL</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"><a href="./exercices/td5-bis.html">TD 5</a></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;"><a href="./exercices/td11-2026.html">TD XI</a></td>
+<td style="text-align: center;"><strong>CC2</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"></td>
-<td>7 Oct</td>
-<td>Convergences</td>
+<td>6 Oct</td>
+<td>Convergences …</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -607,8 +583,8 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td style="text-align: center;"></td>
-<td>9 Oct</td>
-<td>Convergences et <a href="./corriges/cc1-2025.pdf">CC 1</a></td>
+<td>8 Oct</td>
+<td>Convergences …</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -616,30 +592,30 @@ window.Quarto = {
 </tr>
 <tr class="even">
 <td style="text-align: center;"><a href="./weeks/week-6.html">6</a></td>
-<td>13 Oct</td>
-<td>Convergences</td>
+<td>12 Oct</td>
+<td>Convergences et Vecteurs gaussiens</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;"><a href="./exercices/td12-2026.html">TD XII</a></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"></td>
-<td>14 Oct</td>
-<td>Vecteurs gaussiens</td>
+<td>13 Oct</td>
+<td></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"><a href="./exercices/td6.html">TD 6</a></td>
+<td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"></td>
-<td>16 Oct</td>
-<td>Vecteurs gaussiens + <a href="./corriges/cc2-2025.pdf">CC 2</a></td>
+<td>15 Oct</td>
+<td></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>CC3</strong></td>
 </tr>
 </tbody>
 </table>

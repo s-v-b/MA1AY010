@@ -2,18 +2,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-09-15">
+<meta name="dcterms.date" content="2026-09-15">
 
 <title>Semaine 2 – MA1AY010 Probabilités</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -34,19 +40,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="../weeks/week-1.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6fb4b285bbf677c98d28c94ba92ad7ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1801c5b58e0deaea5467676250d2b176.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-6fb4b285bbf677c98d28c94ba92ad7ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9f4d5bf3d7d28ebb3568f01b0a256482.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-44d9950e019615f8f7ea8c7b89e68f00.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-9f4d5bf3d7d28ebb3568f01b0a256482.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -450,7 +455,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 15, 2025</p>
+      <p class="date">September 15, 2026</p>
     </div>
   </div>
   
@@ -472,21 +477,20 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La semaine II (15-19 septembre 2025) est encore consacrée aux révisions de Licence.</p>
+<p>La semaine II (14-18 septembre 2026) est encore consacrée aux révisions de Licence.</p>
 </div>
 </div>
 <section id="préparerrevoir" class="level2">
 <h2 class="anchored" data-anchor-id="préparerrevoir">Préparer/Revoir</h2>
 <div>
 <ul>
-<li>Espaces produits, tribus produits (2025-09-15)</li>
-<li>Lois produits (2025-09-15)</li>
-<li>Théorème de Fubini (2025-09-15)</li>
-<li>Calculs de densités <em>image</em>, formules de changement de variable (2025-09-16)</li>
-<li>Espérances, moments, Espaces <span class="math inline">\(L^p\)</span> (2025-09-16)</li>
-<li>Conditionnement discret (2025-09-18)</li>
-<li>Processus de branchement aléatoire (2025-09-18)</li>
-<li><a href="https://u-paris.zoom.us/rec/share/tR3l3a3IpipQz5UBXejKgrNJv1a-Tcuxnx0jD7JzVxEwf8uk_SJXydJW4mcraOu9.8BQb45N8BnA3twUD?startTime=1758195083000%20Passcode:%20%tsqL%5E#&amp;6F">Enregistrement du cours du 18 septembre</a></li>
+<li>Espaces produits, tribus produits (2026-09-14)</li>
+<li>Lois produits (2026-09-14)</li>
+<li>Théorème de Fubini (2026-09-14)</li>
+<li>Calculs de densités <em>image</em>, formules de changement de variable (2026-09-15)</li>
+<li>Espérances, moments, Espaces <span class="math inline">\(L^p\)</span> (2026-09-15)</li>
+<li>Conditionnement discret (2026-09-18)</li>
+<li>Processus de branchement aléatoire (2026-09-18)</li>
 </ul>
 </div>
 <div>
@@ -501,13 +505,15 @@ Important
 </section>
 <section id="exercices" class="level2">
 <h2 class="anchored" data-anchor-id="exercices">Exercices</h2>
-<p><a href="../exercices/td1.html">Feuille TD I</a> <a href="../exercices/td1-supplement.html">Feuille TD I suppléments</a></p>
 <ul>
-<li>TD I.18 (sommes aléatoires de variables indépendantes) (<em>fin</em>).</li>
-<li>Supplément TD I Exercice 5 (Anniversaires)</li>
-<li>TD I.7</li>
-<li>TD I….</li>
+<li><a href="../exercices/td4-2026.html">Feuille TD IV</a></li>
+<li><a href="../exercices/td5-2026.html">Feuille TD V</a></li>
+<li><a href="../exercices/td5-2026.html">Feuille TD VI</a></li>
 </ul>
+<!-- - TD I.18 (sommes aléatoires de variables indépendantes) (*fin*).
+- Supplément TD I Exercice 5 (Anniversaires)
+- TD I.7
+- TD I.... -->
 <div style="font-size: 0.875em;">
 <p>Back to <a href=".." title="Course schedule">course schedule</a> ⏎</p>
 </div>

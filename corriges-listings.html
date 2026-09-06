@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>TDs – MA1AY010 Probabilités</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -35,19 +41,18 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6fb4b285bbf677c98d28c94ba92ad7ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-1801c5b58e0deaea5467676250d2b176.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-6fb4b285bbf677c98d28c94ba92ad7ee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9f4d5bf3d7d28ebb3568f01b0a256482.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-44d9950e019615f8f7ea8c7b89e68f00.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9f4d5bf3d7d28ebb3568f01b0a256482.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -538,122 +543,10 @@ Note
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-categories="VmFyaWFibGVzJTIwYWwlQzMlQTlhdG9pcmVzJTIwciVDMyVBOWVsbGVz" data-listing-date-sort="1757282400000" data-listing-title-sort="TD I : Rappels de Licence" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="0" data-categories="Rm9uY3Rpb25zJTIwZyVDMyVBOW4lQzMlQTlyYXRyaWNlcyUyQ0RlbnNpdCVDMyVBOXMlMkNGb25jdGlvbnMlMjBkZSUyMHIlQzMlQTlwYXJ0aXRpb24lMkNQcm9jZXNzdXMlMjBkZSUyMGJyYW5jaGVtZW50" data-listing-date-sort="1759960800000" data-listing-title-sort="Corrigé CC1" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<span class="listing-date">Sep 8, 2025</span>
-</td>
-<td>
-<a href="corriges/td1.html" class="title listing-title">TD I : Rappels de Licence</a>
-</td>
-<td>
-<span class="listing-categories">Variables aléatoires réelles</span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-categories="VmFyaWFibGVzJTIwYWwlQzMlQTlhdG9pcmVzJTIwciVDMyVBOWVsbGVzJTJDQnJhbmNoZW1lbnQ=" data-listing-date-sort="1757541600000" data-listing-title-sort="TD I supplément : Rappels de Licence" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">Sep 11, 2025</span>
-</td>
-<td>
-<a href="corriges/td1-supplement.html" class="title listing-title">TD I supplément : Rappels de Licence</a>
-</td>
-<td>
-<span class="listing-categories">Variables aléatoires réelles, Branchement</span>
-</td>
-
-</tr>
-
-<tr data-index="2" data-categories="Q29uZGl0aW9ubmVtZW50JTJDQnJhbmNoZW1lbnQ=" data-listing-date-sort="1758492000000" data-listing-title-sort="TD II : Conditionnement" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">Sep 22, 2025</span>
-</td>
-<td>
-<a href="corriges/td2.html" class="title listing-title">TD II : Conditionnement</a>
-</td>
-<td>
-<span class="listing-categories">Conditionnement, Branchement</span>
-</td>
-
-</tr>
-
-<tr data-index="3" data-categories="Q29uZGl0aW9ubmVtZW50JTJDQnJhbmNoZW1lbnQ=" data-listing-date-sort="1758492000000" data-listing-title-sort="TD II : Conditionnement  (supplément)" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">Sep 22, 2025</span>
-</td>
-<td>
-<a href="corriges/td2-supplement.html" class="title listing-title">TD II : Conditionnement (supplément)</a>
-</td>
-<td>
-<span class="listing-categories">Conditionnement, Branchement</span>
-</td>
-
-</tr>
-
-<tr data-index="4" data-listing-date-sort="1758492000000" data-listing-title-sort="Questionnaire I" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">Sep 22, 2025</span>
-</td>
-<td>
-<a href="corriges/quizz_a.html" class="title listing-title">Questionnaire I</a>
-</td>
-<td>
-<span class="listing-categories">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="5" data-categories="Q29uZGl0aW9ubmVtZW50JTJDQnJhbmNoZW1lbnQ=" data-listing-date-sort="1758492000000" data-listing-title-sort="TD III : Branchement" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">Sep 22, 2025</span>
-</td>
-<td>
-<a href="corriges/td3.html" class="title listing-title">TD III : Branchement</a>
-</td>
-<td>
-<span class="listing-categories">Conditionnement, Branchement</span>
-</td>
-
-</tr>
-
-<tr data-index="6" data-categories="Q29uZGl0aW9ubmVtZW50" data-listing-date-sort="1759096800000" data-listing-title-sort="TD IV : Conditionnement" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">Sep 29, 2025</span>
-</td>
-<td>
-<a href="corriges/td4.html" class="title listing-title">TD IV : Conditionnement</a>
-</td>
-<td>
-<span class="listing-categories">Conditionnement</span>
-</td>
-
-</tr>
-
-<tr data-index="7" data-categories="Q29udmVyZ2VuY2VzJTJDQ2FyYWN0JUMzJUE5cmlzYXRpb25zJTJDTEdOJTJDVENM" data-listing-date-sort="1759701600000" data-listing-title-sort="TD V : Convergences/Caractérisations" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">Oct 6, 2025</span>
-</td>
-<td>
-<a href="corriges/td5-bis.html" class="title listing-title">TD V : Convergences/Caractérisations</a>
-</td>
-<td>
-<span class="listing-categories">Convergences, Caractérisations, LGN, TCL</span>
-</td>
-
-</tr>
-
-<tr data-index="8" data-categories="Rm9uY3Rpb25zJTIwZyVDMyVBOW4lQzMlQTlyYXRyaWNlcyUyQ0RlbnNpdCVDMyVBOXMlMkNGb25jdGlvbnMlMjBkZSUyMHIlQzMlQTlwYXJ0aXRpb24lMkNQcm9jZXNzdXMlMjBkZSUyMGJyYW5jaGVtZW50" data-listing-date-sort="1760133600000" data-listing-title-sort="Corrigé CC1" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">Oct 11, 2025</span>
+<span class="listing-date">Oct 9, 2025</span>
 </td>
 <td>
 <a href="corriges/cc1-2025.pdf" class="title listing-title">Corrigé CC1</a>
@@ -664,30 +557,184 @@ Note
 
 </tr>
 
-<tr data-index="9" data-categories="R2F1c3NpZW5uZXM=" data-listing-date-sort="1760306400000" data-listing-title-sort="TD VI : Gaussiennes" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="1" data-categories="Rm9uY3Rpb25zJTIwZyVDMyVBOW4lQzMlQTlyYXRyaWNlcyUyQ0RlbnNpdCVDMyVBOXMlMkNGb25jdGlvbnMlMjBkZSUyMHIlQzMlQTlwYXJ0aXRpb24lMkNQcm9jZXNzdXMlMjBkZSUyMGJyYW5jaGVtZW50" data-listing-date-sort="1760565600000" data-listing-title-sort="Corrigé CC2" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<span class="listing-date">Oct 13, 2025</span>
+<span class="listing-date">Oct 16, 2025</span>
 </td>
 <td>
-<a href="corriges/td6.html" class="title listing-title">TD VI : Gaussiennes</a>
+<a href="corriges/cc2-2025.pdf" class="title listing-title">Corrigé CC2</a>
 </td>
 <td>
-<span class="listing-categories">Gaussiennes</span>
+<span class="listing-categories">Fonctions génératrices, Densités, Fonctions de répartition, Processus de branchement</span>
 </td>
 
 </tr>
 
-<tr data-index="10" data-categories="Rm9uY3Rpb25zJTIwZyVDMyVBOW4lQzMlQTlyYXRyaWNlcyUyQ0RlbnNpdCVDMyVBOXMlMkNGb25jdGlvbnMlMjBkZSUyMHIlQzMlQTlwYXJ0aXRpb24lMkNQcm9jZXNzdXMlMjBkZSUyMGJyYW5jaGVtZW50" data-listing-date-sort="1760738400000" data-listing-title-sort="Corrigé CC1" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="2" data-categories="VHJpYnVzJTJDQm9yJUMzJUE5bGllbnM=" data-listing-date-sort="1788732000000" data-listing-title-sort="TD I" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<span class="listing-date">Oct 18, 2025</span>
+<span class="listing-date">Sep 7, 2026</span>
 </td>
 <td>
-<a href="corriges/cc2-2025.pdf" class="title listing-title">Corrigé CC1</a>
+<a href="corriges/td1-2026.html" class="title listing-title">TD I</a>
 </td>
 <td>
-<span class="listing-categories">Fonctions génératrices, Densités, Fonctions de répartition, Processus de branchement</span>
+<span class="listing-categories">Tribus, Boréliens</span>
+</td>
+
+</tr>
+
+<tr data-index="3" data-categories="TWVzdXJlcyUyQ0ZvbmN0aW9ucyUyMG1lc3VyYWJsZXMlMkNQcm9iYWJpbGl0JUMzJUE5cw==" data-listing-date-sort="1788732000000" data-listing-title-sort="TD II" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Sep 7, 2026</span>
+</td>
+<td>
+<a href="corriges/td2-2026.html" class="title listing-title">TD II</a>
+</td>
+<td>
+<span class="listing-categories">Mesures, Fonctions mesurables, Probabilités</span>
+</td>
+
+</tr>
+
+<tr data-index="4" data-categories="SW50JUMzJUE5Z3JhbGVzJTJDRXNwJUMzJUE5cmFuY2Vz" data-listing-date-sort="1788732000000" data-listing-title-sort="TD III" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Sep 7, 2026</span>
+</td>
+<td>
+<a href="corriges/td3-2026.html" class="title listing-title">TD III</a>
+</td>
+<td>
+<span class="listing-categories">Intégrales, Espérances</span>
+</td>
+
+</tr>
+
+<tr data-index="5" data-categories="Rm9uY3Rpb25zJTIwZGUlMjByJUMzJUE5cGFydGl0aW9uJTJDZGVuc2l0JUMzJUE5cyUyQ0ZvbmN0aW9ucyUyMHF1YW50aWxlcw==" data-listing-date-sort="1789336800000" data-listing-title-sort="TD IV" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Sep 14, 2026</span>
+</td>
+<td>
+<a href="corriges/td4-2026.html" class="title listing-title">TD IV</a>
+</td>
+<td>
+<span class="listing-categories">Fonctions de répartition, densités, Fonctions quantiles</span>
+</td>
+
+</tr>
+
+<tr data-index="6" data-categories="RXNwJUMzJUE5cmFuY2VzJTJDTW9tZW50cw==" data-listing-date-sort="1789336800000" data-listing-title-sort="TD V" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Sep 14, 2026</span>
+</td>
+<td>
+<a href="corriges/td5-2026.html" class="title listing-title">TD V</a>
+</td>
+<td>
+<span class="listing-categories">Espérances, Moments</span>
+</td>
+
+</tr>
+
+<tr data-index="7" data-categories="RXNwYWNlcyUyMHByb2R1aXRzJTJDTG9pcyUyMHByb2R1aXQlMkNGdWJpbmk=" data-listing-date-sort="1789336800000" data-listing-title-sort="TD VI" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Sep 14, 2026</span>
+</td>
+<td>
+<a href="corriges/td6-2026.html" class="title listing-title">TD VI</a>
+</td>
+<td>
+<span class="listing-categories">Espaces produits, Lois produit, Fubini</span>
+</td>
+
+</tr>
+
+<tr data-index="8" data-categories="Rm9uY3Rpb25zJTIwZyVDMyVBOW4lQzMlQTlyYXRyaWNlcyUyQ0NvbmRpdGlvbm5lbWVudCUyMGRpc2NyZXQ=" data-listing-date-sort="1789941600000" data-listing-title-sort="TD VII" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Sep 21, 2026</span>
+</td>
+<td>
+<a href="corriges/td7-2026.html" class="title listing-title">TD VII</a>
+</td>
+<td>
+<span class="listing-categories">Fonctions génératrices, Conditionnement discret</span>
+</td>
+
+</tr>
+
+<tr data-index="9" data-categories="Q2FyYWN0JUMzJUE5cmlzYXRpb25zJTIwZGUlMjBsb2lzJTJDRm91cmllciUyQ0xhcGxhY2U=" data-listing-date-sort="1789941600000" data-listing-title-sort="TD VIII" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Sep 21, 2026</span>
+</td>
+<td>
+<a href="corriges/td8-2026.html" class="title listing-title">TD VIII</a>
+</td>
+<td>
+<span class="listing-categories">Caractérisations de lois, Fourier, Laplace</span>
+</td>
+
+</tr>
+
+<tr data-index="10" data-categories="Q29uZGl0aW9ubmVtZW50" data-listing-date-sort="1790546400000" data-listing-title-sort="TD IX" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Sep 28, 2026</span>
+</td>
+<td>
+<a href="corriges/td9-2026.html" class="title listing-title">TD IX</a>
+</td>
+<td>
+<span class="listing-categories">Conditionnement</span>
+</td>
+
+</tr>
+
+<tr data-index="11" data-categories="Q29uY2VyZ2VuY2UlMjBwcmVzcXVlJTIwcyVDMyVCQnJlJTJDQ29udmVyZ2VuY2UlMjBlbiUyMHByb2JhYmlsaXQlQzMlQTklMkNMb2klMjBkZXMlMjBncmFuZHMlMjBub21icmVz" data-listing-date-sort="1790546400000" data-listing-title-sort="TD X" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Sep 28, 2026</span>
+</td>
+<td>
+<a href="corriges/td10-2026.html" class="title listing-title">TD X</a>
+</td>
+<td>
+<span class="listing-categories">Concergence presque sûre, Convergence en probabilité, Loi des grands nombres</span>
+</td>
+
+</tr>
+
+<tr data-index="12" data-categories="Q29udmVyZ2VuY2UlMjBlbiUyMGRpc3RyaWJ1dGlvbiUyQ1RDTA==" data-listing-date-sort="1791151200000" data-listing-title-sort="TD XI" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Oct 5, 2026</span>
+</td>
+<td>
+<a href="corriges/td11-2026.html" class="title listing-title">TD XI</a>
+</td>
+<td>
+<span class="listing-categories">Convergence en distribution, TCL</span>
+</td>
+
+</tr>
+
+<tr data-index="13" data-categories="VmVjdGV1cnMlMjBnYXVzc2llbnM=" data-listing-date-sort="1791756000000" data-listing-title-sort="TD XII" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Oct 12, 2026</span>
+</td>
+<td>
+<a href="corriges/td12-2026.html" class="title listing-title">TD XII</a>
+</td>
+<td>
+<span class="listing-categories">Vecteurs gaussiens</span>
 </td>
 
 </tr>
