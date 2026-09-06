@@ -1,0 +1,424 @@
+---
+# title: "Probabilités II - PR5"
+# subtitle: "L3 MIASHS/ME/IngéMaths"
+
+date: "2025-01-06"
+
+format:
+  pdf:
+    output-file: exams2025-26-pr5.pdf
+    include-in-header:
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Intégration et Probabilités}{}{\sffamily\small CT }
+          \makeoddhead{style-td1}{\sffamily\small Intégration et Probabilités}{}{\sffamily\small CT }
+          \pagestyle{style-td1}
+
+engine: knitr
+draft: true
+---
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+
+
+
+::: {.callout-note}
+
+### CT I :    
+
+- 6 Janvier 2026
+
+- L3 MIASHS/ME/IngéMaths
+
+- Durée : 3 heures 
+
+- **Intégration et Probabilités** 
+
+:::
+
+
+::: {.callout-caution}
+
+
+- L’usage de documents et de tout appareil électronique (calculatrice, téléphone, montre
+connectée, etc...) est interdit durant l’épreuve.
+- On simplifiera au maximum les réponses.
+- Les théorèmes, propositions et formules vues en cours peuvent être rappelées sans être
+redémontrées. Le reste des réponses doit être soigneusement justifié
+
+:::
+
+
+::: {#exr-1   name="Questions de cours / application directe du cours"} 
+
+:::
+
+
+1. Soit $X \sim \text{Poi}(3)$. Rappeler la loi de $X$, puis exprimer $\mathbb{E}[X]$, $\operatorname{Var}[X]$,
+$\mathbb{E}[X(X − 1) . . . (X − k + 1)]$ pour $k ∈ \mathbb{N}^∗$ et enfin $G_X (t) = \mathbb{E}[t^X ]$.
+2. Donner une condition nécessaire et suffisante pour que la fonction $F : \mathbb{R} → \mathbb{R}$ soit
+une fonction de répartition.
+3. Donner un exemple de variable positive dont l’espérance est infinie.
+4. Soit $X$ une variable réelle telle que
+    $$\mathbb{E}[\exp(−tX)] = \left(\frac{2}{2+t}\right)^3$$
+
+    Quelle est la loi de $X$ ? Que vaut $\mathbb{E}[X], \operatorname{Var}[X]$ ?
+1. Soient $X ∼  \text{exp}(4), Y ∼ \mathcal{N} (2, 4)$, indépendantes. Le vecteur $(X, Y )$ possède-t-il une
+densité ? Si oui on l’exprimera. Pour $s > −4, t ∈ \mathbb{R}$, donner l’expression de $Ψ_{(X,Y )} (s, t) = \mathbb{E}[\exp(−sX − tY )]$.
+1. Donner un exemple d’un couple de variables réelles $(X, Y )$ telles que $X$ et $Y$
+possèdent chacune une densité vis-à-vis de la mesure de Lebesgue unidimensionnelle, mais le vecteur $(X, Y )$ ne possède pas de densité vis-à-vis de la mesure de
+Lebesgue bi-dimensionnelle.
+1. Soit $(X, Y )$ tel que pour tout $ϕ : \mathbb{R}^2 → R$ borélienne positive 
+    $$\mathbb{E}[ϕ(X, Y )] = \sum_{k\geq 0} \frac{2^{k+1}}{k!} \int_{\mathbb{R}^+} ϕ(k, y) \exp(−2(y + 1)) \mathrm{d}y \, .$$
+
+Quelle est la loi de $X$ ? Celle de $Y$ ? Les variables $X$ et $Y$ sont-elles indépendantes ?
+Que vaut $\operatorname{Cov}(X, Y )$ ?
+
+
+
+
+::: {.content-hidden unless-profile="secret-and-confidential"}
+
+{{< pagebreak >}}
+
+
+::: {.callout-tip title="Solution Exercice 1"}
+
+1. $P(X=k) = \mathrm{e}^{-3} 3^k /k!$ (pour $k \in \mathbb{N}$). $\mathbb{E}X=\operatorname{Var}(X)=3$, $\mathbb{E}[X(X-1)\ldots(X-k+1)]= 3^k$ et enfin $G_X(t)= \mathrm{e}^{3(t-1)}$.
+1. $F \quad \textsc{cadlag}$, croissante, tend vers $0$ en $-\infty$, $1$ en $+\infty$.
+2. Valeur absolue d'une variable Cauchy distribuée
+3. Loi $\text{Gamma}(3,2)$. Espérance $3/2$, variance $3/4$
+4. La densité  de la loi de $(X,Y)$  est le produit des densités marginales  $\mathbb{I}_{x>0} 4 \mathrm{e}^{-4x} \frac{1}{\sqrt{\pi 8}}\exp\left(-\frac{(y-2)^2}{8}\right)$. 
+    
+    $$\Psi_(X,Y)(s,t = \Psi_X(s) \Psi_Y(t) =  \frac{4}{4+s} \exp\left(- 2 t + \frac{4 t^2}{2}\right) = \frac{4}{4+s} \exp\left(- 2 t + 2 t^2\right)$$
+
+1. $(X,Y)=(X,\epsilon X)$ avec $X \sim \mathcal{N}(0,1)$ et $\epsilon$ est une variable de Rademacher indépendante de $X$.
+5. $X$ suit une loi de  Poisson d'espérance $2$, $Y$ une loi exponentielle de paramètre d'intensité $2$. Les deux variables sont indépendantes. La covariance est nulle. 
+
+
+:::
+
+:::
+{{< pagebreak >}}
+
+
+::: {#exr-2   name=""} 
+
+:::
+
+Soit $n ∈ \mathbb{N}^∗$ . On suppose que pour tout $1 ≤ i ≤ n, p_i ∈]0, 1[$, que pour
+tout $1 ≤ i ≤ n, G_i ∼ \operatorname{Geom}(p_i )$ (à valeurs dans $\mathbb{N}^∗$ ), et que les variables ($G_i , 1 ≤ i ≤ n$)
+sont indépendantes.
+
+1. Pour $G ∼ \operatorname{Geom}(p), p ∈]0, 1[$, rappeler l’expression, pour $k ∈ \mathbb{N}^∗$ , de $P(G = k)$ et de
+$P(G > k)$.
+
+1. Exprimer $\mathbb{E}[t^G ], 0 ≤ t < 1−p$.
+2. Soit $X_n = \min(G_1 , \ldots, G_n)$. Montrer que $\{X_n > k\} =\cap_{i=1}^{n} \{G_i > k\}$. En déduire la loi de $X_n$ , puis vérifier que
+
+    $$\mathbb{E}[X_n ] = \frac{1}{1 - \prod_{i=1}^n (1-p_i)}$$
+
+    Que vaut $\operatorname{Var}[Xn ]$ ?
+
+
+
+
+::: {.content-hidden unless-profile="secret-and-confidential"}
+
+::: {.callout-tip title="Solution Exercice 2"}
+
+1.  $P(G=k) = p (1-p)^{k-1}$ pour $k \in \mathbb{N}^*$ et $P(G>k) = (1-p)^k$ pour $k \in \mathbb{N}$
+1.  $\mathbb{E} t^G = \frac{pt}{1-(1-p)t}$
+1.  
+
+    \begin{align*}
+    P(X_n > k) 
+      & = P(\min(G_1, \ldots G_n) > k) \\
+      & = P(\wedge_{i=1}^n G_i > k) \\
+      & = \prod_{i=1}^n P(G_i > k) \qquad \text{indépendance}\\
+      & = \left(\prod_{i=1}^n  (1-p_i) \right)^k
+    \end{align*}
+
+    Si on pose $1-q := \prod_{i=1}^n  (1-p_i)$, on observe $X_n \sim \text{Geom}(q)$
+
+1. $\mathbb{E}X_n = \sum_{k \in \mathbb{N}} P(X_n >k) = \frac{1}{1-(1-q)}= \frac{1}{q}$ et $\operatorname{Var}(X_n) = \mathbb{E}X_n^2 - (\mathbb{E}X_n)^2$ avec $\mathbb{E}X^2_n = \sum_{k \in \mathbb{N}} (2 k+1)  P(X_n >k) = \frac{2-q}{q^2}$, soit $\operatorname{Var}(X_n) = \frac{1-q}{q^2}$
+
+:::
+
+:::
+
+
+{{< pagebreak >}} 
+
+
+::: {#exr-3   name=""} 
+
+:::
+
+
+On considère le modèle suivant pour un temps d’attente dans une file,
+avant service.
+
+- Quand on arrive, la file contient initialement $N$ clients, avec $N ∼ \operatorname{Poi}(2)$.
+- Les temps de service des différents clients sont indépendants, et identiquement distribués suivant la loi exponentielle de paramètre 1. On note $\mathbf{e}_i$ le temps de service du $i^{\text{ème}}$ client.
+
+1. Justifier que le temps d’attente avant service est
+
+    $$T = \begin{cases}0 & \text{si } N=0 \\ \sum_{k=1}^N \mathbf{e}_i & \text{sinon.}\end{cases}$$
+
+2. La variable $T$ est-elle discrète ? Est-elle à densité ?
+3. Quelle est la loi, l’espérance et la variance de $S_n := \sum_{k=1}^n \mathbf{e}_i$ Déduire que $\mathbb{E}[S_n^2 ] = n + n^2$ .
+
+
+1. Justifier que 
+  
+    $$\mathbb{E}[T \mathbb{I}_{N =n} ] = \begin{cases} 0 & \text{ si } n=0 \\ \frac{\mathrm{e}^{-2} 2^n}{(n-1)!} & \text{ sinon.}\end{cases}$$
+
+
+    En déduire $\mathbb{E}[T ].$
+
+1. Montrer que 
+  
+    $$\mathbb{E}\left[T^2 \right] = \sum_{n≥1}(n^2+n)\frac{\mathrm{e}^{-2} 2^n}{n!}$$
+
+    En déduire $\mathbb{E}[T^2 ]$ et conclure que $\operatorname{Var}[T ] = 4.$
+
+1. Justifier que pour tout $n ∈ \mathbb{N}, s ≥ 0$,
+
+    $$\mathbb{E}\left[\exp(−sT )\mathbb{I}_{N =n} \right] = \frac{\mathrm{e}^{-2} 2^n}{n!}\left(\frac{s}{1+s}\right)^n$$
+
+    En déduire que pour $s ≥ 0$, $\mathbb{E}\left[\exp(−sT )\right] = \exp\left(\frac{-2s}{1+s}\right)$ puis retrouver les valeurs de $\mathbb{E}[T ], \mathbb{E}[T^2 ]$.
+
+
+
+::: {.content-hidden unless-profile="secret-and-confidential"}
+
+{{< pagebreak >}}
+
+
+::: {.callout-tip title="Solution Exercice 3"}
+
+1.  Si la file est vide ($N=0$), on n'attend pas soit $T=0$. Si la file compte $N=n$ clients, il faut attendre pour que ces $n$ clients soient servis, soit $T= \sum_{k=1}^n \mathbf{e}_k$. Dans tous les cas $T= \sum_{k=1}^N \mathbf{e}_k$ (on convient que la sommation selon une liste vide d'indices est nulle)
+1.  La variable $T$ vaut $0$ avec probabilité $\mathrm{e}^{-2}$. La loi de $T$ ne possède pas de densité. Conditionnellement à $N=n>0$,  la loi de $T$ 
+est une loi Gamma de paramètres $n$ et $1$.  La loi de $T$ n'est donc pas une loi discrète.
+1.  La loi de $S_n$ est une loi Gamma de paramètres $n$ et $1$, son espérance et sa variance sont égales à $n$. $\mathbb{E}S_n^2= \operatorname{Var}(S_n) + (\mathbb{E}S_n)^2 = n+n^2$.
+1. Pour $n>0$, $\mathbb{E}[T\mathbb{I}_{N=n}] = \mathbb{E}[S_n \mathbb{I}_{N=n}] = \mathbb{E}[S_n] \mathbb{E}[\mathbb{I}_{N=n}] = n \frac{\mathrm{e}^{-2} 2^n}{(n)!} =\frac{\mathrm{e}^{-2} 2^n}{(n-1)!}$, où on a utilisé l'indépendance de $N$ et de $S_n$. Pour $n=0$, il n'y a rien de spécial à vérifier.
+
+    \begin{align*}
+      \mathbb{E} T 
+        & = \mathbb{E} \left[\sum_{n=0}^\infty \mathbb{I}_{N=n} T\right] \\
+        & = \sum_{n=0}^\infty  \mathbb{E} \left[\mathbb{I}_{N=n} T\right] \\
+        & = \sum_{n=1}^\infty  \frac{\mathrm{e}^{-2} 2^n}{(n-1)!} \\
+        & = 2 \mathrm{e}^{-2}  \mathrm{e}^2 \\
+        & = 2 \, ,
+    \end{align*}
+    où on a utilisé le théorème de convergence monotone pour justifier l'échange entre espérance et sommation.
+
+    La formule de Wald $\mathbb{E}T = \mathbb{E} N \times \mathbb{E} \mathbf{e}_1$,  nous aurait conduit directement à ce résultat.
+
+1. Par le même argument de convergence monotone, $\mathbb{E}T^2 = \sum_{n=0}^\infty  \mathbb{E} \left[\mathbb{I}_{N=n} S_n^2\right]= \sum_{n=0}^\infty  \mathbb{E} \left[\mathbb{I}_{N=n}\right] \times \mathbb{E}\left[ S_n^2\right]$. Soit 
+
+    \begin{align*}
+      \mathbb{E}T^2 
+        & = \sum_{n=0}^\infty  \mathbb{E} \left[\mathbb{I}_{N=n}\right] \times \mathbb{E}\left[ S_n^2\right] \\
+        & = \sum_{n=0}^\infty   \mathrm{e}^{-2} \frac{2^n}{n!} \left( n + n^2\right)  \\
+        & = \sum_{n=0}^\infty   \mathrm{e}^{-2} \frac{2^n}{n!} \left( n(n-1) + 2n\right)  \\
+        & = 4 + 4 = 8 \,.
+    \end{align*}
+
+    $\operatorname{Var}(T) = \mathbb{E}T^2 - (\mathbb{E}T)^2 = 8 - 4 =4$ comme attendu.
+
+1. Pour $n=0$,  $\mathbb{E}\left[\exp(−sT )\mathbb{I}_{N =n} \right] = \mathbb{E}\left[\exp(−0 )\mathbb{I}_{N =0} \right] =\mathrm{e}^{-2}$. Pour $n>0$
+
+    \begin{align*}
+      \mathbb{E}\left[\exp(−sT )\mathbb{I}_{N=n} \right] 
+        & = \mathbb{E}\left[\exp(−s S_n )\mathbb{I}_{N=n} \right]  \\
+        & = \mathbb{E}\left[\exp(−s S_n )\right] \times \mathbb{E} \left[\mathbb{I}_{N=n} \right]  \\
+        & = \left( \frac{1}{1+s}\right)^n  \times \mathrm{e}^{-2} \frac{2^n}{n!}
+    \end{align*}
+
+    En utilisant à nouveau l'argument de convergence monotone:
+
+    \begin{align*}
+      \mathbb{E}\left[\exp(−sT )\right] 
+        & = \mathbb{E}\left[\sum_{n=0}^\infty \exp(−sT )\mathbb{I}_{N=n} \right] \\
+        & = \sum_{n=0}^\infty \mathbb{E}\left[\exp(−sT )\mathbb{I}_{N=n} \right] \\
+        & = \sum_{n=0}^\infty \left( \frac{1}{1+s}\right)^n  \times \mathrm{e}^{-2} \frac{2^n}{n!} \\
+        & = \sum_{n=0}^\infty \mathrm{e}^{-2} \frac{\left(\frac{2}{1+s}\right)^n}{n!} \\
+        & = \mathrm{e}^{-\frac{2s}{1+s}} \, .
+    \end{align*}
+
+ 
+    On retrouve les valeurs de $\mathbb{E}T$ et $\mathbb{E}T^2$ en dérivant la transformée de Laplace en $0$ (une fois et deux fois). 
+    La pertinence de cette dérivation est justifiée par un argument de convergence dominée.
+
+:::
+
+:::
+
+{{< pagebreak >}}
+
+::: {#exr-4   name=""} 
+
+:::
+
+Soit $X = \begin{pmatrix}X_1 \\ X_2 \\ X_3\end{pmatrix}$ un vecteur gaussien à valeurs dans $\mathbb{R}^3$ , centré, et de
+matrice de covariances
+$$Σ = \begin{pmatrix} 2 & -1 & 1  \\  -1 & 2 & -1 \\ 1 & -1 & 4 \end{pmatrix}$$
+
+1. Pour $t ∈ \mathbb{R}^3$ , exprimer $Ψ_X(t)$.
+2. Quelle est la loi de $X_1$ ? Celle de $X_2$ ? Les variables $X_1$ et $X_2$ sont-elles indépendantes ?
+3. Quelle est la loi de $X_1 − X_2$ ? Quelle est celle de $X_1 + X_2$ ? Quelle est celle de $X_1 − X_2$ ? $X_1 + X_2$
+4. Soit $A = \begin{pmatrix} 1 & 1 & 0 \\ 1 & -1 & -1 \\ 1 & -1 & 2\end{pmatrix}$. Vérifier que $AΣA^\top = ∆$, une matrice diagonale que l’on
+exprimera. Que peut-on en déduire sur le vecteur $Y = \begin{pmatrix} X_1 + X_2 \\  X_1 − X_2 − X_3 \\ X_1 − X_2 + 2X_3 \end{pmatrix}$
+Le vecteur $Y$ possède-t-il une densité ? Si oui on l’exprimera.
+1. Le vecteur $X$ possède-t-il une densité ? Si oui, on donnera une formule pour cette
+densité en fonction de $Σ$ — on ne demande pas de la calculer explicitement.
+
+
+::: {.content-hidden unless-profile="secret-and-confidential"}
+
+{{< pagebreak >}}
+
+::: {.callout-tip title="Solution exercice 4"}
+
+1. La transformée de Laplace d'un vecteur Gaussien centré dépend de la matrice de covariance selon la formule $\Psi_X(t) = \exp\left(\frac{1}{2} t^\top \Sigma t\right)$
+2. $X_1 \sim \mathcal{N}(0, 2)$, $X_2 \sim \mathcal{N}(0,2)$, $\operatorname{Cov}(X_1, X_2)= -1 \neq 0$, ces deux variables ne sont pas indépendantes.
+3. Le vecteur aléatoire $\begin{pmatrix}X_1 -X_2 & X_1 + X_2\end{pmatrix}^\top$ est un vecteur gaussien centré de matrice de covariance 
+
+    $$\begin{pmatrix} 1 & -1 & 0 \\ 1 & 1 & 0 \end{pmatrix} \Sigma \begin{pmatrix} 1 & 1 \\ -1 & 1 \\ 0 & 0\end{pmatrix}= \begin{pmatrix}6 & 0 \\ 0 & 2\end{pmatrix}$$
+
+    La matrice de covariance est diagonale, donc $X_1 - X_2$ et $X_1 + X_2$ sont indépendantes.
+
+4. En glissant sur les multiplications matricielles:
+
+    \begin{align*}
+    \Delta 
+        & = A \Sigma A^\top \\
+        & = \begin{pmatrix} 2 & 0 & 0 \\ 0 & 6 & 0\\ 0 & 0 & 30\end{pmatrix}
+    \end{align*}
+
+    $Y$ est un vecteur gaussien centré, de matrice de covariance diagonale et inversible. La loi de $Y$ possède donc une densité sur $\mathbb{R}^3$:
+
+    $$y \mapsto  \frac{1}{(2\pi)^{3/2}} \frac{1}{\sqrt{\operatorname{Det}(\Delta)}} \exp\left( -\frac{y^\top \Delta^{-1} y}{2}\right)$$ 
+
+    Au passage $\operatorname{Det}(\Delta) = 2 \times 6 \times 30= 360$ et 
+
+    $$\Delta^{-1} = \begin{pmatrix} \frac{1}{2} & 0 & 0 \\ 0 & \frac{1}{6} & 0\\ 0 & 0 & \frac{1}{30}\end{pmatrix}$$
+
+5. Comme $0 \neq \operatorname{Det}(\Delta) = \operatorname{Det}(A)\operatorname{Det}(\Sigma)\operatorname{Det}(A)$, $0 \neq \operatorname{Det}(\Sigma)$. Comme $\Sigma$  est inversible, la loi de $X$ admet une densité sur $\mathbb{R}^3$:
+
+    $$x \mapsto  \frac{1}{(2\pi)^{3/2}} \frac{1}{\sqrt{\operatorname{Det}(\Sigma)}} \exp\left( -\frac{x^\top \Sigma^{-1} x}{2}\right)$$
+
+:::
+
+:::
+
+{{< pagebreak >}}
+
+::: {#exr-5   name=""} 
+
+:::
+
+Soit $Z ∼ \mathcal{N} (0, 1)$, et $Y = \exp(Z)$. On note $F_Z$ la fonction de répartition de $Z$.
+
+1. Montrer que
+
+    $$
+    P(Y ≤ t) =: F_Y (t) = \begin{cases} 0 & \text{si } t ≤ 0 \\
+      F_Z (\ln(t)) & \text{sinon.} \end{cases}
+    $$
+
+    En déduire que $Y$ possède la densité
+
+    $$
+    f_Y (t) = \begin{cases} 0 & \text{si } t \leq 0 \\ f_Z (\ln(t))/t & \text{sinon} \end{cases}
+    $$
+
+    En déduire l’expression de $f_Y$ .
+
+1. Pour $ϕ : \mathbb{R} → \mathbb{R}^+$ borélienne montrer 
+
+    $$\mathbb{E}\phi(Y) = \int  \phi\left(\exp(x) \right) \frac{1}{\sqrt{2\pi}} \exp\left( -\frac{x^2}{2}\right) \mathrm{d}x$$
+
+    et retrouver le résultat de la question précédente.
+
+1. Montrer  que
+
+    $\mathbb{E}Y = \sqrt{\mathrm{e}},$ $\mathbb{E}[Y^2 ] = \mathrm{e}^2$
+
+1. Montrer, pour $n ∈ \mathbb{N}$, que
+    $$\mathbb{E}[Y^n ] = Ψ_Z (n),$$
+
+    en déduire l’expression du $n^{\text{ème}}$ moment de $Y$.
+
+5. Soient ($X_i , i ≥ 1$) des variables i.i.d, p.s. strictement positives, telles que $E[\ln(X_i )] = 0$, et $E[\ln(X_i )^2 ] = 1$.
+
+    Montrer que
+    $$\left(\prod_{i=1}^n X_i\right)^{\frac{1}{\sqrt{n}}} \stackrel{\underrightarrow{\text{(loi)}}}{\tiny n\to \infty} Y$$
+
+
+
+
+::: {.content-hidden unless-profile="secret-and-confidential"}
+
+{{< pagebreak >}}
+
+::: {.callout-tip  title="Solution exercice 5"}
+
+
+1. Pour $t>0$
+
+    \begin{align*}
+      P(Y\leq t) 
+        & = P(\exp(Z) \leq t) \\
+        & = P(Z \leq \ln(t)) \\
+        & = F_Z(\ln(t)) \\
+        & = F_Z \circ \ln (t)
+    \end{align*}
+
+    Pour $t\leq 0$, $P(Y\leq t)=0$ car $\exp : \mathbb{R} \to ]0,\infty)$ 
+
+    La fonction $F_Z \circ \ln$ est continuement différentiable sur $]0,\infty)$, sa dérivée est $t \mapsto  f_Z \circ \ln (t) \times \frac{1}{t}$ (règle de chainage). Soit 
+
+    $f_Y(t) = \mathbb{I}_{t>0} \frac{1}{\sqrt{2\pi} t } \exp\left(-\frac{(\ln(t))^2}{2}\right)$
+
+1. Le résultat demandé est une instance de la formule de transfert. La formule de changement de variable monotone bijectif redonne la densité de la loi de $Y$.
+1. Comme $\mathbb{E}Y^n = \mathbb{E} \exp(n X)$, on obtient les moments de la loi de $Y$ à partir de la transformée de Laplace de $\mathcal{N}(0,1)$, soit $\mathbb{E}Y^n = \Psi_Z(n)= \exp(n^2/2)$ 
+1. Notons 
+
+    $$V_n = \left(\prod_{i=1}^n X_i\right)^{\frac{1}{\sqrt{n}}} \,.$$  
+
+    On observe d'abord 
+
+    $$\ln(V_n) = \ln \left( \left(\prod_{i=1}^n X_i\right)^{\frac{1}{\sqrt{n}}}  \right)  = \frac{\sum_{i=1}^n \ln (X_i)}{\sqrt{n}}$$
+
+    Les conditions du théorème central limite sont remplies. La suite  $\ln (V_n)$ converge en distribution  vers $\mathcal{N}(0,1)$. 
+    Donc pour tout tout $v \in \mathbb{R}$ (point de continuité de $F_Z$) :
+
+    $$\lim_{n\to \infty} P(\ln (V_n) \leq v) = F_Z(v)$$
+
+    ou encore 
+
+    $$\lim_{n\to \infty} P(V_n \leq \exp(v)) = F_Z(v)$$
+
+    et finalement, en utilisant la substitution $t=\exp(v)$ 
+
+    $$\lim_{n\to \infty} P(V_n \leq t) = F_Z(\ln(t))  \qquad \text{pour }  t >0$$
+
+    On peut donc conclure :  $(V_n)_{n\in \mathbb{N}}$ converge en distribution vers la loi de $Y$ (dite loi log-normale). 
+
+:::
+
+:::

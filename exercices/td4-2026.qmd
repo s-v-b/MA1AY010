@@ -322,8 +322,8 @@ a. Si $X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi exponentielle d'esp�
   collection de variables aléatoires indépendantes ;
   i. $X_{i:n}-X_{i-1:n}$ est distribuée selon une loi exponentielle
   d'espérance $\tfrac{1}{i}$ .
-<!-- 
-a. Maintenant  $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infini,  telle que $k_n/n$ tend vers une limite finie (éventuellement nulle).  Montrer que
+
+<!-- a. Maintenant  $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infini,  telle que $k_n/n$ tend vers une limite finie (éventuellement nulle).  Montrer que
 
     $$\frac{X_{k_n:n} -\mathbb{E} X_{k_n:n} }{\sqrt{\operatorname{var}(X_{k_n:n} )}}$$ 
     
@@ -354,10 +354,10 @@ a. Si $X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi uniforme sur $[0,1]$
   i. $X_{i:n}-X_{i-1:n}$ est distribuée selon une loi exponentielle
   d'espérance $\tfrac{1}{i}$ .
 
-a. Maintenant  $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infini,  telle que $k_n/n$ tend vers une limite finie (éventuellement nulle).  Montrer que
+<!-- a. Maintenant  $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infini,  telle que $k_n/n$ tend vers une limite finie (éventuellement nulle).  Montrer que
 
     $$\frac{X_{k_n:n} -\mathbb{E} X_{k_n:n} }{\sqrt{\operatorname{var}(X_{k_n:n} )}}$$ 
     
-    converge en loi vers une Gaussienne centrée réduite. 
+    converge en loi vers une Gaussienne centrée réduite.  -->
 
 :::

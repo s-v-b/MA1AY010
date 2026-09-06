@@ -38,7 +38,7 @@ requireNamespace('quarto')
 
 ::: {.callout-note}
 
-### CC I Bis/IV  :    
+### CT :    
 
 - 4 Décembre 2025
 
@@ -68,9 +68,6 @@ requireNamespace('quarto')
 
 
 
-::: {.content-visible when-profile="solution"}
-
-:::
 
 Dans cet exercice, $p\ \in ]0,1[$, $q \in ]0, 1[$.  
 
@@ -88,6 +85,53 @@ i. Calculer $P\{X=\ell,  Y=k\}$ pour $\ell, k \in \mathbb{N}$
 i. Les variables aléatoires $X$ et $Y$ sont-elles indépendantes?
 
 
+::: {.content-visible when-profile="solution"}
+
+
+::: {.callout-tip name="Solution"}
+
+i. $S$ suit une *loi binomiale négative* de paramètres $\ell$ et $p$ 
+
+    $$P(S =k) = \binom{k-1}{\ell=1} p^\ell (1-p)^{k-\ell}$$
+
+i. La fonction génétrice de la loi de la somme de $\ell$ variables i.i.d. de loi géométrique de paramètre $p$ est la puissance $\ell$ de la fonction génératrice de la loi géométrique de paramètre $p$ soit
+
+    $$s \mapsto \left(\frac{p}{1-(1-p)s}\right)^\ell$$
+
+i. $\mathbb{E}S = \ell \mathbb{E}X_1$  et $\operatorname{Var}(S)= \ell \operatorname{Var}(X_1)$, soit 
+
+    $$\mathbb{E} S = \frac{\ell}{p}\quad\text{et}\quad \operatorname{Var}(S)=\frac{\ell (1-p)}{p^2}$$
+
+i. La fonction génératrice de la loi de $Y$ est la composée de la fonction génératrice de la loi de $X$ et de celle de la loi des $Z_i$ soit
+
+    $$G_Y(s) = G_X(G_{Z_1}(s)) = \frac{pG_{Z_1}(s)}{1 - (1-p)G_{Z_1}(s)} = \frac{pqs}{1 -(1-q)s - (1-p)qs} = \frac{pq}{1 -(1-pq)(s)}$$
+
+    On note que $Y$ est distribuée selon une loi géométrique de paramètre $pq$. 
+
+i. On peut différencier la fonction génératrice où utiliser des arguments de conditionnement, pour arriver à 
+
+    $$\mathbb{E}Y = \mathbb{E}X \mathbb{E}Z =\frac{1}{pq}$$
+
+    et 
+
+    $$\operatorname{Var}(Y) = \mathbb{E} \operatorname{Var}(Y\mid X) + \operatorname{Var}(\mathbb{E}[Y\mid X])= \frac{1-q}{pq^2} + \frac{1-p}{q^2p^2}=\frac{1-pq}{p^2q^2}$$
+
+    c'est cohérent avec ce que nous savons de la loi gémétrique
+
+i. $P\{X=\ell,  Y=k\} = p(1-p)^{\ell -1} \binom{k-1}{\ell-1} q^{\ell} (1-q)^{k-\ell}$
+i. Les deux variables ne sont pas indépendants. ELles sont corrélées poistivement:
+
+    $$\mathbb{E}XY= \mathbb{E}[X \mathbb{E}[Y \mid X]]=\mathbb{E}\left[X^2 \frac{1}{q}\right]= \frac{2-p}{p^2q} > \frac{1}{p^2q}= \mathbb{E}X \mathbb{E}Y$$
+
+
+
+
+:::
+
+{{< pagebreak >}}
+
+:::
+
 
 
 ::: {#exr-2   name=""} 
@@ -99,10 +143,12 @@ Pour $p, q >0$, on note $G_{p,q}(s)= \frac{p}{1-qs}$ définie sur $[0,1/q)$.
 i. Pour quels couples de valeurs de $(p,q)$, $G_{p,q}$ est-elle la fonction génératrice d'une loi de probabilité $P$ sur $\mathbb{N}$? 
     
     *Dans la suite, on suppose que $(p,q)$ est choisi de façon à ce que $G_{p,q}$ soit la fonction génératrice d'une loi de probabilité sur $\mathbb{N}$.*
+
 i. Calculer $P\{k\}$ pour $k \in \mathbb{N}$ (en fonction de $p$ et $q$).
 i. On suppose $X \sim P$, calculer $\mathbb{E}X$ et $\operatorname{Var}(X)$ (en fonction de $p$ et $q$).
 
     *On suppose maintenant que $P$ est la distribution de reproduction d'un processus de branchement (Galton-Watson).*
+
 i. À quelle condition sur $(p,q)$, le processus de branchement est-il sous-critique ?
 i. Si le processus de branchement est sur-critique, calculer la probabilité d'extinction.
 i. Calculer l'espérance de la taille de la génération $n$.
@@ -112,14 +158,28 @@ i. Si le processus de branchement est sous-critique, calculer l'espérance de la
 
 ::: {.content-visible when-profile="solution"}
 
-::: {.callout-caution title="Solution"}
+::: {.callout-tip title="Solution"}
+
+
+
+i. Pour que $G_{p,q}$ soit une fonction génératrice de loi de probabilité, il est nécessaire que $G_{p,q}(1)=1$. Ici cela se traduit par $q=1-p$. Par ailleur, on sait (exercice précédent, cours, ...) que $s \mapsto \frac{ps}{1- (1-p)s} = s \times G_{p,1-p}(s)$  est la fonction génératrice de la loi géométrique de paramètre $p$ (loi du rang du premier succès dans une suite de Bernoulli indépendantes de paramètre $p$).  Comme $s\mapsto s$ est la fonction génératrice de la *masse de Dirac* en $1$, on peut affirmer que  $G_{p,1-p}$ est la loi du rang du dernier échec dans une suite de Bernoulli indépendantes de paramètre $p$.
+i. $P(k) = (1-p)^k p$
+i. $\mathbb{E}X = \frac{1}{p} -1 = \frac{1-p}{p}$ $\operatorname{Var}(X)=\frac{1-p}{p^2}$. Pour éviter les calculs, on peut s'appuyer sur le fait que $X+1$ est distribuée comme une loi géométrique : il faut décaler l'espérance, la variance reste inchangée.
+i. Le processus de branchement est sous-critique si (et seulement si) $\mathbb{E}X < 1$ soit $p> 1/2$.
+i. Si $p<1/2$, la probabilité d'extinction est la racine non-triviale de l'équation $z = G_{p, 1-p}(z)$, soit de $z(1 -(1-p)z) =p$ ou de $0=(1-p)z^2 -z +p = (1-p)(z-1)(z- p/(1-p))$. La racine non triviale est $p/(1-p)=1/\mathbb{E}X$ (inférieure à $1$ dans le cas sur-critique).
+i. Si $Z_n$ désigne la taille de la génération $n$ $\mathbb{E}Z_n = (\mathbb{E}X)^n = ((1-p)/p)^n$
+i. Dans le cas sous-critique, l'espérance de la taille de la descendance totale est $1/(1-\mathbb{E}X) = \frac{p}{2p-1}$ 
+
+
 
 :::
-
-:::
-
 
 {{< pagebreak >}}
+
+:::
+
+
+
 
 
 ::: {#exr-3   name=""} 
@@ -152,8 +212,64 @@ i. Si $\theta$ satisfait la condition de la question précédente, calculer $\te
 
 ::: {.content-visible when-profile="solution"}
 
-::: {.callout-caution title="Solution"}
+::: {.callout-tip title="Solution"}
 
+i. $X_n = \eta \sum_{k=0}^{n-1} \theta^k Y_{n-k} + \theta^n X_0$. C'est une combinaison linéaire des coordonnées d'un vecteur gaussien, donc une gaussienne.
+Plus généralement 
+
+    $$
+    \begin{pmatrix} X_0 \\ X_1 \\ \vdots \\ X_n\end{pmatrix} 
+    = \begin{pmatrix}
+   1 & 0 & \ldots & \ldots & 0 \\
+    \theta^1 & \eta & 0 & \ldots  & 0  \\ 
+    \vdots   & \ddots & \ddots &  & 0  \\
+    \theta^n & \eta \theta^{n-1} & \ldots & \eta \theta & \eta 
+    \end{pmatrix} \times 
+    \begin{pmatrix}
+    X_0 \\ Y_1 \\ \vdots \\ Y_n
+    \end{pmatrix}
+    $$
+
+    $(X_0, X_1, \ldots, X_n)^{\top}$ est une transformation linéaire du vecteur gaussien standard $(X_0, Y_1, \ldots, Y_n)^\top$, c'est donc aussi un vecteur gaussien.
+
+i. \begin{align*}
+    \mathbb{E}[X_{i+1}  \mid \mathcal{F}_i] 
+        & =  \theta X_i + \eta \mathbb{E}[Y_{i+1}  \mid \mathcal{F}_i]  \\
+        & = \theta X_i
+    \end{align*}
+
+i. \begin{align*}
+    \operatorname{var}[X_{i+1}  \mid \mathcal{F}_i] 
+        & =  \eta^2 \operatorname{var}[Y_{i+1}  \mid \mathcal{F}_i]  \\
+        & = \eta^2
+    \end{align*}
+
+i. $\mathbb{E}X_{i} = \theta^i  \mu$,
+
+    $\operatorname{Var}(X_{i+1}) = \mathbb{E}\operatorname{var}[X_{i+1}  \mid \mathcal{F}_i] + \operatorname{var}[\mathbb{E}[X_{i+1}  \mid \mathcal{F}_i]]= \eta^2 + \theta^2 \operatorname{Var}(X_{i})$,
+
+    $\operatorname{Var}(X_{n}) = \frac{\eta^2}{1-\theta^2} + \theta^{2n}\left( \tau^2 -  \frac{\eta^2}{1-\theta^2}\right)= \theta^{2n} \tau^2 + \eta^2 \frac{1 - \theta^{2n}}{1 -\theta^2}$ (pour $|\theta|\neq 1$)
+
+    Dans le cas $|\theta|=1$, $\operatorname{Var}(X_{n})  = \tau^2 + n \eta^2$.
+
+i. Il est nécessaire et suffisant que les espérances et les variances sont identiques soit 
+
+    $$\mu=0$$ et $$\tau^2=\frac{\eta^2}{1-\tau^2}$$
+
+i. Pour que les gaussiennes $(X_i)_i$ convergent en distribution, il est nécessaire et suffisant que les variances et les espérances convergent. C'est équivalent à $|\theta| < 1$. Dans ce cas, la limite en loi est $\mathcal{N}\left(0, \frac{\eta^2}{1-\tau^2}\right)$
+
+i. La représentation $X_n = \eta \sum_{k=0}^{n-1} \theta^k Y_{n-k} + \theta^n X_0$ permet d'observer que $(X_n)_n$ est une martingale adaptée à la filtration $\mathcal{F}_n$. Si $|\theta| < 1$, cette martingale est $L^1$, $L^2$, $L^p$ bornée $p\geq 1$. Le théorème de convergence des martingales $L^2$ bornées garantit la convergence presque sûre. La limite est $\mathcal{N}\left(0, \frac{\eta^2}{1-\tau^2}\right)$ distribuée. 
+ 
+i. Comme toutes éléments de $(X_n)_n$ sont gaussiens d'espérance et de variance bornées, la suite $(X_n)_n$ est uniformément intégrable, donc la convergence a aussi lieu dans $L^1$, $L^2$, $L^p$, $p\geq 1$. 
+
+i. \begin{align*}
+    \text{cov}\left(X_i, X_{i+k}\right) 
+        & = \theta^k  \left( \eta^2 \frac{1-\theta^{2i}}{1-\theta^2} + \theta^{2i} \tau^2\right)
+    \end{align*}
+
+    Si la condition d'équidistribution est satisfaite, 
+
+    $$\text{cov}\left(X_i, X_{i+k}\right) = \frac{\theta^k}{\eta^2(1-\theta^2)}$$
 
 :::
 

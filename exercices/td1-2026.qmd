@@ -1,6 +1,6 @@
 ---
-#title: "Exercices : semaine I"
-# subtitle: "M1 ISIFAR MA1AY010"
+# title: "TD I : Tribus, espaces mesurables"
+# subtitle: "M1 ISIFAR"
 
 # date: "2026-09-08"
 
@@ -37,15 +37,11 @@ requireNamespace('quarto')
 ```
 
 
-# Tribus
+# Tribus 
+
+## Comptages 
 
 
-## Opérations ensemblistes
-
-
-::: {#exr- name=""}
-
-:::
 
 
 ::: {#exr-denom-1 name="Ensembles dénombrables ou pas"}
@@ -81,6 +77,7 @@ Soit $\mathcal{A}$ l'ensemble des parties finies et des parties *co-finies* de $
 1. $\mathcal{A}$ est-elle close par complémentation ?
 1. $\mathcal{A}$ est-elle close par union dénombrable ?
 1. $\mathcal{A}$  est-elle une tribu ($\sigma$-algèbre) ?
+
 :::
 
 
@@ -104,7 +101,7 @@ une tribu de parties de $X$.
 :::
 
 
-## Les Boréliens 
+## Boréliens 
 
 ::: {#exr-borel-2 name="Propriétés des ouverts"}
 
@@ -157,10 +154,6 @@ Montrer que :
 :::
  
 
-::: {#exr-classes-monotones-2 name=""}
-
-
-:::
 
 ## Tribu produit
 
@@ -197,4 +190,54 @@ est dans $\mathcal{A}$.
 
 :::
 
+# Modélisations 
 
+::: {#exr-modelisation-1 name="Oeufs et poussins"}
+
+On suppose que le nombre $X$ d'oeufs pondus par un insecte suit une loi de Poisson de paramètre $\lambda>0$ et que la probabilité qu'un oeuf meure sans éclore est, indépendamment des autres oeufs, égale à $1-p$, où $p \in ]0,1[$. On note $Y$ le nombre d'oeufs qui arrivent à éclosion et $Z$ le nombre d'oeufs qui meurent avant éclosion. 
+
+
+Proposer un univers et une tribu sur cet univers pour modéliser cette situation. 
+
+Votre univers est-il dénombrable ? 
+
+On ne demande pas de définir une loi de probabilité, ni d'étudier des variables aléatoires.
+
+
+:::
+
+
+::: {#exr-modelisation-2 name="Processus de branchement (Galton-Watson)"}
+
+
+Un processus de Galton-Watson (processus de branchement homogène) est un processus stochastique en temps discret utilisé pour modéliser l’évolution d’une population où chaque individu se reproduit indépendamment des autres, suivant une même loi de probabilité donnée (appelée *loi de reproduction*).
+
+Il a été introduit au XIXᵉ siècle par Francis Galton et Henry Watson our étudier la probabilité d’extinction des noms de famille (nobles). On commence avec une *génération initiale* (génération $0$) formée d'un individu.
+Chaque individu de la génération $n$ engendre un nombre aléatoire de descendants distribué selon la loi de reproduction.
+Les descendants forment la génération suivante ($n+1$). Les nombres de descendants des individus de la géneration $n$ forment  une famille indépendante. Le nombre d'individus dans la génération $n$ est noté $Z_n$.
+
+La question centrale (et angoissante) est : la population s’éteint-elle presque sûrement ($Z_n \to 0$) ou bien survit-elle avec une probabilité non nulle ?
+
+Proposer un univers et une tribu sur cet univers pour modéliser ce processus de Galton-Watson jusqu`à la génération $k$. 
+
+Votre univers est-il dénombrable ? 
+
+On ne demande pas de définir une loi de probabilité, ni d'étudier des variables aléatoires.
+
+:::
+
+
+::: {#exr-modelisation-3 name="Allocations aléatoires"}
+
+
+On dispose de $n$ urnes numérotées de $1$ à $n$ et de $n$ boules. Les boules sont réparties de manière uniforme dans les urnes (chaque boule se comporte de manière indépendante des autres et a probabilité $1/n$ de tomber dans chaque urne). On note $U_i$ la variable aléatoire désignant le nombre de boules qui tombent dans l'urne $i$. 
+
+
+Proposer un univers et une tribu sur cet univers pour modéliser cette situation. 
+
+Votre univers est-il dénombrable ? fini ? 
+
+On ne demande pas de définir une loi de probabilité, ni d'étudier des variables aléatoires.
+
+
+:::

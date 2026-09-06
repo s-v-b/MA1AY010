@@ -1,0 +1,359 @@
+---
+#title: "Exercices : semaine I"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2025-09-08"
+
+format:
+  pdf:
+    output-file: exo_gaussien.pdf
+    include-in-header:
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD Exo Gaussien}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small TD Exo Gaussien}
+          \pagestyle{style-td1}
+
+  html:
+    output-file: exo_gaussien.html
+
+execute:
+  eval: true
+  echo: false
+#  results: asis
+
+
+engine: knitr
+---
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+
+
+::: {#exr-11-a   name=""} 
+
+
+:::
+
+Matrice de covariance de $X_1, X_2, X3$.
+
+```{r}
+#| label: feuille-5-exo-11
+
+Sigma <- matrix(1/2, 3, 3) + diag(1/2, 3, 3)
+
+Sigma 
+```
+
+```{r}
+#| label: "decompsition spectrale"
+
+SpecDec <- eigen(Sigma)
+
+SpecDec$values |>
+  matrix(nrow=3, ncol=1) |>
+  matlib::latexMatrix() |>
+  matlib::Eqn()
+```
+
+```{r}
+SpecDec$vectors  |>
+  matlib::latexMatrix() |>
+  matlib::Eqn(
+     quarto=T
+  )
+```
+
+Loi de $X_1 -X_2 + 2X_3$
+
+
+
+::: {.content-visible when-profile="solution"}
+
+Gaussien. Espérance nulle.
+
+Variance 
+
+```{r}
+#| label: calcul-covariance-11
+
+u <- matrix( c(1, -1, 2), 3, 1)
+
+t(u) %*% Sigma %*% u
+```
+
+$$\begin{pmatrix}1 & -1 & 2\end{pmatrix} \times \Sigma \times \begin{pmatrix}1 \\ -1 \\ 2\end{pmatrix}= 5$$
+
+:::
+
+Indépendance de $X_1 + a X_2$ et $X_1 -X_2$
+
+::: {.content-visible when-profile="solution"}
+
+Comme il s'agit de deux vecteur Gaussiens, il suffit calculer la covariance 
+
+
+$$\begin{pmatrix}1 & a & 0\end{pmatrix} \times \Sigma \times \begin{pmatrix}1 \\ -1 \\ 0\end{pmatrix}= 1 (1 - 1/2) + a (1/2 - 1) = 1/2 - a/2$$
+
+Indépendance si et seulement si $a=1/2$
+
+
+
+```{r}
+
+
+
+```
+:::
+
+
+Transformée de Laplace 
+
+
+La loi de $X$ admet elle une densité ?
+
+::: {.content-visible when-profile="solution"}
+
+Le vecteur $X$ admet une densité si et seulement si
+la matrice de covariance est inversible, c'est à dire si
+son déterminant est strictement positif, ou si toutes ses valeurs propores sont strictement positives 
+
+Le déterminant (produit des valeurs propres) vaut $2 \times 1/2 \times 1/2= 1/2 > 0$. 
+
+La loi de $X$ admet une densité. 
+
+
+```{r}
+# label: determinant-exo-11
+
+prod(SpecDec$values)
+
+det(Sigma)
+```
+
+$$\frac{1}{(2\pi)^{3/2}\sqrt{\text{det}(\Sigma)}} \exp\left( -\frac{x^\top \Sigma^{-1} x}{2}\right)$$
+
+
+```{r}
+
+solve(Sigma)
+```
+:::
+
+
+::: {#exr-12-a   name="Exercice 12"} 
+
+
+:::
+
+
+
+```{r}
+#| eval: true
+#| echo: false
+K <-  matrix(c(2, 1 , 1, 1, 3, -1, 1, -1, 2), 3, 3)
+```
+
+$K$  est-elle une matrice de variance/covariance?
+
+::: {.content-visible when-profile="solution"}
+
+Oui, si $K$ est semi-définie positive. Comme ses valeurs propres sont 
+toutes positives, $K$ est définie positive.  
+
+```{r}
+#| eval: true
+#| echo: false
+eigen(K)$values
+
+det(K)
+
+solve(K)
+```
+
+:::
+
+La densité de $\mathcal{N}(\mu, K)$.
+
+
+::: {.content-visible when-profile="solution"}
+
+Comme $K$ est définie positive, la loi $\mathcal{N}(\mu, K)$ adment une densité
+
+$$\frac{1}{(2\pi)^{3/2} \sqrt{\det(K)}} \exp\left(- \frac{(x-\mu)^\top \Sigma^{-1} (x-\mu)}{2} \right)$$
+
+soit
+
+$$\frac{1}{(2\pi)^{3/2} \sqrt{3}} \exp\left(- \frac{\begin{pmatrix}x_1 - 2& x_2 & x_3- 1\end{pmatrix}\begin{pmatrix}5/3 & -1 & -4/3 \\ -1 & 1 & 1 \\ -4/3 & 1 & 5/3\end{pmatrix} \begin{pmatrix} x_1 -2 \\ x_2 \\ x_3 -1\end{pmatrix} }{2} \right)$$
+
+```{r}
+
+u <- matlib::latexMatrix(SpecDec$vectors)
+matlib::Eqn(u, quarto=T)
+```
+
+```{r, results='asis'}
+matlib::Eqn('\\begin{pmatrix} 
+-0.57735 &  0.00000 &  0.81650 \\\\ 
+-0.57735 & -0.70711 & -0.40825 \\\\ 
+-0.57735 &  0.70711 & -0.40825 \\\\ 
+\\end{pmatrix}', quarto=T)
+```
+
+```{r}
+SpecDec$vectors |> 
+  matlib::Det()
+```
+
+```{r, results='asis'}
+matlib::Eqn('e=mc^2',  quarto = T)
+```
+:::
+
+
+::: {#exr-13-a   name="Exercice 13"} 
+
+
+:::
+
+Soit $(X,Y,Z)$ un vecteur Gaussien $\mathcal{N}(0, \text{Id})$
+
+i.  On pose $U=X+Y+Z$ et $V=X-Y$
+ii. Montrer que $U$ et $V$ sont indépendantes
+
+
+::: {.content-visible when-profile="solution"}
+
+```{r}
+A <- matrix(c(1, 1, 1, -1, 1, 0), nrow=2) |> 
+  matlib::latexMatrix()
+
+K <- diag(1, 3) |> 
+  matlib::latexMatrix()
+```
+
+```{r}
+XX <- matlib::latexMatrix(matrix(c("X", "Y", "Z"), nrow=3))
+UU <- matlib::latexMatrix(matrix(c("U", "V"), nrow=2))
+
+matlib::Eqn(UU, '=', A %*% XX, '=',  A , '\\times', XX)
+
+```
+```{r}
+matlib::Eqn('\\text{Cov}(U,V)', ' = A \\times K \\times A^\\top' , ' = ' , A, '\\times' , K, '\\times', t(A) ,' = ', A %*% K %*% t(A))
+```
+
+`r matlib::Eqn(UU)` est un vecteur Gaussien dont la matrice de covariance est diagonale. Ses coordonnées sont des Gaussiennes indépendantes. 
+
+:::
+
+
+::: {#exr-14-a   name="Exercice 14"} 
+
+
+:::
+
+
+```{r}
+mu <- matlib::latexMatrix(matrix(c(1,1,1), ncol=1))
+
+Kb <- matrix(c(2,1,1,1,2,-1,1,-1,2), nrow=3, ncol=3)
+K <- matlib::latexMatrix(Kb)
+```
+
+Soient 
+
+```{r}
+matlib::Eqn('\\mu = ', mu, '\\quad K = ', K )
+```
+l'espérance et la matrice de covariance de $Z$.
+
+Déterminer le plan $\Delta$ tel que  $P(Z \in \Delta)=1$.
+Le vecteur aléatoire est-il à densité?
+
+::: {.content-visible when-profile="solution"}
+
+Le plan $\Delta$ est le sous-espace affine de $\mathbb{R}^3$ passant par $\mu$ et orthogonal au noyau de $K$. 
+
+On vérifie au passage que le déterminant de $K$ est nul (noyau non trivial). On peut aussi vérifier que $K$ n'admet pas de factorisation de Cholesky. La factorisation QR de $K$ nous indique que le rang de $K$ est $2$. 
+
+```{r}
+matlib::Det(Kb)
+```
+
+```{r}
+res_svd <- svd(Kb)
+```
+
+Pour déterminer le noyau de $K$, il suffit (et il faut) résoudre le système linéaire suivant:
+
+```{r}
+zerovec <- matlib::latexMatrix(matrix(0, nrow=3))
+
+matlib::showEqn(Kb, rep(0, 3))
+```
+
+La troisième équation est la différence des deux premières.
+
+```{r}
+matlib::showEqn(Kb[1:2,], rep(0, 2))
+```
+
+Le support de la loi de $Z$ est de la forme 
+
+```{r}
+U2 <- matlib::latexMatrix(res_svd$u[,1:2])
+comb <- matlib::latexMatrix(matrix(c('x','y'), ncol=1))
+matlib::Eqn(mu  , ' + ', U2, '\\times',  comb)
+```
+
+Équation 
+
+```{r}
+vec <- matlib::latexMatrix(matrix(c('x','y','z'), ncol=1))
+orthovec <- matlib::latexMatrix(matrix(res_svd$u[1:3,3],ncol=3))
+matlib::Eqn( '0 = ', orthovec , ' \\times \\left(',vec, ' - ', mu, '\\right)')
+```
+
+ou plus simplement:
+
+```{r}
+matlib::Eqn('0 = ', matlib::latexMatrix(matrix(c(-1, 1, 1), nrow=1)), ' \\times \\left(',vec, ' - ', mu, '\\right)')
+```
+:::
+
+
+::: {#exr-15-a   name="Exercice 15"} 
+
+
+::: 
+
+
+
+::: {.content-visible when-profile="solution"}
+
+
+:::
+
+
+::: {#exr-15-a   name="Exercice 15"} 
+
+
+::: 
+
+
+
+::: {.content-visible when-profile="solution"}
+
+
+:::

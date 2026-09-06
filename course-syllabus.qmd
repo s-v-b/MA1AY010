@@ -8,9 +8,9 @@ title: "Syllabus"
 
 |           | Jour       | Horaire              | Salle                       |
 |-----------|-----------|-------------------|--------------------------------|
-| Cours/Exercices  | Lundi     | 13:30 - 16:30  | Sophie Germain 1015      |
-| Exercices | Mardi       | 8:30 - 10:30 | Halle aux Farines 227C |
-| Cours/Exercices| Jeudi       | 13:30 - 16:30 | Sophie Germain 1015              |
+| Cours/Exercices  | Lundi     | 13:30 - 16:30  | Sophie Germain 2017      |
+| Exercices | Mardi       | 8:30 - 10:30 | Sophie Germain 2015 |
+| Cours/Exercices| Jeudi       | 13:30 - 16:30 | Sophie Germain 2015              |
 
 ##  Objectifs
 

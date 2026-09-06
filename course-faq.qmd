@@ -21,3 +21,7 @@ Pas nécessairement.
 
 ### En `Python`
 
+-   Télécharger et installer Python  3.12+
+-   Installer Quarto CLI: <https://quarto.org/docs/getting-started/installation.html>
+-   Installer Git: <https://happygitwithr.com/install-git.html>
+-   Installer tout package utile avec `uv` (par exemple)

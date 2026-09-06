@@ -1,0 +1,60 @@
+---
+title: "Quarto Watermark Extension Example"
+abstract: "This is an example document of quarto watermark extension."
+
+
+filters:
+  - watermark
+watermark:
+  text: "A"
+  size: 2
+  angle: 15
+  color: "#000000"
+  opacity: 0.2
+  cols: 10
+  rows: 50
+  col-space: 4
+  row-space: 4
+  z-index: -1
+  html-font: "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"
+  pdf-font: "ETbb"
+
+format:
+  # html:
+  #   keep-md: true
+  #   embed-resources: true
+  pdf:
+    keep-tex: true
+    output-file: watermark-2025.pdf
+    include-in-header:
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small CC II}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small CC II}
+          \pagestyle{style-td1}
+
+engine: knitr
+draft: true
+---
+
+
+
+::: {#exr-bp-1   name="Branchement (Modélisation)"} 
+
+:::
+
+## Text
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+## Table
+
+| Command | Description |
+| --- | --- |
+| `git status` | List all *new or modified* files |
+| `git diff` | Show file differences that **haven't been** staged |
+
+## Figure
+
+![How qmd works](https://quarto.org/docs/get-started/hello/images/rstudio-qmd-how-it-works.png)

@@ -40,6 +40,7 @@ requireNamespace('quarto')
 
 # Mesures et fonctions mesurables
 
+## Détails
 
 ::: {#exr-mesure-positives name="Condition non-triviale"}
 
@@ -58,12 +59,6 @@ $\mu$ est-elle $\sigma$-additive ? Est-ce une mesure ?
 
 ## Mesures positives
 
-
-
-::: {#exr-crible-eratosthene name="Crible d'Ératosthène"}
-
-:::
-
 ::: {#exr-mesure-comptage name="Mesure de comptage"}
 
 1. La fonction  de $2^{\mathbb{N}}$  dans $[0, \infty]$ qui à un ensemble $A \subseteq \mathbb{N}$ associe son cardinal $|A|$ est-elle une mesure positive sur $(\mathbb{N}, 2^{\mathbb{N}})$ ?
@@ -75,14 +70,10 @@ $\mu$ est-elle $\sigma$-additive ? Est-ce une mesure ?
 :::
 
 
-::: {#exr-dynkin-1 name=""}
 
-:::
+<!-- ## Probabilités -->
 
-
-## Probabilités
-
-## Mesures $\sigma$-finies
+<!-- ## Mesures $\sigma$-finies -->
 
 <!-- Exercices 6, 7, 9 Chap. 1 Cohn -->
 
@@ -128,25 +119,37 @@ $$\delta_x(A) = \mathbb{I}_A(x) = \begin{cases} 1 & \text{si } x \in A \\ 0 & \t
 
 :::
 
+::: {#exr-completion name="Complétion de mesure"}
+
+Dans cet exercice $\mu$ est une mesure positive sur $\Omega, \mathcal{F}$. On souhaite étendre $\mu$ à des parties de $\Omega$ qui ne sont pas nécessairement dans $\mathcal{F}$.   
+
+Si il existe $A_1, B_1$ tels que $A_1 ⊆ E ⊆ B_1$ avec $A_1, B_1 ∈ \mathcal{F}$  et $\mu(B_1 ⧵ A_1)=0$ alors $\mu(E) =\mu(A_1)$ par convention. 
+
+1. Vérifier que cette définition n'aboutit pas à des contradictions.
+1. Définir $\mathcal{G}$ l'ensemble des parties de ${X}$  pour lesquelles $\mu$ est définie. Vérifier que $\mathcal{G}$ est une tribu.
+1. Vérifier que $\mu$ est une mesure sur $\mathcal{G}$. 
+
+<!-- Théorème 1.36 dans Rudin. Real and Complex Analysis -->
+
+
+:::
 
 # Fonctions mesurables
 
-
-
-## Exemples
 
 ## Propriétés
 
 <!-- Stabilité par les opérations usuelles de l'analyse -->
 
 
+<!-- 
 ::: {#exr-fontions-mesurables-1 name="Composition de fonctions mesurables"}
 
 Soit $(X, \mathcal{A})$, $(Y, \mathcal{B})$ et $(Z, \mathcal{C})$ des espaces mesurables, $f: X \to Y$ et $g: Y \to Z$ des fonctions   $\mathcal{A}/\mathcal{B}$ et  $\mathcal{B}/\mathcal{C}$ mesurables.
 
 Vérifier que $g \circ f$ est $\mathcal{A}/\mathcal{C}$ mesurable.
 
-:::
+::: -->
 
 
 ::: {#exr-fontions-mesurables-2 name="Combinaisons linéaires de fonctions mesurables"}
@@ -195,13 +198,18 @@ i. Si oui, exprimer cette densité en fonction de $f, a, b$.
 
 
 
-::: {#exr-image-2  name=""} 
+::: {#exr-image-2  name="CC1 2025"} 
 
+Soit $X \sim \mathrm{U}(-\pi/2,\pi/2)$ (loi uniforme sur $[-\pi/2,\pi/2]$), on définit $Y =\cos(X)$.
+
+i. La loi de $Y$ est-elle absolument continue?
+i. Si oui, déterminer une version de sa densité.
 
 :::
 
+{{< pagebreak >}}
 
-## Ensemble-mesure de Cantor
+# Ensemble-mesure de Cantor
 
 ::: {#exr-cantor-1   name="Ensemble et mesure de Cantor"} 
 
@@ -218,7 +226,7 @@ C_1 & = 1/3 \times C_0 \cup 2/3 + 1/3\times C_0 \\
 C_2 & = 1/3 \times C_1 \cup 2/3 + 1/3\times C_1 \\
 \vdots & \quad \vdots \\
 C_n & = 1/3 \times C_{n-1} \cup 2/3 + 1/3\times C_{n-1} \\
-\vdots & = vdots
+\vdots & = \vdots
 \end{align*}  
 
 alors $C = \cap_{n=1}^\infty C_n = \lim_{n \to \infty} C_n$.
@@ -254,5 +262,38 @@ On s'intéresse maintenant à la limite quand $n \to \infty$.
     a. Cette fonction de répartition est-elle l'intégrale de sa dérivée ?
 (@) Soient $\{X_j, j \in \mathbb{N}^* \}$ une famille de variables i.i.d., distribuées suivant la loi de Bernoulli de paramètre $1/2$. On définit $X=2 \sum_{j \ge 1} \frac{X_j}{3^j}$. Quelle est la loi de $X$? 
 (@) L'ensemble $C$ est-il dénombrable ?
+
+:::
+
+
+# Divers 
+
+
+::: {#exr-divers-1   name="Les anniversaires"} 
+
+On cherche a approximer la probabilité que parmi $N$ personnes, au moins deux (resp. trois) aient leur anniversaire le même jour. 
+
+1. Pour $1 \le i <j \le N$, on note $E_{ij}$ l'événement que les personnes $i,j$ aient le même anniversaire. Quelle est la probabilité de $E_{ij}$? Dans la suite de l'exercice on omet de considérer le cas des $29$ février.  Que vaut alors $P(E_{ij})$? Montrer que les événements $E_{12}, E_{23}, E_{13}$ sont indépendants deux à deux, mais pas mutuellement indépendants. Exprimer la probabilité qu'il y ait au moins deux personnes qui aient leur anniversaire le même jour. 
+1. Le but de cette question n'est pas d'obtenir un résultat exact, mais de faire une approximation assez bonne de la probabilité que parmi $N$ personnes, il y en ait au moins deux qui partagent le même anniversaire. On *admettra* donc que dans la suite on fait  *l'approximation* que les $\{E_{ij}, 1 \le i < j \le N\}$ sont mutuellement  indépendants. Quelle est alors la loi du nombre de couples ayant le même anniversaire? Approximer le résultat pour $N=30, N=60$.  
+1. Par une méthode similaire, approximer la probabilité que parmi $60$ personnes, il y en ait au moins trois qui ont leur anniversaire le même jour. Finalement, approximer la probabilité de cet événement lorsque $N=90$. 
+
+:::
+
+
+
+::: {#exr-divers-2  name="Concentration"} 
+
+
+Dans ce qui suit $||.||$ désigne la norme euclidienne. 
+
+Pour $\varepsilon \in (0,1)$, $n \in \mathbb{N}$  
+on note $A_{n, \varepsilon} := \{ x \in \mathbb{R}^n : (1-\varepsilon)(n/3)^{1/2} \le ||x|| \le (1+\varepsilon)(n/3)^{1/2}\}$, 
+et $C_n=[-1,1]^n$. 
+
+Montrer que pour tout $\varepsilon \in (0,1)$, la mesure de Lebesgue de $C_n \cap A_{n, \varepsilon}^c$ est négligeable, pour $n \to \infty$, devant celle de $C_n$.   
+
+ *Indication* : On notera qu'un point générique dans $C_n$ a pour coordonnées $(X_1,...,X_n)$, avec $\{X_i, i \ge 1\}$ une famille de variables aléatoires i.i.d, uniformes sur $[-1,1]$.  
+
+*Note* : Ceci signifie que pour $\varepsilon$ aussi petit qu'on souhaite le prendre, lorsque $n$ est grand, la majeure partie du volume de l'hypercube $C_n$ se trouve dans la couronne $A_{n,\varepsilon}$ (!) 
 
 :::

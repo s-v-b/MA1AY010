@@ -1,0 +1,434 @@
+---
+#title: "Exercices : semaine IV"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2025-09-08"
+
+format:
+  pdf:
+    output-file: ct1-2025.pdf
+    include-in-header:
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small CT I }
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small CT I }
+          \pagestyle{style-td1}
+
+engine: knitr
+draft: true
+---
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+
+
+
+
+
+
+::: {.callout-note}
+
+### CT I :    
+
+- 17 Décembre 2025
+
+- Master I ISIFAR
+
+- Durée : 3 heures 
+
+- **Probabilités** 
+
+:::
+
+
+::: {.callout-caution}
+
+- Aide-mémoire : une feuille A4 recto verso autorisée
+- Aucun autre document autorisé
+- Aucun moyen de communication électronique autorisé
+
+:::
+
+
+::: {#exr-1-new   name="Calculs de densités"} 
+
+:::
+
+
+On considère le quadruplet de variables aléatoires réelles $(X,Y,Z, T)$ de densité $f$ (relativement à la mesure de Lebesgue sur $\mathbb{R}^4$) telle que, pour un certain $C>0$~:
+
+
+::: {.content-hidden unless-profile="secret-and-confidential"}
+
+```{r}
+library(matlib)
+eta <- matrix(c(1, 3), nrow=2, ncol=1) 
+L <- matrix(c(1, 0, 1, 1), nrow=2)
+SigmaP <- L %*% t(L)
+PrecP <- solve(SigmaP)
+PrecP
+
+L2 <- matrix(c(2, 0, 2, 1), nrow=2)
+Sigma <- L2 %*% t(L2)
+Sigma
+solve(Sigma)
+```
+
+
+```{r}
+theta <-  matrix(c(1, 1), ncol=1, nrow=2)
+
+```
+```{r}
+#| eval: false
+Eqn('\\exp\\left(', '- \\frac{x^2 - 2xy + 2y^2 -2x + 5 y + 13}{2}', '\\right)' , quarto=T)
+```
+
+
+$$
+x^2 - 2xy + 2y^2 + 4x -10 y + 13 
+$$
+
+:::
+
+
+
+\begin{align*}
+f(x,y,z,t) & = C A(x,y) \times \\
+  & \exp\Big(
+        -\frac{1}{2} \Big(
+            A(x,y) 
+            \times \\
+  & \phantom{\exp\Big(-\frac{1}{2} }
+            \left(
+               1 +
+               B(z,t)
+            \right)
+        \Big)
+      \Big) 
+\end{align*}
+
+avec 
+
+$$
+A(x,y) = x^2 - 2xy + 2y^2 +4 x - 10 y + 13 
+$$
+et 
+$$
+B(z,t) =\frac{1}{4} \left(z^2 - 4zt + 8t^2 + 2z - 12 t + 5\right)
+$$
+
+
+i. Question preliminaire. 
+
+    On considère  $(x,y) \mapsto \alpha x^2 + \beta xy + \gamma y^2 + \delta x + \mu y + \nu$ avec des paramètres $\alpha, \beta, \gamma, \delta, \mu, \nu \in \mathbb{R}$. 
+
+    a. À quelle condition sur $\alpha, \beta, \gamma, \delta, \mu, \nu \in \mathbb{R}$, existe-t-il un et un seul  vecteur $\begin{pmatrix}x_0 & y_0\end{pmatrix}^\top \in \mathbb{R}^2$ et une matrice symétrique $\begin{pmatrix} a  & b \\ b & c\end{pmatrix}$ tels que, pour tout $\begin{pmatrix}x & y\end{pmatrix}^\top \in \mathbb{R}^2$, 
+
+    $$\alpha x^2 + \beta xy + \gamma y^2 + \delta x + \mu y + \nu = \begin{pmatrix}x - x_0 & y - y_0\end{pmatrix} \begin{pmatrix} a  & b \\ b & c\end{pmatrix} \begin{pmatrix}x - x_0 \\ y - y_0\end{pmatrix}$$
+
+    b. À quelle condition $(x,y) \mapsto \alpha x^2 + \beta xy + \gamma y^2$ est-elle toujours positive ou nulle? strictement positive? Comment cela se traduit-il sur la matrice $\begin{pmatrix} a  & b \\ b & c\end{pmatrix}$ de la sous-question précédente (si elle existe)? 
+
+i. Loi conditionnelle de $(Z,T)$ sachant $(X,Y)$
+
+    a. Pour $x, y \in \mathbb{R}$ fixés, calculer une densité conditionnelle de $Z,T$ sachant $X=x, Y=y$ (presque tout $x,y$).
+    a. Calculer l'espérance de la loi conditionnelle de $Z,T$ sachant $X=x$ et $Y=y$.
+    a. Calculer la covariance de la loi conditionnelle de $Z,T$ sachant $X=x$ et $Y=y$.
+
+i. Loi marginale de $(X,Y)$
+
+    a. Calculer la densité marginale de la loi (marginale) de $X,Y$
+    a. Déterminer la valeur de la constante $C$. 
+    a. Calculer l'espérance et la covariance de la loi (marginale) de $X,Y$.
+    a. Les vecteurs aléatoires $X,Y$ et $Z,T$ sont-ils indépendantes ?
+
+i. Loi marginale de $(Z,T)$
+
+    a. Calculer les espérances de $Z$ et de $T$ 
+    a. Calculer la densité marginale de la loi de $Z-\mathbb{E}Z$ 
+    a. Calculer $\mathbb{E} Z^2$ (à valeur dans $\mathbb{R} \cup \{\infty\}$)  
+
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-tip name="Solution i."}
+
+Il faut avoir $a=\alpha, c=\gamma, 2b=\beta$. De plus,  il faut pour tous $x,y$  
+
+\begin{align*}
+\nu & = a x_0^2 + 2b x_0y_0 + c y_0^2 \\
+\delta x & = 2 (ax_0 + by_0) x \\ 
+\mu y & =  2 (bx_0 + cy_0) y 
+\end{align*}
+
+soit 
+
+\begin{align*}
+\nu & = \alpha x_0^2 + \beta x_0y_0 + \gamma y_0^2 \\
+\delta  & = 2 (\alpha x_0 + \beta/2 y_0)  \\ 
+\mu  & =  2 (\beta/ 2 x_0 + \gamma y_0)  
+\end{align*}
+
+Si $\beta^2 -4 \alpha\gamma\neq 0$, il existe un et un seul vecteur qui vérifie les
+deux dernières équations. 
+
+\begin{align*}
+x_0 & =  \frac{\gamma\delta -\beta\mu}{2 (\alpha\gamma -\beta^2/4)}\\
+y_0 & =  \frac{\alpha\mu-\beta\delta}{2 (\alpha\gamma -\beta^2/4)}
+\end{align*}
+
+Ce vecteur doit de surcroit vérifier :
+
+$$\nu & = \alpha x_0^2 + \beta x_0y_0 + \gamma y_0^2.$$
+
+Si $\beta^2 -4 \alpha\gamma= 0$, il faut avoir $\alpha \mu= \delta \beta /2$ (ou $\gamma \delta= \mu\beta/2$)net de surcroit :
+
+$$$$
+
+\begin{align*}
+
+\end{align*}
+
+
+:::
+
+::: {.callout-tip name="Solution ii."}
+
+Pour étudier la loi conditionnelle de $(Z,T)$ sachant $(X,Y)$, on peut partir du fait que si on dispose (d'une version) de la densité marginale $f_{X,Y}$, la loi conditionnelle
+de $Z,T$ sachant $X=x, Y=y$ est caractérisée par la (version de la) densité conditionnelle:
+
+$$f(z,t \mid x,y) = \frac{f(x,y,z,t)}{f_{X,Y}(x,y)}$$
+
+Par ailleurs 
+
+$$f_{X,Y}(x,y) = \int\!\!\!\int f(x,y,z,t) \mathrm{d}z\mathrm{d}t$$
+
+\begin{align*}
+\int\!\!\!\int f(x,y,z,t) \mathrm{d}z\mathrm{d}t 
+    & = C A(x,y) \exp\Big(-\frac{A(x,y)}{2}\Big)  \times \int\!\!\!\int  \exp\left( - \frac{A(x,y)}{2}B(z,t)\right) \mathrm{d}z\mathrm{d}t 
+\end{align*}
+
+Pour étudier $\int\!\!\!\int  \exp\left( - \frac{A(x,y)}{2}B(z,t\right) \mathrm{d}z\mathrm{d}t$, on va étudier la forme quadratique $B(z,t)$,
+plus précisémment, on va rechercher une matrice symétrique $M$ et $z0, t_0$ tels que 
+
+$$
+B(z,t) = \begin{pmatrix} z-z_0 & t- t_0\end{pmatrix} \times M \times \begin{pmatrix} z-z_0 \\ t- t_0\end{pmatrix}
+$$
+
+soit 
+$$
+M = \frac{1}{4}\begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix} \qquad \begin{pmatrix} z_0 \\ t_0\end{pmatrix} = \begin{pmatrix} 1 \\ 1\end{pmatrix}
+$$
+
+On note aussi 
+$$\Sigma =  M^{-1} = \begin{pmatrix}  8 & 2 \\  2 & 1  \end{pmatrix}$$
+
+
+\begin{align*}
+\int\!\!\!\int  \exp\left( - \frac{A(x,y)}{2}B(z,t)\right) \mathrm{d}z\mathrm{d}t \\ 
+& = \int\!\!\!\int  \exp\left( - \frac{A(x,y)}{2}  \begin{pmatrix} z-z_0 & t- t_0\end{pmatrix} \times \Sigma^{-1} \times \begin{pmatrix} z-z_0 \\ t- t_0\end{pmatrix} \right) \mathrm{d}z\mathrm{d}t \\ 
+& = 2 \pi \sqrt{\frac{\text{Det}(\Sigma)}{A(x,y)^2}} \\
+& = 2 \pi \frac{\sqrt{\text{Det}(\Sigma)}}{A(x,y)}
+\end{align*}
+
+$$
+f_{X,Y}(x,y) =  C A(x,y) 2 \pi \frac{\sqrt{\text{Det}(\Sigma)}}{A(x,y)} \exp\Big(-\frac{A(x,y)}{2}\Big) = C 2 \pi \sqrt{\text{Det}(\Sigma)} \exp\left(-\frac{A(x,y)}{2}\right)
+$$
+
+Sans chercher à calculer $C$, on reporte ce résultat dans $f(x,y,z,t)/f_{X,Y}(x,y)$
+
+$$
+f(z,t \mid x,y) = \frac{1}{2\pi\sqrt{\text{Det}(\Sigma/A(x,y))}} \exp\left(- \frac{\begin{pmatrix} z-z_0 & t- t_0\end{pmatrix} \times \left( \frac{1}{A(x,y)} \Sigma\right)^{-1} \times \begin{pmatrix} z-z_0 \\ t- t_0\end{pmatrix}}{2}\right)
+$$
+
+on reconnait une densité gaussienne centrée en $\begin{pmatrix} z-z_0 \\ t- t_0\end{pmatrix}$
+de matrice de covariance $\frac{1}{A(x,y)} \Sigma$.
+
+:::
+
+
+::: {.callout-tip name="Solution iii."}
+
+On repart de 
+
+$$
+f_{X,Y}(x,y) = C 2 \pi \sqrt{\text{Det}(\Sigma)} \exp\left(-\frac{A(x,y)}{2}\right)
+$$
+
+On étudie la forme quadratique 
+
+$$
+A(x,y)= \begin{pmatrix} x - 1 & y -3 \end{pmatrix} \times \begin{pmatrix} 
+2 & 1 \\ 
+1 & 1 \\ 
+\end{pmatrix}^{-1} \times \begin{pmatrix} x - 1 \\ y -3 \end{pmatrix}
+$$
+
+On pose $K= \begin{pmatrix} 
+2 & 1 \\ 
+1 & 1 \\ 
+\end{pmatrix}$ (observons $\text{Det}(K)=1$ et $K^{-1}= \begin{pmatrix} 1 & -1 \\ -1 & 2  \end{pmatrix}$). 
+
+Si on choisit $C= \frac{1}{4\pi^2 \sqrt{\text{Det}(\Sigma)\text{Det}(K)}}$, on reconnait la densité gaussienne centrée en  $\begin{pmatrix} 1 \\ 3 \end{pmatrix}$ de covariance $K$.
+
+La densité conditionnelle de $Z,T$  sachant $X=x, Y=y$ n'est pas libre de $x$ et $y$. Les deux vecteurs ne sont pas indépendants.
+
+
+
+
+:::
+
+
+::: {.callout-tip name="Solution"}
+
+L'espérance conditionnelle de $(Z,T)$ est $(1,1)$, c'est aussi l'espérance de $(Z,T)$.
+
+Conditionnellement à $X=x, Y=y$, $1/2\sqrt{A(x,y)/2}(Z-1)$ est distribuée selon $\mathcal{N}(0,1)$.
+
+
+
+:::
+
+:::
+
+
+
+
+::: {.content-visible when-profile="solution"}
+
+:::
+
+{{< pagebreak >}}
+
+::: {#exr-1-bis   name="Gaussiennes et amies"} 
+
+Dans cet exercice, $X, Y \sim_{\text{i.i.d.}} \mathcal{N}(0,1)$ et $Z= X/Y$ si $Y\neq 0$, et $Z=0$ si $Y=0$. 
+
+i. Calculer la densité de la loi jointe de $Z,Y$
+i. Calculer la densité de la loi de $Z$
+i. Calculer la médiane de la loi de $Z$
+i. $Z$ et $Y$ sont-elles indépendantes ?
+i. Calculer la densité de la loi de $X^2/(X^2 + Y^2)$
+i. Les variables aléatoires $X^2/(X^2 + Y^2)$ et $X^2 + Y^2$ sont elles indépendantes ?
+
+:::
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-caution title="Solution"}
+
+i. $\frac{1}{2\pi} \exp\left(-(1+z^2)\frac{y^2}{2}\right) |y|$
+i. $\frac{1}{\pi(1+z^2)}$ (Cauchy)
+i. $0$ loi de  variable symétrique, densité paire
+i. Non
+i. $\Beta(1/2,1/2)$
+i. Oui. Calcul Gamma/Beta. 
+
+:::
+
+:::
+
+{{< pagebreak >}}
+
+
+::: {#exr-2   name="Fonctions génératrices, Chaines de Markov"} 
+
+:::
+
+Dans cet exercice, $X_1, \ldots X_n, \ldots$ est une suite de variables Bernoulli(1/2) indépendantes.
+La suite al'eatoire $W_1, \ldots, W_n, \ldots$ est définie par la récurrence suivante. 
+
+$$
+W_1 = 1 \qquad W_{n+1} = 
+  \begin{cases} W_n + 1 & \text{si } X_{n+1} = 1\\ 
+                1 & \text{si } X_{n+1} =0\, . 
+  \end{cases}
+$$
+
+On note $G_n$ la fonction génératrice des probabilités de la loi $W_n$
+
+i. Calculer $\mathbb{E}[ W_{n+1} \mid W_n]$ 
+i. Calculer $\mathbb{E} W_n$
+i. Proposer une relation entre $G_{n+1}$ et $G_n$ 
+i. Calculer $G_n$.
+i. La suite $(W_n)$ converge-t-elle en distribution? Si oui vers quelle limite?
+
+    *Maintenant, on note $T_r = \inf \left\{ n : W_n=r, n\geq 1\right\}$ où $r$ est un entier supérieur ou égal à 2*
+
+i. Quelle est la loi de $T_2$?
+i. Proposer une formule reliant la fonction génératrice de la loi de $T_{r+1}$ avec celle de la loi de $T_r$.
+i. En déduire  une relation de récurrence entre $\mathbb{E}T_{r+1}$ et $\mathbb{E}T_r$
+i. Calculer $\mathbb{E}T_r$ pour $r\geq 2$ général. 
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-caution title="Solution"}
+
+
+i. $\mathbb{E}[ W_{n+1} \mid W_n] = \frac{1}{2} W_n + 1$
+i. $\mathbb{E}[ W_{n+1} \mid W_n] = \frac{1}{2} \mathbb{E} W_n + 1$. D'où $\mathbb{E}W_n = 2 - (1/2)^{n-1}$.
+i. $G_{n+1}(s) = \frac{s}{2} \left(1 + G_n(s)\right)$
+i. $G_n(s) = \frac{s/2}{1-s/2} \left( 1 - (s/2)^{n+1} (1-s) \right)$
+i. Oui. Elle converge vers la loi géométrique de paramètre $1/2$.
+i. $T_2-1$ suit une loi géométrique de paramètre $1/2$
+i. $G_{r+1}(s) = \frac{sG_r(s)/2}{1-sG_r(s)/2}$
+i. $\mathbb{E} T_{r+1} = 2 (1+ \mathbb{E}T_r)$
+i  $\mathbb{E}T_r = 2^{n-2}(2 + \mathbb{E}T_2) -2$ avec $\mathbb{E}T_2 =2$, soit $\mathbb{E}T_r = 2^{n} -2$
+
+:::
+
+:::
+
+
+{{< pagebreak >}}
+
+
+
+::: {#exr-3   name="Gaussienne, normes, fonctions caractéristiques"} 
+
+:::
+
+Dans cet exercice  $X_1, \ldots, X_n \sim_{\text{i.i.d.}} \mathcal{N}(0,1)$, $\mu \in \mathbb{R}^n$, et 
+$Y = \sum_{i=1}^n X_i^2$. On note $X= \begin{pmatrix}   X_{1} & \ldots & X_{n} \end{pmatrix}^\top$ le vecteur
+aléatoire dont les coordonnées sont les $X_i$.  
+
+
+
+i. *$A$ est une rotation de $\mathbb{R}^n$  ($A \times A^\top= A^\top \times A = \text{Id}_n$),*
+
+    a. Comparer les lois de $\| A \times X \|^2$  et de $Y = \| X\|^2$. 
+    a. Donner une densité de la loi $Y$ lorsque $\mu=0$.
+    a. Lorsque $n=1$, calculer une densité de la loi de $Y$.     
+
+i. *$N$ suit une loi de Poisson de paramètre $\|\mu\|^2$ (carré de la norme euclidienne du vecteur $\mu$). Par ailleurs on notera $Z_1, \ldots, Z_n, ... \sim_{\text{i.i.d.}} \mathcal{N}(0,1)$ une suite i.i.d. infinie de Gaussiennes standards qui ne vivent dans le même espace probabilisé que $N$ et sont indépendantes de $N$.* 
+
+    a. Si $V \sim \text{Gamma}(p, \lambda)$, $p \in \mathbb{N}$, quelle est la fonction caractéristique de la loi de $V$ ?
+    a. On pose $W  = \sum_{i=1}^N Z_i^2$, calculer la fonction caractéristique de la loi de $W$
+    a. Calculer une densité de la loi de $W$.
+
+i. *On note $F_\mu$  la fonction de répartition de la loi de $Y$ définie plus haut.* 
+
+    a. Est-il vrai que pour tout $z >0$, tout $\mu \in \mathbb{R}^n$, $F_0(z) \geq F_\mu(z)$ ? (justifier)_
+    a. Est-il vrai que pour tout $z >0$, tout $\mu, \mu' \in \mathbb{R}^n$, $F_{\mu'}(z) \geq F_\mu(z)$ si 
+    $\|\mu'\| \leq \|\mu\|$? (justifier)
+
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-caution title="Solution"}
+
+
+:::
+
+:::

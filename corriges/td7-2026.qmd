@@ -1,0 +1,1 @@
+../exercices/td7-2026.qmd
