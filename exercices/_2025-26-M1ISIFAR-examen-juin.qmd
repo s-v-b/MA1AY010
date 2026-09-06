@@ -1,3 +1,10 @@
+---
+
+draft: true 
+
+---
+
+
 ::: center
 
 **Durée 3 heures**
@@ -214,4 +221,4 @@ temps d'arrêt. On pose aussi, pour $t\in[0,1]$ : $$\begin{gathered}
     $\mathbb{E}(T_r)$, puis calculer $\mathbb{E}(T_r)$ pour tout
     $r\geq0$.
 
-[]{#lasytsd label="lasytsd"}
+
