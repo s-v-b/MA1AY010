@@ -1,0 +1,15 @@
+{
+  "hash": "ff9f3ced6e706501801280179e881d3f",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\n#title: \"Exercices : semaine IV\"\n# subtitle: \"M1 ISIFAR MA1AY010\"\n\n# date: \"2026-09-28\"\n\nformat:\n  pdf:\n    output-file: td10-2026.pdf\n    include-in-header:\n      - file: before_header_td.tex\n      - text: |\n          \\copypagestyle{style-td1}{mystyle}\n          \\makeevenhead{style-td1}{\\sffamily\\small Probabilités et Extrêmes}{}{\\sffamily\\small TD X}\n          \\makeoddhead{style-td1}{\\sffamily\\small Probabilités et Extrêmes}{}{\\sffamily\\small TD X}\n          \\pagestyle{style-td1}\n\n  html:\n    output-file: td10-2026.html\n\nengine: knitr\ndraft: false\n\ncategories: [Concergence presque sûre, Convergence en probabilité, Loi des grands nombres]\n\n---\n\n\n\n\n\n\n\n\n::: {.cell}\n\n:::\n\n\n# Convergences presque sûre et en probabilité, lois des grands nombres\n\n\n## Convergence presque sûre \n\n\n## Convergence en probabilité\n\n\n## Loi faible des grands nombres\n\n\n## Loi forte des grands nombres\n\n## Applications\n\n::: {#exr-weierstrass  name=\"Théorème d'approximation de Weierstrass\"}\n\nSoit $f : [0, 1] → \\mathbb{R}$ une fonction continue.\n\nSoit $S_n$ une variable aléatoire distribuée selon une loi binomiale de\nparamètres $n$ et $x \\in (0,1)$.\n\nMontrer que :\n\n$$\n\\lim_n \\sup_{0\\leq x \\leq 1} \\left| f(x) - \\sum_{k=0}^n \\binom{n}{k} x^k  (1-x)^{n-k} f\\left(\\frac{k}{n}\\right)\\right| = 0 \n$$\n\n*Suggestion:* Utiliser $$\n\\mathbb{E}(Z) = \\mathbb{E}(Z \\mathbb{I}_A ) + \\mathbb{E}(Z \\mathbb{I}_{A^c} )\n$$ avec $Z = f (x) − f (S_n/n )$ et $$\nA = \\{|S_n/n − x| > δ\\}, \n$$\n:::\n\n::: {.callout-note appearance=\"minimal\"}\nLe théorème d'approximation de Weierstrass s'énonce: toute fonction\ncontinue sur $[0, 1]$ peut être approchée uniformément par des\npolynômes.\n:::\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

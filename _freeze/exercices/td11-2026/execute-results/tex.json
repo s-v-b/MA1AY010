@@ -1,0 +1,15 @@
+{
+  "hash": "85c5613b623ffa1485e2177052839ee0",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\n#title: \"Exercices : semaine IV\"\n# subtitle: \"M1 ISIFAR MA1AY010\"\n\n# date: \"2026-09-28\"\n\nformat:\n  pdf:\n    output-file: td11-2026.pdf\n    include-in-header:\n      - file: before_header_td.tex\n      - text: |\n          \\copypagestyle{style-td1}{mystyle}\n          \\makeevenhead{style-td1}{\\sffamily\\small Probabilités et Extrêmes}{}{\\sffamily\\small TD XI}\n          \\makeoddhead{style-td1}{\\sffamily\\small Probabilités et Extrêmes}{}{\\sffamily\\small TD XI}\n          \\pagestyle{style-td1}\n\n  html:\n    output-file: td11-2026.html\n\nengine: knitr\ndraft: false\n\ncategories: [Concergence en ditribution, TCL]\n\n---\n\n\n\n\n\n\n\n\n::: {.cell}\n\n:::\n\n\n# Convergences en distribution\n\n\n## Portemanteau \n\n\n## Théorèmes de continuité\n\n\n## TCL\n\n\n::: {#exr-tcl-poisson-gamma   name=\"Mélanges Gamma-Poisson\"} \n\n \n\nSoit $X \\sim \\Gamma(1,s)$. On définit $Y \\sim \\mathrm{Poisson}(X)$, (c'est-à-dire que conditionnellement à $X=x$, $Y \\sim \\mathrm{Poisson}(x)$). \n \n1. Calculer $\\Phi_Y$.\n1. Montrer que lorsque $s \\to \\infty$, \n$$\\frac{Y-E[Y]}{\\sqrt{\\mathrm{var}(Y)}} \\overset{(\\mathrm{loi})}{\\longrightarrow} Z,$$ \noù $Z \\sim \\mathcal{N}(0,1)$. Y a-t-il un lien avec le théorème central limite? \n \n\n:::\n\n::: {#exr-tcl-2   name=\"\"} \n\n (Une remarque importante sur la convergence en loi.)\n\nSoit, pour $n \\ge 1$, $X_n$ un variable aléatoire dont la fonction de répartition est définie par\n$$F_n(x) = x - \\frac{\\sin(2n \\pi x)}{2n\\pi}, \\ 0 \\le x \\le 1.$$\n \n1. Montrer que $X_n$ converge en loi vers une variable $X$ (dont on décrira la loi).  \n1.  Vérifier que $X_n$ et $X$ sont des variables à densité. On note $f_n := F_n'$ la densité de $X_n$, $f$ celle de $X$. A-t-on $f_n \\underset{n \\to \\infty}{\\rightarrow} f$ simplement?    \n\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}

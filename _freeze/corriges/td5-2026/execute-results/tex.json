@@ -1,0 +1,15 @@
+{
+  "hash": "73e0ed6300c18228f1ca8841fef3ea10",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\n#title: \"Exercices : semaine II\"\n# subtitle: \"M1 ISIFAR MA1AY010\"\n\n# date: \"2026-09-08\"\n\nformat:\n  pdf:\n    output-file: td5-2026.pdf\n    include-in-header:\n      - file: before_header_td.tex\n      - text: |\n          \\copypagestyle{style-td1}{mystyle}\n          \\makeevenhead{style-td1}{\\sffamily\\small Probabilités et Extrêmes}{}{\\sffamily\\small TD V}\n          \\makeoddhead{style-td1}{\\sffamily\\small Probabilités et Extrêmes}{}{\\sffamily\\small TD V}\n          \\pagestyle{style-td1}\n\n  html:\n    output-file: td5-2026.html\n\nengine: knitr\ndraft: false\n\ncategories: [Espérances, Moments]\n\n---\n\n\n\n\n\n\n\n\n::: {.cell}\n\n:::\n\n\n# Espérances et moments\n\n\n\n::: {#exr-mediane-variationnelle name=\"Caractérisation de la médiane\"}\n\nSoit $X$ une variable aléatoire  réelle intégrable sur $(\\Omega, \\mathcal{F}, P)$. \n\nMontrer que les médianes de la loi de $X$ sont les réels qui minimisent:\n\n$$a \\mapsto \\mathbb{E} \\left| X - a\\right| \\, .$$\n\n:::\n\n\n## Espérance et fonction de survie\n\n\n::: {#exr-fonction-de-survie-1 name=\"Fonction de survie\"}\n\n:::\n\n\n::: {#exr-fonction-de-survie-2 name=\"Taux de hasard\"}\n\n:::\n\n\n::: {#exr-fonction-de-survie-3 name=\"Fonction de survie\"}\n\n:::\n\n\n## Inégalité de Markov et majorations  de la fonction de survie \n\n::: {#exr-markov-1 name=\"\"}\n\n:::\n\n## Inégalité de Lévy et variantes\n\n::: {#exr-ineq-levy-2 name=\"SD et MAD\"}\n\n:::\n\n::: {#exr-ineq-levy-1 name=\"Inégalité de Lévy\"}\n\n:::\n\n\n::: {#exr-ineq-levy-3 name=\"SD et IQR\"}\n\n:::\n\n\n\n## \n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "hash": "2a750a1ab78756d3ef58c977a07bde01",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Quarto Watermark Extension Example\"\nabstract: \"This is an example document of quarto watermark extension.\"\n\n\nfilters:\n  - watermark\nwatermark:\n  text: \"A\"\n  size: 2\n  angle: 15\n  color: \"#000000\"\n  opacity: 0.2\n  cols: 10\n  rows: 50\n  col-space: 4\n  row-space: 4\n  z-index: -1\n  html-font: \"system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'\"\n  pdf-font: \"ETbb\"\n\nformat:\n  # html:\n  #   keep-md: true\n  #   embed-resources: true\n  pdf:\n    keep-tex: true\n    output-file: watermark-2025.pdf\n    include-in-header:\n      - file: before_header_td.tex\n      - text: |\n          \\copypagestyle{style-td1}{mystyle}\n          \\makeevenhead{style-td1}{\\sffamily\\small Probabilités et Extrêmes}{}{\\sffamily\\small CC II}\n          \\makeoddhead{style-td1}{\\sffamily\\small Probabilités et Extrêmes}{}{\\sffamily\\small CC II}\n          \\pagestyle{style-td1}\n\nengine: knitr\ndraft: true\n---\n\n\n\n::: {#exr-bp-1   name=\"Branchement (Modélisation)\"} \n\n:::\n\n## Text\n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\n## Table\n\n| Command | Description |\n| --- | --- |\n| `git status` | List all *new or modified* files |\n| `git diff` | Show file differences that **haven't been** staged |\n\n## Figure\n\n![How qmd works](https://quarto.org/docs/get-started/hello/images/rstudio-qmd-how-it-works.png)\n",
+    "supporting": [
+      "example_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}
