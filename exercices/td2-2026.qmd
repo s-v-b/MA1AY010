@@ -108,7 +108,7 @@ On définit $\mu(A) =\lim_n \mu_n(A)$ pour $A \in \mathcal{A}$.
 :::
 
 
-::: {#exr-sigma-3 name="Sommes de Dirac"}
+<!-- ::: {#exr-sigma-3 name="Sommes de Dirac"}
 
 Dans cet exercice $\delta_x$ désigne la mesure de Dirac en $x \in \mathcal{R}$.
 
@@ -117,7 +117,7 @@ $$\delta_x(A) = \mathbb{I}_A(x) = \begin{cases} 1 & \text{si } x \in A \\ 0 & \t
 
 
 
-:::
+::: -->
 
 ::: {#exr-completion name="Complétion de mesure"}
 
@@ -265,6 +265,7 @@ On s'intéresse maintenant à la limite quand $n \to \infty$.
 
 :::
 
+{{< pagebreak >}}
 
 # Divers 
 

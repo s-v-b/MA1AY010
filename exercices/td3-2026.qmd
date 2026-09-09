@@ -42,33 +42,89 @@ requireNamespace('quarto')
 # Intégrales et espérances
 
 
-## Fonctions simples 
 
-Sur $\mathbb{R}$
 
-Densité
+## Intégration 
 
-## Fonctions étagées
+::: {#exr-rudin-1-39 name="Nullité presque partout"}
+Soit $f$ une fonction mesurable  de $(\mathcal{X}, \mathcal{F}, \mu)$ dans $\mathbb{R}$. 
 
-## Conditions de nullité presque partout.
 
 <!-- - Exercice sur le Théorème 1.39 de Rudin -->  
 
-Soit $f$ une fonction mesurable  de $(\mathcal{X}, \mathcal{F}, \mu)$ dans $\mathbb{R}$. 
+
 
 1. Vérifier que si $f$ est positive ou nulle, $t \mu\{x : f(x) \geq  t\}\leq \int f \mathrm{d}\mu$ pour $t>0$.  
 1. Vérifier que si $f$ est positive ou nulle et $\int f \mathrm{d}\mu=0$ alors $f$ est nulle $\mu$-presque partout.
-2.  
 1. Vérifier que si $f$ est $\mu$-intégrable, et pour tout $E \in \mathcal{F}$, $\int_E f \mathrm{d}\mu=0$ alors $f$ est nulle $\mu$-presque partout.
-1. Vérifier que si $f$ est $\mu$-intégrable  et $\left|\int f \mathrm{d}\mu\right| =  \int \left| f \right| \mathrm{d}\mu$.
+1. Vérifier que si $f$ est $\mu$-intégrable  et $\left|\int f \mathrm{d}\mu\right| =  \int \left| f \right| \mathrm{d}\mu$ alors il existe $a \in \mathbb{R}$ tel que $f = a |f|$ $\mu$-presque partout.
 
 
+:::
 
 
-## Théorèmes de convergence et applications
+::: {#exr-fatou-1 name="À propos du théorème de Fatou"}
+
+<!-- Exercice 1.8 Rudin sur Lemme de Fatou -->
+
+$f_n = \mathbb{I}_E$ si $n$ est pair, $f_n = \mathbb{I}_{E^c}$ si $n$ est impair.
+
+1. Que vaut $\int \liminf_n f_n \mathrm{d}\mu$ ?
+1. Que vaut $\liminf_n \int f_n \mathrm{d}\mu$ ?
+
+:::
 
 
-## Intégrales de Riemann/intégrables de Lebesgue
+::: {#exr-fatou-2 name="Application des théorèmes de convergence"}
+
+<!-- Exercice 1.9 Rudin sur Lemme de Fatou -->
+
+Soit $\mu$ une mesure positive sur $(\Omega, \mathcal{F})$, et $f : \Omega \to [0, \infty]$ une fonction mesurable et même intégrable  $\int_\Omega f \mathrm{d}\mu = c \in ]0,\infty)$. $\alpha$ est une constante strictement positive. 
+
+On s'intéresse à 
+$$\lim_n \int_X n \ln \left(  1 +\left(\frac{f}{n}\right)^\alpha \right) \mathrm{d}\mu$$
+
+1.  Si $\alpha\geq 1$, utiliser le théorème de convergence dominée pour vérifier que la limite vaut $c$ pour $\alpha=1$, et $0$ pour $\alpha>1$.
+2.  Si $\alpha<1$, utiliser le théorème de Fatou pour vérifier que la limite vaut $0$.
+:::
+
+
+::: {#exr-fatou-3 name="Application des théorèmes de convergence"}
+
+<!-- Exercice 1.7 Rudin sur Lemme de Fatou -->
+
+Soient $(f_n)_n$ avec $f_n : \Omega \to [0,\infty)]$ une suite de fonctions mesurables (la tribu sur $\Omega$ n'est pas spécifiée, pour $\mathbb{R}$ ). 
+
+On suppose que pour tout $\omega \in \Omega$, la suite $(f_n(\omega))_n$ est décroissante converge vers une limite finie $f(\omega)$. 
+
+On suppose aussi que $\int_\Omega f_1 \mathrm{d}\mu < \infty.$
+
+Montrer que 
+$$\lim_{n \to \infty} \int_\Omega f_n \mathrm{d}\mu = \int_\Omega f \mathrm{d}\mu$$
+
+:::
+
+
+::: {#exr-tcd-1 name="Dérivabilité sous le signe somme"}
+
+<!-- Exemple 2.4.6 Cohn -->
+
+Soit $g$ une fonction intégrable de $(\Omega, \mathcal{F}, \mu)$ dans $[0,\infty)$.
+Soit $I$ un intervalle ouvert de $\mathbb{R}$, et $f : \Omega \times I \to \mathbb{R}$ une fonction, qui vérifie
+
+- pour $t \in I$, la fonction $x \mapsto f(x,t)$ est intégrable,
+- pour $x \in \Omega$, la fonction $t \mapsto f(x,t)$ est dérivable de dérivée notée $f'(x,t)$,
+- pour tous $t,t_0 \in I$ et tout $x \in \Omega$, on a 
+    $$\left|\frac{f(x,t) - f(x,t_0)}{t - t_0} \right|\leq g(x)$$
+
+
+Montrer que la fonction $F : I \to \mathbb{R}$ définie par
+$$F(t) = \int_\Omega f(x,t) \mathrm{d}\mu(x)$$
+est dérivable, et sa dérivée est donnée par
+$$F'(t) = \int_\Omega f'(x,t) \mathrm{d}\mu(x).$$
+
+:::
+
 
 <!-- Stein and Shakarchi, Fourier Analysis Appendix Integration. I.2 -->
 
@@ -81,22 +137,43 @@ Pour caractériser les *ensembles de mesure nulle* : pour chaque $\epsilon>0$, i
  -->
 
 
+Pour un intervalle fini $[a,b]$, une *subdivision* de $[a,b]$ est une suite de points $a = x_0 < x_1 < \ldots < x_n = b$. On appelle *pas* de la subdivision $\max_{1 \leq i \leq n} (x_i - x_{i-1})$, l'écart maximal entre deux points consécutifs de la subdivision (le *pas* de la subdivision $S$ est défini par $\max_{1 \leq i \leq n} (x_i - x_{i-1})$).
 
+Une marque pour la subdivision $S = (x_0, x_1, \ldots, x_n)$  de $[a,b]$ est une suite de points $\xi_i \in [x_{i-1}, x_i]$ pour $i = 1, \ldots, n$.
+
+Soit $[a,b]$ un intervalle fini et $f$ une fonction bornée sur $[a,b]$. 
+On appelle *somme de Riemann* de $f$ pour la subdivision marquée $S$ la somme suivante.
+
+$$R(f,S) = \sum_{i=1}^n f(\xi_i) (x_i - x_{i-1})$$
+
+La fonction $f$ est Riemann-intégrable ssi il existe $m \in \mathbb{R}$, tel que $\forall \epsilon > 0$, il existe un $\delta > 0$ tel que pour toute subdivision $S$ de $[a,b]$ de pas inférieur à $\delta$,
+
+$$|R(f,S) - m| < \epsilon.$$
 
 
 ::: {#exr-riemann-1 name="Sommes de Riemann"}
 
+1. Vérifier que toute fonction continue bornée est Riemann-intégrable. 
+1. Vérifier que toute fonction Riemann-intégrable est Lebesgue-intégrable (et que les deux intégrales coïncident). 
+1. Existe-t-il des fonctions Lebesgue intégrables qui ne sont pas Riemann-intégrable ? 
 
 :::
 
 ::: {#exr-riemann-2 name="Sommes de Darboux"}
 
+Soit $[a,b]$ un intervalle fini et $f$ une fonction bornée sur $[a,b]$. On définit les sommes de Darboux associées à une subdivision $S$ $a = x_0 < x_1 < \ldots < x_n = b$ de $[a,b]$ par 
+
+$$U(f,S) = \sum_{i=1}^n \sup_{x_{i-1} \leq x \leq x_i} f(x) (x_i - x_{i-1})$$
+et 
+$$L(f,S) = \sum_{i=1}^n \inf_{x_{i-1} \leq x \leq x_i} f(x) (x_i - x_{i-1})$$
+
+
+Vérifier que $f$ est Riemann intégrable  sur $[a,b]$ si et seulement si
+$$\lim_{r \searrow 0} \sup_{S \text{ de pas} \leq r} U(f,S) = \lim_{r \searrow 0} \inf_{S \text{ de pas} \leq r} L(f,S)$$
 
 :::
 
 ::: {#exr-riemann-3 name="Intégrabilité au sens de Riemann"}
-
-
 
 On note pour une fonction $f$ définie sur $\mathbb{R}$ et $x\in \mathbb{R}$, on définit:
 
@@ -115,21 +192,24 @@ $$A_\epsilon = \left\{ x \in [a,b] : \operatorname{osc}(f,x) \geq \epsilon \righ
 1. Vérifier que pour chaque $\epsilon>0$, l'ensemble $A_\epsilon$ est fermé.
 1.  Vérifier que pour chaque $\epsilon>0$, l'ensemble $A_\epsilon$ est compact.
 1. Vérifier que  $f$ est continue en $x$ si et seulement si $\operatorname{osc}(f,x) = 0$.
-1. Vérifier que l'ensemble des points de disconitinuité  $f$ sur $[a,b]$ est $\cup_{\epsilon>0} A_\epsilon$.
+1. Vérifier que l'ensemble des points de discontinuité  $f$ sur $[a,b]$ est $\cup_{\epsilon>0} A_\epsilon$.
 1. Vérifier que si l'ensemble des points de disconitinuité  $f$ sur $[a,b]$ est de mesure de Lebesgue nulle, alors $f$ est Riemann-intégrable sur $[a,b]$.
 1. Réciproquement, si $f$ est intégrable sur $[a,b]$, vérifier que pour tout $\epsilon>0$, l'ensemble $A_\epsilon$ est de mesure de Lebesgue nulle (pour tout $\delta>0$, il existe une suite dénombrable d'intervalles ouverts $(I_k)$ dont la somme des longueurs est inférieure à $\delta$ et dont la réunion recouvre $A_\epsilon$).
 
+:::
+
+
+
+
+::: {.callout-note name="`A retenir" appearance="minimal"}
+
+- Toute fonction Riemann-intégrable est Lebesgue-intégrable
+- Une fonction bornée sur un intervalle $[a,b]$ est Riemann-intégrable ssi l'ensemble de ses points de discontinuité est inclus dans un ensemble de mesure de Lebesgue nulle (elle est bornée et continue presque partout). 
 
 :::
 
 
-::: {#exr-riemann-4 name="Caractérisation de l'intégrabilité au sens de Darboux"}
-
-
-:::
-
-
-## Divers
+# Divers
 
 ::: {#exr-calculs-1 name="Extrait CC1 2025"}
 
@@ -144,7 +224,6 @@ i. Calculer la fonction de répartition de la loi de $Z$.
 i. La loi de $Z$ possède-t-elle une espérance finie?  
 
 :::
-
 
 
 ::: {#exr-transformee-laplace name="Quelques caractérisations classiques"}
@@ -193,5 +272,276 @@ a. Calculer $P \{ T_1 = k  \wedge T_2 = k+j\}$ pour $k, j \in \mathbb{N}$
 a. Calculer $P \{ T_2 = k  \}$ pour $k \in \mathbb{N}$
 a. Calculer $\mathbb{E}T_2$
 a. Calculer $\mathbb{E} T_n$
+
+:::
+
+
+::: {#exr-11  name="Partiel passé"}
+
+:::
+
+On considère le couple $(X,Z)$ de densité jointe
+$$ f(x,z) := (z-x)\exp(-z) \mathbf{1}_{\{z \ge x \ge 0\}}.$$
+
+
+
+1. Calculer la loi de $X$, puis celle de $Z$.
+<!-- 1. En déduire que
+
+    $$f_{X \mid Z}(x \mid z) = \frac{2(z-x)}{z^2} \mathbf{1}_{\{0 \le x \le z, z >0\}}.$$
+
+1. Calculer $\mathbb{E}[X \mid Z]$, puis $\mathrm{Var}[X\mid Z]$.
+1. Calculer $f_{Z \mid X}(z \mid x)$, puis démontrer que $\mathbb{E}[Z \mid X] = X + 2$. -->
+1. Quelle est la loi du couple $(X, Z-X)$? En déduire la loi de $Z-X$.
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note}
+
+### Solution
+
+1. La variable de $X$ possède la densité $f_X$ avec pour $x \in \mathbb{R}$, 
+
+    \begin{align*}
+    f_X(x) & =  \int_{\mathbb{R}} dz f(x,z) = \mathbb{I}_{\{x \ge 0\}} \int_{x}^{\infty} (z-x) \exp(-z) dz 
+    \\ & =  \mathbb{I}_{\{x \ge 0\}} \int_0^{\infty} y \exp(-(y+x)) dy \\   
+    & =  \mathbb{I}_{\{ x \ge 0\}} \exp(-x)
+    \end{align*}
+
+en utilisant le changement de variables $y = z-x$ et le fait que $\int_{0}^{\infty} y \exp(y)$ vaut $1$ (par exemple en reconnaissant l'espérance d'une exponentielle standard, ou alors en effectuant une i.p.p). On conclut que $X \sim \exp(1)$. 
+
+La variable $Z$ possède la densité $f_Z$ avec pour $z \in \mathbb{R}$, 
+
+\begin{align*}
+f_Z(z) 
+    & =  \int_{\mathbb{R}} dx f(x,z) \\ 
+    & = \mathbb{I}_{\{z \ge 0\}} \exp(-z) \int_{0}^{z} (z-x)  dz \\ 
+    & =  \mathbb{I}_{\{z \ge 0\}} \exp(-z) \frac{z^2}{2}
+\end{align*}
+
+et on conclut que $Z \sim \Gamma(2,1)$. 
+
+
+:::
+
+
+::: {.callout-note}
+
+### Solution (suite)
+
+
+1. On a donc 
+
+    $$f_{X \mid Z}(x \mid z) = \begin{cases} \frac{f(x,z)}{f_Z(z)} & \mbox{si } z > 0 \\ 0 & \mbox{sinon}\end{cases} = \frac{2(z-x)}{z^2} \mathbf{1}_{\{0 \le x \le z, z >0\}}.$$ 
+
+1. On déduit pour $z >0$, 
+
+    \begin{align*}
+    Phi(z) 
+    & :=  \int_{\mathbb{R}} x f_{X \mid Z}(x \mid z) dx \\ 
+    & =  \int_{0}^{x} \frac{2 x(z-x)}{z^2} dx = \frac{z^3 - \frac{2}{3}z^3}{z^2} = \frac{z}{3}
+    \end{align*} 
+
+    et on conclut d'après le résultat EF4 que $\mathbb{E}[X \mid Z] = \Phi_1(Z) = \frac{Z}{3}$. 
+
+    De plus pour $z>0$, 
+
+    \begin{align*}
+    \Phi_2(z) 
+    & : =  \int_{\mathbb{R}} x^2 f_{X \mid Z}(x \mid z) dx \\ 
+    & =  \int_0^x \frac{2x^2(z-x)}{z^2} dx = \frac{2}{3} z^2 - \frac{1}{2} z^2 = \frac{z^2}{6}
+    \end{align*}
+
+    de sorte, toujours par le même résultat, que $\mathbb{E}[X^2 \mid Z] = \Phi_2(Z) = \frac{Z^2}{6}$. 
+
+    On déduit que 
+
+    $$\mathrm{Var}[X \mid Z] = \mathbb{E}[X^2 \mid Z] - (\mathbb{E}[X \mid Z])^2 = \frac{Z^2}{6} - \frac{Z^2}{9} = \frac{Z^2}{18}.$$
+ 
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
+
+
+1. On a 
+
+\begin{align*}
+f_{Z\mid X}(z \mid x) = \begin{cases} \frac{f(x,z)}{f_X(x)} & \mbox{si } x > 0 \\ 0 & \mbox{sinon}\end{cases} = (z-x) \exp(-(z-x)) \mathbf{1}_{\{0 < x \le z\}}.
+\end{align*}
+
+On déduit que pour $x >0$, 
+
+\begin{align*}
+\Psi(x) & :=  \int_{\mathbb{R}} z f_{Z \mid X}(z \mid x) dz \\ 
+& =  \int_{x}^{\infty} z (z-x) \exp(-(z-x)) dx \\ 
+& =   \int_{0}^{\infty} (x+u) u \exp(-u) du \\ 
+& =  \left[ -(x+u)u \exp(-u) \right]_{0}^{\infty} + \int_0^{\infty} (x+2u) \exp(-u) du \\ 
+& =  \left[ -(x+2u) \exp(-u)\right]_0^{\infty} + \int_0^{\infty} 2 \exp(-u) du = x + 2,
+\end{align*}
+
+et on obtient, toujours par EF4, comme souhaité, que $\mathbb{E}[Z \mid X] = \Psi(X)=X+2$. 
+
+1. Soit $\phi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne, par le changement de variables $(x,z) \to (x,z-x)$ de $\{(z,x) : 0 \le x \le z\}$ dans $\mathbb{R}_+^2$ on obtient 
+2. 
+
+\begin{align*}
+\mathbb{E}[\phi(X, Z-X)] 
+& =  \int_{\mathbb{R}_+^2} \phi(x, z-x) (z-x) \exp(-z) \mathbb{I}_{\{z \ge x\}} dx dz \\
+& =  \int_{\mathbb{R}_+^2} \phi(u,v) \exp(-u) v \exp(-v) du dv
+\end{align*}
+
+et on obtient que $X \sim \exp(1)$ est indépendante de $Z-X \sim \mathrm{Gamma}(2,1)$. 
+
+:::
+
+:::
+
+
+1. Soit $z >0$. On suppose que $U_1^z \sim \mathrm{Unif}[0,z]$, $U_2^z \sim \mathrm{Unif}[0,z]$ et que $U_1^z$ est indépendante de $U_2^z$.
+Calculer la densité de $\min(U_1^z, U_2^z)$.
+1. On suppose à présent que conditionnellement à $Z$,
+$U_1^Z \sim \mathrm{Unif}[0,Z]$, $U_2^Z \sim \mathrm{Unif}[0,Z]$ et que $U_1^Z$ est
+(toujours conditionnellement à $Z$) indépendante de $U_2^Z$.
+Montrer que, conditionnellement à $Z$,  $\mathrm{min}(U_1^Z, U_2^Z)$ a la même loi
+que X.
+1. Soient $X_1,X_2,X_3$ trois variables indépendantes, toutes trois distribuées
+suivant la distribution exponentielle de paramètre $1$. On note $S= X_1+X_2+X_3$.
+Déterminer la loi de $(X_1,S)$. 
+Que vaut $\mathbb{E}[X_1\mid S]$? $\mathbb{E}[S \mid X_1]$?
+Montrer finalement que conditionnellement à $S$, le couple $(X_1,X_1+X_2)$ a la même
+loi que $\left(\mathrm{min}(U_1^S, U_2^S), \mathrm{max}(U_1^S, U_2^S)\right)$.
+
+::: {.content-visible when-profile="solution"}
+ 
+::: {.callout-note}
+
+### Solution
+
+1. La fonction de répartition $F$ de $U_1^z$ (et donc de $U_2^z$ puisqu'elle a la même loi est donnée entre $0$ et $z$ par $F(x) = \frac{x}{z}, 0 \le x \le z$. On déduit que pour $0 \le x \le z$, en utilisant l'indépendance de $U_1^z, U_2^z$ à la deuxième ligne ci-dessous, 
+
+    \begin{align*}
+    \mathbb{P}(\min(U_1^z, U_2^z) > x) 
+    & =   \mathbb{P}(U_1^z > x)  \mathbb{P}(U_2^z > x) \\ 
+    & =  (1 - F(x))^2 = \left(1-\frac{x}{z}\right)^2
+    \end{align*}
+
+    et on déduit que la densité de $\min(U_1^z,U_2^z)$ est donnée par 
+
+    $$g_z(x) = \frac{2}{z} \left(1-\frac{x}{z}\right)\mathbb{I}_{[0,z]}(x), \ x \in \mathbb{R}.$$   
+
+
+1. D'après la question précédente, conditionnellement à $Z$, $\min(U_1^Z,U_2^Z)$ possède la densité conditionnelle $g_Z$.  Par ailleurs, la densité conditionnelle de $X$ sachant $Z$ est $f_{X|Z}$ calculée à la question I.2 est p.p. égale à $g_Z$.  On conclut que conditionnellement à $Z$, les variables $X$ et $\min(U_1^Z,U_2^Z)$ ont la même loi. 
+
+
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
+
+1. Tout d'abord, par indépendance des trois variables exponentielles, $(X_1,X_2,X_3)$ a densité donnée par  
+
+    $$f(x_1,x_2,x_3) = \exp(-x_1-x_2-x_3) \mathbb{I}_{\{x_1\ge 0, x_2 \ge 0, x_3 \ge 0\}}, \quad (x_1,x_2,x_3) \in \mathbb{R}^3.$$
+
+    On en déduit pour $\phi : \mathbb{R}^2 \to \mathbb{R}_+$ borélienne, en utilisant à la deuxiième ligne le changement de variables $(x_1,x_2,x_3) \to (u=x_1,v=x_1+x_2,w=x_1+x_2+x_3)$ de $\mathbb{R}_+^3$ dans $\{(u,v,w) \in \mathbb{R}_+^3 : u \le v \le w\}$ 
+
+    \begin{align*}
+    \mathbb{E}[\phi(X_1,S)] 
+    & =  \int_{\mathbb{R}_+^3} \phi(x_1,x_1+x_2+x_3) \exp(-x_1-x_2-x_3) dx_1 dx_2 dx_3 \\ 
+    & =  \int_{\mathbb{R}_+^3 : u \le v \le w} \phi(u,w) \exp(-w) du dv dw  \\ 
+    & =   \int_{\mathbb{R}_+^2 : u \le w} \phi(u,w) (w-u) \exp(-w) 
+    \end{align*} 
+
+    et on déduit que $(X_1,S)$ a même loi que $(X,Z)$. 
+
+
+:::
+
+::: {.callout-note}
+
+### Solution (suite)
+
+Puisque les deux vecteurs ont même loi jointe, on peut utiliser la partie I pour déduire que  
+
+$$\mathbb{E}[X_1 \mid S] = \frac{S}{3}, \quad \mathbb{E}[S \mid X_1] = X_1 +2.$$
+
+On peut aussi prouver ces résultats directement (cf exercice 5) 
+
+
+D'après le calcul en début de question, la densité du triplet $(X_1.X_1+X_2.S)$ est donnée par 
+
+$$h(u,v,w) = \mathbb{I}_{\{0< u \le v \le w\}} \exp(-w) \quad (u,v,w) \in \mathbb{R}^3.$$
+
+Quitte à noter $T=X_1.V=X_1+X_2$ on a donc  
+
+$$h_{(T,V) \mid S} ((t,v) \mid s) = \frac{2}{s^2} \mathbb{I}_{0< t < v < s}.$$
+
+Par ailleurs, la densité conditionnelle de $(U_1^S,U_2^S)$ sachant $S$ est donnée par 
+
+$$\frac{1}{w^2}\mathbb{I}_{[0,w]^2}(u,v), (u,v) \in \mathbb{R}^2.$$ 
+
+Ceci peut être récrit 
+
+$$\frac{1}{w^2} \mathbb{I}_{\{0<u<v<w\}} + \mathbb{I}_{\{0<v<u<w\}}, (u,v) \in \mathbb{R}^2,$$
+
+la première partie correspondant aux cas où la première uniforme réalise le $\min$ des deux, et la deuxième partie aux cas où elle réalise le $\max$. 
+ 
+Comme $(U_1^S,U_2^S)$ jouent, conditionnellement à $S$, des rôles parfaitement symétriques, on déduit que $h_{(U,V) \mid S}$ est la densité de la statistique d'ordre de ces deux variables, ce qui est le résultat souhaité.  
+
+:::
+
+:::
+
+::: {.callout-note name="Rappel"}
+
+Rappel: *La loi exponentielle de paramètre d'intensité $\lambda>0$ a pour densité $x \mapsto \mathbb{I}_{x>0} \lambda \exp(-\lambda x)$.*
+
+
+:::
+
+::: {#exr-5-a   name="Marshall-Olkin"} 
+
+Dans cet exercice $Z_1, Z_2, Z_{1,2}$ sont trois variables indépendantes  distribuées selon des loi exponentielles d'intensités respectives $1, 1, 2$.
+
+On définit,  $X = \min(Z_1, Z_{1,2})$ et $Y =  \min(Z_2, Z_{1,2})$. 
+
+::::: {#marshall-olkin-ques}
+
+1. Caractérisez la loi de $X$ (fonction de répartition, densité, fonction de survie).
+1. Caractérisez la loi de $\min(X, Y)$
+1. Quelle est la probabilité que $X=Y$ ?
+1. $X$ et $Y$ sont-elles indépendantes ?
+1. La loi jointe de $(X, Y)$ admet-elle une densité par rapport à la mesure de Lebesgue sur $\mathbb{R}^2$ ? Si oui, calculer la densité.
+1. Calculer $P\{ X > a \text{ et } Y > b\}$ pour $a, b ∈ ]0,\infty)^2$
+1. Calculer $P\{ X > a + s \text{ et } Y > b +s \mid X >a \text{ et } Y>b\}$ pour $a, b, s ∈ ]0,\infty)^2$ 
+
+
+
+:::::
+
+:::
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note title=Solution}
+
+::::: {#marshall-olkin-sol}
+
+1. Exponentielle d'intensité $3$
+1. Exponentielle d'intensité $4$ (et pas $6$)
+1. $P\{X=Y\} = P\{ Z_{1,2} = \min(Z_1, Z_2, Z_{1,2})\} = \frac{2}{4}$.
+1. Non (voir réponse aux deux questions précédentes)
+1. Non (voir réponse à question 3)
+1. $\exp\left(-a -b -2\max(a,b) \right)$
+1. $P\{ X > s \text{ et } Y > s\}$
+
+:::::
+
+
+
+
+:::
 
 :::

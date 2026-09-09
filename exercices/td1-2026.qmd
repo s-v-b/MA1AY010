@@ -105,7 +105,7 @@ une tribu de parties de $X$.
 
 ::: {#exr-borel-2 name="Propriétés des ouverts"}
 
-Montrer que tout sous-ensemble ouvert de $\mathbb{R}$ peut s'écrire comme une réunion dénombrable d'intervalles ouverts. 
+Montrer que tout sous-ensemble ouvert de $\mathbb{R}$ peut s'écrire comme une réunion dénombrable d'intervalles ouverts deux à deux disjoints. 
  
 :::
 
@@ -184,7 +184,7 @@ Montrer que pour tout $x\in X$, $E_x \in \mathcal{B}$.
 Soient $(X, \mathcal{A})$ et $(Y, \mathcal{B})$ des espaces mesurables. Soit $E \in \sigma(\mathcal{A}\times \mathcal{B})$.
 
 Montrer que 
-$$\left\{x : x \in X, \exists y \in Y (x,y) \in E\right\}$$
+$$\left\{x : x \in X, \exists y \in Y\,\, (x,y) \in E\right\}$$
 
 est dans $\mathcal{A}$.
 
