@@ -13,15 +13,15 @@ outils essentiels, et on tentera d'utiliser ces définitions et outils sur la li
 
 ## Préparer/Revoir
 
-- Espace probabilisable 
-  - Tribu/$\sigma$-algèbre
+- [Espace probabilisable. Voir Chapitre 2.](https://s-v-b.github.io/MA1AY010-CN/02-language.html) 
+  - Tribu/$\sigma$-algèbre  
   - Tribu borélienne
   - Lemme des classes monotones
 - Loi de probabilité, mesure positive, $\sigma$-additivité
 - Fonctions mesurables et variables aléatoires
-- Espérance, variance, moments
-- Théorèmes de convergence (monotone, Fatou, dominée)
-- Indépendance (Événements, Tribus)
+- [Espérance, variance, moments](https://s-v-b.github.io/MA1AY010-CN/03-expectation.html)
+- [Théorèmes de convergence (monotone, Fatou, dominée](https://s-v-b.github.io/MA1AY010-CN/031-moments.html)
+- [Indépendance (Événements, Tribus)](https://s-v-b.github.io/MA1AY010-CN/021-independence.html)
 
 ## Exercices
 
@@ -30,15 +30,10 @@ outils essentiels, et on tentera d'utiliser ces définitions et outils sur la li
 - [TD III](/exercices/td3-2026.html)
 
 
-<!-- Corrigés : 
+## Corrigés 
 
-- 1 (transformation affine), 
-- 2 (minima, maxima), 
-- 10 (transformées de Laplace), 
-- 11 (densité de la loi du carré), 
-- 17 (somme de Poisson indépendantes, conditionnement discret), 
-- 18 (sommes aléatoires de variables indépendantes). -->
-
+- TD I : 1, 2, 3, 6, 12, 13, 14
+- TD II : 2, 3, 8, 
 
 <br><br>
 
