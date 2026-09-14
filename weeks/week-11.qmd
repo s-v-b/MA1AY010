@@ -1,7 +1,7 @@
 ---
-title: "Week 11"
+title: "Semaine 11"
 subtitle: "TBA"
-editor: visual
+editor: source
 draft: true
 ---
 
@@ -14,26 +14,21 @@ Due dates:
 
 ## Prepare
 
-No additional readings this week.
-Catch up with previously assigned readings if you've fallen behind.
 
-## Participate
 
-🖥️ [Lecture 20 - LR: Prediction / classification](/slides/lec-20.html)
-
-🖥️ [Lecture 21 - LR: Model validation](/slides/lec-21.html)
 
 ## Practice
 
-📋 [Application Exercise 10 - Flight delays](/ae/ae-10-flight-delays.html)
 
 ## Perform
 
-✍️ [HW 3 - Logistic regression and log transformation](/hw/hw-3.html)
-
-⌨️ [Lab 5 - General Social Survey](labs/lab-5.html)
 
 <br><br>
+
+::: {style="font-size: 0.875em;"}
+Back to [course schedule](/ "Course schedule") ⏎
+:::
+
 
 ::: {style="font-size: 0.875em;"}
 Back to [course schedule](/ "Course schedule") ⏎

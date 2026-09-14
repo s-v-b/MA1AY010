@@ -2,7 +2,7 @@
 title: "Semaine 6"
 subtitle: "Vecteurs gaussiens"
 editor: source
-draft: false
+draft: true
 ---
 
 

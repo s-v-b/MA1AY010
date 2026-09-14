@@ -13,19 +13,22 @@ draft: false
 
 La semaine II (14-18 septembre 2026)  est encore consacrée aux révisions de Licence. 
 
+**CC1** le jeudi 17 Septembre (1 heure). Aide-mémoire manuscrit autorisé
+
 :::
 
 ## Préparer/Revoir
 
 ::: {}
 
-- Espaces produits, tribus produits (2026-09-14)
-- Lois produits  (2026-09-14)
-- Théorème de Fubini (2026-09-14)
+- Espérance, variance, moments, inégalités (2026-09-14)
+- Espaces produits, tribus produits (2026-09-15)
+- Lois produits  (2026-09-15)
+- Théorème de Tonelli-Fubini (2026-09-15)
+- [Indépendance (Événements, Tribus)](https://s-v-b.github.io/MA1AY010-CN/021-independence.html)
 - Calculs de densités *image*, formules de changement de variable (2026-09-15)
-- Espérances, moments, Espaces $L^p$ (2026-09-15)
-- Conditionnement discret (2026-09-18)
-- Processus de branchement aléatoire (2026-09-18)
+- Conditionnement discret (2026-09-17)
+- Processus de branchement (2026-09-17)
 
 
 :::
@@ -34,7 +37,6 @@ La semaine II (14-18 septembre 2026)  est encore consacrée aux révisions de Li
 
 - [Voir Notes, Espaces produits, etc](https://s-v-b.github.io/MA1AY010-CN/022-product-measures.html)
 - [Voir Notes, calculs de densité *image*](https://s-v-b.github.io/MA1AY010-CN/032-acfamilies.html)
-- [Voir Notes, Fonctions génératrices](https://s-v-b.github.io/MA1AY010-CN/0225-pgf.html)
 - [Voir Notes, Conditionnement discret](https://s-v-b.github.io/MA1AY010-CN/)
 - [Voir Notes, Espérances, Moments, Espaces $L^p$, ...](https://s-v-b.github.io/MA1AY010-CN/031-moments.html)
 
@@ -44,9 +46,10 @@ La semaine II (14-18 septembre 2026)  est encore consacrée aux révisions de Li
 
 ## Exercices
 
+- TD III : 2, 3, 5, 9 
 - [Feuille TD IV](/exercices/td4-2026.html)
 - [Feuille TD V](/exercices/td5-2026.html)
-- [Feuille TD VI](/exercices/td5-2026.html)
+<!-- - [Feuille TD VI](/exercices/td5-2026.html) -->
 
 
 

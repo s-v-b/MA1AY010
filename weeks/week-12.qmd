@@ -1,34 +1,24 @@
 ---
-title: "Week 12"
-subtitle: "Multinomial logistic regression"
-editor: visual
+title: "Semaine 12"
+subtitle: "TBA"
+editor: source
 draft: true
 ---
 
 ::: callout-important
-Due dates: None.
+Due date: Exam 1 released on Fri, Feb 35, due Mon, Feb 28 at 11:59pm
 :::
 
 ## Prepare
 
-📖 Read Introduction to Modern Statistics, Chp 26: [Inference for logistic regression](https://openintro-ims.netlify.app/inf-model-logistic.html)
-
-## Participate
-
-🖥️ [Lecture 22 - LR: Inference + conditions](/slides/lec-22.html)
-
-🖥️ [Lecture 23 - Multinomial logistic regression (MultiLR)](/slides/lec-23.html)
-
 ## Practice
-
-No application exercises this week.
 
 ## Perform
 
-✍️ [HW 4 - Multinomial logistic regression](/hw/hw-4.html)
 
 <br><br>
 
 ::: {style="font-size: 0.875em;"}
 Back to [course schedule](/ "Course schedule") ⏎
 :::
+

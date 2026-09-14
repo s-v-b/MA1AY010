@@ -2,14 +2,14 @@
 title: "Week 3"
 subtitle: "TBA"
 editor: source
-draft: false
+draft: true
 ---
 
 ::: callout-important
 
 La semaine III (21-25 septembre 2026)  est  consacrée au conditionnement (espérance conditionnelle, noyaux de probabilité, densités conditionnelles).
 
-**CC 1** : Lundi 21 septembre (durée 1h de 15h30 à 16h30).
+
 
 :::
 
