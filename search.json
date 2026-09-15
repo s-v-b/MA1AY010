@@ -1,71 +1,5 @@
 [
   {
-    "objectID": "weeks/week-5.html",
-    "href": "weeks/week-5.html",
-    "title": "Semaine 5",
-    "section": "",
-    "text": "Important\n\n\n\nLa semaine V (5 octobre-8 octobre 2026) est consacrée aux modes de convergence en calcul des probabilités :\n\nConvergence presque sûre, en probabilité, en loi\nLoi(s) des grands nombres\nThéorème central limite",
-    "crumbs": [
-      "Agenda",
-      "Week 5"
-    ]
-  },
-  {
-    "objectID": "weeks/week-5.html#préparervoirrevoir",
-    "href": "weeks/week-5.html#préparervoirrevoir",
-    "title": "Semaine 5",
-    "section": "Préparer/Voir/Revoir",
-    "text": "Préparer/Voir/Revoir\n\n\nLoi faible des grands nombres\nThéorème central limite\n\n\n\n\nConvergence en probabilité/presque sûre et loi des grands nombres\nConvergence en loi et TCL",
-    "crumbs": [
-      "Agenda",
-      "Week 5"
-    ]
-  },
-  {
-    "objectID": "weeks/week-5.html#exercices",
-    "href": "weeks/week-5.html#exercices",
-    "title": "Semaine 5",
-    "section": "Exercices",
-    "text": "Exercices\n\nFeuille TD XI\n\n\nBack to course schedule ⏎",
-    "crumbs": [
-      "Agenda",
-      "Week 5"
-    ]
-  },
-  {
-    "objectID": "weeks/week-3.html",
-    "href": "weeks/week-3.html",
-    "title": "Week 3",
-    "section": "",
-    "text": "Important\n\n\n\nLa semaine III (21-25 septembre 2026) est consacrée au conditionnement (espérance conditionnelle, noyaux de probabilité, densités conditionnelles).\nCC 1 : Lundi 21 septembre (durée 1h de 15h30 à 16h30).",
-    "crumbs": [
-      "Agenda",
-      "Week 3"
-    ]
-  },
-  {
-    "objectID": "weeks/week-3.html#préparervoirrevoir",
-    "href": "weeks/week-3.html#préparervoirrevoir",
-    "title": "Week 3",
-    "section": "Préparer/Voir/Revoir",
-    "text": "Préparer/Voir/Revoir",
-    "crumbs": [
-      "Agenda",
-      "Week 3"
-    ]
-  },
-  {
-    "objectID": "weeks/week-3.html#exercices",
-    "href": "weeks/week-3.html#exercices",
-    "title": "Week 3",
-    "section": "Exercices",
-    "text": "Exercices\n\nFeuille TD VII\nFeuille TD VIII\n\n\nBack to course schedule ⏎",
-    "crumbs": [
-      "Agenda",
-      "Week 3"
-    ]
-  },
-  {
     "objectID": "weeks/week-1.html",
     "href": "weeks/week-1.html",
     "title": "Semaine 1",
@@ -191,14 +125,14 @@
     "href": "exercices/td3-2026.html",
     "title": "Intégrales et espérances",
     "section": "",
-    "text": "Exercice 1 (Nullité presque partout) Soit \\(f\\) une fonction mesurable de \\((\\mathcal{X}, \\mathcal{F}, \\mu)\\) dans \\(\\mathbb{R}\\).\n\n\nVérifier que si \\(f\\) est positive ou nulle, \\(t \\mu\\{x : f(x) \\geq  t\\}\\leq \\int f \\mathrm{d}\\mu\\) pour \\(t&gt;0\\).\n\nVérifier que si \\(f\\) est positive ou nulle et \\(\\int f \\mathrm{d}\\mu=0\\) alors \\(f\\) est nulle \\(\\mu\\)-presque partout.\nVérifier que si \\(f\\) est \\(\\mu\\)-intégrable, et pour tout \\(E \\in \\mathcal{F}\\), \\(\\int_E f \\mathrm{d}\\mu=0\\) alors \\(f\\) est nulle \\(\\mu\\)-presque partout.\nVérifier que si \\(f\\) est \\(\\mu\\)-intégrable et \\(\\left|\\int f \\mathrm{d}\\mu\\right| =  \\int \\left| f \\right| \\mathrm{d}\\mu\\) alors il existe \\(a \\in \\mathbb{R}\\) tel que \\(f = a |f|\\) \\(\\mu\\)-presque partout.\n\n\n\nExercice 2 (À propos du théorème de Fatou)  \n\n\\(f_n = \\mathbb{I}_E\\) si \\(n\\) est pair, \\(f_n = \\mathbb{I}_{E^c}\\) si \\(n\\) est impair.\n\nQue vaut \\(\\int \\liminf_n f_n \\mathrm{d}\\mu\\) ?\nQue vaut \\(\\liminf_n \\int f_n \\mathrm{d}\\mu\\) ?\n\n\n\nExercice 3 (Application des théorèmes de convergence)  \n\nSoit \\(\\mu\\) une mesure positive sur \\((\\Omega, \\mathcal{F})\\), et \\(f : \\Omega \\to [0, \\infty]\\) une fonction mesurable et même intégrable \\(\\int_\\Omega f \\mathrm{d}\\mu = c \\in ]0,\\infty)\\). \\(\\alpha\\) est une constante strictement positive.\nOn s’intéresse à \\[\\lim_n \\int_X n \\ln \\left(  1 +\\left(\\frac{f}{n}\\right)^\\alpha \\right) \\mathrm{d}\\mu\\]\n\nSi \\(\\alpha\\geq 1\\), utiliser le théorème de convergence dominée pour vérifier que la limite vaut \\(c\\) pour \\(\\alpha=1\\), et \\(0\\) pour \\(\\alpha&gt;1\\).\nSi \\(\\alpha&lt;1\\), utiliser le théorème de Fatou pour vérifier que la limite vaut \\(0\\).\n\n\n\nExercice 4 (Application des théorèmes de convergence)  \n\nSoient \\((f_n)_n\\) avec \\(f_n : \\Omega \\to [0,\\infty)]\\) une suite de fonctions mesurables (la tribu sur \\(\\Omega\\) n’est pas spécifiée, pour \\(\\mathbb{R}\\) ).\nOn suppose que pour tout \\(\\omega \\in \\Omega\\), la suite \\((f_n(\\omega))_n\\) est décroissante converge vers une limite finie \\(f(\\omega)\\).\nOn suppose aussi que \\(\\int_\\Omega f_1 \\mathrm{d}\\mu &lt; \\infty.\\)\nMontrer que \\[\\lim_{n \\to \\infty} \\int_\\Omega f_n \\mathrm{d}\\mu = \\int_\\Omega f \\mathrm{d}\\mu\\]\n\n\nExercice 5 (Dérivabilité sous le signe somme)  \n\nSoit \\(g\\) une fonction intégrable de \\((\\Omega, \\mathcal{F}, \\mu)\\) dans \\([0,\\infty)\\). Soit \\(I\\) un intervalle ouvert de \\(\\mathbb{R}\\), et \\(f : \\Omega \\times I \\to \\mathbb{R}\\) une fonction, qui vérifie\n\npour \\(t \\in I\\), la fonction \\(x \\mapsto f(x,t)\\) est intégrable,\npour \\(x \\in \\Omega\\), la fonction \\(t \\mapsto f(x,t)\\) est dérivable de dérivée notée \\(f'(x,t)\\),\npour tous \\(t,t_0 \\in I\\) et tout \\(x \\in \\Omega\\), on a \\[\\left|\\frac{f(x,t) - f(x,t_0)}{t - t_0} \\right|\\leq g(x)\\]\n\nMontrer que la fonction \\(F : I \\to \\mathbb{R}\\) définie par \\[F(t) = \\int_\\Omega f(x,t) \\mathrm{d}\\mu(x)\\] est dérivable, et sa dérivée est donnée par \\[F'(t) = \\int_\\Omega f'(x,t) \\mathrm{d}\\mu(x).\\]\n\n\n\nPour un intervalle fini \\([a,b]\\), une subdivision de \\([a,b]\\) est une suite de points \\(a = x_0 &lt; x_1 &lt; \\ldots &lt; x_n = b\\). On appelle pas de la subdivision \\(\\max_{1 \\leq i \\leq n} (x_i - x_{i-1})\\), l’écart maximal entre deux points consécutifs de la subdivision (le pas de la subdivision \\(S\\) est défini par \\(\\max_{1 \\leq i \\leq n} (x_i - x_{i-1})\\)).\nUne marque pour la subdivision \\(S = (x_0, x_1, \\ldots, x_n)\\) de \\([a,b]\\) est une suite de points \\(\\xi_i \\in [x_{i-1}, x_i]\\) pour \\(i = 1, \\ldots, n\\).\nSoit \\([a,b]\\) un intervalle fini et \\(f\\) une fonction bornée sur \\([a,b]\\). On appelle somme de Riemann de \\(f\\) pour la subdivision marquée \\(S\\) la somme suivante.\n\\[R(f,S) = \\sum_{i=1}^n f(\\xi_i) (x_i - x_{i-1})\\]\nLa fonction \\(f\\) est Riemann-intégrable ssi il existe \\(m \\in \\mathbb{R}\\), tel que \\(\\forall \\epsilon &gt; 0\\), il existe un \\(\\delta &gt; 0\\) tel que pour toute subdivision \\(S\\) de \\([a,b]\\) de pas inférieur à \\(\\delta\\),\n\\[|R(f,S) - m| &lt; \\epsilon.\\]\n\nExercice 6 (Sommes de Riemann)  \n\nVérifier que toute fonction continue bornée est Riemann-intégrable.\nVérifier que toute fonction Riemann-intégrable est Lebesgue-intégrable (et que les deux intégrales coïncident).\nExiste-t-il des fonctions Lebesgue intégrables qui ne sont pas Riemann-intégrable ?\n\n\n\nExercice 7 (Sommes de Darboux) Soit \\([a,b]\\) un intervalle fini et \\(f\\) une fonction bornée sur \\([a,b]\\). On définit les sommes de Darboux associées à une subdivision \\(S\\) \\(a = x_0 &lt; x_1 &lt; \\ldots &lt; x_n = b\\) de \\([a,b]\\) par\n\\[U(f,S) = \\sum_{i=1}^n \\sup_{x_{i-1} \\leq x \\leq x_i} f(x) (x_i - x_{i-1})\\] et \\[L(f,S) = \\sum_{i=1}^n \\inf_{x_{i-1} \\leq x \\leq x_i} f(x) (x_i - x_{i-1})\\]\nVérifier que \\(f\\) est Riemann intégrable sur \\([a,b]\\) si et seulement si \\[\\lim_{r \\searrow 0} \\sup_{S \\text{ de pas} \\leq r} U(f,S) = \\lim_{r \\searrow 0} \\inf_{S \\text{ de pas} \\leq r} L(f,S)\\]\n\n\nExercice 8 (Intégrabilité au sens de Riemann) On note pour une fonction \\(f\\) définie sur \\(\\mathbb{R}\\) et \\(x\\in \\mathbb{R}\\), on définit:\n\\[\\operatorname{osc}(f,x,r) =  \\sup_{ x-r\\leq y&lt;z \\leq x+r} |f(y)-f(z)|\\]\net\n\\[\\operatorname{osc}(f,x) =  \\lim_{r \\to 0} \\operatorname{osc}(f,x,r)\\]\nOn note\n\\[A_\\epsilon = \\left\\{ x \\in [a,b] : \\operatorname{osc}(f,x) \\geq \\epsilon \\right\\}\\]\n\nVérifier que pour chaque \\(\\epsilon&gt;0\\), l’ensemble \\(A_\\epsilon\\) est fermé.\nVérifier que pour chaque \\(\\epsilon&gt;0\\), l’ensemble \\(A_\\epsilon\\) est compact.\nVérifier que \\(f\\) est continue en \\(x\\) si et seulement si \\(\\operatorname{osc}(f,x) = 0\\).\nVérifier que l’ensemble des points de discontinuité \\(f\\) sur \\([a,b]\\) est \\(\\cup_{\\epsilon&gt;0} A_\\epsilon\\).\nVérifier que si l’ensemble des points de disconitinuité \\(f\\) sur \\([a,b]\\) est de mesure de Lebesgue nulle, alors \\(f\\) est Riemann-intégrable sur \\([a,b]\\).\nRéciproquement, si \\(f\\) est intégrable sur \\([a,b]\\), vérifier que pour tout \\(\\epsilon&gt;0\\), l’ensemble \\(A_\\epsilon\\) est de mesure de Lebesgue nulle (pour tout \\(\\delta&gt;0\\), il existe une suite dénombrable d’intervalles ouverts \\((I_k)\\) dont la somme des longueurs est inférieure à \\(\\delta\\) et dont la réunion recouvre \\(A_\\epsilon\\)).\n\n\n\n\n\n\n\n\n\nToute fonction Riemann-intégrable est Lebesgue-intégrable\nUne fonction bornée sur un intervalle \\([a,b]\\) est Riemann-intégrable ssi l’ensemble de ses points de discontinuité est inclus dans un ensemble de mesure de Lebesgue nulle (elle est bornée et continue presque partout)."
+    "text": "Exercice 1 (Nullité presque partout) Soit \\(f\\) une fonction mesurable de \\((\\mathcal{X}, \\mathcal{F}, \\mu)\\) dans \\(\\mathbb{R}\\).\n\n\nVérifier que si \\(f\\) est positive ou nulle, \\(t \\mu\\{x : f(x) \\geq  t\\}\\leq \\int f \\mathrm{d}\\mu\\) pour \\(t&gt;0\\).\n\nVérifier que si \\(f\\) est positive ou nulle et \\(\\int f \\mathrm{d}\\mu=0\\) alors \\(f\\) est nulle \\(\\mu\\)-presque partout.\nVérifier que si \\(f\\) est \\(\\mu\\)-intégrable, et pour tout \\(E \\in \\mathcal{F}\\), \\(\\int_E f \\mathrm{d}\\mu=0\\) alors \\(f\\) est nulle \\(\\mu\\)-presque partout.\nVérifier que si \\(f\\) est \\(\\mu\\)-intégrable et \\(\\left|\\int f \\mathrm{d}\\mu\\right| =  \\int \\left| f \\right| \\mathrm{d}\\mu\\) alors il existe \\(a \\in \\mathbb{R}\\) tel que \\(f = a |f|\\) \\(\\mu\\)-presque partout.\n\n\n\nExercice 2 (À propos du théorème de Fatou)  \n\n\\(f_n = \\mathbb{I}_E\\) si \\(n\\) est pair, \\(f_n = \\mathbb{I}_{E^c}\\) si \\(n\\) est impair.\n\nQue vaut \\(\\int \\liminf_n f_n \\mathrm{d}\\mu\\) ?\nQue vaut \\(\\liminf_n \\int f_n \\mathrm{d}\\mu\\) ?\n\n\n\nExercice 3 (Application des théorèmes de convergence)  \n\nSoit \\(\\mu\\) une mesure positive sur \\((\\Omega, \\mathcal{F})\\), et \\(f : \\Omega \\to [0, \\infty]\\) une fonction mesurable et même intégrable \\(\\int_\\Omega f \\mathrm{d}\\mu = c \\in ]0,\\infty)\\). \\(\\alpha\\) est une constante strictement positive.\nOn s’intéresse à \\[\\lim_n \\int_X n \\ln \\left(  1 +\\left(\\frac{f}{n}\\right)^\\alpha \\right) \\mathrm{d}\\mu\\]\n\nSi \\(\\alpha\\geq 1\\), vérifier que pour \\(u&gt;0\\), \\(n \\in \\mathbb{N}\\setminus \\{0\\}\\), \\(0 \\leq n, n \\ln \\left(1 + \\left(\\frac{u}{n}\\right)^\\alpha\\right)\\leq \\alpha u\\).\nSi \\(\\alpha\\geq 1\\), utiliser le théorème de convergence dominée pour vérifier que la limite vaut : \\(c\\) pour \\(\\alpha=1\\, ,\\) et \\(0\\) pour \\(\\alpha&gt;1\\).\nSi \\(\\alpha&lt;1\\), utiliser le théorème de Fatou pour vérifier que la limite vaut \\(\\infty\\).\n\n\n\nExercice 4 (Application des théorèmes de convergence)  \n\nSoient \\((f_n)_n\\) avec \\(f_n : \\Omega \\to [0,\\infty)]\\) une suite de fonctions mesurables (la tribu sur \\(\\Omega\\) n’est pas spécifiée, pour \\(\\mathbb{R}\\) ).\nOn suppose que pour tout \\(\\omega \\in \\Omega\\), la suite \\((f_n(\\omega))_n\\) est décroissante converge vers une limite finie \\(f(\\omega)\\).\nOn suppose aussi que \\(\\int_\\Omega f_1 \\mathrm{d}\\mu &lt; \\infty.\\)\nMontrer que \\[\\lim_{n \\to \\infty} \\int_\\Omega f_n \\mathrm{d}\\mu = \\int_\\Omega f \\mathrm{d}\\mu\\]\n\n\nExercice 5 (Dérivabilité sous le signe somme)  \n\nSoit \\(g\\) une fonction intégrable de \\((\\Omega, \\mathcal{F}, \\mu)\\) dans \\([0,\\infty)\\). Soit \\(I\\) un intervalle ouvert de \\(\\mathbb{R}\\), et \\(f : \\Omega \\times I \\to \\mathbb{R}\\) une fonction, qui vérifie\n\npour \\(t \\in I\\), la fonction \\(x \\mapsto f(x,t)\\) est intégrable,\npour \\(x \\in \\Omega\\), la fonction \\(t \\mapsto f(x,t)\\) est dérivable de dérivée notée \\(f'(x,t)\\),\npour tous \\(t,t_0 \\in I\\) et tout \\(x \\in \\Omega\\), on a \\[\\left|\\frac{f(x,t) - f(x,t_0)}{t - t_0} \\right|\\leq g(x)\\]\n\nMontrer que la fonction \\(F : I \\to \\mathbb{R}\\) définie par \\[F(t) = \\int_\\Omega f(x,t) \\mathrm{d}\\mu(x)\\] est dérivable, et sa dérivée est donnée par \\[F'(t) = \\int_\\Omega f'(x,t) \\mathrm{d}\\mu(x).\\]\n\n\n\n\n\n\n\n\n\nPour un intervalle fini \\([a,b]\\), une subdivision de \\([a,b]\\) est une suite de points \\(a = x_0 &lt; x_1 &lt; \\ldots &lt; x_n = b\\). On appelle pas de la subdivision \\(\\max_{1 \\leq i \\leq n} (x_i - x_{i-1})\\), l’écart maximal entre deux points consécutifs de la subdivision (le pas de la subdivision \\(S\\) est défini par \\(\\max_{1 \\leq i \\leq n} (x_i - x_{i-1})\\)).\nUne marque pour la subdivision \\(S = (x_0, x_1, \\ldots, x_n)\\) de \\([a,b]\\) est une suite de points \\(\\xi_i \\in [x_{i-1}, x_i]\\) pour \\(i = 1, \\ldots, n\\).\nSoit \\([a,b]\\) un intervalle fini et \\(f\\) une fonction bornée sur \\([a,b]\\). On appelle somme de Riemann de \\(f\\) pour la subdivision marquée \\(S\\) la somme suivante.\n\\[R(f,S) = \\sum_{i=1}^n f(\\xi_i) (x_i - x_{i-1})\\]\nLa fonction \\(f\\) est Riemann-intégrable ssi il existe \\(m \\in \\mathbb{R}\\), tel que \\(\\forall \\epsilon &gt; 0\\), il existe un \\(\\delta &gt; 0\\) tel que pour toute subdivision \\(S\\) de \\([a,b]\\) de pas inférieur à \\(\\delta\\),\n\\[|R(f,S) - m| &lt; \\epsilon.\\]\n\n\n\n\nExercice 6 (Sommes de Riemann)  \n\nVérifier que toute fonction continue bornée est Riemann-intégrable.\nVérifier que toute fonction Riemann-intégrable est Lebesgue-intégrable (et que les deux intégrales coïncident).\nExiste-t-il des fonctions Lebesgue intégrables qui ne sont pas Riemann-intégrable ?\n\n\n\nExercice 7 (Sommes de Darboux) Soit \\([a,b]\\) un intervalle fini et \\(f\\) une fonction bornée sur \\([a,b]\\). On définit les sommes de Darboux associées à une subdivision \\(S\\) \\(a = x_0 &lt; x_1 &lt; \\ldots &lt; x_n = b\\) de \\([a,b]\\) par\n\\[U(f,S) = \\sum_{i=1}^n \\sup_{x_{i-1} \\leq x \\leq x_i} f(x) (x_i - x_{i-1})\\] et \\[L(f,S) = \\sum_{i=1}^n \\inf_{x_{i-1} \\leq x \\leq x_i} f(x) (x_i - x_{i-1})\\]\nVérifier que \\(f\\) est Riemann intégrable sur \\([a,b]\\) si et seulement si \\[\\lim_{r \\searrow 0} \\sup_{S \\text{ de pas} \\leq r} U(f,S) = \\lim_{r \\searrow 0} \\inf_{S \\text{ de pas} \\leq r} L(f,S)\\]\n\n\nExercice 8 (Intégrabilité au sens de Riemann) On note pour une fonction \\(f\\) définie sur \\(\\mathbb{R}\\) et \\(x\\in \\mathbb{R}\\), on définit:\n\\[\\operatorname{osc}(f,x,r) =  \\sup_{ x-r\\leq y&lt;z \\leq x+r} |f(y)-f(z)|\\]\net\n\\[\\operatorname{osc}(f,x) =  \\lim_{r \\to 0} \\operatorname{osc}(f,x,r)\\]\nOn note\n\\[A_\\epsilon = \\left\\{ x \\in [a,b] : \\operatorname{osc}(f,x) \\geq \\epsilon \\right\\}\\]\n\nVérifier que pour chaque \\(\\epsilon&gt;0\\), l’ensemble \\(A_\\epsilon\\) est fermé.\nVérifier que pour chaque \\(\\epsilon&gt;0\\), l’ensemble \\(A_\\epsilon\\) est compact.\nVérifier que \\(f\\) est continue en \\(x\\) si et seulement si \\(\\operatorname{osc}(f,x) = 0\\).\nVérifier que l’ensemble des points de discontinuité \\(f\\) sur \\([a,b]\\) est \\(\\cup_{\\epsilon&gt;0} A_\\epsilon\\).\nVérifier que si l’ensemble des points de disconitinuité \\(f\\) sur \\([a,b]\\) est de mesure de Lebesgue nulle, alors \\(f\\) est Riemann-intégrable sur \\([a,b]\\).\nRéciproquement, si \\(f\\) est intégrable sur \\([a,b]\\), vérifier que pour tout \\(\\epsilon&gt;0\\), l’ensemble \\(A_\\epsilon\\) est de mesure de Lebesgue nulle (pour tout \\(\\delta&gt;0\\), il existe une suite dénombrable d’intervalles ouverts \\((I_k)\\) dont la somme des longueurs est inférieure à \\(\\delta\\) et dont la réunion recouvre \\(A_\\epsilon\\)).\n\n\n\n\n\n\n\n\n\nToute fonction Riemann-intégrable est Lebesgue-intégrable\nUne fonction bornée sur un intervalle \\([a,b]\\) est Riemann-intégrable ssi l’ensemble de ses points de discontinuité est inclus dans un ensemble de mesure de Lebesgue nulle (elle est bornée et continue presque partout)."
   },
   {
     "objectID": "exercices/td3-2026.html#intégration",
     "href": "exercices/td3-2026.html#intégration",
     "title": "Intégrales et espérances",
     "section": "",
-    "text": "Exercice 1 (Nullité presque partout) Soit \\(f\\) une fonction mesurable de \\((\\mathcal{X}, \\mathcal{F}, \\mu)\\) dans \\(\\mathbb{R}\\).\n\n\nVérifier que si \\(f\\) est positive ou nulle, \\(t \\mu\\{x : f(x) \\geq  t\\}\\leq \\int f \\mathrm{d}\\mu\\) pour \\(t&gt;0\\).\n\nVérifier que si \\(f\\) est positive ou nulle et \\(\\int f \\mathrm{d}\\mu=0\\) alors \\(f\\) est nulle \\(\\mu\\)-presque partout.\nVérifier que si \\(f\\) est \\(\\mu\\)-intégrable, et pour tout \\(E \\in \\mathcal{F}\\), \\(\\int_E f \\mathrm{d}\\mu=0\\) alors \\(f\\) est nulle \\(\\mu\\)-presque partout.\nVérifier que si \\(f\\) est \\(\\mu\\)-intégrable et \\(\\left|\\int f \\mathrm{d}\\mu\\right| =  \\int \\left| f \\right| \\mathrm{d}\\mu\\) alors il existe \\(a \\in \\mathbb{R}\\) tel que \\(f = a |f|\\) \\(\\mu\\)-presque partout.\n\n\n\nExercice 2 (À propos du théorème de Fatou)  \n\n\\(f_n = \\mathbb{I}_E\\) si \\(n\\) est pair, \\(f_n = \\mathbb{I}_{E^c}\\) si \\(n\\) est impair.\n\nQue vaut \\(\\int \\liminf_n f_n \\mathrm{d}\\mu\\) ?\nQue vaut \\(\\liminf_n \\int f_n \\mathrm{d}\\mu\\) ?\n\n\n\nExercice 3 (Application des théorèmes de convergence)  \n\nSoit \\(\\mu\\) une mesure positive sur \\((\\Omega, \\mathcal{F})\\), et \\(f : \\Omega \\to [0, \\infty]\\) une fonction mesurable et même intégrable \\(\\int_\\Omega f \\mathrm{d}\\mu = c \\in ]0,\\infty)\\). \\(\\alpha\\) est une constante strictement positive.\nOn s’intéresse à \\[\\lim_n \\int_X n \\ln \\left(  1 +\\left(\\frac{f}{n}\\right)^\\alpha \\right) \\mathrm{d}\\mu\\]\n\nSi \\(\\alpha\\geq 1\\), utiliser le théorème de convergence dominée pour vérifier que la limite vaut \\(c\\) pour \\(\\alpha=1\\), et \\(0\\) pour \\(\\alpha&gt;1\\).\nSi \\(\\alpha&lt;1\\), utiliser le théorème de Fatou pour vérifier que la limite vaut \\(0\\).\n\n\n\nExercice 4 (Application des théorèmes de convergence)  \n\nSoient \\((f_n)_n\\) avec \\(f_n : \\Omega \\to [0,\\infty)]\\) une suite de fonctions mesurables (la tribu sur \\(\\Omega\\) n’est pas spécifiée, pour \\(\\mathbb{R}\\) ).\nOn suppose que pour tout \\(\\omega \\in \\Omega\\), la suite \\((f_n(\\omega))_n\\) est décroissante converge vers une limite finie \\(f(\\omega)\\).\nOn suppose aussi que \\(\\int_\\Omega f_1 \\mathrm{d}\\mu &lt; \\infty.\\)\nMontrer que \\[\\lim_{n \\to \\infty} \\int_\\Omega f_n \\mathrm{d}\\mu = \\int_\\Omega f \\mathrm{d}\\mu\\]\n\n\nExercice 5 (Dérivabilité sous le signe somme)  \n\nSoit \\(g\\) une fonction intégrable de \\((\\Omega, \\mathcal{F}, \\mu)\\) dans \\([0,\\infty)\\). Soit \\(I\\) un intervalle ouvert de \\(\\mathbb{R}\\), et \\(f : \\Omega \\times I \\to \\mathbb{R}\\) une fonction, qui vérifie\n\npour \\(t \\in I\\), la fonction \\(x \\mapsto f(x,t)\\) est intégrable,\npour \\(x \\in \\Omega\\), la fonction \\(t \\mapsto f(x,t)\\) est dérivable de dérivée notée \\(f'(x,t)\\),\npour tous \\(t,t_0 \\in I\\) et tout \\(x \\in \\Omega\\), on a \\[\\left|\\frac{f(x,t) - f(x,t_0)}{t - t_0} \\right|\\leq g(x)\\]\n\nMontrer que la fonction \\(F : I \\to \\mathbb{R}\\) définie par \\[F(t) = \\int_\\Omega f(x,t) \\mathrm{d}\\mu(x)\\] est dérivable, et sa dérivée est donnée par \\[F'(t) = \\int_\\Omega f'(x,t) \\mathrm{d}\\mu(x).\\]\n\n\n\nPour un intervalle fini \\([a,b]\\), une subdivision de \\([a,b]\\) est une suite de points \\(a = x_0 &lt; x_1 &lt; \\ldots &lt; x_n = b\\). On appelle pas de la subdivision \\(\\max_{1 \\leq i \\leq n} (x_i - x_{i-1})\\), l’écart maximal entre deux points consécutifs de la subdivision (le pas de la subdivision \\(S\\) est défini par \\(\\max_{1 \\leq i \\leq n} (x_i - x_{i-1})\\)).\nUne marque pour la subdivision \\(S = (x_0, x_1, \\ldots, x_n)\\) de \\([a,b]\\) est une suite de points \\(\\xi_i \\in [x_{i-1}, x_i]\\) pour \\(i = 1, \\ldots, n\\).\nSoit \\([a,b]\\) un intervalle fini et \\(f\\) une fonction bornée sur \\([a,b]\\). On appelle somme de Riemann de \\(f\\) pour la subdivision marquée \\(S\\) la somme suivante.\n\\[R(f,S) = \\sum_{i=1}^n f(\\xi_i) (x_i - x_{i-1})\\]\nLa fonction \\(f\\) est Riemann-intégrable ssi il existe \\(m \\in \\mathbb{R}\\), tel que \\(\\forall \\epsilon &gt; 0\\), il existe un \\(\\delta &gt; 0\\) tel que pour toute subdivision \\(S\\) de \\([a,b]\\) de pas inférieur à \\(\\delta\\),\n\\[|R(f,S) - m| &lt; \\epsilon.\\]\n\nExercice 6 (Sommes de Riemann)  \n\nVérifier que toute fonction continue bornée est Riemann-intégrable.\nVérifier que toute fonction Riemann-intégrable est Lebesgue-intégrable (et que les deux intégrales coïncident).\nExiste-t-il des fonctions Lebesgue intégrables qui ne sont pas Riemann-intégrable ?\n\n\n\nExercice 7 (Sommes de Darboux) Soit \\([a,b]\\) un intervalle fini et \\(f\\) une fonction bornée sur \\([a,b]\\). On définit les sommes de Darboux associées à une subdivision \\(S\\) \\(a = x_0 &lt; x_1 &lt; \\ldots &lt; x_n = b\\) de \\([a,b]\\) par\n\\[U(f,S) = \\sum_{i=1}^n \\sup_{x_{i-1} \\leq x \\leq x_i} f(x) (x_i - x_{i-1})\\] et \\[L(f,S) = \\sum_{i=1}^n \\inf_{x_{i-1} \\leq x \\leq x_i} f(x) (x_i - x_{i-1})\\]\nVérifier que \\(f\\) est Riemann intégrable sur \\([a,b]\\) si et seulement si \\[\\lim_{r \\searrow 0} \\sup_{S \\text{ de pas} \\leq r} U(f,S) = \\lim_{r \\searrow 0} \\inf_{S \\text{ de pas} \\leq r} L(f,S)\\]\n\n\nExercice 8 (Intégrabilité au sens de Riemann) On note pour une fonction \\(f\\) définie sur \\(\\mathbb{R}\\) et \\(x\\in \\mathbb{R}\\), on définit:\n\\[\\operatorname{osc}(f,x,r) =  \\sup_{ x-r\\leq y&lt;z \\leq x+r} |f(y)-f(z)|\\]\net\n\\[\\operatorname{osc}(f,x) =  \\lim_{r \\to 0} \\operatorname{osc}(f,x,r)\\]\nOn note\n\\[A_\\epsilon = \\left\\{ x \\in [a,b] : \\operatorname{osc}(f,x) \\geq \\epsilon \\right\\}\\]\n\nVérifier que pour chaque \\(\\epsilon&gt;0\\), l’ensemble \\(A_\\epsilon\\) est fermé.\nVérifier que pour chaque \\(\\epsilon&gt;0\\), l’ensemble \\(A_\\epsilon\\) est compact.\nVérifier que \\(f\\) est continue en \\(x\\) si et seulement si \\(\\operatorname{osc}(f,x) = 0\\).\nVérifier que l’ensemble des points de discontinuité \\(f\\) sur \\([a,b]\\) est \\(\\cup_{\\epsilon&gt;0} A_\\epsilon\\).\nVérifier que si l’ensemble des points de disconitinuité \\(f\\) sur \\([a,b]\\) est de mesure de Lebesgue nulle, alors \\(f\\) est Riemann-intégrable sur \\([a,b]\\).\nRéciproquement, si \\(f\\) est intégrable sur \\([a,b]\\), vérifier que pour tout \\(\\epsilon&gt;0\\), l’ensemble \\(A_\\epsilon\\) est de mesure de Lebesgue nulle (pour tout \\(\\delta&gt;0\\), il existe une suite dénombrable d’intervalles ouverts \\((I_k)\\) dont la somme des longueurs est inférieure à \\(\\delta\\) et dont la réunion recouvre \\(A_\\epsilon\\)).\n\n\n\n\n\n\n\n\n\nToute fonction Riemann-intégrable est Lebesgue-intégrable\nUne fonction bornée sur un intervalle \\([a,b]\\) est Riemann-intégrable ssi l’ensemble de ses points de discontinuité est inclus dans un ensemble de mesure de Lebesgue nulle (elle est bornée et continue presque partout)."
+    "text": "Exercice 1 (Nullité presque partout) Soit \\(f\\) une fonction mesurable de \\((\\mathcal{X}, \\mathcal{F}, \\mu)\\) dans \\(\\mathbb{R}\\).\n\n\nVérifier que si \\(f\\) est positive ou nulle, \\(t \\mu\\{x : f(x) \\geq  t\\}\\leq \\int f \\mathrm{d}\\mu\\) pour \\(t&gt;0\\).\n\nVérifier que si \\(f\\) est positive ou nulle et \\(\\int f \\mathrm{d}\\mu=0\\) alors \\(f\\) est nulle \\(\\mu\\)-presque partout.\nVérifier que si \\(f\\) est \\(\\mu\\)-intégrable, et pour tout \\(E \\in \\mathcal{F}\\), \\(\\int_E f \\mathrm{d}\\mu=0\\) alors \\(f\\) est nulle \\(\\mu\\)-presque partout.\nVérifier que si \\(f\\) est \\(\\mu\\)-intégrable et \\(\\left|\\int f \\mathrm{d}\\mu\\right| =  \\int \\left| f \\right| \\mathrm{d}\\mu\\) alors il existe \\(a \\in \\mathbb{R}\\) tel que \\(f = a |f|\\) \\(\\mu\\)-presque partout.\n\n\n\nExercice 2 (À propos du théorème de Fatou)  \n\n\\(f_n = \\mathbb{I}_E\\) si \\(n\\) est pair, \\(f_n = \\mathbb{I}_{E^c}\\) si \\(n\\) est impair.\n\nQue vaut \\(\\int \\liminf_n f_n \\mathrm{d}\\mu\\) ?\nQue vaut \\(\\liminf_n \\int f_n \\mathrm{d}\\mu\\) ?\n\n\n\nExercice 3 (Application des théorèmes de convergence)  \n\nSoit \\(\\mu\\) une mesure positive sur \\((\\Omega, \\mathcal{F})\\), et \\(f : \\Omega \\to [0, \\infty]\\) une fonction mesurable et même intégrable \\(\\int_\\Omega f \\mathrm{d}\\mu = c \\in ]0,\\infty)\\). \\(\\alpha\\) est une constante strictement positive.\nOn s’intéresse à \\[\\lim_n \\int_X n \\ln \\left(  1 +\\left(\\frac{f}{n}\\right)^\\alpha \\right) \\mathrm{d}\\mu\\]\n\nSi \\(\\alpha\\geq 1\\), vérifier que pour \\(u&gt;0\\), \\(n \\in \\mathbb{N}\\setminus \\{0\\}\\), \\(0 \\leq n, n \\ln \\left(1 + \\left(\\frac{u}{n}\\right)^\\alpha\\right)\\leq \\alpha u\\).\nSi \\(\\alpha\\geq 1\\), utiliser le théorème de convergence dominée pour vérifier que la limite vaut : \\(c\\) pour \\(\\alpha=1\\, ,\\) et \\(0\\) pour \\(\\alpha&gt;1\\).\nSi \\(\\alpha&lt;1\\), utiliser le théorème de Fatou pour vérifier que la limite vaut \\(\\infty\\).\n\n\n\nExercice 4 (Application des théorèmes de convergence)  \n\nSoient \\((f_n)_n\\) avec \\(f_n : \\Omega \\to [0,\\infty)]\\) une suite de fonctions mesurables (la tribu sur \\(\\Omega\\) n’est pas spécifiée, pour \\(\\mathbb{R}\\) ).\nOn suppose que pour tout \\(\\omega \\in \\Omega\\), la suite \\((f_n(\\omega))_n\\) est décroissante converge vers une limite finie \\(f(\\omega)\\).\nOn suppose aussi que \\(\\int_\\Omega f_1 \\mathrm{d}\\mu &lt; \\infty.\\)\nMontrer que \\[\\lim_{n \\to \\infty} \\int_\\Omega f_n \\mathrm{d}\\mu = \\int_\\Omega f \\mathrm{d}\\mu\\]\n\n\nExercice 5 (Dérivabilité sous le signe somme)  \n\nSoit \\(g\\) une fonction intégrable de \\((\\Omega, \\mathcal{F}, \\mu)\\) dans \\([0,\\infty)\\). Soit \\(I\\) un intervalle ouvert de \\(\\mathbb{R}\\), et \\(f : \\Omega \\times I \\to \\mathbb{R}\\) une fonction, qui vérifie\n\npour \\(t \\in I\\), la fonction \\(x \\mapsto f(x,t)\\) est intégrable,\npour \\(x \\in \\Omega\\), la fonction \\(t \\mapsto f(x,t)\\) est dérivable de dérivée notée \\(f'(x,t)\\),\npour tous \\(t,t_0 \\in I\\) et tout \\(x \\in \\Omega\\), on a \\[\\left|\\frac{f(x,t) - f(x,t_0)}{t - t_0} \\right|\\leq g(x)\\]\n\nMontrer que la fonction \\(F : I \\to \\mathbb{R}\\) définie par \\[F(t) = \\int_\\Omega f(x,t) \\mathrm{d}\\mu(x)\\] est dérivable, et sa dérivée est donnée par \\[F'(t) = \\int_\\Omega f'(x,t) \\mathrm{d}\\mu(x).\\]\n\n\n\n\n\n\n\n\n\nPour un intervalle fini \\([a,b]\\), une subdivision de \\([a,b]\\) est une suite de points \\(a = x_0 &lt; x_1 &lt; \\ldots &lt; x_n = b\\). On appelle pas de la subdivision \\(\\max_{1 \\leq i \\leq n} (x_i - x_{i-1})\\), l’écart maximal entre deux points consécutifs de la subdivision (le pas de la subdivision \\(S\\) est défini par \\(\\max_{1 \\leq i \\leq n} (x_i - x_{i-1})\\)).\nUne marque pour la subdivision \\(S = (x_0, x_1, \\ldots, x_n)\\) de \\([a,b]\\) est une suite de points \\(\\xi_i \\in [x_{i-1}, x_i]\\) pour \\(i = 1, \\ldots, n\\).\nSoit \\([a,b]\\) un intervalle fini et \\(f\\) une fonction bornée sur \\([a,b]\\). On appelle somme de Riemann de \\(f\\) pour la subdivision marquée \\(S\\) la somme suivante.\n\\[R(f,S) = \\sum_{i=1}^n f(\\xi_i) (x_i - x_{i-1})\\]\nLa fonction \\(f\\) est Riemann-intégrable ssi il existe \\(m \\in \\mathbb{R}\\), tel que \\(\\forall \\epsilon &gt; 0\\), il existe un \\(\\delta &gt; 0\\) tel que pour toute subdivision \\(S\\) de \\([a,b]\\) de pas inférieur à \\(\\delta\\),\n\\[|R(f,S) - m| &lt; \\epsilon.\\]\n\n\n\n\nExercice 6 (Sommes de Riemann)  \n\nVérifier que toute fonction continue bornée est Riemann-intégrable.\nVérifier que toute fonction Riemann-intégrable est Lebesgue-intégrable (et que les deux intégrales coïncident).\nExiste-t-il des fonctions Lebesgue intégrables qui ne sont pas Riemann-intégrable ?\n\n\n\nExercice 7 (Sommes de Darboux) Soit \\([a,b]\\) un intervalle fini et \\(f\\) une fonction bornée sur \\([a,b]\\). On définit les sommes de Darboux associées à une subdivision \\(S\\) \\(a = x_0 &lt; x_1 &lt; \\ldots &lt; x_n = b\\) de \\([a,b]\\) par\n\\[U(f,S) = \\sum_{i=1}^n \\sup_{x_{i-1} \\leq x \\leq x_i} f(x) (x_i - x_{i-1})\\] et \\[L(f,S) = \\sum_{i=1}^n \\inf_{x_{i-1} \\leq x \\leq x_i} f(x) (x_i - x_{i-1})\\]\nVérifier que \\(f\\) est Riemann intégrable sur \\([a,b]\\) si et seulement si \\[\\lim_{r \\searrow 0} \\sup_{S \\text{ de pas} \\leq r} U(f,S) = \\lim_{r \\searrow 0} \\inf_{S \\text{ de pas} \\leq r} L(f,S)\\]\n\n\nExercice 8 (Intégrabilité au sens de Riemann) On note pour une fonction \\(f\\) définie sur \\(\\mathbb{R}\\) et \\(x\\in \\mathbb{R}\\), on définit:\n\\[\\operatorname{osc}(f,x,r) =  \\sup_{ x-r\\leq y&lt;z \\leq x+r} |f(y)-f(z)|\\]\net\n\\[\\operatorname{osc}(f,x) =  \\lim_{r \\to 0} \\operatorname{osc}(f,x,r)\\]\nOn note\n\\[A_\\epsilon = \\left\\{ x \\in [a,b] : \\operatorname{osc}(f,x) \\geq \\epsilon \\right\\}\\]\n\nVérifier que pour chaque \\(\\epsilon&gt;0\\), l’ensemble \\(A_\\epsilon\\) est fermé.\nVérifier que pour chaque \\(\\epsilon&gt;0\\), l’ensemble \\(A_\\epsilon\\) est compact.\nVérifier que \\(f\\) est continue en \\(x\\) si et seulement si \\(\\operatorname{osc}(f,x) = 0\\).\nVérifier que l’ensemble des points de discontinuité \\(f\\) sur \\([a,b]\\) est \\(\\cup_{\\epsilon&gt;0} A_\\epsilon\\).\nVérifier que si l’ensemble des points de disconitinuité \\(f\\) sur \\([a,b]\\) est de mesure de Lebesgue nulle, alors \\(f\\) est Riemann-intégrable sur \\([a,b]\\).\nRéciproquement, si \\(f\\) est intégrable sur \\([a,b]\\), vérifier que pour tout \\(\\epsilon&gt;0\\), l’ensemble \\(A_\\epsilon\\) est de mesure de Lebesgue nulle (pour tout \\(\\delta&gt;0\\), il existe une suite dénombrable d’intervalles ouverts \\((I_k)\\) dont la somme des longueurs est inférieure à \\(\\delta\\) et dont la réunion recouvre \\(A_\\epsilon\\)).\n\n\n\n\n\n\n\n\n\nToute fonction Riemann-intégrable est Lebesgue-intégrable\nUne fonction bornée sur un intervalle \\([a,b]\\) est Riemann-intégrable ssi l’ensemble de ses points de discontinuité est inclus dans un ensemble de mesure de Lebesgue nulle (elle est bornée et continue presque partout)."
   },
   {
     "objectID": "exercices/td2-supplement.html",
@@ -618,7 +552,7 @@
     "href": "weeks/week-2.html",
     "title": "Semaine 2",
     "section": "",
-    "text": "Important\n\n\n\nLa semaine II (14-18 septembre 2026) est encore consacrée aux révisions de Licence.",
+    "text": "Important\n\n\n\nLa semaine II (14-18 septembre 2026) est encore consacrée aux révisions de Licence.\nCC1 le jeudi 17 Septembre (1 heure). Aide-mémoire manuscrit autorisé",
     "crumbs": [
       "Agenda",
       "Week 2"
@@ -629,7 +563,7 @@
     "href": "weeks/week-2.html#préparerrevoir",
     "title": "Semaine 2",
     "section": "Préparer/Revoir",
-    "text": "Préparer/Revoir\n\n\nEspaces produits, tribus produits (2026-09-14)\nLois produits (2026-09-14)\nThéorème de Fubini (2026-09-14)\nCalculs de densités image, formules de changement de variable (2026-09-15)\nEspérances, moments, Espaces \\(L^p\\) (2026-09-15)\nConditionnement discret (2026-09-18)\nProcessus de branchement aléatoire (2026-09-18)\n\n\n\n\nVoir Notes, Espaces produits, etc\nVoir Notes, calculs de densité image\nVoir Notes, Fonctions génératrices\nVoir Notes, Conditionnement discret\nVoir Notes, Espérances, Moments, Espaces \\(L^p\\), …",
+    "text": "Préparer/Revoir\n\n\nEspérance, variance, moments, inégalités (2026-09-14)\nEspaces produits, tribus produits (2026-09-15)\nLois produits (2026-09-15)\nThéorème de Tonelli-Fubini (2026-09-15)\nIndépendance (Événements, Tribus)\nCalculs de densités image, formules de changement de variable (2026-09-15)\nConditionnement discret (2026-09-17)\nProcessus de branchement (2026-09-17)\n\n\n\n\nVoir Notes, Espaces produits, etc\nVoir Notes, calculs de densité image\nVoir Notes, Conditionnement discret\nVoir Notes, Espérances, Moments, Espaces \\(L^p\\), …",
     "crumbs": [
       "Agenda",
       "Week 2"
@@ -640,76 +574,10 @@
     "href": "weeks/week-2.html#exercices",
     "title": "Semaine 2",
     "section": "Exercices",
-    "text": "Exercices\n\nFeuille TD IV\nFeuille TD V\nFeuille TD VI\n\n\n\nBack to course schedule ⏎",
+    "text": "Exercices\n\nTD III : 2, 3, 5, 9\nFeuille TD IV\nFeuille TD V \n\n\n\nBack to course schedule ⏎",
     "crumbs": [
       "Agenda",
       "Week 2"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4.html",
-    "href": "weeks/week-4.html",
-    "title": "Semaine 4",
-    "section": "",
-    "text": "Important\n\n\n\nLa semaine IV (28 septembre-1 octobre 2026) est consacrée au conditionnement (espérance conditionnelle, noyaux de probabilité, densités conditionnelles)",
-    "crumbs": [
-      "Agenda",
-      "Week 4"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4.html#préparervoirrevoir",
-    "href": "weeks/week-4.html#préparervoirrevoir",
-    "title": "Semaine 4",
-    "section": "Préparer/Voir/Revoir",
-    "text": "Préparer/Voir/Revoir\n\n\nTransformée de Laplace\nTransformée de Fourier\n\n\n\n\nVoir Transformée de Laplace …\nVoir Transformée de Fourier …",
-    "crumbs": [
-      "Agenda",
-      "Week 4"
-    ]
-  },
-  {
-    "objectID": "weeks/week-4.html#exercices",
-    "href": "weeks/week-4.html#exercices",
-    "title": "Semaine 4",
-    "section": "Exercices",
-    "text": "Exercices\n\nFeuille TD IX\nFeuille TD X\n\n\nBack to course schedule ⏎",
-    "crumbs": [
-      "Agenda",
-      "Week 4"
-    ]
-  },
-  {
-    "objectID": "weeks/week-6.html",
-    "href": "weeks/week-6.html",
-    "title": "Semaine 6",
-    "section": "",
-    "text": "Important\n\n\n\nLa semaine VI (12-16 octobre 2026) est consacrée aux vecteurs gaussiens.\nCC 3 : jeudi 16 octobre (durée 1h30 de 15h à 16h30).",
-    "crumbs": [
-      "Agenda",
-      "Week 6"
-    ]
-  },
-  {
-    "objectID": "weeks/week-6.html#préparervoirrevoir",
-    "href": "weeks/week-6.html#préparervoirrevoir",
-    "title": "Semaine 6",
-    "section": "Préparer/Voir/Revoir",
-    "text": "Préparer/Voir/Revoir\n\n\nLoi faible des grands nombres\nThéorème central limite\nCaractérisations\n\n\n\n\nVecteurs gaussiens\nConvergence en probabilité/presque sûre et loi des grands nombres\nConvergence en loi et TCL",
-    "crumbs": [
-      "Agenda",
-      "Week 6"
-    ]
-  },
-  {
-    "objectID": "weeks/week-6.html#exercices",
-    "href": "weeks/week-6.html#exercices",
-    "title": "Semaine 6",
-    "section": "Exercices",
-    "text": "Exercices\n\n\nFeuille TD XII\n\n\n\n\n\n\nBack to course schedule ⏎",
-    "crumbs": [
-      "Agenda",
-      "Week 6"
     ]
   }
 ]

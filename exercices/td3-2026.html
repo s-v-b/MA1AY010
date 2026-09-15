@@ -4423,24 +4423,6 @@ window.Quarto = {
  <span class="menu-text">Week 3</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 4</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 5</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 6</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -4506,8 +4488,9 @@ window.Quarto = {
 <p>Soit <span class="math inline">\(\mu\)</span> une mesure positive sur <span class="math inline">\((\Omega, \mathcal{F})\)</span>, et <span class="math inline">\(f : \Omega \to [0, \infty]\)</span> une fonction mesurable et même intégrable <span class="math inline">\(\int_\Omega f \mathrm{d}\mu = c \in ]0,\infty)\)</span>. <span class="math inline">\(\alpha\)</span> est une constante strictement positive.</p>
 <p>On s’intéresse à <span class="math display">\[\lim_n \int_X n \ln \left(  1 +\left(\frac{f}{n}\right)^\alpha \right) \mathrm{d}\mu\]</span></p>
 <ol type="1">
-<li>Si <span class="math inline">\(\alpha\geq 1\)</span>, utiliser le théorème de convergence dominée pour vérifier que la limite vaut <span class="math inline">\(c\)</span> pour <span class="math inline">\(\alpha=1\)</span>, et <span class="math inline">\(0\)</span> pour <span class="math inline">\(\alpha&gt;1\)</span>.</li>
-<li>Si <span class="math inline">\(\alpha&lt;1\)</span>, utiliser le théorème de Fatou pour vérifier que la limite vaut <span class="math inline">\(0\)</span>.</li>
+<li>Si <span class="math inline">\(\alpha\geq 1\)</span>, vérifier que pour <span class="math inline">\(u&gt;0\)</span>, <span class="math inline">\(n \in \mathbb{N}\setminus \{0\}\)</span>, <span class="math inline">\(0 \leq n, n \ln \left(1 + \left(\frac{u}{n}\right)^\alpha\right)\leq \alpha u\)</span>.</li>
+<li>Si <span class="math inline">\(\alpha\geq 1\)</span>, utiliser le théorème de convergence dominée pour vérifier que la limite vaut : <span class="math inline">\(c\)</span> pour <span class="math inline">\(\alpha=1\, ,\)</span> et <span class="math inline">\(0\)</span> pour <span class="math inline">\(\alpha&gt;1\)</span>.</li>
+<li>Si <span class="math inline">\(\alpha&lt;1\)</span>, utiliser le théorème de Fatou pour vérifier que la limite vaut <span class="math inline">\(\infty\)</span>.</li>
 </ol>
 </div>
 <div id="exr-fatou-3" class="theorem exercise">
@@ -4537,12 +4520,21 @@ Une fonction bornée sur un intervalle fini $[a,b]$ est Riemann-intégrable l'en
 Pour caractériser les *ensembles de mesure nulle* : pour chaque $\epsilon>0$, il existe une suite dénombrable d'intervalles ouverts $(I_k)$ dont la somme des longueurs est inférieure à $\epsilon$ et dont la réunion recouvre l'ensemble. 
 
  -->
+<div class="callout callout-style-simple callout-note no-icon" name="Definitions">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <p>Pour un intervalle fini <span class="math inline">\([a,b]\)</span>, une <em>subdivision</em> de <span class="math inline">\([a,b]\)</span> est une suite de points <span class="math inline">\(a = x_0 &lt; x_1 &lt; \ldots &lt; x_n = b\)</span>. On appelle <em>pas</em> de la subdivision <span class="math inline">\(\max_{1 \leq i \leq n} (x_i - x_{i-1})\)</span>, l’écart maximal entre deux points consécutifs de la subdivision (le <em>pas</em> de la subdivision <span class="math inline">\(S\)</span> est défini par <span class="math inline">\(\max_{1 \leq i \leq n} (x_i - x_{i-1})\)</span>).</p>
 <p>Une marque pour la subdivision <span class="math inline">\(S = (x_0, x_1, \ldots, x_n)\)</span> de <span class="math inline">\([a,b]\)</span> est une suite de points <span class="math inline">\(\xi_i \in [x_{i-1}, x_i]\)</span> pour <span class="math inline">\(i = 1, \ldots, n\)</span>.</p>
 <p>Soit <span class="math inline">\([a,b]\)</span> un intervalle fini et <span class="math inline">\(f\)</span> une fonction bornée sur <span class="math inline">\([a,b]\)</span>. On appelle <em>somme de Riemann</em> de <span class="math inline">\(f\)</span> pour la subdivision marquée <span class="math inline">\(S\)</span> la somme suivante.</p>
 <p><span class="math display">\[R(f,S) = \sum_{i=1}^n f(\xi_i) (x_i - x_{i-1})\]</span></p>
 <p>La fonction <span class="math inline">\(f\)</span> est Riemann-intégrable ssi il existe <span class="math inline">\(m \in \mathbb{R}\)</span>, tel que <span class="math inline">\(\forall \epsilon &gt; 0\)</span>, il existe un <span class="math inline">\(\delta &gt; 0\)</span> tel que pour toute subdivision <span class="math inline">\(S\)</span> de <span class="math inline">\([a,b]\)</span> de pas inférieur à <span class="math inline">\(\delta\)</span>,</p>
 <p><span class="math display">\[|R(f,S) - m| &lt; \epsilon.\]</span></p>
+</div>
+</div>
+</div>
 <div id="exr-riemann-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 6 (Sommes de Riemann)</strong></span>  </p>
 <ol type="1">
@@ -4591,10 +4583,10 @@ Pour caractériser les *ensembles de mesure nulle* : pour chaque $\epsilon>0$, i
 <h1>Divers</h1>
 <div id="exr-calculs-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 9 (Extrait CC1 2025)</strong></span> Soit <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> des variables aléatoires distribuées indépendamment selon une loi de Pareto de paramètre <span class="math inline">\(\alpha&gt;0\)</span>, <span class="math inline">\(P\{ X_1\geq t \} =  t^{-\alpha}, t \geq 1\)</span>. Soit <span class="math inline">\(N\)</span> indépendante des <span class="math inline">\(X_i\)</span>, distribuée selon une loi de Poisson de paramètre <span class="math inline">\(\mu&gt;0.\)</span> On définit <span class="math inline">\(Z\)</span> par <span class="math inline">\(Z = \max_{i \leq N} X_i\)</span>.</p>
-<p><em>Remarque:</em> Si <span class="math inline">\(N=0\)</span>, on convient de <span class="math inline">\(\max_{i\leq N} X_i = 0\)</span>.</p>
+<p><em>Remarque:</em> Si <span class="math inline">\(N=0\)</span>, on convient de <span class="math inline">\(\max_{i\leq N} X_i = z\)</span> avec <span class="math inline">\(z \in [0,1]\)</span> à choisir.</p>
 <ol type="i">
 <li>Proposer un espace probabilisé pour modéliser l’énoncé.</li>
-<li>Calculer la fonction de répartition de la loi de <span class="math inline">\(Z\)</span>.</li>
+<li>Calculer la fonction de répartition de la loi de <span class="math inline">\(Z\)</span>. La fonction de répartition est-elle continue sur <span class="math inline">\(\mathbb{R}\)</span>? La loi de <span class="math inline">\(Z\)</span> est-elle <em>diffuse</em>?</li>
 <li>La loi de <span class="math inline">\(Z\)</span> possède-t-elle une espérance finie?</li>
 </ol>
 </div>
@@ -4628,16 +4620,12 @@ Pour caractériser les *ensembles de mesure nulle* : pour chaque $\epsilon>0$, i
 </div>
 <p>On considère le couple <span class="math inline">\((X,Z)\)</span> de densité jointe <span class="math display">\[ f(x,z) := (z-x)\exp(-z) \mathbf{1}_{\{z \ge x \ge 0\}}.\]</span></p>
 <ol type="1">
-<li><p>Calculer la loi de <span class="math inline">\(X\)</span>, puis celle de <span class="math inline">\(Z\)</span>. &lt;!– 1. En déduire que</p>
-<p><span class="math display">\[f_{X \mid Z}(x \mid z) = \frac{2(z-x)}{z^2} \mathbf{1}_{\{0 \le x \le z, z &gt;0\}}.\]</span></p></li>
-<li><p>Calculer <span class="math inline">\(\mathbb{E}[X \mid Z]\)</span>, puis <span class="math inline">\(\mathrm{Var}[X\mid Z]\)</span>.</p></li>
-<li><p>Calculer <span class="math inline">\(f_{Z \mid X}(z \mid x)\)</span>, puis démontrer que <span class="math inline">\(\mathbb{E}[Z \mid X] = X + 2\)</span>. –&gt;</p></li>
-<li><p>Quelle est la loi du couple <span class="math inline">\((X, Z-X)\)</span>? En déduire la loi de <span class="math inline">\(Z-X\)</span>.</p></li>
+<li>Calculer la loi de <span class="math inline">\(X\)</span>, puis celle de <span class="math inline">\(Z\)</span>. <!-- 1. En déduire que --> <!-- $$f_{X \mid Z}(x \mid z) = \frac{2(z-x)}{z^2} \mathbf{1}_{\{0 \le x \le z, z >0\}}.$$ --> <!-- 1. Calculer $\mathbb{E}[X \mid Z]$, puis $\mathrm{Var}[X\mid Z]$. --> <!-- 1. Calculer $f_{Z \mid X}(z \mid x)$, puis démontrer que $\mathbb{E}[Z \mid X] = X + 2$. --> –&gt;</li>
+<li>Quelle est la loi du couple <span class="math inline">\((X, Z-X)\)</span>? En déduire la loi de <span class="math inline">\(Z-X\)</span>.</li>
 </ol>
 <ol type="1">
-<li>Soit <span class="math inline">\(z &gt;0\)</span>. On suppose que <span class="math inline">\(U_1^z \sim \mathrm{Unif}[0,z]\)</span>, <span class="math inline">\(U_2^z \sim \mathrm{Unif}[0,z]\)</span> et que <span class="math inline">\(U_1^z\)</span> est indépendante de <span class="math inline">\(U_2^z\)</span>. Calculer la densité de <span class="math inline">\(\min(U_1^z, U_2^z)\)</span>.</li>
-<li>On suppose à présent que conditionnellement à <span class="math inline">\(Z\)</span>, <span class="math inline">\(U_1^Z \sim \mathrm{Unif}[0,Z]\)</span>, <span class="math inline">\(U_2^Z \sim \mathrm{Unif}[0,Z]\)</span> et que <span class="math inline">\(U_1^Z\)</span> est (toujours conditionnellement à <span class="math inline">\(Z\)</span>) indépendante de <span class="math inline">\(U_2^Z\)</span>. Montrer que, conditionnellement à <span class="math inline">\(Z\)</span>, <span class="math inline">\(\mathrm{min}(U_1^Z, U_2^Z)\)</span> a la même loi que X.</li>
-<li>Soient <span class="math inline">\(X_1,X_2,X_3\)</span> trois variables indépendantes, toutes trois distribuées suivant la distribution exponentielle de paramètre <span class="math inline">\(1\)</span>. On note <span class="math inline">\(S= X_1+X_2+X_3\)</span>. Déterminer la loi de <span class="math inline">\((X_1,S)\)</span>. Que vaut <span class="math inline">\(\mathbb{E}[X_1\mid S]\)</span>? <span class="math inline">\(\mathbb{E}[S \mid X_1]\)</span>? Montrer finalement que conditionnellement à <span class="math inline">\(S\)</span>, le couple <span class="math inline">\((X_1,X_1+X_2)\)</span> a la même loi que <span class="math inline">\(\left(\mathrm{min}(U_1^S, U_2^S), \mathrm{max}(U_1^S, U_2^S)\right)\)</span>.</li>
+<li>Soit <span class="math inline">\(z &gt;0\)</span>. On suppose que <span class="math inline">\(U_1^z \sim \mathrm{Unif}[0,z]\)</span>, <span class="math inline">\(U_2^z \sim \mathrm{Unif}[0,z]\)</span> et que <span class="math inline">\(U_1^z\)</span> est indépendante de <span class="math inline">\(U_2^z\)</span>. Calculer la densité de <span class="math inline">\(\min(U_1^z, U_2^z)\)</span>. <!-- 1. On suppose à présent que conditionnellement à $Z$, --> <!-- $U_1^Z \sim \mathrm{Unif}[0,Z]$, $U_2^Z \sim \mathrm{Unif}[0,Z]$ et que $U_1^Z$ est --> <!-- (toujours conditionnellement à $Z$) indépendante de $U_2^Z$. --> <!-- Montrer que, conditionnellement à $Z$,  $\mathrm{min}(U_1^Z, U_2^Z)$ a la même loi --> <!-- que X. --></li>
+<li>Soient <span class="math inline">\(X_1,X_2,X_3\)</span> trois variables indépendantes, toutes trois distribuées suivant la distribution exponentielle de paramètre <span class="math inline">\(1\)</span>. On note <span class="math inline">\(S= X_1+X_2+X_3\)</span>. Déterminer la loi de <span class="math inline">\((X_1,S)\)</span>. <!-- Que vaut $\mathbb{E}[X_1\mid S]$? $\mathbb{E}[S \mid X_1]$? --> <!-- Montrer finalement que conditionnellement à $S$, le couple $(X_1,X_1+X_2)$ a la même --> <!-- loi que $\left(\mathrm{min}(U_1^S, U_2^S), \mathrm{max}(U_1^S, U_2^S)\right)$. --></li>
 </ol>
 <div class="callout callout-style-simple callout-note no-icon" name="Rappel">
 <div class="callout-body d-flex">
