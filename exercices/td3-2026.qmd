@@ -84,8 +84,9 @@ Soit $\mu$ une mesure positive sur $(\Omega, \mathcal{F})$, et $f : \Omega \to [
 On s'intéresse à 
 $$\lim_n \int_X n \ln \left(  1 +\left(\frac{f}{n}\right)^\alpha \right) \mathrm{d}\mu$$
 
-1.  Si $\alpha\geq 1$, utiliser le théorème de convergence dominée pour vérifier que la limite vaut $c$ pour $\alpha=1$, et $0$ pour $\alpha>1$.
-2.  Si $\alpha<1$, utiliser le théorème de Fatou pour vérifier que la limite vaut $0$.
+1. Si $\alpha\geq 1$, vérifier que pour $u>0$, $n \in \mathbb{N}\setminus \{0\}$, $0 \leq n, n \ln \left(1 + \left(\frac{u}{n}\right)^\alpha\right)\leq \alpha u$. 
+1. Si $\alpha\geq 1$, utiliser le théorème de convergence dominée pour vérifier que la limite vaut : $c$ pour $\alpha=1\, ,$ et $0$ pour $\alpha>1$.
+2. Si $\alpha<1$, utiliser le théorème de Fatou pour vérifier que la limite vaut $\infty$.
 :::
 
 
@@ -137,6 +138,8 @@ Pour caractériser les *ensembles de mesure nulle* : pour chaque $\epsilon>0$, i
  -->
 
 
+::: {.callout-note name="Definitions" appearance="minimal"}
+
 Pour un intervalle fini $[a,b]$, une *subdivision* de $[a,b]$ est une suite de points $a = x_0 < x_1 < \ldots < x_n = b$. On appelle *pas* de la subdivision $\max_{1 \leq i \leq n} (x_i - x_{i-1})$, l'écart maximal entre deux points consécutifs de la subdivision (le *pas* de la subdivision $S$ est défini par $\max_{1 \leq i \leq n} (x_i - x_{i-1})$).
 
 Une marque pour la subdivision $S = (x_0, x_1, \ldots, x_n)$  de $[a,b]$ est une suite de points $\xi_i \in [x_{i-1}, x_i]$ pour $i = 1, \ldots, n$.
@@ -149,6 +152,8 @@ $$R(f,S) = \sum_{i=1}^n f(\xi_i) (x_i - x_{i-1})$$
 La fonction $f$ est Riemann-intégrable ssi il existe $m \in \mathbb{R}$, tel que $\forall \epsilon > 0$, il existe un $\delta > 0$ tel que pour toute subdivision $S$ de $[a,b]$ de pas inférieur à $\delta$,
 
 $$|R(f,S) - m| < \epsilon.$$
+
+:::
 
 
 ::: {#exr-riemann-1 name="Sommes de Riemann"}
@@ -217,10 +222,10 @@ Soit $X_1, \ldots, X_n, \ldots$ des variables aléatoires distribuées indépend
 loi de Pareto de paramètre $\alpha>0$, $P\{ X_1\geq t \} =  t^{-\alpha}, t \geq 1$. 
 Soit $N$ indépendante des $X_i$, distribuée selon une loi de Poisson de paramètre $\mu>0.$ On définit $Z$ par $Z = \max_{i \leq N} X_i$.
 
-*Remarque:* Si $N=0$, on convient de $\max_{i\leq N} X_i = 0$. 
+*Remarque:* Si $N=0$, on convient de $\max_{i\leq N} X_i = z$ avec $z \in [0,1]$ à choisir. 
 
 i. Proposer un espace probabilisé pour modéliser l'énoncé. 
-i. Calculer la fonction de répartition de la loi de $Z$.
+i. Calculer la fonction de répartition de la loi de $Z$. La fonction de répartition est-elle continue sur $\mathbb{R}$? La loi de $Z$ est-elle *diffuse*?
 i. La loi de $Z$ possède-t-elle une espérance finie?  
 
 :::
@@ -284,14 +289,11 @@ On considère le couple $(X,Z)$ de densité jointe
 $$ f(x,z) := (z-x)\exp(-z) \mathbf{1}_{\{z \ge x \ge 0\}}.$$
 
 
-
 1. Calculer la loi de $X$, puis celle de $Z$.
-<!-- 1. En déduire que
-
-    $$f_{X \mid Z}(x \mid z) = \frac{2(z-x)}{z^2} \mathbf{1}_{\{0 \le x \le z, z >0\}}.$$
-
-1. Calculer $\mathbb{E}[X \mid Z]$, puis $\mathrm{Var}[X\mid Z]$.
-1. Calculer $f_{Z \mid X}(z \mid x)$, puis démontrer que $\mathbb{E}[Z \mid X] = X + 2$. -->
+<!-- 1. En déduire que -->
+<!-- $$f_{X \mid Z}(x \mid z) = \frac{2(z-x)}{z^2} \mathbf{1}_{\{0 \le x \le z, z >0\}}.$$ -->
+<!-- 1. Calculer $\mathbb{E}[X \mid Z]$, puis $\mathrm{Var}[X\mid Z]$. -->
+<!-- 1. Calculer $f_{Z \mid X}(z \mid x)$, puis démontrer que $\mathbb{E}[Z \mid X] = X + 2$. --> -->
 1. Quelle est la loi du couple $(X, Z-X)$? En déduire la loi de $Z-X$.
 
 ::: {.content-visible when-profile="solution"}
@@ -401,17 +403,17 @@ et on obtient que $X \sim \exp(1)$ est indépendante de $Z-X \sim \mathrm{Gamma}
 
 1. Soit $z >0$. On suppose que $U_1^z \sim \mathrm{Unif}[0,z]$, $U_2^z \sim \mathrm{Unif}[0,z]$ et que $U_1^z$ est indépendante de $U_2^z$.
 Calculer la densité de $\min(U_1^z, U_2^z)$.
-1. On suppose à présent que conditionnellement à $Z$,
-$U_1^Z \sim \mathrm{Unif}[0,Z]$, $U_2^Z \sim \mathrm{Unif}[0,Z]$ et que $U_1^Z$ est
-(toujours conditionnellement à $Z$) indépendante de $U_2^Z$.
-Montrer que, conditionnellement à $Z$,  $\mathrm{min}(U_1^Z, U_2^Z)$ a la même loi
-que X.
+<!-- 1. On suppose à présent que conditionnellement à $Z$, -->
+<!-- $U_1^Z \sim \mathrm{Unif}[0,Z]$, $U_2^Z \sim \mathrm{Unif}[0,Z]$ et que $U_1^Z$ est -->
+<!-- (toujours conditionnellement à $Z$) indépendante de $U_2^Z$. -->
+<!-- Montrer que, conditionnellement à $Z$,  $\mathrm{min}(U_1^Z, U_2^Z)$ a la même loi -->
+<!-- que X. -->
 1. Soient $X_1,X_2,X_3$ trois variables indépendantes, toutes trois distribuées
 suivant la distribution exponentielle de paramètre $1$. On note $S= X_1+X_2+X_3$.
 Déterminer la loi de $(X_1,S)$. 
-Que vaut $\mathbb{E}[X_1\mid S]$? $\mathbb{E}[S \mid X_1]$?
-Montrer finalement que conditionnellement à $S$, le couple $(X_1,X_1+X_2)$ a la même
-loi que $\left(\mathrm{min}(U_1^S, U_2^S), \mathrm{max}(U_1^S, U_2^S)\right)$.
+<!-- Que vaut $\mathbb{E}[X_1\mid S]$? $\mathbb{E}[S \mid X_1]$? -->
+<!-- Montrer finalement que conditionnellement à $S$, le couple $(X_1,X_1+X_2)$ a la même -->
+<!-- loi que $\left(\mathrm{min}(U_1^S, U_2^S), \mathrm{max}(U_1^S, U_2^S)\right)$. -->
 
 ::: {.content-visible when-profile="solution"}
  
