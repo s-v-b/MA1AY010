@@ -361,3 +361,13 @@ a. Si $X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi uniforme sur $[0,1]$
     converge en loi vers une Gaussienne centrée réduite.  -->
 
 :::
+
+
+
+::: {#exr-chainrule  name="Chainage"}
+
+Montrer que si $\rho \trianglelefteq \mu \trianglelefteq  \nu$, avec $f$ une densité de $\rho$ par rapport à $\mu$
+et $g$ une densité de $\mu$ par rapport à $\nu$, alors $fg$ est une  densité de $\rho$
+par rapport à $\nu$.
+
+:::

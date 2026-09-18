@@ -95,6 +95,10 @@ Vérifier que que tout hyperplan de $\mathbb{R}^d$ (sous-ensemble défini par $\
 
 ::: {#exr-fubini-1 name=""}
 
+Soit $X,Y$ deux variables aléatoires indépendantes, de lois diffuses sur $(\Omega, \mathcal{F}, P)$. Montrer que 
+
+$$P\{ X= Y\} =0 \enspace .$$
+
 
 :::
 
@@ -106,17 +110,23 @@ Vérifier que que tout hyperplan de $\mathbb{R}^d$ (sous-ensemble défini par $\
 :::
 
 
-::: {#exr-fubini-3 name=""}
+::: {#exr-fubini-3 name="Convolution"}
 
+Les fonctions $f$ et $g$ sont supposées intégrables de $(\mathbb{R}, \mathcal{B}(\mathbb{R}), \mu)$  ($\mu$ $\sigma$-finie) vers $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$. 
+On définit (essaye de définir) $f \star g$ par 
+$$f \star g (x) = \int_{\mathbb{R}}  f(y) g(x-y) \mathrm{d}\mu(y)$$
+
+
+1. Vérifier que  $y \mapsto f(y) g(x-y)$ est Borel-mesurable pour tout $x \in \mathbb{R}$.  
+1. Vérifier que  $\int_{\mathbb{R}} |g(x-y)| \mathrm{d}\mu(x) = \int_{\mathbb{R}} |g(x)| \mathrm{d}\mu(x)$  pour tout $y$. 
+1. Vérifier que  $x \mapsto \int_{\mathbb{R}} |f(y) g(x-y)| \mathrm{d}\mu(y)$ est Borel-mesurable 
+1. Verifier que  $\int_{\mathbb{R}} |f \star g (x)| \mathrm{d}\mu(x) \leq \int_{\mathbb{R}} |f(x)| \mathrm{d}\mu(x) \times \int_{\mathbb{R}} |g (x)| \mathrm{d}\mu(x)$
 
 :::
 
 
 
-::: {#exr-concentration   name="Espaces produits de grande dimension"} 
-
-
-
+::: {#exr-concentration   name="Espaces produits de grande dimension"}
 
 Dans ce qui suit $||.||$ désigne la norme euclidienne. 
 

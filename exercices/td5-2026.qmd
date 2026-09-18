@@ -46,10 +46,15 @@ requireNamespace('quarto')
 ::: {#exr-mediane-variationnelle name="Caractérisation de la médiane"}
 
 Soit $X$ une variable aléatoire  réelle intégrable sur $(\Omega, \mathcal{F}, P)$. 
+On suppose la loi de $X$ ($P \circ X^{-1}$) *diffuse*. 
 
-Montrer que les médianes de la loi de $X$ sont les réels qui minimisent:
+On définit la fonction 
+$$L(a) = a \mapsto \mathbb{E} \left| X - a\right| \, .$$
 
-$$a \mapsto \mathbb{E} \left| X - a\right| \, .$$
+1. $H$ est-elle finie en tout $a$ ?
+1. La fonction $L$ est-elle convexe ?
+1. $H$ est-elle dérivable ?
+1. Vérifier que les médianes de la loi de $X$ minimisent $L$. 
 
 :::
 
@@ -82,14 +87,40 @@ $$a \mapsto \mathbb{E} \left| X - a\right| \, .$$
 
 ::: {#exr-ineq-levy-2 name="SD et MAD"}
 
+Soit $X$ une variable aléatoire réelle de carré intégrable et de loi diffuse. On note $m$ une médiane  de la loi de $X$. 
+
+Vérifier que 
+
+$$\underbrace{\mathbb{E}_P|X-m|}_{\text{MAD}}  \leq \underbrace{\sqrt{\operatorname{Var}_P(X)}}_{\text{SD}}$$
+
+Sugestion: utiliser les conclusions de @exr-mediane-variationnelle. 
+
 :::
 
 ::: {#exr-ineq-levy-1 name="Inégalité de Lévy"}
+
+
+Soit $X$ une variable aléatoire réelle de carré intégrable et de loi diffuse. On note $m$ une médiane  de la loi de $X$. 
+
+Vérifier que 
+
+$$\left| \mathbb{E}_P X - m \right| \leq \sqrt{\operatorname{Var}_P(X)}$$
+
+Sugestion: utiliser les conclusions de @exr-ineq-levy-2. 
+
 
 :::
 
 
 ::: {#exr-ineq-levy-3 name="SD et IQR"}
+
+Soit $X$ une variable aléatoire réelle de carré intégrable et de loi diffuse. On note $Q_1$ et $Q_3$ le premier et le troisième 
+quartiles ($F^\leftarrow(1/4), F^\leftarrow(3/4)$, avec $F$  fonction de répartition de $P$ et $F^{\leftarrow}$ fonction quantile).
+On note $Q_2 = F^\leftarrow(1/2)$ 
+
+Comparer les indicateurs de dispersion :
+$$\operatorname{IQR} =Q_3 -Q_1, \qquad \mathbb{E}_P|X-m|, \qquad \sqrt{\operatorname{Var}_P(X)}$$
+
 
 :::
 

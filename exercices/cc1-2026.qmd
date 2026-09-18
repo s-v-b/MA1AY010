@@ -1,0 +1,163 @@
+---
+#title: "Exercices : semaine IV"
+# subtitle: "M1 ISIFAR MA1AY010"
+
+# date: "2026-09-17"
+
+format:
+  pdf:
+    output-file: cc1-2026.pdf
+    include-in-header:
+      - file: before_header_td.tex
+      - text: |
+          \copypagestyle{style-td1}{mystyle}
+          \makeevenhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small CC I}
+          \makeoddhead{style-td1}{\sffamily\small Probabilités et Extrêmes}{}{\sffamily\small CC I}
+          \pagestyle{style-td1}
+
+
+
+
+engine: knitr
+draft: true
+---
+
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+requireNamespace('quarto')
+```
+
+
+
+
+
+
+
+::: {.callout-note}
+
+### CC I  :    
+
+- 17 Septembre 2026
+
+- Master I ISIFAR
+
+- Durée : 1 heure 
+
+- **Probabilités** 
+
+:::
+
+
+::: {.callout-caution}
+
+- Aide-mémoire : une feuille A4 recto verso autorisée
+- Aucun autre document autorisé
+- Aucun moyen de communication électronique autorisé
+
+:::
+
+
+::: {#exr-model   name="Modélisation"} 
+
+On veut lancer un nombre aléatoire de boules numérotées $1, 2, \ldots, n, ...$ (a priori pas de borne supérieure finie) dans une collection d'urnes numérotées de $1$ à $m$. On choisit d'abord le nombre de boules à lancer (par un tirage selon une loi qui pourra être choisie plus tard, par exemple Poisson, géométrique, binomiale négative), on note le résultat du tirage $N$. Les boules numérotées de $1$ à $N$ sont lancées dans les urnes, on note pour chaque boule le numéro de l'urne dans laquelle la boule a été placée. 
+
+1. Décrire un univers des possibles convenable pour rendre compte de cette expérience.
+1. L'univers est-il fini, infini dénombrable, infini non-dénombrable ?
+1. Proposer une tribu d'événements. 
+1. Si le nombre de boules lancées ($N$) et le placement des boules sont indépendants, si $N$ suit une loi de Poisson de paramètre $\lambda$ et si les boules sont placées indépendamment  et uniformément dans les urnes, savez-vous déterminer le nombre moyen de boules qui sont placées dans l'urne $1$ ? 
+
+:::
+
+
+::::: {.content-visible when-profile="solution"}
+
+::: {.callout-note}
+
+### Solution 
+
+:::
+
+:::::
+
+
+
+::: {#exr-cantor-1   name="Tribus et mesures"} 
+
+Dans cet exercice, si $A \subseteq \mathbb{R}$ et $x \in \mathbb{R}$
+on note 
+$$x+ A = \left\{  x+y : y \in A \right\}$$
+et 
+$$x \times A = \left\{  xy : y \in A \right\}$$
+
+Si on définit la suite de sous-ensembles de $[0,1]$, par la récursion suivante :
+
+\begin{align*} 
+C_1 & = (1/3 \times C_0) \cup (2/3 + 1/3\times C_0) \\
+C_2 & = (1/3 \times C_1) \cup (2/3 + 1/3\times C_1) \\
+\vdots & \quad \vdots \\
+C_n & = (1/3 \times C_{n-1}) \cup (2/3 + 1/3\times C_{n-1}) \\
+\vdots & = \vdots
+\end{align*}  
+
+alors $C = \cap_{n=1}^\infty C_n = \lim_{n \to \infty} C_n$.
+
+
+(@) La suite d'ensembles $C_n$ est-elle croissante/décroissante/ni l'un ni l'autre ?
+(@) Les ensembles $C_n$ sont-ils ouverts/fermés/Boréliens ?
+(@) L'ensemble $C$ est-il ouvert/fermé/Borélien ?
+(@) $C$ est-il vide ?
+(@) L'intérieur de $C$ est-il vide ? 
+(@) Quelle est la mesure de Lebesgue de $C_n$ ?
+(@) Quelle est la mesure de Lebesgue de $C$ ?
+
+
+:::
+
+{{< pagebreak >}}
+
+::: {#exr-integration  name="Intégration"} 
+
+On définit $f_n: \mathbb{R} \to \mathbb{R}$ par $f_n(x) = n\, \mathbb{I}_{[n,n+1/n^3]}(x)$ pour $n \in \mathbb{N}^*$. On définit $g_n = \sum_{k=1}^n f_k$. 
+
+(@) Calculer $\int_{\mathbb{R}} f_n(x) \, dx$.
+(@) Calculer $\int_{\mathbb{R}} g_n(x) \, dx$.
+(@) Calculer $\int_{\mathbb{R}} \lim_n g_n(x) \, dx$ quand $n \to \infty$ ?
+(@) Calculer $\int_{\mathbb{R}} \lim_n g_n^2(x) \, dx$ quand $n \to \infty$ ?
+
+:::
+
+::::: {.content-visible when-profile="solution"}
+
+::: {.callout-note}
+
+### Solution 
+
+:::
+
+:::::
+
+
+
+
+::::: {.content-visible when-profile="solution"}
+
+::: {.callout-note}
+
+### Solution 
+
+:::
+
+
+
+::: {.callout-caution  title="Solution Chat-GPT 3.5"}
+
+
+:::
+:::::
+
