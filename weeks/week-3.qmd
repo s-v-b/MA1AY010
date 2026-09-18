@@ -1,8 +1,9 @@
 ---
 title: "Week 3"
-subtitle: "TBA"
+subtitle: "Calculs de densité, conditionnement"
 editor: source
-draft: true
+draft: false
+date: last-modified
 ---
 
 ::: callout-important
@@ -13,10 +14,14 @@ La semaine III (21-25 septembre 2026)  est  consacrée au conditionnement (espé
 
 :::
 
-## Préparer/Voir/Revoir
+## Voir
 
 ::: {}
 
+- Calculs de densités *image*, formules de changement de variable (2026-09-21)
+- Conditionnement discret (2026-09-22)
+- Processus de branchement (2026-09-22)
+- Conditionnement (2026-09-24)
 
 :::
 
@@ -30,6 +35,10 @@ La semaine III (21-25 septembre 2026)  est  consacrée au conditionnement (espé
 
 ## Exercices
 
+
+- [Feuille TD IV](/exercices/td4-2026.html)
+- [Feuille TD V](/exercices/td5-2026.html)
+- [Feuille TD VI](/exercices/td6-2026.html)
 - [Feuille TD VII](/exercices/td7-2026.html)
 - [Feuille TD VIII](/exercices/td8-2026.html)
 

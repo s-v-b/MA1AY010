@@ -5,6 +5,8 @@ toc: false
 number-sections: false
 engine: knitr
 lang: fr
+editor: source
+date: last-modified 
 
 execute:
   echo: true

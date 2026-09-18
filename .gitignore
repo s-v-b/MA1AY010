@@ -15,5 +15,8 @@ _site/
 *.key
 *speaker.html
 **/*.quarto_ipynb
+**/*.tex
+**/*.log
+**/*.aux
 
 PROBA_M1_MIDS/
