@@ -59,30 +59,6 @@ $$L(a) = a \mapsto \mathbb{E} \left| X - a\right| \, .$$
 :::
 
 
-## Espérance et fonction de survie
-
-
-::: {#exr-fonction-de-survie-1 name="Fonction de survie"}
-
-:::
-
-
-::: {#exr-fonction-de-survie-2 name="Taux de hasard"}
-
-:::
-
-
-::: {#exr-fonction-de-survie-3 name="Fonction de survie"}
-
-:::
-
-
-## Inégalité de Markov et majorations  de la fonction de survie 
-
-::: {#exr-markov-1 name=""}
-
-:::
-
 ## Inégalité de Lévy et variantes
 
 ::: {#exr-ineq-levy-2 name="SD et MAD"}
@@ -126,4 +102,4 @@ $$\operatorname{IQR} =Q_3 -Q_1, \qquad \mathbb{E}_P|X-m|, \qquad \sqrt{\operator
 
 
 
-## 
+

@@ -26,9 +26,7 @@ La semaine II (14-18 septembre 2026)  est encore consacrée aux révisions de Li
 - Lois produits  (2026-09-15)
 - Théorème de Tonelli-Fubini (2026-09-15)
 - [Indépendance (Événements, Tribus)](https://s-v-b.github.io/MA1AY010-CN/021-independence.html)
-- Calculs de densités *image*, formules de changement de variable (2026-09-15)
-- Conditionnement discret (2026-09-17)
-- Processus de branchement (2026-09-17)
+
 
 
 :::
@@ -47,8 +45,6 @@ La semaine II (14-18 septembre 2026)  est encore consacrée aux révisions de Li
 ## Exercices
 
 - TD III : 2, 3, 5, 9 
-- [Feuille TD IV](/exercices/td4-2026.html)
-- [Feuille TD V](/exercices/td5-2026.html)
 <!-- - [Feuille TD VI](/exercices/td5-2026.html) -->
 
 

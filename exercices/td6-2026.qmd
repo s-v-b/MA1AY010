@@ -88,7 +88,6 @@ Vérifier que que tout hyperplan de $\mathbb{R}^d$ (sous-ensemble défini par $\
 
 :::
 
-::: {#exr-mesure-produit-4 name="Mesure de Lebesgue sur $\mathbb{R}^d$"}
 
 ## Théorème de Fubini
 
@@ -103,11 +102,6 @@ $$P\{ X= Y\} =0 \enspace .$$
 :::
 
 
-
-::: {#exr-fubini-2 name=""}
-
-
-:::
 
 
 ::: {#exr-fubini-3 name="Convolution"}
@@ -125,6 +119,7 @@ $$f \star g (x) = \int_{\mathbb{R}}  f(y) g(x-y) \mathrm{d}\mu(y)$$
 :::
 
 
+## Divers 
 
 ::: {#exr-concentration   name="Espaces produits de grande dimension"}
 

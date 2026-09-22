@@ -5,7 +5,6 @@ toc: false
 number-sections: false
 engine: knitr
 lang: fr
-editor: source
 date: last-modified 
 
 execute:
@@ -16,6 +15,7 @@ execute:
 callout-appearance: minimal
 
 editor: 
+  source: true
   markdown: 
     wrap: 72
 

@@ -177,19 +177,7 @@ $$\frac{1}{x \sqrt{2\pi}} \exp\left(-\frac{\ln(x)^2}{2}\right) \mathbf{1}_{\{x >
 :::
 
 
-::: {#exr-densites-4  name="Densité image par transformation linéaire"}
 
-:::
-
-::: {.content-visible when-profile="solution"}
-
-::: {.callout-note title="Solution"}
-
-
-:::
-
-
-:::
 
 
 ## Fonctions quantiles 
@@ -269,7 +257,7 @@ $X$ et $Y$ distribuées selon $F$ et $G$.
 
 ::: {#exr-transformation-qu-3 name="Couplage quantile encore"}
 
-Construire un espace probabilisé sur lequel vient $X$ et $Y$ distribuées selon des lois binomiales de paramètres $n$ et $0<p<q<1$, 
+Construire un espace probabilisé sur lequel vivent $X$ et $Y$ distribuées selon des lois binomiales de paramètres $n$ et $0<p<q<1$, 
 de façon à ce que $X \leq  Y$ avec probabilité $1$.  
 
 Suggestion : commencer par le cas $n=1$.  
@@ -277,6 +265,11 @@ Suggestion : commencer par le cas $n=1$.
 Peut-on comparer les fonctions de répartition de ces lois binomiales ?
 
 :::
+
+{{< pagebreak >}}
+
+
+## Statistiques d'ordre
 
 ::: {.callout-note appearance="minimal"}
 
@@ -295,17 +288,11 @@ Quand $n$  est clair d'après le contexte,  on peut aussi  les noter $X_{(1)} \l
 :::  {#exr-order-1  name="Statistiques d'ordre"}
 
 
-
+a. On suppose que $X$ est une variable aléatoire réelle, absolument continue, de densité continue. Montrer que l'échantillon est presque sûrement formé de valeurs deux à deux distinctes. 
 a. Vérifier que la loi jointe des statistiques d'ordre est absolument continue par rapport 
 à la loi de l'échantillon.
-a. On suppose que $X$ est une variable aléatoire réelle, absolument continue, de densité continue. Montrer que l'échantillon est presque sûrement formé de valeurs deux à deux distinctes. 
-a. Donner la densité de la loi jointe des statistiques d'ordre.
+a. Donner la densité de la loi jointe des statistiques d'ordre, par rapport à la loi de l'échantillon, puis par rapport à la mesure de Lebesgue sur $\mathbb{R}^n$ (on peut utiliser les resultats de l'@exr-chainrule).
 a. Si la loi des $X_i$  définie par sa fonction de répartition $F$, admet une densité $f$, quelle est la densité de la loi de $X_{k:n}$  pour $1\leq k\leq n$ ?  
-a.  Montrer que conditionnellement à $X_{k:n}=x$, la suite 
-
-    $$(X_{i:n}-X_{k:n})_{i=k+1,\ldots, n}$$  
-
-    est distribuée comme les statistiques d'ordre d'un $n-k$ échantillon de la loi d'excès au dessus de $x$  (fonction de survie $\overline{F}(x+\cdot)/\overline{F}(x))$ avec la convention $\overline{F}=1-F$). 
 
 <!-- (Représentation de Rényi) -->
 
@@ -316,12 +303,12 @@ a.  Montrer que conditionnellement à $X_{k:n}=x$, la suite
 
 Cet exercice reprend les conventions de l'exercice précédent. On s'intéresse maintenant aux statistiques d'ordre d'un échantillon exponentiel.
 
-a. Si $X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi exponentielle d'espérance $1$ (densité $\mathbb{I}_{x>0} \mathrm{e}^{-x}$), et $X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}$ les statistiques d'ordre associées, montrer que:
+Si $X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi exponentielle d'espérance $1$ (densité $\mathbb{I}_{x>0} \mathrm{e}^{-x}$), et $X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}$ les statistiques d'ordre associées, montrer que :
 
-  i. avec la convention $X_{0:n}=0$, les écarts $(X_{i:n}-X_{i-1:n})_{1\leq i\leq n}$ (*spacings*) forment une
-  collection de variables aléatoires indépendantes ;
-  i. $X_{i:n}-X_{i-1:n}$ est distribuée selon une loi exponentielle
-  d'espérance $\tfrac{1}{i}$ .
+i. Avec la convention $X_{0:n}=0$, les écarts $(X_{i:n}-X_{i-1:n})_{1\leq i\leq n}$ (*spacings*) forment une
+  collection de variables aléatoires identiquement distribuées ; Quelle est leur espérance ?
+i. Quelle est la densité de la loi de $X_{i:n}-X_{i-1:n}$ ?
+i. Quelle est la densité de la loi de $X_{i:n}$ ? 
 
 <!-- a. Maintenant  $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infini,  telle que $k_n/n$ tend vers une limite finie (éventuellement nulle).  Montrer que
 
@@ -347,12 +334,16 @@ a. Si $X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi exponentielle d'esp�
 
 Cet exercice reprend les conventions de l'exercice précédent. On s'intéresse maintenant aux statistiques d'ordre d'un échantillon uniforme sur $[0,1]$.
 
-a. Si $X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi uniforme sur $[0,1]$ et $X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}$ les statistiques d'ordre associées, montrer que:
+$X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi uniforme sur $[0,1]$ et $X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}$ les statistiques d'ordre associées.
+$Y_1, \ldots, Y_{n+1} \sim_{\text{i.i.d}} \text{Exp}(1)$ où $\text{Exp}(1)$ désigne la loi exponentielle d'intensité $1$. On définit 
+$S_k =\sum_{j=1}^k Y_j$, pour $k=1, \ldots, n+1$. 
 
-  i. avec la convention $X_{0:n}=0$, les écarts $(X_{i:n}-X_{i-1:n})_{1\leq i\leq n}$ (*spacings*) forment une
-  collection de variables aléatoires indépendantes ;
-  i. $X_{i:n}-X_{i-1:n}$ est distribuée selon une loi exponentielle
-  d'espérance $\tfrac{1}{i}$ .
+
+i. Déterminer la densité de la loi de $\left(\frac{S_1}{S_{n+1}}, \ldots, \frac{S_n}{S_{n+1}}, S_{n+1}\right)$, déterminer la densité de la loi de $\left(\frac{S_1}{S_{n+1}}, \ldots, \frac{S_n}{S_{n+1}}\right)$.
+i. Montrer que: $X_{1:n}, X_{2:n},  \ldots, X_{n:n}$ est distribué comme $\left(\frac{S_1}{S_{n+1}}, \ldots, \frac{S_n}{S_{n+1}}\right)$ (comparer les densités).
+i. Avec la convention $X_{0:n}=0$, montrer que les écarts $(X_{i:n}-X_{i-1:n})_{1\leq i\leq n}$ (*spacings*) forment une
+collection de variables aléatoires identiquement distribuées ; Est ce une collection indépendante ?
+i. Montrer que $X_{i:n}-X_{i-1:n}$ est distribuée selon une loi Beta de parametres $1$ et $n$.
 
 <!-- a. Maintenant  $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infini,  telle que $k_n/n$ tend vers une limite finie (éventuellement nulle).  Montrer que
 

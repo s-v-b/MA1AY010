@@ -19,9 +19,7 @@ outils essentiels, et on tentera d'utiliser ces définitions et outils sur la li
   - Lemme des classes monotones
 - Loi de probabilité, mesure positive, $\sigma$-additivité
 - Fonctions mesurables et variables aléatoires
-- [Espérance, variance, moments](https://s-v-b.github.io/MA1AY010-CN/03-expectation.html)
 - [Théorèmes de convergence (monotone, Fatou, dominée](https://s-v-b.github.io/MA1AY010-CN/031-moments.html)
-- [Indépendance (Événements, Tribus)](https://s-v-b.github.io/MA1AY010-CN/021-independence.html)
 
 ## Exercices
 
