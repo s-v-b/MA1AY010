@@ -101,5 +101,15 @@ $$\operatorname{IQR} =Q_3 -Q_1, \qquad \mathbb{E}_P|X-m|, \qquad \sqrt{\operator
 :::
 
 
+::: {#exr-ineq-assoc name="Association"}
+
+Dans cet exercice, $f$ et $g$ sont deux fonctions croissantes bornées, $X$ est une variable aléatoire sur $(\Omega, \mathcal{F}, P)$. 
+
+Quels sont  les signes possibles de 
+$$\mathbb{E}_P \left[f(X)g(X)\right] - \mathbb{E}_P \left[f(X)\right] \mathbb{E}_P \left[g(X)\right] \, .$$
+
+:::
+
+
 
 

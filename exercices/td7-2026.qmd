@@ -43,6 +43,19 @@ requireNamespace('quarto')
 
 ## Fonctions génératrices : lois composées
 
+
+::: {.callout-note name="Distributions composées" appearance="minimal"}
+
+Une distribution composée est définie par une loi $P$ sur $\mathbb{N}$ et une distribution $Q$ sur $\mathbb{R}$. On considère l'univers $\Omega = \mathbb{N} \times \mathbb{R}^{\mathbb{N}}$. L'univers est muni 
+de la tribu produit $\sigma \left(\mathcal{P}(\mathbb{N}) \times \mathcal{C} \right)$ où $\mathcal{C}$ est la tribu des cylindres $\sigma\left( \cup_k \mathcal{B}(\mathbb{R}^k) \right)$. 
+
+
+
+:::
+
+
+
+
 ## Fonctions génératrices : sommes de variables indépendantes
 
 ## Fonctions génératrices, régularité et intégrabilité
@@ -51,7 +64,29 @@ requireNamespace('quarto')
 
 ## Conditionnement discret, applications 
 
-## Lois jointes définies par un noya
+::: {#exr-1-conditionnement   name="Questionnaire"} 
+ 
+Soient $(\Omega; \mathcal{A}; P)$ un espace de probabilité, $X$ et $Y$ des v.a.r., $T$ une v.a. à valeurs
+dans $\mathbb{R}^d$. 
+
+Que peut-on dire, sous réserve d'hypothèses d'intégrabilité adéquates, des espérances conditionnelles suivantes :
+
+
+1. $\mathbb{E}(f(T)\mid T)$ avec $f : \mathbb{R}^d \to \mathbb{R}$ borélienne,
+1. $\mathbb{E}(X\mid T)$ avec $X$ $\ \sigma(T)$-mesurable, 
+2. $\mathbb{E}(XY \mid T)$ avec $X \ \sigma(T)$-mesurable, 
+3. $\mathbb{E}(f(X)\mid T)$ avec $f : \mathbb{R}^d \to \mathbb{R}$ borélienne, $X$ et $T$ indépendantes, 
+4. $\mathbb{E}(\mathbb{E}(X \mid T))$, 
+5. $\mathbb{E}[S_{10} |S_{8}]$ lorsque $S_n = \sum_{i=1}^n X_i$ et les $(X_i)_{i \ge 1}$ sont i.i.d., 
+6. $\mathbb{E}[S_{31}\mid X_1]$ lorsque $S_n = \sum_{i=1}^n X_i$ et les $(X_i)_{i \ge 1}$ sont i.i.d., 
+7. $\mathbb{E}[\Pi_{4} \mid \Pi_2]$ lorsque  $\Pi_n = \prod_{i=1}^n X_i$ et les $(X_i)_{i \ge 1}$ sont i.i.d., 
+8. $\mathbb{E}[\phi(X,Y) \mid Y]$ lorsque $X$ et $Y$ sont indépendantes, 
+9. $\mathbb{E}[f(S_2+X_8) \mid S_2]$, lorsque $S_n = \sum_{i=1}^n X_i$ et les $(X_i)_{i \ge 1}$ sont i.i.d. 
+
+:::
+
+
+## Lois jointes définies par un noyau
 
 
 :::  {#exr-noyau-0 name="Noyau"}
@@ -74,7 +109,7 @@ On suppose maintenant:
 Montrer
 
 1. $B \mapsto  \int_X K(x, B) \mu(dx)$ définit une mesure sur $\mathcal{G}$
-1. $x \mapsto \int_Y  f(y) K(x, \mathrm{d}y)$
+1. $x \mapsto \int_Y  f(y) K(x, \mathrm{d}y)$ est mesurable
 1. $\int_Y f(y) \left( \int_X K(x, \mathrm{d}y) \mu(dx) \right)$ = $\int_X \left( \int_Y K(x, dy) f(y) \right) \mu(dx)$  
 :::
 
@@ -83,9 +118,21 @@ Montrer
 
 <!-- Exercice 5.1.5 in Cohn -->
 
+$(X, \mathcal{A})$ et $(Y, \mathcal{B})$ sont deux espaces  measurables, et  $K$ est un noyau de $(X, \mathcal{A})$ vers  $(Y, \mathcal{B})$ tel que $K(x,Y )$ est fini pour tout  $x \in X$.
+
+1. Montrer que $(x, E) \mapsto K(x, E_x )$ définit  un  noyau  de $(X, \mathcal{A})$ vers
+$(X × Y, \sigma(\mathcal{A} × \mathcal{B}))$.
+1. Montrer que si $μ$ est une mesure sur $(X, \mathcal{A})$, alors 
+$E \mapsto \int_{X} K(x, E_x ) \mathrm{d}μ(x)$
+définit une mesure on $\sigma(\mathcal{A} × \mathcal{B})$.
+1. Peut-on déduire l'existence d'une loi produit à partir d'une paire de lois des réponses aux deux questions précédentes ? 
+
 :::
 
+{{< pagebreak >}}
 
+
+::: {.callout-note  name="Branchement" appearance="minimal"}
 
 Un processus de Galton-Watson (processus de branchement homogène) est un processus stochastique en temps discret utilisé pour modéliser l’évolution d’une population où chaque individu se reproduit indépendamment des autres, suivant une même loi de probabilité donnée (appelée *loi de reproduction*).
 
@@ -101,7 +148,7 @@ la fonction génératrice des probabilités de la loi $Q$.
 On convient de $\mathbb{N}^* = \mathbb{N}\setminus \{0\}$.
 
 
-
+:::
 
 ::: {#exr-bp-1   name="Branchement (Modélisation)"} 
 
@@ -475,5 +522,66 @@ Théorème 3.15 dans @MR3617364
 
 
 :::
+
+:::
+
+
+
+:::  {#exr-negbin  name="Binomiale négative"}
+
+Les variables $X_1, X_2, \ldots, X_n, \ldots$ sont des variables de Bernoulli de probabilité
+de succès $p \in (0,1)$, indépendantes. On définit $T_1 = \min \{i : X_i=1\}$ (temps du premier succès), $T_2 = \min \{i : i > T_1, X_i=1\}$ (temps du premier succès après $T_1$),
+et récursivement $T_{n+1} = \min \{ i : i > T_n, X_i =1\}$ (temps du $n+1$eme succès).
+
+On admet l'existence d'un espace de probabilité $(\Omega, \mathcal{F}, P)$ où $\Omega = \{0,1\}^{\mathbb{N}}$, $\mathcal{F}$ est
+une tribu pour laquelle les $X_i$ sont mesurables, et $P$ tel  que $X_1, \ldots, X_n, \ldots$ est une famille indépendante.
+
+
+a. $T_1$ et plus généralement $T_n$ sont-elles des variables aléatoires?
+a. Calculer $P \{ T_1 > k  \}$ pour $k \in \mathbb{N}$.
+a. Calculer $P \{ T_1 = k  \}$ pour $k \in \mathbb{N}$
+a. Calculer $\mathbb{E}T_1$.
+a. Calculer $P \{ T_1 = k  \wedge T_2 = k+j\}$ pour $k, j \in \mathbb{N}$
+a. Calculer $P \{ T_2 = k  \}$ pour $k \in \mathbb{N}$
+a. Calculer $\mathbb{E}T_2$
+a. Calculer $\mathbb{E} T_n$
+
+:::
+
+
+
+:::  {#exr-roc  name="Restitution Organisée de Connaissances"}
+
+- Soient $A, B, C$ trois événements dans un espace probabilisé. A-t-on  toujours: $A \perp\!\!\!\perp B \text{ et } B \perp\!\!\!\perp C \Rightarrow A \perp\!\!\!\perp C$?
+- Soient $P$ et $Q$ deux lois de probabilités sur $(\Omega, \mathcal{F})$, on définit l'ensemble $\mathcal{M} = \big\{ A : A \in \mathcal{F}, P(A)=Q(A)\}$.  Répondre par *vrai/faux/je ne sais pas* aux questions suivantes:
+
+
+    a. $\mathcal{M}$ est-il toujours une classe monotone ?
+    a. $\mathcal{M}$ est-il toujours une $\sigma$-algèbre ?
+    a. $\mathcal{M}$ est-il toujours une $\pi$-classe ?
+
+- Soient $G$ et $F$  sont deux fonctions génératrices de probabilité.   Répondre par *vrai/faux* aux questions suivantes:
+
+    a. Est-il vrai que $G \times F$ est toujours une fonction génératrice ?
+    a. Est-il vrai que $G + F$ est toujours une fonction génératrice de probabilité ?
+    a. Est-il vrai que $\lambda G + (1-\lambda) F$ avec $\lambda \in [0,1]$ est toujours une fonction génératrice de probabilité ?
+
+
+- Si $\widehat{F}$ est la fonction caractéristique de la loi de $X$, et si $\epsilon \perp\!\!\!\perp X$,
+  avec $P\{\epsilon=1\}= P\{\epsilon=-1\}=1/2$, quelle est la fonction caractéristique de la loi de $\epsilon X$?
+
+:::
+
+::: {#exr-chevre name="Les trois portes"}
+
+Le jeu oppose un présentateur à un candidat (le joueur). Ce joueur est placé devant trois portes fermées. Derrière l'une d'elles se trouve une voiture et derrière chacune des deux autres se trouve une chèvre. Il doit tout d'abord désigner une porte. Puis le présentateur doit ouvrir une porte qui n'est ni celle choisie par le candidat, ni celle cachant la voiture (le présentateur sait quelle est la bonne porte dès le début). Le candidat a alors le droit d'ouvrir la porte qu'il a choisie initialement, ou d'ouvrir la troisième porte.
+
+On suppose que l'organisateur du jeu place la voiture uniformément au hasard derrière l'une des trois portes avant la partie.
+
+Les questions qui se posent au candidat sont :
+
+
+i. Que doit-il faire ?
+i. Quelles sont ses chances de gagner la voiture en agissant au mieux ?
 
 :::
