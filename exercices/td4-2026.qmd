@@ -176,7 +176,69 @@ $$\frac{1}{x \sqrt{2\pi}} \exp\left(-\frac{\ln(x)^2}{2}\right) \mathbf{1}_{\{x >
 
 :::
 
+::: {#exr-densite-4 name="Intégration par rapport à une mesure à densité"}
 
+Dans cet exercice, $\nu,\mu$ sont deux mesures $\sigma$-finies sur $(\Omega, \mathcal{F})$, $\nu \trianglelefteq \mu$  ($\nu$ est absolument continue par rapport à $\mu$), $f$ est une densité de $\nu$
+par rapport à $\mu$.
+
+Montrer que pour toute fonction positive $h$ $\mathcal{F}/\mathcal{B}(\mathbb{R})$ mesurable, on a :
+$$\int_{\Omega} h  \mathrm{d}\nu  =\int_\Omega hf \mathrm{d}\mu$$
+
+Suggestion : on pourra commmencer par étudier le cas des fonctions simples. 
+
+Comment étendre cette propriété aux fonctions mesurables de signe quelconque ? 
+
+:::
+
+::: {#exr-densite-5 name="Deux versions de densités sont presque surement égales"}
+
+Dans cet exercice, $\nu,\mu$ sont deux mesures $\sigma$-finies sur $(\Omega, \mathcal{F})$, $\nu \trianglelefteq \mu$  ($\nu$ est absolument continue par rapport à $\mu$), $f$ et $g$ sont des densités (versions de densité) de $\nu$ par rapport à $\mu$.
+
+Montrer que $\mu\{ f \neq g \}=0$.
+
+Suggestion: vérifier d'abord que pour tout $n \in \mathbb{N} \setminus \{0\}$, l'événement $A_n = \left\{ f \geq g + 1/n \right\}$ vérifie  $\mu(A_n)=0$. 
+
+:::
+
+
+::: {#exr-densite-6 name="Intégrale de Gauss"}
+
+On note $I= \int_{\mathbb{R}} \mathrm{e}^{-x^2/2} \mathrm{d}x$.
+
+1. Vérifier que $I < \infty$.
+2. Vérifier que $I^2 = \int_{\mathbb{R}} \int_{\mathbb{R}} \mathrm{e}^{-(x^2+y^2)/2} \mathrm{d}x\mathrm{d}y$
+3. En utilisant (et en justifiant) un passage en coordonnées polaires $(x,y) =(r \cos(\theta), r \sin(\theta))$ avec $r>0$ et $\theta \in ]0, 2\pi[$, vérifier que 
+    
+    $$I^2 = \int_{]0,2\pi[} \int_{]0,\infty)} r \mathrm{e}^{-r^2/2} \mathrm{d}r \mathrm{d}\theta$$
+
+4. Conclure $I = \sqrt{2\pi}$
+
+
+
+:::
+
+::: {#exr-densite-8 name="Box-Müller"}
+
+Sur un espace probabilisé on dispose de deux variables aléatoires indépendantes, uniformément distribuées sur $]0,1[$, notées $U$ et $V$. On définit :
+$X= \cos(2\pi U) \sqrt{2\ln 1/V}$ et $Y = \sin(2\pi V) \sqrt{2\ln 1/V}$.
+
+1. $U$ et $V$ sont-elles des variables aléatoires ?
+2. Quelle est la loi de $U^2 + V^2$. Calculer sa densité.
+3. Si $A$ est la matrice d'une rotation d'angle $\phi \in [0, 2\pi]$, quelle est la loi de $A \begin{bmatrix} X \\ Y\end{bmatrix}$?
+4. La loi de $\begin{bmatrix} X \\ Y\end{bmatrix}$ est-elle absolument continue ? Si oui pouvez-vous calculer une densité ?
+
+:::
+
+::: {#exr-densite-7 name="Disque unité"}
+
+$(X, Y)$  est un couple aléatoire tiré uniformément sur le disque unité.
+
+1. Quelle est la loi de $U = X^2+ Y^2$ ?
+2. Quelle est la loi de $\left(\frac{X}{\sqrt{U}}, \frac{Y}{\sqrt{U}}\right)$ ?
+3. $U$ et $\frac{X}{\sqrt{U}}$ sont-elles indépendantes ?
+4. Si on tire $(V,W)$ uniformément dans $[-1,1]^2$, quelle est la probabilité que $(V,W)$ appartienne au disque unité ? 
+
+:::
 
 
 
