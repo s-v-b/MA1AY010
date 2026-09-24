@@ -41,6 +41,57 @@ requireNamespace('quarto')
 
 ## Fonctions génératrices : propriétés
 
+
+
+::: {.callout-note appearance="minimal"}
+
+Le _rayon de convergence_ de la fonction génératrice $G$ 
+
+$$
+G(z) = \sum_{n\in \mathbb{N}} p(n) z^n, \qquad z \in \mathbb{C}
+$$
+est l'unique $R \in [0, \infty) \cup \{+ \infty\}$ tel que :
+
+- pour tout $z \in \mathbb{C}$ avec $|z| > R$, la série $\sum_{n\in \mathbb{N}} p(n) z^n$ diverge.
+- pour tout $z \in \mathbb{C}$ avec $|z| < R$, la série $\sum_{n\in \mathbb{N}} p(n) z^n$ est absolument convergente.
+
+Le disque ouvert $\{ z : z \in \mathbb{C}, |z| < R \}$ est appelé le _disque de convergence_ de $G$.
+Le cercle $\{ z : z \in \mathbb{C}, |z| = R \}$ est appelé le _cercle de convergence_ de $G$.
+
+
+:::
+
+::: {#exr-radius}
+
+Vérifier l'existence et l'unicité du rayon de convergence pour une fonction génératrice.
+
+:::
+
+
+::: {#exr-derivative-pgf}
+
+Montrer que si $G$ est définie comme une série entière $G(z) = \sum_{n \in \mathbb{N}} a_n z^n$,
+sa dérivée (complexe) est $G'(z)=  \sum_{n \in \mathbb{N}} (n+1) a_{n+1} z^n$.
+
+Montrer que la dérivée $G'$ et $G$ ont le même rayon de convergence.
+
+:::
+
+::: {#exr-pgfintegr}
+
+### Intégrabilité et fonctions génératrices de probabilité
+
+Soit $X$ une variable aléatoire à valeurs entières, de fonction génératrice de probabilité $f$.
+
+Montrer que $\mathbb{E} X^p < \infty$ si et seulement si $f$ est $p$ fois dérivable en $1$
+et
+$$
+f^{(p)}(1) = \mathbb{E}\left[X (X-1) \ldots (X-p+1)\right] \, .
+$$
+
+:::
+
+
 ## Fonctions génératrices : lois composées
 
 
@@ -585,3 +636,78 @@ i. Que doit-il faire ?
 i. Quelles sont ses chances de gagner la voiture en agissant au mieux ?
 
 :::
+
+
+{{< pagebreak >}}
+
+
+
+
+
+## Propriétés de l'espérance conditionnelle
+
+Dans cette section, $(\Omega, \mathcal{F}, P)$ est un espace de probabilité, $\mathcal{G}$ une sous-tribu de
+$\mathcal{F}$. Les variables aléatoires $(X_n)_n, (Y_n)_n, X, Y, Z$ sont supposées intégrables,
+et p.s. signifie $P$-p.s.
+
+
+::: {#exr-monotonecond name="Monotonicité de l'espérance conditionnelle"}
+
+Si $(X_n)_{n \in \mathbb{N}}$ est une suite de variables aléatoires de
+$\mathcal{L}_1 (\Omega, \mathcal{F}, P)$ telle que
+$X_{n + 1} \geq X_n$ $P$-p.s., alors il existe une suite $P$-p.s. croissante de versions
+d'espérances conditionnelles
+
+$$ \forall n \in \mathbb{N},\quad\mathbb{E} \left[ X_{n + 1} \mid \mathcal{F} \right] \geq   \mathbb{E} \left[ X_n \mid \mathcal{F} \right] . $$
+
+:::
+
+
+::: {#exr-pi-systeme-esp-cond}
+
+Soit $\mathcal{E}$ un $\pi$-système engendrant $\mathcal{G}$ et contenant
+$\Omega$. Vérifier que $\mathbb{E} \left[ X \mid \mathcal{G} \right]$ est l'unique
+élément de $\mathcal{L}_1 \left( \Omega, \mathcal{G}, P \right)$ qui satisfait
+
+$$\forall B \in \mathcal{E}, \quad \mathbb{E} \left[\mathbb{I}_B X \right] = \mathbb{E} \left[ \mathbb{I}_B\mathbb{E} \left[ X \mid \mathcal{G} \right] \right] .$$
+
+:::
+
+
+
+La propriété la plus simple est :
+
+::: {#exr-tower-1}
+
+Montrer que si $X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)$, alors
+
+$$\mathbb{E} \left[ X \right] = \mathbb{E} \left[ \mathbb{E}   \left[ X \mid \mathcal{G} \right] \right].$$
+
+:::
+
+
+::: {#exr-condexp-measur}
+
+Montrer que si $X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)$, alors
+ $X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)$ et $X$ est
+$\mathcal{G}$-mesurable, alors
+
+$$X = \mathbb{E} \left[ X \mid \mathcal{G} \right]  \hspace{1em} P\text{-a.s.}$$
+
+:::
+
+::: {#exr-altercharac}
+
+Soient $X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)$
+et $\mathcal{G} \subseteq \mathcal{F}$ une sous-tribu. 
+
+
+Montrer que pour toute $Y \in\mathcal{L}_1 (\Omega, \mathcal{G}, P)$ telle que
+$\mathbb{E} \left[ |X Y| \right] < \infty$
+
+$$\mathbb{E} \left[ XY \right] = \mathbb{E} \left[ Y \mathbb{E} \left[ X \mid \mathcal{G} \right] \right] .$$
+
+:::
+
+
+
