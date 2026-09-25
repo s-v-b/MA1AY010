@@ -41,11 +41,56 @@ requireNamespace('quarto')
 
 # Convergences en distribution
 
+## Convergences 
+
+
+::: {#exr-vague}
+
+Considérons la suite de masses de probabilité sur les 
+entiers $(\delta_n)_{n \in \mathbb{N}}$. 
+
+Montrer que cette suite converge vaguement vers la mesure nulle alors qu'elle ne converge pas faiblement.
+
+:::
+
+
+
+::: {#exr-conv-vague}
+
+Si une suite de lois de probabilité sur $\mathbb{R}^k$ converge vaguement vers une mesure de probabilité, converge-t-elle aussi faiblement vers cette mesure de probabilité ?
+
+:::
+
+
+::: {#exr-utight-enough}
+
+Pour établir la compacité uniforme de $(P_n)_n$, il suffit de montrer que pour tout $\epsilon>0$,
+il existe un certain $n_0(\epsilon)$ et un compact $K \subseteq \mathbb{R}$ tels que
+
+$$\forall n \geq n_(\epsilon), \qquad P_n(K) \geq 1 - \epsilon\, .$$
+
+:::
 
 ## Portemanteau 
 
+::: {#exr-weakconvquantiles}
+
+Montrer qu'une suite de mesures de probabilité définies par leurs fonctions quantiles $(F^\leftarrow_n)_n$ converge faiblement vers une mesure de probabilité définie par la fonction quantile $F^\leftarrow$ 
+si et seulement si $\lim_n F_n^\leftarrow(x) = F^\leftarrow(x)$ en tout point $x$ de continuité de $F^\leftarrow$.
+
+:::
+
+
+
 
 ## Théorèmes de continuité
+
+::: {#exr-laplaceconv}
+
+Verifier qu'une suite de variables aléatoires _non négatives_ $(X_n)_n$ converge en loi
+vers la variable aléatoire _non négative_ $X$ si et seulement si la suite des transformées de Laplace converge ponctuellement vers la transformée de Laplace de la loi de $X$.
+
+:::
 
 
 ## TCL
@@ -74,5 +119,48 @@ $$F_n(x) = x - \frac{\sin(2n \pi x)}{2n\pi}, \ 0 \le x \le 1.$$
  
 1. Montrer que $X_n$ converge en loi vers une variable $X$ (dont on décrira la loi).  
 1.  Vérifier que $X_n$ et $X$ sont des variables à densité. On note $f_n := F_n'$ la densité de $X_n$, $f$ celle de $X$. A-t-on $f_n \underset{n \to \infty}{\rightarrow} f$ simplement?    
+
+:::
+
+
+
+::: {#exr-tcl-mediane-empirique-1 name="Mediane empirique échantillon exponentiel"}
+
+
+
+:::
+
+
+
+::: {#exr-tcl-mediane-empirique-2 name="Mediane empirique échantillon uniforme"}
+
+
+
+:::
+
+
+::: {#exr-gumbel name="Lois d'extremes : Gumbel"}
+
+
+
+:::
+
+
+::: {#exr-frechet name="Lois d'extremes : Frechet"}
+
+
+
+:::
+
+
+::: {#exr-stats-dordre-intermediaire name="Statistiques d'ordre intermediaires dans un echantillon exponentiel"}
+
+
+
+:::
+
+::: {#exr-stats-dordre-intermediaire-2 name="Statistiques d'ordre intermediaires dans un echantillon uniforme"}
+
+
 
 :::

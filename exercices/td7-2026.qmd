@@ -92,49 +92,54 @@ $$
 :::
 
 
-## Fonctions génératrices : lois composées
+::: {#exr-pgf-sums}
 
+### Fonctions génératrices : sommes de variables indépendantes
 
-::: {.callout-note name="Distributions composées" appearance="minimal"}
+$X_1, \ldots, X_n$ sont des variables aléatoires entières indépendantes distribuées selon les lois $P_1, \ldots P_n$.
 
-Une distribution composée est définie par une loi $P$ sur $\mathbb{N}$ et une distribution $Q$ sur $\mathbb{R}$. On considère l'univers $\Omega = \mathbb{N} \times \mathbb{R}^{\mathbb{N}}$. L'univers est muni 
-de la tribu produit $\sigma \left(\mathcal{P}(\mathbb{N}) \times \mathcal{C} \right)$ où $\mathcal{C}$ est la tribu des cylindres $\sigma\left( \cup_k \mathcal{B}(\mathbb{R}^k) \right)$. 
+On note $S_n = \sum_{i=1}^n X_i$. Exprimer la fonction génératrice des probabilités de la loi de $S_n$ (notée $G_{S_n}$) 
+à partir des fonctions génératrices des lois $P_1, \ldots P_n$
+
 
 
 
 :::
 
 
+:::  {#exr-questions}
+
+Soient $G$ et $F$  sont deux fonctions génératrices de probabilité.   Répondre par *vrai/faux* aux questions suivantes:
+
+a. Est-il vrai que $G \times F$ est toujours une fonction génératrice ?
+a. Est-il vrai que $G + F$ est toujours une fonction génératrice de probabilité ?
+a. Est-il vrai que $\lambda G + (1-\lambda) F$ avec $\lambda \in [0,1]$ est toujours une fonction génératrice de probabilité ?
 
 
-## Fonctions génératrices : sommes de variables indépendantes
-
-## Fonctions génératrices, régularité et intégrabilité
-
-## Conditionnement discret
-
-## Conditionnement discret, applications 
-
-::: {#exr-1-conditionnement   name="Questionnaire"} 
- 
-Soient $(\Omega; \mathcal{A}; P)$ un espace de probabilité, $X$ et $Y$ des v.a.r., $T$ une v.a. à valeurs
-dans $\mathbb{R}^d$. 
-
-Que peut-on dire, sous réserve d'hypothèses d'intégrabilité adéquates, des espérances conditionnelles suivantes :
-
-
-1. $\mathbb{E}(f(T)\mid T)$ avec $f : \mathbb{R}^d \to \mathbb{R}$ borélienne,
-1. $\mathbb{E}(X\mid T)$ avec $X$ $\ \sigma(T)$-mesurable, 
-2. $\mathbb{E}(XY \mid T)$ avec $X \ \sigma(T)$-mesurable, 
-3. $\mathbb{E}(f(X)\mid T)$ avec $f : \mathbb{R}^d \to \mathbb{R}$ borélienne, $X$ et $T$ indépendantes, 
-4. $\mathbb{E}(\mathbb{E}(X \mid T))$, 
-5. $\mathbb{E}[S_{10} |S_{8}]$ lorsque $S_n = \sum_{i=1}^n X_i$ et les $(X_i)_{i \ge 1}$ sont i.i.d., 
-6. $\mathbb{E}[S_{31}\mid X_1]$ lorsque $S_n = \sum_{i=1}^n X_i$ et les $(X_i)_{i \ge 1}$ sont i.i.d., 
-7. $\mathbb{E}[\Pi_{4} \mid \Pi_2]$ lorsque  $\Pi_n = \prod_{i=1}^n X_i$ et les $(X_i)_{i \ge 1}$ sont i.i.d., 
-8. $\mathbb{E}[\phi(X,Y) \mid Y]$ lorsque $X$ et $Y$ sont indépendantes, 
-9. $\mathbb{E}[f(S_2+X_8) \mid S_2]$, lorsque $S_n = \sum_{i=1}^n X_i$ et les $(X_i)_{i \ge 1}$ sont i.i.d. 
 
 :::
+
+::: {#exr-compound  name="Distributions composées"}
+
+Une distribution composée est définie par une loi $P$ sur $\mathbb{N}$ et une distribution $Q$ sur $[0,\infty)$. On considère l'univers $\Omega = \mathbb{N} \times \mathbb{R}^{\mathbb{N}}$. L'univers est muni 
+de la tribu produit $\sigma \left(\mathcal{P}(\mathbb{N}) \times \mathcal{C} \right)$ où $\mathcal{C}$ est la tribu des cylindres $\sigma\left( \cup_k \mathcal{B}(\mathbb{R}^k) \right)$. La loi de probabilité est $P \otimes (\otimes^{\mathbb{N}}Q)$. On note $N$, $X_1, X_2, \ldots, X_n, \ldots$ les projections canoniques. 
+
+On définit $Z= \sum_{i=1}^N X_i$. 
+
+On note $G_P$ la fonction génératrice des probabilités de la loi de $N$, $\psi_Q$ la transformée de Laplace de la loi $Q$, et 
+$\psi_Z$  la transformée de Laplace de la loi de $Z$.
+
+Montrer que 
+$$\psi_Z = G_p \circ \psi_Q$$
+
+Si $N$ et les $X_i$ sont intégrables, montrer que $Z$ l'est aussi et que $\mathbb{E}_P Z = \mathbb{E}_P N \times \mathbb{E}_P X_1$.-
+
+:::
+
+
+
+
+{{< pagebreak >}}
 
 
 ## Lois jointes définies par un noyau
@@ -179,6 +184,31 @@ définit une mesure on $\sigma(\mathcal{A} × \mathcal{B})$.
 1. Peut-on déduire l'existence d'une loi produit à partir d'une paire de lois des réponses aux deux questions précédentes ? 
 
 :::
+
+
+## Conditionnement discret, applications 
+
+::: {#exr-1-conditionnement   name="Questionnaire"} 
+ 
+Soient $(\Omega; \mathcal{A}; P)$ un espace de probabilité, $X$ et $Y$ des v.a.r., $T$ une v.a. à valeurs
+dans $\mathbb{R}^d$. 
+
+Que peut-on dire, sous réserve d'hypothèses d'intégrabilité adéquates, des espérances conditionnelles suivantes :
+
+
+1. $\mathbb{E}(f(T)\mid T)$ avec $f : \mathbb{R}^d \to \mathbb{R}$ borélienne,
+1. $\mathbb{E}(X\mid T)$ avec $X$ $\ \sigma(T)$-mesurable, 
+2. $\mathbb{E}(XY \mid T)$ avec $X \ \sigma(T)$-mesurable, 
+3. $\mathbb{E}(f(X)\mid T)$ avec $f : \mathbb{R}^d \to \mathbb{R}$ borélienne, $X$ et $T$ indépendantes, 
+4. $\mathbb{E}(\mathbb{E}(X \mid T))$, 
+5. $\mathbb{E}[S_{10} |S_{8}]$ lorsque $S_n = \sum_{i=1}^n X_i$ et les $(X_i)_{i \ge 1}$ sont i.i.d., 
+6. $\mathbb{E}[S_{31}\mid X_1]$ lorsque $S_n = \sum_{i=1}^n X_i$ et les $(X_i)_{i \ge 1}$ sont i.i.d., 
+7. $\mathbb{E}[\Pi_{4} \mid \Pi_2]$ lorsque  $\Pi_n = \prod_{i=1}^n X_i$ et les $(X_i)_{i \ge 1}$ sont i.i.d., 
+8. $\mathbb{E}[\phi(X,Y) \mid Y]$ lorsque $X$ et $Y$ sont indépendantes, 
+9. $\mathbb{E}[f(S_2+X_8) \mid S_2]$, lorsque $S_n = \sum_{i=1}^n X_i$ et les $(X_i)_{i \ge 1}$ sont i.i.d. 
+
+:::
+
 
 {{< pagebreak >}}
 
@@ -711,3 +741,16 @@ $$\mathbb{E} \left[ XY \right] = \mathbb{E} \left[ Y \mathbb{E} \left[ X \mid \m
 
 
 
+::: {#exr-compound-variance}
+
+On reprend les conventions de l'@exr-compound. on a toujours $Z = \sum_{i=1}^N X_i$. On suppose que $N$  et les $X_i$ sont de carré intégrables. 
+
+Montrer: 
+$$\operatorname{Var}_P(Z) =  \mathbb{E}N \operatorname{Var}_P(X_1)   + \operatorname{Var}_P(N) (\mathbb{E}_PX_1)^2$$
+
+Relier ce résultat à:
+$$\operatorname{Var}_P(Z) = \operatorname{Var}_P(\mathbb{E}_P[Z | \sigma(N)]) +  \mathbb{E}_P\left[\operatorname{Var}_P(Z | \sigma(N))\right]$$
+
+(décomposition Pythagoricienne de la variance).
+
+:::

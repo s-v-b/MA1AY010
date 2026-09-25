@@ -101,6 +101,8 @@ $$\operatorname{IQR} =Q_3 -Q_1, \qquad \mathbb{E}_P|X-m|, \qquad \sqrt{\operator
 :::
 
 
+## Inégalités et applications 
+
 ::: {#exr-ineq-assoc name="Association"}
 
 Dans cet exercice, $f$ et $g$ sont deux fonctions croissantes bornées, $X$ est une variable aléatoire sur $(\Omega, \mathcal{F}, P)$. 
@@ -112,4 +114,48 @@ $$\mathbb{E}_P \left[f(X)g(X)\right] - \mathbb{E}_P \left[f(X)\right] \mathbb{E}
 
 
 
+::: {#exr-gamma name="À propos de la fonction Gamma"}
 
+La fonction $\Gamma$ est définie de $]0,\infty)$ vers $]0,\infty$ par 
+
+$$\Gamma(x) = \int_0^\infty \mathrm{e}^{-t} t^{x-1} \mathrm{d}t$$
+
+1. Verifier que $\int_0^\infty \mathrm{e}^{-t} t^{x-1} \mathrm{d}t$  est bien définie pour tout $x \in ]0, \infty)$. Vérifier que $\Gamma(x+1) = x\Gamma(x)$ pour $x>0$ et que $\Gamma(n+1) = n!$ pour $n \in \mathbb{N}$.
+1. Montre que $\ln(\Gamma) = \ln \circ \Gamma$  est convexe. Suggestion: utiliser l'inégalité de Holder.
+1. Montrer que $\Gamma$ est convexe.
+1. Montrer que 
+    $$\Gamma(x) = \lim_n \int_0^n t^{x-1} \left(1 -\frac{t}{n}\right)^n \mathrm{d}t$$ 
+:::
+
+
+::: {#exr-integrabilite-independance}
+
+Montrer que si deux variables aléatoires $X$ et $Y$ sont indépendantes et intégrables alors $XY$ est intégrable. 
+
+Peut-on se passer de l'hypothèse d'indépendance ?
+
+:::
+
+
+::: {#exr-indépendance-correlation}
+
+Montrer que $X$ et $Y$ sont indépendantes si et seulement si pour toutes fonctions mesurables bornées $f$ et $g$, 
+on a 
+$$\mathbb{E}\left[f(X) g(Y)\right] = \mathbb{E}f(X) \times \mathbb{E}g(Y)$$
+
+:::
+
+
+::: {#exr-indépendance-correlation}
+
+Montrer que pour toute fonction continuement dérivable strictement croissante  positive $f$ sur $[0, \infty)$, toute variable aléatoire positive $X$ sur  $(\Omega, \mathcal{F}, P)$:  
+
+$$\mathbb{E}_P f(X) = \int_0^\infty f'(t)  P\{ X > t\} \mathrm{d}t + f(0)$$
+
+:::
+
+
+::: {#exr-}
+
+
+:::

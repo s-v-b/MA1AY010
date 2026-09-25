@@ -77,30 +77,71 @@ transformée de Laplace d'une loi sur $[0, \infty)$?
 
 :::
 
-## Transformée de Laplace, inversion
-
+{{< pagebreak >}}
 
 ## Fonctions caractéristiques
 
-::: {#exr-quizz name="Quizz sur les fonctions caractéristiques"}
 
-- Soient $G$ et $F$  sont deux fonctions génératrices de probabilité.   Répondre par *vrai/faux* aux questions suivantes:
+::: {#exr-trivial-charcfunc}
 
-    a. Est-il vrai que $G \times F$ est toujours une fonction génératrice ?
-    a. Est-il vrai que $G + F$ est toujours une fonction génératrice de probabilité ?
-    a. Est-il vrai que $\lambda G + (1-\lambda) F$ avec $\lambda \in [0,1]$ est toujours une fonction génératrice de probabilité ?
+Soit la variable aléatoire réelle $X$ de loi $P$ et de fonction caractéristique $\widehat{F}$.
 
+Vérifier les propriétés suivantes :
 
-- Si $\widehat{F}$ est la fonction caractéristique de la loi de $X$, et si $\epsilon \perp\!\!\!\perp X$,
-  avec $P\{\epsilon=1\}= P\{\epsilon=-1\}=1/2$, quelle est la fonction caractéristique de la loi de $\epsilon X$?
+- $|\widehat{F}(t)|\leq 1$ pour tout $t\in \mathbb{R}$ ;
+- $\widehat{F}(0)=1$
+- Si $X$ est symétrique, $\widehat{F}$ est à valeurs réelles
+- La fonction caractéristique de la loi de $a X +b$ est
+    $$\mathrm{e}^{it b} \widehat{F}(at) \, .$$
+
 
 :::
 
-## Fonctions caractéristiques régularité/intégrabilité
+
+::: {#exr-quizz name="Quizz sur les fonctions caractéristiques"}
+
+Si $\widehat{F}$ est la fonction caractéristique de la loi de $X$, et si $\epsilon \perp\!\!\!\perp X$, avec $P\{\epsilon=1\}= P\{\epsilon=-1\}=1/2$, quelle est la fonction caractéristique de la loi de $\epsilon X$?
+
+:::
+
+::: {#exr-charfunc-suual}
+
+Calculer la fonction caractéristique de :
+
+- la loi de Poisson de paramètre $\lambda>0$ ;
+- la loi uniforme sur $[-1,1]$ ;
+- la loi triangulaire sur $[-1,1]$ (densité : $1-|x|$ sur $[-1,1]$) ;
+- la loi de Laplace, de densité $1/2 \exp(-|x|)$ ;
+- la loi exponentielle de densité $\exp(-x)$ sur $[0,+\infty)$ ;
+
+:::
 
 
-## Fonctions caractéristiques et convolutions
+::: {#exr-counter-example}
+
+Donner un contre-exemple pour montrer que
+$$
+\Big(\forall t \in \mathbb{R}, \quad \widehat{F}_{X+Y}(t) =  \widehat{F}_X(t) \times \widehat{F}_Y(t) \Big)
+\not\Rightarrow X \perp\!\!\!\perp Y \, .
+$$
+
+:::
 
 
-## Fonctions caractéristiques et lois stables 
+::: {#exr-tent}
+
+Vérifier que $\int_0^1 \cos(sx) (1-s) \mathrm{d}s\geq 0$ pour tout $x \in \mathbb{R}$.
+
+*Indication :* Vérifier que $t \mapsto \int_0^1 \cos(tw) (1-w) \mathrm{d}w$ est la fonction caractéristique de la loi *tente*, de densité $(1-|w|)$ sur $[-1,1]$. Vérifier que cette fonction caractéristique est le carré du module d'une autre fonction caractéristique. 
+
+:::
+
+
+::: {#exr-density-convolution}
+
+Vérifier que si $X$ et $Y$ sont indépendantes de densités $f_X$ et $f_Y$,
+alors $f_X \star f_Y$ est une densité de la loi de $X+Y$.
+
+:::
+
 

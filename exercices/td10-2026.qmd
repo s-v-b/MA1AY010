@@ -48,10 +48,47 @@ requireNamespace('quarto')
 ## Convergence en probabilité
 
 
+
+::: {#exr-check-prp-kyfan}
+
+Vérifier que les deux affirmations suivantes sont équivalentes :
+
+1. $(X_n)_n$ converge en probabilité vers $X$
+1. $\mathrm{d}_{\mathrm{KF}}(X_n, X)$ tend vers $0$ lorsque $n$ tend vers l'infini.
+
+Rappel: $\mathrm{d}_{\mathrm{KF}}$ désigne la distance de Ky-Fan. 
+
+:::
+
+
+
+::: {#exr-potpourri}
+
+- $\mathcal{L}_0(\Omega, \mathcal{F}, P)$ est-il complet pour la métrique de Ky-Fan ?
+- La convergence en probabilité implique-t-elle la convergence presque sûre ?
+- La convergence en probabilité implique-t-elle la convergence en $L_p$, $p\geq 1$ ?
+
+:::
+
+
 ## Loi faible des grands nombres
 
 
 ## Loi forte des grands nombres
+
+::: {#exr-bc2-01law}
+
+Déduire le second lemme de Borel-Cantelli comme cas particulier de la loi 0-1.
+
+:::
+
+
+::: {#exr-slln}
+
+Dans l'énoncé de la loi forte des grands nombres, on peut remplacer l'hypothèse d'indépendance par une indépendance deux à deux.
+
+:::
+
 
 ## Applications
 
