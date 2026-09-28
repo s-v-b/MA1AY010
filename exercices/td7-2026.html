@@ -4428,6 +4428,12 @@ window.Quarto = {
  <span class="menu-text">Week 3</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -4457,7 +4463,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">23 septembre 2026</p>
+      <p class="date">28 septembre 2026</p>
     </div>
   </div>
   
@@ -4473,52 +4479,62 @@ window.Quarto = {
 <h1>Fonctions génératrices et conditionnement discret</h1>
 <section id="fonctions-génératrices-propriétés" class="level2">
 <h2 class="anchored" data-anchor-id="fonctions-génératrices-propriétés">Fonctions génératrices : propriétés</h2>
-</section>
-<section id="fonctions-génératrices-lois-composées" class="level2">
-<h2 class="anchored" data-anchor-id="fonctions-génératrices-lois-composées">Fonctions génératrices : lois composées</h2>
-<div class="callout callout-style-simple callout-note no-icon" name="Distributions composées">
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Une distribution composée est définie par une loi <span class="math inline">\(P\)</span> sur <span class="math inline">\(\mathbb{N}\)</span> et une distribution <span class="math inline">\(Q\)</span> sur <span class="math inline">\(\mathbb{R}\)</span>. On considère l’univers <span class="math inline">\(\Omega = \mathbb{N} \times \mathbb{R}^{\mathbb{N}}\)</span>. L’univers est muni de la tribu produit <span class="math inline">\(\sigma \left(\mathcal{P}(\mathbb{N}) \times \mathcal{C} \right)\)</span> où <span class="math inline">\(\mathcal{C}\)</span> est la tribu des cylindres <span class="math inline">\(\sigma\left( \cup_k \mathcal{B}(\mathbb{R}^k) \right)\)</span>.</p>
+<p>Le <em>rayon de convergence</em> de la fonction génératrice <span class="math inline">\(G\)</span></p>
+<p><span class="math display">\[
+G(z) = \sum_{n\in \mathbb{N}} p(n) z^n, \qquad z \in \mathbb{C}
+\]</span> est l’unique <span class="math inline">\(R \in [0, \infty) \cup \{+ \infty\}\)</span> tel que :</p>
+<ul>
+<li>pour tout <span class="math inline">\(z \in \mathbb{C}\)</span> avec <span class="math inline">\(|z| &gt; R\)</span>, la série <span class="math inline">\(\sum_{n\in \mathbb{N}} p(n) z^n\)</span> diverge.</li>
+<li>pour tout <span class="math inline">\(z \in \mathbb{C}\)</span> avec <span class="math inline">\(|z| &lt; R\)</span>, la série <span class="math inline">\(\sum_{n\in \mathbb{N}} p(n) z^n\)</span> est absolument convergente.</li>
+</ul>
+<p>Le disque ouvert <span class="math inline">\(\{ z : z \in \mathbb{C}, |z| &lt; R \}\)</span> est appelé le <em>disque de convergence</em> de <span class="math inline">\(G\)</span>. Le cercle <span class="math inline">\(\{ z : z \in \mathbb{C}, |z| = R \}\)</span> est appelé le <em>cercle de convergence</em> de <span class="math inline">\(G\)</span>.</p>
 </div>
 </div>
 </div>
-</section>
-<section id="fonctions-génératrices-sommes-de-variables-indépendantes" class="level2">
-<h2 class="anchored" data-anchor-id="fonctions-génératrices-sommes-de-variables-indépendantes">Fonctions génératrices : sommes de variables indépendantes</h2>
-</section>
-<section id="fonctions-génératrices-régularité-et-intégrabilité" class="level2">
-<h2 class="anchored" data-anchor-id="fonctions-génératrices-régularité-et-intégrabilité">Fonctions génératrices, régularité et intégrabilité</h2>
-</section>
-<section id="conditionnement-discret" class="level2">
-<h2 class="anchored" data-anchor-id="conditionnement-discret">Conditionnement discret</h2>
-</section>
-<section id="conditionnement-discret-applications" class="level2">
-<h2 class="anchored" data-anchor-id="conditionnement-discret-applications">Conditionnement discret, applications</h2>
-<div id="exr-1-conditionnement" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 1 (Questionnaire)</strong></span> Soient <span class="math inline">\((\Omega; \mathcal{A}; P)\)</span> un espace de probabilité, <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> des v.a.r., <span class="math inline">\(T\)</span> une v.a. à valeurs dans <span class="math inline">\(\mathbb{R}^d\)</span>.</p>
-<p>Que peut-on dire, sous réserve d’hypothèses d’intégrabilité adéquates, des espérances conditionnelles suivantes :</p>
-<ol type="1">
-<li><span class="math inline">\(\mathbb{E}(f(T)\mid T)\)</span> avec <span class="math inline">\(f : \mathbb{R}^d \to \mathbb{R}\)</span> borélienne,</li>
-<li><span class="math inline">\(\mathbb{E}(X\mid T)\)</span> avec <span class="math inline">\(X\)</span> <span class="math inline">\(\ \sigma(T)\)</span>-mesurable,</li>
-<li><span class="math inline">\(\mathbb{E}(XY \mid T)\)</span> avec <span class="math inline">\(X \ \sigma(T)\)</span>-mesurable,</li>
-<li><span class="math inline">\(\mathbb{E}(f(X)\mid T)\)</span> avec <span class="math inline">\(f : \mathbb{R}^d \to \mathbb{R}\)</span> borélienne, <span class="math inline">\(X\)</span> et <span class="math inline">\(T\)</span> indépendantes,</li>
-<li><span class="math inline">\(\mathbb{E}(\mathbb{E}(X \mid T))\)</span>,</li>
-<li><span class="math inline">\(\mathbb{E}[S_{10} |S_{8}]\)</span> lorsque <span class="math inline">\(S_n = \sum_{i=1}^n X_i\)</span> et les <span class="math inline">\((X_i)_{i \ge 1}\)</span> sont i.i.d.,</li>
-<li><span class="math inline">\(\mathbb{E}[S_{31}\mid X_1]\)</span> lorsque <span class="math inline">\(S_n = \sum_{i=1}^n X_i\)</span> et les <span class="math inline">\((X_i)_{i \ge 1}\)</span> sont i.i.d.,</li>
-<li><span class="math inline">\(\mathbb{E}[\Pi_{4} \mid \Pi_2]\)</span> lorsque <span class="math inline">\(\Pi_n = \prod_{i=1}^n X_i\)</span> et les <span class="math inline">\((X_i)_{i \ge 1}\)</span> sont i.i.d.,</li>
-<li><span class="math inline">\(\mathbb{E}[\phi(X,Y) \mid Y]\)</span> lorsque <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont indépendantes,</li>
-<li><span class="math inline">\(\mathbb{E}[f(S_2+X_8) \mid S_2]\)</span>, lorsque <span class="math inline">\(S_n = \sum_{i=1}^n X_i\)</span> et les <span class="math inline">\((X_i)_{i \ge 1}\)</span> sont i.i.d.</li>
+<div id="exr-radius" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 1</strong></span> Vérifier l’existence et l’unicité du rayon de convergence pour une fonction génératrice.</p>
+</div>
+<div id="exr-derivative-pgf" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 2</strong></span> Montrer que si <span class="math inline">\(G\)</span> est définie comme une série entière <span class="math inline">\(G(z) = \sum_{n \in \mathbb{N}} a_n z^n\)</span>, sa dérivée (complexe) est <span class="math inline">\(G&#39;(z)=  \sum_{n \in \mathbb{N}} (n+1) a_{n+1} z^n\)</span>.</p>
+<p>Montrer que la dérivée <span class="math inline">\(G&#39;\)</span> et <span class="math inline">\(G\)</span> ont le même rayon de convergence.</p>
+</div>
+<div id="exr-pgfintegr" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 3 (Intégrabilité et fonctions génératrices de probabilité)</strong></span> Soit <span class="math inline">\(X\)</span> une variable aléatoire à valeurs entières, de fonction génératrice de probabilité <span class="math inline">\(f\)</span>.</p>
+<p>Montrer que <span class="math inline">\(\mathbb{E} X^p &lt; \infty\)</span> si et seulement si <span class="math inline">\(f\)</span> est <span class="math inline">\(p\)</span> fois dérivable en <span class="math inline">\(1\)</span> et <span class="math display">\[
+f^{(p)}(1) = \mathbb{E}\left[X (X-1) \ldots (X-p+1)\right] \, .
+\]</span></p>
+</div>
+<div id="exr-pgf-sums" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 4 (Fonctions génératrices : sommes de variables indépendantes)</strong></span> <span class="math inline">\(X_1, \ldots, X_n\)</span> sont des variables aléatoires entières indépendantes distribuées selon les lois <span class="math inline">\(P_1, \ldots P_n\)</span>.</p>
+<p>On note <span class="math inline">\(S_n = \sum_{i=1}^n X_i\)</span>. Exprimer la fonction génératrice des probabilités de la loi de <span class="math inline">\(S_n\)</span> (notée <span class="math inline">\(G_{S_n}\)</span>) à partir des fonctions génératrices des lois <span class="math inline">\(P_1, \ldots P_n\)</span></p>
+</div>
+<div id="exr-questions" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 5</strong></span> Soient <span class="math inline">\(G\)</span> et <span class="math inline">\(F\)</span> sont deux fonctions génératrices de probabilité. Répondre par <em>vrai/faux</em> aux questions suivantes:</p>
+<ol type="a">
+<li>Est-il vrai que <span class="math inline">\(G \times F\)</span> est toujours une fonction génératrice ?</li>
+<li>Est-il vrai que <span class="math inline">\(G + F\)</span> est toujours une fonction génératrice de probabilité ?</li>
+<li>Est-il vrai que <span class="math inline">\(\lambda G + (1-\lambda) F\)</span> avec <span class="math inline">\(\lambda \in [0,1]\)</span> est toujours une fonction génératrice de probabilité ?</li>
 </ol>
 </div>
+<div id="exr-compound" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 6 (Distributions composées)</strong></span> Une distribution composée est définie par une loi <span class="math inline">\(P\)</span> sur <span class="math inline">\(\mathbb{N}\)</span> et une distribution <span class="math inline">\(Q\)</span> sur <span class="math inline">\([0,\infty)\)</span>. On considère l’univers <span class="math inline">\(\Omega = \mathbb{N} \times \mathbb{R}^{\mathbb{N}}\)</span>. L’univers est muni de la tribu produit <span class="math inline">\(\sigma \left(\mathcal{P}(\mathbb{N}) \times \mathcal{C} \right)\)</span> où <span class="math inline">\(\mathcal{C}\)</span> est la tribu des cylindres <span class="math inline">\(\sigma\left( \cup_k \mathcal{B}(\mathbb{R}^k) \right)\)</span>. La loi de probabilité est <span class="math inline">\(P \otimes (\otimes^{\mathbb{N}}Q)\)</span>. On note <span class="math inline">\(N\)</span>, <span class="math inline">\(X_1, X_2, \ldots, X_n, \ldots\)</span> les projections canoniques.</p>
+<p>On définit <span class="math inline">\(Z= \sum_{i=1}^N X_i\)</span>.</p>
+<p>On note <span class="math inline">\(G_P\)</span> la fonction génératrice des probabilités de la loi de <span class="math inline">\(N\)</span>, <span class="math inline">\(\psi_Q\)</span> la transformée de Laplace de la loi <span class="math inline">\(Q\)</span>, et <span class="math inline">\(\psi_Z\)</span> la transformée de Laplace de la loi de <span class="math inline">\(Z\)</span>.</p>
+<p>Montrer que <span class="math display">\[\psi_Z = G_p \circ \psi_Q\]</span></p>
+<p>Si <span class="math inline">\(N\)</span> et les <span class="math inline">\(X_i\)</span> sont intégrables, montrer que <span class="math inline">\(Z\)</span> l’est aussi et que <span class="math inline">\(\mathbb{E}_P Z = \mathbb{E}_P N \times \mathbb{E}_P X_1\)</span>.-</p>
+</div>
+<div style="page-break-after: always;"></div>
 </section>
 <section id="lois-jointes-définies-par-un-noyau" class="level2">
 <h2 class="anchored" data-anchor-id="lois-jointes-définies-par-un-noyau">Lois jointes définies par un noyau</h2>
 <div id="exr-noyau-0" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2 (Noyau)</strong></span>  </p>
+<p><span class="theorem-title"><strong>Exercice 7 (Noyau)</strong></span>  </p>
 <!-- Exercice 2.4.7 in Cohn -->
 <p>Soient <span class="math inline">\((X, \mathcal{F})\)</span> et <span class="math inline">\((Y, \mathcal{G})\)</span> deux espaces mesurables, une fonction <span class="math inline">\(K\)</span> de <span class="math inline">\(X \times \mathcal{G} \to [0, \infty)\)</span> est un noyau de <span class="math inline">\((X, \mathcal{F})\)</span> vers <span class="math inline">\((Y, \mathcal{G})\)</span> si</p>
 <ul>
@@ -4539,13 +4555,32 @@ window.Quarto = {
 </ol>
 </div>
 <div id="exr-noyau-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 3 (Noyau)</strong></span>  </p>
+<p><span class="theorem-title"><strong>Exercice 8 (Noyau)</strong></span>  </p>
 <!-- Exercice 5.1.5 in Cohn -->
 <p><span class="math inline">\((X, \mathcal{A})\)</span> et <span class="math inline">\((Y, \mathcal{B})\)</span> sont deux espaces measurables, et <span class="math inline">\(K\)</span> est un noyau de <span class="math inline">\((X, \mathcal{A})\)</span> vers <span class="math inline">\((Y, \mathcal{B})\)</span> tel que <span class="math inline">\(K(x,Y )\)</span> est fini pour tout <span class="math inline">\(x \in X\)</span>.</p>
 <ol type="1">
 <li>Montrer que <span class="math inline">\((x, E) \mapsto K(x, E_x )\)</span> définit un noyau de <span class="math inline">\((X, \mathcal{A})\)</span> vers <span class="math inline">\((X × Y, \sigma(\mathcal{A} × \mathcal{B}))\)</span>.</li>
 <li>Montrer que si <span class="math inline">\(μ\)</span> est une mesure sur <span class="math inline">\((X, \mathcal{A})\)</span>, alors <span class="math inline">\(E \mapsto \int_{X} K(x, E_x ) \mathrm{d}μ(x)\)</span> définit une mesure on <span class="math inline">\(\sigma(\mathcal{A} × \mathcal{B})\)</span>.</li>
 <li>Peut-on déduire l’existence d’une loi produit à partir d’une paire de lois des réponses aux deux questions précédentes ?</li>
+</ol>
+</div>
+</section>
+<section id="conditionnement-discret-applications" class="level2">
+<h2 class="anchored" data-anchor-id="conditionnement-discret-applications">Conditionnement discret, applications</h2>
+<div id="exr-1-conditionnement" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9 (Questionnaire)</strong></span> Soient <span class="math inline">\((\Omega; \mathcal{A}; P)\)</span> un espace de probabilité, <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> des v.a.r., <span class="math inline">\(T\)</span> une v.a. à valeurs dans <span class="math inline">\(\mathbb{R}^d\)</span>.</p>
+<p>Que peut-on dire, sous réserve d’hypothèses d’intégrabilité adéquates, des espérances conditionnelles suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\(\mathbb{E}(f(T)\mid T)\)</span> avec <span class="math inline">\(f : \mathbb{R}^d \to \mathbb{R}\)</span> borélienne,</li>
+<li><span class="math inline">\(\mathbb{E}(X\mid T)\)</span> avec <span class="math inline">\(X\)</span> <span class="math inline">\(\ \sigma(T)\)</span>-mesurable,</li>
+<li><span class="math inline">\(\mathbb{E}(XY \mid T)\)</span> avec <span class="math inline">\(X \ \sigma(T)\)</span>-mesurable,</li>
+<li><span class="math inline">\(\mathbb{E}(f(X)\mid T)\)</span> avec <span class="math inline">\(f : \mathbb{R}^d \to \mathbb{R}\)</span> borélienne, <span class="math inline">\(X\)</span> et <span class="math inline">\(T\)</span> indépendantes,</li>
+<li><span class="math inline">\(\mathbb{E}(\mathbb{E}(X \mid T))\)</span>,</li>
+<li><span class="math inline">\(\mathbb{E}[S_{10} |S_{8}]\)</span> lorsque <span class="math inline">\(S_n = \sum_{i=1}^n X_i\)</span> et les <span class="math inline">\((X_i)_{i \ge 1}\)</span> sont i.i.d.,</li>
+<li><span class="math inline">\(\mathbb{E}[S_{31}\mid X_1]\)</span> lorsque <span class="math inline">\(S_n = \sum_{i=1}^n X_i\)</span> et les <span class="math inline">\((X_i)_{i \ge 1}\)</span> sont i.i.d.,</li>
+<li><span class="math inline">\(\mathbb{E}[\Pi_{4} \mid \Pi_2]\)</span> lorsque <span class="math inline">\(\Pi_n = \prod_{i=1}^n X_i\)</span> et les <span class="math inline">\((X_i)_{i \ge 1}\)</span> sont i.i.d.,</li>
+<li><span class="math inline">\(\mathbb{E}[\phi(X,Y) \mid Y]\)</span> lorsque <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont indépendantes,</li>
+<li><span class="math inline">\(\mathbb{E}[f(S_2+X_8) \mid S_2]\)</span>, lorsque <span class="math inline">\(S_n = \sum_{i=1}^n X_i\)</span> et les <span class="math inline">\((X_i)_{i \ge 1}\)</span> sont i.i.d.</li>
 </ol>
 </div>
 <div style="page-break-after: always;"></div>
@@ -4564,15 +4599,15 @@ On convient de <span class="math inline">\(\mathbb{N}^* = \mathbb{N}\setminus \{
 </div>
 </div>
 <div id="exr-bp-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 4 (Branchement (Modélisation))</strong></span>  </p>
+<p><span class="theorem-title"><strong>Exercice 10 (Branchement (Modélisation))</strong></span>  </p>
 </div>
 <p>Proposer une formalisation, c’est à dire un univers <span class="math inline">\(\Omega\)</span>, une tribu <span class="math inline">\(\mathcal{F}\)</span> de parties de <span class="math inline">\(\Omega\)</span>, et une loi de probabilité <span class="math inline">\(P\)</span> sur <span class="math inline">\((\Omega, \mathcal{F})\)</span> sur lesquels on peut définir la collection de variables aléatoires <span class="math inline">\(Z_0, Z_1, \ldots, Z_n, \ldots\)</span>. Préciser la loi conditionnelle de <span class="math inline">\(Z_{n+1}\)</span> sachant <span class="math inline">\(\{ Z_n =k\},  k \in \mathbb{N}\)</span>.</p>
 <div id="exr-bp-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 5 (Branchement, Espérance conditionnelle)</strong></span>  </p>
+<p><span class="theorem-title"><strong>Exercice 11 (Branchement, Espérance conditionnelle)</strong></span>  </p>
 </div>
 <p>Calculer l’espérance conditionnelle de <span class="math inline">\(Z_{n+1}\)</span> sachant <span class="math inline">\(\sigma(Z_n)\)</span></p>
 <div id="exr-bp-3" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 6 (Branchement. Espérance taille des générations)</strong></span>  </p>
+<p><span class="theorem-title"><strong>Exercice 12 (Branchement. Espérance taille des générations)</strong></span>  </p>
 </div>
 <p>Calculer <span class="math inline">\(\mathbb{E} Z_n\)</span> en fonction de <span class="math inline">\(\mu\)</span> et <span class="math inline">\(n\)</span>.</p>
 <div class="callout callout-style-simple callout-important no-icon callout-titled">
@@ -4595,23 +4630,23 @@ On convient de <span class="math inline">\(\mathbb{N}^* = \mathbb{N}\setminus \{
 </div>
 </div>
 <div id="exr-bp-4" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 7 (Branchement. Cas sous-critique)</strong></span>  </p>
+<p><span class="theorem-title"><strong>Exercice 13 (Branchement. Cas sous-critique)</strong></span>  </p>
 </div>
 <p>Cacluler <span class="math inline">\(p_E\)</span>, la probabilité d’extinction dans le cas sous-critique.</p>
 <div id="exr-bp-5" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 8 (Branchement. Cas sûr-critique)</strong></span>  </p>
+<p><span class="theorem-title"><strong>Exercice 14 (Branchement. Cas sûr-critique)</strong></span>  </p>
 </div>
 <p>Montrer que dans tous les cas, <span class="math inline">\(p_E\)</span> est solution de l’équation <span class="math inline">\(G_Q(x)=x \, .\)</span></p>
 <div id="exr-bp-6" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 9 (Branchement. Cas sur-critique I)</strong></span>  </p>
+<p><span class="theorem-title"><strong>Exercice 15 (Branchement. Cas sur-critique I)</strong></span>  </p>
 </div>
 <p>Étudier les solutions de l’équation <span class="math inline">\(x=G_Q(x)\)</span>.</p>
 <div id="exr-bp-7" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 10 (Branchement. Cas sur-critique II)</strong></span>  </p>
+<p><span class="theorem-title"><strong>Exercice 16 (Branchement. Cas sur-critique II)</strong></span>  </p>
 </div>
 <p>Déterminer <span class="math inline">\(p_E\)</span> dans le cas sur-critique.</p>
 <div id="exr-negbin" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 11 (Binomiale négative)</strong></span> Les variables <span class="math inline">\(X_1, X_2, \ldots, X_n, \ldots\)</span> sont des variables de Bernoulli de probabilité de succès <span class="math inline">\(p \in (0,1)\)</span>, indépendantes. On définit <span class="math inline">\(T_1 = \min \{i : X_i=1\}\)</span> (temps du premier succès), <span class="math inline">\(T_2 = \min \{i : i &gt; T_1, X_i=1\}\)</span> (temps du premier succès après <span class="math inline">\(T_1\)</span>), et récursivement <span class="math inline">\(T_{n+1} = \min \{ i : i &gt; T_n, X_i =1\}\)</span> (temps du <span class="math inline">\(n+1\)</span>eme succès).</p>
+<p><span class="theorem-title"><strong>Exercice 17 (Binomiale négative)</strong></span> Les variables <span class="math inline">\(X_1, X_2, \ldots, X_n, \ldots\)</span> sont des variables de Bernoulli de probabilité de succès <span class="math inline">\(p \in (0,1)\)</span>, indépendantes. On définit <span class="math inline">\(T_1 = \min \{i : X_i=1\}\)</span> (temps du premier succès), <span class="math inline">\(T_2 = \min \{i : i &gt; T_1, X_i=1\}\)</span> (temps du premier succès après <span class="math inline">\(T_1\)</span>), et récursivement <span class="math inline">\(T_{n+1} = \min \{ i : i &gt; T_n, X_i =1\}\)</span> (temps du <span class="math inline">\(n+1\)</span>eme succès).</p>
 <p>On admet l’existence d’un espace de probabilité <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> où <span class="math inline">\(\Omega = \{0,1\}^{\mathbb{N}}\)</span>, <span class="math inline">\(\mathcal{F}\)</span> est une tribu pour laquelle les <span class="math inline">\(X_i\)</span> sont mesurables, et <span class="math inline">\(P\)</span> tel que <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> est une famille indépendante.</p>
 <ol type="a">
 <li><span class="math inline">\(T_1\)</span> et plus généralement <span class="math inline">\(T_n\)</span> sont-elles des variables aléatoires?</li>
@@ -4625,7 +4660,7 @@ On convient de <span class="math inline">\(\mathbb{N}^* = \mathbb{N}\setminus \{
 </ol>
 </div>
 <div id="exr-roc" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 12 (Restitution Organisée de Connaissances)</strong></span>  </p>
+<p><span class="theorem-title"><strong>Exercice 18 (Restitution Organisée de Connaissances)</strong></span>  </p>
 <ul>
 <li><p>Soient <span class="math inline">\(A, B, C\)</span> trois événements dans un espace probabilisé. A-t-on toujours: <span class="math inline">\(A \perp\!\!\!\perp B \text{ et } B \perp\!\!\!\perp C \Rightarrow A \perp\!\!\!\perp C\)</span>?</p></li>
 <li><p>Soient <span class="math inline">\(P\)</span> et <span class="math inline">\(Q\)</span> deux lois de probabilités sur <span class="math inline">\((\Omega, \mathcal{F})\)</span>, on définit l’ensemble <span class="math inline">\(\mathcal{M} = \big\{ A : A \in \mathcal{F}, P(A)=Q(A)\}\)</span>. Répondre par <em>vrai/faux/je ne sais pas</em> aux questions suivantes:</p>
@@ -4644,13 +4679,46 @@ On convient de <span class="math inline">\(\mathbb{N}^* = \mathbb{N}\setminus \{
 </ul>
 </div>
 <div id="exr-chevre" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 13 (Les trois portes)</strong></span> Le jeu oppose un présentateur à un candidat (le joueur). Ce joueur est placé devant trois portes fermées. Derrière l’une d’elles se trouve une voiture et derrière chacune des deux autres se trouve une chèvre. Il doit tout d’abord désigner une porte. Puis le présentateur doit ouvrir une porte qui n’est ni celle choisie par le candidat, ni celle cachant la voiture (le présentateur sait quelle est la bonne porte dès le début). Le candidat a alors le droit d’ouvrir la porte qu’il a choisie initialement, ou d’ouvrir la troisième porte.</p>
+<p><span class="theorem-title"><strong>Exercice 19 (Les trois portes)</strong></span> Le jeu oppose un présentateur à un candidat (le joueur). Ce joueur est placé devant trois portes fermées. Derrière l’une d’elles se trouve une voiture et derrière chacune des deux autres se trouve une chèvre. Il doit tout d’abord désigner une porte. Puis le présentateur doit ouvrir une porte qui n’est ni celle choisie par le candidat, ni celle cachant la voiture (le présentateur sait quelle est la bonne porte dès le début). Le candidat a alors le droit d’ouvrir la porte qu’il a choisie initialement, ou d’ouvrir la troisième porte.</p>
 <p>On suppose que l’organisateur du jeu place la voiture uniformément au hasard derrière l’une des trois portes avant la partie.</p>
 <p>Les questions qui se posent au candidat sont :</p>
 <ol type="i">
 <li>Que doit-il faire ?</li>
 <li>Quelles sont ses chances de gagner la voiture en agissant au mieux ?</li>
 </ol>
+</div>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="propriétés-de-lespérance-conditionnelle" class="level2">
+<h2 class="anchored" data-anchor-id="propriétés-de-lespérance-conditionnelle">Propriétés de l’espérance conditionnelle</h2>
+<p>Dans cette section, <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> est un espace de probabilité, <span class="math inline">\(\mathcal{G}\)</span> une sous-tribu de <span class="math inline">\(\mathcal{F}\)</span>. Les variables aléatoires <span class="math inline">\((X_n)_n, (Y_n)_n, X, Y, Z\)</span> sont supposées intégrables, et p.s. signifie <span class="math inline">\(P\)</span>-p.s.</p>
+<div id="exr-monotonecond" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 20 (Monotonicité de l’espérance conditionnelle)</strong></span> Si <span class="math inline">\((X_n)_{n \in \mathbb{N}}\)</span> est une suite de variables aléatoires de <span class="math inline">\(\mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span> telle que <span class="math inline">\(X_{n + 1} \geq X_n\)</span> <span class="math inline">\(P\)</span>-p.s., alors il existe une suite <span class="math inline">\(P\)</span>-p.s. croissante de versions d’espérances conditionnelles</p>
+<p><span class="math display">\[ \forall n \in \mathbb{N},\quad\mathbb{E} \left[ X_{n + 1} \mid \mathcal{F} \right] \geq   \mathbb{E} \left[ X_n \mid \mathcal{F} \right] . \]</span></p>
+</div>
+<div id="exr-pi-systeme-esp-cond" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 21</strong></span> Soit <span class="math inline">\(\mathcal{E}\)</span> un <span class="math inline">\(\pi\)</span>-système engendrant <span class="math inline">\(\mathcal{G}\)</span> et contenant <span class="math inline">\(\Omega\)</span>. Vérifier que <span class="math inline">\(\mathbb{E} \left[ X \mid \mathcal{G} \right]\)</span> est l’unique élément de <span class="math inline">\(\mathcal{L}_1 \left( \Omega, \mathcal{G}, P \right)\)</span> qui satisfait</p>
+<p><span class="math display">\[\forall B \in \mathcal{E}, \quad \mathbb{E} \left[\mathbb{I}_B X \right] = \mathbb{E} \left[ \mathbb{I}_B\mathbb{E} \left[ X \mid \mathcal{G} \right] \right] .\]</span></p>
+</div>
+<p>La propriété la plus simple est :</p>
+<div id="exr-tower-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 22</strong></span> Montrer que si <span class="math inline">\(X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span>, alors</p>
+<p><span class="math display">\[\mathbb{E} \left[ X \right] = \mathbb{E} \left[ \mathbb{E}   \left[ X \mid \mathcal{G} \right] \right].\]</span></p>
+</div>
+<div id="exr-condexp-measur" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 23</strong></span> Montrer que si <span class="math inline">\(X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span>, alors <span class="math inline">\(X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span> et <span class="math inline">\(X\)</span> est <span class="math inline">\(\mathcal{G}\)</span>-mesurable, alors</p>
+<p><span class="math display">\[X = \mathbb{E} \left[ X \mid \mathcal{G} \right]  \hspace{1em} P\text{-a.s.}\]</span></p>
+</div>
+<div id="exr-altercharac" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 24</strong></span> Soient <span class="math inline">\(X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span> et <span class="math inline">\(\mathcal{G} \subseteq \mathcal{F}\)</span> une sous-tribu.</p>
+<p>Montrer que pour toute <span class="math inline">\(Y \in\mathcal{L}_1 (\Omega, \mathcal{G}, P)\)</span> telle que <span class="math inline">\(\mathbb{E} \left[ |X Y| \right] &lt; \infty\)</span></p>
+<p><span class="math display">\[\mathbb{E} \left[ XY \right] = \mathbb{E} \left[ Y \mathbb{E} \left[ X \mid \mathcal{G} \right] \right] .\]</span></p>
+</div>
+<div id="exr-compound-variance" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 25</strong></span> On reprend les conventions de l’<a href="#exr-compound" class="quarto-xref">Exercice 6</a>. on a toujours <span class="math inline">\(Z = \sum_{i=1}^N X_i\)</span>. On suppose que <span class="math inline">\(N\)</span> et les <span class="math inline">\(X_i\)</span> sont de carré intégrables.</p>
+<p>Montrer: <span class="math display">\[\operatorname{Var}_P(Z) =  \mathbb{E}N \operatorname{Var}_P(X_1)   + \operatorname{Var}_P(N) (\mathbb{E}_PX_1)^2\]</span></p>
+<p>Relier ce résultat à: <span class="math display">\[\operatorname{Var}_P(Z) = \operatorname{Var}_P(\mathbb{E}_P[Z | \sigma(N)]) +  \mathbb{E}_P\left[\operatorname{Var}_P(Z | \sigma(N))\right]\]</span></p>
+<p>(décomposition Pythagoricienne de la variance).</p>
 </div>
 
 

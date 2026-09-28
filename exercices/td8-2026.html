@@ -4428,6 +4428,12 @@ window.Quarto = {
  <span class="menu-text">Week 3</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -4458,7 +4464,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">30 août 2026</p>
+      <p class="date">28 septembre 2026</p>
     </div>
   </div>
   
@@ -4499,33 +4505,62 @@ window.Quarto = {
 <li>Si <span class="math inline">\(U\)</span> est une transformée de Laplace, dérivable à droite en <span class="math inline">\(0\)</span>, <span class="math inline">\(U&#39;/U&#39;(0)\)</span> est-elle la transformée de Laplace d’une loi sur <span class="math inline">\([0, \infty)\)</span>?</li>
 </ol>
 </div>
-</section>
-<section id="transformée-de-laplace-inversion" class="level2">
-<h2 class="anchored" data-anchor-id="transformée-de-laplace-inversion">Transformée de Laplace, inversion</h2>
+<div style="page-break-after: always;"></div>
 </section>
 <section id="fonctions-caractéristiques" class="level2">
 <h2 class="anchored" data-anchor-id="fonctions-caractéristiques">Fonctions caractéristiques</h2>
-<div id="exr-quizz" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 3 (Quizz sur les fonctions caractéristiques)</strong></span>  </p>
+<div id="exr-trivial-charcfunc" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 3</strong></span> Soit la variable aléatoire réelle <span class="math inline">\(X\)</span> de loi <span class="math inline">\(P\)</span> et de fonction caractéristique <span class="math inline">\(\widehat{F}\)</span>.</p>
+<p>Vérifier les propriétés suivantes :</p>
 <ul>
-<li><p>Soient <span class="math inline">\(G\)</span> et <span class="math inline">\(F\)</span> sont deux fonctions génératrices de probabilité. Répondre par <em>vrai/faux</em> aux questions suivantes:</p>
-<ol type="a">
-<li>Est-il vrai que <span class="math inline">\(G \times F\)</span> est toujours une fonction génératrice ?</li>
-<li>Est-il vrai que <span class="math inline">\(G + F\)</span> est toujours une fonction génératrice de probabilité ?</li>
-<li>Est-il vrai que <span class="math inline">\(\lambda G + (1-\lambda) F\)</span> avec <span class="math inline">\(\lambda \in [0,1]\)</span> est toujours une fonction génératrice de probabilité ?</li>
-</ol></li>
-<li><p>Si <span class="math inline">\(\widehat{F}\)</span> est la fonction caractéristique de la loi de <span class="math inline">\(X\)</span>, et si <span class="math inline">\(\epsilon \perp\!\!\!\perp X\)</span>, avec <span class="math inline">\(P\{\epsilon=1\}= P\{\epsilon=-1\}=1/2\)</span>, quelle est la fonction caractéristique de la loi de <span class="math inline">\(\epsilon X\)</span>?</p></li>
+<li><span class="math inline">\(|\widehat{F}(t)|\leq 1\)</span> pour tout <span class="math inline">\(t\in \mathbb{R}\)</span> ;</li>
+<li><span class="math inline">\(\widehat{F}(0)=1\)</span></li>
+<li>Si <span class="math inline">\(X\)</span> est symétrique, <span class="math inline">\(\widehat{F}\)</span> est à valeurs réelles</li>
+<li>La fonction caractéristique de la loi de <span class="math inline">\(a X +b\)</span> est <span class="math display">\[\mathrm{e}^{it b} \widehat{F}(at) \, .\]</span></li>
 </ul>
 </div>
-</section>
-<section id="fonctions-caractéristiques-régularitéintégrabilité" class="level2">
-<h2 class="anchored" data-anchor-id="fonctions-caractéristiques-régularitéintégrabilité">Fonctions caractéristiques régularité/intégrabilité</h2>
-</section>
-<section id="fonctions-caractéristiques-et-convolutions" class="level2">
-<h2 class="anchored" data-anchor-id="fonctions-caractéristiques-et-convolutions">Fonctions caractéristiques et convolutions</h2>
-</section>
-<section id="fonctions-caractéristiques-et-lois-stables" class="level2">
-<h2 class="anchored" data-anchor-id="fonctions-caractéristiques-et-lois-stables">Fonctions caractéristiques et lois stables</h2>
+<div id="exr-quizz" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 4 (Quizz sur les fonctions caractéristiques)</strong></span> Si <span class="math inline">\(\widehat{F}\)</span> est la fonction caractéristique de la loi de <span class="math inline">\(X\)</span>, et si <span class="math inline">\(\epsilon \perp\!\!\!\perp X\)</span>, avec <span class="math inline">\(P\{\epsilon=1\}= P\{\epsilon=-1\}=1/2\)</span>, quelle est la fonction caractéristique de la loi de <span class="math inline">\(\epsilon X\)</span>?</p>
+</div>
+<div id="exr-charfunc-suual" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 5</strong></span> Calculer la fonction caractéristique de :</p>
+<ul>
+<li>la loi de Poisson de paramètre <span class="math inline">\(\lambda&gt;0\)</span> ;</li>
+<li>la loi uniforme sur <span class="math inline">\([-1,1]\)</span> ;</li>
+<li>la loi triangulaire sur <span class="math inline">\([-1,1]\)</span> (densité : <span class="math inline">\(1-|x|\)</span> sur <span class="math inline">\([-1,1]\)</span>) ;</li>
+<li>la loi de Laplace, de densité <span class="math inline">\(1/2 \exp(-|x|)\)</span> ;</li>
+<li>la loi exponentielle de densité <span class="math inline">\(\exp(-x)\)</span> sur <span class="math inline">\([0,+\infty)\)</span> ;</li>
+</ul>
+</div>
+<div id="exr-counter-example" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 6</strong></span> Donner un contre-exemple pour montrer que <span class="math display">\[
+\Big(\forall t \in \mathbb{R}, \quad \widehat{F}_{X+Y}(t) =  \widehat{F}_X(t) \times \widehat{F}_Y(t) \Big)
+\not\Rightarrow X \perp\!\!\!\perp Y \, .
+\]</span></p>
+</div>
+<div id="exr-tent" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 7</strong></span> Vérifier que <span class="math inline">\(\int_0^1 \cos(sx) (1-s) \mathrm{d}s\geq 0\)</span> pour tout <span class="math inline">\(x \in \mathbb{R}\)</span>.</p>
+<p><em>Indication :</em> Vérifier que <span class="math inline">\(t \mapsto \int_0^1 \cos(tw) (1-w) \mathrm{d}w\)</span> est la fonction caractéristique de la loi <em>tente</em>, de densité <span class="math inline">\((1-|w|)\)</span> sur <span class="math inline">\([-1,1]\)</span>. Vérifier que cette fonction caractéristique est le carré du module d’une autre fonction caractéristique.</p>
+</div>
+<div id="exr-density-convolution" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 8</strong></span> Vérifier que si <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont indépendantes de densités <span class="math inline">\(f_X\)</span> et <span class="math inline">\(f_Y\)</span>, alors <span class="math inline">\(f_X \star f_Y\)</span> est une densité de la loi de <span class="math inline">\(X+Y\)</span>.</p>
+</div>
+<div id="exr-conv-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9</strong></span> Soient <span class="math inline">\(\nu_1\)</span> et <span class="math inline">\(\nu_2\)</span> deux mesures de probabilité sur <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>Vérifier</p>
+<ol type="1">
+<li><p><span class="math display">\[\nu_1 \star \nu_2(A) = \int_{\mathbb{R}} \nu_1(A-x) \, \mathrm{d}\nu_2(x)\qquad \forall A \in \mathcal{B}(\mathbb{R}\]</span></p></li>
+<li><p>Si <span class="math inline">\(\nu_1\)</span> est absolument continue et admet pour densité <span class="math inline">\(f\)</span> alors <span class="math inline">\(\nu_1 \star \nu_2\)</span> est absolument continue et admet pour densité <span class="math display">\[x \mapsto \int_{\mathbb(R)} f(x-y)  \, \mathrm{d}\nu_2(y)\]</span></p></li>
+</ol>
+</div>
+<div id="exr-produits-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 10</strong></span> Montrer qu’à partir de <span class="math inline">\(([0,1], \mathcal{B}(\mathbb{R}), \lambda)\)</span> (où <span class="math inline">\(\lambda\)</span> est la mesure de Lebesgue sur <span class="math inline">\([0,1]\)</span>),</p>
+<ol type="1">
+<li>on peut construire une suite <span class="math inline">\(Y_1, Y_2, \ldots, Y_n, \ldots\)</span> de variables aléatoires indépendantes et distribuées selon la loi de Bernoulli de paramètre <span class="math inline">\(1/2\)</span>.</li>
+<li>on peut construire une suite <span class="math inline">\(X_1, X_2, \ldots, X_n, \ldots\)</span> de variables aléatoires indépendantes et identiquement distribuées selon la loi uniforme sur <span class="math inline">\([0,1]\)</span>.</li>
+<li>on peut construire une tableau <span class="math inline">\(\left(X_{n,m}\right){n,m \in \mathbb{N}^*}\)</span> de variables aléatoires indépendantes et identiquement distribuées selon la loi uniforme sur <span class="math inline">\([0,1]\)</span>.</li>
+</ol>
+</div>
 
 
 </section>

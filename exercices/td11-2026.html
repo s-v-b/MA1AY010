@@ -4428,6 +4428,12 @@ window.Quarto = {
  <span class="menu-text">Week 3</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -4457,7 +4463,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">30 août 2026</p>
+      <p class="date">28 septembre 2026</p>
     </div>
   </div>
   
@@ -4471,29 +4477,67 @@ window.Quarto = {
 
 <section id="convergences-en-distribution" class="level1">
 <h1>Convergences en distribution</h1>
+<section id="convergences" class="level2">
+<h2 class="anchored" data-anchor-id="convergences">Convergences</h2>
+<div id="exr-vague" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 1</strong></span> Considérons la suite de masses de probabilité sur les entiers <span class="math inline">\((\delta_n)_{n \in \mathbb{N}}\)</span>.</p>
+<p>Montrer que cette suite converge vaguement vers la mesure nulle alors qu’elle ne converge pas faiblement.</p>
+</div>
+<div id="exr-conv-vague" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 2</strong></span> Si une suite de lois de probabilité sur <span class="math inline">\(\mathbb{R}^k\)</span> converge vaguement vers une mesure de probabilité, converge-t-elle aussi faiblement vers cette mesure de probabilité ?</p>
+</div>
+<div id="exr-utight-enough" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 3</strong></span> Pour établir la compacité uniforme de <span class="math inline">\((P_n)_n\)</span>, il suffit de montrer que pour tout <span class="math inline">\(\epsilon&gt;0\)</span>, il existe un certain <span class="math inline">\(n_0(\epsilon)\)</span> et un compact <span class="math inline">\(K \subseteq \mathbb{R}\)</span> tels que</p>
+<p><span class="math display">\[\forall n \geq n_(\epsilon), \qquad P_n(K) \geq 1 - \epsilon\, .\]</span></p>
+</div>
+</section>
 <section id="portemanteau" class="level2">
 <h2 class="anchored" data-anchor-id="portemanteau">Portemanteau</h2>
+<div id="exr-weakconvquantiles" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 4</strong></span> Montrer qu’une suite de mesures de probabilité définies par leurs fonctions quantiles <span class="math inline">\((F^\leftarrow_n)_n\)</span> converge faiblement vers une mesure de probabilité définie par la fonction quantile <span class="math inline">\(F^\leftarrow\)</span> si et seulement si <span class="math inline">\(\lim_n F_n^\leftarrow(x) = F^\leftarrow(x)\)</span> en tout point <span class="math inline">\(x\)</span> de continuité de <span class="math inline">\(F^\leftarrow\)</span>.</p>
+</div>
 </section>
 <section id="théorèmes-de-continuité" class="level2">
 <h2 class="anchored" data-anchor-id="théorèmes-de-continuité">Théorèmes de continuité</h2>
+<div id="exr-laplaceconv" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 5</strong></span> Verifier qu’une suite de variables aléatoires <em>non négatives</em> <span class="math inline">\((X_n)_n\)</span> converge en loi vers la variable aléatoire <em>non négative</em> <span class="math inline">\(X\)</span> si et seulement si la suite des transformées de Laplace converge ponctuellement vers la transformée de Laplace de la loi de <span class="math inline">\(X\)</span>.</p>
+</div>
 </section>
 <section id="tcl" class="level2">
 <h2 class="anchored" data-anchor-id="tcl">TCL</h2>
 <div id="exr-tcl-poisson-gamma" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 1 (Mélanges Gamma-Poisson)</strong></span> Soit <span class="math inline">\(X \sim \Gamma(1,s)\)</span>. On définit <span class="math inline">\(Y \sim \mathrm{Poisson}(X)\)</span>, (c’est-à-dire que conditionnellement à <span class="math inline">\(X=x\)</span>, <span class="math inline">\(Y \sim \mathrm{Poisson}(x)\)</span>).</p>
+<p><span class="theorem-title"><strong>Exercice 6 (Mélanges Gamma-Poisson)</strong></span> Soit <span class="math inline">\(X \sim \Gamma(1,s)\)</span>. On définit <span class="math inline">\(Y \sim \mathrm{Poisson}(X)\)</span>, (c’est-à-dire que conditionnellement à <span class="math inline">\(X=x\)</span>, <span class="math inline">\(Y \sim \mathrm{Poisson}(x)\)</span>).</p>
 <ol type="1">
 <li>Calculer <span class="math inline">\(\Phi_Y\)</span>.</li>
 <li>Montrer que lorsque <span class="math inline">\(s \to \infty\)</span>, <span class="math display">\[\frac{Y-E[Y]}{\sqrt{\mathrm{var}(Y)}} \overset{(\mathrm{loi})}{\longrightarrow} Z,\]</span> où <span class="math inline">\(Z \sim \mathcal{N}(0,1)\)</span>. Y a-t-il un lien avec le théorème central limite?</li>
 </ol>
 </div>
 <div id="exr-tcl-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2</strong></span> (Une remarque importante sur la convergence en loi.)</p>
+<p><span class="theorem-title"><strong>Exercice 7</strong></span> (Une remarque importante sur la convergence en loi.)</p>
 <p>Soit, pour <span class="math inline">\(n \ge 1\)</span>, <span class="math inline">\(X_n\)</span> un variable aléatoire dont la fonction de répartition est définie par <span class="math display">\[F_n(x) = x - \frac{\sin(2n \pi x)}{2n\pi}, \ 0 \le x \le 1.\]</span></p>
 <ol type="1">
 <li>Montrer que <span class="math inline">\(X_n\)</span> converge en loi vers une variable <span class="math inline">\(X\)</span> (dont on décrira la loi).<br>
 </li>
 <li>Vérifier que <span class="math inline">\(X_n\)</span> et <span class="math inline">\(X\)</span> sont des variables à densité. On note <span class="math inline">\(f_n := F_n&#39;\)</span> la densité de <span class="math inline">\(X_n\)</span>, <span class="math inline">\(f\)</span> celle de <span class="math inline">\(X\)</span>. A-t-on <span class="math inline">\(f_n \underset{n \to \infty}{\rightarrow} f\)</span> simplement?</li>
 </ol>
+</div>
+<div id="exr-tcl-mediane-empirique-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 8 (Mediane empirique échantillon exponentiel)</strong></span>  </p>
+</div>
+<div id="exr-tcl-mediane-empirique-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9 (Mediane empirique échantillon uniforme)</strong></span>  </p>
+</div>
+<div id="exr-gumbel" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 10 (Lois d’extremes : Gumbel)</strong></span>  </p>
+</div>
+<div id="exr-frechet" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 11 (Lois d’extremes : Frechet)</strong></span>  </p>
+</div>
+<div id="exr-stats-dordre-intermediaire" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 12 (Statistiques d’ordre intermediaires dans un echantillon exponentiel)</strong></span>  </p>
+</div>
+<div id="exr-stats-dordre-intermediaire-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 13 (Statistiques d’ordre intermediaires dans un echantillon uniforme)</strong></span>  </p>
 </div>
 
 

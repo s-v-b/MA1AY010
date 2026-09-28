@@ -4428,6 +4428,12 @@ window.Quarto = {
  <span class="menu-text">Week 3</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -4457,7 +4463,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">22 septembre 2026</p>
+      <p class="date">28 septembre 2026</p>
     </div>
   </div>
   
@@ -4498,6 +4504,37 @@ window.Quarto = {
 <div id="exr-ineq-levy-3" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 4 (SD et IQR)</strong></span> Soit <span class="math inline">\(X\)</span> une variable aléatoire réelle de carré intégrable et de loi diffuse. On note <span class="math inline">\(Q_1\)</span> et <span class="math inline">\(Q_3\)</span> le premier et le troisième quartiles (<span class="math inline">\(F^\leftarrow(1/4), F^\leftarrow(3/4)\)</span>, avec <span class="math inline">\(F\)</span> fonction de répartition de <span class="math inline">\(P\)</span> et <span class="math inline">\(F^{\leftarrow}\)</span> fonction quantile). On note <span class="math inline">\(Q_2 = F^\leftarrow(1/2)\)</span></p>
 <p>Comparer les indicateurs de dispersion : <span class="math display">\[\operatorname{IQR} =Q_3 -Q_1, \qquad \mathbb{E}_P|X-m|, \qquad \sqrt{\operatorname{Var}_P(X)}\]</span></p>
+</div>
+</section>
+<section id="inégalités-et-applications" class="level2">
+<h2 class="anchored" data-anchor-id="inégalités-et-applications">Inégalités et applications</h2>
+<div id="exr-ineq-assoc" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 5 (Association)</strong></span> Dans cet exercice, <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont deux fonctions croissantes bornées, <span class="math inline">\(X\)</span> est une variable aléatoire sur <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>.</p>
+<p>Quels sont les signes possibles de <span class="math display">\[\mathbb{E}_P \left[f(X)g(X)\right] - \mathbb{E}_P \left[f(X)\right] \mathbb{E}_P \left[g(X)\right] \, .\]</span></p>
+</div>
+<div id="exr-gamma" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 6 (À propos de la fonction Gamma)</strong></span> La fonction <span class="math inline">\(\Gamma\)</span> est définie de <span class="math inline">\(]0,\infty)\)</span> vers <span class="math inline">\(]0,\infty\)</span> par</p>
+<p><span class="math display">\[\Gamma(x) = \int_0^\infty \mathrm{e}^{-t} t^{x-1} \mathrm{d}t\]</span></p>
+<ol type="1">
+<li>Verifier que <span class="math inline">\(\int_0^\infty \mathrm{e}^{-t} t^{x-1} \mathrm{d}t\)</span> est bien définie pour tout <span class="math inline">\(x \in ]0, \infty)\)</span>. Vérifier que <span class="math inline">\(\Gamma(x+1) = x\Gamma(x)\)</span> pour <span class="math inline">\(x&gt;0\)</span> et que <span class="math inline">\(\Gamma(n+1) = n!\)</span> pour <span class="math inline">\(n \in \mathbb{N}\)</span>.</li>
+<li>Montre que <span class="math inline">\(\ln(\Gamma) = \ln \circ \Gamma\)</span> est convexe. Suggestion: utiliser l’inégalité de Holder.</li>
+<li>Montrer que <span class="math inline">\(\Gamma\)</span> est convexe.</li>
+<li>Montrer que <span class="math display">\[\Gamma(x) = \lim_n \int_0^n t^{x-1} \left(1 -\frac{t}{n}\right)^n \mathrm{d}t\]</span></li>
+</ol>
+</div>
+<div id="exr-integrabilite-independance" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 7</strong></span> Montrer que si deux variables aléatoires <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont indépendantes et intégrables alors <span class="math inline">\(XY\)</span> est intégrable.</p>
+<p>Peut-on se passer de l’hypothèse d’indépendance ?</p>
+</div>
+<div id="exr-indépendance-correlation" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 8</strong></span> Montrer que <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont indépendantes si et seulement si pour toutes fonctions mesurables bornées <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span>, on a <span class="math display">\[\mathbb{E}\left[f(X) g(Y)\right] = \mathbb{E}f(X) \times \mathbb{E}g(Y)\]</span></p>
+</div>
+<div id="exr-indépendance-correlation" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9</strong></span> Montrer que pour toute fonction continuement dérivable strictement croissante positive <span class="math inline">\(f\)</span> sur <span class="math inline">\([0, \infty)\)</span>, toute variable aléatoire positive <span class="math inline">\(X\)</span> sur <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>:</p>
+<p><span class="math display">\[\mathbb{E}_P f(X) = \int_0^\infty f&#39;(t)  P\{ X &gt; t\} \mathrm{d}t + f(0)\]</span></p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 10</strong></span>  </p>
 </div>
 
 
