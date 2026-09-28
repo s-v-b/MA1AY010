@@ -1,14 +1,16 @@
 ---
 title: "Semaine 4"
-subtitle: "Conditionnement"
+subtitle: "Conditionnement (suite) et caractérisation des lois"
 editor: source
-draft: true
+date: last-modified
+draft: false
 ---
 
 
 ::: callout-important
 
-La semaine IV (28 septembre-1 octobre 2026)  est  consacrée au conditionnement (espérance conditionnelle, noyaux de probabilité, densités conditionnelles)
+La semaine IV (28 septembre-1 octobre 2026)  est  consacrée au conditionnement (espérance conditionnelle, densités conditionnelles)
+et aux caractérisations 
 
 :::
 

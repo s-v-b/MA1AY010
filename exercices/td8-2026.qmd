@@ -145,3 +145,29 @@ alors $f_X \star f_Y$ est une densité de la loi de $X+Y$.
 :::
 
 
+::: {#exr-conv-1}
+
+Soient $\nu_1$ et $\nu_2$ deux mesures de probabilité sur $\mathbb{R}$. 
+
+Vérifier 
+
+1. 
+    $$\nu_1 \star \nu_2(A) = \int_{\mathbb{R}} \nu_1(A-x) \, \mathrm{d}\nu_2(x)\qquad \forall A \in \mathcal{B}(\mathbb{R}$$
+
+1. Si $\nu_1$ est absolument continue et admet pour densité $f$ alors 
+$\nu_1 \star \nu_2$  est absolument continue et admet pour densité 
+    $$x \mapsto \int_{\mathbb(R)} f(x-y)  \, \mathrm{d}\nu_2(y)$$
+
+
+:::
+
+
+::: {#exr-produits-1}
+
+Montrer qu'à partir de $([0,1], \mathcal{B}(\mathbb{R}), \lambda)$ (où $\lambda$ est la mesure de Lebesgue sur $[0,1]$), 
+
+1. on peut construire une suite $Y_1, Y_2, \ldots, Y_n, \ldots$ de variables aléatoires indépendantes et distribuées selon la loi de Bernoulli de paramètre $1/2$.
+1. on peut construire une suite $X_1, X_2, \ldots, X_n, \ldots$ de variables aléatoires indépendantes et identiquement distribuées selon la loi uniforme sur $[0,1]$.
+1. on peut construire une tableau $\left(X_{n,m}\right){n,m \in \mathbb{N}^*}$ de variables aléatoires indépendantes et identiquement distribuées selon la loi uniforme sur $[0,1]$.
+
+:::

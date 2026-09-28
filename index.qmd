@@ -16,10 +16,10 @@ Cette page résume le déroulement du semestre
 |  [2](/weeks/week-2.html)  | 14 Sep  |  Révisions Licence: Espaces roduits       |   | | [TD IV](/exercices/td4-2026.qmd)                   |                                        |
 |   | 15 Sep  | Changement de variables. Calcul Gamma/Beta        |   |  |     [TD V](/exercices/td5-2026.qmd)     |         |                            
 |   | 17 Sep  | Fonctions génératrices/Conditionnement discret  |   | | [TD VI](/exercices/td6-2026.qmd)         |    **CC1**     |   
-|  [3](/weeks/week-3.html)  | 21 Sep  |  Caractérisations      |            |         |        [TD VII](/exercices/td7-2026.qmd)                                    |                   |
+|  [3](/weeks/week-3.html)  | 21 Sep  |  Conditionnement      |            |         |        [TD VII](/exercices/td7-2026.qmd)                                    |                   |
 |   | 22 Sep  |          |            |         |                                 [TD VIII](/exercices/td8-2026.qmd)          |                   |
-|   | 24 Sep  | Conditionnement |            |         |   | |
-|  [4](/weeks/week-4.html)  | 28 Sep  |  Convergence en probabilité et p.s.       |            |         |                                                                                                             [TD IX](/exercices/td9-2026.qmd)     |                   |
+|   | 24 Sep  |  |            |         |   | |
+|  [4](/weeks/week-4.html)  | 28 Sep  |  Caractérisations, Convergence en probabilité et p.s.       |            |         |                                                                                                             [TD IX](/exercices/td9-2026.qmd)     |                   |
 |   | 29 Sep  |  Caractérisations              |            |         |                             [TD X](/exercices/td10-2026.qmd)    |                   |
 |   | 1 Oct  |     Caractérisations    |            |         |   | |
 |  [5](/weeks/week-5.html)  | 5 Oct   |  Convergences  en distribution et TCL     |            |         |    [TD XI](/exercices/td11-2026.html)                                                                                                             |         **CC2**          |
