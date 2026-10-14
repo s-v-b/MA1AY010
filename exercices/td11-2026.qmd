@@ -155,6 +155,25 @@ $$F_n(x) = x - \frac{\sin(2n \pi x)}{2n\pi}, \ 0 \le x \le 1.$$
 
 ::: {#exr-stats-dordre-intermediaire name="Statistiques d'ordre intermediaires dans un echantillon exponentiel"}
 
+$X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi uniforme sur $[0,1]$ et $X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}$ les statistiques d'ordre associées.
+
+$Y_1, \ldots, Y_{n+1} \sim_{\text{i.i.d}} \text{Exp}(1)$ où $\text{Exp}(1)$ désigne la loi exponentielle d'intensité $1$. On définit 
+$S_k =\sum_{j=1}^k Y_j$, pour $k=1, \ldots, n+1$. 
+
+On rappelle (voir [TD 4](https://s-v-b.github.io/MA1AY010/exercices/td4-2026.html#statistiques-dordre)) les écarts $(X_{i:n}-X_{i-1:n})_{1\leq i\leq n}$ (*spacings*) forment une  collection de variables aléatoires indépendamment distribuées. L'écart $X_{i:n}-X_{i-1:n}$ est distribué selon une loi exponentielle d'intensité $n+1-i$. 
+
+
+a. Pour $\alpha \in ]0,1[$, $k_n = \lfloor\alpha n\rfloor$,  montrer que
+
+    $$\frac{X_{k_n:n} -\mathbb{E} X_{k_n:n} }{\sqrt{\operatorname{var}(X_{k_n:n} )}}$$ 
+    
+    converge en loi vers une Gaussienne centrée réduite.
+b. Maintenant $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infini,  telle que $k_n/n$ tend vers une limite finie (éventuellement nulle).  Montrer que
+
+    $$\frac{X_{k_n:n} -\mathbb{E} X_{k_n:n} }{\sqrt{\operatorname{var}(X_{k_n:n} )}}$$ 
+    
+    converge en loi vers une Gaussienne centrée réduite. 
+
 
 
 :::

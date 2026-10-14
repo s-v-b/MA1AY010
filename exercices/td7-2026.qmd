@@ -629,7 +629,28 @@ a. Calculer $\mathbb{E} T_n$
 
 :::
 
+::: {.content-visible when-profile="solution"}
 
+
+::: {.callout-note title="Solution" appearance="minimal"}
+
+
+a. Les événements de la forme $\{ T_n \leq m\}$ sont dans $\sigma(X_1, \ldots X_m)$, car la seule connaissance de $X_1, \ldots, X_m$ suffit pour déterminer si le $i^{\text(eme)}$ succès survient avant le temps $m$. Donc les événements de la forme  $\{ T_n \leq m\}$ sont tous dans la tribu des cylindres $\sigma\left(\cup_m \sigma(X_1, \ldots X_m) \right)$. Tout événement de 
+la forme $\{ T_n \in A\}$ avec $A \subset \mathbb{N} \cup \{ \infty\}$, appartient à la tribu 
+engendrée par les événements $\{ T_n \leq m\}$, donc à la tribu  $\sigma\left(\cup_m \sigma(X_1, \ldots X_m) \right)$. 
+a. $P\{ T_1 > k  \} = (1-p)^k$ ($T_1$ suit une loi géométrique)
+a. $P\{ T_1 = k  \} = P\{ T_1 > k-1  \} - P\{ T_1 > k  \} = (1-p)^{k-1} p$ pour $k\geq 1$
+a. $\mathbb{E} T_1 =  \sum_{k=0}^\infty P\{ T_1 > k  \} = \frac{1}{p}$
+a. $P \{ T_1 = k  \wedge T_2 = k+j\} = (1-p)^{k-1} p (1-p)^{j-1} p$ pour $k, j \in \mathbb{N}\setminus \{0\}$, $T_1 \perp\!\!\!\perp T_2-T_1$ et $T_2-T_1 \sim T_1$  
+a. $P \{ T_2 = k  \} = \sum_{j=1}^{k-1} (1-p)^{j-1} p (1-p)^{k-j-1} p = p \binom{k-1}{1} (1-p)^{k-2} p$  pour $k\geq 2$ 
+a. $\mathbb{E} T_2 = 2 \mathbb{E} T_1 = \frac{2}{p}$
+a. $\mathbb{E} T_n = n \mathbb{E} T_1 = \frac{n}{p}$
+
+
+:::
+
+
+:::
 
 :::  {#exr-roc  name="Restitution Organisée de Connaissances"}
 

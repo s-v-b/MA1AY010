@@ -373,5 +373,42 @@ a. Si $\theta$ satisfait la condition de la question précédente, calculer $\te
 ## Loi log-normale
 
 
+{{< pagebreak >}}
 
+## Examen décembre 2024
+
+::: {#exr-exam-s1-24-25}
+
+On considère le triplet de variables aléatoires réelles $(X,Y,Z)$ de densité $f$ (vis-à-vis de la mesure de Lebesgue sur $\mathbb{R}^d$) telle que, pour un $C>0$ :
+$$f(x,y,z) = C \mathbb{I}_{\{x >0\}} \frac1x{\exp\left(-x - \frac{y^2}{2x} - \frac{z^2}{x} + \frac{yz}{x}\right) }$$ 
+
+
+ 
+
+1.  Pour $x >0$ et $y \in \mathbb{R}$ fixés, montrer que  
+   $$\int_{\mathbb{R}} {\exp\left(- \frac{y^2}{2x} - \frac{z^2}{x} + \frac{yz}{x}\right) }\,\mathrm{d}z = \sqrt{x \pi}\exp\left(-\frac{y^2}{4x}\right).$$
+1.  Pour $x >0$ fixé, que vaut $\int_{\mathbb{R}} \frac{1}{\sqrt{x}} \exp\left(-\frac{y^2}{4x}\right) \mathrm{d}y$ ?
+1.  En déduire la valeur $C=1/(2\pi)$.
+1.  Montrer que $X \sim \exp(1)$.
+1.  Montrer que le couple $(X,Y)$ possède une densité $g$ vis-à-vis de la mesure de Lebesgue sur $\mathbb{R}^2$, exprimer $g$.
+1.   Exprimer la densité conditionnelle $g_{Y \mid X}$ de $Y$ sachant $X$. En déduire que, sachant $X$ :
+    $$Y \sim \mathcal{N}(0,2X)$$
+1. Exprimer $\mathbb{E}[Y \mid X]$ et $\mathbb{E}[Y^2 \mid X]$.
+1. Calculer $\mathbb{E}[Y], \operatorname{Var}[Y]$.
+1. Montrer que $\mathrm{Cov}(X,Y) = 0$. Les variables $X$ et $Y$ sont-elles indépendantes ?
+1. Montrer de manière similaire que $\mathbb{E}[Z]=0, \operatorname{Var}[Z] =1, \operatorname{Cov}(X,Z) = 0$.
+1. Montrer que 
+    $$\mathbb{E}[\exp(-sY-tZ) \mid X] = \exp\left( (s^2 + st  \frac{t^2}{2}) X \right).$$
+1. Montrer que la loi conditionnelle de $(Y,Z)$ sachant $X$ admet une densité $g_{(Y,Z)\mid X}(y,z\mid x)$ par rapport à la mesure de Lebesgue sur~$\mathbb{R}^2$ donnée par :
+    $$g_{(Y,Z)\mid X}(y,z\mid x)=\mathbb{I}_{\{x>0\}}\frac1{2\pi x}\exp\Bigl(\frac{-(z-y)^2}{2x}\Bigr)\exp\Bigl(\frac{-z^2}{2x}\Bigr)$$
+1. Quelle est  la loi conditionnelle de $(Y,Z)$ sachant $X$?
+1. Quelle est la loi conditionnelle de $(Y-Z, Z)$ sachant $X$? 
+1. Déduire de ce qui précède que $\mathbb{E}[X Y Z] = 2$.
+1. Calculer $\mathbb{E}[X (Y-Z)^2 Z^2]$.
+1. Pour $k, \ell, m$ des entiers, que vaut $\mathbb{E}[X^k (Y-Z)^{\ell} Z^{m}]$ ?
+1.  Vous disposez d'un programme capable de simuler des variables aléatoires réelles usuelles. Expliquer comment simuler efficacement le triplet $(X,Y,Z)$. 
+
+ 
+
+:::
 
