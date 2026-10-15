@@ -4462,7 +4462,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">13 octobre 2026</p>
+      <p class="date">15 octobre 2026</p>
     </div>
   </div>
   
@@ -4481,11 +4481,10 @@ window.Quarto = {
 <div id="exr-gauss-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 1 (Lemme de Stein)</strong></span> Vérifier que les deux propriétés suivantes sont équivalentes:</p>
 <ol type="1">
-<li><p><span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span></p></li>
-<li><p>Pour toute fonction <span class="math inline">\(g\)</span> absolument continue avec une dérivée <span class="math inline">\(g&#39;\)</span> telle que <span class="math inline">\(\mathbb{E}[ |X g(X)|]&lt;\infty\)</span>, on a</p>
+<li><span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span></li>
+<li>Pour toute fonction <span class="math inline">\(g\)</span> absolument continue avec une dérivée <span class="math inline">\(g&#39;\)</span> telle que <span class="math inline">\(\mathbb{E}[ |X g(X)|]&lt;\infty\)</span>, on a
 <ol type="a">
-<li><span class="math inline">\(g&#39;(X)\)</span> intégrable<br>
-</li>
+<li><span class="math inline">\(g&#39;(X)\)</span> intégrable</li>
 <li><span class="math inline">\(\mathbb{E}[g&#39;(X)] = \mathbb{E}[Xg(X)]\)</span></li>
 </ol></li>
 </ol>
@@ -4515,6 +4514,11 @@ window.Quarto = {
 
 :::
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+:::
+:::
+
 ::: {#exr-student-1  name="Théorème de Student"}
 
 
@@ -4533,7 +4537,6 @@ window.Quarto = {
 <li>Quelle est la distribution conditionnelle de <span class="math inline">\(T\)</span> sachant <span class="math inline">\(X\)</span> ?</li>
 </ol>
 </div>
-<p>:::</p>
 <div id="exr-conditionnement-gaussien-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 8 (Conditionnement gaussien)</strong></span>  </p>
 </div>
@@ -4564,12 +4567,21 @@ window.Quarto = {
 </section>
 <section id="loi-log-normale" class="level2">
 <h2 class="anchored" data-anchor-id="loi-log-normale">Loi log-normale</h2>
+<div id="exr-log-normale" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 10</strong></span> Si <span class="math inline">\(X \sim \mathcal{N}(\mu,\sigma^2)\)</span> et <span class="math inline">\(Y = \exp(X)\)</span> on dit que <span class="math inline">\(Y\)</span> suit une loi log-normale de paramètres <span class="math inline">\(\mu\)</span> et <span class="math inline">\(\sigma^2\)</span>.</p>
+<ol type="1">
+<li>Calculer la fonction de répartition de la loi de <span class="math inline">\(Y\)</span></li>
+<li>Calculer une densité de la loi de <span class="math inline">\(Y\)</span></li>
+<li>Calculer l’espérance et la variance de <span class="math inline">\(Y\)</span>.</li>
+<li>Calculer la covariance de <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span></li>
+</ol>
+</div>
 <div style="page-break-after: always;"></div>
 </section>
 <section id="examen-décembre-2024" class="level2">
 <h2 class="anchored" data-anchor-id="examen-décembre-2024">Examen décembre 2024</h2>
 <div id="exr-exam-s1-24-25" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 10</strong></span> On considère le triplet de variables aléatoires réelles <span class="math inline">\((X,Y,Z)\)</span> de densité <span class="math inline">\(f\)</span> (vis-à-vis de la mesure de Lebesgue sur <span class="math inline">\(\mathbb{R}^d\)</span>) telle que, pour un <span class="math inline">\(C&gt;0\)</span> : <span class="math display">\[f(x,y,z) = C \mathbb{I}_{\{x &gt;0\}} \frac1x{\exp\left(-x - \frac{y^2}{2x} - \frac{z^2}{x} + \frac{yz}{x}\right) }\]</span></p>
+<p><span class="theorem-title"><strong>Exercice 11</strong></span> On considère le triplet de variables aléatoires réelles <span class="math inline">\((X,Y,Z)\)</span> de densité <span class="math inline">\(f\)</span> (vis-à-vis de la mesure de Lebesgue sur <span class="math inline">\(\mathbb{R}^d\)</span>) telle que, pour un <span class="math inline">\(C&gt;0\)</span> : <span class="math display">\[f(x,y,z) = C \mathbb{I}_{\{x &gt;0\}} \frac1x{\exp\left(-x - \frac{y^2}{2x} - \frac{z^2}{x} + \frac{yz}{x}\right) }\]</span></p>
 <ol type="1">
 <li>Pour <span class="math inline">\(x &gt;0\)</span> et <span class="math inline">\(y \in \mathbb{R}\)</span> fixés, montrer que<br>
 <span class="math display">\[\int_{\mathbb{R}} {\exp\left(- \frac{y^2}{2x} - \frac{z^2}{x} + \frac{yz}{x}\right) }\,\mathrm{d}z = \sqrt{x \pi}\exp\left(-\frac{y^2}{4x}\right).\]</span></li>

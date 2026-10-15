@@ -4462,7 +4462,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">13 octobre 2026</p>
+      <p class="date">15 octobre 2026</p>
     </div>
   </div>
   
@@ -4481,14 +4481,23 @@ window.Quarto = {
 <div id="exr-gauss-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 1 (Lemme de Stein)</strong></span> Vérifier que les deux propriétés suivantes sont équivalentes:</p>
 <ol type="1">
-<li><p><span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span></p></li>
-<li><p>Pour toute fonction <span class="math inline">\(g\)</span> absolument continue avec une dérivée <span class="math inline">\(g&#39;\)</span> telle que <span class="math inline">\(\mathbb{E}[ |X g(X)|]&lt;\infty\)</span>, on a</p>
+<li><span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span></li>
+<li>Pour toute fonction <span class="math inline">\(g\)</span> absolument continue avec une dérivée <span class="math inline">\(g&#39;\)</span> telle que <span class="math inline">\(\mathbb{E}[ |X g(X)|]&lt;\infty\)</span>, on a
 <ol type="a">
-<li><span class="math inline">\(g&#39;(X)\)</span> intégrable<br>
-</li>
+<li><span class="math inline">\(g&#39;(X)\)</span> intégrable</li>
 <li><span class="math inline">\(\mathbb{E}[g&#39;(X)] = \mathbb{E}[Xg(X)]\)</span></li>
 </ol></li>
 </ol>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><a href="https://s-v-b.github.io/MA1AY010-CN/09-gaussian-vectors.html#sec-secGaussUnivar">Voir notes de cours</a></p>
+</div>
+</div>
 </div>
 </section>
 <section id="vecteurs-gaussiens-standard" class="level2">
@@ -4496,13 +4505,72 @@ window.Quarto = {
 <div id="exr-rotation-invariance" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 2 (Invariance par rotation)</strong></span> Si <span class="math inline">\(X \sim \mathcal{N}(0, \text{Id}_n)\)</span>, et <span class="math inline">\(A\)</span> est une matrice orthogonale (<span class="math inline">\(A \times A^\top = A^\top \times A =\text{Id}_n\)</span>), comment est distribué <span class="math inline">\(A X\)</span> ?</p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>TODO</p>
+</div>
+</div>
+</div>
 <div id="exr-truc-pisier-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 3 (Maxima de Gaussiennes)</strong></span> Vérifier que si <span class="math inline">\(X_1, \ldots, X_n \sim_{\text{i.i.d.}} \mathcal{N}(0,1)\)</span>:</p>
 <p><span class="math display">\[\mathbb{E}\left[\max(X_1, \ldots, X_n) \right] \leq \sqrt{2 \ln n}\]</span></p>
 <p><em>Suggestion :</em> Majorer <span class="math inline">\(\mathbb{E} \mathrm{e}^{\lambda \max(X_1, \ldots, X_n )}\)</span> en comparant à <span class="math inline">\(\mathbb{E} \sum_{i=1}^n \mathrm{e}^{\lambda X_i}\)</span>. Comparer <span class="math inline">\(\mathbb{E}  \mathrm{e}^{\lambda \max(X_1, \ldots, X_n )}\)</span> et <span class="math inline">\(\mathrm{e}^{ \lambda \mathbb{E} \max(X_1, \ldots, X_n )}\)</span>.</p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On note <span class="math inline">\(Z = \max(X_1, \ldots, X_n)\)</span>. Pour <span class="math inline">\(\lambda \geq 0\)</span></p>
+<p><span class="math display">\[\begin{align*}
+\mathrm{e}^{\lambda\mathbb{E}Z}
+    &amp; \stackrel{(a)}{\leq}  \mathbb{E}\mathrm{e}^Z \\
+    &amp; \stackrel{(b)}{=}  \mathbb{E}\max\left(\mathrm{e}^{\lambda X_1}, \ldots,   \mathrm{e}^{\lambda X_n} \right) \\
+    &amp; \stackrel{(c)}{=}  \mathbb{E}\left[ \sum_{i=1}^n \mathrm{e}^{\lambda X_i}, \ldots,   \mathrm{e}^{\lambda X_n} \right] \\
+    &amp; \stackrel{(d)}{=}  n \mathbb{E} \mathrm{e}^{\lambda X_1} \\
+    &amp; \stackrel{(e)}{=}  n \mathrm{e}^{\frac{\lambda^2}{2}}
+\end{align*}\]</span></p>
+<p>On a</p>
+<ul>
+<li><ol type="a">
+<li>suit de l’inégalité de Jensen (<span class="math inline">\(\exp\)</span> est convexe).</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>vient de la monotonie de <span class="math inline">\(\exp\)</span></li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>vient de la majoration du max par la somme pour des quantités positives</li>
+</ol></li>
+<li><ol start="4" type="a">
+<li>vient de l’équidistribution</li>
+</ol></li>
+<li><ol start="5" type="a">
+<li>vient du calcul de la fonction génératrice des moments</li>
+</ol></li>
+</ul>
+<p>On prend le logarithme (<span class="math inline">\(\log =\ln\)</span>) des deux côtés: <span class="math display">\[\lambda \mathbb{E}Z \leq \log(n) + \frac{\lambda^2}{2}\]</span> soit: <span class="math display">\[\mathbb{E}Z \leq \frac{\log n}{\lambda} + \frac{\lambda}{2}\]</span></p>
+<p>Le membre droit est minimisé en choisissant <span class="math inline">\(\lambda = \sqrt{2 \log n}\)</span>, et on obtient la majoration</p>
+<p><span class="math display">\[\mathbb{E}Z \leq \sqrt{2 \log n}\]</span></p>
+</div>
+</div>
+</div>
 <div id="exr-norme-gaussienne-2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 4 (Norme de vecteurs gaussiens centrés)</strong></span> Montrer que <span class="math inline">\(X\)</span> est un vecteur gaussien centré, la loi du carré de la norme euclidienne de <span class="math inline">\(X\)</span> ne dépend que des valeurs propres de la matrice de covariance.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><a href="https://s-v-b.github.io/MA1AY010-CN/09-gaussian-vectors.html#norms-of-centred-gaussian-vectors">Voir notes de cours</a></p>
+</div>
+</div>
 </div>
 <div id="exr-cochran-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 5 (Norme de vecteurs gaussiens non centrés)</strong></span> Montrer que <span class="math inline">\(X\)</span> est un vecteur gaussien standard et <span class="math inline">\(\mu\)</span> un vecteur, la loi du carré de la norme euclidienne de <span class="math inline">\(X + \mu\)</span> ne dépend que la norme de <span class="math inline">\(\mu\)</span>.</p>
@@ -4510,20 +4578,55 @@ window.Quarto = {
 <p><span class="math display">\[P \left\{ \Vert X + \mu \Vert \leq x \right\} \leq P \left\{ \Vert X \Vert \leq x \right\}\]</span></p>
 <p><em>Suggestion :</em> vérifier que c’est vrai en dimension 1, utiliser un argument de couplage.</p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Voir <a href="https://s-v-b.github.io/MA1AY010-CN/09-gaussian-vectors.html#sec-norm-non-centered">Notes de cours</a></p>
+</div>
+</div>
+</div>
 <!-- ::: {#exr-cochran-2  name="Théorème de Cochran 2"}
 
 
+:::
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+:::
 :::
 
 ::: {#exr-student-1  name="Théorème de Student"}
 
 
 ::: -->
+<div class="callout callout-style-simple callout-note no-icon callout-empty-content" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+
+</div>
+</div>
+</div>
 <div id="exr-mills-ratio" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 6 (Ratios de Mills)</strong></span> Soit <span class="math inline">\(Z \sim \mathcal{N}(0,1)\)</span>. On note <span class="math inline">\(\Phi\)</span> la fonction de répartition de <span class="math inline">\(\mathcal{N}(0,1)\)</span>, et <span class="math inline">\(\phi\)</span> sa densité.</p>
 <p>Montrer que pour tout <span class="math inline">\(x&gt;0\)</span>,</p>
 <p><span class="math display">\[\left(1 - \frac{1}{x^2}\right)  \frac{1}{x} \phi(x) \leq  1 - \Phi(x) \leq \frac{1}{x} \phi(x)\]</span></p>
 <p><em>Suggestion :</em> utiliser l’intégration par parties.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><a href="https://s-v-b.github.io/MA1AY010-CN/09-gaussian-vectors.html#sec-secGaussUnivar">Voir notes de cours</a></p>
+</div>
+</div>
 </div>
 <div id="exr-prior-Gaussien" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 7</strong></span> Dans cet exercice <span class="math inline">\(T \sim \mathcal{N}(\mu, \tau^2)\)</span> et la distribution conditionnelle de <span class="math inline">\(X\)</span> sachant <span class="math inline">\(T\)</span> est <span class="math inline">\(\mathcal{N}(T, \sigma^2)\)</span>.</p>
@@ -4659,7 +4762,6 @@ T_{|X=x}
 </div>
 </div>
 </div>
-<p>:::</p>
 <div id="exr-conditionnement-gaussien-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 8 (Conditionnement gaussien)</strong></span>  </p>
 </div>
@@ -4674,6 +4776,16 @@ T_{|X=x}
 <li><p>Trouver <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> deux réels tels que <span class="math inline">\((X, \alpha X + \beta Y)\)</span> suit la loi normale centrée réduite.</p></li>
 </ol>
 <p>Remarquer que l’on peut écrire <span class="math inline">\(Y= -\frac{\alpha}{\beta} X +\frac{1}{\beta}(\alpha X + \beta Y)\)</span>. Sauriez-vous dire pourquoi cette écriture est intéressante?</p>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>TODO</p>
+</div>
+</div>
+</div>
 <div id="exr-argaussien" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 9</strong></span> Dans cet exercice, <span class="math inline">\(Y_1, \ldots, Y_n, \ldots\)</span> sont i.i.d. selon <span class="math inline">\(\mathcal{N}(0,1)\)</span>, <span class="math inline">\(X_0\)</span> est gaussienne <span class="math inline">\(\mathcal{N}(\mu, \tau^2)\)</span>, indépendante de <span class="math inline">\(Y_1, \ldots, Y_n, \ldots\)</span>.</p>
 <p>On définit <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> par</p>
@@ -4687,15 +4799,44 @@ T_{|X=x}
 <li>Si <span class="math inline">\(\theta\)</span> satisfait la condition de la question précédente, calculer <span class="math inline">\(\text{cov}\left(X_i, X_{i+k}\right)\)</span>, pour <span class="math inline">\(i, k \in \mathbb{N}\)</span></li>
 </ol>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>TODO</p>
+</div>
+</div>
+</div>
 </section>
 <section id="loi-log-normale" class="level2">
 <h2 class="anchored" data-anchor-id="loi-log-normale">Loi log-normale</h2>
+<div id="exr-log-normale" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 10</strong></span> Si <span class="math inline">\(X \sim \mathcal{N}(\mu,\sigma^2)\)</span> et <span class="math inline">\(Y = \exp(X)\)</span> on dit que <span class="math inline">\(Y\)</span> suit une loi log-normale de paramètres <span class="math inline">\(\mu\)</span> et <span class="math inline">\(\sigma^2\)</span>.</p>
+<ol type="1">
+<li>Calculer la fonction de répartition de la loi de <span class="math inline">\(Y\)</span></li>
+<li>Calculer une densité de la loi de <span class="math inline">\(Y\)</span></li>
+<li>Calculer l’espérance et la variance de <span class="math inline">\(Y\)</span>.</li>
+<li>Calculer la covariance de <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span></li>
+</ol>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>TODO</p>
+</div>
+</div>
+</div>
 <div style="page-break-after: always;"></div>
 </section>
 <section id="examen-décembre-2024" class="level2">
 <h2 class="anchored" data-anchor-id="examen-décembre-2024">Examen décembre 2024</h2>
 <div id="exr-exam-s1-24-25" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 10</strong></span> On considère le triplet de variables aléatoires réelles <span class="math inline">\((X,Y,Z)\)</span> de densité <span class="math inline">\(f\)</span> (vis-à-vis de la mesure de Lebesgue sur <span class="math inline">\(\mathbb{R}^d\)</span>) telle que, pour un <span class="math inline">\(C&gt;0\)</span> : <span class="math display">\[f(x,y,z) = C \mathbb{I}_{\{x &gt;0\}} \frac1x{\exp\left(-x - \frac{y^2}{2x} - \frac{z^2}{x} + \frac{yz}{x}\right) }\]</span></p>
+<p><span class="theorem-title"><strong>Exercice 11</strong></span> On considère le triplet de variables aléatoires réelles <span class="math inline">\((X,Y,Z)\)</span> de densité <span class="math inline">\(f\)</span> (vis-à-vis de la mesure de Lebesgue sur <span class="math inline">\(\mathbb{R}^d\)</span>) telle que, pour un <span class="math inline">\(C&gt;0\)</span> : <span class="math display">\[f(x,y,z) = C \mathbb{I}_{\{x &gt;0\}} \frac1x{\exp\left(-x - \frac{y^2}{2x} - \frac{z^2}{x} + \frac{yz}{x}\right) }\]</span></p>
 <ol type="1">
 <li>Pour <span class="math inline">\(x &gt;0\)</span> et <span class="math inline">\(y \in \mathbb{R}\)</span> fixés, montrer que<br>
 <span class="math display">\[\int_{\mathbb{R}} {\exp\left(- \frac{y^2}{2x} - \frac{z^2}{x} + \frac{yz}{x}\right) }\,\mathrm{d}z = \sqrt{x \pi}\exp\left(-\frac{y^2}{4x}\right).\]</span></li>
@@ -4717,6 +4858,16 @@ T_{|X=x}
 <li>Pour <span class="math inline">\(k, \ell, m\)</span> des entiers, que vaut <span class="math inline">\(\mathbb{E}[X^k (Y-Z)^{\ell} Z^{m}]\)</span> ?</li>
 <li>Vous disposez d’un programme capable de simuler des variables aléatoires réelles usuelles. Expliquer comment simuler efficacement le triplet <span class="math inline">\((X,Y,Z)\)</span>.</li>
 </ol>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>TODO</p>
+</div>
+</div>
 </div>
 
 
