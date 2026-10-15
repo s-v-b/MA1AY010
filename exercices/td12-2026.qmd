@@ -45,6 +45,7 @@ requireNamespace('quarto')
 
 ## Gaussiennes univariées
 
+
 ::: {#exr-gauss-1 name="Lemme de Stein"}
 
 
@@ -53,15 +54,25 @@ requireNamespace('quarto')
 Vérifier que les deux propriétés suivantes sont équivalentes:
 
 1. $X \sim \mathcal{N}(0,1)$ 
-2. Pour toute fonction $g$ absolument continue avec une  dérivée $g'$ telle que $\mathbb{E}[ |X g(X)|]<\infty$, on a 
-    
-    a. $g'(X)$  intégrable  
+2. Pour toute fonction $g$ absolument continue avec une  dérivée $g'$ telle que $\mathbb{E}[ |X g(X)|]<\infty$, on a   
+    a. $g'(X)$  intégrable
     b. $\mathbb{E}[g'(X)] = \mathbb{E}[Xg(X)]$
 
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+[Voir notes de cours](https://s-v-b.github.io/MA1AY010-CN/09-gaussian-vectors.html#sec-secGaussUnivar)
+
+:::
+:::
+
+
 ## Vecteurs gaussiens standard
+
+
 
 ::: {#exr-rotation-invariance  name="Invariance par rotation"}
 
@@ -69,6 +80,15 @@ Si $X \sim \mathcal{N}(0, \text{Id}_n)$, et $A$ est une matrice orthogonale  ($A
 
 
 :::
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
+:::
+
 
 ::: {#exr-truc-pisier-1  name="Maxima de Gaussiennes"}
 
@@ -89,6 +109,42 @@ $\mathrm{e}^{ \lambda \mathbb{E} \max(X_1, \ldots, X_n )}$.
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+On note $Z = \max(X_1, \ldots, X_n)$. Pour $\lambda \geq 0$
+
+\begin{align*}
+\mathrm{e}^{\lambda\mathbb{E}Z} 
+    & \stackrel{(a)}{\leq}  \mathbb{E}\mathrm{e}^Z \\
+    & \stackrel{(b)}{=}  \mathbb{E}\max\left(\mathrm{e}^{\lambda X_1}, \ldots,   \mathrm{e}^{\lambda X_n} \right) \\
+    & \stackrel{(c)}{=}  \mathbb{E}\left[ \sum_{i=1}^n \mathrm{e}^{\lambda X_i}, \ldots,   \mathrm{e}^{\lambda X_n} \right] \\
+    & \stackrel{(d)}{=}  n \mathbb{E} \mathrm{e}^{\lambda X_1} \\
+    & \stackrel{(e)}{=}  n \mathrm{e}^{\frac{\lambda^2}{2}}
+\end{align*}
+
+On a
+
+- (a) suit de l'inégalité de Jensen ($\exp$ est convexe)
+- (b) vient de la monotonie de $\exp$
+- (c) vient de la majoration du max par la somme pour des quantités positives
+- (d) vient de l'équidistribution
+- (e) vient du calcul de la fonction génératrice des moments
+
+On prend le logarithme ($\log =\ln$) des deux côtés:
+$$\lambda \mathbb{E}Z \leq \log(n) + \frac{\lambda^2}{2}$$
+soit:
+$$\mathbb{E}Z \leq \frac{\log n}{\lambda} + \frac{\lambda}{2}$$
+
+Le membre droit est minimisé en choisissant $\lambda = \sqrt{2 \log n}$, et on 
+obtient la majoration
+
+$$\mathbb{E}Z \ leq \sqrt{2 \log n}$$
+
+
+:::
+:::
+
 
 
 ::: {#exr-norme-gaussienne-2  name="Norme de vecteurs gaussiens centrés"}
@@ -99,6 +155,16 @@ Montrer que $X$ est un vecteur gaussien centré, la loi du carré de la norme eu
 
 
 :::
+
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+[Voir notes de cours](https://s-v-b.github.io/MA1AY010-CN/09-gaussian-vectors.html#norms-of-centred-gaussian-vectors)
+
+:::
+:::
+
 
 
 ::: {#exr-cochran-1  name="Norme de vecteurs gaussiens non centrés"}
@@ -115,9 +181,23 @@ $$P \left\{ \Vert X + \mu \Vert \leq x \right\} \leq P \left\{ \Vert X \Vert \le
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+Voir [Notes de cours](https://s-v-b.github.io/MA1AY010-CN/09-gaussian-vectors.html#sec-norm-non-centered)
+
+:::
+:::
+
+
 <!-- ::: {#exr-cochran-2  name="Théorème de Cochran 2"}
 
 
+:::
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+:::
 :::
 
 ::: {#exr-student-1  name="Théorème de Student"}
@@ -125,6 +205,11 @@ $$P \left\{ \Vert X + \mu \Vert \leq x \right\} \leq P \left\{ \Vert X \Vert \le
 
 ::: -->
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+:::
+:::
 
 ::: {#exr-mills-ratio  name="Ratios de Mills"}
 
@@ -140,6 +225,16 @@ $$\left(1 - \frac{1}{x^2}\right)  \frac{1}{x} \phi(x) \leq  1 - \Phi(x) \leq \fr
 
 
 :::
+
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+[Voir notes de cours](https://s-v-b.github.io/MA1AY010-CN/09-gaussian-vectors.html#sec-secGaussUnivar)
+
+:::
+:::
+
 
 
 ::: {#exr-prior-Gaussien name=""}
@@ -322,7 +417,6 @@ $$
 :::
 
 
-:::
 
 ::: {#exr-conditionnement-gaussien-1  name="Conditionnement gaussien"}
 
@@ -347,6 +441,16 @@ que $(X, \alpha X + \beta Y)$ suit la loi normale centrée réduite.
 Remarquer que l'on peut écrire $Y= -\frac{\alpha}{\beta} X +\frac{1}{\beta}(\alpha X + \beta Y)$. Sauriez-vous dire pourquoi cette écriture est intéressante? 
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
+:::
+
+
+
 
 ::: {#exr-argaussien name=""}
 
@@ -369,13 +473,44 @@ a. Si $\theta$ satisfait la condition de la question précédente, calculer $\te
 
 :::
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
+:::
+
 
 ## Loi log-normale
+
+::: {#exr-log-normale}
+
+Si $X \sim \mathcal{N}(\mu,\sigma^2)$ et $Y = \exp(X)$ on dit que $Y$ suit une loi log-normale de paramètres $\mu$ et $\sigma^2$. 
+
+1. Calculer la fonction de répartition de  la loi de $Y$
+2. Calculer une densité de la loi de $Y$
+3. Calculer l'espérance et la variance de $Y$. 
+4. Calculer la covariance de $X$ et $Y$
+
+:::
+
+
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
+:::
 
 
 {{< pagebreak >}}
 
 ## Examen décembre 2024
+
+
 
 ::: {#exr-exam-s1-24-25}
 
@@ -412,3 +547,10 @@ $$f(x,y,z) = C \mathbb{I}_{\{x >0\}} \frac1x{\exp\left(-x - \frac{y^2}{2x} - \fr
 
 :::
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
+:::
