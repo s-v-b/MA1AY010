@@ -125,7 +125,7 @@ On note $Z = \max(X_1, \ldots, X_n)$. Pour $\lambda \geq 0$
 
 On a
 
-- (a) suit de l'inégalité de Jensen ($\exp$ est convexe)
+- (a) suit de l'inégalité de Jensen ($\exp$ est convexe).
 - (b) vient de la monotonie de $\exp$
 - (c) vient de la majoration du max par la somme pour des quantités positives
 - (d) vient de l'équidistribution
@@ -139,7 +139,7 @@ $$\mathbb{E}Z \leq \frac{\log n}{\lambda} + \frac{\lambda}{2}$$
 Le membre droit est minimisé en choisissant $\lambda = \sqrt{2 \log n}$, et on 
 obtient la majoration
 
-$$\mathbb{E}Z \ leq \sqrt{2 \log n}$$
+$$\mathbb{E}Z \leq \sqrt{2 \log n}$$
 
 
 :::
