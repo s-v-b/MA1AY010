@@ -4464,7 +4464,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">22 septembre 2026</p>
+      <p class="date">16 octobre 2026</p>
     </div>
   </div>
   
@@ -4484,6 +4484,18 @@ window.Quarto = {
 <p><span class="theorem-title"><strong>Exercice 1 (Échauffement)</strong></span> Soient <span class="math inline">\((\Omega_1, \mathcal{A}, \mu)\)</span> et <span class="math inline">\((\Omega_2, \mathcal{B}, \nu)\)</span> des espaces mesurés.</p>
 <p>Soit <span class="math inline">\(E \in \sigma(\mathcal{A}\times \mathcal{B})\)</span>, vérifier que <span class="math inline">\(x \mapsto  \nu(E_x)\)</span> est une fonction <span class="math inline">\(\mathcal{A}\)</span>-mesurable et que <span class="math inline">\(y \mapsto \mu(E^y)\)</span> est <span class="math inline">\(\mathcal{B}\)</span>-mesurable.</p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On suppose <span class="math inline">\(\mu\)</span> et <span class="math inline">\(\nu\)</span> <span class="math inline">\(\sigma\)</span>-finies. On traite <span class="math inline">\(x \mapsto \nu(E_x)\)</span> ; l’autre fonction s’obtient en échangeant les facteurs.</p>
+<p>Supposons d’abord <span class="math inline">\(\nu\)</span> finie. Soit <span class="math inline">\(\mathcal{C}\)</span> l’ensemble des <span class="math inline">\(E \in \sigma(\mathcal{A}\times\mathcal{B})\)</span> tels que <span class="math inline">\(x \mapsto \nu(E_x)\)</span> est <span class="math inline">\(\mathcal{A}\)</span>-mesurable. Pour un pavé <span class="math inline">\(A\times B\)</span>, <span class="math inline">\(\nu(E_x) = \nu(B)\mathbf{1}_A(x)\)</span>, qui est mesurable. La classe <span class="math inline">\(\mathcal{C}\)</span> est une <span class="math inline">\(\lambda\)</span>-classe : elle contient <span class="math inline">\(\Omega_1\times\Omega_2\)</span> ; si <span class="math inline">\(E\subset F\)</span> sont dans <span class="math inline">\(\mathcal{C}\)</span>, la finitude de <span class="math inline">\(\nu\)</span> donne <span class="math inline">\(\nu((F\setminus E)_x) = \nu(F_x)-\nu(E_x)\)</span> ; si <span class="math inline">\(E_n\uparrow E\)</span>, alors <span class="math inline">\(\nu((E_n)_x)\uparrow\nu(E_x)\)</span>. Les pavés mesurables forment un <span class="math inline">\(\pi\)</span>-système. Le théorème de Dynkin donne <span class="math inline">\(\mathcal{C} = \sigma(\mathcal{A}\times\mathcal{B})\)</span>.</p>
+<p>Si <span class="math inline">\(\nu\)</span> est seulement <span class="math inline">\(\sigma\)</span>-finie, on écrit <span class="math inline">\(\Omega_2 = \bigsqcup_k B_k\)</span> avec <span class="math inline">\(\nu(B_k)&lt;\infty\)</span>. Alors <span class="math inline">\(\nu(E_x) = \sum_k \nu(E_x\cap B_k)\)</span>, et chaque terme est mesurable d’après le cas fini appliqué à <span class="math inline">\(\nu(\,\cdot\,\cap B_k)\)</span>.</p>
+</div>
+</div>
+</div>
 <div id="exr-mesure-produit-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 2 (Mesure produit)</strong></span> Soient <span class="math inline">\((\Omega_1, \mathcal{A}, \mu)\)</span> et <span class="math inline">\((\Omega_2, \mathcal{B}, \nu)\)</span> des espaces mesurés.</p>
 <p>On définit <span class="math inline">\(\rho\)</span> sur <span class="math inline">\(\mathcal{A} \times \mathcal{B}\)</span> par :</p>
@@ -4491,9 +4503,36 @@ window.Quarto = {
 <p>Montrer que la mesure produit <span class="math inline">\(\rho\)</span> définit une mesure sur <span class="math inline">\(\sigma\left(\mathcal{A} \times \mathcal{B}\right)\)</span>.</p>
 <p>Discuter l’unicité de la mesure produit.</p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On suppose <span class="math inline">\(\mu\)</span> et <span class="math inline">\(\nu\)</span> <span class="math inline">\(\sigma\)</span>-finies. D’après l’exercice précédent, pour <span class="math inline">\(E\in\sigma(\mathcal{A}\times\mathcal{B})\)</span> la fonction <span class="math inline">\(x\mapsto\nu(E_x)\)</span> est mesurable. On pose</p>
+<p><span class="math display">\[
+\rho(E) = \int_{\Omega_1} \nu(E_x)\,\mathrm{d}\mu(x) \in [0,\infty].
+\]</span></p>
+<p>C’est une mesure. En effet <span class="math inline">\(\rho(\emptyset)=0\)</span>, et si les <span class="math inline">\(E_n\)</span> sont disjoints, les sections <span class="math inline">\((E_n)_x\)</span> le sont, donc <span class="math inline">\(\nu\bigl((\bigsqcup_n E_n)_x\bigr) = \sum_n \nu((E_n)_x)\)</span>. Le théorème de convergence monotone donne <span class="math inline">\(\rho(\bigsqcup_n E_n) = \sum_n \rho(E_n)\)</span>.</p>
+<p>Sur un pavé, <span class="math inline">\(\nu((A\times B)_x) = \nu(B)\mathbf{1}_A(x)\)</span>, donc <span class="math inline">\(\rho(A\times B) = \mu(A)\nu(B)\)</span>. La formule prolonge donc la fonction de l’énoncé.</p>
+<p>Cette mesure est unique. Deux mesures <span class="math inline">\(\sigma\)</span>-finies qui coïncident sur le <span class="math inline">\(\pi\)</span>-système des pavés mesurables coïncident sur la tribu engendrée. On écrit <span class="math inline">\(\Omega_1\times\Omega_2\)</span> comme réunion croissante de pavés de mesure finie, puis, sur chacun, le théorème de Dynkin s’applique à la classe <span class="math inline">\(\{E : \rho_1(E)=\rho_2(E)\}\)</span>.</p>
+<p>Sans <span class="math inline">\(\sigma\)</span>-finitude, l’unicité peut échouer. Sur <span class="math inline">\([0,1]\)</span>, soient <span class="math inline">\(\lambda\)</span> la mesure de Lebesgue et <span class="math inline">\(\nu\)</span> la mesure de comptage, et <span class="math inline">\(D\)</span> la diagonale. Alors <span class="math inline">\(\int \nu(D_x)\,\mathrm{d}\lambda = 1\)</span>, tandis que <span class="math inline">\(\int \lambda(D^y)\,\mathrm{d}\nu = 0\)</span>.</p>
+</div>
+</div>
+</div>
 <div id="exr-mesure-produit-2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 3 (Mesure de Lebesgue sur <span class="math inline">\(\mathbb{R}^2\)</span>)</strong></span> Noter <span class="math inline">\(\lambda_2\)</span> la mesure de Lebesgue sur <span class="math inline">\(\mathbb{R}^2\)</span>, <span class="math inline">\(\lambda_1\)</span> la mesure de Lebesgue sur <span class="math inline">\(\mathbb{R}\)</span>.</p>
 <p>Montrer que <span class="math inline">\(\lambda_2 = \lambda_1 \times \lambda_1\)</span> (la mesure de Lebesgue sur <span class="math inline">\(\mathbb{R}^2\)</span> est le produit des mesures de Lebesgue sur <span class="math inline">\(\mathbb{R}\)</span>).</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Les mesures <span class="math inline">\(\lambda_2\)</span> et <span class="math inline">\(\lambda_1\otimes\lambda_1\)</span> sont <span class="math inline">\(\sigma\)</span>-finies sur <span class="math inline">\(\mathcal{B}(\mathbb{R}^2)\)</span>. Sur un pavé <span class="math inline">\((a,b]\times(c,d]\)</span>, les deux valent <span class="math inline">\((b-a)(d-c)\)</span>. Ces pavés forment un <span class="math inline">\(\pi\)</span>-système qui engendre <span class="math inline">\(\mathcal{B}(\mathbb{R}^2)\)</span>. Par unicité de la mesure produit, <span class="math inline">\(\lambda_2 = \lambda_1\times\lambda_1\)</span>.</p>
+</div>
+</div>
 </div>
 <div id="exr-mesure-produit-3" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 4 (Mesure de Lebesgue sur <span class="math inline">\(\mathbb{R}^d\)</span>)</strong></span> Vérifier que que tout hyperplan de <span class="math inline">\(\mathbb{R}^d\)</span> (sous-ensemble défini par <span class="math inline">\(\{ x : x \in \mathbb{R}^d,  \sum_{i=1}^d a_i x_i = c\}\)</span> pour <span class="math inline">\(a_1, \ldots, a_d, c \in \mathbb{R}\)</span>, <span class="math inline">\(\sum_{i=1}^d a_i^2 &gt; 0\)</span>) a pour mesure de Lebesgue sur <span class="math inline">\(\mathbb{R}^d\)</span> la valeur <span class="math inline">\(0\)</span>.</p>
@@ -4501,9 +4540,39 @@ window.Quarto = {
 </section>
 <section id="théorème-de-fubini" class="level2">
 <h2 class="anchored" data-anchor-id="théorème-de-fubini">Théorème de Fubini</h2>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Quitte à renuméroter les coordonnées, on suppose <span class="math inline">\(a_d \neq 0\)</span>. La mesure de Lebesgue <span class="math inline">\(\lambda_d\)</span> est le produit <span class="math inline">\(\lambda_{d-1}\otimes\lambda_1\)</span>. Pour <span class="math inline">\(x&#39;\in\mathbb{R}^{d-1}\)</span>, la section</p>
+<p><span class="math display">\[
+H_{x&#39;} = \Bigl\{ x_d : \sum_{i=1}^{d-1} a_i x&#39;_i + a_d x_d = c \Bigr\}
+\]</span></p>
+<p>est un singleton, donc <span class="math inline">\(\lambda_1(H_{x&#39;})=0\)</span>. Le théorème de Fubini donne</p>
+<p><span class="math display">\[
+\lambda_d(H) = \int_{\mathbb{R}^{d-1}} \lambda_1(H_{x&#39;})\,\mathrm{d}\lambda_{d-1}(x&#39;) = 0.
+\]</span></p>
+</div>
+</div>
+</div>
 <div id="exr-fubini-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 5</strong></span> Soit <span class="math inline">\(X,Y\)</span> deux variables aléatoires indépendantes, de lois diffuses sur <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>. Montrer que</p>
 <p><span class="math display">\[P\{ X= Y\} =0 \enspace .\]</span></p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Les lois <span class="math inline">\(P_X\)</span> et <span class="math inline">\(P_Y\)</span> sont diffuses. Par indépendance, la loi de <span class="math inline">\((X,Y)\)</span> est <span class="math inline">\(P_X\otimes P_Y\)</span>. La diagonale a pour section en <span class="math inline">\(x\)</span> le singleton <span class="math inline">\(\{x\}\)</span>, donc</p>
+<p><span class="math display">\[
+P\{X=Y\} = \int_{\mathbb{R}} P_Y(\{x\})\,\mathrm{d}P_X(x) = 0.
+\]</span></p>
+</div>
+</div>
 </div>
 <div id="exr-fubini-3" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 6 (Convolution)</strong></span> Les fonctions <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont supposées intégrables de <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}), \mu)\)</span> (<span class="math inline">\(\mu\)</span> <span class="math inline">\(\sigma\)</span>-finie) vers <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>. On définit (essaye de définir) <span class="math inline">\(f \star g\)</span> par <span class="math display">\[f \star g (x) = \int_{\mathbb{R}}  f(y) g(x-y) \mathrm{d}\mu(y)\]</span></p>
@@ -4515,6 +4584,28 @@ window.Quarto = {
 <li>Verifier que <span class="math inline">\(\int_{\mathbb{R}} |f \star g (x)| \mathrm{d}\mu(x) \leq \int_{\mathbb{R}} |f(x)| \mathrm{d}\mu(x) \times \int_{\mathbb{R}} |g (x)| \mathrm{d}\mu(x)\)</span></li>
 </ol>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>La question 2 est l’invariance par translation. Elle caractérise la mesure de Lebesgue parmi les mesures <span class="math inline">\(\sigma\)</span>-finies sur <span class="math inline">\(\mathbb{R}\)</span> : on la démontre pour <span class="math inline">\(\mu=\lambda\)</span>.</p>
+<ol type="1">
+<li><p>L’application <span class="math inline">\(y\mapsto x-y\)</span> est continue, donc borélienne. La composée <span class="math inline">\(y\mapsto g(x-y)\)</span> est borélienne, ainsi que son produit par <span class="math inline">\(f\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(g=\mathbf{1}_B\)</span> et <span class="math inline">\(B\)</span> borélien, <span class="math inline">\(\int |g(x-y)|\,\mathrm{d}x = \lambda(B+y)=\lambda(B)\)</span>. L’identité s’étend aux fonctions étagées positives, puis, par convergence monotone, aux fonctions mesurables positives, donc à <span class="math inline">\(|g|\)</span>.</p></li>
+<li><p>L’application <span class="math inline">\((x,y)\mapsto |f(y)g(x-y)|\)</span> est borélienne sur <span class="math inline">\(\mathbb{R}^2\)</span>. Pour une fonction positive, le théorème de Tonelli assure que <span class="math inline">\(x\mapsto \int |f(y)g(x-y)|\,\mathrm{d}y\)</span> est borélienne à valeurs dans <span class="math inline">\([0,\infty]\)</span>.</p></li>
+<li><p>On a <span class="math inline">\(|f\star g(x)| \le \int |f(y)g(x-y)|\,\mathrm{d}y\)</span>. En intégrant et en appliquant Tonelli,</p></li>
+</ol>
+<p><span class="math display">\[\begin{align*}
+\int |f\star g(x)|\,\mathrm{d}x
+&amp; \le \int\int |f(y)|\,|g(x-y)|\,\mathrm{d}y\,\mathrm{d}x \\
+&amp; = \int |f(y)|\Bigl(\int |g(x-y)|\,\mathrm{d}x\Bigr)\mathrm{d}y \\
+&amp; = \Bigl(\int |f|\Bigr)\Bigl(\int |g|\Bigr).
+\end{align*}\]</span></p>
+</div>
+</div>
+</div>
 </section>
 <section id="divers" class="level2">
 <h2 class="anchored" data-anchor-id="divers">Divers</h2>
@@ -4525,6 +4616,19 @@ on note <span class="math inline">\(A_{n, \varepsilon} := \{ x \in \mathbb{R}^n 
 <p>Montrer que pour tout <span class="math inline">\(\varepsilon \in (0,1)\)</span>, la mesure de Lebesgue de <span class="math inline">\(C_n \cap A_{n, \varepsilon}^c\)</span> est négligeable, pour <span class="math inline">\(n \to \infty\)</span>, devant celle de <span class="math inline">\(C_n\)</span>.</p>
 <p><em>Indication</em> : On notera qu’un point générique dans <span class="math inline">\(C_n\)</span> a pour coordonnées <span class="math inline">\((X_1,...,X_n)\)</span>, avec <span class="math inline">\(\{X_i, i \ge 1\}\)</span> une famille de variables aléatoires i.i.d, uniformes sur <span class="math inline">\([-1,1]\)</span>.</p>
 <p><em>Note</em> : Ceci signifie que pour <span class="math inline">\(\varepsilon\)</span> aussi petit qu’on souhaite le prendre, lorsque <span class="math inline">\(n\)</span> est grand, la majeure partie du volume de l’hypercube <span class="math inline">\(C_n\)</span> se trouve dans la couronne <span class="math inline">\(A_{n,\varepsilon}\)</span> (!)</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>TODO</p>
+</div>
 </div>
 
 

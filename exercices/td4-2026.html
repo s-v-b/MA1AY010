@@ -4464,7 +4464,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">14 octobre 2026</p>
+      <p class="date">16 octobre 2026</p>
     </div>
   </div>
   
@@ -4604,6 +4604,71 @@ window.Quarto = {
 <div id="exr-transformation-qu-2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 13 (Couplage quantile)</strong></span> Soient <span class="math inline">\(F\)</span> et <span class="math inline">\(G\)</span> deux fonctions de répartition. Construite un espace probabilisé sur lequel vivent deux variables aléatoires <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> distribuées selon <span class="math inline">\(F\)</span> et <span class="math inline">\(G\)</span>.</p>
 </div>
+<div id="exr-transformation-qu-3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 14 (Couplage quantile encore)</strong></span> Construire un espace probabilisé sur lequel vivent <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> distribuées selon des lois binomiales de paramètres <span class="math inline">\(n\)</span> et <span class="math inline">\(0&lt;p&lt;q&lt;1\)</span>, de façon à ce que <span class="math inline">\(X \leq  Y\)</span> avec probabilité <span class="math inline">\(1\)</span>.</p>
+<p>Suggestion : commencer par le cas <span class="math inline">\(n=1\)</span>.</p>
+<p>Peut-on comparer les fonctions de répartition de ces lois binomiales ?</p>
+</div>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="statistiques-dordre" class="level2">
+<h2 class="anchored" data-anchor-id="statistiques-dordre">Statistiques d’ordre</h2>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Statistique des rangs/Statistiques d’ordre
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les statistiques d’ordre <span class="math inline">\(X_{1:n}\leq X_{2:n}\leq X_{n:n}\)</span> d’un <span class="math inline">\(n\)</span>-échantillon <span class="math inline">\(X_1,\ldots,X_n\)</span> d’observations indépendantes identiquement distribuées sont formées par le réarrangement croissant (convention) de l’échantillon.</p>
+<p>Quand <span class="math inline">\(n\)</span> est clair d’après le contexte, on peut aussi les noter <span class="math inline">\(X_{(1)} \leq \ldots \leq X_{(n)}\)</span>.</p>
+</div>
+</div>
+<div id="exr-order-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 15 (Statistiques d’ordre)</strong></span>  </p>
+<ol type="a">
+<li>On suppose que <span class="math inline">\(X\)</span> est une variable aléatoire réelle, absolument continue, de densité continue. Montrer que l’échantillon est presque sûrement formé de valeurs deux à deux distinctes.</li>
+<li>Vérifier que la loi jointe des statistiques d’ordre est absolument continue par rapport à la loi de l’échantillon.</li>
+<li>Donner la densité de la loi jointe des statistiques d’ordre, par rapport à la loi de l’échantillon, puis par rapport à la mesure de Lebesgue sur <span class="math inline">\(\mathbb{R}^n\)</span> (on peut utiliser les resultats de l’<a href="#exr-chainrule" class="quarto-xref">Exercice 18</a>).</li>
+<li>Si la loi des <span class="math inline">\(X_i\)</span> définie par sa fonction de répartition <span class="math inline">\(F\)</span>, admet une densité <span class="math inline">\(f\)</span>, quelle est la densité de la loi de <span class="math inline">\(X_{k:n}\)</span> pour <span class="math inline">\(1\leq k\leq n\)</span> ?</li>
+</ol>
+<!-- (Représentation de Rényi) -->
+</div>
+<div id="exr-order-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 16 (Statistiques d’ordre d’un échantillon exponentiel)</strong></span> Cet exercice reprend les conventions de l’exercice précédent. On s’intéresse maintenant aux statistiques d’ordre d’un échantillon exponentiel.</p>
+<p>Si <span class="math inline">\(X_1,\ldots,X_n\)</span> est un échantillon i.i.d. de la loi exponentielle d’espérance <span class="math inline">\(1\)</span> (densité <span class="math inline">\(\mathbb{I}_{x&gt;0} \mathrm{e}^{-x}\)</span>), et <span class="math inline">\(X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}\)</span> les statistiques d’ordre associées,</p>
+<ol type="i">
+<li>Montrer que avec la convention <span class="math inline">\(X_{0:n}=0\)</span>, les écarts <span class="math inline">\((X_{i:n}-X_{i-1:n})_{1\leq i\leq n}\)</span> (<em>spacings</em>) forment une collection de variables aléatoires indépendamment distribuées ;</li>
+<li>Quelle est la densité de la loi de <span class="math inline">\(X_{i:n}-X_{i-1:n}\)</span> ?</li>
+</ol>
+</div>
+<div id="exr-order-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 17 (Statistiques d’ordre d’un échantillon uniforme)</strong></span> Cet exercice reprend les conventions de l’exercice précédent. On s’intéresse maintenant aux statistiques d’ordre d’un échantillon uniforme sur <span class="math inline">\([0,1]\)</span>.</p>
+<p><span class="math inline">\(X_1,\ldots,X_n\)</span> est un échantillon i.i.d. de la loi uniforme sur <span class="math inline">\([0,1]\)</span> et <span class="math inline">\(X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}\)</span> les statistiques d’ordre associées. <span class="math inline">\(Y_1, \ldots, Y_{n+1} \sim_{\text{i.i.d}} \text{Exp}(1)\)</span> où <span class="math inline">\(\text{Exp}(1)\)</span> désigne la loi exponentielle d’intensité <span class="math inline">\(1\)</span>. On définit <span class="math inline">\(S_k =\sum_{j=1}^k Y_j\)</span>, pour <span class="math inline">\(k=1, \ldots, n+1\)</span>.</p>
+<ol type="i">
+<li>Déterminer la densité de la loi de <span class="math inline">\(\left(\frac{S_1}{S_{n+1}}, \ldots, \frac{S_n}{S_{n+1}}, S_{n+1}\right)\)</span>, déterminer la densité de la loi de <span class="math inline">\(\left(\frac{S_1}{S_{n+1}}, \ldots, \frac{S_n}{S_{n+1}}\right)\)</span>.</li>
+<li>Montrer que: <span class="math inline">\(X_{1:n}, X_{2:n},  \ldots, X_{n:n}\)</span> est distribué comme <span class="math inline">\(\left(\frac{S_1}{S_{n+1}}, \ldots, \frac{S_n}{S_{n+1}}\right)\)</span> (comparer les densités).</li>
+<li>Avec la convention <span class="math inline">\(X_{0:n}=0\)</span>, montrer que les écarts <span class="math inline">\((X_{i:n}-X_{i-1:n})_{1\leq i\leq n}\)</span> (<em>spacings</em>) forment une collection de variables aléatoires identiquement distribuées ; Est ce une collection indépendante ?</li>
+<li>Montrer que <span class="math inline">\(X_{i:n}-X_{i-1:n}\)</span> est distribuée selon une loi Beta de parametres <span class="math inline">\(1\)</span> et <span class="math inline">\(n\)</span>.</li>
+</ol>
+<!-- a. Maintenant  $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infini,  telle que $k_n/n$ tend vers une limite finie (éventuellement nulle).  Montrer que
+
+    $$\frac{X_{k_n:n} -\mathbb{E} X_{k_n:n} }{\sqrt{\operatorname{var}(X_{k_n:n} )}}$$ 
+    
+    converge en loi vers une Gaussienne centrée réduite.  -->
+</div>
+<div id="exr-chainrule" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 18 (Chainage)</strong></span>  </p>
+<ol type="1">
+<li><p>Montrer que si <span class="math inline">\(\rho \trianglelefteq \mu\)</span> avec <span class="math inline">\(f\)</span> une densité de <span class="math inline">\(\rho\)</span> par rapport à <span class="math inline">\(\mu\)</span>, alors pour toute fonction mesurable positive <span class="math inline">\(h\)</span>, on a <span class="math display">\[\int h\, \mathrm{d}\rho = \int h f\, \mathrm{d}\mu.\]</span></p></li>
+<li><p>Montrer que si <span class="math inline">\(\rho \trianglelefteq \mu \trianglelefteq  \nu\)</span>, avec <span class="math inline">\(f\)</span> une densité de <span class="math inline">\(\rho\)</span> par rapport à <span class="math inline">\(\mu\)</span> et <span class="math inline">\(g\)</span> une densité de <span class="math inline">\(\mu\)</span> par rapport à <span class="math inline">\(\nu\)</span>, alors <span class="math inline">\(fg\)</span> est une densité de <span class="math inline">\(\rho\)</span> par rapport à <span class="math inline">\(\nu\)</span>.</p></li>
+</ol>
+</div>
+
+
 </section>
 </section>
 
@@ -5025,14 +5090,14 @@ window.Quarto = {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-      <div class="footer-contents">© Copyright 2025, Stéphane Boucheron</div>  
-    </div>   
+<p>© Copyright 2025, Stéphane Boucheron</p>
+</div>   
     <div class="nav-footer-center">
        
     <div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010/edit/main/exercices/td4-2026.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li><li><a href="https://github.com/s-v-b/MA1AY010/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d&#39;un problème</a></li></ul></div></div>
     <div class="nav-footer-right">
-      <div class="footer-contents">This page is built with ❤️ and [Quarto](https://quarto.org/).</div>  
-    </div>
+<p>This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
   </div>
 </footer>
 

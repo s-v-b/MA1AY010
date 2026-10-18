@@ -4462,7 +4462,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">15 octobre 2026</p>
+      <p class="date">17 octobre 2026</p>
     </div>
   </div>
   
@@ -4511,7 +4511,13 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<p>Le vecteur <span class="math inline">\(AX\)</span> est encore <span class="math inline">\(\mathcal{N}(0,\mathrm{Id}_n)\)</span>. Sa fonction caractéristique vaut, pour <span class="math inline">\(t\in\mathbb{R}^n\)</span>,</p>
+<p><span class="math display">\[
+\mathbb{E}\bigl[\exp(it^\top AX)\bigr]
+=\exp\bigl(-\tfrac12\|A^\top t\|^2\bigr)
+=\exp\bigl(-\tfrac12\|t\|^2\bigr),
+\]</span></p>
+<p>car <span class="math inline">\(A\)</span> est orthogonale. C’est la fonction caractéristique de <span class="math inline">\(\mathcal{N}(0,\mathrm{Id}_n)\)</span>.</p>
 </div>
 </div>
 </div>
@@ -4782,7 +4788,51 @@ T_{|X=x}
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<ol type="1">
+<li>On a <span class="math inline">\(\det M=1-\rho^2=\sigma^2\)</span> et</li>
+</ol>
+<p><span class="math display">\[
+M^{-1}=\frac1{\sigma^2}\begin{pmatrix}1&amp;-\rho\\-\rho&amp;1\end{pmatrix}.
+\]</span></p>
+<p>La densité du vecteur gaussien centré de covariance <span class="math inline">\(M\)</span> est donc</p>
+<p><span class="math display">\[
+f_{(X,Y)}(x,y)
+=\frac1{2\pi\sigma}
+\exp\Bigl(-\frac{x^2-2\rho xy+y^2}{2\sigma^2}\Bigr).
+\]</span></p>
+<ol start="2" type="1">
+<li>La marge de <span class="math inline">\(X\)</span> est <span class="math inline">\(\mathcal{N}(0,1)\)</span>, de densité <span class="math inline">\(f_X(x)=(2\pi)^{-1/2}\exp(-x^2/2)\)</span>. On écrit</li>
+</ol>
+<p><span class="math display">\[
+x^2-2\rho xy+y^2=(y-\rho x)^2+x^2\sigma^2,
+\]</span></p>
+<p>d’où</p>
+<p><span class="math display">\[
+\frac{x^2-2\rho xy+y^2}{2\sigma^2}=\frac{(y-\rho x)^2}{2\sigma^2}+\frac{x^2}2.
+\]</span></p>
+<p>Le quotient des densités se simplifie en</p>
+<p><span class="math display">\[
+g_x(y)
+=\frac1{\sigma\sqrt{2\pi}}
+\exp\Bigl(-\frac{(y-\rho x)^2}{2\sigma^2}\Bigr).
+\]</span></p>
+<p>Pour chaque <span class="math inline">\(x\)</span> fixé, <span class="math inline">\(g_x\)</span> est la densité de <span class="math inline">\(\mathcal{N}(\rho x,\sigma^2)\)</span>, donc une densité de probabilité.</p>
+<ol start="3" type="1">
+<li><p>La variable <span class="math inline">\(Y_x\)</span> suit <span class="math inline">\(\mathcal{N}(\rho x,1-\rho^2)\)</span>. C’est la loi conditionnelle de <span class="math inline">\(Y\)</span> sachant <span class="math inline">\(X=x\)</span>.</p></li>
+<li><p>On cherche <span class="math inline">\(\alpha,\beta\)</span> tels que <span class="math inline">\(Z=\alpha X+\beta Y\)</span> soit <span class="math inline">\(\mathcal{N}(0,1)\)</span> et indépendante de <span class="math inline">\(X\)</span>. L’indépendance équivaut, pour un vecteur gaussien centré, à</p></li>
+</ol>
+<p><span class="math display">\[
+\mathrm{Cov}(X,Z)=\alpha+\beta\rho=0.
+\]</span></p>
+<p>La variance vaut alors</p>
+<p><span class="math display">\[
+\mathrm{Var}(Z)=\beta^2(1-\rho^2).
+\]</span></p>
+<p>Le choix <span class="math inline">\(\beta=1/\sigma\)</span> et <span class="math inline">\(\alpha=-\rho/\sigma\)</span> convient, et <span class="math inline">\((X,Z)\sim\mathcal{N}(0,\mathrm{Id}_2)\)</span>. On a <span class="math inline">\(-\alpha/\beta=\rho\)</span> et <span class="math inline">\(1/\beta=\sigma\)</span>, donc</p>
+<p><span class="math display">\[
+Y=\rho X+\sigma Z.
+\]</span></p>
+<p>Cette écriture est utile parce que <span class="math inline">\(Z\)</span> est indépendante de <span class="math inline">\(X\)</span> : conditionnellement à <span class="math inline">\(X=x\)</span>, <span class="math inline">\(Y\)</span> a la loi de <span class="math inline">\(\rho x+\sigma Z\)</span>, c’est-à-dire <span class="math inline">\(\mathcal{N}(\rho x,1-\rho^2)\)</span>.</p>
 </div>
 </div>
 </div>
@@ -4805,7 +4855,51 @@ T_{|X=x}
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<p>Les <span class="math inline">\(X_i\)</span> sont gaussiennes : <span class="math inline">\(X_i\)</span> est une combinaison affine de <span class="math inline">\(X_0,Y_1,\ldots,Y_i\)</span>, qui sont indépendantes et gaussiennes. De plus <span class="math inline">\(Y_{i+1}\)</span> est indépendante de <span class="math inline">\(\mathcal{F}_i\)</span>.</p>
+<ol type="a">
+<li><p><span class="math inline">\(\mathbb{E}[X_{i+1}\mid\mathcal{F}_i]=\theta X_i+\sigma\mathbb{E}[Y_{i+1}\mid\mathcal{F}_i]=\theta X_i\)</span>.</p></li>
+<li><p>En prenant l’espérance, <span class="math inline">\(\mathbb{E}X_{i+1}=\theta\mathbb{E}X_i\)</span>, donc <span class="math inline">\(\mathbb{E}X_i=\theta^i\mu\)</span>. L’indépendance de <span class="math inline">\(Y_{i+1}\)</span> et de <span class="math inline">\(X_i\)</span> donne</p></li>
+</ol>
+<p><span class="math display">\[
+\mathrm{Var}(X_{i+1})=\theta^2\mathrm{Var}(X_i)+\sigma^2.
+\]</span></p>
+<p>Si <span class="math inline">\(\theta^2\neq 1\)</span>,</p>
+<p><span class="math display">\[
+\mathrm{Var}(X_i)
+=\theta^{2i}\tau^2+\sigma^2\frac{1-\theta^{2i}}{1-\theta^2}.
+\]</span></p>
+<p>Si <span class="math inline">\(|\theta|=1\)</span>, <span class="math inline">\(\mathrm{Var}(X_i)=\tau^2+i\sigma^2\)</span>.</p>
+<ol type="a">
+<li>Deux gaussiennes univariées sont de même loi dès qu’elles ont même moyenne et même variance. Il faut donc <span class="math inline">\(\theta^i\mu=\mu\)</span> pour tout <span class="math inline">\(i\)</span>, et une variance constante.</li>
+</ol>
+<ul>
+<li>Si <span class="math inline">\(\theta=1\)</span> et <span class="math inline">\(\sigma=0\)</span>, alors <span class="math inline">\(X_i=X_0\)</span> pour tout <span class="math inline">\(i\)</span>, de loi <span class="math inline">\(\mathcal{N}(\mu,\tau^2)\)</span>.</li>
+<li>Si <span class="math inline">\(\theta=-1\)</span>, <span class="math inline">\(\sigma=0\)</span> et <span class="math inline">\(\mu=0\)</span>, alors <span class="math inline">\(X_i=(-1)^i X_0\)</span>, de loi <span class="math inline">\(\mathcal{N}(0,\tau^2)\)</span>.</li>
+<li>Si <span class="math inline">\(|\theta|&lt;1\)</span>, <span class="math inline">\(\mu=0\)</span> et <span class="math inline">\(\tau^2=\sigma^2/(1-\theta^2)\)</span>, la variance vaut <span class="math inline">\(\tau^2\)</span> pour tout <span class="math inline">\(i\)</span>.</li>
+</ul>
+<p>Dans les autres cas, la moyenne ou la variance dépend de <span class="math inline">\(i\)</span>.</p>
+<ol type="a">
+<li>La suite des lois converge dès que la moyenne et la variance convergent vers une limite finie.</li>
+</ol>
+<ul>
+<li>Si <span class="math inline">\(|\theta|&lt;1\)</span>, <span class="math inline">\(\mathbb{E}X_i\to 0\)</span> et <span class="math inline">\(\mathrm{Var}(X_i)\to\sigma^2/(1-\theta^2)\)</span>. Donc <span class="math inline">\(X_i\)</span> converge en loi vers <span class="math inline">\(\mathcal{N}\bigl(0,\sigma^2/(1-\theta^2)\bigr)\)</span>.</li>
+<li>Si <span class="math inline">\(\sigma=0\)</span> et <span class="math inline">\(\theta=1\)</span>, la loi est constante, égale à <span class="math inline">\(\mathcal{N}(\mu,\tau^2)\)</span>.</li>
+<li>Si <span class="math inline">\(\sigma=0\)</span>, <span class="math inline">\(\mu=0\)</span> et <span class="math inline">\(\theta=-1\)</span>, la loi est constante, égale à <span class="math inline">\(\mathcal{N}(0,\tau^2)\)</span>.</li>
+<li>Si <span class="math inline">\(|\theta|\ge 1\)</span> et <span class="math inline">\(\sigma\neq 0\)</span>, la variance tend vers <span class="math inline">\(+\infty\)</span>. Si <span class="math inline">\(\sigma=0\)</span> et <span class="math inline">\(|\theta|&gt;1\)</span> avec <span class="math inline">\((\mu,\tau)\neq(0,0)\)</span>, la moyenne ou la variance diverge. Il n’y a pas de limite en loi dans ces cas.</li>
+</ul>
+<ol type="a">
+<li>On se place d’abord dans le cas <span class="math inline">\(|\theta|&lt;1\)</span>, qui est la condition de convergence de la question précédente lorsque <span class="math inline">\(\sigma\neq 0\)</span>. En déroulant la récurrence,</li>
+</ol>
+<p><span class="math display">\[
+X_{i+k}=\theta^k X_i+\sigma\sum_{j=0}^{k-1}\theta^{k-1-j}Y_{i+1+j}.
+\]</span></p>
+<p>Les <span class="math inline">\(Y_{i+1},\ldots,Y_{i+k}\)</span> sont indépendantes de <span class="math inline">\(X_i\)</span>, donc</p>
+<p><span class="math display">\[
+\mathrm{cov}(X_i,X_{i+k})
+=\theta^k\mathrm{Var}(X_i)
+=\theta^k\Biggl(\theta^{2i}\tau^2+\sigma^2\frac{1-\theta^{2i}}{1-\theta^2}\Biggr).
+\]</span></p>
+<p>Dans le régime stationnaire <span class="math inline">\(\mu=0\)</span> et <span class="math inline">\(\tau^2=\sigma^2/(1-\theta^2)\)</span>, cette covariance vaut <span class="math inline">\(\theta^k\sigma^2/(1-\theta^2)\)</span>. Si <span class="math inline">\(\sigma=0\)</span> et <span class="math inline">\(\theta=1\)</span>, elle vaut <span class="math inline">\(\tau^2\)</span>. Si <span class="math inline">\(\sigma=0\)</span>, <span class="math inline">\(\mu=0\)</span> et <span class="math inline">\(\theta=-1\)</span>, elle vaut <span class="math inline">\((-1)^k\tau^2\)</span>.</p>
 </div>
 </div>
 </div>
@@ -4827,7 +4921,46 @@ T_{|X=x}
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<ol type="1">
+<li>Pour <span class="math inline">\(y\le 0\)</span>, <span class="math inline">\(F_Y(y)=0\)</span>. Pour <span class="math inline">\(y&gt;0\)</span>,</li>
+</ol>
+<p><span class="math display">\[
+F_Y(y)=\mathbb{P}(X\le\ln y)=\Phi\Bigl(\frac{\ln y-\mu}{\sigma}\Bigr),
+\]</span></p>
+<p>où <span class="math inline">\(\Phi\)</span> est la fonction de répartition de <span class="math inline">\(\mathcal{N}(0,1)\)</span>.</p>
+<ol start="2" type="1">
+<li>En dérivant, <span class="math inline">\(Y\)</span> admet sur <span class="math inline">\(]0,+\infty[\)</span> la densité</li>
+</ol>
+<p><span class="math display">\[
+f_Y(y)=\frac1{y\sigma\sqrt{2\pi}}
+\exp\Bigl(-\frac{(\ln y-\mu)^2}{2\sigma^2}\Bigr).
+\]</span></p>
+<ol start="3" type="1">
+<li>Si <span class="math inline">\(Z\sim\mathcal{N}(0,1)\)</span> et <span class="math inline">\(X=\mu+\sigma Z\)</span>, alors <span class="math inline">\(\mathbb{E}[e^{tX}]=\exp(\mu t+\sigma^2 t^2/2)\)</span> pour tout <span class="math inline">\(t\)</span>. Donc</li>
+</ol>
+<p><span class="math display">\[
+\mathbb{E}Y=\mathrm{e}^{\mu+\sigma^2/2},
+\qquad
+\mathbb{E}[Y^2]=\mathrm{e}^{2\mu+2\sigma^2},
+\]</span></p>
+<p>et</p>
+<p><span class="math display">\[
+\mathrm{Var}(Y)=\mathrm{e}^{2\mu+\sigma^2}\bigl(\mathrm{e}^{\sigma^2}-1\bigr).
+\]</span></p>
+<ol start="4" type="1">
+<li>On calcule <span class="math inline">\(\mathbb{E}[Xe^X]\)</span>. Comme <span class="math inline">\(\mathbb{E}[e^{\sigma Z}]=\mathrm{e}^{\sigma^2/2}\)</span> et <span class="math inline">\(\mathbb{E}[Ze^{\sigma Z}]=\sigma\mathrm{e}^{\sigma^2/2}\)</span>,</li>
+</ol>
+<p><span class="math display">\[
+\mathbb{E}[Xe^X]
+=\mathrm{e}^{\mu}\mathbb{E}\bigl[(\mu+\sigma Z)\mathrm{e}^{\sigma Z}\bigr]
+=(\mu+\sigma^2)\mathrm{e}^{\mu+\sigma^2/2}.
+\]</span></p>
+<p>Ainsi</p>
+<p><span class="math display">\[
+\mathrm{Cov}(X,Y)
+=\mathbb{E}[XY]-\mathbb{E}X\,\mathbb{E}Y
+=\sigma^2\mathrm{e}^{\mu+\sigma^2/2}.
+\]</span></p>
 </div>
 </div>
 </div>
@@ -4865,7 +4998,123 @@ T_{|X=x}
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<ol type="1">
+<li>On complète le carré en <span class="math inline">\(z\)</span> :</li>
+</ol>
+<p><span class="math display">\[
+\frac{z^2-yz}{x}=\frac{(z-y/2)^2}{x}-\frac{y^2}{4x}.
+\]</span></p>
+<p>L’intégrande devient</p>
+<p><span class="math display">\[
+\exp\Bigl(-\frac{y^2}{4x}\Bigr)\exp\Bigl(-\frac{(z-y/2)^2}{x}\Bigr).
+\]</span></p>
+<p>L’intégrale gaussienne <span class="math inline">\(\int\exp(-u^2/x)\,\mathrm{d}u=\sqrt{\pi x}\)</span> donne</p>
+<p><span class="math display">\[
+\int_{\mathbb{R}}\exp\Bigl(-\frac{y^2}{2x}-\frac{z^2}{x}+\frac{yz}{x}\Bigr)\,\mathrm{d}z
+=\sqrt{\pi x}\,\exp\Bigl(-\frac{y^2}{4x}\Bigr).
+\]</span></p>
+<ol start="2" type="1">
+<li>L’intégrale <span class="math inline">\(\int\exp(-y^2/(4x))\,\mathrm{d}y\)</span> est celle d’une gaussienne de variance <span class="math inline">\(2x\)</span>, donc vaut <span class="math inline">\(\sqrt{4\pi x}\)</span>. On obtient</li>
+</ol>
+<p><span class="math display">\[
+\int_{\mathbb{R}}\frac1{\sqrt{x}}\exp\Bigl(-\frac{y^2}{4x}\Bigr)\,\mathrm{d}y=2\sqrt{\pi}.
+\]</span></p>
+<ol start="3" type="1">
+<li>On intègre <span class="math inline">\(f\)</span> sur <span class="math inline">\(\mathbb{R}^3\)</span>. Pour <span class="math inline">\(x&gt;0\)</span>, l’intégrale en <span class="math inline">\(z\)</span> puis en <span class="math inline">\(y\)</span> vaut</li>
+</ol>
+<p><span class="math display">\[
+\frac{C}{x}\mathrm{e}^{-x}\sqrt{\pi x}\cdot 2\sqrt{\pi x}
+=C\mathrm{e}^{-x}\cdot 2\pi.
+\]</span></p>
+<p>L’intégrale en <span class="math inline">\(x\)</span> de <span class="math inline">\(\mathrm{e}^{-x}\)</span> sur <span class="math inline">\(]0,+\infty[\)</span> vaut <span class="math inline">\(1\)</span>, donc <span class="math inline">\(2\pi C=1\)</span> et <span class="math inline">\(C=1/(2\pi)\)</span>.</p>
+<ol start="4" type="1">
+<li><p>La densité marginale de <span class="math inline">\(X\)</span> est le résultat du calcul précédent sans la constante <span class="math inline">\(C\)</span> déjà identifiée : <span class="math inline">\(x\mapsto\mathrm{e}^{-x}\mathbf{1}_{x&gt;0}\)</span>. Donc <span class="math inline">\(X\sim\mathrm{Exp}(1)\)</span>.</p></li>
+<li><p>En intégrant seulement en <span class="math inline">\(z\)</span>,</p></li>
+</ol>
+<p><span class="math display">\[
+g(x,y)
+=\mathbf{1}_{x&gt;0}\,\mathrm{e}^{-x}\,\frac1{\sqrt{4\pi x}}
+\exp\Bigl(-\frac{y^2}{4x}\Bigr).
+\]</span></p>
+<ol start="6" type="1">
+<li>En divisant par la densité de <span class="math inline">\(X\)</span>,</li>
+</ol>
+<p><span class="math display">\[
+g_{Y\mid X}(y\mid x)
+=\frac1{\sqrt{4\pi x}}\exp\Bigl(-\frac{y^2}{4x}\Bigr),
+\qquad x&gt;0.
+\]</span></p>
+<p>C’est la densité de <span class="math inline">\(\mathcal{N}(0,2x)\)</span>. Sachant <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\sim\mathcal{N}(0,2X)\)</span>.</p>
+<ol start="7" type="1">
+<li><p><span class="math inline">\(\mathbb{E}[Y\mid X]=0\)</span> et <span class="math inline">\(\mathbb{E}[Y^2\mid X]=2X\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{E}Y=\mathbb{E}[\mathbb{E}[Y\mid X]]=0\)</span> et <span class="math inline">\(\mathrm{Var}(Y)=\mathbb{E}[Y^2]=\mathbb{E}[2X]=2\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathrm{Cov}(X,Y)=\mathbb{E}[X\mathbb{E}[Y\mid X]]=0\)</span>. Les variables ne sont pas indépendantes : la loi conditionnelle de <span class="math inline">\(Y\)</span> sachant <span class="math inline">\(X\)</span> dépend de <span class="math inline">\(X\)</span>.</p></li>
+<li><p>On réécrit l’exposant</p></li>
+</ol>
+<p><span class="math display">\[
+-\frac{y^2}{2x}-\frac{z^2}{x}+\frac{yz}{x}
+=-\frac{(y-z)^2}{2x}-\frac{z^2}{2x}.
+\]</span></p>
+<p>La densité jointe est donc, pour <span class="math inline">\(x&gt;0\)</span>,</p>
+<p><span class="math display">\[
+f(x,y,z)
+=\mathrm{e}^{-x}\cdot\frac1{2\pi x}
+\exp\Bigl(-\frac{(y-z)^2}{2x}-\frac{z^2}{2x}\Bigr).
+\]</span></p>
+<p>L’intégrale en <span class="math inline">\(y\)</span> vaut <span class="math inline">\(\sqrt{2\pi x}\)</span>, et la densité du couple <span class="math inline">\((X,Z)\)</span> est</p>
+<p><span class="math display">\[
+\mathrm{e}^{-x}\mathbf{1}_{x&gt;0}\,\frac1{\sqrt{2\pi x}}\exp\Bigl(-\frac{z^2}{2x}\Bigr).
+\]</span></p>
+<p>Sachant <span class="math inline">\(X\)</span>, <span class="math inline">\(Z\sim\mathcal{N}(0,X)\)</span>. Donc <span class="math inline">\(\mathbb{E}[Z\mid X]=0\)</span>, <span class="math inline">\(\mathbb{E}[Z^2\mid X]=X\)</span>, puis <span class="math inline">\(\mathbb{E}Z=0\)</span>, <span class="math inline">\(\mathrm{Var}(Z)=\mathbb{E}X=1\)</span> et <span class="math inline">\(\mathrm{Cov}(X,Z)=0\)</span>.</p>
+<ol start="11" type="1">
+<li>En divisant la densité jointe par celle de <span class="math inline">\(X\)</span>, la loi conditionnelle de <span class="math inline">\((Y,Z)\)</span> sachant <span class="math inline">\(X=x\)</span> a pour densité</li>
+</ol>
+<p><span class="math display">\[
+\frac1{2\pi x}\exp\Bigl(-\frac{(y-z)^2}{2x}-\frac{z^2}{2x}\Bigr).
+\]</span></p>
+<p>Le changement <span class="math inline">\(u=y-z\)</span> sépare les variables :</p>
+<p><span class="math display">\[
+\mathbb{E}\bigl[\mathrm{e}^{-sY-tZ}\mid X=x\bigr]
+=\exp\Bigl(\frac{x}2 s^2\Bigr)\exp\Bigl(\frac{x}2(s+t)^2\Bigr)
+=\exp\bigl(x(s^2+st+t^2/2)\bigr).
+\]</span></p>
+<p>L’identité de l’énoncé se lit donc</p>
+<p><span class="math display">\[
+\mathbb{E}[\exp(-sY-tZ)\mid X]
+=\exp\bigl(X(s^2+st+t^2/2)\bigr).
+\]</span></p>
+<ol start="12" type="1">
+<li><p>La densité jointe calculée à la question 10 est exactement <span class="math inline">\(\mathrm{e}^{-x}\)</span> fois <span class="math inline">\(g_{(Y,Z)\mid X}\)</span>. En divisant par la densité de <span class="math inline">\(X\)</span>, on obtient la formule de l’énoncé.</p></li>
+<li><p>Cette densité est celle du vecteur gaussien centré de matrice de covariance</p></li>
+</ol>
+<p><span class="math display">\[
+x\begin{pmatrix}2&amp;1\\1&amp;1\end{pmatrix}.
+\]</span></p>
+<p>Sachant <span class="math inline">\(X\)</span>, <span class="math inline">\((Y,Z)\sim\mathcal{N}\bigl(0,\,X\begin{pmatrix}2&amp;1\\1&amp;1\end{pmatrix}\bigr)\)</span>.</p>
+<ol start="14" type="1">
+<li><p>Le changement <span class="math inline">\((U,V)=(Y-Z,Z)\)</span> a pour densité conditionnelle le produit de deux densités <span class="math inline">\(\mathcal{N}(0,x)\)</span>. Sachant <span class="math inline">\(X\)</span>, <span class="math inline">\(Y-Z\)</span> et <span class="math inline">\(Z\)</span> sont indépendantes de loi <span class="math inline">\(\mathcal{N}(0,X)\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{E}[YZ\mid X]=\mathrm{Cov}(Y,Z\mid X)=X\)</span>, donc</p></li>
+</ol>
+<p><span class="math display">\[
+\mathbb{E}[XYZ]=\mathbb{E}[X\cdot X]=\mathbb{E}[X^2]=2,
+\]</span></p>
+<p>puisque <span class="math inline">\(X\sim\mathrm{Exp}(1)\)</span>.</p>
+<ol start="16" type="1">
+<li>Par indépendance conditionnelle, <span class="math inline">\(\mathbb{E}[(Y-Z)^2Z^2\mid X]=X\cdot X=X^2\)</span>. Donc</li>
+</ol>
+<p><span class="math display">\[
+\mathbb{E}\bigl[X(Y-Z)^2Z^2\bigr]=\mathbb{E}[X^3]=6.
+\]</span></p>
+<ol start="17" type="1">
+<li>Sachant <span class="math inline">\(X\)</span>, <span class="math inline">\(Y-Z\)</span> et <span class="math inline">\(Z\)</span> sont des gaussiennes centrées indépendantes de variance <span class="math inline">\(X\)</span>. Le moment est nul dès que <span class="math inline">\(\ell\)</span> ou <span class="math inline">\(m\)</span> est impair. Si <span class="math inline">\(\ell=2p\)</span> et <span class="math inline">\(m=2q\)</span>,</li>
+</ol>
+<p><span class="math display">\[
+\mathbb{E}\bigl[X^k(Y-Z)^\ell Z^m\bigr]
+=\frac{(2p)!}{p!\,2^p}\,\frac{(2q)!}{q!\,2^q}\,(k+p+q)!.
+\]</span></p>
+<ol start="18" type="1">
+<li>On simule <span class="math inline">\(X\sim\mathrm{Exp}(1)\)</span>, puis, conditionnellement à <span class="math inline">\(X\)</span>, deux gaussiennes indépendantes <span class="math inline">\(U,Z\sim\mathcal{N}(0,X)\)</span>. On pose <span class="math inline">\(Y=U+Z\)</span>. Le triplet <span class="math inline">\((X,Y,Z)\)</span> a la loi voulue.</li>
+</ol>
 </div>
 </div>
 </div>

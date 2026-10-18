@@ -4137,7 +4137,6 @@ window.Quarto = {
 </script>
 
 <meta property="og:title" content="MA1AY010 Probabilités">
-<meta property="og:description" content="Page maison du cours MA1AY010 Probabilités M1 ISIFAR (2025-26)">
 <meta property="og:site_name" content="MA1AY010 Probabilités">
 </head>
 
@@ -4464,7 +4463,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">15 septembre 2026</p>
+      <p class="date">16 octobre 2026</p>
     </div>
   </div>
   
@@ -4491,6 +4490,21 @@ window.Quarto = {
 <li>Vérifier que si <span class="math inline">\(f\)</span> est <span class="math inline">\(\mu\)</span>-intégrable et <span class="math inline">\(\left|\int f \mathrm{d}\mu\right| =  \int \left| f \right| \mathrm{d}\mu\)</span> alors il existe <span class="math inline">\(a \in \mathbb{R}\)</span> tel que <span class="math inline">\(f = a |f|\)</span> <span class="math inline">\(\mu\)</span>-presque partout.</li>
 </ol>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ol type="1">
+<li><p>Si <span class="math inline">\(f \ge 0\)</span> et <span class="math inline">\(t&gt;0\)</span>, alors <span class="math inline">\(\int f\,\mathrm{d}\mu \ge \int_{\{f \ge t\}} f\,\mathrm{d}\mu \ge t\,\mu\{f \ge t\}\)</span>.</p></li>
+<li><p>Pour chaque entier <span class="math inline">\(n \ge 1\)</span>, la question précédente donne <span class="math inline">\(\mu\{f \ge 1/n\} = 0\)</span>. Donc <span class="math inline">\(\mu\{f &gt; 0\} = \mu\bigl(\bigcup_n \{f \ge 1/n\}\bigr) = 0\)</span>, et <span class="math inline">\(f = 0\)</span> <span class="math inline">\(\mu\)</span>-presque partout.</p></li>
+<li><p>Sur <span class="math inline">\(E_+ = \{f \ge 0\}\)</span>, on a <span class="math inline">\(\int_{E_+} f\,\mathrm{d}\mu = 0\)</span> et <span class="math inline">\(f \ge 0\)</span>, donc <span class="math inline">\(f = 0\)</span> <span class="math inline">\(\mu\)</span>-presque partout sur <span class="math inline">\(E_+\)</span> d’après la question précédente. Sur <span class="math inline">\(E_- = \{f &lt; 0\}\)</span>, <span class="math inline">\(\int_{E_-}(-f)\,\mathrm{d}\mu = 0\)</span>, donc <span class="math inline">\(-f = 0\)</span> <span class="math inline">\(\mu\)</span>-presque partout sur <span class="math inline">\(E_-\)</span>. Ainsi <span class="math inline">\(f = 0\)</span> <span class="math inline">\(\mu\)</span>-presque partout.</p></li>
+<li><p>Si <span class="math inline">\(\int f\,\mathrm{d}\mu \ge 0\)</span>, l’hypothèse s’écrit <span class="math inline">\(\int(|f|-f)\,\mathrm{d}\mu = 0\)</span>. Comme <span class="math inline">\(|f|-f \ge 0\)</span>, la question 2 donne <span class="math inline">\(|f|=f\)</span> <span class="math inline">\(\mu\)</span>-presque partout, c’est-à-dire <span class="math inline">\(f = 1\cdot|f|\)</span>. Si <span class="math inline">\(\int f\,\mathrm{d}\mu &lt; 0\)</span>, le même raisonnement appliqué à <span class="math inline">\(-f\)</span> donne <span class="math inline">\(f = -|f|\)</span> <span class="math inline">\(\mu\)</span>-presque partout.</p></li>
+</ol>
+</div>
+</div>
+</div>
 <div id="exr-fatou-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 2 (À propos du théorème de Fatou)</strong></span>  </p>
 <!-- Exercice 1.8 Rudin sur Lemme de Fatou -->
@@ -4499,6 +4513,17 @@ window.Quarto = {
 <li>Que vaut <span class="math inline">\(\int \liminf_n f_n \mathrm{d}\mu\)</span> ?</li>
 <li>Que vaut <span class="math inline">\(\liminf_n \int f_n \mathrm{d}\mu\)</span> ?</li>
 </ol>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Pour tout <span class="math inline">\(x\)</span>, la suite <span class="math inline">\((f_n(x))_n\)</span> alterne entre <span class="math inline">\(\mathbf{1}_E(x)\)</span> et <span class="math inline">\(\mathbf{1}_{E^c}(x)\)</span>, donc entre <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span>. Ainsi <span class="math inline">\(\liminf_n f_n = 0\)</span> partout, et <span class="math inline">\(\int \liminf_n f_n\,\mathrm{d}\mu = 0\)</span>.</p>
+<p>Par ailleurs <span class="math inline">\(\int f_n\,\mathrm{d}\mu\)</span> vaut <span class="math inline">\(\mu(E)\)</span> si <span class="math inline">\(n\)</span> est pair et <span class="math inline">\(\mu(E^c)\)</span> si <span class="math inline">\(n\)</span> est impair. La limite inférieure de cette suite de nombres est <span class="math inline">\(\min\bigl(\mu(E), \mu(E^c)\bigr)\)</span>.</p>
+</div>
+</div>
 </div>
 <div id="exr-fatou-2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 3 (Application des théorèmes de convergence)</strong></span>  </p>
@@ -4511,6 +4536,20 @@ window.Quarto = {
 <li>Si <span class="math inline">\(\alpha&lt;1\)</span>, utiliser le théorème de Fatou pour vérifier que la limite vaut <span class="math inline">\(\infty\)</span>.</li>
 </ol>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ol type="1">
+<li><p>La quantité est positive. Pour <span class="math inline">\(t = u/n \ge 0\)</span> et <span class="math inline">\(\alpha \ge 1\)</span>, la fonction <span class="math inline">\(\psi(t) = \alpha t - \ln(1+t^\alpha)\)</span> vérifie <span class="math inline">\(\psi(0)=0\)</span> et <span class="math display">\[\psi&#39;(t) = \alpha\,\frac{1+t^\alpha-t^{\alpha-1}}{1+t^\alpha}.\]</span> Pour <span class="math inline">\(t \in [0,1]\)</span>, <span class="math inline">\(t^{\alpha-1} \le 1\)</span>, donc <span class="math inline">\(1+t^\alpha-t^{\alpha-1} = 1-t^{\alpha-1}(1-t) \ge t \ge 0\)</span>. Pour <span class="math inline">\(t&gt;1\)</span>, <span class="math inline">\(t^\alpha \ge t^{\alpha-1}\)</span>, donc le numérateur est au moins <span class="math inline">\(1\)</span>. Ainsi <span class="math inline">\(\psi&#39; \ge 0\)</span>, <span class="math inline">\(\psi \ge 0\)</span>, et <span class="math inline">\(n\ln\bigl(1+(u/n)^\alpha\bigr) \le \alpha u\)</span>.</p></li>
+<li><p>Ponctuellement, <span class="math inline">\(n\ln\bigl(1+(f/n)^\alpha\bigr)\)</span> tend vers <span class="math inline">\(f\)</span> si <span class="math inline">\(\alpha=1\)</span>, et vers <span class="math inline">\(0\)</span> si <span class="math inline">\(\alpha&gt;1\)</span> : dans ce dernier cas, l’équivalent sur <span class="math inline">\(\{f&gt;0\}\)</span> est <span class="math inline">\(n^{1-\alpha}f^\alpha\)</span>. La domination par <span class="math inline">\(\alpha f\)</span>, intégrable, et le théorème de convergence dominée donnent la limite <span class="math inline">\(c\)</span> si <span class="math inline">\(\alpha=1\)</span>, et <span class="math inline">\(0\)</span> si <span class="math inline">\(\alpha&gt;1\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\alpha&lt;1\)</span>, l’équivalent <span class="math inline">\(n^{1-\alpha}f^\alpha\)</span> montre que l’intégrande tend vers <span class="math inline">\(+\infty\)</span> sur <span class="math inline">\(\{f&gt;0\}\)</span>. Comme <span class="math inline">\(\int f = c &gt; 0\)</span>, cet ensemble n’est pas <span class="math inline">\(\mu\)</span>-négligeable, donc <span class="math inline">\(\int \liminf_n n\ln\bigl(1+(f/n)^\alpha\bigr)\,\mathrm{d}\mu = \infty\)</span>. Le lemme de Fatou entraîne que la limite des intégrales vaut <span class="math inline">\(\infty\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
 <div id="exr-fatou-3" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 4 (Application des théorèmes de convergence)</strong></span>  </p>
 <!-- Exercice 1.7 Rudin sur Lemme de Fatou -->
@@ -4518,6 +4557,20 @@ window.Quarto = {
 <p>On suppose que pour tout <span class="math inline">\(\omega \in \Omega\)</span>, la suite <span class="math inline">\((f_n(\omega))_n\)</span> est décroissante converge vers une limite finie <span class="math inline">\(f(\omega)\)</span>.</p>
 <p>On suppose aussi que <span class="math inline">\(\int_\Omega f_1 \mathrm{d}\mu &lt; \infty.\)</span></p>
 <p>Montrer que <span class="math display">\[\lim_{n \to \infty} \int_\Omega f_n \mathrm{d}\mu = \int_\Omega f \mathrm{d}\mu\]</span></p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>La suite <span class="math inline">\(g_n = f_1 - f_n\)</span> est positive et croît vers <span class="math inline">\(f_1 - f\)</span>. Comme <span class="math inline">\(0 \le f \le f_1\)</span> et <span class="math inline">\(f_1\)</span> est intégrable, <span class="math inline">\(f\)</span> est intégrable. Le théorème de convergence monotone donne <span class="math inline">\(\int g_n\,\mathrm{d}\mu \to \int(f_1-f)\,\mathrm{d}\mu\)</span>, c’est-à-dire</p>
+<p><span class="math display">\[
+\int f_1\,\mathrm{d}\mu - \int f_n\,\mathrm{d}\mu \to \int f_1\,\mathrm{d}\mu - \int f\,\mathrm{d}\mu.
+\]</span></p>
+<p>On en déduit <span class="math inline">\(\int f_n\,\mathrm{d}\mu \to \int f\,\mathrm{d}\mu\)</span>.</p>
+</div>
+</div>
 </div>
 <div id="exr-tcd-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 5 (Dérivabilité sous le signe somme)</strong></span>  </p>
@@ -4529,6 +4582,24 @@ window.Quarto = {
 <li>pour tous <span class="math inline">\(t,t_0 \in I\)</span> et tout <span class="math inline">\(x \in \Omega\)</span>, on a <span class="math display">\[\left|\frac{f(x,t) - f(x,t_0)}{t - t_0} \right|\leq g(x)\]</span></li>
 </ul>
 <p>Montrer que la fonction <span class="math inline">\(F : I \to \mathbb{R}\)</span> définie par <span class="math display">\[F(t) = \int_\Omega f(x,t) \mathrm{d}\mu(x)\]</span> est dérivable, et sa dérivée est donnée par <span class="math display">\[F&#39;(t) = \int_\Omega f&#39;(x,t) \mathrm{d}\mu(x).\]</span></p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Fixons <span class="math inline">\(t_0 \in I\)</span>. Pour <span class="math inline">\(t \in I\setminus\{t_0\}\)</span>,</p>
+<p><span class="math display">\[
+\frac{F(t)-F(t_0)}{t-t_0} = \int_\Omega \frac{f(x,t)-f(x,t_0)}{t-t_0}\,\mathrm{d}\mu(x).
+\]</span></p>
+<p>Le quotient sous l’intégrale converge vers <span class="math inline">\(f&#39;(x,t_0)\)</span> et reste borné par <span class="math inline">\(g\)</span>, intégrable. Le théorème de convergence dominée donne</p>
+<p><span class="math display">\[
+F&#39;(t_0) = \int_\Omega f&#39;(x,t_0)\,\mathrm{d}\mu(x).
+\]</span></p>
+<p>En passant à la limite dans la domination, <span class="math inline">\(|f&#39;(x,t_0)| \le g(x)\)</span>, donc <span class="math inline">\(f&#39;(\cdot,t_0)\)</span> est intégrable.</p>
+</div>
+</div>
 </div>
 <!-- Stein and Shakarchi, Fourier Analysis Appendix Integration. I.2 -->
 <!-- 
@@ -4561,10 +4632,41 @@ Pour caractériser les *ensembles de mesure nulle* : pour chaque $\epsilon>0$, i
 <li>Existe-t-il des fonctions Lebesgue intégrables qui ne sont pas Riemann-intégrable ?</li>
 </ol>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On se place sur un intervalle compact <span class="math inline">\([a,b]\)</span>, et l’on adopte la définition rappelée au-dessus.</p>
+<ol type="1">
+<li><p>Une fonction continue sur <span class="math inline">\([a,b]\)</span> y est uniformément continue et bornée. Soit <span class="math inline">\(\varepsilon&gt;0\)</span> et <span class="math inline">\(\delta&gt;0\)</span> tel que <span class="math inline">\(|x-y|&lt;\delta\)</span> entraîne <span class="math inline">\(|f(x)-f(y)|&lt;\varepsilon/(b-a)\)</span>. Si <span class="math inline">\(S\)</span> et <span class="math inline">\(S&#39;\)</span> ont un pas inférieur à <span class="math inline">\(\delta\)</span>, on les compare sur la subdivision obtenue par réunion des points. Sur chaque petit intervalle, deux valeurs de <span class="math inline">\(f\)</span> diffèrent d’au plus <span class="math inline">\(\varepsilon/(b-a)\)</span>, donc <span class="math inline">\(|R(f,S)-R(f,S&#39;)|&lt;\varepsilon\)</span>. Le critère de Cauchy montre que les sommes de Riemann convergent vers une limite <span class="math inline">\(m\)</span> lorsque le pas tend vers <span class="math inline">\(0\)</span> : <span class="math inline">\(f\)</span> est Riemann-intégrable.</p></li>
+<li><p>Soit <span class="math inline">\(f\)</span> Riemann-intégrable, d’intégrale <span class="math inline">\(m\)</span>, et <span class="math inline">\(|f|\le M\)</span>. Pour chaque <span class="math inline">\(n\)</span>, on choisit une subdivision de pas assez petit pour que toute somme de Riemann en soit à moins de <span class="math inline">\(1/n\)</span>. Les sommes de Darboux associées vérifient alors <span class="math inline">\(m-1/n \le L_n \le U_n \le m+1/n\)</span>. Les fonctions en escalier <span class="math inline">\(\varphi_n \le f \le \psi_n\)</span> correspondantes satisfont <span class="math inline">\(\int(\psi_n-\varphi_n)\le 2/n\)</span>. Une sous-suite de <span class="math inline">\(\psi_n-\varphi_n\)</span> tend vers <span class="math inline">\(0\)</span> presque partout, donc <span class="math inline">\(f\)</span> coïncide presque partout avec une limite de fonctions boréliennes : <span class="math inline">\(f\)</span> est Lebesgue-mesurable. Étant bornée sur un intervalle fini, elle est Lebesgue-intégrable. Les intégrales de <span class="math inline">\(\varphi_n\)</span> et <span class="math inline">\(\psi_n\)</span> tendent vers <span class="math inline">\(m\)</span> et encadrent l’intégrale de Lebesgue, qui vaut donc <span class="math inline">\(m\)</span>.</p></li>
+<li><p>Oui. L’indicatrice des rationnels de <span class="math inline">\([0,1]\)</span> n’est pas Riemann-intégrable : sur toute subdivision, la somme inférieure vaut <span class="math inline">\(0\)</span> et la somme supérieure vaut <span class="math inline">\(1\)</span>. Elle est nulle presque partout, donc Lebesgue-intégrable, d’intégrale nulle.</p></li>
+</ol>
+</div>
+</div>
+</div>
 <div id="exr-riemann-2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 7 (Sommes de Darboux)</strong></span> Soit <span class="math inline">\([a,b]\)</span> un intervalle fini et <span class="math inline">\(f\)</span> une fonction bornée sur <span class="math inline">\([a,b]\)</span>. On définit les sommes de Darboux associées à une subdivision <span class="math inline">\(S\)</span> <span class="math inline">\(a = x_0 &lt; x_1 &lt; \ldots &lt; x_n = b\)</span> de <span class="math inline">\([a,b]\)</span> par</p>
 <p><span class="math display">\[U(f,S) = \sum_{i=1}^n \sup_{x_{i-1} \leq x \leq x_i} f(x) (x_i - x_{i-1})\]</span> et <span class="math display">\[L(f,S) = \sum_{i=1}^n \inf_{x_{i-1} \leq x \leq x_i} f(x) (x_i - x_{i-1})\]</span></p>
 <p>Vérifier que <span class="math inline">\(f\)</span> est Riemann intégrable sur <span class="math inline">\([a,b]\)</span> si et seulement si <span class="math display">\[\lim_{r \searrow 0} \sup_{S \text{ de pas} \leq r} U(f,S) = \lim_{r \searrow 0} \inf_{S \text{ de pas} \leq r} L(f,S)\]</span></p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On pose, pour <span class="math inline">\(r&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\overline{I}(r) = \sup_{\mathrm{pas}(S)\le r} U(f,S), \qquad \underline{I}(r) = \inf_{\mathrm{pas}(S)\le r} L(f,S).
+\]</span></p>
+<p>Lorsque <span class="math inline">\(r\)</span> décroît, la famille de subdivisions rétrécit, donc <span class="math inline">\(\overline{I}\)</span> décroît et <span class="math inline">\(\underline{I}\)</span> croît. Comme <span class="math inline">\(f\)</span> est bornée, ces quantités sont finies, et les limites quand <span class="math inline">\(r \searrow 0\)</span> existent. On a toujours <span class="math inline">\(L(f,S) \le R(f,S) \le U(f,S)\)</span>.</p>
+<p>Si <span class="math inline">\(f\)</span> est Riemann-intégrable d’intégrale <span class="math inline">\(m\)</span>, soit <span class="math inline">\(\varepsilon&gt;0\)</span> et <span class="math inline">\(\delta\)</span> associé. Pour <span class="math inline">\(\mathrm{pas}(S)&lt;\delta\)</span> et <span class="math inline">\(\eta&gt;0\)</span>, on peut choisir les marques de sorte que <span class="math inline">\(U(f,S)-\eta &lt; R(f,S) \le U(f,S)\)</span>. Alors <span class="math inline">\(U(f,S) &lt; m+\varepsilon+\eta\)</span>. De même <span class="math inline">\(L(f,S) &gt; m-\varepsilon-\eta\)</span>. Donc <span class="math inline">\(\overline{I}(r) \le m+\varepsilon\)</span> et <span class="math inline">\(\underline{I}(r) \ge m-\varepsilon\)</span> pour <span class="math inline">\(r&lt;\delta\)</span>. Les deux limites valent <span class="math inline">\(m\)</span>.</p>
+<p>Réciproquement, si les deux limites valent <span class="math inline">\(\ell\)</span>, pour <span class="math inline">\(\varepsilon&gt;0\)</span> et <span class="math inline">\(r\)</span> assez petit on a <span class="math inline">\(\ell-\varepsilon &lt; \underline{I}(r) \le \overline{I}(r) &lt; \ell+\varepsilon\)</span>. Toute somme de Riemann d’une subdivision de pas au plus <span class="math inline">\(r\)</span> est donc à distance inférieure à <span class="math inline">\(\varepsilon\)</span> de <span class="math inline">\(\ell\)</span>. La fonction <span class="math inline">\(f\)</span> est Riemann-intégrable, d’intégrale <span class="math inline">\(\ell\)</span>.</p>
+</div>
+</div>
 </div>
 <div id="exr-riemann-3" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 8 (Intégrabilité au sens de Riemann)</strong></span> On note pour une fonction <span class="math inline">\(f\)</span> définie sur <span class="math inline">\(\mathbb{R}\)</span> et <span class="math inline">\(x\in \mathbb{R}\)</span>, on définit:</p>
@@ -4581,6 +4683,24 @@ Pour caractériser les *ensembles de mesure nulle* : pour chaque $\epsilon>0$, i
 <li>Vérifier que si l’ensemble des points de disconitinuité <span class="math inline">\(f\)</span> sur <span class="math inline">\([a,b]\)</span> est de mesure de Lebesgue nulle, alors <span class="math inline">\(f\)</span> est Riemann-intégrable sur <span class="math inline">\([a,b]\)</span>.</li>
 <li>Réciproquement, si <span class="math inline">\(f\)</span> est intégrable sur <span class="math inline">\([a,b]\)</span>, vérifier que pour tout <span class="math inline">\(\epsilon&gt;0\)</span>, l’ensemble <span class="math inline">\(A_\epsilon\)</span> est de mesure de Lebesgue nulle (pour tout <span class="math inline">\(\delta&gt;0\)</span>, il existe une suite dénombrable d’intervalles ouverts <span class="math inline">\((I_k)\)</span> dont la somme des longueurs est inférieure à <span class="math inline">\(\delta\)</span> et dont la réunion recouvre <span class="math inline">\(A_\epsilon\)</span>).</li>
 </ol>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On suppose <span class="math inline">\(f\)</span> bornée sur <span class="math inline">\([a,b]\)</span>, disons <span class="math inline">\(|f|\le M\)</span>. La fonction <span class="math inline">\(r \mapsto \operatorname{osc}(f,x,r)\)</span> est croissante, donc la limite qui définit <span class="math inline">\(\operatorname{osc}(f,x)\)</span> existe dans <span class="math inline">\([0,\infty]\)</span>.</p>
+<ol type="1">
+<li><p>Soit <span class="math inline">\((x_n)\)</span> une suite de <span class="math inline">\(A_\epsilon\)</span> convergeant vers <span class="math inline">\(x \in [a,b]\)</span>. Pour tout <span class="math inline">\(r&gt;0\)</span> et <span class="math inline">\(n\)</span> assez grand, <span class="math inline">\(|x_n-x|&lt;r/2\)</span>. Comme <span class="math inline">\(\operatorname{osc}(f,x_n)\ge\epsilon\)</span>, on a <span class="math inline">\(\operatorname{osc}(f,x_n,r/2)\ge\epsilon\)</span>. Le voisinage de rayon <span class="math inline">\(r/2\)</span> autour de <span class="math inline">\(x_n\)</span> est contenu dans celui de rayon <span class="math inline">\(r\)</span> autour de <span class="math inline">\(x\)</span>, donc <span class="math inline">\(\operatorname{osc}(f,x,r)\ge\epsilon\)</span>. Ainsi <span class="math inline">\(\operatorname{osc}(f,x)\ge\epsilon\)</span> et <span class="math inline">\(A_\epsilon\)</span> est fermé.</p></li>
+<li><p><span class="math inline">\(A_\epsilon\)</span> est un fermé borné de <span class="math inline">\(\mathbb{R}\)</span>, donc compact.</p></li>
+<li><p>Si <span class="math inline">\(f\)</span> est continue en <span class="math inline">\(x\)</span>, pour tout <span class="math inline">\(\eta&gt;0\)</span> il existe <span class="math inline">\(r&gt;0\)</span> tel que <span class="math inline">\(|y-x|\le r\)</span> entraîne <span class="math inline">\(|f(y)-f(x)|&lt;\eta/2\)</span>. Alors <span class="math inline">\(\operatorname{osc}(f,x,r)\le\eta\)</span>, et <span class="math inline">\(\operatorname{osc}(f,x)=0\)</span>. Réciproquement, si <span class="math inline">\(\operatorname{osc}(f,x)=0\)</span>, pour tout <span class="math inline">\(\eta&gt;0\)</span> il existe <span class="math inline">\(r&gt;0\)</span> tel que <span class="math inline">\(\operatorname{osc}(f,x,r)&lt;\eta\)</span>, donc <span class="math inline">\(|f(y)-f(x)|&lt;\eta\)</span> dès que <span class="math inline">\(|y-x|\le r\)</span>.</p></li>
+<li><p>Le point <span class="math inline">\(x\)</span> est une discontinuité si et seulement si <span class="math inline">\(\operatorname{osc}(f,x)&gt;0\)</span>, c’est-à-dire s’il existe <span class="math inline">\(\epsilon&gt;0\)</span> tel que <span class="math inline">\(x\in A_\epsilon\)</span>. L’ensemble des discontinuités est <span class="math inline">\(\bigcup_{\epsilon&gt;0} A_\epsilon\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\eta&gt;0\)</span>. L’ensemble <span class="math inline">\(A_\eta\)</span> est inclus dans l’ensemble des discontinuités, donc négligeable : on le recouvre par des intervalles ouverts de longueur totale <span class="math inline">\(\delta&gt;0\)</span> arbitrairement petite. Sur le complémentaire compact <span class="math inline">\(K\subset[a,b]\)</span>, <span class="math inline">\(\operatorname{osc}(f,\cdot)&lt;\eta\)</span>. On en extrait un recouvrement fini par des intervalles où l’oscillation de <span class="math inline">\(f\)</span> est inférieure à <span class="math inline">\(\eta\)</span>. Avec les extrémités de ce recouvrement et celles du recouvrement de <span class="math inline">\(A_\eta\)</span>, on construit une subdivision <span class="math inline">\(P\)</span> telle que <span class="math display">\[U(f,P)-L(f,P) \le \eta(b-a)+2M\delta.\]</span> Soit maintenant <span class="math inline">\(Q\)</span> une subdivision de pas inférieur à <span class="math inline">\(\gamma\)</span>, et <span class="math inline">\(N\)</span> le nombre de points de <span class="math inline">\(P\)</span>. Les intervalles de <span class="math inline">\(Q\)</span> qui contiennent un point de <span class="math inline">\(P\)</span> ont une longueur totale au plus <span class="math inline">\(N\gamma\)</span> ; sur les autres, l’oscillation est majorée par celle de l’intervalle de <span class="math inline">\(P\)</span> qui les contient. Donc <span class="math display">\[U(f,Q)-L(f,Q) \le U(f,P)-L(f,P)+2MN\gamma.\]</span> En choisissant <span class="math inline">\(\eta\)</span>, <span class="math inline">\(\delta\)</span> puis <span class="math inline">\(\gamma\)</span> petits, toute subdivision assez fine vérifie <span class="math inline">\(U-L\)</span> arbitrairement petit. Les deux limites de l’exercice précédent coïncident, et <span class="math inline">\(f\)</span> est Riemann-intégrable.</p></li>
+<li><p>Soit <span class="math inline">\(f\)</span> Riemann-intégrable et <span class="math inline">\(\epsilon&gt;0\)</span>, <span class="math inline">\(\delta&gt;0\)</span>. D’après l’exercice précédent, il existe une subdivision <span class="math inline">\(S\)</span> telle que <span class="math inline">\(U(f,S)-L(f,S)&lt;\epsilon\delta\)</span>. Sur un intervalle de <span class="math inline">\(S\)</span> qui rencontre l’intérieur de <span class="math inline">\(A_\epsilon\)</span>, on a <span class="math inline">\(\sup f-\inf f\ge\epsilon\)</span>. La longueur totale de ces intervalles est donc inférieure à <span class="math inline">\(\delta\)</span>. En les élargissant légèrement en intervalles ouverts, et en couvrant les nœuds de <span class="math inline">\(S\)</span> (ensemble fini) par de petits intervalles ouverts, on obtient un recouvrement ouvert de <span class="math inline">\(A_\epsilon\)</span> de longueur totale inférieure à <span class="math inline">\(\delta\)</span>. La mesure de Lebesgue de <span class="math inline">\(A_\epsilon\)</span> est nulle.</p></li>
+</ol>
+</div>
+</div>
 </div>
 <div class="callout callout-style-simple callout-note no-icon" name="`A retenir">
 <div class="callout-body d-flex">
@@ -4607,6 +4727,20 @@ Pour caractériser les *ensembles de mesure nulle* : pour chaque $\epsilon>0$, i
 <li>Calculer la fonction de répartition de la loi de <span class="math inline">\(Z\)</span>. La fonction de répartition est-elle continue sur <span class="math inline">\(\mathbb{R}\)</span>? La loi de <span class="math inline">\(Z\)</span> est-elle <em>diffuse</em>?</li>
 <li>La loi de <span class="math inline">\(Z\)</span> possède-t-elle une espérance finie?</li>
 </ol>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ol type="i">
+<li><p>On prend <span class="math inline">\(\Omega = \mathbb{N} \times [1,\infty)^{\mathbb{N}}\)</span>, muni de la tribu produit, et de la probabilité <span class="math inline">\(P = \mathrm{Poisson}(\mu) \otimes P_X^{\otimes \mathbb{N}}\)</span>, où <span class="math inline">\(P_X\)</span> est la loi de Pareto de l’énoncé. On pose <span class="math inline">\(N(\omega)=\omega_0\)</span> et <span class="math inline">\(X_i(\omega)=\omega_i\)</span>. Alors <span class="math inline">\(Z = z\)</span> si <span class="math inline">\(N=0\)</span>, et <span class="math inline">\(Z = \max_{1 \le i \le N} X_i\)</span> sinon.</p></li>
+<li><p>Pour <span class="math inline">\(t &lt; z\)</span>, <span class="math inline">\(P(Z \le t) = 0\)</span>. Pour <span class="math inline">\(z \le t &lt; 1\)</span>, <span class="math inline">\(Z \le t\)</span> si et seulement si <span class="math inline">\(N=0\)</span>, car <span class="math inline">\(N \ge 1\)</span> entraîne <span class="math inline">\(Z \ge 1\)</span>. Donc <span class="math inline">\(P(Z \le t) = \mathrm{e}^{-\mu}\)</span>. Pour <span class="math inline">\(t \ge 1\)</span>, conditionner par <span class="math inline">\(N\)</span> donne <span class="math display">\[P(Z \le t) = \sum_{k=0}^{\infty} \mathrm{e}^{-\mu}\frac{\mu^k}{k!}\bigl(1-t^{-\alpha}\bigr)^k = \exp\bigl(-\mu t^{-\alpha}\bigr).\]</span> La fonction de répartition saute de <span class="math inline">\(0\)</span> à <span class="math inline">\(\mathrm{e}^{-\mu}\)</span> en <span class="math inline">\(z\)</span> : elle n’est pas continue sur <span class="math inline">\(\mathbb{R}\)</span>. La loi de <span class="math inline">\(Z\)</span> charge <span class="math inline">\(\{z\}\)</span> avec la masse <span class="math inline">\(\mathrm{e}^{-\mu}\)</span>, elle n’est pas diffuse.</p></li>
+<li><p>On écrit <span class="math inline">\(\mathbb{E}[Z] = \int_0^{\infty} P(Z&gt;t)\,\mathrm{d}t\)</span>. Les contributions de <span class="math inline">\([0,1]\)</span> sont finies. Pour <span class="math inline">\(t \ge 1\)</span>, <span class="math inline">\(P(Z&gt;t) = 1-\exp(-\mu t^{-\alpha}) \sim \mu t^{-\alpha}\)</span>. L’intégrale <span class="math inline">\(\int_1^{\infty} t^{-\alpha}\,\mathrm{d}t\)</span> converge si et seulement si <span class="math inline">\(\alpha&gt;1\)</span>. Donc <span class="math inline">\(\mathbb{E}[Z]\)</span> est finie si et seulement si <span class="math inline">\(\alpha&gt;1\)</span>.</p></li>
+</ol>
+</div>
+</div>
 </div>
 <div id="exr-transformee-laplace" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 10 (Quelques caractérisations classiques)</strong></span> Pour des valeurs de <span class="math inline">\(t\)</span> que l’on précisera, calculer la transformée de Laplace <span class="math inline">\(L(t) := \mathbb{E}[\exp(-t X)]\)</span> et la fonction génératrice des moments <span class="math inline">\(G(u) := \mathbb{E}[u^X]\)</span> de la variable <span class="math inline">\(X\)</span> dans les cas suivants.</p>
@@ -4652,14 +4786,33 @@ Pour caractériser les *ensembles de mesure nulle* : pour chaque $\epsilon>0$, i
 <li>Calculer <span class="math inline">\(\mathbb{E} T_n\)</span></li>
 </ol>
 </div>
-<div id="exr-11" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 12 (Partiel passé)</strong></span>  </p>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<p>On considère le couple <span class="math inline">\((X,Z)\)</span> de densité jointe <span class="math display">\[ f(x,z) := (z-x)\exp(-z) \mathbf{1}_{\{z \ge x \ge 0\}}.\]</span></p>
+<div class="callout-body-container">
+<p>Les épreuves sont indexées par <span class="math inline">\(\mathbb{N}^* = \{1,2,\ldots\}\)</span>.</p>
+<ol type="a">
+<li><p>Pour <span class="math inline">\(k \in \mathbb{N}\)</span>, <span class="math inline">\(\{T_1 &gt; k\} = \{X_1=\cdots=X_k=0\}\)</span> est mesurable, donc <span class="math inline">\(T_1\)</span> est une variable aléatoire à valeurs dans <span class="math inline">\(\mathbb{N}^*\cup\{\infty\}\)</span>. De même, <span class="math inline">\(\{T_n \le k\} = \bigl\{\sum_{i=1}^k X_i \ge n\bigr\}\)</span>, donc <span class="math inline">\(T_n\)</span> est mesurable. De plus <span class="math inline">\(P(T_n=\infty)=0\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(k \in \mathbb{N}\)</span>, <span class="math inline">\(P\{T_1 &gt; k\} = (1-p)^k\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(k \ge 1\)</span>, <span class="math inline">\(P\{T_1 = k\} = P\{T_1 &gt; k-1\} - P\{T_1 &gt; k\} = p(1-p)^{k-1}\)</span>. Pour <span class="math inline">\(k=0\)</span>, cette probabilité est nulle.</p></li>
+<li><p><span class="math inline">\(\mathbb{E}[T_1] = \sum_{k=0}^{\infty} P\{T_1 &gt; k\} = \sum_{k=0}^{\infty}(1-p)^k = 1/p\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(k \ge 1\)</span> et <span class="math inline">\(j \ge 1\)</span>, le premier succès a lieu à l’instant <span class="math inline">\(k\)</span> et le suivant <span class="math inline">\(j\)</span> épreuves plus tard : <span class="math display">\[P\{T_1=k,\ T_2=k+j\} = p(1-p)^{k-1}\,p(1-p)^{j-1}.\]</span> La probabilité est nulle si <span class="math inline">\(k=0\)</span> ou <span class="math inline">\(j=0\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(k \ge 2\)</span>, il faut exactement un succès parmi les <span class="math inline">\(k-1\)</span> premières épreuves, puis un succès à l’instant <span class="math inline">\(k\)</span> : <span class="math display">\[P\{T_2=k\} = (k-1)\,p^2(1-p)^{k-2}.\]</span> Cette probabilité est nulle pour <span class="math inline">\(k \in \{0,1\}\)</span>.</p></li>
+<li><p>L’accroissement <span class="math inline">\(T_2-T_1\)</span> est indépendant de <span class="math inline">\(T_1\)</span> et de même loi (la suite des épreuves après <span class="math inline">\(T_1\)</span> est une copie de la suite initiale). Donc <span class="math inline">\(\mathbb{E}[T_2] = 2/p\)</span>.</p></li>
+<li><p>Les accroissements <span class="math inline">\(T_1, T_2-T_1, \ldots, T_n-T_{n-1}\)</span> sont i.i.d. de loi géométrique d’espérance <span class="math inline">\(1/p\)</span>. Donc <span class="math inline">\(\mathbb{E}[T_n] = n/p\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="exr-11" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 12 (Partiel passé)</strong></span> On considère le couple <span class="math inline">\((X,Z)\)</span> de densité jointe <span class="math display">\[ f(x,z) := (z-x)\exp(-z) \mathbf{1}_{\{z \ge x \ge 0\}}.\]</span></p>
 <ol type="1">
 <li>Calculer la loi de <span class="math inline">\(X\)</span>, puis celle de <span class="math inline">\(Z\)</span>. <!-- 1. En déduire que --> <!-- $$f_{X \mid Z}(x \mid z) = \frac{2(z-x)}{z^2} \mathbf{1}_{\{0 \le x \le z, z >0\}}.$$ --> <!-- 1. Calculer $\mathbb{E}[X \mid Z]$, puis $\mathrm{Var}[X\mid Z]$. --> <!-- 1. Calculer $f_{Z \mid X}(z \mid x)$, puis démontrer que $\mathbb{E}[Z \mid X] = X + 2$. --> –&gt;</li>
 <li>Quelle est la loi du couple <span class="math inline">\((X, Z-X)\)</span>? En déduire la loi de <span class="math inline">\(Z-X\)</span>.</li>
 </ol>
+</div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

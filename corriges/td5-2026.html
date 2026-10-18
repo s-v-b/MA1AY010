@@ -4463,7 +4463,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">28 septembre 2026</p>
+      <p class="date">16 octobre 2026</p>
     </div>
   </div>
   
@@ -4487,6 +4487,22 @@ window.Quarto = {
 <li>Vérifier que les médianes de la loi de <span class="math inline">\(X\)</span> minimisent <span class="math inline">\(L\)</span>.</li>
 </ol>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Les questions 1 et 3 portent sur la fonction <span class="math inline">\(L\)</span> définie dans l’énoncé.</p>
+<ol type="1">
+<li><p>Pour tout <span class="math inline">\(a \in \mathbb{R}\)</span>, <span class="math inline">\(|X-a| \le |X|+|a|\)</span>, donc <span class="math inline">\(L(a) \le \mathbb{E}|X|+|a| &lt; \infty\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(\theta \in [0,1]\)</span>, la convexité de <span class="math inline">\(u \mapsto |x-u|\)</span> donne <span class="math display">\[L\bigl(\theta a+(1-\theta)b\bigr) \le \theta L(a)+(1-\theta)L(b).\]</span></p></li>
+<li><p>La loi est diffuse : <span class="math inline">\(P(X=a)=0\)</span> et la fonction de répartition <span class="math inline">\(F\)</span> est continue. Le quotient différentiel de <span class="math inline">\(a \mapsto |X-a|\)</span> vaut <span class="math inline">\(\mathbf{1}_{\{X&lt;a\}}-\mathbf{1}_{\{X&gt;a\}}\)</span> et est borné par <span class="math inline">\(1\)</span>. Le théorème de convergence dominée donne <span class="math display">\[L&#39;(a) = P(X&lt;a)-P(X&gt;a) = 2F(a)-1.\]</span></p></li>
+<li><p>Une médiane <span class="math inline">\(m\)</span> vérifie <span class="math inline">\(F(m)=1/2\)</span>. Donc <span class="math inline">\(L&#39;(m)=0\)</span>. La fonction <span class="math inline">\(L\)</span> étant convexe, <span class="math inline">\(m\)</span> en est un minimum global. Si l’ensemble des médianes est un intervalle, <span class="math inline">\(L&#39;\)</span> y est identiquement nulle et chaque médiane minimise <span class="math inline">\(L\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
 <section id="inégalité-de-lévy-et-variantes" class="level2">
 <h2 class="anchored" data-anchor-id="inégalité-de-lévy-et-variantes">Inégalité de Lévy et variantes</h2>
 <div id="exr-ineq-levy-2" class="theorem exercise">
@@ -4495,15 +4511,60 @@ window.Quarto = {
 <p><span class="math display">\[\underbrace{\mathbb{E}_P|X-m|}_{\text{MAD}}  \leq \underbrace{\sqrt{\operatorname{Var}_P(X)}}_{\text{SD}}\]</span></p>
 <p>Sugestion: utiliser les conclusions de <a href="#exr-mediane-variationnelle" class="quarto-xref">Exercice 1</a>.</p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>D’après l’exercice précédent, <span class="math inline">\(m\)</span> minimise <span class="math inline">\(a \mapsto \mathbb{E}|X-a|\)</span>, donc <span class="math inline">\(\mathbb{E}|X-m| \le \mathbb{E}|X-\mathbb{E}X|\)</span>. L’inégalité de Cauchy–Schwarz donne</p>
+<p><span class="math display">\[
+\bigl(\mathbb{E}|X-\mathbb{E}X|\bigr)^2 \le \mathbb{E}\bigl[(X-\mathbb{E}X)^2\bigr] = \operatorname{Var}(X).
+\]</span></p>
+<p>Ainsi <span class="math inline">\(\mathbb{E}|X-m| \le \sqrt{\operatorname{Var}(X)}\)</span>.</p>
+</div>
+</div>
+</div>
 <div id="exr-ineq-levy-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 3 (Inégalité de Lévy)</strong></span> Soit <span class="math inline">\(X\)</span> une variable aléatoire réelle de carré intégrable et de loi diffuse. On note <span class="math inline">\(m\)</span> une médiane de la loi de <span class="math inline">\(X\)</span>.</p>
 <p>Vérifier que</p>
 <p><span class="math display">\[\left| \mathbb{E}_P X - m \right| \leq \sqrt{\operatorname{Var}_P(X)}\]</span></p>
 <p>Sugestion: utiliser les conclusions de <a href="#exr-ineq-levy-2" class="quarto-xref">Exercice 2</a>.</p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><span class="math display">\[
+\bigl|\mathbb{E}X - m\bigr| = \bigl|\mathbb{E}(X-m)\bigr| \le \mathbb{E}|X-m| \le \sqrt{\operatorname{Var}(X)},
+\]</span></p>
+<p>la dernière inégalité étant celle de l’exercice précédent.</p>
+</div>
+</div>
+</div>
 <div id="exr-ineq-levy-3" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 4 (SD et IQR)</strong></span> Soit <span class="math inline">\(X\)</span> une variable aléatoire réelle de carré intégrable et de loi diffuse. On note <span class="math inline">\(Q_1\)</span> et <span class="math inline">\(Q_3\)</span> le premier et le troisième quartiles (<span class="math inline">\(F^\leftarrow(1/4), F^\leftarrow(3/4)\)</span>, avec <span class="math inline">\(F\)</span> fonction de répartition de <span class="math inline">\(P\)</span> et <span class="math inline">\(F^{\leftarrow}\)</span> fonction quantile). On note <span class="math inline">\(Q_2 = F^\leftarrow(1/2)\)</span></p>
 <p>Comparer les indicateurs de dispersion : <span class="math display">\[\operatorname{IQR} =Q_3 -Q_1, \qquad \mathbb{E}_P|X-m|, \qquad \sqrt{\operatorname{Var}_P(X)}\]</span></p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On a toujours <span class="math inline">\(\mathbb{E}|X-m| \le \sqrt{\operatorname{Var}(X)}\)</span>. De plus, <span class="math inline">\(P(X \ge Q_3) \ge 1/4\)</span> et <span class="math inline">\(P(X \le Q_1) \ge 1/4\)</span>, donc en notant <span class="math inline">\(m = Q_2\)</span>,</p>
+<p><span class="math display">\[
+\mathbb{E}|X-m| \ge \frac14 (Q_3-m) + \frac14 (m-Q_1) = \frac{\mathrm{IQR}}{4}.
+\]</span></p>
+<p>Ainsi <span class="math inline">\(\mathrm{IQR} \le 4\,\mathbb{E}|X-m| \le 4\sqrt{\operatorname{Var}(X)}\)</span>. Il n’y a pas d’ordre universel au-delà de ces inégalités.</p>
+<ul>
+<li>Pour <span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span> : <span class="math inline">\(\mathbb{E}|X| = \sqrt{2/\pi} \approx 0{,}80\)</span>, <span class="math inline">\(\sqrt{\operatorname{Var}(X)} = 1\)</span> et <span class="math inline">\(\mathrm{IQR} = 2\Phi^{-1}(3/4) \approx 1{,}35\)</span>. Donc <span class="math inline">\(\mathbb{E}|X-m| &lt; \sqrt{\operatorname{Var}(X)} &lt; \mathrm{IQR}\)</span>.</li>
+<li>Soit <span class="math inline">\(R=10\)</span> et <span class="math inline">\(X\)</span> de densité <span class="math inline">\(1/4\)</span> sur <span class="math inline">\([-1,1]\)</span> et <span class="math inline">\(1/(4(R-1))\)</span> sur <span class="math inline">\([-R,-1)\cup(1,R]\)</span>. La loi est diffuse et symétrique, <span class="math inline">\(Q_3 = -Q_1 = 1\)</span>, donc <span class="math inline">\(\mathrm{IQR}=2\)</span>. On calcule <span class="math inline">\(\mathbb{E}|X| = 3\)</span> et <span class="math inline">\(\mathbb{E}[X^2] = 56/3\)</span>, donc <span class="math inline">\(\sqrt{\operatorname{Var}(X)} = \sqrt{56/3} \approx 4{,}32\)</span>. Donc <span class="math inline">\(\mathrm{IQR} &lt; \mathbb{E}|X-m| &lt; \sqrt{\operatorname{Var}(X)}\)</span>.</li>
+</ul>
+</div>
+</div>
 </div>
 </section>
 <section id="inégalités-et-applications" class="level2">
@@ -4511,6 +4572,20 @@ window.Quarto = {
 <div id="exr-ineq-assoc" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 5 (Association)</strong></span> Dans cet exercice, <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont deux fonctions croissantes bornées, <span class="math inline">\(X\)</span> est une variable aléatoire sur <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>.</p>
 <p>Quels sont les signes possibles de <span class="math display">\[\mathbb{E}_P \left[f(X)g(X)\right] - \mathbb{E}_P \left[f(X)\right] \mathbb{E}_P \left[g(X)\right] \, .\]</span></p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>La différence est toujours positive ou nulle. Soit <span class="math inline">\(X&#39;\)</span> une copie de <span class="math inline">\(X\)</span> indépendante de <span class="math inline">\(X\)</span>. Comme <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span> sont croissantes, <span class="math inline">\((f(X)-f(X&#39;))(g(X)-g(X&#39;)) \ge 0\)</span>. En développant et en utilisant l’indépendance,</p>
+<p><span class="math display">\[
+\mathbb{E}\bigl[(f(X)-f(X&#39;))(g(X)-g(X&#39;))\bigr] = 2\mathbb{E}[f(X)g(X)] - 2\mathbb{E}f(X)\,\mathbb{E}g(X) \ge 0.
+\]</span></p>
+<p>La valeur <span class="math inline">\(0\)</span> est atteinte si <span class="math inline">\(f\)</span> est constante. La valeur <span class="math inline">\(\operatorname{Var}(\arctan X) &gt; 0\)</span> est atteinte pour <span class="math inline">\(f(x)=g(x)=\arctan x\)</span> et <span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span>. La différence ne peut pas être strictement négative.</p>
+</div>
+</div>
 </div>
 <div id="exr-gamma" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 6 (À propos de la fonction Gamma)</strong></span> La fonction <span class="math inline">\(\Gamma\)</span> est définie de <span class="math inline">\(]0,\infty)\)</span> vers <span class="math inline">\(]0,\infty\)</span> par</p>
@@ -4522,19 +4597,75 @@ window.Quarto = {
 <li>Montrer que <span class="math display">\[\Gamma(x) = \lim_n \int_0^n t^{x-1} \left(1 -\frac{t}{n}\right)^n \mathrm{d}t\]</span></li>
 </ol>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ol type="1">
+<li><p>Pour <span class="math inline">\(x&gt;0\)</span>, l’intégrande est positive. Au voisinage de <span class="math inline">\(0\)</span>, <span class="math inline">\(\mathrm{e}^{-t}t^{x-1} \sim t^{x-1}\)</span>, intégrable puisque <span class="math inline">\(x-1&gt;-1\)</span>. À l’infini, la décroissance exponentielle l’emporte sur <span class="math inline">\(t^{x-1}\)</span>. L’intégrale est donc finie, et strictement positive. Une intégration par parties (<span class="math inline">\(u=t^x\)</span>, <span class="math inline">\(\mathrm{d}v=\mathrm{e}^{-t}\mathrm{d}t\)</span>) donne, pour <span class="math inline">\(x&gt;0\)</span>, <span class="math display">\[\Gamma(x+1) = \bigl[-t^x\mathrm{e}^{-t}\bigr]_0^\infty + x\int_0^\infty \mathrm{e}^{-t}t^{x-1}\,\mathrm{d}t = x\Gamma(x),\]</span> les termes de bord étant nuls. Comme <span class="math inline">\(\Gamma(1)=\int_0^\infty \mathrm{e}^{-t}\,\mathrm{d}t=1\)</span>, on obtient <span class="math inline">\(\Gamma(n+1)=n!\)</span> par récurrence.</p></li>
+<li><p>Soient <span class="math inline">\(x,y&gt;0\)</span> et <span class="math inline">\(\theta \in (0,1)\)</span>. L’inégalité de Hölder avec les exposants <span class="math inline">\(1/\theta\)</span> et <span class="math inline">\(1/(1-\theta)\)</span> donne <span class="math display">\[\begin{align*}
+\Gamma\bigl(\theta x+(1-\theta)y\bigr)
+&amp;= \int_0^\infty \bigl(\mathrm{e}^{-t}t^{x-1}\bigr)^\theta \bigl(\mathrm{e}^{-t}t^{y-1}\bigr)^{1-\theta}\,\mathrm{d}t \\
+&amp;\le \Gamma(x)^\theta\,\Gamma(y)^{1-\theta}.
+\end{align*}\]</span> En passant au logarithme, <span class="math inline">\(\ln\circ\Gamma\)</span> est convexe.</p></li>
+<li><p>La fonction <span class="math inline">\(\exp\)</span> est convexe et croissante, donc <span class="math inline">\(\Gamma = \exp\circ(\ln\circ\Gamma)\)</span> est convexe.</p></li>
+<li><p>Pour <span class="math inline">\(t \in [0,n]\)</span>, <span class="math inline">\(\ln(1-t/n) \le -t/n\)</span>, donc <span class="math inline">\((1-t/n)^n \le \mathrm{e}^{-t}\)</span>. L’intégrande <span class="math inline">\(t^{x-1}(1-t/n)^n\mathbf{1}_{[0,n]}(t)\)</span> converge simplement vers <span class="math inline">\(\mathrm{e}^{-t}t^{x-1}\)</span> et est dominée par la fonction intégrable <span class="math inline">\(\mathrm{e}^{-t}t^{x-1}\)</span>. Le théorème de convergence dominée donne la limite annoncée.</p></li>
+</ol>
+</div>
+</div>
+</div>
 <div id="exr-integrabilite-independance" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 7</strong></span> Montrer que si deux variables aléatoires <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont indépendantes et intégrables alors <span class="math inline">\(XY\)</span> est intégrable.</p>
 <p>Peut-on se passer de l’hypothèse d’indépendance ?</p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Si <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont indépendantes et intégrables, <span class="math inline">\(|X|\)</span> et <span class="math inline">\(|Y|\)</span> le sont aussi, et l’indépendance donne <span class="math inline">\(\mathbb{E}|XY| = \mathbb{E}|X|\,\mathbb{E}|Y| &lt; \infty\)</span>.</p>
+<p>L’indépendance est nécessaire à cet énoncé. Soit <span class="math inline">\(c&gt;0\)</span> tel que <span class="math inline">\(2c\sum_{k\ge 1} k^{-2}2^{-k} = 1\)</span>, et <span class="math inline">\(X\)</span> de loi <span class="math display">\[P(X=2^k)=P(X=-2^k)=\frac{c}{k^2 2^k}, \qquad k \ge 1.\]</span> Alors <span class="math inline">\(\mathbb{E}|X| = 2c\sum_{k\ge 1} k^{-2} &lt; \infty\)</span>, mais <span class="math inline">\(\mathbb{E}[X^2] = 2c\sum_{k\ge 1} 2^k/k^2 = \infty\)</span>. Pour <span class="math inline">\(Y=X\)</span>, les deux variables sont intégrables, <span class="math inline">\(XY\)</span> ne l’est pas, et <span class="math inline">\(X\)</span> n’est pas indépendante de <span class="math inline">\(Y\)</span>.</p>
+</div>
+</div>
+</div>
 <div id="exr-indépendance-correlation" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 8</strong></span> Montrer que <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont indépendantes si et seulement si pour toutes fonctions mesurables bornées <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span>, on a <span class="math display">\[\mathbb{E}\left[f(X) g(Y)\right] = \mathbb{E}f(X) \times \mathbb{E}g(Y)\]</span></p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Si <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont indépendantes, l’égalité vaut pour <span class="math inline">\(f=\mathbf{1}_A\)</span> et <span class="math inline">\(g=\mathbf{1}_B\)</span>, avec <span class="math inline">\(A,B\)</span> boréliens. Elle s’étend aux fonctions étagées, puis, par convergence dominée, à toutes les fonctions mesurables bornées.</p>
+<p>Réciproquement, l’égalité appliquée à <span class="math inline">\(f=\mathbf{1}_A\)</span> et <span class="math inline">\(g=\mathbf{1}_B\)</span> donne <span class="math inline">\(P(X\in A, Y\in B)=P(X\in A)P(Y\in B)\)</span>. Les variables <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont donc indépendantes.</p>
+</div>
+</div>
 </div>
 <div id="exr-indépendance-correlation" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 9</strong></span> Montrer que pour toute fonction continuement dérivable strictement croissante positive <span class="math inline">\(f\)</span> sur <span class="math inline">\([0, \infty)\)</span>, toute variable aléatoire positive <span class="math inline">\(X\)</span> sur <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>:</p>
 <p><span class="math display">\[\mathbb{E}_P f(X) = \int_0^\infty f&#39;(t)  P\{ X &gt; t\} \mathrm{d}t + f(0)\]</span></p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 10</strong></span>  </p>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Comme <span class="math inline">\(f\)</span> est continûment dérivable et croissante, <span class="math inline">\(f&#39;\ge 0\)</span>. Pour <span class="math inline">\(X\ge 0\)</span>,</p>
+<p><span class="math display">\[
+f(X)-f(0) = \int_0^X f&#39;(t)\,\mathrm{d}t = \int_0^\infty f&#39;(t)\,\mathbf{1}_{\{X&gt;t\}}\,\mathrm{d}t.
+\]</span></p>
+<p>Le théorème de Fubini–Tonelli, applicable car l’intégrande est positive, donne</p>
+<p><span class="math display">\[
+\mathbb{E}[f(X)]-f(0) = \int_0^\infty f&#39;(t)\,P\{X&gt;t\}\,\mathrm{d}t.
+\]</span></p>
+<p>L’hypothèse de stricte croissance n’est pas utilisée : la croissance suffit.</p>
+</div>
+</div>
 </div>
 
 

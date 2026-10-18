@@ -4464,7 +4464,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">28 septembre 2026</p>
+      <p class="date">16 octobre 2026</p>
     </div>
   </div>
   
@@ -4491,6 +4491,23 @@ window.Quarto = {
 <li><span class="math inline">\(X=Y_1+...+Y_n\)</span>, où les <span class="math inline">\(Y_i, 1 \le i \le n\)</span> sont des variables indépendantes, et <span class="math inline">\(Y_i \sim \mathrm{Poisson}(\lambda_i)\)</span>, avec <span class="math inline">\(\lambda_i &gt;0\)</span>.</li>
 </ol>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Dans tous les cas discrets ci-dessous, <span class="math inline">\(L(t) = G(\mathrm{e}^{-t})\)</span> dès que <span class="math inline">\(\mathrm{e}^{-t}\)</span> est dans le domaine de <span class="math inline">\(G\)</span>.</p>
+<ol type="1">
+<li><p>Pour <span class="math inline">\(u \in \mathbb{R}\)</span> et <span class="math inline">\(t \in \mathbb{R}\)</span>, <span class="math display">\[G(u) = (1-p) + pu, \qquad L(t) = (1-p) + p\,\mathrm{e}^{-t}.\]</span></p></li>
+<li><p>La loi binomiale est la somme de <span class="math inline">\(n\)</span> variables de Bernoulli indépendantes de paramètre <span class="math inline">\(p\)</span>, donc, pour <span class="math inline">\(u \in \mathbb{R}\)</span> et <span class="math inline">\(t \in \mathbb{R}\)</span>, <span class="math display">\[G(u) = \bigl(1-p + pu\bigr)^n, \qquad L(t) = \bigl(1-p + p\,\mathrm{e}^{-t}\bigr)^n.\]</span></p></li>
+<li><p>On prend <span class="math inline">\(p \in (0,1]\)</span> et la convention <span class="math inline">\(P(X = k) = p(1-p)^{k-1}\)</span> pour <span class="math inline">\(k \in \mathbb{N}^*\)</span> (pour <span class="math inline">\(p = 0\)</span>, cette formule ne définit pas une probabilité sur <span class="math inline">\(\mathbb{N}^*\)</span>). Pour <span class="math inline">\(|u|(1-p) &lt; 1\)</span>, c’est-à-dire <span class="math inline">\(|u| &lt; 1/(1-p)\)</span> si <span class="math inline">\(p &lt; 1\)</span>, et pour tout <span class="math inline">\(u\)</span> si <span class="math inline">\(p = 1\)</span>, <span class="math display">\[G(u) = \sum_{k=1}^{\infty} u^k p(1-p)^{k-1} = \frac{pu}{1-(1-p)u}.\]</span> La condition <span class="math inline">\(\mathrm{e}^{-t}(1-p) &lt; 1\)</span> s’écrit <span class="math inline">\(t &gt; \ln(1-p)\)</span> (avec la convention <span class="math inline">\(\ln 0 = -\infty\)</span> si <span class="math inline">\(p = 1\)</span>), et alors <span class="math display">\[L(t) = \frac{p\,\mathrm{e}^{-t}}{1-(1-p)\mathrm{e}^{-t}}.\]</span></p></li>
+<li><p>Pour <span class="math inline">\(u \in \mathbb{R}\)</span> et <span class="math inline">\(t \in \mathbb{R}\)</span>, <span class="math display">\[G(u) = \sum_{k=0}^{\infty} u^k \mathrm{e}^{-\lambda}\frac{\lambda^k}{k!} = \exp\bigl(\lambda(u-1)\bigr), \qquad L(t) = \exp\bigl(\lambda(\mathrm{e}^{-t}-1)\bigr).\]</span></p></li>
+<li><p>L’indépendance donne <span class="math inline">\(G_X(u) = \prod_{i=1}^n G_{Y_i}(u)\)</span>. En posant <span class="math inline">\(\Lambda = \sum_{i=1}^n \lambda_i\)</span>, on obtient, pour <span class="math inline">\(u \in \mathbb{R}\)</span> et <span class="math inline">\(t \in \mathbb{R}\)</span>, <span class="math display">\[G(u) = \exp\bigl(\Lambda(u-1)\bigr), \qquad L(t) = \exp\bigl(\Lambda(\mathrm{e}^{-t}-1)\bigr).\]</span> Ainsi <span class="math inline">\(X \sim \mathrm{Poisson}(\Lambda)\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
 <div id="exr-size-biased" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 2 (Distributions biaisées par la taille)</strong></span> Si <span class="math inline">\(X\)</span> est une variable aléatoire positive intégrable, la version <em>biaisée par la taille</em> de <span class="math inline">\(X\)</span> est la variable aléatoire <span class="math inline">\(X^*\)</span> dont la loi <span class="math inline">\(Q\)</span> est absolument continue par rapport à celle de <span class="math inline">\(X\)</span> (notée <span class="math inline">\(P\)</span>) et dont la densité (par rapport à celle de <span class="math inline">\(X\)</span>) est proportionnelle à <span class="math inline">\(X\)</span>: <span class="math display">\[
 \frac{\mathrm{d}Q}{\mathrm{d}P}(x) = \frac{x}{\mathbb{E}X} \, .
@@ -4504,6 +4521,25 @@ window.Quarto = {
 <li>Exprimer la transformée de Laplace de <span class="math inline">\(X^*\)</span> en fonction de celle de <span class="math inline">\(X\)</span>.</li>
 <li>Si <span class="math inline">\(U\)</span> est une transformée de Laplace, dérivable à droite en <span class="math inline">\(0\)</span>, <span class="math inline">\(U&#39;/U&#39;(0)\)</span> est-elle la transformée de Laplace d’une loi sur <span class="math inline">\([0, \infty)\)</span>?</li>
 </ol>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On suppose <span class="math inline">\(\mathbb{E}[X] \in (0,\infty)\)</span>, de sorte que le biais par la taille est défini. La loi <span class="math inline">\(Q\)</span> de <span class="math inline">\(X^*\)</span> vérifie <span class="math inline">\(\mathbb{E}_Q[h(X^*)] = \mathbb{E}[X h(X)]/\mathbb{E}[X]\)</span> pour toute fonction borélienne positive <span class="math inline">\(h\)</span>.</p>
+<ol type="a">
+<li><p>Si <span class="math inline">\(X \sim \mathrm{Ber}(p)\)</span> avec <span class="math inline">\(p \in (0,1]\)</span>, alors <span class="math inline">\(\mathbb{E}[X] = p\)</span> et <span class="math display">\[Q(X^*=1) = \frac{1 \cdot P(X=1)}{p} = 1.\]</span> Donc <span class="math inline">\(X^* = 1\)</span> presque sûrement.</p></li>
+<li><p>Si <span class="math inline">\(X \sim \mathrm{Bin}(n,p)\)</span> avec <span class="math inline">\(n \in \mathbb{N}^*\)</span> et <span class="math inline">\(p \in (0,1]\)</span>, alors <span class="math inline">\(\mathbb{E}[X] = np\)</span> et, pour <span class="math inline">\(k \in \{1,\ldots,n\}\)</span>, <span class="math display">\[P(X^*=k) = \frac{k}{np}\binom{n}{k}p^k(1-p)^{n-k} = \binom{n-1}{k-1}p^{k-1}(1-p)^{n-k},\]</span> car <span class="math inline">\(k\binom{n}{k} = n\binom{n-1}{k-1}\)</span>. Ainsi <span class="math inline">\(X^* \stackrel{d}{=} 1 + Z\)</span> avec <span class="math inline">\(Z \sim \mathrm{Bin}(n-1,p)\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(X \sim \mathrm{Poisson}(\lambda)\)</span> avec <span class="math inline">\(\lambda &gt; 0\)</span>, alors <span class="math inline">\(\mathbb{E}[X] = \lambda\)</span> et, pour <span class="math inline">\(k \geq 1\)</span>, <span class="math display">\[P(X^*=k) = \frac{k}{\lambda}\,\mathrm{e}^{-\lambda}\frac{\lambda^k}{k!} = \mathrm{e}^{-\lambda}\frac{\lambda^{k-1}}{(k-1)!}.\]</span> Ainsi <span class="math inline">\(X^* \stackrel{d}{=} 1 + Z\)</span> avec <span class="math inline">\(Z \sim \mathrm{Poisson}(\lambda)\)</span>.</p></li>
+<li><p>On paramètre la loi Gamma en forme et taux : <span class="math inline">\(X \sim \Gamma(\alpha,\lambda)\)</span> a pour densité <span class="math inline">\(\frac{\lambda^{\alpha}}{\Gamma(\alpha)} x^{\alpha-1}\mathrm{e}^{-\lambda x}\)</span> sur <span class="math inline">\((0,\infty)\)</span>, et <span class="math inline">\(\mathbb{E}[X] = \alpha/\lambda\)</span>. La densité de <span class="math inline">\(X^*\)</span> est <span class="math display">\[\frac{x}{\mathbb{E}[X]} \cdot \frac{\lambda^{\alpha}}{\Gamma(\alpha)} x^{\alpha-1}\mathrm{e}^{-\lambda x} = \frac{\lambda^{\alpha+1}}{\Gamma(\alpha+1)} x^{\alpha}\mathrm{e}^{-\lambda x},\]</span> puisque <span class="math inline">\(\Gamma(\alpha+1) = \alpha\Gamma(\alpha)\)</span>. Donc <span class="math inline">\(X^* \sim \Gamma(\alpha+1,\lambda)\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(X\)</span> est à valeurs dans <span class="math inline">\(\mathbb{N}\)</span> et <span class="math inline">\(G(u) = \mathbb{E}[u^X]\)</span>, alors <span class="math inline">\(G&#39;(u) = \mathbb{E}[X u^{X-1}]\)</span> et <span class="math inline">\(G&#39;(1) = \mathbb{E}[X]\)</span>. Pour <span class="math inline">\(|u| \le 1\)</span>, <span class="math display">\[G_{X^*}(u) = \frac{\mathbb{E}[X u^{X}]}{\mathbb{E}[X]} = \frac{u G&#39;(u)}{G&#39;(1)}.\]</span></p></li>
+<li><p>Si <span class="math inline">\(L(t) = \mathbb{E}[\mathrm{e}^{-tX}]\)</span>, alors <span class="math inline">\(L&#39;(t) = -\mathbb{E}[X\mathrm{e}^{-tX}]\)</span> pour <span class="math inline">\(t &gt; 0\)</span>, et la dérivée à droite en <span class="math inline">\(0\)</span> vaut <span class="math inline">\(L&#39;(0) = -\mathbb{E}[X]\)</span>. Donc <span class="math display">\[L_{X^*}(t) = \frac{\mathbb{E}[X\mathrm{e}^{-tX}]}{\mathbb{E}[X]} = \frac{L&#39;(t)}{L&#39;(0)}.\]</span></p></li>
+<li><p>Soit <span class="math inline">\(U\)</span> la transformée de Laplace d’une loi sur <span class="math inline">\([0,\infty)\)</span>, dérivable à droite en <span class="math inline">\(0\)</span>. Alors <span class="math inline">\(U&#39;(0) = -\mathbb{E}[X] \in (-\infty, 0]\)</span>. Si <span class="math inline">\(U&#39;(0) &lt; 0\)</span>, le calcul précédent montre que <span class="math inline">\(U&#39;/U&#39;(0)\)</span> est la transformée de Laplace de la loi biaisée par la taille, donc d’une loi sur <span class="math inline">\([0,\infty)\)</span>. Si <span class="math inline">\(U&#39;(0) = 0\)</span>, alors <span class="math inline">\(X = 0\)</span> presque sûrement et le quotient n’est pas défini.</p></li>
+</ol>
+</div>
+</div>
 </div>
 <div style="page-break-after: always;"></div>
 </section>
@@ -4519,8 +4555,43 @@ window.Quarto = {
 <li>La fonction caractéristique de la loi de <span class="math inline">\(a X +b\)</span> est <span class="math display">\[\mathrm{e}^{it b} \widehat{F}(at) \, .\]</span></li>
 </ul>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On note <span class="math inline">\(\widehat{F}(t) = \mathbb{E}[\mathrm{e}^{itX}]\)</span>.</p>
+<ul>
+<li><span class="math inline">\(\bigl|\widehat{F}(t)\bigr| = \bigl|\mathbb{E}[\mathrm{e}^{itX}]\bigr| \le \mathbb{E}\bigl[|\mathrm{e}^{itX}|\bigr] = 1\)</span>.</li>
+<li><span class="math inline">\(\widehat{F}(0) = \mathbb{E}[1] = 1\)</span>.</li>
+<li>Si <span class="math inline">\(X\)</span> est symétrique, <span class="math inline">\(X\)</span> et <span class="math inline">\(-X\)</span> ont la même loi, donc <span class="math inline">\(\widehat{F}(t) = \mathbb{E}[\mathrm{e}^{-itX}] = \overline{\widehat{F}(t)}\)</span>. La fonction <span class="math inline">\(\widehat{F}\)</span> est à valeurs réelles. De façon équivalente, <span class="math inline">\(\widehat{F}(t) = \mathbb{E}[\cos(tX)]\)</span>, le terme en sinus étant nul par symétrie.</li>
+<li><span class="math inline">\(\mathbb{E}\bigl[\mathrm{e}^{it(aX+b)}\bigr] = \mathrm{e}^{itb}\,\mathbb{E}\bigl[\mathrm{e}^{i(at)X}\bigr] = \mathrm{e}^{itb}\,\widehat{F}(at)\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
 <div id="exr-quizz" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 4 (Quizz sur les fonctions caractéristiques)</strong></span> Si <span class="math inline">\(\widehat{F}\)</span> est la fonction caractéristique de la loi de <span class="math inline">\(X\)</span>, et si <span class="math inline">\(\epsilon \perp\!\!\!\perp X\)</span>, avec <span class="math inline">\(P\{\epsilon=1\}= P\{\epsilon=-1\}=1/2\)</span>, quelle est la fonction caractéristique de la loi de <span class="math inline">\(\epsilon X\)</span>?</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>L’indépendance de <span class="math inline">\(\epsilon\)</span> et <span class="math inline">\(X\)</span> donne</p>
+<p><span class="math display">\[
+\mathbb{E}\bigl[\mathrm{e}^{it\epsilon X}\bigr]
+= \mathbb{E}\Bigl[\tfrac12 \mathrm{e}^{itX} + \tfrac12 \mathrm{e}^{-itX}\Bigr]
+= \frac{\widehat{F}(t) + \widehat{F}(-t)}{2}.
+\]</span></p>
+<p>Comme <span class="math inline">\(X\)</span> est réelle, <span class="math inline">\(\widehat{F}(-t) = \overline{\widehat{F}(t)}\)</span>, donc cette fonction caractéristique est la partie réelle de <span class="math inline">\(\widehat{F}\)</span> :</p>
+<p><span class="math display">\[
+t \mapsto \mathbb{E}[\cos(tX)] = \operatorname{Re}\widehat{F}(t).
+\]</span></p>
+</div>
+</div>
 </div>
 <div id="exr-charfunc-suual" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 5</strong></span> Calculer la fonction caractéristique de :</p>
@@ -4532,18 +4603,105 @@ window.Quarto = {
 <li>la loi exponentielle de densité <span class="math inline">\(\exp(-x)\)</span> sur <span class="math inline">\([0,+\infty)\)</span> ;</li>
 </ul>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li><p>Loi de Poisson de paramètre <span class="math inline">\(\lambda &gt; 0\)</span> : pour tout <span class="math inline">\(t \in \mathbb{R}\)</span>, <span class="math display">\[\mathbb{E}[\mathrm{e}^{itX}] = \sum_{k=0}^{\infty} \mathrm{e}^{itk}\,\mathrm{e}^{-\lambda}\frac{\lambda^k}{k!} = \exp\bigl(\lambda(\mathrm{e}^{it}-1)\bigr).\]</span></p></li>
+<li><p>Loi uniforme sur <span class="math inline">\([-1,1]\)</span>, de densité <span class="math inline">\(1/2\)</span> : pour <span class="math inline">\(t \neq 0\)</span>, <span class="math display">\[\int_{-1}^{1} \mathrm{e}^{itx}\,\frac12\,\mathrm{d}x = \frac{\mathrm{e}^{it}-\mathrm{e}^{-it}}{2it} = \frac{\sin t}{t},\]</span> et la valeur en <span class="math inline">\(0\)</span> est <span class="math inline">\(1\)</span>.</p></li>
+<li><p>Loi triangulaire de densité <span class="math inline">\(1-|x|\)</span> sur <span class="math inline">\([-1,1]\)</span> : la densité est paire, donc pour <span class="math inline">\(t \neq 0\)</span>, <span class="math display">\[\int_{-1}^{1} \mathrm{e}^{itx}(1-|x|)\,\mathrm{d}x = 2\int_0^1 \cos(tx)\,(1-x)\,\mathrm{d}x.\]</span> Une intégration par parties donne <span class="math inline">\(\int_0^1 (1-x)\cos(tx)\,\mathrm{d}x = (1-\cos t)/t^2\)</span>, d’où <span class="math display">\[\frac{2(1-\cos t)}{t^2} = \left(\frac{\sin(t/2)}{t/2}\right)^2,\]</span> et la valeur en <span class="math inline">\(0\)</span> est <span class="math inline">\(1\)</span>. C’est le carré du module de la fonction caractéristique de la loi uniforme sur <span class="math inline">\([-1/2,1/2]\)</span>.</p></li>
+<li><p>Loi de Laplace, de densité <span class="math inline">\(\frac12\mathrm{e}^{-|x|}\)</span> : le terme en sinus disparaît par parité, et pour tout <span class="math inline">\(t \in \mathbb{R}\)</span>, <span class="math display">\[\int_0^{\infty} \cos(tx)\,\mathrm{e}^{-x}\,\mathrm{d}x = \operatorname{Re}\frac{1}{1-it} = \frac{1}{1+t^2}.\]</span></p></li>
+<li><p>Loi exponentielle de densité <span class="math inline">\(\mathrm{e}^{-x}\)</span> sur <span class="math inline">\([0,\infty)\)</span> : pour tout <span class="math inline">\(t \in \mathbb{R}\)</span>, <span class="math display">\[\int_0^{\infty} \mathrm{e}^{itx}\mathrm{e}^{-x}\,\mathrm{d}x = \frac{1}{1-it}.\]</span></p></li>
+</ul>
+</div>
+</div>
+</div>
 <div id="exr-counter-example" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 6</strong></span> Donner un contre-exemple pour montrer que <span class="math display">\[
 \Big(\forall t \in \mathbb{R}, \quad \widehat{F}_{X+Y}(t) =  \widehat{F}_X(t) \times \widehat{F}_Y(t) \Big)
 \not\Rightarrow X \perp\!\!\!\perp Y \, .
 \]</span></p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Soit <span class="math inline">\(X\)</span> de loi de Cauchy, de densité <span class="math inline">\(x \mapsto 1/(\pi(1+x^2))\)</span>, et soit <span class="math inline">\(Y = X\)</span>.</p>
+<p>La fonction <span class="math inline">\(t \mapsto \mathrm{e}^{-|t|}\)</span> est intégrable. On calcule</p>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty} \mathrm{e}^{-itx}\mathrm{e}^{-|t|}\,\mathrm{d}t
+= \int_0^{\infty} \mathrm{e}^{-t(1+ix)}\,\mathrm{d}t + \int_{-\infty}^{0} \mathrm{e}^{t(1-ix)}\,\mathrm{d}t
+= \frac{1}{1+ix} + \frac{1}{1-ix}
+= \frac{2}{1+x^2}.
+\]</span></p>
+<p>Le théorème d’inversion donne alors la densité</p>
+<p><span class="math display">\[
+\frac{1}{2\pi}\int_{-\infty}^{\infty} \mathrm{e}^{-itx}\mathrm{e}^{-|t|}\,\mathrm{d}t = \frac{1}{\pi(1+x^2)}.
+\]</span></p>
+<p>Donc <span class="math inline">\(\widehat{F}_X(t) = \mathrm{e}^{-|t|}\)</span>. Comme <span class="math inline">\(Y = X\)</span>,</p>
+<p><span class="math display">\[
+\widehat{F}_{X+Y}(t) = \widehat{F}_{2X}(t) = \widehat{F}_X(2t) = \mathrm{e}^{-2|t|} = \widehat{F}_X(t)\,\widehat{F}_Y(t).
+\]</span></p>
+<p>En revanche <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> ne sont pas indépendantes : <span class="math inline">\(P(|X| \le 1) = 1/2\)</span>, alors que</p>
+<p><span class="math display">\[
+P(|X| \le 1,\ |Y| \le 1) = P(|X| \le 1) = \frac12 \neq \frac14 = P(|X| \le 1)\,P(|Y| \le 1).
+\]</span></p>
+</div>
+</div>
+</div>
 <div id="exr-tent" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 7</strong></span> Vérifier que <span class="math inline">\(\int_0^1 \cos(sx) (1-s) \mathrm{d}s\geq 0\)</span> pour tout <span class="math inline">\(x \in \mathbb{R}\)</span>.</p>
 <p><em>Indication :</em> Vérifier que <span class="math inline">\(t \mapsto \int_0^1 \cos(tw) (1-w) \mathrm{d}w\)</span> est la fonction caractéristique de la loi <em>tente</em>, de densité <span class="math inline">\((1-|w|)\)</span> sur <span class="math inline">\([-1,1]\)</span>. Vérifier que cette fonction caractéristique est le carré du module d’une autre fonction caractéristique.</p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>La densité <span class="math inline">\(w \mapsto (1-|w|)\mathbf{1}_{[-1,1]}(w)\)</span> est paire et d’intégrale <span class="math inline">\(1\)</span>. Sa fonction caractéristique vaut, pour <span class="math inline">\(t \neq 0\)</span>,</p>
+<p><span class="math display">\[
+\varphi(t)
+= \int_{-1}^{1} \mathrm{e}^{itw}(1-|w|)\,\mathrm{d}w
+= 2\int_0^1 \cos(tw)\,(1-w)\,\mathrm{d}w,
+\]</span></p>
+<p>et <span class="math inline">\(\varphi(0) = 1\)</span>. L’intégrale de l’énoncé est donc <span class="math inline">\(\varphi(t)/2\)</span>, et non <span class="math inline">\(\varphi(t)\)</span> elle-même.</p>
+<p>Une intégration par parties donne <span class="math inline">\(\int_0^1 (1-w)\cos(tw)\,\mathrm{d}w = (1-\cos t)/t^2\)</span> pour <span class="math inline">\(t \neq 0\)</span>, d’où</p>
+<p><span class="math display">\[
+\varphi(t) = \frac{2(1-\cos t)}{t^2} = \left(\frac{\sin(t/2)}{t/2}\right)^2.
+\]</span></p>
+<p>La loi uniforme sur <span class="math inline">\([-1/2, 1/2]\)</span> a pour fonction caractéristique <span class="math inline">\(\psi(t) = \sin(t/2)/(t/2)\)</span> (avec <span class="math inline">\(\psi(0) = 1\)</span>), qui est réelle. Ainsi <span class="math inline">\(\varphi(t) = |\psi(t)|^2 \ge 0\)</span>, et</p>
+<p><span class="math display">\[
+\int_0^1 \cos(sx)\,(1-s)\,\mathrm{d}s = \frac{\varphi(s)}{2} \ge 0
+\]</span></p>
+<p>pour tout <span class="math inline">\(s \in \mathbb{R}\)</span> (la valeur en <span class="math inline">\(s = 0\)</span> est <span class="math inline">\(\int_0^1 (1-s)\,\mathrm{d}s = 1/2\)</span>).</p>
+</div>
+</div>
+</div>
 <div id="exr-density-convolution" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 8</strong></span> Vérifier que si <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont indépendantes de densités <span class="math inline">\(f_X\)</span> et <span class="math inline">\(f_Y\)</span>, alors <span class="math inline">\(f_X \star f_Y\)</span> est une densité de la loi de <span class="math inline">\(X+Y\)</span>.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On note <span class="math inline">\((f_X \star f_Y)(z) = \int_{\mathbb{R}} f_X(z-y)\,f_Y(y)\,\mathrm{d}y\)</span>. Pour <span class="math inline">\(\phi : \mathbb{R} \to [0,\infty)\)</span> borélienne, l’indépendance donne une densité produit, puis le changement de variable <span class="math inline">\(z = x+y\)</span> et le théorème de Fubini–Tonelli :</p>
+<p><span class="math display">\[\begin{align*}
+\mathbb{E}[\phi(X+Y)]
+&amp; = \int_{\mathbb{R}^2} \phi(x+y)\,f_X(x)\,f_Y(y)\,\mathrm{d}x\,\mathrm{d}y \\
+&amp; = \int_{\mathbb{R}} \phi(z)\Bigl(\int_{\mathbb{R}} f_X(z-y)\,f_Y(y)\,\mathrm{d}y\Bigr)\mathrm{d}z \\
+&amp; = \int_{\mathbb{R}} \phi(z)\,(f_X \star f_Y)(z)\,\mathrm{d}z.
+\end{align*}\]</span></p>
+<p>En prenant <span class="math inline">\(\phi = 1\)</span>, on obtient <span class="math inline">\(\int (f_X \star f_Y) = 1\)</span>. La fonction <span class="math inline">\(f_X \star f_Y\)</span> est donc une densité de <span class="math inline">\(X+Y\)</span>.</p>
+</div>
+</div>
 </div>
 <div id="exr-conv-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 9</strong></span> Soient <span class="math inline">\(\nu_1\)</span> et <span class="math inline">\(\nu_2\)</span> deux mesures de probabilité sur <span class="math inline">\(\mathbb{R}\)</span>.</p>
@@ -4553,6 +4711,23 @@ window.Quarto = {
 <li><p>Si <span class="math inline">\(\nu_1\)</span> est absolument continue et admet pour densité <span class="math inline">\(f\)</span> alors <span class="math inline">\(\nu_1 \star \nu_2\)</span> est absolument continue et admet pour densité <span class="math display">\[x \mapsto \int_{\mathbb(R)} f(x-y)  \, \mathrm{d}\nu_2(y)\]</span></p></li>
 </ol>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On définit la convolution par l’image de la mesure produit par l’addition : pour <span class="math inline">\(A \in \mathcal{B}(\mathbb{R})\)</span>,</p>
+<p><span class="math display">\[
+(\nu_1 \star \nu_2)(A) = (\nu_1 \otimes \nu_2)\bigl(\{(x,y) : x+y \in A\}\bigr) = \int_{\mathbb{R}^2} \mathbf{1}_A(x+y)\,\mathrm{d}\nu_1(x)\,\mathrm{d}\nu_2(y).
+\]</span></p>
+<ol type="1">
+<li><p>Pour <span class="math inline">\(y\)</span> fixé, <span class="math inline">\(x+y \in A\)</span> si et seulement si <span class="math inline">\(x \in A-y\)</span>. Le théorème de Fubini–Tonelli donne <span class="math display">\[(\nu_1 \star \nu_2)(A) = \int_{\mathbb{R}} \nu_1(A-y)\,\mathrm{d}\nu_2(y).\]</span></p></li>
+<li><p>Si <span class="math inline">\(\nu_1\)</span> admet la densité <span class="math inline">\(f\)</span>, alors <span class="math inline">\(\nu_1(A-y) = \int_{A-y} f(x)\,\mathrm{d}x\)</span>. Le changement de variable <span class="math inline">\(z = x+y\)</span> donne <span class="math inline">\(\nu_1(A-y) = \int_A f(z-y)\,\mathrm{d}z\)</span>. Donc <span class="math display">\[(\nu_1 \star \nu_2)(A) = \int_{\mathbb{R}}\Bigl(\int_A f(z-y)\,\mathrm{d}z\Bigr)\mathrm{d}\nu_2(y) = \int_A \Bigl(\int_{\mathbb{R}} f(z-y)\,\mathrm{d}\nu_2(y)\Bigr)\mathrm{d}z,\]</span> à nouveau par Fubini–Tonelli. La mesure <span class="math inline">\(\nu_1 \star \nu_2\)</span> est absolument continue, de densité <span class="math inline">\(z \mapsto \int_{\mathbb{R}} f(z-y)\,\mathrm{d}\nu_2(y)\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
 <div id="exr-produits-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 10</strong></span> Montrer qu’à partir de <span class="math inline">\(([0,1], \mathcal{B}(\mathbb{R}), \lambda)\)</span> (où <span class="math inline">\(\lambda\)</span> est la mesure de Lebesgue sur <span class="math inline">\([0,1]\)</span>),</p>
 <ol type="1">
@@ -4560,6 +4735,26 @@ window.Quarto = {
 <li>on peut construire une suite <span class="math inline">\(X_1, X_2, \ldots, X_n, \ldots\)</span> de variables aléatoires indépendantes et identiquement distribuées selon la loi uniforme sur <span class="math inline">\([0,1]\)</span>.</li>
 <li>on peut construire une tableau <span class="math inline">\(\left(X_{n,m}\right){n,m \in \mathbb{N}^*}\)</span> de variables aléatoires indépendantes et identiquement distribuées selon la loi uniforme sur <span class="math inline">\([0,1]\)</span>.</li>
 </ol>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On travaille sur <span class="math inline">\(([0,1], \mathcal{B}([0,1]), \lambda)\)</span>. Pour <span class="math inline">\(\omega \in [0,1]\)</span> et <span class="math inline">\(k \geq 1\)</span>, le <span class="math inline">\(k^{\mathrm{e}}\)</span> chiffre dyadique</p>
+<p><span class="math display">\[
+Y_k(\omega) = \lfloor 2^k \omega \rfloor - 2\lfloor 2^{k-1}\omega \rfloor \in \{0,1\}
+\]</span></p>
+<p>est mesurable. Pour <span class="math inline">\((\varepsilon_1,\ldots,\varepsilon_n) \in \{0,1\}^n\)</span>, l’ensemble <span class="math inline">\(\{Y_1=\varepsilon_1,\ldots,Y_n=\varepsilon_n\}\)</span> est un intervalle dyadique de longueur <span class="math inline">\(2^{-n}\)</span>, donc de mesure <span class="math inline">\(2^{-n}\)</span>. Les <span class="math inline">\(n\)</span> premières coordonnées sont donc i.i.d. de loi de Bernoulli de paramètre <span class="math inline">\(1/2\)</span>, et il en va de même de toute sous-famille finie. La suite <span class="math inline">\((Y_k)_{k \geq 1}\)</span> répond à la première question. L’ensemble des dyadiques, où le développement n’est pas unique, est de mesure nulle et ne change pas la loi.</p>
+<p>Pour la deuxième question, on répartit les entiers en blocs infinis disjoints grâce à la bijection <span class="math inline">\(\varphi(n,m) = 2^{n-1}(2m-1)\)</span> de <span class="math inline">\(\mathbb{N}^* \times \mathbb{N}^*\)</span> sur <span class="math inline">\(\mathbb{N}^*\)</span>, et on pose</p>
+<p><span class="math display">\[
+X_n = \sum_{m=1}^{\infty} Y_{\varphi(n,m)}\,2^{-m}.
+\]</span></p>
+<p>Chaque bloc <span class="math inline">\((Y_{\varphi(n,m)})_{m \geq 1}\)</span> est une suite i.i.d. de Bernoulli de paramètre <span class="math inline">\(1/2\)</span>, donc <span class="math inline">\(X_n\)</span> suit la loi uniforme sur <span class="math inline">\([0,1]\)</span> : la mesure des développements dont les <span class="math inline">\(m\)</span> premiers chiffres sont fixés vaut <span class="math inline">\(2^{-m}\)</span>, longueur de l’intervalle dyadique correspondant. Les blocs étant portés par des ensembles d’indices disjoints, les suites de chiffres sont indépendantes, et les <span class="math inline">\(X_n\)</span> aussi.</p>
+<p>Pour le tableau, on réindexe cette suite par la même bijection : <span class="math inline">\(X_{n,m} = X_{\varphi(n,m)}\)</span>. On obtient une famille i.i.d. de lois uniformes sur <span class="math inline">\([0,1]\)</span>, indexée par <span class="math inline">\(\mathbb{N}^* \times \mathbb{N}^*\)</span>.</p>
+</div>
+</div>
 </div>
 
 

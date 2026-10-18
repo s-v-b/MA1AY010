@@ -4464,7 +4464,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">7 septembre 2026</p>
+      <p class="date">16 octobre 2026</p>
     </div>
   </div>
   
@@ -4493,6 +4493,25 @@ window.Quarto = {
 <li><span class="math inline">\(\{0, 1\}^{\mathbb{N}}\)</span> (suites infinies de <span class="math inline">\(0,1\)</span>)</li>
 </ol>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ol type="1">
+<li><span class="math inline">\(\mathbb{N}\)</span> est dénombrable.</li>
+<li><span class="math inline">\(\mathbb{N}^k\)</span> est dénombrable pour tout <span class="math inline">\(k\)</span>. Pour <span class="math inline">\(k=0\)</span> c’est un singleton. Le produit de deux ensembles dénombrables est dénombrable (énumération diagonale), et l’on conclut par récurrence.</li>
+<li><span class="math inline">\(\bigcup_{k\ge 1}\mathbb{N}^k\)</span> est une réunion dénombrable d’ensembles dénombrables, donc dénombrable.</li>
+<li><span class="math inline">\(\mathbb{Q}\)</span> est dénombrable : c’est l’image de <span class="math inline">\(\mathbb{Z}\times\mathbb{N}^*\)</span> par <span class="math inline">\((p,q)\mapsto p/q\)</span>.</li>
+<li><span class="math inline">\(\mathbb{R}\)</span> n’est pas dénombrable. L’application <span class="math inline">\((x_n)\mapsto \sum_{n\ge 1} 2x_n/3^n\)</span> injecte <span class="math inline">\(\{0,1\}^{\mathbb{N}}\)</span> dans <span class="math inline">\(\mathbb{R}\)</span>.</li>
+<li><span class="math inline">\([0,1]\)</span> n’est pas dénombrable : il contient l’image de cette injection.</li>
+<li>Les nombres décimaux, c’est-à-dire <span class="math inline">\(\bigcup_{n\ge 0} 10^{-n}\mathbb{Z}\)</span>, forment une réunion dénombrable d’ensembles dénombrables. Ils sont dénombrables.</li>
+<li><span class="math inline">\(\{0,1\}^{\mathbb{N}}\)</span> n’est pas dénombrable. Si <span class="math inline">\((s^{(m)})_{m\in\mathbb{N}}\)</span> était une énumération, la suite <span class="math inline">\(s\)</span> définie par <span class="math inline">\(s_n = 1-s^{(n)}_n\)</span> n’y figurerait pas.</li>
+</ol>
+</div>
+</div>
+</div>
 </section>
 <section id="algèbres-sigma-algèbres-tribus" class="level2">
 <h2 class="anchored" data-anchor-id="algèbres-sigma-algèbres-tribus">Algèbres, <span class="math inline">\(\sigma\)</span>-algèbres (tribus)</h2>
@@ -4506,6 +4525,23 @@ window.Quarto = {
 <li><span class="math inline">\(\mathcal{A}\)</span> est-elle une tribu (<span class="math inline">\(\sigma\)</span>-algèbre) ?</li>
 </ol>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>L’ensemble vide est fini et <span class="math inline">\(\mathbb{R}\)</span> est co-finie, donc tous deux sont dans <span class="math inline">\(\mathcal{A}\)</span>.</p>
+<ol type="1">
+<li>Oui. L’intersection de deux ensembles finis est finie. L’intersection d’un ensemble fini et d’un ensemble co-fini est finie. L’intersection de deux ensembles co-finis est co-finie : son complémentaire est la réunion de deux ensembles finis.</li>
+<li>Oui. La réunion de deux ensembles finis est finie. La réunion d’un ensemble co-fini et d’un ensemble quelconque de <span class="math inline">\(\mathcal{A}\)</span> est co-finie : son complémentaire est inclus dans un ensemble fini.</li>
+<li>Oui. Le complémentaire d’un ensemble fini est co-fini, et réciproquement.</li>
+<li>Non. Chaque singleton <span class="math inline">\(\{n\}\)</span>, <span class="math inline">\(n\in\mathbb{N}\)</span>, est dans <span class="math inline">\(\mathcal{A}\)</span>, mais <span class="math inline">\(\mathbb{N}=\bigcup_n\{n\}\)</span> est infini de complémentaire infini, donc <span class="math inline">\(\mathbb{N}\notin\mathcal{A}\)</span>.</li>
+<li>Non. <span class="math inline">\(\mathcal{A}\)</span> est une algèbre, mais elle n’est pas stable par réunion dénombrable.</li>
+</ol>
+</div>
+</div>
+</div>
 <div id="exr-algebre-2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 3 (Sous-ensembles dénombrables et co-dénombrables de <span class="math inline">\(\mathbb{R}\)</span>)</strong></span> Soit <span class="math inline">\(\mathcal{A}\)</span> l’ensemble des parties dénombrables et des parties <em>co-dénombrables</em> de <span class="math inline">\(\mathbb{R}\)</span> (une partie est <em>co-dénombrable</em> si son complémentaire est dénombrable).</p>
 <ol type="1">
@@ -4516,14 +4552,56 @@ window.Quarto = {
 <li><span class="math inline">\(\mathcal{A}\)</span> est-elle une tribu (<span class="math inline">\(\sigma\)</span>-algèbre) ?</li>
 </ol>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>L’ensemble vide est dénombrable et <span class="math inline">\(\mathbb{R}\)</span> est co-dénombrable.</p>
+<ol type="1">
+<li>Oui. L’intersection de deux ensembles dénombrables est dénombrable. L’intersection d’un ensemble dénombrable et d’un ensemble co-dénombrable est dénombrable. L’intersection de deux ensembles co-dénombrables est co-dénombrable : son complémentaire est une réunion de deux ensembles dénombrables.</li>
+<li>Oui. La réunion de deux ensembles dénombrables est dénombrable. La réunion d’un ensemble co-dénombrable et d’un ensemble de <span class="math inline">\(\mathcal{A}\)</span> est co-dénombrable.</li>
+<li>Oui. Le complémentaire échange les deux classes.</li>
+<li>Oui. Une réunion dénombrable d’ensembles dénombrables est dénombrable. Si l’un des ensembles est co-dénombrable, la réunion l’est aussi : son complémentaire est inclus dans un ensemble dénombrable.</li>
+<li>Oui. <span class="math inline">\(\mathcal{A}\)</span> contient <span class="math inline">\(\mathbb{R}\)</span>, est stable par complémentation et par réunion dénombrable : c’est une tribu.</li>
+</ol>
+</div>
+</div>
+</div>
 <div id="exr-intersection" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 4 (Intersection de tribus)</strong></span> Vérifier qu’une intersection quelconque de tribus de parties d’un ensemble <span class="math inline">\(X\)</span> est une tribu de parties de <span class="math inline">\(X\)</span>.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Soit <span class="math inline">\((\mathcal{F}_i)_{i\in I}\)</span> une famille de tribus de parties de <span class="math inline">\(X\)</span>, et <span class="math inline">\(\mathcal{F}=\bigcap_{i\in I}\mathcal{F}_i\)</span>.</p>
+<p><span class="math inline">\(X\)</span> appartient à chaque <span class="math inline">\(\mathcal{F}_i\)</span>, donc à <span class="math inline">\(\mathcal{F}\)</span>. Si <span class="math inline">\(A\in\mathcal{F}\)</span>, alors <span class="math inline">\(A\)</span> appartient à chaque <span class="math inline">\(\mathcal{F}_i\)</span>, donc <span class="math inline">\(A^c\)</span> aussi, et <span class="math inline">\(A^c\in\mathcal{F}\)</span>. Si <span class="math inline">\((A_n)\)</span> est une suite d’éléments de <span class="math inline">\(\mathcal{F}\)</span>, la réunion <span class="math inline">\(\bigcup_n A_n\)</span> appartient à chaque <span class="math inline">\(\mathcal{F}_i\)</span>, donc à <span class="math inline">\(\mathcal{F}\)</span>. Ainsi <span class="math inline">\(\mathcal{F}\)</span> est une tribu.</p>
+</div>
+</div>
 </div>
 </section>
 <section id="boréliens" class="level2">
 <h2 class="anchored" data-anchor-id="boréliens">Boréliens</h2>
 <div id="exr-borel-2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 5 (Propriétés des ouverts)</strong></span> Montrer que tout sous-ensemble ouvert de <span class="math inline">\(\mathbb{R}\)</span> peut s’écrire comme une réunion dénombrable d’intervalles ouverts deux à deux disjoints.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Soit <span class="math inline">\(U\)</span> un ouvert de <span class="math inline">\(\mathbb{R}\)</span>. Pour <span class="math inline">\(x\in U\)</span>, l’ensemble des intervalles ouverts contenant <span class="math inline">\(x\)</span> et inclus dans <span class="math inline">\(U\)</span> est non vide. On pose</p>
+<p><span class="math display">\[
+a_x = \inf\{a : (a,x)\subset U\}, \qquad b_x = \sup\{b : (x,b)\subset U\},
+\]</span></p>
+<p>et <span class="math inline">\(I_x = (a_x, b_x)\)</span>. Alors <span class="math inline">\(x\in I_x\subset U\)</span>. Si <span class="math inline">\(I_x\cap I_y\neq\emptyset\)</span>, les deux intervalles se recollent en un intervalle ouvert inclus dans <span class="math inline">\(U\)</span>, donc <span class="math inline">\(I_x=I_y\)</span>. Les intervalles <span class="math inline">\(I_x\)</span> forment ainsi une partition de <span class="math inline">\(U\)</span>. Chacun contient un rationnel, et l’application qui à <span class="math inline">\(I_x\)</span> associe un rationnel qu’il contient est injective. La famille est donc dénombrable, et <span class="math inline">\(U\)</span> en est la réunion disjointe.</p>
+</div>
+</div>
 </div>
 <div id="exr-borel-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 6 (Génération des boréliens)</strong></span> Parmi les ensembles suivants lesquels engendrent les Boréliens de <span class="math inline">\(\mathbb{R}\)</span> ?</p>
@@ -4534,6 +4612,22 @@ window.Quarto = {
 <li>Les intervalles ouverts à extrémités entières.</li>
 </ol>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On note <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span> la tribu borélienne. Un ensemble d’ouverts engendre <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span> dès que tout ouvert de <span class="math inline">\(\mathbb{R}\)</span> est réunion dénombrable d’éléments de cet ensemble.</p>
+<ol type="1">
+<li>Oui. Pour <span class="math inline">\(a&lt;b\)</span>, <span class="math inline">\((a,b)=\bigcup_n [a+1/n, b-1/n]\)</span>, et tout ouvert est réunion dénombrable d’intervalles ouverts. Les intervalles fermés sont boréliens, donc la tribu qu’ils engendrent est exactement <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>.</li>
+<li>Oui. Le complémentaire de <span class="math inline">\((-\infty, a]\)</span> est <span class="math inline">\((a,\infty)\)</span>. Pour <span class="math inline">\(a&lt;b\)</span>, <span class="math inline">\((a,b] = (-\infty,b]\setminus(-\infty,a]\)</span>, puis <span class="math inline">\((a,b)=\bigcup_n (a, b-1/n]\)</span>. On retrouve les ouverts.</li>
+<li>Oui. Les intervalles ouverts à extrémités rationnelles forment une base dénombrable de la topologie : tout ouvert en est une réunion dénombrable.</li>
+<li>Non. Un intervalle ouvert à extrémités entières est une réunion d’intervalles <span class="math inline">\((n, n+1)\)</span>, <span class="math inline">\(n\in\mathbb{Z}\)</span>. La tribu engendrée est l’ensemble des réunions de sous-familles de <span class="math inline">\(\{(n,n+1): n\in\mathbb{Z}\}\)</span>. Elle ne contient pas les singletons, par exemple <span class="math inline">\(\{\tfrac12\}\in\mathcal{B}(\mathbb{R})\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
 <div id="exr-boreliens-Rd" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 7 (Boréliens de <span class="math inline">\(\mathbb{R}^d\)</span>)</strong></span> Vérifier que les Boréliens de <span class="math inline">\(\mathbb{R}^d\)</span> sont engendrés par</p>
 <ol type="1">
@@ -4541,6 +4635,17 @@ window.Quarto = {
 <li>Les boules ouvertes euclidiennes de <span class="math inline">\(\mathbb{R}^d\)</span> (Boules ouvertes <span class="math inline">\(\ell_2\)</span>).</li>
 <li>Les boules ouvertes <span class="math inline">\(\ell_1\)</span> de <span class="math inline">\(\mathbb{R}^d\)</span>.</li>
 </ol>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Les trois normes définissent la même topologie sur <span class="math inline">\(\mathbb{R}^d\)</span>, donc la même tribu borélienne. Les boules ouvertes de chacune sont des ouverts, donc la tribu qu’elles engendrent est incluse dans <span class="math inline">\(\mathcal{B}(\mathbb{R}^d)\)</span>.</p>
+<p>Réciproquement, les boules de centre dans <span class="math inline">\(\mathbb{Q}^d\)</span> et de rayon rationnel forment, pour chacune de ces normes, une base dénombrable de la topologie. Tout ouvert est une réunion dénombrable de telles boules, donc appartient à la tribu qu’elles engendrent. Ainsi chacune de ces familles engendre <span class="math inline">\(\mathcal{B}(\mathbb{R}^d)\)</span>.</p>
+</div>
+</div>
 </div>
 </section>
 <section id="pi-classes-et-lambda-classes-classes-monotones" class="level2">
@@ -4559,21 +4664,73 @@ window.Quarto = {
 <li>Si <span class="math inline">\(\mathcal{B} \subset \mathcal{P}(X)\)</span> est close par réunion et intersection finies, par complémemtation, et contient <span class="math inline">\(\mathcal{X}\)</span>, alors <span class="math inline">\(\mathcal{M}(\mathcal{B})=\sigma(\mathcal{B}\)</span>.</li>
 </ol>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ol type="1">
+<li><p>La famille des classes monotones contenant <span class="math inline">\(\mathcal{B}\)</span> est non vide : <span class="math inline">\(\mathcal{P}(X)\)</span> en est une. Leur intersection <span class="math inline">\(\mathcal{M}(\mathcal{B})\)</span> contient <span class="math inline">\(\mathcal{B}\)</span>. Elle est monotone : si <span class="math inline">\((A_n)\)</span> est une suite croissante d’éléments de l’intersection, la réunion appartient à chaque classe monotone contenant <span class="math inline">\(\mathcal{B}\)</span>, donc à l’intersection. De même pour une intersection décroissante. Toute classe monotone contenant <span class="math inline">\(\mathcal{B}\)</span> contient cette intersection.</p></li>
+<li><p>Une tribu est une classe monotone, donc <span class="math inline">\(\mathcal{M}(\mathcal{B})\subset\sigma(\mathcal{B})\)</span>. On montre que <span class="math inline">\(\mathcal{M}=\mathcal{M}(\mathcal{B})\)</span> est une tribu. L’ensemble <span class="math inline">\(\mathcal{M}&#39;=\{A : A^c\in\mathcal{M}\}\)</span> est une classe monotone. Comme <span class="math inline">\(\mathcal{B}\)</span> est stable par complémentation, <span class="math inline">\(\mathcal{B}\subset\mathcal{M}&#39;\)</span>, donc <span class="math inline">\(\mathcal{M}\subset\mathcal{M}&#39;\)</span> : <span class="math inline">\(\mathcal{M}\)</span> est stable par complémentation.</p></li>
+</ol>
+<p>Pour <span class="math inline">\(A\in\mathcal{B}\)</span>, l’ensemble <span class="math inline">\(\mathcal{M}_A=\{E\in\mathcal{M} : E\cap A\in\mathcal{M}\}\)</span> est une classe monotone contenant <span class="math inline">\(\mathcal{B}\)</span>, donc égale à <span class="math inline">\(\mathcal{M}\)</span>. Ainsi <span class="math inline">\(E\cap A\in\mathcal{M}\)</span> pour tout <span class="math inline">\(E\in\mathcal{M}\)</span> et tout <span class="math inline">\(A\in\mathcal{B}\)</span>. Pour <span class="math inline">\(E\in\mathcal{M}\)</span> fixé, <span class="math inline">\(\{A\in\mathcal{M} : E\cap A\in\mathcal{M}\}\)</span> est alors une classe monotone contenant <span class="math inline">\(\mathcal{B}\)</span>, donc égale à <span class="math inline">\(\mathcal{M}\)</span>. La classe <span class="math inline">\(\mathcal{M}\)</span> est stable par intersection finie, puis par réunion finie grâce à la complémentation.</p>
+<p>Si <span class="math inline">\((A_n)\)</span> est une suite d’éléments de <span class="math inline">\(\mathcal{M}\)</span>, les réunions partielles <span class="math inline">\(B_n=\bigcup_{k=1}^n A_k\)</span> forment une suite croissante de <span class="math inline">\(\mathcal{M}\)</span>, et <span class="math inline">\(\bigcup_n A_n=\bigcup_n B_n\in\mathcal{M}\)</span>. Donc <span class="math inline">\(\mathcal{M}\)</span> est une tribu contenant <span class="math inline">\(\mathcal{B}\)</span>, et <span class="math inline">\(\sigma(\mathcal{B})\subset\mathcal{M}\)</span>.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="tribu-produit" class="level2">
 <h2 class="anchored" data-anchor-id="tribu-produit">Tribu produit</h2>
 <div id="exr-tribu-produit-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 9 (Produit de tribus boréliennes)</strong></span> Vérifier que la tribu des boréliens de <span class="math inline">\(\mathbb{R}^2\)</span> (<span class="math inline">\(\mathcal{B}(\mathbb{R}^2)\)</span>) coïncide avec <span class="math inline">\(\sigma\left(\mathcal{B}(\mathbb{R}) \times \mathcal{B}(\mathbb{R})\right)\)</span> (que c’est une tribu produit),</p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Tout pavé mesurable <span class="math inline">\(A\times B\)</span>, avec <span class="math inline">\(A,B\in\mathcal{B}(\mathbb{R})\)</span>, est borélien dans <span class="math inline">\(\mathbb{R}^2\)</span>. En effet, si <span class="math inline">\(B\)</span> est ouvert, <span class="math inline">\(\{A : A\times B\in\mathcal{B}(\mathbb{R}^2)\}\)</span> est une tribu contenant les ouverts de <span class="math inline">\(\mathbb{R}\)</span>, donc contenant <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>. Pour <span class="math inline">\(A\)</span> borélien fixé, <span class="math inline">\(\{B : A\times B\in\mathcal{B}(\mathbb{R}^2)\}\)</span> est une tribu contenant les ouverts, donc contenant <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>. Ainsi <span class="math inline">\(\sigma(\mathcal{B}(\mathbb{R})\times\mathcal{B}(\mathbb{R}))\subset\mathcal{B}(\mathbb{R}^2)\)</span>.</p>
+<p>Réciproquement, les pavés ouverts <span class="math inline">\((a,b)\times(c,d)\)</span> à extrémités rationnelles forment une base dénombrable de <span class="math inline">\(\mathbb{R}^2\)</span>. Tout ouvert de <span class="math inline">\(\mathbb{R}^2\)</span> en est une réunion dénombrable, et chaque tel pavé appartient à <span class="math inline">\(\sigma(\mathcal{B}(\mathbb{R})\times\mathcal{B}(\mathbb{R}))\)</span>. Donc <span class="math inline">\(\mathcal{B}(\mathbb{R}^2)\)</span> est inclus dans cette tribu.</p>
+</div>
+</div>
+</div>
 <div id="exr-tribu-produit-2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 10 (Sections mesurables)</strong></span> Soient <span class="math inline">\((X, \mathcal{A})\)</span> et <span class="math inline">\((Y, \mathcal{B})\)</span> des espaces mesurables. Soit <span class="math inline">\(E \in \sigma(\mathcal{A}\times \mathcal{B})\)</span>, On note <span class="math inline">\(E_x = \{y \in Y : y \in Y, (x,y) \in E\}\)</span> la section de <span class="math inline">\(E\)</span> en <span class="math inline">\(x\)</span>.</p>
 <p>Montrer que pour tout <span class="math inline">\(x\in X\)</span>, <span class="math inline">\(E_x \in \mathcal{B}\)</span>.</p>
 <!-- D'après Cohn Lemma 5.1.2 -->
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Soit <span class="math inline">\(\mathcal{C}\)</span> l’ensemble des <span class="math inline">\(E\in\sigma(\mathcal{A}\times\mathcal{B})\)</span> tels que <span class="math inline">\(E_x\in\mathcal{B}\)</span> pour tout <span class="math inline">\(x\in X\)</span>.</p>
+<p>Si <span class="math inline">\(E=A\times B\)</span> est un pavé mesurable, alors <span class="math inline">\(E_x=B\)</span> si <span class="math inline">\(x\in A\)</span> et <span class="math inline">\(E_x=\emptyset\)</span> sinon : les deux sont dans <span class="math inline">\(\mathcal{B}\)</span>. La classe <span class="math inline">\(\mathcal{C}\)</span> est une tribu. En effet, <span class="math inline">\((\bigcup_n E_n)_x = \bigcup_n (E_n)_x\)</span> et <span class="math inline">\((E^c)_x = (E_x)^c\)</span>. Elle contient les pavés mesurables, donc contient la tribu qu’ils engendrent. Tout <span class="math inline">\(E\in\sigma(\mathcal{A}\times\mathcal{B})\)</span> a ses sections dans <span class="math inline">\(\mathcal{B}\)</span>.</p>
+</div>
+</div>
+</div>
 <div id="exr-tribu-produit-3" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 11 (Projections mesurables)</strong></span> Soient <span class="math inline">\((X, \mathcal{A})\)</span> et <span class="math inline">\((Y, \mathcal{B})\)</span> des espaces mesurables. Soit <span class="math inline">\(E \in \sigma(\mathcal{A}\times \mathcal{B})\)</span>.</p>
 <p>Montrer que <span class="math display">\[\left\{x : x \in X, \exists y \in Y\,\, (x,y) \in E\right\}\]</span></p>
 <p>est dans <span class="math inline">\(\mathcal{A}\)</span>.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>L’énoncé est faux pour des espaces mesurables généraux. La classe des ensembles dont la projection est mesurable est stable par réunion dénombrable, puisque <span class="math inline">\(\pi_X(\bigcup_n E_n)=\bigcup_n \pi_X(E_n)\)</span>. Elle ne l’est pas par complémentation : le complémentaire d’une projection n’est pas la projection du complémentaire. On ne peut pas conclure par un argument de classe monotone, comme pour les sections.</p>
+<p>Si <span class="math inline">\(Y\)</span> est dénombrable et <span class="math inline">\(\mathcal{B}=2^Y\)</span>, l’énoncé devient vrai. La section <span class="math inline">\(E^y=\{x : (x,y)\in E\}\)</span> est dans <span class="math inline">\(\mathcal{A}\)</span> par le même raisonnement que pour les sections en <span class="math inline">\(x\)</span>, et</p>
+<p><span class="math display">\[
+\pi_X(E) = \bigcup_{y\in Y} E^y \in \mathcal{A}.
+\]</span></p>
+<p>En revanche, il existe <span class="math inline">\(E\in\mathcal{B}([0,1]^2)\)</span> dont la projection sur la première coordonnée n’est pas borélienne. Une telle projection est un ensemble analytique non borélien.</p>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -4585,6 +4742,21 @@ window.Quarto = {
 <p>Votre univers est-il dénombrable ?</p>
 <p>On ne demande pas de définir une loi de probabilité, ni d’étudier des variables aléatoires.</p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On peut prendre</p>
+<p><span class="math display">\[
+\Omega = \bigcup_{n=0}^{\infty} \{n\}\times\{0,1\}^n,
+\]</span></p>
+<p>muni de la tribu <span class="math inline">\(\mathcal{F}=2^{\Omega}\)</span>. Un élément <span class="math inline">\((n, \varepsilon_1,\ldots,\varepsilon_n)\)</span> décrit le nombre d’oeufs et, pour chacun, s’il éclot (<span class="math inline">\(\varepsilon_i=1\)</span>) ou meurt (<span class="math inline">\(\varepsilon_i=0\)</span>). Pour <span class="math inline">\(n=0\)</span>, le facteur <span class="math inline">\(\{0,1\}^0\)</span> est un singleton.</p>
+<p>Chaque <span class="math inline">\(\{n\}\times\{0,1\}^n\)</span> est fini, et <span class="math inline">\(\Omega\)</span> est une réunion dénombrable d’ensembles finis : <span class="math inline">\(\Omega\)</span> est dénombrable.</p>
+</div>
+</div>
+</div>
 <div id="exr-modelisation-2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 13 (Processus de branchement (Galton-Watson))</strong></span> Un processus de Galton-Watson (processus de branchement homogène) est un processus stochastique en temps discret utilisé pour modéliser l’évolution d’une population où chaque individu se reproduit indépendamment des autres, suivant une même loi de probabilité donnée (appelée <em>loi de reproduction</em>).</p>
 <p>Il a été introduit au XIXᵉ siècle par Francis Galton et Henry Watson our étudier la probabilité d’extinction des noms de famille (nobles). On commence avec une <em>génération initiale</em> (génération <span class="math inline">\(0\)</span>) formée d’un individu. Chaque individu de la génération <span class="math inline">\(n\)</span> engendre un nombre aléatoire de descendants distribué selon la loi de reproduction. Les descendants forment la génération suivante (<span class="math inline">\(n+1\)</span>). Les nombres de descendants des individus de la géneration <span class="math inline">\(n\)</span> forment une famille indépendante. Le nombre d’individus dans la génération <span class="math inline">\(n\)</span> est noté <span class="math inline">\(Z_n\)</span>.</p>
@@ -4593,11 +4765,41 @@ window.Quarto = {
 <p>Votre univers est-il dénombrable ?</p>
 <p>On ne demande pas de définir une loi de probabilité, ni d’étudier des variables aléatoires.</p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Jusqu’à la génération <span class="math inline">\(k\)</span>, une réalisation est décrite par la liste finie des nombres de descendants des individus des générations <span class="math inline">\(0, \ldots, k-1\)</span>, lus dans l’ordre généalogique. On prend donc</p>
+<p><span class="math display">\[
+\Omega = \bigcup_{m=0}^{\infty} \mathbb{N}^m,
+\]</span></p>
+<p>l’ensemble des suites finies d’entiers, muni de <span class="math inline">\(\mathcal{F}=2^{\Omega}\)</span>. La coordonnée de rang <span class="math inline">\(m\)</span> est le nombre d’enfants d’un individu présent dans l’arbre ; les effectifs <span class="math inline">\(Z_0=1, Z_1, \ldots, Z_k\)</span> s’en déduisent, en ignorant les coordonnées qui dépasseraient l’effectif de la génération courante.</p>
+<p>Chaque <span class="math inline">\(\mathbb{N}^m\)</span> est dénombrable, et la réunion est dénombrable : <span class="math inline">\(\Omega\)</span> est dénombrable.</p>
+</div>
+</div>
+</div>
 <div id="exr-modelisation-3" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 14 (Allocations aléatoires)</strong></span> On dispose de <span class="math inline">\(n\)</span> urnes numérotées de <span class="math inline">\(1\)</span> à <span class="math inline">\(n\)</span> et de <span class="math inline">\(n\)</span> boules. Les boules sont réparties de manière uniforme dans les urnes (chaque boule se comporte de manière indépendante des autres et a probabilité <span class="math inline">\(1/n\)</span> de tomber dans chaque urne). On note <span class="math inline">\(U_i\)</span> la variable aléatoire désignant le nombre de boules qui tombent dans l’urne <span class="math inline">\(i\)</span>.</p>
 <p>Proposer un univers et une tribu sur cet univers pour modéliser cette situation.</p>
 <p>Votre univers est-il dénombrable ? fini ?</p>
 <p>On ne demande pas de définir une loi de probabilité, ni d’étudier des variables aléatoires.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On numérote les boules de <span class="math inline">\(1\)</span> à <span class="math inline">\(n\)</span> et l’on note l’urne choisie par chacune. On prend</p>
+<p><span class="math display">\[
+\Omega = \{1,\ldots,n\}^n, \qquad \mathcal{F} = 2^{\Omega}.
+\]</span></p>
+<p>L’élément <span class="math inline">\((\omega_1,\ldots,\omega_n)\)</span> signifie que la boule <span class="math inline">\(j\)</span> tombe dans l’urne <span class="math inline">\(\omega_j\)</span>. Alors <span class="math inline">\(U_i(\omega) = \sum_{j=1}^n \mathbf{1}_{\{\omega_j = i\}}\)</span>.</p>
+<p>L’ensemble <span class="math inline">\(\Omega\)</span> est fini, de cardinal <span class="math inline">\(n^n\)</span>, donc dénombrable.</p>
+</div>
+</div>
 </div>
 
 
