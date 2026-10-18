@@ -46,6 +46,8 @@ requireNamespace('quarto')
 
 ## Intégration 
 
+
+
 ::: {#exr-rudin-1-39 name="Nullité presque partout"}
 Soit $f$ une fonction mesurable  de $(\mathcal{X}, \mathcal{F}, \mu)$ dans $\mathbb{R}$. 
 
@@ -63,6 +65,20 @@ Soit $f$ une fonction mesurable  de $(\mathcal{X}, \mathcal{F}, \mu)$ dans $\mat
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+1. Si $f \ge 0$ et $t>0$, alors $\int f\,\mathrm{d}\mu \ge \int_{\{f \ge t\}} f\,\mathrm{d}\mu \ge t\,\mu\{f \ge t\}$.
+
+1. Pour chaque entier $n \ge 1$, la question précédente donne $\mu\{f \ge 1/n\} = 0$. Donc $\mu\{f > 0\} = \mu\bigl(\bigcup_n \{f \ge 1/n\}\bigr) = 0$, et $f = 0$ $\mu$-presque partout.
+
+1. Sur $E_+ = \{f \ge 0\}$, on a $\int_{E_+} f\,\mathrm{d}\mu = 0$ et $f \ge 0$, donc $f = 0$ $\mu$-presque partout sur $E_+$ d'après la question précédente. Sur $E_- = \{f < 0\}$, $\int_{E_-}(-f)\,\mathrm{d}\mu = 0$, donc $-f = 0$ $\mu$-presque partout sur $E_-$. Ainsi $f = 0$ $\mu$-presque partout.
+
+1. Si $\int f\,\mathrm{d}\mu \ge 0$, l'hypothèse s'écrit $\int(|f|-f)\,\mathrm{d}\mu = 0$. Comme $|f|-f \ge 0$, la question 2 donne $|f|=f$ $\mu$-presque partout, c'est-à-dire $f = 1\cdot|f|$. Si $\int f\,\mathrm{d}\mu < 0$, le même raisonnement appliqué à $-f$ donne $f = -|f|$ $\mu$-presque partout.
+
+:::
+:::
+
 ::: {#exr-fatou-1 name="À propos du théorème de Fatou"}
 
 <!-- Exercice 1.8 Rudin sur Lemme de Fatou -->
@@ -74,6 +90,16 @@ $f_n = \mathbb{I}_E$ si $n$ est pair, $f_n = \mathbb{I}_{E^c}$ si $n$ est impair
 
 :::
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+Pour tout $x$, la suite $(f_n(x))_n$ alterne entre $\mathbf{1}_E(x)$ et $\mathbf{1}_{E^c}(x)$, donc entre $0$ et $1$. Ainsi $\liminf_n f_n = 0$ partout, et $\int \liminf_n f_n\,\mathrm{d}\mu = 0$.
+
+Par ailleurs $\int f_n\,\mathrm{d}\mu$ vaut $\mu(E)$ si $n$ est pair et $\mu(E^c)$ si $n$ est impair. La limite inférieure de cette suite de nombres est $\min\bigl(\mu(E), \mu(E^c)\bigr)$.
+
+:::
+:::
 
 ::: {#exr-fatou-2 name="Application des théorèmes de convergence"}
 
@@ -90,6 +116,20 @@ $$\lim_n \int_X n \ln \left(  1 +\left(\frac{f}{n}\right)^\alpha \right) \mathrm
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+1. La quantité est positive. Pour $t = u/n \ge 0$ et $\alpha \ge 1$, la fonction $\psi(t) = \alpha t - \ln(1+t^\alpha)$ vérifie $\psi(0)=0$ et
+    $$\psi'(t) = \alpha\,\frac{1+t^\alpha-t^{\alpha-1}}{1+t^\alpha}.$$
+    Pour $t \in [0,1]$, $t^{\alpha-1} \le 1$, donc $1+t^\alpha-t^{\alpha-1} = 1-t^{\alpha-1}(1-t) \ge t \ge 0$. Pour $t>1$, $t^\alpha \ge t^{\alpha-1}$, donc le numérateur est au moins $1$. Ainsi $\psi' \ge 0$, $\psi \ge 0$, et $n\ln\bigl(1+(u/n)^\alpha\bigr) \le \alpha u$.
+
+1. Ponctuellement, $n\ln\bigl(1+(f/n)^\alpha\bigr)$ tend vers $f$ si $\alpha=1$, et vers $0$ si $\alpha>1$ : dans ce dernier cas, l'équivalent sur $\{f>0\}$ est $n^{1-\alpha}f^\alpha$. La domination par $\alpha f$, intégrable, et le théorème de convergence dominée donnent la limite $c$ si $\alpha=1$, et $0$ si $\alpha>1$.
+
+2. Si $\alpha<1$, l'équivalent $n^{1-\alpha}f^\alpha$ montre que l'intégrande tend vers $+\infty$ sur $\{f>0\}$. Comme $\int f = c > 0$, cet ensemble n'est pas $\mu$-négligeable, donc $\int \liminf_n n\ln\bigl(1+(f/n)^\alpha\bigr)\,\mathrm{d}\mu = \infty$. Le lemme de Fatou entraîne que la limite des intégrales vaut $\infty$.
+
+:::
+:::
+
 ::: {#exr-fatou-3 name="Application des théorèmes de convergence"}
 
 <!-- Exercice 1.7 Rudin sur Lemme de Fatou -->
@@ -105,6 +145,20 @@ $$\lim_{n \to \infty} \int_\Omega f_n \mathrm{d}\mu = \int_\Omega f \mathrm{d}\m
 
 :::
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+La suite $g_n = f_1 - f_n$ est positive et croît vers $f_1 - f$. Comme $0 \le f \le f_1$ et $f_1$ est intégrable, $f$ est intégrable. Le théorème de convergence monotone donne $\int g_n\,\mathrm{d}\mu \to \int(f_1-f)\,\mathrm{d}\mu$, c'est-à-dire
+
+$$
+\int f_1\,\mathrm{d}\mu - \int f_n\,\mathrm{d}\mu \to \int f_1\,\mathrm{d}\mu - \int f\,\mathrm{d}\mu.
+$$
+
+On en déduit $\int f_n\,\mathrm{d}\mu \to \int f\,\mathrm{d}\mu$.
+
+:::
+:::
 
 ::: {#exr-tcd-1 name="Dérivabilité sous le signe somme"}
 
@@ -124,6 +178,26 @@ $$F(t) = \int_\Omega f(x,t) \mathrm{d}\mu(x)$$
 est dérivable, et sa dérivée est donnée par
 $$F'(t) = \int_\Omega f'(x,t) \mathrm{d}\mu(x).$$
 
+:::
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+Fixons $t_0 \in I$. Pour $t \in I\setminus\{t_0\}$,
+
+$$
+\frac{F(t)-F(t_0)}{t-t_0} = \int_\Omega \frac{f(x,t)-f(x,t_0)}{t-t_0}\,\mathrm{d}\mu(x).
+$$
+
+Le quotient sous l'intégrale converge vers $f'(x,t_0)$ et reste borné par $g$, intégrable. Le théorème de convergence dominée donne
+
+$$
+F'(t_0) = \int_\Omega f'(x,t_0)\,\mathrm{d}\mu(x).
+$$
+
+En passant à la limite dans la domination, $|f'(x,t_0)| \le g(x)$, donc $f'(\cdot,t_0)$ est intégrable.
+
+:::
 :::
 
 
@@ -164,6 +238,20 @@ $$|R(f,S) - m| < \epsilon.$$
 
 :::
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+On se place sur un intervalle compact $[a,b]$, et l'on adopte la définition rappelée au-dessus.
+
+1. Une fonction continue sur $[a,b]$ y est uniformément continue et bornée. Soit $\varepsilon>0$ et $\delta>0$ tel que $|x-y|<\delta$ entraîne $|f(x)-f(y)|<\varepsilon/(b-a)$. Si $S$ et $S'$ ont un pas inférieur à $\delta$, on les compare sur la subdivision obtenue par réunion des points. Sur chaque petit intervalle, deux valeurs de $f$ diffèrent d'au plus $\varepsilon/(b-a)$, donc $|R(f,S)-R(f,S')|<\varepsilon$. Le critère de Cauchy montre que les sommes de Riemann convergent vers une limite $m$ lorsque le pas tend vers $0$ : $f$ est Riemann-intégrable.
+
+1. Soit $f$ Riemann-intégrable, d'intégrale $m$, et $|f|\le M$. Pour chaque $n$, on choisit une subdivision de pas assez petit pour que toute somme de Riemann en soit à moins de $1/n$. Les sommes de Darboux associées vérifient alors $m-1/n \le L_n \le U_n \le m+1/n$. Les fonctions en escalier $\varphi_n \le f \le \psi_n$ correspondantes satisfont $\int(\psi_n-\varphi_n)\le 2/n$. Une sous-suite de $\psi_n-\varphi_n$ tend vers $0$ presque partout, donc $f$ coïncide presque partout avec une limite de fonctions boréliennes : $f$ est Lebesgue-mesurable. Étant bornée sur un intervalle fini, elle est Lebesgue-intégrable. Les intégrales de $\varphi_n$ et $\psi_n$ tendent vers $m$ et encadrent l'intégrale de Lebesgue, qui vaut donc $m$.
+
+1. Oui. L'indicatrice des rationnels de $[0,1]$ n'est pas Riemann-intégrable : sur toute subdivision, la somme inférieure vaut $0$ et la somme supérieure vaut $1$. Elle est nulle presque partout, donc Lebesgue-intégrable, d'intégrale nulle.
+
+:::
+:::
+
 ::: {#exr-riemann-2 name="Sommes de Darboux"}
 
 Soit $[a,b]$ un intervalle fini et $f$ une fonction bornée sur $[a,b]$. On définit les sommes de Darboux associées à une subdivision $S$ $a = x_0 < x_1 < \ldots < x_n = b$ de $[a,b]$ par 
@@ -176,6 +264,24 @@ $$L(f,S) = \sum_{i=1}^n \inf_{x_{i-1} \leq x \leq x_i} f(x) (x_i - x_{i-1})$$
 Vérifier que $f$ est Riemann intégrable  sur $[a,b]$ si et seulement si
 $$\lim_{r \searrow 0} \sup_{S \text{ de pas} \leq r} U(f,S) = \lim_{r \searrow 0} \inf_{S \text{ de pas} \leq r} L(f,S)$$
 
+:::
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+On pose, pour $r>0$,
+
+$$
+\overline{I}(r) = \sup_{\mathrm{pas}(S)\le r} U(f,S), \qquad \underline{I}(r) = \inf_{\mathrm{pas}(S)\le r} L(f,S).
+$$
+
+Lorsque $r$ décroît, la famille de subdivisions rétrécit, donc $\overline{I}$ décroît et $\underline{I}$ croît. Comme $f$ est bornée, ces quantités sont finies, et les limites quand $r \searrow 0$ existent. On a toujours $L(f,S) \le R(f,S) \le U(f,S)$.
+
+Si $f$ est Riemann-intégrable d'intégrale $m$, soit $\varepsilon>0$ et $\delta$ associé. Pour $\mathrm{pas}(S)<\delta$ et $\eta>0$, on peut choisir les marques de sorte que $U(f,S)-\eta < R(f,S) \le U(f,S)$. Alors $U(f,S) < m+\varepsilon+\eta$. De même $L(f,S) > m-\varepsilon-\eta$. Donc $\overline{I}(r) \le m+\varepsilon$ et $\underline{I}(r) \ge m-\varepsilon$ pour $r<\delta$. Les deux limites valent $m$.
+
+Réciproquement, si les deux limites valent $\ell$, pour $\varepsilon>0$ et $r$ assez petit on a $\ell-\varepsilon < \underline{I}(r) \le \overline{I}(r) < \ell+\varepsilon$. Toute somme de Riemann d'une subdivision de pas au plus $r$ est donc à distance inférieure à $\varepsilon$ de $\ell$. La fonction $f$ est Riemann-intégrable, d'intégrale $\ell$.
+
+:::
 :::
 
 ::: {#exr-riemann-3 name="Intégrabilité au sens de Riemann"}
@@ -204,7 +310,29 @@ $$A_\epsilon = \left\{ x \in [a,b] : \operatorname{osc}(f,x) \geq \epsilon \righ
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
 
+On suppose $f$ bornée sur $[a,b]$, disons $|f|\le M$. La fonction $r \mapsto \operatorname{osc}(f,x,r)$ est croissante, donc la limite qui définit $\operatorname{osc}(f,x)$ existe dans $[0,\infty]$.
+
+1. Soit $(x_n)$ une suite de $A_\epsilon$ convergeant vers $x \in [a,b]$. Pour tout $r>0$ et $n$ assez grand, $|x_n-x|<r/2$. Comme $\operatorname{osc}(f,x_n)\ge\epsilon$, on a $\operatorname{osc}(f,x_n,r/2)\ge\epsilon$. Le voisinage de rayon $r/2$ autour de $x_n$ est contenu dans celui de rayon $r$ autour de $x$, donc $\operatorname{osc}(f,x,r)\ge\epsilon$. Ainsi $\operatorname{osc}(f,x)\ge\epsilon$ et $A_\epsilon$ est fermé.
+
+1. $A_\epsilon$ est un fermé borné de $\mathbb{R}$, donc compact.
+
+1. Si $f$ est continue en $x$, pour tout $\eta>0$ il existe $r>0$ tel que $|y-x|\le r$ entraîne $|f(y)-f(x)|<\eta/2$. Alors $\operatorname{osc}(f,x,r)\le\eta$, et $\operatorname{osc}(f,x)=0$. Réciproquement, si $\operatorname{osc}(f,x)=0$, pour tout $\eta>0$ il existe $r>0$ tel que $\operatorname{osc}(f,x,r)<\eta$, donc $|f(y)-f(x)|<\eta$ dès que $|y-x|\le r$.
+
+1. Le point $x$ est une discontinuité si et seulement si $\operatorname{osc}(f,x)>0$, c'est-à-dire s'il existe $\epsilon>0$ tel que $x\in A_\epsilon$. L'ensemble des discontinuités est $\bigcup_{\epsilon>0} A_\epsilon$.
+
+1. Soit $\eta>0$. L'ensemble $A_\eta$ est inclus dans l'ensemble des discontinuités, donc négligeable : on le recouvre par des intervalles ouverts de longueur totale $\delta>0$ arbitrairement petite. Sur le complémentaire compact $K\subset[a,b]$, $\operatorname{osc}(f,\cdot)<\eta$. On en extrait un recouvrement fini par des intervalles où l'oscillation de $f$ est inférieure à $\eta$. Avec les extrémités de ce recouvrement et celles du recouvrement de $A_\eta$, on construit une subdivision $P$ telle que
+    $$U(f,P)-L(f,P) \le \eta(b-a)+2M\delta.$$
+    Soit maintenant $Q$ une subdivision de pas inférieur à $\gamma$, et $N$ le nombre de points de $P$. Les intervalles de $Q$ qui contiennent un point de $P$ ont une longueur totale au plus $N\gamma$ ; sur les autres, l'oscillation est majorée par celle de l'intervalle de $P$ qui les contient. Donc
+    $$U(f,Q)-L(f,Q) \le U(f,P)-L(f,P)+2MN\gamma.$$
+    En choisissant $\eta$, $\delta$ puis $\gamma$ petits, toute subdivision assez fine vérifie $U-L$ arbitrairement petit. Les deux limites de l'exercice précédent coïncident, et $f$ est Riemann-intégrable.
+
+1. Soit $f$ Riemann-intégrable et $\epsilon>0$, $\delta>0$. D'après l'exercice précédent, il existe une subdivision $S$ telle que $U(f,S)-L(f,S)<\epsilon\delta$. Sur un intervalle de $S$ qui rencontre l'intérieur de $A_\epsilon$, on a $\sup f-\inf f\ge\epsilon$. La longueur totale de ces intervalles est donc inférieure à $\delta$. En les élargissant légèrement en intervalles ouverts, et en couvrant les nœuds de $S$ (ensemble fini) par de petits intervalles ouverts, on obtient un recouvrement ouvert de $A_\epsilon$ de longueur totale inférieure à $\delta$. La mesure de Lebesgue de $A_\epsilon$ est nulle.
+
+:::
+:::
 
 ::: {.callout-note name="`A retenir" appearance="minimal"}
 
@@ -231,6 +359,20 @@ i. La loi de $Z$ possède-t-elle une espérance finie?
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+i. On prend $\Omega = \mathbb{N} \times [1,\infty)^{\mathbb{N}}$, muni de la tribu produit, et de la probabilité $P = \mathrm{Poisson}(\mu) \otimes P_X^{\otimes \mathbb{N}}$, où $P_X$ est la loi de Pareto de l'énoncé. On pose $N(\omega)=\omega_0$ et $X_i(\omega)=\omega_i$. Alors $Z = z$ si $N=0$, et $Z = \max_{1 \le i \le N} X_i$ sinon.
+
+i. Pour $t < z$, $P(Z \le t) = 0$. Pour $z \le t < 1$, $Z \le t$ si et seulement si $N=0$, car $N \ge 1$ entraîne $Z \ge 1$. Donc $P(Z \le t) = \mathrm{e}^{-\mu}$. Pour $t \ge 1$, conditionner par $N$ donne
+    $$P(Z \le t) = \sum_{k=0}^{\infty} \mathrm{e}^{-\mu}\frac{\mu^k}{k!}\bigl(1-t^{-\alpha}\bigr)^k = \exp\bigl(-\mu t^{-\alpha}\bigr).$$
+    La fonction de répartition saute de $0$ à $\mathrm{e}^{-\mu}$ en $z$ : elle n'est pas continue sur $\mathbb{R}$. La loi de $Z$ charge $\{z\}$ avec la masse $\mathrm{e}^{-\mu}$, elle n'est pas diffuse.
+
+i. On écrit $\mathbb{E}[Z] = \int_0^{\infty} P(Z>t)\,\mathrm{d}t$. Les contributions de $[0,1]$ sont finies. Pour $t \ge 1$, $P(Z>t) = 1-\exp(-\mu t^{-\alpha}) \sim \mu t^{-\alpha}$. L'intégrale $\int_1^{\infty} t^{-\alpha}\,\mathrm{d}t$ converge si et seulement si $\alpha>1$. Donc $\mathbb{E}[Z]$ est finie si et seulement si $\alpha>1$.
+
+:::
+:::
+
 ::: {#exr-transformee-laplace name="Quelques caractérisations classiques"}
 
 Pour des valeurs de $t$ que l'on précisera, calculer la transformée de Laplace $L(t) := \mathbb{E}[\exp(-t X)]$ et la fonction génératrice des moments $G(u) := \mathbb{E}[u^X]$ de la variable $X$ dans les cas suivants. 
@@ -244,9 +386,10 @@ Pour des valeurs de $t$ que l'on précisera, calculer la transformée de Laplace
 :::
 
 
+
 ::: {.content-visible when-profile="solution"}
  
-::: {.callout-note title="Solution"}
+::: {.callout-note title="Solution"  appearance="minimal"}
 
 1. $G(u) = 1-p + pu, u \in \mathbb{R}$, $L(t) = (1-p) + p \exp(-t) = G(\exp(-t)), t \in \mathbb{R}$.
 1. $G(u) = (1-p + pu)^n, u \in \mathbb{R}$, $L(t)= G(\exp(-t)), t \in \mathbb{R}$
@@ -257,6 +400,8 @@ Pour des valeurs de $t$ que l'on précisera, calculer la transformée de Laplace
 :::
 
 :::
+
+
 
 
 ::: {#exr-negbin  name="Binomiale négative"}
@@ -281,9 +426,35 @@ a. Calculer $\mathbb{E} T_n$
 :::
 
 
-::: {#exr-11  name="Partiel passé"}
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution" appearance="minimal"}
+
+Les épreuves sont indexées par $\mathbb{N}^* = \{1,2,\ldots\}$.
+
+a. Pour $k \in \mathbb{N}$, $\{T_1 > k\} = \{X_1=\cdots=X_k=0\}$ est mesurable, donc $T_1$ est une variable aléatoire à valeurs dans $\mathbb{N}^*\cup\{\infty\}$. De même, $\{T_n \le k\} = \bigl\{\sum_{i=1}^k X_i \ge n\bigr\}$, donc $T_n$ est mesurable. De plus $P(T_n=\infty)=0$.
+
+a. Pour $k \in \mathbb{N}$, $P\{T_1 > k\} = (1-p)^k$.
+
+a. Pour $k \ge 1$, $P\{T_1 = k\} = P\{T_1 > k-1\} - P\{T_1 > k\} = p(1-p)^{k-1}$. Pour $k=0$, cette probabilité est nulle.
+
+a. $\mathbb{E}[T_1] = \sum_{k=0}^{\infty} P\{T_1 > k\} = \sum_{k=0}^{\infty}(1-p)^k = 1/p$.
+
+a. Pour $k \ge 1$ et $j \ge 1$, le premier succès a lieu à l'instant $k$ et le suivant $j$ épreuves plus tard :
+    $$P\{T_1=k,\ T_2=k+j\} = p(1-p)^{k-1}\,p(1-p)^{j-1}.$$
+    La probabilité est nulle si $k=0$ ou $j=0$.
+
+a. Pour $k \ge 2$, il faut exactement un succès parmi les $k-1$ premières épreuves, puis un succès à l'instant $k$ :
+    $$P\{T_2=k\} = (k-1)\,p^2(1-p)^{k-2}.$$
+    Cette probabilité est nulle pour $k \in \{0,1\}$.
+
+a. L'accroissement $T_2-T_1$ est indépendant de $T_1$ et de même loi (la suite des épreuves après $T_1$ est une copie de la suite initiale). Donc $\mathbb{E}[T_2] = 2/p$.
+
+a. Les accroissements $T_1, T_2-T_1, \ldots, T_n-T_{n-1}$ sont i.i.d. de loi géométrique d'espérance $1/p$. Donc $\mathbb{E}[T_n] = n/p$.
 
 :::
+:::
+
+::: {#exr-11  name="Partiel passé"}
 
 On considère le couple $(X,Z)$ de densité jointe
 $$ f(x,z) := (z-x)\exp(-z) \mathbf{1}_{\{z \ge x \ge 0\}}.$$
@@ -296,9 +467,11 @@ $$ f(x,z) := (z-x)\exp(-z) \mathbf{1}_{\{z \ge x \ge 0\}}.$$
 <!-- 1. Calculer $f_{Z \mid X}(z \mid x)$, puis démontrer que $\mathbb{E}[Z \mid X] = X + 2$. --> -->
 1. Quelle est la loi du couple $(X, Z-X)$? En déduire la loi de $Z-X$.
 
+:::
+
 ::: {.content-visible when-profile="solution"}
 
-::: {.callout-note}
+::: {.callout-note appearance="minimal"}
 
 ### Solution
 
@@ -327,7 +500,7 @@ et on conclut que $Z \sim \Gamma(2,1)$.
 :::
 
 
-::: {.callout-note}
+::: {.callout-note appearance="minimal"}
 
 ### Solution (suite)
 
@@ -362,7 +535,7 @@ et on conclut que $Z \sim \Gamma(2,1)$.
  
 :::
 
-::: {.callout-note}
+::: {.callout-note appearance="minimal"}
 
 ### Solution (suite)
 
@@ -417,7 +590,7 @@ Déterminer la loi de $(X_1,S)$.
 
 ::: {.content-visible when-profile="solution"}
  
-::: {.callout-note}
+::: {.callout-note appearance="minimal"}
 
 ### Solution
 
@@ -439,7 +612,7 @@ Déterminer la loi de $(X_1,S)$.
 
 :::
 
-::: {.callout-note}
+::: {.callout-note appearance="minimal"}
 
 ### Solution (suite)
 
@@ -461,7 +634,7 @@ Déterminer la loi de $(X_1,S)$.
 
 :::
 
-::: {.callout-note}
+::: {.callout-note appearance="minimal"}
 
 ### Solution (suite)
 
@@ -496,12 +669,14 @@ Comme $(U_1^S,U_2^S)$ jouent, conditionnellement à $S$, des rôles parfaitement
 
 :::
 
-::: {.callout-note name="Rappel"}
+::: {.callout-note name="Rappel" appearance="minimal"}
 
 Rappel: *La loi exponentielle de paramètre d'intensité $\lambda>0$ a pour densité $x \mapsto \mathbb{I}_{x>0} \lambda \exp(-\lambda x)$.*
 
 
 :::
+
+
 
 ::: {#exr-5-a   name="Marshall-Olkin"} 
 

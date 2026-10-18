@@ -56,6 +56,18 @@ que $y \mapsto \mu(E^y)$ est $\mathcal{B}$-mesurable.
 
 :::
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+On suppose $\mu$ et $\nu$ $\sigma$-finies. On traite $x \mapsto \nu(E_x)$ ; l'autre fonction s'obtient en échangeant les facteurs.
+
+Supposons d'abord $\nu$ finie. Soit $\mathcal{C}$ l'ensemble des $E \in \sigma(\mathcal{A}\times\mathcal{B})$ tels que $x \mapsto \nu(E_x)$ est $\mathcal{A}$-mesurable. Pour un pavé $A\times B$, $\nu(E_x) = \nu(B)\mathbf{1}_A(x)$, qui est mesurable. La classe $\mathcal{C}$ est une $\lambda$-classe : elle contient $\Omega_1\times\Omega_2$ ; si $E\subset F$ sont dans $\mathcal{C}$, la finitude de $\nu$ donne $\nu((F\setminus E)_x) = \nu(F_x)-\nu(E_x)$ ; si $E_n\uparrow E$, alors $\nu((E_n)_x)\uparrow\nu(E_x)$. Les pavés mesurables forment un $\pi$-système. Le théorème de Dynkin donne $\mathcal{C} = \sigma(\mathcal{A}\times\mathcal{B})$.
+
+Si $\nu$ est seulement $\sigma$-finie, on écrit $\Omega_2 = \bigsqcup_k B_k$ avec $\nu(B_k)<\infty$. Alors $\nu(E_x) = \sum_k \nu(E_x\cap B_k)$, et chaque terme est mesurable d'après le cas fini appliqué à $\nu(\,\cdot\,\cap B_k)$.
+
+:::
+:::
+
 ::: {#exr-mesure-produit-1 name="Mesure produit"}
 
 
@@ -73,6 +85,26 @@ Discuter l'unicité de la mesure produit.
 
 :::
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+On suppose $\mu$ et $\nu$ $\sigma$-finies. D'après l'exercice précédent, pour $E\in\sigma(\mathcal{A}\times\mathcal{B})$ la fonction $x\mapsto\nu(E_x)$ est mesurable. On pose
+
+$$
+\rho(E) = \int_{\Omega_1} \nu(E_x)\,\mathrm{d}\mu(x) \in [0,\infty].
+$$
+
+C'est une mesure. En effet $\rho(\emptyset)=0$, et si les $E_n$ sont disjoints, les sections $(E_n)_x$ le sont, donc $\nu\bigl((\bigsqcup_n E_n)_x\bigr) = \sum_n \nu((E_n)_x)$. Le théorème de convergence monotone donne $\rho(\bigsqcup_n E_n) = \sum_n \rho(E_n)$.
+
+Sur un pavé, $\nu((A\times B)_x) = \nu(B)\mathbf{1}_A(x)$, donc $\rho(A\times B) = \mu(A)\nu(B)$. La formule prolonge donc la fonction de l'énoncé.
+
+Cette mesure est unique. Deux mesures $\sigma$-finies qui coïncident sur le $\pi$-système des pavés mesurables coïncident sur la tribu engendrée. On écrit $\Omega_1\times\Omega_2$ comme réunion croissante de pavés de mesure finie, puis, sur chacun, le théorème de Dynkin s'applique à la classe $\{E : \rho_1(E)=\rho_2(E)\}$.
+
+Sans $\sigma$-finitude, l'unicité peut échouer. Sur $[0,1]$, soient $\lambda$ la mesure de Lebesgue et $\nu$ la mesure de comptage, et $D$ la diagonale. Alors $\int \nu(D_x)\,\mathrm{d}\lambda = 1$, tandis que $\int \lambda(D^y)\,\mathrm{d}\nu = 0$.
+
+:::
+:::
+
 ::: {#exr-mesure-produit-2 name="Mesure de Lebesgue sur $\mathbb{R}^2$"}
 
 Noter $\lambda_2$ la mesure de Lebesgue sur $\mathbb{R}^2$, $\lambda_1$ la mesure de Lebesgue sur $\mathbb{R}$.
@@ -81,6 +113,14 @@ Montrer que $\lambda_2 = \lambda_1 \times \lambda_1$ (la mesure de Lebesgue sur 
 
 :::
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+Les mesures $\lambda_2$ et $\lambda_1\otimes\lambda_1$ sont $\sigma$-finies sur $\mathcal{B}(\mathbb{R}^2)$. Sur un pavé $(a,b]\times(c,d]$, les deux valent $(b-a)(d-c)$. Ces pavés forment un $\pi$-système qui engendre $\mathcal{B}(\mathbb{R}^2)$. Par unicité de la mesure produit, $\lambda_2 = \lambda_1\times\lambda_1$.
+
+:::
+:::
 
 ::: {#exr-mesure-produit-3 name="Mesure de Lebesgue sur $\mathbb{R}^d$"}
 
@@ -91,6 +131,24 @@ Vérifier que que tout hyperplan de $\mathbb{R}^d$ (sous-ensemble défini par $\
 
 ## Théorème de Fubini
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+Quitte à renuméroter les coordonnées, on suppose $a_d \neq 0$. La mesure de Lebesgue $\lambda_d$ est le produit $\lambda_{d-1}\otimes\lambda_1$. Pour $x'\in\mathbb{R}^{d-1}$, la section
+
+$$
+H_{x'} = \Bigl\{ x_d : \sum_{i=1}^{d-1} a_i x'_i + a_d x_d = c \Bigr\}
+$$
+
+est un singleton, donc $\lambda_1(H_{x'})=0$. Le théorème de Fubini donne
+
+$$
+\lambda_d(H) = \int_{\mathbb{R}^{d-1}} \lambda_1(H_{x'})\,\mathrm{d}\lambda_{d-1}(x') = 0.
+$$
+
+:::
+:::
 
 ::: {#exr-fubini-1 name=""}
 
@@ -103,6 +161,18 @@ $$P\{ X= Y\} =0 \enspace .$$
 
 
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+Les lois $P_X$ et $P_Y$ sont diffuses. Par indépendance, la loi de $(X,Y)$ est $P_X\otimes P_Y$. La diagonale a pour section en $x$ le singleton $\{x\}$, donc
+
+$$
+P\{X=Y\} = \int_{\mathbb{R}} P_Y(\{x\})\,\mathrm{d}P_X(x) = 0.
+$$
+
+:::
+:::
 
 ::: {#exr-fubini-3 name="Convolution"}
 
@@ -119,7 +189,33 @@ $$f \star g (x) = \int_{\mathbb{R}}  f(y) g(x-y) \mathrm{d}\mu(y)$$
 :::
 
 
+
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+La question 2 est l'invariance par translation. Elle caractérise la mesure de Lebesgue parmi les mesures $\sigma$-finies sur $\mathbb{R}$ : on la démontre pour $\mu=\lambda$.
+
+1. L'application $y\mapsto x-y$ est continue, donc borélienne. La composée $y\mapsto g(x-y)$ est borélienne, ainsi que son produit par $f$.
+
+1. Pour $g=\mathbf{1}_B$ et $B$ borélien, $\int |g(x-y)|\,\mathrm{d}x = \lambda(B+y)=\lambda(B)$. L'identité s'étend aux fonctions étagées positives, puis, par convergence monotone, aux fonctions mesurables positives, donc à $|g|$.
+
+1. L'application $(x,y)\mapsto |f(y)g(x-y)|$ est borélienne sur $\mathbb{R}^2$. Pour une fonction positive, le théorème de Tonelli assure que $x\mapsto \int |f(y)g(x-y)|\,\mathrm{d}y$ est borélienne à valeurs dans $[0,\infty]$.
+
+1. On a $|f\star g(x)| \le \int |f(y)g(x-y)|\,\mathrm{d}y$. En intégrant et en appliquant Tonelli,
+
+\begin{align*}
+\int |f\star g(x)|\,\mathrm{d}x
+& \le \int\int |f(y)|\,|g(x-y)|\,\mathrm{d}y\,\mathrm{d}x \\
+& = \int |f(y)|\Bigl(\int |g(x-y)|\,\mathrm{d}x\Bigr)\mathrm{d}y \\
+& = \Bigl(\int |f|\Bigr)\Bigl(\int |g|\Bigr).
+\end{align*}
+
+:::
+:::
+
 ## Divers 
+
 
 ::: {#exr-concentration   name="Espaces produits de grande dimension"}
 
@@ -137,3 +233,14 @@ Montrer que pour tout $\varepsilon \in (0,1)$, la mesure de Lebesgue de $C_n \ca
 
 
 :::
+
+
+::::::  {.content-visible when-profile="solution"}
+
+::: {.callout-note title="Solution" appearance="minimal"}
+
+TODO
+
+:::
+
+::::::

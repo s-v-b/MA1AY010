@@ -42,12 +42,24 @@ requireNamespace('quarto')
 
 ## Détails
 
+
+
 ::: {#exr-mesure-positives name="Condition non-triviale"}
 
 Dans la définition d'une mesure $\mu$ sur $(X, \mathcal{A})$, peut-on se passer de la condition $$\mu(\emptyset) = 0$$ ?
 
 :::
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+Pas entièrement. Pour toute partie $A$, on a la réunion disjointe $A = A \cup \emptyset \cup \emptyset \cup \cdots$. La $\sigma$-additivité donne $\mu(A) = \mu(A) + \sum_{n\ge 1} \mu(\emptyset)$.
+
+Si un ensemble a une mesure finie, cette égalité force $\mu(\emptyset)=0$. La seule fonction $\sigma$-additive à valeurs dans $[0,\infty]$ qui ne vérifie pas $\mu(\emptyset)=0$ est la fonction identiquement égale à $\infty$. La condition $\mu(\emptyset)=0$ écarte ce cas.
+
+:::
+:::
 
 ::: {#exr-mesure-positives-2 name="Mesures positives étranges"}
 
@@ -57,7 +69,17 @@ $\mu$ est-elle $\sigma$-additive ? Est-ce une mesure ?
 
 :::
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+Oui. Soit $(A_n)$ une suite de parties disjointes. Si tous les $A_n$ sont vides, la réunion est vide et $\sum_n \mu(A_n) = 0 = \mu(\emptyset)$. Sinon, la réunion est non vide, donc de mesure $\infty$, et la somme des mesures vaut $\infty$. La fonction $\mu$ est $\sigma$-additive, et $\mu(\emptyset)=0$ : c'est une mesure sur $(X, 2^X)$. Elle n'est pas $\sigma$-finie dès que $X$ est non vide.
+
+:::
+:::
+
 ## Mesures positives
+
+
 
 ::: {#exr-mesure-comptage name="Mesure de comptage"}
 
@@ -69,7 +91,17 @@ $\mu$ est-elle $\sigma$-additive ? Est-ce une mesure ?
 
 :::
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
 
+1. Oui. Le cardinal d'une réunion disjointe est la somme des cardinaux, dans $[0,\infty]$. C'est la mesure de comptage sur $(\mathbb{N}, 2^{\mathbb{N}})$.
+1. L'ensemble $A_n$ des multiples de $n$ est infini, donc $|A_n|=\infty$.
+1. L'ensemble $B_k$ est l'ensemble des multiples de $P_k = p_1\cdots p_k$. Il est infini, donc $|B_k|=\infty$.
+1. Un entier non nul n'a qu'un nombre fini de facteurs premiers, donc n'appartient pas à tous les $B_k$. Si $0\in\mathbb{N}$, alors $0$ est multiple de chaque $p_j$ et $\bigcap_k B_k = \{0\}$. Sinon l'intersection est vide.
+1. Non. La suite $(B_k)$ est décroissante, de limite l'intersection, de cardinal $0$ ou $1$. En revanche $\lim_k |B_k| = \infty$.
+
+:::
+:::
 
 <!-- ## Probabilités -->
 
@@ -83,6 +115,7 @@ $\mu$ est-elle $\sigma$-additive ? Est-ce une mesure ?
 Dans cette sous-section $(X, \mathcal{A})$ est un espace mesurable ($\mathcal{A}$ est une tribu de parties de $X$).
 
 
+
 ::: {#exr-sigma-1 name="Sommes de mesures"}
 
 
@@ -92,6 +125,20 @@ On définit $\mu(A) = \sum_n \mu_n(A)$ pour $A \in \mathcal{A}$
  
 1. $\mu$ est-elle une mesure sur   $(X, \mathcal{A})$ ?
 
+:::
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+Oui. On a $\mu(\emptyset) = \sum_n \mu_n(\emptyset) = 0$. Si $(A_k)$ est une suite de parties mesurables disjointes,
+
+$$
+\mu\Bigl(\bigcup_k A_k\Bigr) = \sum_n \mu_n\Bigl(\bigcup_k A_k\Bigr) = \sum_n \sum_k \mu_n(A_k) = \sum_k \sum_n \mu_n(A_k) = \sum_k \mu(A_k).
+$$
+
+L'échange des sommes est licite : les termes sont positifs.
+
+:::
 :::
 
 ::: {#exr-sigma-2 name="Suites croissantes de mesures"}
@@ -108,6 +155,24 @@ On définit $\mu(A) =\lim_n \mu_n(A)$ pour $A \in \mathcal{A}$.
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+1. Pour chaque $A$, la suite $(\mu_n(A))_n$ est croissante dans $[0,\infty]$, donc $\mu(A)=\lim_n \mu_n(A)$ existe dans $[0,\infty]$.
+1. Oui. D'abord $\mu(\emptyset)=\lim_n 0 = 0$. Soit $(A_k)$ une suite disjointe de parties mesurables. Pour chaque $N$,
+    $$
+    \mu\Bigl(\bigcup_{k=1}^N A_k\Bigr) = \lim_n \sum_{k=1}^N \mu_n(A_k) = \sum_{k=1}^N \mu(A_k).
+    $$
+    Les réunions partielles croissent vers $\bigcup_{k\ge 1} A_k$. Pour une suite croissante $B_m\uparrow B$,
+    $$
+    \mu(B) = \lim_n \mu_n(B) = \lim_n \lim_m \mu_n(B_m) = \lim_m \lim_n \mu_n(B_m) = \lim_m \mu(B_m),
+    $$
+    car $(n,m)\mapsto \mu_n(B_m)$ est croissante en chaque indice. En appliquant ceci aux réunions partielles, on obtient la $\sigma$-additivité de $\mu$.
+
+:::
+:::
+
+
 <!-- ::: {#exr-sigma-3 name="Sommes de Dirac"}
 
 Dans cet exercice $\delta_x$ désigne la mesure de Dirac en $x \in \mathcal{R}$.
@@ -119,6 +184,8 @@ $$\delta_x(A) = \mathbb{I}_A(x) = \begin{cases} 1 & \text{si } x \in A \\ 0 & \t
 
 ::: -->
 
+
+
 ::: {#exr-completion name="Complétion de mesure"}
 
 Dans cet exercice $\mu$ est une mesure positive sur $\Omega, \mathcal{F}$. On souhaite étendre $\mu$ à des parties de $\Omega$ qui ne sont pas nécessairement dans $\mathcal{F}$.   
@@ -126,13 +193,40 @@ Dans cet exercice $\mu$ est une mesure positive sur $\Omega, \mathcal{F}$. On so
 Si il existe $A_1, B_1$ tels que $A_1 ⊆ E ⊆ B_1$ avec $A_1, B_1 ∈ \mathcal{F}$  et $\mu(B_1 ⧵ A_1)=0$ alors $\mu(E) =\mu(A_1)$ par convention. 
 
 1. Vérifier que cette définition n'aboutit pas à des contradictions.
-1. Définir $\mathcal{G}$ l'ensemble des parties de ${X}$  pour lesquelles $\mu$ est définie. Vérifier que $\mathcal{G}$ est une tribu.
-1. Vérifier que $\mu$ est une mesure sur $\mathcal{G}$. 
+2. Définir $\mathcal{G}$ l'ensemble des parties de ${X}$  pour lesquelles $\mu$ est définie. Vérifier que $\mathcal{G}$ est une tribu.
+3. Vérifier que $\mu$ est une mesure sur $\mathcal{G}$. 
 
 <!-- Théorème 1.36 dans Rudin. Real and Complex Analysis -->
 
 
 :::
+
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+On note $(\Omega, \mathcal{F})$ l'espace mesurable de l'énoncé. On dit que $E\subset\Omega$ est encadré s'il existe $A,B\in\mathcal{F}$ avec $A\subset E\subset B$ et $\mu(B\setminus A)=0$. On pose alors $\mu(E)=\mu(A)$.
+
+1. Si $A_1\subset E\subset B_1$ et $A_2\subset E\subset B_2$ sont deux encadrements, alors $A_1\cup A_2 \subset E \subset B_1\cap B_2$ et
+    $$
+    \mu(B_1\cap B_2) - \mu(A_1\cup A_2) \le \mu(B_1\setminus A_1)+\mu(B_2\setminus A_2)=0.
+    $$
+    Donc $\mu(A_1)=\mu(A_1\cup A_2)=\mu(B_1\cap B_2)=\mu(A_2)$. La valeur ne dépend pas de l'encadrement.
+
+1. Soit $\mathcal{G}$ l'ensemble des parties encadrées. Si $A\subset E\subset B$, alors $B^c\subset E^c\subset A^c$ et $A^c\setminus B^c = B\setminus A$, de mesure nulle : $\mathcal{G}$ est stable par complémentation. Si $A_n\subset E_n\subset B_n$, alors $\bigcup A_n \subset \bigcup E_n \subset \bigcup B_n$ et
+    $$
+    \bigcup B_n \setminus \bigcup A_n \subset \bigcup_n (B_n\setminus A_n),
+    $$
+    de mesure nulle. Enfin $\emptyset\subset\emptyset\subset\emptyset$. Ainsi $\mathcal{G}$ est une tribu, et elle contient $\mathcal{F}$.
+
+1. Les ensembles $E_n\in\mathcal{G}$ étant disjoints, des ensembles mesurables $A_n\subset E_n$ le sont aussi. Alors $\bigcup A_n \subset \bigcup E_n \subset \bigcup B_n$ est un encadrement, et
+    $$
+    \mu\Bigl(\bigcup_n E_n\Bigr) = \mu\Bigl(\bigcup_n A_n\Bigr) = \sum_n \mu(A_n) = \sum_n \mu(E_n).
+    $$
+
+:::
+:::
+
 
 # Fonctions mesurables
 
@@ -143,6 +237,8 @@ Si il existe $A_1, B_1$ tels que $A_1 ⊆ E ⊆ B_1$ avec $A_1, B_1 ∈ \mathcal
 
 
 <!-- 
+
+
 ::: {#exr-fontions-mesurables-1 name="Composition de fonctions mesurables"}
 
 Soit $(X, \mathcal{A})$, $(Y, \mathcal{B})$ et $(Z, \mathcal{C})$ des espaces mesurables, $f: X \to Y$ et $g: Y \to Z$ des fonctions   $\mathcal{A}/\mathcal{B}$ et  $\mathcal{B}/\mathcal{C}$ mesurables.
@@ -161,12 +257,42 @@ Vérifier que $\alpha f + \beta g$ est $\mathcal{A}/\mathcal{B}$ mesurable.
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+L'énoncé n'a de sens que si les valeurs se somment. On prend $Y=\mathbb{R}$ et $\mathcal{B}=\mathcal{B}(\mathbb{R})$.
+
+Si $\alpha>0$, $\{\alpha f < t\} = \{f < t/\alpha\}$. Si $\alpha<0$, l'inégalité se renverse. Si $\alpha=0$, l'ensemble est $\emptyset$ ou $X$. Donc $\alpha f$ est mesurable, de même que $\beta g$.
+
+Pour la somme,
+$$
+\{f+g < t\} = \bigcup_{q\in\mathbb{Q}} \bigl(\{f<q\}\cap\{g<t-q\}\bigr),
+$$
+réunion dénombrable d'ensembles mesurables. Donc $f+g$, puis $\alpha f+\beta g$, sont mesurables.
+
+:::
+:::
+
 ::: {#exr-fontions-mesurables-3 name="Produit de fonctions mesurables"}
 
 Soit $(X, \mathcal{A})$ et $(Y, \mathcal{B})$ des espaces mesurables, $f$, $g$ deux fonctions $\mathcal{A}/\mathcal{B}$ mesurables.
 
 Vérifier que $f \cdot g$ est $\mathcal{A}/\mathcal{B}$ mesurable.
 
+:::
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+On prend encore $Y=\mathbb{R}$ et $\mathcal{B}=\mathcal{B}(\mathbb{R})$. La fonction $\varphi(u)=u^2$ est continue, donc $\{f^2 < t\} = f^{-1}((-\sqrt{t},\sqrt{t}))$ pour $t>0$ est mesurable, et $f^2$ est mesurable. D'après l'exercice précédent, $f+g$ et $f-g$ le sont, ainsi que leurs carrés. L'identité
+
+$$
+fg = \frac14\bigl((f+g)^2 - (f-g)^2\bigr)
+$$
+
+montre que $fg$ est mesurable.
+
+:::
 :::
 
 ::: {#exr-fontions-mesurables-4 name="Limite simples de fonctions mesurables"}
@@ -179,7 +305,24 @@ Vérifier que $f$ est $\mathcal{A}/\mathcal{B}$ mesurable.
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+On prend $Y=\mathbb{R}$ et $\mathcal{B}=\mathcal{B}(\mathbb{R})$. Pour une suite de fonctions mesurables, $\{\sup_n f_n > a\} = \bigcup_n \{f_n > a\}$ est mesurable, donc $\sup_n f_n$ est mesurable. Il en va de même de $\inf_n f_n = -\sup_n(-f_n)$, puis de
+
+$$
+f = \limsup_{n\to\infty} f_n = \inf_{n} \sup_{k\ge n} f_k.
+$$
+
+La limite simple d'une suite de fonctions mesurables à valeurs réelles est mesurable.
+
+:::
+:::
+
+
 ## Mesures image 
+
+
 
 
 ::: {#exr-image-1 name="Transformation affine"}
@@ -198,6 +341,28 @@ i. Si oui, exprimer cette densité en fonction de $f, a, b$.
 
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+On suppose $a>0$. Pour tout borélien $B$,
+
+$$
+P(aX+b \in B) = P\Bigl(X \in \frac{B-b}{a}\Bigr) = \int_{(B-b)/a} f(x)\,\mathrm{d}x.
+$$
+
+Le changement de variable $y = ax+b$ a pour jacobien $1/a$, donc
+
+$$
+P(aX+b \in B) = \int_B \frac1a f\Bigl(\frac{y-b}{a}\Bigr)\,\mathrm{d}y.
+$$
+
+La loi de $aX+b$ est absolument continue, de densité $y\mapsto a^{-1} f((y-b)/a)$.
+
+Si $a=0$, la loi est la masse de Dirac en $b$, qui n'admet pas de densité par rapport à la mesure de Lebesgue.
+
+:::
+:::
+
 ::: {#exr-image-2  name="CC1 2025"} 
 
 Soit $X \sim \mathrm{U}(-\pi/2,\pi/2)$ (loi uniforme sur $[-\pi/2,\pi/2]$), on définit $Y =\cos(X)$.
@@ -207,9 +372,32 @@ i. Si oui, déterminer une version de sa densité.
 
 :::
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+La variable $X$ a pour densité $1/\pi$ sur $[-\pi/2, \pi/2]$. L'application $\cos$ envoie cet intervalle sur $[0,1]$. Pour $y\in(0,1)$,
+
+$$
+P(Y \le y) = P\bigl(|X| \ge \arccos y\bigr) = 1 - \frac{2}{\pi}\arccos y.
+$$
+
+Cette fonction de répartition est absolument continue sur $\mathbb{R}$ (elle est constante hors de $[0,1]$). Sa dérivée
+
+$$
+y \mapsto \frac{2}{\pi\sqrt{1-y^2}}\mathbf{1}_{(0,1)}(y)
+$$
+
+est une densité de $Y$. Elle est intégrable : $\int_0^1 (1-y^2)^{-1/2}\,\mathrm{d}y = \pi/2$.
+
+:::
+:::
+
+
 {{< pagebreak >}}
 
 # Ensemble-mesure de Cantor
+
 
 ::: {#exr-cantor-1   name="Ensemble et mesure de Cantor"} 
 
@@ -265,9 +453,59 @@ On s'intéresse maintenant à la limite quand $n \to \infty$.
 
 :::
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+La récursion fait appel à $C_0$, qui n'est pas défini. On prend $C_0=[0,1]$, ce qui donne la construction usuelle de l'ensemble de Cantor triadique : $C_n$ est la réunion de $2^n$ intervalles fermés de longueur $3^{-n}$.
+
+(@) Chaque $C_n$ est une réunion finie de fermés, donc fermé, borélien, et d'intérieur non vide. Ce n'est pas un ouvert de $\mathbb{R}$.
+
+(@) L'ensemble $C=\bigcap_n C_n$ est une intersection de fermés, donc fermé et borélien. Son intérieur est vide, comme on le voit plus bas : ce n'est pas un ouvert.
+
+(@) Les $C_n$ sont des compacts emboîtés non vides, donc $C$ est non vide. Les extrémités des intervalles de construction, par exemple $0$, $1$, $1/3$, $2/3$, appartiennent à tous les $C_n$.
+
+(@) L'intérieur est vide. Tout intervalle composant de $C_n$ a pour longueur $3^{-n}\to 0$. Aucune boule ouverte n'est contenue dans tous les $C_n$.
+
+(@) La mesure de Lebesgue de $C_n$ est $2^n \cdot 3^{-n} = (2/3)^n$.
+
+(@) Comme $C\subset C_n$, $\lambda(C)\le (2/3)^n$ pour tout $n$, donc $\lambda(C)=0$.
+
+La loi $P_n$ est la loi uniforme sur $C_n$ : elle admet la densité $(3/2)^n \mathbf{1}_{C_n}$ par rapport à la mesure de Lebesgue. Sa fonction de répartition $F_n$ vaut $0$ sur $(-\infty, 0]$, croît linéairement de pente $(3/2)^n$ sur chaque intervalle conservé, est constante sur chaque intervalle retiré, et vaut $1$ sur $[1,\infty)$.
+
+(@) Le graphe de $F_0$ est celui de l'identité sur $[0,1]$. Celui de $F_1$ est affine de $0$ à $1/2$ sur $[0,1/3]$, constant égal à $1/2$ sur $[1/3, 2/3]$, puis affine de $1/2$ à $1$ sur $[2/3, 1]$. Aux étapes suivantes, chaque segment affine est remplacé par deux segments affines séparés par un plateau.
+
+(@) Chaque $F_n$ est continue, et même linéaire par morceaux. Elle n'est pas dérivable aux extrémités des intervalles de construction.
+
+(@) Elle est croissante, mais pas strictement : elle est constante sur chaque intervalle ouvert retiré.
+
+(@) Sur un intervalle de $C_n$, de masse $p=2^{-n}$, $F_n$ répartit cette masse également sur les trois tiers, alors que $F_{n+1}$ en met la moitié sur chaque tiers latéral et rien au milieu. L'écart maximal sur cet intervalle vaut $p/6 = 2^{-n}/6$. Donc
+$$
+\sup_{x\in[0,1]} |F_n(x)-F_{n+1}(x)| = \frac{2^{-n}}{6}.
+$$
+
+(@) Pour $A\in\mathcal{B}([0,1])$, $P_n(A) = (3/2)^n \lambda(A\cap C_n)$.
+
+(@) La majoration précédente montre que $(F_n)$ est uniformément de Cauchy : si $m>n$, $\sup |F_m-F_n| \le \sum_{k\ge n} 2^{-k}/6 = 2^{-n}/3$. La suite converge donc uniformément, et a fortiori simplement, vers une fonction continue $F$, croissante, constante sur chaque intervalle retiré au cours de la construction. C'est la fonction de Cantor.
+
+(@) La suite numérique $P_n(A)$ ne définit pas, par passage à la limite ensembliste, la loi portée par $F$. Par exemple $C\subset C_n$ et $\lambda(C)=0$, donc $P_n(C)=0$ pour tout $n$, alors que la loi limite charge $C$ d'une masse $1$. La convergence a lieu au sens étroit : $F_n$ converge uniformément vers $F$.
+
+(@) Il n'existe pas de probabilité proportionnelle à la mesure de Lebesgue sur $C$, puisque $\lambda(C)=0$. La loi de fonction de répartition $F$, limite étroite des $P_n$, est la loi naturelle « uniforme » sur $C$ : elle est diffuse, portée par $C$, et étrangère à la mesure de Lebesgue.
+
+(@) Sa fonction de répartition est $F$. Elle est continue, donc la loi est diffuse. Elle est dérivable presque partout, de dérivée nulle : $F$ est constante sur le complémentaire de $C$, qui est de mesure $1$. Elle n'est pas l'intégrale de sa dérivée, car $\int_0^1 F' = 0$ alors que $F(1)-F(0)=1$.
+
+(@) La variable $X = 2\sum_{j\ge 1} X_j 3^{-j}$ admet le développement triadique $0{,}(2X_1)(2X_2)\ldots$, dont les chiffres valent $0$ ou $2$ avec probabilité $1/2$, indépendamment. Sa loi est la loi de Cantor : sa fonction de répartition est $F$, et $P(X\in C)=1$.
+
+(@) L'ensemble $C$ a le cardinal de $\{0,2\}^{\mathbb{N}}$, qui est celui de $\{0,1\}^{\mathbb{N}}$. Il n'est pas dénombrable.
+
+:::
+:::
+
 {{< pagebreak >}}
 
 # Divers 
+
+
 
 
 ::: {#exr-divers-1   name="Les anniversaires"} 
@@ -281,6 +519,40 @@ On cherche a approximer la probabilité que parmi $N$ personnes, au moins deux (
 :::
 
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+On compte $365$ jours, en laissant de côté le $29$ février. Les anniversaires sont supposés indépendants et uniformes.
+
+1. Pour $i\neq j$, $P(E_{ij}) = 1/365$ : le second anniversaire est fixé par le premier. De même,
+    $$
+    P(E_{12}\cap E_{23}) = P(E_{12})P(E_{23}) = \frac{1}{365^2},
+    $$
+    et de même pour les deux autres paires : les trois événements sont indépendants deux à deux. En revanche
+    $$
+    P(E_{12}\cap E_{23}\cap E_{13}) = \frac{1}{365^2} \neq \frac{1}{365^3} = P(E_{12})P(E_{23})P(E_{13}).
+    $$
+    Ils ne sont pas mutuellement indépendants. La probabilité qu'au moins deux des $N$ personnes partagent un anniversaire est
+    $$
+    1 - \frac{365!}{(365-N)!\,365^N} = 1 - \prod_{k=1}^{N-1}\Bigl(1-\frac{k}{365}\Bigr),
+    $$
+    pour $N\le 365$.
+
+1. Sous l'approximation d'indépendance mutuelle, le nombre de couples partageant un anniversaire suit la loi binomiale de paramètres $\binom{N}{2}$ et $1/365$. La probabilité qu'il y en ait au moins un vaut
+    $$
+    1 - \Bigl(1-\frac{1}{365}\Bigr)^{\binom{N}{2}} \approx 1 - \exp\Bigl(-\frac{N(N-1)}{2\cdot 365}\Bigr).
+    $$
+    Pour $N=30$, $\binom{30}{2}=435$ et la probabilité vaut environ $1-\mathrm{e}^{-1{,}192}\approx 0{,}70$. Pour $N=60$, $\binom{60}{2}=1770$ et elle vaut environ $1-\mathrm{e}^{-4{,}85}\approx 0{,}992$.
+
+1. Pour un triplet fixé, la probabilité que les trois anniversaires coïncident est $1/365^2$. En faisant comme si les $\binom{N}{3}$ événements de triplets étaient indépendants,
+    $$
+    1 - \Bigl(1-\frac{1}{365^2}\Bigr)^{\binom{N}{3}} \approx 1-\exp\Bigl(-\binom{N}{3}/365^2\Bigr).
+    $$
+    Pour $N=60$, $\binom{60}{3}=34220$ et $34220/365^2 \approx 0{,}257$, donc la probabilité vaut environ $0{,}23$. Pour $N=90$, $\binom{90}{3}=117480$ et $117480/365^2 \approx 0{,}882$, donc elle vaut environ $0{,}59$.
+
+:::
+:::
 
 ::: {#exr-divers-2  name="Concentration"} 
 
@@ -297,4 +569,31 @@ Montrer que pour tout $\varepsilon \in (0,1)$, la mesure de Lebesgue de $C_n \ca
 
 *Note* : Ceci signifie que pour $\varepsilon$ aussi petit qu'on souhaite le prendre, lorsque $n$ est grand, la majeure partie du volume de l'hypercube $C_n$ se trouve dans la couronne $A_{n,\varepsilon}$ (!) 
 
+:::
+
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+La mesure de Lebesgue de $C_n$ vaut $2^n$. Si les coordonnées $(X_1,\ldots,X_n)$ sont i.i.d. uniformes sur $[-1,1]$, la variable $(X_1,\ldots,X_n)$ a pour loi la mesure de Lebesgue normalisée sur $C_n$. Donc
+
+$$
+\frac{\lambda(C_n\cap A_{n,\varepsilon}^c)}{\lambda(C_n)} = P\bigl((X_1,\ldots,X_n)\notin A_{n,\varepsilon}\bigr).
+$$
+
+On a $\mathbb{E}[X_1^2] = \int_{-1}^1 x^2\,\mathrm{d}x/2 = 1/3$ et $\mathbb{E}[X_1^4] = 1/5$, donc $\mathrm{Var}(X_1^2) = 1/5 - 1/9 = 4/45$. Sortir de $A_{n,\varepsilon}$ entraîne
+
+$$
+\Bigl|\sum_{i=1}^n X_i^2 - \frac n3\Bigr| \ge \frac n3\bigl(1-(1-\varepsilon)^2\bigr) = \frac n3(2\varepsilon-\varepsilon^2),
+$$
+
+car l'écart relatif vers le bas vaut $2\varepsilon-\varepsilon^2$, et celui vers le haut, $2\varepsilon+\varepsilon^2$, est plus grand. L'inégalité de Chebyshev donne donc
+
+$$
+P\bigl((X_1,\ldots,X_n)\notin A_{n,\varepsilon}\bigr) \le \frac{n\cdot 4/45}{\bigl(n(2\varepsilon-\varepsilon^2)/3\bigr)^2} = \frac{4}{5n(2\varepsilon-\varepsilon^2)^2}.
+$$
+
+Le majorant tend vers $0$ quand $n\to\infty$. Le volume de $C_n\setminus A_{n,\varepsilon}$ est donc négligeable devant celui de $C_n$.
+
+:::
 :::

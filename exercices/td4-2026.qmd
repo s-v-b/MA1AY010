@@ -406,11 +406,12 @@ On choisit $\Omega = [0,1]$, $\mathcal{F}=\mathcal{B}(  [0,1]  )$ et la loi
 uniforme sur $[0,1]$. On définit
 $$X = F^{\leftarrow}(U), \qquad Y = G^{\leftarrow}(U).$$
 
-On a $X \sim F$ et $Y \sim G$ (voir [Notes du cours](https://s-v-b.github.io/MA1AY010-CN//fr/041-characterization.fr.html#sec-quantile-coupling))
+On a $X \sim F$ et $Y \sim G$ (voir [Notes du cours](https://s-v-b.github.io/MA1AY010-CN//fr/041-characterization.fr.html#sec-quantile-coupling)).
 
 
 :::
 
+:::
 
 ::: {#exr-transformation-qu-3 name="Couplage quantile encore"}
 

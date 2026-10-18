@@ -84,7 +84,15 @@ Si $X \sim \mathcal{N}(0, \text{Id}_n)$, et $A$ est une matrice orthogonale  ($A
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+Le vecteur $AX$ est encore $\mathcal{N}(0,\mathrm{Id}_n)$. Sa fonction caractéristique vaut, pour $t\in\mathbb{R}^n$,
+
+$$
+\mathbb{E}\bigl[\exp(it^\top AX)\bigr]
+=\exp\bigl(-\tfrac12\|A^\top t\|^2\bigr)
+=\exp\bigl(-\tfrac12\|t\|^2\bigr),
+$$
+
+car $A$ est orthogonale. C'est la fonction caractéristique de $\mathcal{N}(0,\mathrm{Id}_n)$.
 
 :::
 :::
@@ -444,7 +452,63 @@ Remarquer que l'on peut écrire $Y= -\frac{\alpha}{\beta} X +\frac{1}{\beta}(\al
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+1. On a $\det M=1-\rho^2=\sigma^2$ et
+
+$$
+M^{-1}=\frac1{\sigma^2}\begin{pmatrix}1&-\rho\\-\rho&1\end{pmatrix}.
+$$
+
+La densité du vecteur gaussien centré de covariance $M$ est donc
+
+$$
+f_{(X,Y)}(x,y)
+=\frac1{2\pi\sigma}
+\exp\Bigl(-\frac{x^2-2\rho xy+y^2}{2\sigma^2}\Bigr).
+$$
+
+2. La marge de $X$ est $\mathcal{N}(0,1)$, de densité $f_X(x)=(2\pi)^{-1/2}\exp(-x^2/2)$. On écrit
+
+$$
+x^2-2\rho xy+y^2=(y-\rho x)^2+x^2\sigma^2,
+$$
+
+d'où
+
+$$
+\frac{x^2-2\rho xy+y^2}{2\sigma^2}=\frac{(y-\rho x)^2}{2\sigma^2}+\frac{x^2}2.
+$$
+
+Le quotient des densités se simplifie en
+
+$$
+g_x(y)
+=\frac1{\sigma\sqrt{2\pi}}
+\exp\Bigl(-\frac{(y-\rho x)^2}{2\sigma^2}\Bigr).
+$$
+
+Pour chaque $x$ fixé, $g_x$ est la densité de $\mathcal{N}(\rho x,\sigma^2)$, donc une densité de probabilité.
+
+3. La variable $Y_x$ suit $\mathcal{N}(\rho x,1-\rho^2)$. C'est la loi conditionnelle de $Y$ sachant $X=x$.
+
+4. On cherche $\alpha,\beta$ tels que $Z=\alpha X+\beta Y$ soit $\mathcal{N}(0,1)$ et indépendante de $X$. L'indépendance équivaut, pour un vecteur gaussien centré, à
+
+$$
+\mathrm{Cov}(X,Z)=\alpha+\beta\rho=0.
+$$
+
+La variance vaut alors
+
+$$
+\mathrm{Var}(Z)=\beta^2(1-\rho^2).
+$$
+
+Le choix $\beta=1/\sigma$ et $\alpha=-\rho/\sigma$ convient, et $(X,Z)\sim\mathcal{N}(0,\mathrm{Id}_2)$. On a $-\alpha/\beta=\rho$ et $1/\beta=\sigma$, donc
+
+$$
+Y=\rho X+\sigma Z.
+$$
+
+Cette écriture est utile parce que $Z$ est indépendante de $X$ : conditionnellement à $X=x$, $Y$ a la loi de $\rho x+\sigma Z$, c'est-à-dire $\mathcal{N}(\rho x,1-\rho^2)$.
 
 :::
 :::
@@ -476,7 +540,55 @@ a. Si $\theta$ satisfait la condition de la question précédente, calculer $\te
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+Les $X_i$ sont gaussiennes : $X_i$ est une combinaison affine de $X_0,Y_1,\ldots,Y_i$, qui sont indépendantes et gaussiennes. De plus $Y_{i+1}$ est indépendante de $\mathcal{F}_i$.
+
+a. $\mathbb{E}[X_{i+1}\mid\mathcal{F}_i]=\theta X_i+\sigma\mathbb{E}[Y_{i+1}\mid\mathcal{F}_i]=\theta X_i$.
+
+a. En prenant l'espérance, $\mathbb{E}X_{i+1}=\theta\mathbb{E}X_i$, donc $\mathbb{E}X_i=\theta^i\mu$. L'indépendance de $Y_{i+1}$ et de $X_i$ donne
+
+$$
+\mathrm{Var}(X_{i+1})=\theta^2\mathrm{Var}(X_i)+\sigma^2.
+$$
+
+Si $\theta^2\neq 1$,
+
+$$
+\mathrm{Var}(X_i)
+=\theta^{2i}\tau^2+\sigma^2\frac{1-\theta^{2i}}{1-\theta^2}.
+$$
+
+Si $|\theta|=1$, $\mathrm{Var}(X_i)=\tau^2+i\sigma^2$.
+
+a. Deux gaussiennes univariées sont de même loi dès qu'elles ont même moyenne et même variance. Il faut donc $\theta^i\mu=\mu$ pour tout $i$, et une variance constante.
+
+- Si $\theta=1$ et $\sigma=0$, alors $X_i=X_0$ pour tout $i$, de loi $\mathcal{N}(\mu,\tau^2)$.
+- Si $\theta=-1$, $\sigma=0$ et $\mu=0$, alors $X_i=(-1)^i X_0$, de loi $\mathcal{N}(0,\tau^2)$.
+- Si $|\theta|<1$, $\mu=0$ et $\tau^2=\sigma^2/(1-\theta^2)$, la variance vaut $\tau^2$ pour tout $i$.
+
+Dans les autres cas, la moyenne ou la variance dépend de $i$.
+
+a. La suite des lois converge dès que la moyenne et la variance convergent vers une limite finie.
+
+- Si $|\theta|<1$, $\mathbb{E}X_i\to 0$ et $\mathrm{Var}(X_i)\to\sigma^2/(1-\theta^2)$. Donc $X_i$ converge en loi vers $\mathcal{N}\bigl(0,\sigma^2/(1-\theta^2)\bigr)$.
+- Si $\sigma=0$ et $\theta=1$, la loi est constante, égale à $\mathcal{N}(\mu,\tau^2)$.
+- Si $\sigma=0$, $\mu=0$ et $\theta=-1$, la loi est constante, égale à $\mathcal{N}(0,\tau^2)$.
+- Si $|\theta|\ge 1$ et $\sigma\neq 0$, la variance tend vers $+\infty$. Si $\sigma=0$ et $|\theta|>1$ avec $(\mu,\tau)\neq(0,0)$, la moyenne ou la variance diverge. Il n'y a pas de limite en loi dans ces cas.
+
+a. On se place d'abord dans le cas $|\theta|<1$, qui est la condition de convergence de la question précédente lorsque $\sigma\neq 0$. En déroulant la récurrence,
+
+$$
+X_{i+k}=\theta^k X_i+\sigma\sum_{j=0}^{k-1}\theta^{k-1-j}Y_{i+1+j}.
+$$
+
+Les $Y_{i+1},\ldots,Y_{i+k}$ sont indépendantes de $X_i$, donc
+
+$$
+\mathrm{cov}(X_i,X_{i+k})
+=\theta^k\mathrm{Var}(X_i)
+=\theta^k\Biggl(\theta^{2i}\tau^2+\sigma^2\frac{1-\theta^{2i}}{1-\theta^2}\Biggr).
+$$
+
+Dans le régime stationnaire $\mu=0$ et $\tau^2=\sigma^2/(1-\theta^2)$, cette covariance vaut $\theta^k\sigma^2/(1-\theta^2)$. Si $\sigma=0$ et $\theta=1$, elle vaut $\tau^2$. Si $\sigma=0$, $\mu=0$ et $\theta=-1$, elle vaut $(-1)^k\tau^2$.
 
 :::
 :::
@@ -500,7 +612,50 @@ Si $X \sim \mathcal{N}(\mu,\sigma^2)$ et $Y = \exp(X)$ on dit que $Y$ suit une l
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+1. Pour $y\le 0$, $F_Y(y)=0$. Pour $y>0$,
+
+$$
+F_Y(y)=\mathbb{P}(X\le\ln y)=\Phi\Bigl(\frac{\ln y-\mu}{\sigma}\Bigr),
+$$
+
+où $\Phi$ est la fonction de répartition de $\mathcal{N}(0,1)$.
+
+2. En dérivant, $Y$ admet sur $]0,+\infty[$ la densité
+
+$$
+f_Y(y)=\frac1{y\sigma\sqrt{2\pi}}
+\exp\Bigl(-\frac{(\ln y-\mu)^2}{2\sigma^2}\Bigr).
+$$
+
+3. Si $Z\sim\mathcal{N}(0,1)$ et $X=\mu+\sigma Z$, alors $\mathbb{E}[e^{tX}]=\exp(\mu t+\sigma^2 t^2/2)$ pour tout $t$. Donc
+
+$$
+\mathbb{E}Y=\mathrm{e}^{\mu+\sigma^2/2},
+\qquad
+\mathbb{E}[Y^2]=\mathrm{e}^{2\mu+2\sigma^2},
+$$
+
+et
+
+$$
+\mathrm{Var}(Y)=\mathrm{e}^{2\mu+\sigma^2}\bigl(\mathrm{e}^{\sigma^2}-1\bigr).
+$$
+
+4. On calcule $\mathbb{E}[Xe^X]$. Comme $\mathbb{E}[e^{\sigma Z}]=\mathrm{e}^{\sigma^2/2}$ et $\mathbb{E}[Ze^{\sigma Z}]=\sigma\mathrm{e}^{\sigma^2/2}$,
+
+$$
+\mathbb{E}[Xe^X]
+=\mathrm{e}^{\mu}\mathbb{E}\bigl[(\mu+\sigma Z)\mathrm{e}^{\sigma Z}\bigr]
+=(\mu+\sigma^2)\mathrm{e}^{\mu+\sigma^2/2}.
+$$
+
+Ainsi
+
+$$
+\mathrm{Cov}(X,Y)
+=\mathbb{E}[XY]-\mathbb{E}X\,\mathbb{E}Y
+=\sigma^2\mathrm{e}^{\mu+\sigma^2/2}.
+$$
 
 :::
 :::
@@ -550,7 +705,144 @@ $$f(x,y,z) = C \mathbb{I}_{\{x >0\}} \frac1x{\exp\left(-x - \frac{y^2}{2x} - \fr
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+1. On complète le carré en $z$ :
+
+$$
+\frac{z^2-yz}{x}=\frac{(z-y/2)^2}{x}-\frac{y^2}{4x}.
+$$
+
+L'intégrande devient
+
+$$
+\exp\Bigl(-\frac{y^2}{4x}\Bigr)\exp\Bigl(-\frac{(z-y/2)^2}{x}\Bigr).
+$$
+
+L'intégrale gaussienne $\int\exp(-u^2/x)\,\mathrm{d}u=\sqrt{\pi x}$ donne
+
+$$
+\int_{\mathbb{R}}\exp\Bigl(-\frac{y^2}{2x}-\frac{z^2}{x}+\frac{yz}{x}\Bigr)\,\mathrm{d}z
+=\sqrt{\pi x}\,\exp\Bigl(-\frac{y^2}{4x}\Bigr).
+$$
+
+2. L'intégrale $\int\exp(-y^2/(4x))\,\mathrm{d}y$ est celle d'une gaussienne de variance $2x$, donc vaut $\sqrt{4\pi x}$. On obtient
+
+$$
+\int_{\mathbb{R}}\frac1{\sqrt{x}}\exp\Bigl(-\frac{y^2}{4x}\Bigr)\,\mathrm{d}y=2\sqrt{\pi}.
+$$
+
+3. On intègre $f$ sur $\mathbb{R}^3$. Pour $x>0$, l'intégrale en $z$ puis en $y$ vaut
+
+$$
+\frac{C}{x}\mathrm{e}^{-x}\sqrt{\pi x}\cdot 2\sqrt{\pi x}
+=C\mathrm{e}^{-x}\cdot 2\pi.
+$$
+
+L'intégrale en $x$ de $\mathrm{e}^{-x}$ sur $]0,+\infty[$ vaut $1$, donc $2\pi C=1$ et $C=1/(2\pi)$.
+
+4. La densité marginale de $X$ est le résultat du calcul précédent sans la constante $C$ déjà identifiée : $x\mapsto\mathrm{e}^{-x}\mathbf{1}_{x>0}$. Donc $X\sim\mathrm{Exp}(1)$.
+
+5. En intégrant seulement en $z$,
+
+$$
+g(x,y)
+=\mathbf{1}_{x>0}\,\mathrm{e}^{-x}\,\frac1{\sqrt{4\pi x}}
+\exp\Bigl(-\frac{y^2}{4x}\Bigr).
+$$
+
+6. En divisant par la densité de $X$,
+
+$$
+g_{Y\mid X}(y\mid x)
+=\frac1{\sqrt{4\pi x}}\exp\Bigl(-\frac{y^2}{4x}\Bigr),
+\qquad x>0.
+$$
+
+C'est la densité de $\mathcal{N}(0,2x)$. Sachant $X$, $Y\sim\mathcal{N}(0,2X)$.
+
+7. $\mathbb{E}[Y\mid X]=0$ et $\mathbb{E}[Y^2\mid X]=2X$.
+
+8. $\mathbb{E}Y=\mathbb{E}[\mathbb{E}[Y\mid X]]=0$ et $\mathrm{Var}(Y)=\mathbb{E}[Y^2]=\mathbb{E}[2X]=2$.
+
+9. $\mathrm{Cov}(X,Y)=\mathbb{E}[X\mathbb{E}[Y\mid X]]=0$. Les variables ne sont pas indépendantes : la loi conditionnelle de $Y$ sachant $X$ dépend de $X$.
+
+10. On réécrit l'exposant
+
+$$
+-\frac{y^2}{2x}-\frac{z^2}{x}+\frac{yz}{x}
+=-\frac{(y-z)^2}{2x}-\frac{z^2}{2x}.
+$$
+
+La densité jointe est donc, pour $x>0$,
+
+$$
+f(x,y,z)
+=\mathrm{e}^{-x}\cdot\frac1{2\pi x}
+\exp\Bigl(-\frac{(y-z)^2}{2x}-\frac{z^2}{2x}\Bigr).
+$$
+
+L'intégrale en $y$ vaut $\sqrt{2\pi x}$, et la densité du couple $(X,Z)$ est
+
+$$
+\mathrm{e}^{-x}\mathbf{1}_{x>0}\,\frac1{\sqrt{2\pi x}}\exp\Bigl(-\frac{z^2}{2x}\Bigr).
+$$
+
+Sachant $X$, $Z\sim\mathcal{N}(0,X)$. Donc $\mathbb{E}[Z\mid X]=0$, $\mathbb{E}[Z^2\mid X]=X$, puis $\mathbb{E}Z=0$, $\mathrm{Var}(Z)=\mathbb{E}X=1$ et $\mathrm{Cov}(X,Z)=0$.
+
+11. En divisant la densité jointe par celle de $X$, la loi conditionnelle de $(Y,Z)$ sachant $X=x$ a pour densité
+
+$$
+\frac1{2\pi x}\exp\Bigl(-\frac{(y-z)^2}{2x}-\frac{z^2}{2x}\Bigr).
+$$
+
+Le changement $u=y-z$ sépare les variables :
+
+$$
+\mathbb{E}\bigl[\mathrm{e}^{-sY-tZ}\mid X=x\bigr]
+=\exp\Bigl(\frac{x}2 s^2\Bigr)\exp\Bigl(\frac{x}2(s+t)^2\Bigr)
+=\exp\bigl(x(s^2+st+t^2/2)\bigr).
+$$
+
+L'identité de l'énoncé se lit donc
+
+$$
+\mathbb{E}[\exp(-sY-tZ)\mid X]
+=\exp\bigl(X(s^2+st+t^2/2)\bigr).
+$$
+
+12. La densité jointe calculée à la question 10 est exactement $\mathrm{e}^{-x}$ fois $g_{(Y,Z)\mid X}$. En divisant par la densité de $X$, on obtient la formule de l'énoncé.
+
+13. Cette densité est celle du vecteur gaussien centré de matrice de covariance
+
+$$
+x\begin{pmatrix}2&1\\1&1\end{pmatrix}.
+$$
+
+Sachant $X$, $(Y,Z)\sim\mathcal{N}\bigl(0,\,X\begin{pmatrix}2&1\\1&1\end{pmatrix}\bigr)$.
+
+14. Le changement $(U,V)=(Y-Z,Z)$ a pour densité conditionnelle le produit de deux densités $\mathcal{N}(0,x)$. Sachant $X$, $Y-Z$ et $Z$ sont indépendantes de loi $\mathcal{N}(0,X)$.
+
+15. $\mathbb{E}[YZ\mid X]=\mathrm{Cov}(Y,Z\mid X)=X$, donc
+
+$$
+\mathbb{E}[XYZ]=\mathbb{E}[X\cdot X]=\mathbb{E}[X^2]=2,
+$$
+
+puisque $X\sim\mathrm{Exp}(1)$.
+
+16. Par indépendance conditionnelle, $\mathbb{E}[(Y-Z)^2Z^2\mid X]=X\cdot X=X^2$. Donc
+
+$$
+\mathbb{E}\bigl[X(Y-Z)^2Z^2\bigr]=\mathbb{E}[X^3]=6.
+$$
+
+17. Sachant $X$, $Y-Z$ et $Z$ sont des gaussiennes centrées indépendantes de variance $X$. Le moment est nul dès que $\ell$ ou $m$ est impair. Si $\ell=2p$ et $m=2q$,
+
+$$
+\mathbb{E}\bigl[X^k(Y-Z)^\ell Z^m\bigr]
+=\frac{(2p)!}{p!\,2^p}\,\frac{(2q)!}{q!\,2^q}\,(k+p+q)!.
+$$
+
+18. On simule $X\sim\mathrm{Exp}(1)$, puis, conditionnellement à $X$, deux gaussiennes indépendantes $U,Z\sim\mathcal{N}(0,X)$. On pose $Y=U+Z$. Le triplet $(X,Y,Z)$ a la loi voulue.
 
 :::
 :::

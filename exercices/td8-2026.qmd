@@ -44,6 +44,8 @@ requireNamespace('quarto')
 
 ## Transformée de Laplace 
 
+
+
 ::: {#exr-11  name="Transformées de Laplace utiles"}
 
 Pour des valeurs de $t$ que l'on précisera, calculer la transformée de Laplace $L(t) := \mathbb{E}[\exp(-t X)]$ et la fonction génératrice des moments $G(u) := \mathbb{E}[u^X]$ de la variable $X$ dans les cas suivants. 
@@ -56,7 +58,31 @@ Pour des valeurs de $t$ que l'on précisera, calculer la transformée de Laplace
 
 :::
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
 
+Dans tous les cas discrets ci-dessous, $L(t) = G(\mathrm{e}^{-t})$ dès que $\mathrm{e}^{-t}$ est dans le domaine de $G$.
+
+1. Pour $u \in \mathbb{R}$ et $t \in \mathbb{R}$,
+    $$G(u) = (1-p) + pu, \qquad L(t) = (1-p) + p\,\mathrm{e}^{-t}.$$
+
+1. La loi binomiale est la somme de $n$ variables de Bernoulli indépendantes de paramètre $p$, donc, pour $u \in \mathbb{R}$ et $t \in \mathbb{R}$,
+    $$G(u) = \bigl(1-p + pu\bigr)^n, \qquad L(t) = \bigl(1-p + p\,\mathrm{e}^{-t}\bigr)^n.$$
+
+1. On prend $p \in (0,1]$ et la convention $P(X = k) = p(1-p)^{k-1}$ pour $k \in \mathbb{N}^*$ (pour $p = 0$, cette formule ne définit pas une probabilité sur $\mathbb{N}^*$). Pour $|u|(1-p) < 1$, c'est-à-dire $|u| < 1/(1-p)$ si $p < 1$, et pour tout $u$ si $p = 1$,
+    $$G(u) = \sum_{k=1}^{\infty} u^k p(1-p)^{k-1} = \frac{pu}{1-(1-p)u}.$$
+    La condition $\mathrm{e}^{-t}(1-p) < 1$ s'écrit $t > \ln(1-p)$ (avec la convention $\ln 0 = -\infty$ si $p = 1$), et alors
+    $$L(t) = \frac{p\,\mathrm{e}^{-t}}{1-(1-p)\mathrm{e}^{-t}}.$$
+
+1. Pour $u \in \mathbb{R}$ et $t \in \mathbb{R}$,
+    $$G(u) = \sum_{k=0}^{\infty} u^k \mathrm{e}^{-\lambda}\frac{\lambda^k}{k!} = \exp\bigl(\lambda(u-1)\bigr), \qquad L(t) = \exp\bigl(\lambda(\mathrm{e}^{-t}-1)\bigr).$$
+
+1. L'indépendance donne $G_X(u) = \prod_{i=1}^n G_{Y_i}(u)$. En posant $\Lambda = \sum_{i=1}^n \lambda_i$, on obtient, pour $u \in \mathbb{R}$ et $t \in \mathbb{R}$,
+    $$G(u) = \exp\bigl(\Lambda(u-1)\bigr), \qquad L(t) = \exp\bigl(\Lambda(\mathrm{e}^{-t}-1)\bigr).$$
+    Ainsi $X \sim \mathrm{Poisson}(\Lambda)$.
+
+:::
+:::
 
 :::  {#exr-size-biased  name="Distributions biaisées par la taille"}
 
@@ -77,9 +103,43 @@ transformée de Laplace d'une loi sur $[0, \infty)$?
 
 :::
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+On suppose $\mathbb{E}[X] \in (0,\infty)$, de sorte que le biais par la taille est défini. La loi $Q$ de $X^*$ vérifie $\mathbb{E}_Q[h(X^*)] = \mathbb{E}[X h(X)]/\mathbb{E}[X]$ pour toute fonction borélienne positive $h$.
+
+a. Si $X \sim \mathrm{Ber}(p)$ avec $p \in (0,1]$, alors $\mathbb{E}[X] = p$ et
+    $$Q(X^*=1) = \frac{1 \cdot P(X=1)}{p} = 1.$$
+    Donc $X^* = 1$ presque sûrement.
+
+a. Si $X \sim \mathrm{Bin}(n,p)$ avec $n \in \mathbb{N}^*$ et $p \in (0,1]$, alors $\mathbb{E}[X] = np$ et, pour $k \in \{1,\ldots,n\}$,
+    $$P(X^*=k) = \frac{k}{np}\binom{n}{k}p^k(1-p)^{n-k} = \binom{n-1}{k-1}p^{k-1}(1-p)^{n-k},$$
+    car $k\binom{n}{k} = n\binom{n-1}{k-1}$. Ainsi $X^* \stackrel{d}{=} 1 + Z$ avec $Z \sim \mathrm{Bin}(n-1,p)$.
+
+a. Si $X \sim \mathrm{Poisson}(\lambda)$ avec $\lambda > 0$, alors $\mathbb{E}[X] = \lambda$ et, pour $k \geq 1$,
+    $$P(X^*=k) = \frac{k}{\lambda}\,\mathrm{e}^{-\lambda}\frac{\lambda^k}{k!} = \mathrm{e}^{-\lambda}\frac{\lambda^{k-1}}{(k-1)!}.$$
+    Ainsi $X^* \stackrel{d}{=} 1 + Z$ avec $Z \sim \mathrm{Poisson}(\lambda)$.
+
+a. On paramètre la loi Gamma en forme et taux : $X \sim \Gamma(\alpha,\lambda)$ a pour densité $\frac{\lambda^{\alpha}}{\Gamma(\alpha)} x^{\alpha-1}\mathrm{e}^{-\lambda x}$ sur $(0,\infty)$, et $\mathbb{E}[X] = \alpha/\lambda$. La densité de $X^*$ est
+    $$\frac{x}{\mathbb{E}[X]} \cdot \frac{\lambda^{\alpha}}{\Gamma(\alpha)} x^{\alpha-1}\mathrm{e}^{-\lambda x} = \frac{\lambda^{\alpha+1}}{\Gamma(\alpha+1)} x^{\alpha}\mathrm{e}^{-\lambda x},$$
+    puisque $\Gamma(\alpha+1) = \alpha\Gamma(\alpha)$. Donc $X^* \sim \Gamma(\alpha+1,\lambda)$.
+
+a. Si $X$ est à valeurs dans $\mathbb{N}$ et $G(u) = \mathbb{E}[u^X]$, alors $G'(u) = \mathbb{E}[X u^{X-1}]$ et $G'(1) = \mathbb{E}[X]$. Pour $|u| \le 1$,
+    $$G_{X^*}(u) = \frac{\mathbb{E}[X u^{X}]}{\mathbb{E}[X]} = \frac{u G'(u)}{G'(1)}.$$
+
+a. Si $L(t) = \mathbb{E}[\mathrm{e}^{-tX}]$, alors $L'(t) = -\mathbb{E}[X\mathrm{e}^{-tX}]$ pour $t > 0$, et la dérivée à droite en $0$ vaut $L'(0) = -\mathbb{E}[X]$. Donc
+    $$L_{X^*}(t) = \frac{\mathbb{E}[X\mathrm{e}^{-tX}]}{\mathbb{E}[X]} = \frac{L'(t)}{L'(0)}.$$
+
+a. Soit $U$ la transformée de Laplace d'une loi sur $[0,\infty)$, dérivable à droite en $0$. Alors $U'(0) = -\mathbb{E}[X] \in (-\infty, 0]$. Si $U'(0) < 0$, le calcul précédent montre que $U'/U'(0)$ est la transformée de Laplace de la loi biaisée par la taille, donc d'une loi sur $[0,\infty)$. Si $U'(0) = 0$, alors $X = 0$ presque sûrement et le quotient n'est pas défini.
+
+:::
+:::
+
 {{< pagebreak >}}
 
 ## Fonctions caractéristiques
+
+
 
 
 ::: {#exr-trivial-charcfunc}
@@ -98,10 +158,43 @@ Vérifier les propriétés suivantes :
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+On note $\widehat{F}(t) = \mathbb{E}[\mathrm{e}^{itX}]$.
+
+- $\bigl|\widehat{F}(t)\bigr| = \bigl|\mathbb{E}[\mathrm{e}^{itX}]\bigr| \le \mathbb{E}\bigl[|\mathrm{e}^{itX}|\bigr] = 1$.
+- $\widehat{F}(0) = \mathbb{E}[1] = 1$.
+- Si $X$ est symétrique, $X$ et $-X$ ont la même loi, donc $\widehat{F}(t) = \mathbb{E}[\mathrm{e}^{-itX}] = \overline{\widehat{F}(t)}$. La fonction $\widehat{F}$ est à valeurs réelles. De façon équivalente, $\widehat{F}(t) = \mathbb{E}[\cos(tX)]$, le terme en sinus étant nul par symétrie.
+- $\mathbb{E}\bigl[\mathrm{e}^{it(aX+b)}\bigr] = \mathrm{e}^{itb}\,\mathbb{E}\bigl[\mathrm{e}^{i(at)X}\bigr] = \mathrm{e}^{itb}\,\widehat{F}(at)$.
+
+:::
+:::
+
 ::: {#exr-quizz name="Quizz sur les fonctions caractéristiques"}
 
 Si $\widehat{F}$ est la fonction caractéristique de la loi de $X$, et si $\epsilon \perp\!\!\!\perp X$, avec $P\{\epsilon=1\}= P\{\epsilon=-1\}=1/2$, quelle est la fonction caractéristique de la loi de $\epsilon X$?
 
+:::
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+L'indépendance de $\epsilon$ et $X$ donne
+
+$$
+\mathbb{E}\bigl[\mathrm{e}^{it\epsilon X}\bigr]
+= \mathbb{E}\Bigl[\tfrac12 \mathrm{e}^{itX} + \tfrac12 \mathrm{e}^{-itX}\Bigr]
+= \frac{\widehat{F}(t) + \widehat{F}(-t)}{2}.
+$$
+
+Comme $X$ est réelle, $\widehat{F}(-t) = \overline{\widehat{F}(t)}$, donc cette fonction caractéristique est la partie réelle de $\widehat{F}$ :
+
+$$
+t \mapsto \mathbb{E}[\cos(tX)] = \operatorname{Re}\widehat{F}(t).
+$$
+
+:::
 :::
 
 ::: {#exr-charfunc-suual}
@@ -117,6 +210,31 @@ Calculer la fonction caractéristique de :
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+- Loi de Poisson de paramètre $\lambda > 0$ : pour tout $t \in \mathbb{R}$,
+    $$\mathbb{E}[\mathrm{e}^{itX}] = \sum_{k=0}^{\infty} \mathrm{e}^{itk}\,\mathrm{e}^{-\lambda}\frac{\lambda^k}{k!} = \exp\bigl(\lambda(\mathrm{e}^{it}-1)\bigr).$$
+
+- Loi uniforme sur $[-1,1]$, de densité $1/2$ : pour $t \neq 0$,
+    $$\int_{-1}^{1} \mathrm{e}^{itx}\,\frac12\,\mathrm{d}x = \frac{\mathrm{e}^{it}-\mathrm{e}^{-it}}{2it} = \frac{\sin t}{t},$$
+    et la valeur en $0$ est $1$.
+
+- Loi triangulaire de densité $1-|x|$ sur $[-1,1]$ : la densité est paire, donc pour $t \neq 0$,
+    $$\int_{-1}^{1} \mathrm{e}^{itx}(1-|x|)\,\mathrm{d}x = 2\int_0^1 \cos(tx)\,(1-x)\,\mathrm{d}x.$$
+    Une intégration par parties donne $\int_0^1 (1-x)\cos(tx)\,\mathrm{d}x = (1-\cos t)/t^2$, d'où
+    $$\frac{2(1-\cos t)}{t^2} = \left(\frac{\sin(t/2)}{t/2}\right)^2,$$
+    et la valeur en $0$ est $1$. C'est le carré du module de la fonction caractéristique de la loi uniforme sur $[-1/2,1/2]$.
+
+- Loi de Laplace, de densité $\frac12\mathrm{e}^{-|x|}$ : le terme en sinus disparaît par parité, et pour tout $t \in \mathbb{R}$,
+    $$\int_0^{\infty} \cos(tx)\,\mathrm{e}^{-x}\,\mathrm{d}x = \operatorname{Re}\frac{1}{1-it} = \frac{1}{1+t^2}.$$
+
+- Loi exponentielle de densité $\mathrm{e}^{-x}$ sur $[0,\infty)$ : pour tout $t \in \mathbb{R}$,
+    $$\int_0^{\infty} \mathrm{e}^{itx}\mathrm{e}^{-x}\,\mathrm{d}x = \frac{1}{1-it}.$$
+
+:::
+:::
+
 ::: {#exr-counter-example}
 
 Donner un contre-exemple pour montrer que
@@ -128,6 +246,41 @@ $$
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+Soit $X$ de loi de Cauchy, de densité $x \mapsto 1/(\pi(1+x^2))$, et soit $Y = X$.
+
+La fonction $t \mapsto \mathrm{e}^{-|t|}$ est intégrable. On calcule
+
+$$
+\int_{-\infty}^{\infty} \mathrm{e}^{-itx}\mathrm{e}^{-|t|}\,\mathrm{d}t
+= \int_0^{\infty} \mathrm{e}^{-t(1+ix)}\,\mathrm{d}t + \int_{-\infty}^{0} \mathrm{e}^{t(1-ix)}\,\mathrm{d}t
+= \frac{1}{1+ix} + \frac{1}{1-ix}
+= \frac{2}{1+x^2}.
+$$
+
+Le théorème d'inversion donne alors la densité
+
+$$
+\frac{1}{2\pi}\int_{-\infty}^{\infty} \mathrm{e}^{-itx}\mathrm{e}^{-|t|}\,\mathrm{d}t = \frac{1}{\pi(1+x^2)}.
+$$
+
+Donc $\widehat{F}_X(t) = \mathrm{e}^{-|t|}$. Comme $Y = X$,
+
+$$
+\widehat{F}_{X+Y}(t) = \widehat{F}_{2X}(t) = \widehat{F}_X(2t) = \mathrm{e}^{-2|t|} = \widehat{F}_X(t)\,\widehat{F}_Y(t).
+$$
+
+En revanche $X$ et $Y$ ne sont pas indépendantes : $P(|X| \le 1) = 1/2$, alors que
+
+$$
+P(|X| \le 1,\ |Y| \le 1) = P(|X| \le 1) = \frac12 \neq \frac14 = P(|X| \le 1)\,P(|Y| \le 1).
+$$
+
+:::
+:::
+
 ::: {#exr-tent}
 
 Vérifier que $\int_0^1 \cos(sx) (1-s) \mathrm{d}s\geq 0$ pour tout $x \in \mathbb{R}$.
@@ -137,6 +290,36 @@ Vérifier que $\int_0^1 \cos(sx) (1-s) \mathrm{d}s\geq 0$ pour tout $x \in \math
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+La densité $w \mapsto (1-|w|)\mathbf{1}_{[-1,1]}(w)$ est paire et d'intégrale $1$. Sa fonction caractéristique vaut, pour $t \neq 0$,
+
+$$
+\varphi(t)
+= \int_{-1}^{1} \mathrm{e}^{itw}(1-|w|)\,\mathrm{d}w
+= 2\int_0^1 \cos(tw)\,(1-w)\,\mathrm{d}w,
+$$
+
+et $\varphi(0) = 1$. L'intégrale de l'énoncé est donc $\varphi(t)/2$, et non $\varphi(t)$ elle-même.
+
+Une intégration par parties donne $\int_0^1 (1-w)\cos(tw)\,\mathrm{d}w = (1-\cos t)/t^2$ pour $t \neq 0$, d'où
+
+$$
+\varphi(t) = \frac{2(1-\cos t)}{t^2} = \left(\frac{\sin(t/2)}{t/2}\right)^2.
+$$
+
+La loi uniforme sur $[-1/2, 1/2]$ a pour fonction caractéristique $\psi(t) = \sin(t/2)/(t/2)$ (avec $\psi(0) = 1$), qui est réelle. Ainsi $\varphi(t) = |\psi(t)|^2 \ge 0$, et
+
+$$
+\int_0^1 \cos(sx)\,(1-s)\,\mathrm{d}s = \frac{\varphi(s)}{2} \ge 0
+$$
+
+pour tout $s \in \mathbb{R}$ (la valeur en $s = 0$ est $\int_0^1 (1-s)\,\mathrm{d}s = 1/2$).
+
+:::
+:::
+
 ::: {#exr-density-convolution}
 
 Vérifier que si $X$ et $Y$ sont indépendantes de densités $f_X$ et $f_Y$,
@@ -144,6 +327,23 @@ alors $f_X \star f_Y$ est une densité de la loi de $X+Y$.
 
 :::
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+On note $(f_X \star f_Y)(z) = \int_{\mathbb{R}} f_X(z-y)\,f_Y(y)\,\mathrm{d}y$. Pour $\phi : \mathbb{R} \to [0,\infty)$ borélienne, l'indépendance donne une densité produit, puis le changement de variable $z = x+y$ et le théorème de Fubini–Tonelli :
+
+\begin{align*}
+\mathbb{E}[\phi(X+Y)]
+& = \int_{\mathbb{R}^2} \phi(x+y)\,f_X(x)\,f_Y(y)\,\mathrm{d}x\,\mathrm{d}y \\
+& = \int_{\mathbb{R}} \phi(z)\Bigl(\int_{\mathbb{R}} f_X(z-y)\,f_Y(y)\,\mathrm{d}y\Bigr)\mathrm{d}z \\
+& = \int_{\mathbb{R}} \phi(z)\,(f_X \star f_Y)(z)\,\mathrm{d}z.
+\end{align*}
+
+En prenant $\phi = 1$, on obtient $\int (f_X \star f_Y) = 1$. La fonction $f_X \star f_Y$ est donc une densité de $X+Y$.
+
+:::
+:::
 
 ::: {#exr-conv-1}
 
@@ -162,6 +362,25 @@ $\nu_1 \star \nu_2$  est absolument continue et admet pour densité
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+On définit la convolution par l'image de la mesure produit par l'addition : pour $A \in \mathcal{B}(\mathbb{R})$,
+
+$$
+(\nu_1 \star \nu_2)(A) = (\nu_1 \otimes \nu_2)\bigl(\{(x,y) : x+y \in A\}\bigr) = \int_{\mathbb{R}^2} \mathbf{1}_A(x+y)\,\mathrm{d}\nu_1(x)\,\mathrm{d}\nu_2(y).
+$$
+
+1. Pour $y$ fixé, $x+y \in A$ si et seulement si $x \in A-y$. Le théorème de Fubini–Tonelli donne
+    $$(\nu_1 \star \nu_2)(A) = \int_{\mathbb{R}} \nu_1(A-y)\,\mathrm{d}\nu_2(y).$$
+
+1. Si $\nu_1$ admet la densité $f$, alors $\nu_1(A-y) = \int_{A-y} f(x)\,\mathrm{d}x$. Le changement de variable $z = x+y$ donne $\nu_1(A-y) = \int_A f(z-y)\,\mathrm{d}z$. Donc
+    $$(\nu_1 \star \nu_2)(A) = \int_{\mathbb{R}}\Bigl(\int_A f(z-y)\,\mathrm{d}z\Bigr)\mathrm{d}\nu_2(y) = \int_A \Bigl(\int_{\mathbb{R}} f(z-y)\,\mathrm{d}\nu_2(y)\Bigr)\mathrm{d}z,$$
+    à nouveau par Fubini–Tonelli. La mesure $\nu_1 \star \nu_2$ est absolument continue, de densité $z \mapsto \int_{\mathbb{R}} f(z-y)\,\mathrm{d}\nu_2(y)$.
+
+:::
+:::
+
 ::: {#exr-produits-1}
 
 Montrer qu'à partir de $([0,1], \mathcal{B}(\mathbb{R}), \lambda)$ (où $\lambda$ est la mesure de Lebesgue sur $[0,1]$), 
@@ -170,4 +389,29 @@ Montrer qu'à partir de $([0,1], \mathcal{B}(\mathbb{R}), \lambda)$ (où $\lambd
 1. on peut construire une suite $X_1, X_2, \ldots, X_n, \ldots$ de variables aléatoires indépendantes et identiquement distribuées selon la loi uniforme sur $[0,1]$.
 1. on peut construire une tableau $\left(X_{n,m}\right){n,m \in \mathbb{N}^*}$ de variables aléatoires indépendantes et identiquement distribuées selon la loi uniforme sur $[0,1]$.
 
+:::
+
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+On travaille sur $([0,1], \mathcal{B}([0,1]), \lambda)$. Pour $\omega \in [0,1]$ et $k \geq 1$, le $k^{\mathrm{e}}$ chiffre dyadique
+
+$$
+Y_k(\omega) = \lfloor 2^k \omega \rfloor - 2\lfloor 2^{k-1}\omega \rfloor \in \{0,1\}
+$$
+
+est mesurable. Pour $(\varepsilon_1,\ldots,\varepsilon_n) \in \{0,1\}^n$, l'ensemble $\{Y_1=\varepsilon_1,\ldots,Y_n=\varepsilon_n\}$ est un intervalle dyadique de longueur $2^{-n}$, donc de mesure $2^{-n}$. Les $n$ premières coordonnées sont donc i.i.d. de loi de Bernoulli de paramètre $1/2$, et il en va de même de toute sous-famille finie. La suite $(Y_k)_{k \geq 1}$ répond à la première question. L'ensemble des dyadiques, où le développement n'est pas unique, est de mesure nulle et ne change pas la loi.
+
+Pour la deuxième question, on répartit les entiers en blocs infinis disjoints grâce à la bijection $\varphi(n,m) = 2^{n-1}(2m-1)$ de $\mathbb{N}^* \times \mathbb{N}^*$ sur $\mathbb{N}^*$, et on pose
+
+$$
+X_n = \sum_{m=1}^{\infty} Y_{\varphi(n,m)}\,2^{-m}.
+$$
+
+Chaque bloc $(Y_{\varphi(n,m)})_{m \geq 1}$ est une suite i.i.d. de Bernoulli de paramètre $1/2$, donc $X_n$ suit la loi uniforme sur $[0,1]$ : la mesure des développements dont les $m$ premiers chiffres sont fixés vaut $2^{-m}$, longueur de l'intervalle dyadique correspondant. Les blocs étant portés par des ensembles d'indices disjoints, les suites de chiffres sont indépendantes, et les $X_n$ aussi.
+
+Pour le tableau, on réindexe cette suite par la même bijection : $X_{n,m} = X_{\varphi(n,m)}$. On obtient une famille i.i.d. de lois uniformes sur $[0,1]$, indexée par $\mathbb{N}^* \times \mathbb{N}^*$.
+
+:::
 :::

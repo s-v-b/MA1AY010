@@ -43,6 +43,8 @@ requireNamespace('quarto')
 
 
 
+
+
 ::: {#exr-mediane-variationnelle name="Caractérisation de la médiane"}
 
 Soit $X$ une variable aléatoire  réelle intégrable sur $(\Omega, \mathcal{F}, P)$. 
@@ -59,6 +61,25 @@ $$L(a) = a \mapsto \mathbb{E} \left| X - a\right| \, .$$
 :::
 
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+Les questions 1 et 3 portent sur la fonction $L$ définie dans l'énoncé.
+
+1. Pour tout $a \in \mathbb{R}$, $|X-a| \le |X|+|a|$, donc $L(a) \le \mathbb{E}|X|+|a| < \infty$.
+
+1. Pour $\theta \in [0,1]$, la convexité de $u \mapsto |x-u|$ donne
+    $$L\bigl(\theta a+(1-\theta)b\bigr) \le \theta L(a)+(1-\theta)L(b).$$
+
+1. La loi est diffuse : $P(X=a)=0$ et la fonction de répartition $F$ est continue. Le quotient différentiel de $a \mapsto |X-a|$ vaut $\mathbf{1}_{\{X<a\}}-\mathbf{1}_{\{X>a\}}$ et est borné par $1$. Le théorème de convergence dominée donne
+    $$L'(a) = P(X<a)-P(X>a) = 2F(a)-1.$$
+
+1. Une médiane $m$ vérifie $F(m)=1/2$. Donc $L'(m)=0$. La fonction $L$ étant convexe, $m$ en est un minimum global. Si l'ensemble des médianes est un intervalle, $L'$ y est identiquement nulle et chaque médiane minimise $L$.
+
+:::
+:::
+
 ## Inégalité de Lévy et variantes
 
 ::: {#exr-ineq-levy-2 name="SD et MAD"}
@@ -71,6 +92,20 @@ $$\underbrace{\mathbb{E}_P|X-m|}_{\text{MAD}}  \leq \underbrace{\sqrt{\operatorn
 
 Sugestion: utiliser les conclusions de @exr-mediane-variationnelle. 
 
+:::
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+D'après l'exercice précédent, $m$ minimise $a \mapsto \mathbb{E}|X-a|$, donc $\mathbb{E}|X-m| \le \mathbb{E}|X-\mathbb{E}X|$. L'inégalité de Cauchy--Schwarz donne
+
+$$
+\bigl(\mathbb{E}|X-\mathbb{E}X|\bigr)^2 \le \mathbb{E}\bigl[(X-\mathbb{E}X)^2\bigr] = \operatorname{Var}(X).
+$$
+
+Ainsi $\mathbb{E}|X-m| \le \sqrt{\operatorname{Var}(X)}$.
+
+:::
 :::
 
 ::: {#exr-ineq-levy-1 name="Inégalité de Lévy"}
@@ -88,6 +123,18 @@ Sugestion: utiliser les conclusions de @exr-ineq-levy-2.
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+$$
+\bigl|\mathbb{E}X - m\bigr| = \bigl|\mathbb{E}(X-m)\bigr| \le \mathbb{E}|X-m| \le \sqrt{\operatorname{Var}(X)},
+$$
+
+la dernière inégalité étant celle de l'exercice précédent.
+
+:::
+:::
+
 ::: {#exr-ineq-levy-3 name="SD et IQR"}
 
 Soit $X$ une variable aléatoire réelle de carré intégrable et de loi diffuse. On note $Q_1$ et $Q_3$ le premier et le troisième 
@@ -101,7 +148,28 @@ $$\operatorname{IQR} =Q_3 -Q_1, \qquad \mathbb{E}_P|X-m|, \qquad \sqrt{\operator
 :::
 
 
+
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+On a toujours $\mathbb{E}|X-m| \le \sqrt{\operatorname{Var}(X)}$. De plus, $P(X \ge Q_3) \ge 1/4$ et $P(X \le Q_1) \ge 1/4$, donc en notant $m = Q_2$,
+
+$$
+\mathbb{E}|X-m| \ge \frac14 (Q_3-m) + \frac14 (m-Q_1) = \frac{\mathrm{IQR}}{4}.
+$$
+
+Ainsi $\mathrm{IQR} \le 4\,\mathbb{E}|X-m| \le 4\sqrt{\operatorname{Var}(X)}$. Il n'y a pas d'ordre universel au-delà de ces inégalités.
+
+- Pour $X \sim \mathcal{N}(0,1)$ : $\mathbb{E}|X| = \sqrt{2/\pi} \approx 0{,}80$, $\sqrt{\operatorname{Var}(X)} = 1$ et $\mathrm{IQR} = 2\Phi^{-1}(3/4) \approx 1{,}35$. Donc $\mathbb{E}|X-m| < \sqrt{\operatorname{Var}(X)} < \mathrm{IQR}$.
+- Soit $R=10$ et $X$ de densité $1/4$ sur $[-1,1]$ et $1/(4(R-1))$ sur $[-R,-1)\cup(1,R]$. La loi est diffuse et symétrique, $Q_3 = -Q_1 = 1$, donc $\mathrm{IQR}=2$. On calcule $\mathbb{E}|X| = 3$ et $\mathbb{E}[X^2] = 56/3$, donc $\sqrt{\operatorname{Var}(X)} = \sqrt{56/3} \approx 4{,}32$. Donc $\mathrm{IQR} < \mathbb{E}|X-m| < \sqrt{\operatorname{Var}(X)}$.
+
+:::
+:::
+
+
 ## Inégalités et applications 
+
 
 ::: {#exr-ineq-assoc name="Association"}
 
@@ -113,6 +181,20 @@ $$\mathbb{E}_P \left[f(X)g(X)\right] - \mathbb{E}_P \left[f(X)\right] \mathbb{E}
 :::
 
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+La différence est toujours positive ou nulle. Soit $X'$ une copie de $X$ indépendante de $X$. Comme $f$ et $g$ sont croissantes, $(f(X)-f(X'))(g(X)-g(X')) \ge 0$. En développant et en utilisant l'indépendance,
+
+$$
+\mathbb{E}\bigl[(f(X)-f(X'))(g(X)-g(X'))\bigr] = 2\mathbb{E}[f(X)g(X)] - 2\mathbb{E}f(X)\,\mathbb{E}g(X) \ge 0.
+$$
+
+La valeur $0$ est atteinte si $f$ est constante. La valeur $\operatorname{Var}(\arctan X) > 0$ est atteinte pour $f(x)=g(x)=\arctan x$ et $X \sim \mathcal{N}(0,1)$. La différence ne peut pas être strictement négative.
+
+:::
+:::
 
 ::: {#exr-gamma name="À propos de la fonction Gamma"}
 
@@ -128,6 +210,28 @@ $$\Gamma(x) = \int_0^\infty \mathrm{e}^{-t} t^{x-1} \mathrm{d}t$$
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+1. Pour $x>0$, l'intégrande est positive. Au voisinage de $0$, $\mathrm{e}^{-t}t^{x-1} \sim t^{x-1}$, intégrable puisque $x-1>-1$. À l'infini, la décroissance exponentielle l'emporte sur $t^{x-1}$. L'intégrale est donc finie, et strictement positive. Une intégration par parties ($u=t^x$, $\mathrm{d}v=\mathrm{e}^{-t}\mathrm{d}t$) donne, pour $x>0$,
+    $$\Gamma(x+1) = \bigl[-t^x\mathrm{e}^{-t}\bigr]_0^\infty + x\int_0^\infty \mathrm{e}^{-t}t^{x-1}\,\mathrm{d}t = x\Gamma(x),$$
+    les termes de bord étant nuls. Comme $\Gamma(1)=\int_0^\infty \mathrm{e}^{-t}\,\mathrm{d}t=1$, on obtient $\Gamma(n+1)=n!$ par récurrence.
+
+1. Soient $x,y>0$ et $\theta \in (0,1)$. L'inégalité de Hölder avec les exposants $1/\theta$ et $1/(1-\theta)$ donne
+    \begin{align*}
+    \Gamma\bigl(\theta x+(1-\theta)y\bigr)
+    &= \int_0^\infty \bigl(\mathrm{e}^{-t}t^{x-1}\bigr)^\theta \bigl(\mathrm{e}^{-t}t^{y-1}\bigr)^{1-\theta}\,\mathrm{d}t \\
+    &\le \Gamma(x)^\theta\,\Gamma(y)^{1-\theta}.
+    \end{align*}
+    En passant au logarithme, $\ln\circ\Gamma$ est convexe.
+
+1. La fonction $\exp$ est convexe et croissante, donc $\Gamma = \exp\circ(\ln\circ\Gamma)$ est convexe.
+
+1. Pour $t \in [0,n]$, $\ln(1-t/n) \le -t/n$, donc $(1-t/n)^n \le \mathrm{e}^{-t}$. L'intégrande $t^{x-1}(1-t/n)^n\mathbf{1}_{[0,n]}(t)$ converge simplement vers $\mathrm{e}^{-t}t^{x-1}$ et est dominée par la fonction intégrable $\mathrm{e}^{-t}t^{x-1}$. Le théorème de convergence dominée donne la limite annoncée.
+
+:::
+:::
+
 ::: {#exr-integrabilite-independance}
 
 Montrer que si deux variables aléatoires $X$ et $Y$ sont indépendantes et intégrables alors $XY$ est intégrable. 
@@ -136,6 +240,18 @@ Peut-on se passer de l'hypothèse d'indépendance ?
 
 :::
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+Si $X$ et $Y$ sont indépendantes et intégrables, $|X|$ et $|Y|$ le sont aussi, et l'indépendance donne $\mathbb{E}|XY| = \mathbb{E}|X|\,\mathbb{E}|Y| < \infty$.
+
+L'indépendance est nécessaire à cet énoncé. Soit $c>0$ tel que $2c\sum_{k\ge 1} k^{-2}2^{-k} = 1$, et $X$ de loi
+$$P(X=2^k)=P(X=-2^k)=\frac{c}{k^2 2^k}, \qquad k \ge 1.$$
+Alors $\mathbb{E}|X| = 2c\sum_{k\ge 1} k^{-2} < \infty$, mais $\mathbb{E}[X^2] = 2c\sum_{k\ge 1} 2^k/k^2 = \infty$. Pour $Y=X$, les deux variables sont intégrables, $XY$ ne l'est pas, et $X$ n'est pas indépendante de $Y$.
+
+:::
+:::
 
 ::: {#exr-indépendance-correlation}
 
@@ -146,6 +262,16 @@ $$\mathbb{E}\left[f(X) g(Y)\right] = \mathbb{E}f(X) \times \mathbb{E}g(Y)$$
 :::
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+Si $X$ et $Y$ sont indépendantes, l'égalité vaut pour $f=\mathbf{1}_A$ et $g=\mathbf{1}_B$, avec $A,B$ boréliens. Elle s'étend aux fonctions étagées, puis, par convergence dominée, à toutes les fonctions mesurables bornées.
+
+Réciproquement, l'égalité appliquée à $f=\mathbf{1}_A$ et $g=\mathbf{1}_B$ donne $P(X\in A, Y\in B)=P(X\in A)P(Y\in B)$. Les variables $X$ et $Y$ sont donc indépendantes.
+
+:::
+:::
+
 ::: {#exr-indépendance-correlation}
 
 Montrer que pour toute fonction continuement dérivable strictement croissante  positive $f$ sur $[0, \infty)$, toute variable aléatoire positive $X$ sur  $(\Omega, \mathcal{F}, P)$:  
@@ -155,7 +281,23 @@ $$\mathbb{E}_P f(X) = \int_0^\infty f'(t)  P\{ X > t\} \mathrm{d}t + f(0)$$
 :::
 
 
-::: {#exr-}
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
 
+Comme $f$ est continûment dérivable et croissante, $f'\ge 0$. Pour $X\ge 0$,
+
+$$
+f(X)-f(0) = \int_0^X f'(t)\,\mathrm{d}t = \int_0^\infty f'(t)\,\mathbf{1}_{\{X>t\}}\,\mathrm{d}t.
+$$
+
+Le théorème de Fubini–Tonelli, applicable car l'intégrande est positive, donne
+
+$$
+\mathbb{E}[f(X)]-f(0) = \int_0^\infty f'(t)\,P\{X>t\}\,\mathrm{d}t.
+$$
+
+L'hypothèse de stricte croissance n'est pas utilisée : la croissance suffit.
 
 :::
+:::
+

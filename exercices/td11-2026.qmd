@@ -2,7 +2,7 @@
 #title: "Exercices : semaine IV"
 # subtitle: "M1 ISIFAR MA1AY010"
 
-# date: "2026-09-28"
+date: last-modified
 
 format:
   pdf:
@@ -44,6 +44,8 @@ requireNamespace('quarto')
 ## Convergences 
 
 
+
+
 ::: {#exr-vague}
 
 Considérons la suite de masses de probabilité sur les 
@@ -55,12 +57,28 @@ Montrer que cette suite converge vaguement vers la mesure nulle alors qu'elle ne
 
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
+:::
+
 ::: {#exr-conv-vague}
 
 Si une suite de lois de probabilité sur $\mathbb{R}^k$ converge vaguement vers une mesure de probabilité, converge-t-elle aussi faiblement vers cette mesure de probabilité ?
 
 :::
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
+:::
 
 ::: {#exr-utight-enough}
 
@@ -72,6 +90,14 @@ $$\forall n \geq n_(\epsilon), \qquad P_n(K) \geq 1 - \epsilon\, .$$
 :::
 
 ## Portemanteau 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
+:::
 
 ::: {#exr-weakconvquantiles}
 
@@ -85,6 +111,14 @@ si et seulement si $\lim_n F_n^\leftarrow(x) = F^\leftarrow(x)$ en tout point $x
 
 ## Théorèmes de continuité
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
+:::
+
 ::: {#exr-laplaceconv}
 
 Verifier qu'une suite de variables aléatoires _non négatives_ $(X_n)_n$ converge en loi
@@ -95,6 +129,14 @@ vers la variable aléatoire _non négative_ $X$ si et seulement si la suite des 
 
 ## TCL
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
+:::
 
 ::: {#exr-tcl-poisson-gamma   name="Mélanges Gamma-Poisson"} 
 
@@ -108,6 +150,14 @@ $$\frac{Y-E[Y]}{\sqrt{\mathrm{var}(Y)}} \overset{(\mathrm{loi})}{\longrightarrow
 où $Z \sim \mathcal{N}(0,1)$. Y a-t-il un lien avec le théorème central limite? 
  
 
+:::
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
 :::
 
 ::: {#exr-tcl-2   name=""} 
@@ -124,6 +174,14 @@ $$F_n(x) = x - \frac{\sin(2n \pi x)}{2n\pi}, \ 0 \le x \le 1.$$
 
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
+:::
+
 ::: {#exr-tcl-mediane-empirique-1 name="Mediane empirique échantillon exponentiel"}
 
 
@@ -132,19 +190,48 @@ $$F_n(x) = x - \frac{\sin(2n \pi x)}{2n\pi}, \ 0 \le x \le 1.$$
 
 
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
+:::
+
 ::: {#exr-tcl-mediane-empirique-2 name="Mediane empirique échantillon uniforme"}
 
+Dans cet exercice $X_n$ est la statistique d'ordre $n+1$ d'un échantillon de taille $2n+1$  de la loi uniforme sur $[0,1]$.
+
+Montrer que la suite $(\sqrt{n}(X_n-1/2))_n$ converge en distribution vers une loi normale. 
+
+Suggestion: utiliser la représentation en distribution des statistiques d'ordre d'un échantillon uniforme de (voir
+[Exercice Statistiques d'ordre d'un échantillon uniforme](https://s-v-b.github.io/MA1AY010/exercices/td4-2026.html)). 
+
+:::
+
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
+:::
+
+::: {#exr-gumbel name="Lois d'extrêmes : Gumbel"}
+
 
 
 :::
 
 
-::: {#exr-gumbel name="Lois d'extremes : Gumbel"}
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
 
-
+TODO
 
 :::
-
+:::
 
 ::: {#exr-frechet name="Lois d'extremes : Frechet"}
 
@@ -152,6 +239,14 @@ $$F_n(x) = x - \frac{\sin(2n \pi x)}{2n\pi}, \ 0 \le x \le 1.$$
 
 :::
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
+:::
 
 ::: {#exr-stats-dordre-intermediaire name="Statistiques d'ordre intermediaires dans un echantillon exponentiel"}
 
@@ -178,8 +273,47 @@ b. Maintenant $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infin
 
 :::
 
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
+:::
+
 ::: {#exr-stats-dordre-intermediaire-2 name="Statistiques d'ordre intermediaires dans un echantillon uniforme"}
 
 
 
+:::
+
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
+:::
+
+
+::: {#exr-convergence-densite}
+
+Soit $(P_n)_n$  une suite de lois de probabilités absolument continues sur $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$. 
+Pour chaque $P_n$ on dispose de $f_n$ une densité de $P_n$, 
+
+1. Montrer que si $(f_n)_n$ converge simplement vers une densité $f$ alors la suite $(P_n)_n$ converge faiblement vers une loi $P$ de densité $f$
+2. Peut-on se passer de l'hypothèse que $f$ est une densité pour  déduire la convergence faible de la suite $(P_n)_n$ ?
+
+
+
+:::
+
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+TODO
+
+:::
 :::
