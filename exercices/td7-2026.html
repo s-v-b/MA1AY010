@@ -4401,6 +4401,12 @@ window.Quarto = {
  <span class="menu-text">Corrigés</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides-listings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diapositives</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
@@ -4452,6 +4458,8 @@ window.Quarto = {
   <div class="quarto-categories">
     <div class="quarto-category">Fonctions génératrices</div>
     <div class="quarto-category">Conditionnement discret</div>
+    <div class="quarto-category">Processus de branchement</div>
+    <div class="quarto-category">Conditionnement</div>
   </div>
   </div>
 
@@ -4463,7 +4471,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">16 octobre 2026</p>
+      <p class="date">18 octobre 2026</p>
     </div>
   </div>
   
@@ -4584,6 +4592,9 @@ f^{(p)}(1) = \mathbb{E}\left[X (X-1) \ldots (X-p+1)\right] \, .
 </ol>
 </div>
 <div style="page-break-after: always;"></div>
+</section>
+<section id="processus-de-branchement" class="level2">
+<h2 class="anchored" data-anchor-id="processus-de-branchement">Processus de branchement</h2>
 <div class="callout callout-style-simple callout-note no-icon" name="Branchement">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -4687,13 +4698,13 @@ On convient de <span class="math inline">\(\mathbb{N}^* = \mathbb{N}\setminus \{
 <p>Dans cette section, <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> est un espace de probabilité, <span class="math inline">\(\mathcal{G}\)</span> une sous-tribu de <span class="math inline">\(\mathcal{F}\)</span>. Les variables aléatoires <span class="math inline">\((X_n)_n, (Y_n)_n, X, Y, Z\)</span> sont supposées intégrables, et p.s. signifie <span class="math inline">\(P\)</span>-p.s.</p>
 <div id="exr-monotonecond" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 20 (Monotonicité de l’espérance conditionnelle)</strong></span> Si <span class="math inline">\((X_n)_{n \in \mathbb{N}}\)</span> est une suite de variables aléatoires de <span class="math inline">\(\mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span> telle que <span class="math inline">\(X_{n + 1} \geq X_n\)</span> <span class="math inline">\(P\)</span>-p.s., alors il existe une suite <span class="math inline">\(P\)</span>-p.s. croissante de versions d’espérances conditionnelles</p>
-<p><span class="math display">\[ \forall n \in \mathbb{N},\quad\mathbb{E} \left[ X_{n + 1} \mid \mathcal{F} \right] \geq   \mathbb{E} \left[ X_n \mid \mathcal{F} \right] . \]</span></p>
+<p><span class="math display">\[ \forall n \in \mathbb{N},\quad\mathbb{E} \left[ X_{n + 1} \mid \mathcal{G} \right] \geq   \mathbb{E} \left[ X_n \mid \mathcal{G} \right] . \]</span></p>
 </div>
 <div id="exr-pi-systeme-esp-cond" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 21</strong></span> Soit <span class="math inline">\(\mathcal{E}\)</span> un <span class="math inline">\(\pi\)</span>-système engendrant <span class="math inline">\(\mathcal{G}\)</span> et contenant <span class="math inline">\(\Omega\)</span>. Vérifier que <span class="math inline">\(\mathbb{E} \left[ X \mid \mathcal{G} \right]\)</span> est l’unique élément de <span class="math inline">\(\mathcal{L}_1 \left( \Omega, \mathcal{G}, P \right)\)</span> qui satisfait</p>
 <p><span class="math display">\[\forall B \in \mathcal{E}, \quad \mathbb{E} \left[\mathbb{I}_B X \right] = \mathbb{E} \left[ \mathbb{I}_B\mathbb{E} \left[ X \mid \mathcal{G} \right] \right] .\]</span></p>
 </div>
-<p>La propriété la plus simple est :</p>
+<!-- La propriété la plus simple est : -->
 <div id="exr-tower-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 22</strong></span> Montrer que si <span class="math inline">\(X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span>, alors</p>
 <p><span class="math display">\[\mathbb{E} \left[ X \right] = \mathbb{E} \left[ \mathbb{E}   \left[ X \mid \mathcal{G} \right] \right].\]</span></p>
