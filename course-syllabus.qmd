@@ -55,8 +55,8 @@ L'examen terminal de session I dure trois heures, il porte sur l'ensemble du cou
 ## Sauvez les dates!
 
 - Contrôle Continu 1  Jeudi 17 Septembre 2026  (Programme : révisions)
-- Contrôle Continu 2  Lundi 5  octobre 2026  (Programme : semaines I à IV)
-- Contrôle Continu 3  Jeudi 15 octobre 2026  (Programme : semaines I à V)
+- Contrôle Continu 2  ~~Lundi 5  octobre 2026~~  (Programme : semaines I à IV)
+- Contrôle Continu 3  ~~Jeudi 15 octobre 2026~~  (Programme : semaines I à V)
 - Examen session I entre le Lundi 7 et le Vendredi 16 décembre
 - Examen session II en juin 2027
 

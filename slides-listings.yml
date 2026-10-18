@@ -1,0 +1,15 @@
+- title: "Fonctions caractéristiques"
+  author: "Master I ISIFAR UParis Cité"
+  date: "2026-10-17"
+  path: "slides/cm-8-characterizing-distributions.html"
+  categories: [Fonctions caractéristiques, Fonctions génératrices]
+- title: "Convergence en probabilité. Loi(s) des grands nombres"
+  author: "Master I MIDS UParis Cité"
+  date: "2026-10-17"
+  path: "slides/cm-9-convergences.html"
+  categories: [Convergence presque sûre, Convergence en probabilités, Lois des grands nombres]
+- title: "Convergence en distribution. TCL"
+  author: "Master I MIDS UParis Cité"
+  date: "2026-10-17"
+  path: "slides/cm-10-CLT.html"
+  categories: [Convergence faible, Convergence en distribution, TCL]
