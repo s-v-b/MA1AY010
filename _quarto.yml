@@ -4,6 +4,7 @@ project:
     - "*.qmd"
     - "weeks/"
     - "!corriges/"
+    - "!slides/"
   output-dir: _site
 
 website:

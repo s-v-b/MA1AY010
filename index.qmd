@@ -19,14 +19,14 @@ Cette page résume le déroulement du semestre
 |  [3](/weeks/week-3.html)  | 21 Sep  |  Conditionnement      |            |         |        [TD VII](/exercices/td7-2026.qmd)                                    |                   |
 |   | 22 Sep  |          |            |         |                                 [TD VIII](/exercices/td8-2026.qmd)          |                   |
 |   | 24 Sep  |  |            |         |   | |
-|  [4](/weeks/week-4.html)  | 28 Sep  |  Caractérisations, Convergence en probabilité et p.s.       |            |         |                                                                                                             [TD IX](/exercices/td9-2026.qmd)     |                   |
+|  [4](/weeks/week-4.html)  | 28 Sep  |  Caractérisations      |            |         |                                                                                                             [TD IX](/exercices/td9-2026.qmd)     |                   |
 |   | 29 Sep  |  Caractérisations              |            |         |                             [TD X](/exercices/td10-2026.qmd)    |                   |
-|   | 1 Oct  |     Caractérisations    |            |         |   | |
-|  [5](/weeks/week-5.html)  | 5 Oct   |  Convergences  en distribution et TCL     |            |         |    [TD XI](/exercices/td11-2026.html)                                                                                                             |         **CC2**          |
-|   | 6  Oct  | Convergences  ...         |            |         |                                                                                                                 |                   |
-|   | 8 Oct  |  Convergences  ... |            |         |   
-|  [6](/weeks/week-6.html)  | 12 Oct   |  Convergences  et Vecteurs gaussiens   |           |         |       [TD XII](/exercices/td12-2026.qmd)               |                   |
-|   | 13  Oct  |             |            |         |                                                                                                                  |                   |
-|   | 15 Oct  |      |            |         |   | **CC3** | 
+|   | 1 Oct  |     Caractérisations    |    blocage        |         |   | |
+|  [5](/weeks/week-5.html)  | 5 Oct   |  Caractérisations    |  blocage     |         |    [TD XI](/exercices/td11-2026.html)                                                                                                             |         ~~CC2~~          |
+|   | 6  Oct  |  Caractérisations  ...         |    blocage        |         |                                                                                                                 |    blocage               |
+|   | 8 Oct  |  Caractérisations  et vecteurs gaussiens ... |   blocage         |         |   
+|  [6](/weeks/week-6.html)  | 12 Oct   |  Vecteurs gaussiens   |           |    blocage     |       [TD XII](/exercices/td12-2026.qmd)               |                   |
+|   | 13  Oct  |    Vecteurs gaussiens          |   blocage         |         |                                                                                                                  |                   |
+|   | 15 Oct  |   Convergences  en Probabilité. Loi faible  |    blocage        |         |   | ~~CC3~~ | 
 
 :::

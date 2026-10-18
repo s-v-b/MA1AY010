@@ -1,0 +1,921 @@
+---
+title: "Characterization(s) of  Probability Distributions"
+author: "Stéphane Boucheron"
+date: last-modified
+engine: knitr
+execute:
+  echo: false
+  eval: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+```
+
+# Motivation {background-color="#1c191c"}
+
+## Why do we look for _characterizations_ of probability distributions?
+
+- Checking equality of distributions
+
+- Quantifying difference between distributions
+
+- Characterizing limiting behaviour
+
+- ...
+
+## Characterizations
+
+- Cumulative distribution function (tail function)
+
+- Probability density (if any)
+
+- Probability generating function (on $\mathbb{N}, \mathbb{Z}$)
+
+- Fourier transform/Characteristic function
+
+- Laplace transform ($[0, \infty)$-valued)
+
+# Characteristic functions {#characteristic-functions background-color="#1c191c"}
+
+## Characteristic functions
+
+::: {#def-charfun}
+
+### Characteristic functions
+
+- $X \sim P$, $\mathbb{R}$ valued
+
+- Cumulative distribution function $F$: $F(x) = P\{X \leq x \}$
+
+The _characteristic function_ $\widehat{F}$ of distribution $P$ is defined by
+
+$$\begin{array}{rl}
+\widehat{F} \quad :  & \quad \mathbb{R}  \to \mathbb{C} \\
+\widehat{F}(t) & = \mathbb{E}\left[\mathrm{e}^{i t X}\right] \\
+  & = \int_{\mathbb{R}} \mathrm{e}^{i t x} \mathrm{d}F(x) \\
+  & =	\int_{\mathbb{R}} \cos(t x) \mathrm{d}F(x) + i \int_{\mathbb{R}} \sin(t x) \mathrm{d}F(x)
+\end{array}$$
+
+:::
+
+. . .
+
+- Defined for all probability distributions over $\mathbb{R}$
+
+- The definition can be extended to distributions on $\mathbb{R}^k, k\geq 1$
+
+## Properties of characteristic functions
+
+::: {#prp-charfun-props}
+
+### Properties
+
+Let $X \sim P$ with characteristic function $\widehat{F}$
+
+- $\widehat{F}$ is (uniformly) continuous over $\mathbb{R}$
+
+- $\widehat{F}(0)=1$
+
+- If $X$ is _symmetric_, $\widehat{F}$ is real-valued
+
+- The characteristic function of the distribution of $a X +b$ is $$\mathrm{e}^{it b} \widehat{F}(at)$$
+
+:::
+
+## Checking the continuity property {.smaller}
+
+::: {.proof name="Checking the continuity property"}
+
+Calculus leads to
+
+$$\begin{array}{rl}
+\Big| \mathrm{e}^{i(t+ \delta)x} - \mathrm{e}^{itx}\Big|
+  & = \Big| \mathrm{e}^{itx}\Big| \times \Big|\mathrm{e}^{i\delta x} - 1\Big| \\
+  & \leq \Big|\mathrm{e}^{i\delta x} - 1\Big| \\
+  & \leq 2 \Big( 1 \wedge \big| \delta x \big| \Big)
+\end{array}$$
+
+for every $t\in \mathbb{R}, \delta \in \mathbb{R}, x \in \mathbb{R}$.
+
+. . .
+
+Integration with respect to $F$:
+
+$$\begin{array}{rl}
+  \Big| \widehat{F}(t+\delta) - \widehat{F}(t)\Big|
+  & \leq \int 2 \Big( 1 \wedge \big| \delta x \big| \Big) \mathrm{d}F(x) \,.
+\end{array}$$
+
+. . .
+
+By the dominated convergence theorem:
+
+$$\lim_{\delta \to 0} \Big| \widehat{F}(t+\delta) - \widehat{F}(t)\Big| = 0\qquad \text{uniformly in } t$$
+
+:::
+
+## Sums of independent random variables
+
+::: {#prp-charfun-sum}
+
+### Characteristic functions of sums
+
+Let
+
+- $X \perp\!\!\!\perp Y$
+
+- with cumulative distribution functions $F_X$ and $F_Y$
+
+Then
+
+$$\widehat{F}_{X+Y}(t) =  \widehat{F}_X(t) \times \widehat{F}_Y(t)\qquad \forall t \in \mathbb{R}$$
+
+:::
+
+## Product formula
+
+::: {.proof}
+
+$$\begin{array}{rl}
+\widehat{F}_{X+Y}(t)
+  & = \mathbb{E}\Big[\mathrm{e}^{it (X+Y)}\Big] \\
+  & = \mathbb{E}\Big[\mathrm{e}^{it X} \mathrm{e}^{it Y}\Big] \\
+  & = \mathbb{E}\Big[\mathrm{e}^{it X} \Big] \times \mathbb{E}\Big[\mathrm{e}^{it Y}\Big] \qquad \text{independence}\\
+  & =  \widehat{F}_X(t) \times \widehat{F}_Y(t) \, .
+\end{array}$$
+
+:::
+
+## A converse?
+
+::: {#exr-charfun-converse}
+
+### Looking for a converse
+
+Use a counter-example to prove that
+
+$$\Big(\forall t \in \mathbb{R}, \quad \widehat{F}_{X+Y}(t) =  \widehat{F}_X(t) \times \widehat{F}_Y(t) \Big) \not\Rightarrow X \perp\!\!\!\perp Y$$
+
+:::
+
+# Characteristic function of a univariate Gaussian distribution {#secgaussiancharac background-color="#1c191c"}
+
+## Computing characteristic functions
+
+It is possible to compute characteristic functions by resorting to Complex Analysis.
+
+. . .
+
+We shall refrain from this when computing the most important characteristic function:
+the characteristic function of the standard Gaussian distribution.
+
+## Standard Gaussian
+
+::: {#prp-gaussian-charfun}
+
+### Characteristic function of $\mathcal{N}(0,1)$ 
+
+Let $\widehat{\Phi}$ denote the characteristic function of the standard univariate Gaussian distribution $\mathcal{N}(0,1)$.
+
+The following holds
+
+$$\widehat{\Phi}(t) = \mathrm{e}^{-\frac{t^2}{2}}$$
+
+:::
+
+## Gaussian characteristic function {.smaller}
+
+::: {.proof}
+
+As $\phi$ is even, $\widehat{\Phi}(t) =\mathbb{E} \cos(tX)$
+
+. . .
+
+$$\begin{array}{rl}
+\widehat{\Phi}'(t)
+& = - \mathbb{E}\left[X \sin(t X) \right] \\
+& =  - \frac{1}{\sqrt{2 \pi}}\int_{\mathbb{R}} x \sin(tx) \mathrm{e}^{-\frac{x^2}{2}} \mathrm{d}x \\
+& = \frac{1}{\sqrt{2 \pi}} \Big[\sin(tx) \mathrm{e}^{-\frac{x^2}{2}} \Big]_{-\infty}^{\infty} - t \frac{1}{\sqrt{2 \pi}}\int_{\mathbb{R}}  \cos(tx) \mathrm{e}^{-\frac{x^2}{2}} \mathrm{d}x \\
+& = - t \widehat{\Phi}(t) \,.
+\end{array}$$
+
+. . .
+
+$\widehat{F}$ is a solution of the differential equation:
+
+$$g'(t) = -t g(t) \quad \text{ with } g(0)=1$$
+
+. . .
+
+The differential equation is readily solved, and the solution is
+
+$$g(t)= \mathrm{e}^{- \frac{t^2}{2}}$$
+
+:::
+
+## Differentiating under the expectation
+
+::: {#exr-gaussian-diff}
+
+### Two justifications
+
+- Why is $\widehat{\Phi}$ differentiable?
+
+- Why are we allowed to interchange expectation and derivation?
+
+:::
+
+## A milestone
+
+::: {.callout-important appearance="minimal"}
+
+A byproduct of @prp-gaussian-charfun is the following integral representation of the Gaussian density.
+
+:::
+
+$$\phi(x)  =  \frac{1}{2 \pi} \int_{\mathbb{R}} \widehat{\Phi}(t) \mathrm{e}^{-itx} \mathrm{d}t$$
+
+It does not look interesting, but it is a milestone for the derivation of the _general inversion formula_.
+
+# Sums of independent random variables and convolutions {#convolutions background-color="#1c191c"}
+
+## Convolution
+
+::: {#def-convolution}
+
+### Convolution
+
+If $f$ and $g$ are two integrable functions, the _convolution_ of $f$ and $g$ is defined as
+
+$$f \star g (x)  = \int_{\mathbb{R}} f(x-y)g(y) \mathrm{d}y = \int_{\mathbb{R}} g(x-y)f(y) \mathrm{d}y$$
+
+- $f \star g$ is also integrable
+
+- if $f$ and $g$ are two probability densities then so is $f \star g$,
+
+- $f \star g$ is the density of the distribution of $X+Y$ where $X \sim f$ is independent from $Y \sim g$.
+
+:::
+
+::: {.notes}
+The interplay between Characteristic functions/Fourier transforms and
+summation of independent random variables is
+one of the most attractive features of this transformation.
+
+In order to understand it, we shall need an operation stemming from analysis: _convolution_.
+:::
+
+## Regularization by convolution
+
+::: {#prp-conv-density}
+
+### Regularization by convolution
+
+Let $X \sim  P_X, Y \sim P_Y$, with $X \perp\!\!\!\perp Y$
+
+Assume that $P_X$ is absolutely continuous with density $p_X$.
+
+Then the distribution of $X+Y$ is absolutely continuous and has density
+
+$$p_x \star P_Y (z) = \int_{\mathbb{R}} p_X(z -y ) \mathrm{d}P_Y(y)$$
+
+:::
+
+## Proof of regularization {.smaller}
+
+::: {.proof}
+
+Let $B$ be Borel subset of $\mathbb{R}$ ($B \in \mathcal{B}(\mathbb{R})$)
+
+$$\begin{array}{rl}
+P \Big\{ X+Y  \in B\Big\}
+  & = \int_{\mathbb{R}} \Big( \int_{\mathbb{R}} \mathbb{I}_B(x+y) p_X(x)\mathrm{d}x\Big) \mathrm{d}P_Y(y) \\
+  & = \int_{\mathbb{R}} \Big(\int_{\mathbb{R}} \mathbb{I}_B(z) p_X(z-y)\mathrm{d}z\Big) \mathrm{d}P_Y(y) \\
+  & = \int_{\mathbb{R}} \mathbb{I}_B(z) \Big(\int_{\mathbb{R}}  p_X(z-y) \mathrm{d}P_Y(y) \Big) \mathrm{d}z \\
+  & = \int_{\mathbb{R}} \mathbb{I}_B(z) p_x \star P_Y (z) \mathrm{d}z
+\end{array}$$
+
+where
+
+- the first equality follows from the Tonelli-Fubini Theorem,
+- the second equality is obtained by change of variable $x \mapsto z = x+y$ for every $y$,
+- the third equality follows again from the Tonelli-Fubini Theorem.
+
+:::
+
+::: {.notes}
+
+
+Convolution is not tied to Probability theory.
+
+- In Analysis, convolution is known to be a regularizing
+(smoothing) operation. This also holds in Probability theory: if the distribution of either $X$ or $Y$ has a density and $X \perp\!\!\!\perp Y$, then the distribution of
+$X+Y$ has a density.
+
+- Convolution with smooth distributions plays an important role in non-parametric statistics, it is at the root of kernel density estimation.
+
+- Convolution is an important tool in Signal Processing.
+:::
+
+## Checks
+
+::: {#exr-conv-checks}
+
+### Convolution
+
+- Check that if $X$ and $Y$ are independent with densities $f_X$ and $f_Y$,
+$f_X \star f_Y$ is a density of the distribution of $X+Y$.
+
+- If $Y =0$ almost surely (its distribution is $\delta_0$), then $p_X \star \delta_0 = p_X$.
+
+- What happens in @prp-conv-density, if we consider the distributions of $\sigma X +Y$ and let $\sigma$ decrease to $0$?
+
+:::
+
+## Vanishing perturbations
+
+::: {#prp-vanishing}
+
+### Vanishing perturbations
+
+Assume
+
+- $P_X \trianglelefteq \text{Lebesgue}$ with density $p_X$
+
+- $P_X(-\infty, 0] = \alpha \in (0,1)$
+
+Then
+
+$$\lim_{\sigma \downarrow 0} \mathbb{P}\big\{ Y + \sigma X \leq a \Big\} = P_Y(-\infty, a) + \alpha P_Y\{a\}$$
+
+:::
+
+::: {.callout-warning appearance="minimal"}
+If $P_Y \trianglelefteq \text{Lebesgue}$, the limit is the CDF of $P_Y$.
+:::
+
+## Proof of vanishing perturbations {.smaller}
+
+::: {.proof}
+
+$$\begin{array}{rl}
+\mathbb{P}\big\{ Y + \sigma X \leq a \Big\}
+    & = \int_{\mathbb{R}} \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \mathrm{d}P_Y(y) \\
+    & = \int_{(-\infty,a)} \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \mathrm{d}P_Y(y) \\
+    & + \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-a}{\sigma}} p_X(x) \mathrm{d}x P_Y\{a\} \\
+    & + \int_{(a, \infty)} \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \mathrm{d}P_Y(y)
+\end{array}$$
+
+By monotone convergence,
+
+- the first and third integrals converge respectively to $P_Y(-\infty, a)$ and $0$
+
+- the second term equals $\alpha P_Y\{a\}$.
+
+:::
+
+# Inversion formula {#sectioninversionformula background-color="#1c191c"}
+
+## Injectivity
+
+The characteristic function maps probability measures to $\mathbb{C}$-valued functions.
+
+::: {.callout-warning appearance="minimal"}
+Characteristic functions/Fourier transforms define an injective operator on the set of Probability measures on the real line.
+:::
+
+::: {#thm-injectivity}
+
+### Injectivity
+
+If two probability distributions $P$ and $Q$ have the same characteristic function, they are equal.
+
+:::
+
+::: {.notes}
+The injectivity property follows from an explicit inversion recipe.
+
+The characteristic function
+allows us to recover the cumulative distribution function at all its continuity points.
+
+Again, as continuity points of
+cumulative distribution functions are dense on $\mathbb{R}$, this is enough.
+:::
+
+## Inversion for regularized random variables {.smaller}
+
+::: {#prp-reg-inversion}
+
+### Inversion formula for regularized random variables
+
+Let $X \sim F$ and $Z \sim \mathcal{N}(0,1)$ with $X ⟂\!\!\!⟂ Z$
+
+Let $Y = X + \sigma Z$, then:
+
+- the distribution of $Y$ has characteristic function
+$$\widehat{F}_\sigma(t) = \widehat{\Phi}(t\sigma) \times \widehat{F}(t) = \mathrm{e}^{- \frac{t^2 \sigma^2}{2}} \widehat{F}(t)$$
+
+- the distribution of $Y$ is absolutely continuous with respect to Lebesgue measure
+
+- a version of the density of the distribution of $Y$ is given by
+$$\frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}} \widehat{F}(t)\mathrm{e}^{-ity} \mathrm{d}t
+  = \frac{1}{{2 \pi}}\int_{\mathbb{R}}  \widehat{F}_\sigma(t)\mathrm{e}^{-ity} \mathrm{d}t$$
+
+:::
+
+## Reading the regularized inversion
+
+::: {#exr-product-space}
+
+### Product space
+
+Why can we take for granted the existence of a probability space with two independent random variables $X, Z$ distributed as above?
+
+:::
+
+. . .
+
+::: {.callout-important appearance="minimal"}
+@prp-reg-inversion states that a density of the distribution of $X + \sigma Z$ can be recovered from its characteristic function by the _Fourier inversion formula_ for functions with integrable Fourier transforms.
+:::
+
+## Proof of regularized inversion
+
+::: {.proof}
+
+The fact that for any $\sigma >0$, the distribution of $Y = X + \sigma Z$ is absolutely continuous with respect to Lebesgue measure comes from @prp-conv-density.
+
+. . .
+
+A density of the distribution of $X + \sigma Z$ is given by
+
+$$y \mapsto \int_{\mathbb{R}} \frac{1}{\sigma} \phi\Big(\frac{y -x}{\sigma}\Big) \mathrm{d}F(x)$$
+
+. . .
+
+The characteristic function of $Y$ at $t$ is $\mathrm{e}^{- \frac{t^2 \sigma^2}{2}} \widehat{F}(t)$.
+
+:::
+
+## Proof of regularized inversion, continued {.smaller}
+
+::: {.proof name="continued"}
+
+$$\begin{array}{rl}
+\mathbb{P}\Big\{ Y \leq u\Big\}
+& = \int_{-\infty}^u \int_{\mathbb{R}} \frac{1}{\sigma} \phi\Big(\frac{y -x}{\sigma}\Big) \mathrm{d}F(x)  \mathrm{d}y \\
+& = \int_{-\infty}^u \int_{\mathbb{R}} \frac{1}{\sigma}
+\frac{1}{\sqrt{2 \pi}} \int_{\mathbb{R}} \frac{\mathrm{e}^{- \frac{t^2}{2}}}{\sqrt{2\pi}} \mathrm{e}^{-it 	\frac{y-x}{\sigma}} \mathrm{d}t
+\mathrm{d}F(x)  \mathrm{d}y \\
+& = \int_{-\infty}^u \int_{\mathbb{R}} \frac{1}{\sigma}
+\frac{1}{{2 \pi}} \mathrm{e}^{- \frac{t^2}{2}} \mathrm{e}^{-\frac{ity}{\sigma}} \int_{\mathbb{R}}  \mathrm{e}^{\frac{itx}{\sigma}} \mathrm{d}F(x)  \mathrm{d}t
+ \mathrm{d}y \\
+& = \int_{-\infty}^u \int_{\mathbb{R}} \frac{1}{\sigma}
+\frac{1}{{2 \pi}} \mathrm{e}^{- \frac{t^2}{2}} \mathrm{e}^{-\frac{ity}{\sigma}} \widehat{F}(t/\sigma)  \mathrm{d}t
+ \mathrm{d}y \\
+& = \int_{-\infty}^u  \left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right) \mathrm{d}y
+\end{array}$$
+
+The quantity $\frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t$ is a version of the density of the distribution of $Y = X + \sigma Z$ (why?).
+
+:::
+
+::: {.notes}
+Note that it is obtained
+from the same inversion formula that readily worked for the Gaussian density.
+:::
+
+## General inversion formula {.smaller}
+
+Now we have to show that an inversion formula works for all probability distributions, not only for the smooth probability distributions obtained by adding Gaussian noise.
+
+::: {#thm-general-inversion}
+
+### General inversion formula
+
+Let $X \sim P$, with cumulative distribution function $F$ and characteristic function $\widehat{F}$.
+
+Then:
+
+$$\lim_{\sigma \downarrow 0} \int_{-\infty}^u  \left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{-ity}  \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\widehat{F}(t)\mathrm{d}t   \right) \mathrm{d}y =  F(u_-) + \frac{1}{2} P\{u\}$$
+
+where
+
+$$F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)$$
+
+:::
+
+## Proof of the general inversion formula
+
+::: {.proof}
+
+The proof consists in combining @prp-vanishing and @prp-reg-inversion.
+
+:::
+
+## What the inversion formula returns
+
+::: {.callout-warning appearance="minimal"}
+@thm-general-inversion does not deliver directly the distribution function $F$.
+:::
+
+::: {.callout-note appearance="minimal"}
+If CDF $F$ is not continuous,
+$u \mapsto \widetilde{F}(u) = F(u_-) + \frac{1}{2} P\{u\}$ is not a CDF.
+:::
+
+::: {.callout-tip appearance="minimal"}
+The right-continuous modification of $\widetilde{F}$, $u \mapsto \lim_{v \downarrow u} \widetilde{F}(v)$, coincides with $F$.
+:::
+
+::: {.callout-tip appearance="minimal"}
+We have established @thm-injectivity.
+:::
+
+## Inversion when the characteristic function is integrable {.smaller}
+
+When the distribution function is absolutely continuous, with continuous density over $\mathbb{R}$, Fourier inversion is simpler.
+
+::: {#thm-simple-inversion}
+
+### Inversion for integrable characteristic functions
+
+Let $X \sim P$, with cumulative distribution function $F$ and characteristic function $\widehat{F}$.
+
+Assume that $\widehat{F}$ is integrable (with respect to Lebesgue measure).
+
+Then:
+
+- $P ⊴ \text{Lebesgue}$
+
+- $y \mapsto \frac{1}{{2 \pi}} \int_{\mathbb{R}} \widehat{F}(t) \mathrm{e}^{-ity} \mathrm{d}t$ is a uniformly continuous version of the density of $P$.
+
+:::
+
+::: {.notes}
+Integrability of $\widehat{F}$ matters.
+
+Think of the exponential distribution.
+:::
+
+## Proof of the integrable case {.smaller}
+
+::: {.proof}
+
+Let $X \sim P$ with cumulative distribution function $F$ and characteristic function $\widehat{F}$.
+
+Let $Z \sim \mathcal{N}(0,1)$ be independent from $X$, $Z \perp\!\!\!\perp X$.
+
+Let $x$ be a continuity point of $F$.
+
+$$\lim_{\sigma \downarrow 0} P\Big\{ X + \sigma Z  \leq x \Big\} = F(x)$$
+
+$$\begin{array}{rl}
+\lim_{\sigma \downarrow 0} P\Big\{ X + \sigma Z  \leq x \Big\}
+ & = \lim_{\sigma \downarrow 0}
+ \int_{-\infty}^x  \left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right) \mathrm{d}y \\
+ & = \int_{-\infty}^x   \frac{1}{{2 \pi}}\int_{\mathbb{R}} \lim_{\sigma \downarrow 0} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t    \mathrm{d}y \\
+ & = \int_{-\infty}^x   \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t    \mathrm{d}y \,
+\end{array}$$
+
+where interchange of limit and integration is justified by dominated convergence.
+
+:::
+
+<!-- ## An alternative inversion formula
+
+Let $P$ be a probability distribution over $\mathbb{R}$ with cumulative distribution function $F$, then
+
+$$\lim_{T \to \infty} \frac{1}{2\pi} \int_{-T}^T \frac{\mathrm{e}^{-it a} - \mathrm{e}^{-it b}}{it} \widehat{F}(t) \mathrm{d}t
+= F(b_-) - F(a) + \frac{1}{2} \Big(P\{b\} + P\{a\}\Big)$$ -->
+
+
+# More on Gaussian characteristic functions {#sectioninmoregaussiancharac background-color="#1c191c"}
+
+## Gaussian distributions are characterized by their characteristic functions
+
+The proof of the alternative inversion formula can be found in textbooks like Durrett (2010).
+
+::: {#cor-gaussian-charfun}
+
+### Gaussian characteristic functions
+
+Let $\widehat{F}$ denote the characteristic function of the probability distribution $P$.
+
+$$\widehat{F}(t) = \mathrm{e}^{-\frac{t^2}{2}} \Rightarrow  P = \mathcal{N}(0,1)$$
+
+$$\widehat{F}(t) = \mathrm{e}^{i\mu t -\frac{\sigma^2 t^2}{2}} \Rightarrow  P = \mathcal{N}(\mu,\sigma^2)$$
+
+:::
+
+## Stein's identity
+
+Another important byproduct of the proof of injectivity of the characteristic function
+is Stein's identity, an important property of the standard Gaussian distribution.
+
+::: {#thm-stein}
+
+### Stein's identity
+
+Let $X \sim \mathcal{N}(0,1)$, and $g$ be a differentiable function such that $\mathbb{E}|g'(X)|< \infty$, then
+
+$$\mathbb{E}[g'(X)] = \mathbb{E}[Xg(X)]$$
+
+Conversely, if $X$ is a random variable such that
+
+$$\mathbb{E}[g'(X)] = \mathbb{E}[X g(X)]$$
+
+holds for any differentiable function $g$ such that $g'$ is integrable, then
+$X \sim \mathcal{N}(0,1)$.
+
+:::
+
+## Proof of Stein's identity
+
+::: {.proof}
+
+Direct part follows by integration by parts.
+
+Converse,
+
+- Note that if $X$ satisfies the identity in @thm-stein,
+then for all $t \in \mathbb{R}$, the functions $t \mapsto \mathbb{E} \cos(tX)$
+and $t \mapsto \mathbb{E} \sin(tX)$ satisfy the differential equation $g'(t) = t g(t)$
+with conditions $\mathbb{E} \cos(0X)=1$ and $\mathbb{E} \sin(0X) =0$.
+
+- This entails $\mathbb{E} \mathrm{e}^{itX} = \exp\Big(-\frac{t^2}{2}\Big)$, that is
+$X \sim \mathcal{N}(0,1)$.
+
+:::
+
+# Notable characteristic functions {#notablecharac background-color="#1c191c"}
+
+## Laplace distribution {.smaller}
+
+Let $X = \epsilon \times Y$ with
+
+$$\epsilon \quad \bot\!\!\!\bot \quad Y \sim \text{Exp}$$
+
+and $P\{\epsilon=1\}=P\{\epsilon=-1\}=1/2$.
+
+The distribution of $Y$ is called the *Laplace distribution*.
+
+::: {.callout-note appearance="minimal"}
+$Y \sim -Y$: $Y$ is a _symmetric_ random variable.
+:::
+
+$$\begin{array}{rl}
+\widehat{F}_Y(t)
+  & = \int_{\mathbb{R}} \frac{1}{2}\mathrm{e}^{-|x|} \cos(tx)\mathrm{d}x \qquad\text{(symmetry)}\\
+  & = \int_{[0, \infty)} \mathrm{e}^{-x} \cos(tx)\mathrm{d}x\\
+  & = [-\mathrm{e}^{-x}\cos(tx)]_0^\infty - t \int_0^\infty \mathrm{e}^{-x}\sin(tx)\mathrm{d}x\qquad\text{(IBP)}\\
+  & = 1 + t [\mathrm{e}^{-x}\sin(tx)]_0^\infty - t^2 \int_0^\infty \mathrm{e}^{-x}\cos(tx)\mathrm{d}x\qquad\text{(IBP bis)}\\
+  & = 1 - t^2 \widehat{F}_Y(t)
+\end{array}$$
+
+The characteristic function of the Laplace distribution is
+
+$$\widehat{F}_Y(t) = \frac{1}{1+ t^2}$$
+
+::: {.notes}
+IBP stands for integration by parts.
+:::
+
+## Exponential distribution  {.smaller}
+
+If we turn back to the characteristic function of the Exponential distribution
+
+$$\widehat{F}_Y(t) = \frac{1}{2} \widehat{F}_X(t) + \frac{1}{2} \widehat{F}_X(-t)$$
+
+$$\widehat{F}_X(-t) = \overline{\widehat{F}_X(t)}$$
+
+$$\Re\left(\widehat{F}_X(t)\right) = \widehat{F}_Y(t) = \frac{1}{1+ t^2}$$
+
+By integration by parts again
+
+$$\Im\left(\widehat{F}_X(t)\right) = t \Re\left(\widehat{F}_X(t)\right)$$
+
+The exponential distribution has characteristic function
+
+$$\widehat{F}_X(t) = \frac{1}{1+t^2} (1 + it) = \frac{1}{1-it}$$
+
+::: {.notes}
+No need to perform complex integration here.
+:::
+
+## Cauchy distribution {.smaller}
+
+
+Let $V$ be uniformly distributed on $]-\pi/2, \pi/2[$.
+
+Let $U = \tan(V)$.
+
+$U$ is a symmetric random variable with absolutely continuous distribution and density
+
+$$x \mapsto \frac{1}{\pi} \frac{1}{1+x^2}$$
+
+over $\mathbb{R}$.
+
+Up to the factor $1/\pi$, the density of the Cauchy distribution is the characteristic function of the Laplace distribution.
+
+By @thm-simple-inversion
+
+$$\begin{array}{rl}
+\widehat{F}_U(t)
+  & = \int_{\mathbb{R}} \mathrm{e}^{it x} \frac{1}{\pi} \frac{1}{1+x^2} \mathrm{d} x\\
+  & = \frac{1}{\pi} \int_{\mathbb{R}} \mathrm{e}^{it x}  \widehat{F}_Y(x) \mathrm{d} x\\
+  & = \frac{1}{\pi} \int_{\mathbb{R}} \mathrm{e}^{- it x}  \widehat{F}_Y(x) \mathrm{d} x \\
+  & = \mathrm{e}^{-|t|}
+\end{array}$$
+
+::: {.notes}
+Pay attention to normalizations.
+:::
+
+## The Cauchy distribution is stable  {.smaller}
+
+Let $U_1, \ldots, U_n \sim_{\text{i.i.d.}} \text{Cauchy}$.
+
+Let $Z = \frac{1}{n}\sum_{i=1}^n U_i$.
+
+Then
+
+$$\widehat{F}_Z(t) = \prod_{i=1}^n \widehat{F}_U(t/n) = \mathrm{e}^{-|t|} = \widehat{F}_U(t)$$
+
+By @thm-injectivity, $Z \sim U$.
+
+. . .
+
+The Cauchy distribution has no expectation, so it does not satisfy the conditions of the strong law of large numbers.
+
+The Cauchy distribution (along with the Normal distribution) is an example of a _stable_ distribution.
+
+::: {.notes}
+If $X \bot\!\!\!\bot Y$ and $X \sim Y \sim \text{Cauchy}$,
+
+$$\widehat{F}_{X+Y}(t) = \mathrm{e}^{-2|t|} = \widehat{F}_{X+X}(t) = \widehat{F}_{X}(t) \times \widehat{F}_{X}(t)$$
+
+This illustrates the fact that $\widehat{F}_{X+Y} = \widehat{F}_{X} \times \widehat{F}_{Y}$ does not imply independence of $X$ and $Y$.
+:::
+
+# Differentiability and integrability {#secdifferentiabilityintegrability background-color="#1c191c"}
+
+## Integrability implies smoothness
+
+Differentiability of the Fourier transform at $0$ and integrability are intimately related.
+
+::: {#thm-integrability-smoothness}
+
+### Integrability and smoothness
+
+If $X$ is $p$-integrable for some $p \in \mathbb{N}$
+
+then
+
+- the Fourier transform of the distribution of $X$ is $p$-times differentiable at $0$
+
+- the $p^{\text{th}}$ derivative at $0$ equals $i^k \mathbb{E}X^k$
+
+:::
+
+::: {.notes}
+Recall what we had for probability generating functions.
+:::
+
+## Taylor expansion of the exponential
+
+::: {.proof}
+
+The proof relies on a Taylor expansion with remainder of $x \mapsto \mathrm{e}^{ix}$ at $x=0$:
+
+$$\mathrm{e}^{ix} - \sum_{k=0}^n \frac{(ix)^k}{k!} = \frac{i^{n+1}}{n!} \int_0^x (x-s)^n \mathrm{e}^{is} \mathrm{d}s$$
+
+:::
+
+## Two bounds on the remainder
+
+::: {.proof name="continued"}
+
+The modulus of the right hand side can be upper-bounded in two different ways.
+
+$$\frac{1}{n!}\Big| \int_0^x (x-s)^n \mathrm{e}^{is} \mathrm{d}s \Big|
+  \leq \frac{|x|^{n+1}}{(n+1)!}$$
+
+which is good when $|x|$ is small.
+
+. . .
+
+To handle large values of $|x|$, integration by parts leads to
+
+$$\frac{i^{n+1}}{n!} \int_0^x (x-s)^n \mathrm{e}^{is} \mathrm{d}s =  \frac{i^{n}}{(n-1)!} \int_0^x (x-s)^{n-1} \left(\mathrm{e}^{is}-1\right) \mathrm{d}s \,.$$
+
+. . .
+
+The modulus of the right hand side can be upper-bounded by $2|x|^n/n!$.
+
+:::
+
+## Taking expectations
+
+::: {.proof name="continued"}
+
+Applying this Taylor expansion to $x=t X$, using the pointwise upper bounds and taking expectations leads to
+
+$$\begin{array}{rl}
+  \Big| \widehat{F}(t) - \sum_{k=0}^n \mathbb{E}\frac{(itX)^k}{k!}  \Big|
+    & \leq \mathbb{E} \Big[\min\Big( \frac{|tX|^{n+1}}{(n+1)!} ,2 \frac{|tX|^n}{n!}\Big)\Big] \\
+    & = \frac{|t|^n}{(n+1)!} \mathbb{E} \Big[\min\Big(|tX|^{n+1} ,2 (n+1) |X|^n \Big)\Big] \, .
+\end{array}$$
+
+The right hand side is well defined as soon as $\mathbb{E}|X|^n < \infty$.
+
+:::
+
+## Conclusion of the expansion
+
+::: {.proof name="continued"}
+
+By dominated convergence,
+
+$$\lim_{t \to 0} \mathbb{E} \Big[\min\Big(|tX|^{n+1} ,2 (n+1) |X|^n \Big)\Big] = 0\,$$
+
+Hence we have established that if $\mathbb{E}|X|^n < \infty$,
+
+$$\widehat{F}(t) = \sum_{k=0}^n i^k \mathbb{E}X^k \frac{t^k}{k!} + o(|t|^n)$$
+
+:::
+
+## A partial converse
+
+In the other direction, the connection is not as simple: differentiability of the Fourier transform does not imply integrability.
+
+But...
+
+::: {#thm-second-moment}
+
+### Second moment from the characteristic function
+
+If the Fourier transform $\widehat{F}$ of the distribution of $X$ satisfies
+
+$$\lim_{h \downarrow 0} \frac{2 - \widehat{F}(h) - \widehat{F}(-h)}{h^2} = \sigma^2 < \infty$$
+
+then $\mathbb{E}X^2 = \sigma^2$
+
+:::
+
+## Proof of the second-moment criterion  {.smaller}
+
+::::: {.proof}
+
+$$2 - \widehat{F}(h) - \widehat{F}(-h) =  2\mathbb{E}\Big[1 - \cos(hX)\Big]$$
+
+. . .
+
+Using the Taylor formula with remainder for $\cos$ at $0$:
+
+$$1 - \cos x = \int_0^x \cos(s) (x-s) \mathrm{d}s = x^2 \int_0^1 \cos(sx) (1-s) \mathrm{d}s$$
+
+. . .
+
+::: {.callout-important appearance="minimal"}
+
+$\int_0^1 \cos(sx) (1-s) \mathrm{d}s\geq 0$ for all $x \in \mathbb{R}$.
+
+:::
+
+$$\begin{array}{rl}
+  \frac{2\mathbb{E}\Big[1 - \cos(hX)\Big]}{h^2}
+    & = 2 \frac{\mathbb{E}\Big[ h^2 X^2 \int_0^1 \cos(shX) (1-s) \mathrm{d}s\Big]}{h^2} \\
+    & = 2 \mathbb{E}\Big[ X^2 \int_0^1 \cos(shX) (1-s) \mathrm{d}s\Big] \, .
+\end{array}$$
+
+:::::
+
+## Proof of the second-moment criterion, continued {.smaller}
+
+::: {.proof name="continued"}
+
+By Fatou's Lemma:
+
+$$\begin{array}{rl}
+\sigma^2
+  & = \lim_{h \downarrow 0} 2\mathbb{E}\Big[ X^2 \int_0^1 \cos(shX) (1-s) \mathrm{d}s\Big]\\
+  & \geq 2\mathbb{E}\Big[\liminf_{h \downarrow 0} X^2 \int_0^1 \cos(shX) (1-s) \mathrm{d}s \Big]
+\end{array}$$
+
+. . .
+
+But for all $x \in \mathbb{R}$, by dominated convergence:
+
+$$\liminf_{h \downarrow 0} x^2 \int_0^1 \cos(shx) (1-s) \mathrm{d}s = \frac{x^2}{2}$$
+
+Hence $\sigma^2 \geq \mathbb{E} X^2$.
+
+The proof is completed by invoking @thm-integrability-smoothness.
+
+:::
+
