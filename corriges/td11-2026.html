@@ -4469,7 +4469,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">16 octobre 2026</p>
+      <p class="date">21 octobre 2026</p>
     </div>
   </div>
   
@@ -4561,8 +4561,63 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<div id="exr-geom-exponentielle" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 6</strong></span> Soient <span class="math inline">\(\alpha&gt;0\)</span> et <span class="math inline">\((X_n)_{n\geq 1}\)</span> une suite de v.a. On suppose que pour tout <span class="math inline">\(n\geq 1\)</span>, <span class="math inline">\(X_n\)</span> est distribuée suivant la loi</p>
+<p><span class="math display">\[
+\forall k\geq 1,\qquad \mathbb{P}(X_n=k)=\frac{\alpha}{n}\Bigl(1-\frac{\alpha}{n}\Bigr)^{k-1}.
+\]</span></p>
+<p>Montrer que <span class="math inline">\(\bigl(\frac{1}{n}X_n\bigr)_{n\geq 1}\)</span> converge en loi vers la loi exponentielle de paramètre <span class="math inline">\(\alpha\)</span>.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>TODO</p>
+</div>
+</div>
+</div>
+<div id="exr-loi-dirac" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 7</strong></span> Soient <span class="math inline">\((X_n)_{n\geq 0}\)</span> une suite de v.a. réelles et <span class="math inline">\(c\in\mathbb{R}\)</span>. On suppose que <span class="math inline">\((X_n)_{n\geq 0}\)</span> converge en loi vers <span class="math inline">\(\delta_{\{c\}}\)</span>.</p>
+<ol type="1">
+<li>Soit <span class="math inline">\(\varepsilon&gt;0\)</span>. Montrer qu’il existe une fonction continue bornée <span class="math inline">\(\varphi_\varepsilon\)</span> telle que <span class="math inline">\(\varphi_\varepsilon(x)=0\)</span> si <span class="math inline">\(|x-c|\leq\varepsilon\)</span> et <span class="math inline">\(\varphi_\varepsilon(x)=1\)</span> si <span class="math inline">\(|x-c|&gt;2\varepsilon\)</span> et <span class="math inline">\(0\leq\varphi(x)\leq 1\)</span> pour tout <span class="math inline">\(x\)</span>.</li>
+<li>Calculer la limite de <span class="math inline">\(\mathbb{E}\bigl[\varphi_\varepsilon(X_n)\bigr]\)</span>.</li>
+<li>En déduire que <span class="math inline">\(\mathbb{P}(|X_n-c|&gt;2\varepsilon)\)</span> tend vers <span class="math inline">\(0\)</span>.</li>
+</ol>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>TODO</p>
+</div>
+</div>
+</div>
+<div id="exr-poisson1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 8</strong></span> Dans un contexte par exemple d’appels téléphoniques à un service d’urgence, on considère que le taux moyen d’appels par unité de temps est <span class="math inline">\(\lambda\)</span>.</p>
+<ol type="1">
+<li>On découpe un intervalle de temps unité en <span class="math inline">\(n\geq 1\)</span> sous-intervalles <span class="math inline">\((I^n_k)_{1\leq k\leq n}\)</span> tous de longueur <span class="math inline">\(\frac{1}{n}\)</span> et on modélise la présence d’un appel pendant l’intervalle par une loi de Bernoulli de paramètre <span class="math inline">\(p_n\)</span>. Comment fixer <span class="math inline">\(p_n\)</span> ?</li>
+<li>Soit <span class="math inline">\((T^n_k)_{n\geq 1,\, 1\leq k\leq n}\)</span> une famille de v.a. indépendantes telles que <span class="math inline">\(T^n_k\)</span> suit une loi de Bernoulli de paramètre <span class="math inline">\(p_n=\frac{\lambda}{n}\)</span>, et soit <span class="math inline">\(X_n=T^n_1+\cdots+T^n_n\)</span>. Déterminer la limite en loi de <span class="math inline">\((X_n)_{n\geq 1}\)</span>.</li>
+</ol>
+</div>
+<div id="exr-poisson-suite" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9 (suite de l’exercice)</strong></span> Suite de l’<a href="#exr-poisson1" class="quarto-xref">Exercice 8</a>.</p>
+<p>Soit <span class="math inline">\((N_n)_{n\geq 1}\)</span> une suite d’entiers, soit <span class="math inline">\((p_{n,k})_{n\geq 1,\, 1\leq k\leq N_n}\)</span> un tableau triangulaire de nombres <span class="math inline">\(\geq 0\)</span> et soit <span class="math inline">\(\lambda\geq 0\)</span>. On suppose que</p>
+<p><span class="math display">\[
+\lim_{n\to\infty} \Bigl(\sum_{k=1}^{N_n}p_{n,k}\Bigr) =\lambda
+\qquad\text{et}\qquad
+\lim_{n\to\infty} \bigl(\max_{1\leq k\leq N_n}p_{n,k}\bigr)= 0.
+\]</span></p>
+<ol type="1">
+<li>Montrer que pour tout <span class="math inline">\(x\geq 0\)</span>, la suite <span class="math inline">\((u_n)_{n\geq 1}\)</span> définie par <span class="math inline">\(u_n=\sum_{k=1}^{N_n}\log(1+xp_{n,k})\)</span> converge vers <span class="math inline">\(\lambda x\)</span>.</li>
+<li>Soit <span class="math inline">\((X_{n,k})_{n\geq 1,\, 1\leq k\leq N_n}\)</span> une famille de variables aléatoires telle que, pour tout <span class="math inline">\(n\geq 1\)</span>, les <span class="math inline">\((X_{n,k})_{1\leq k\leq N_n}\)</span> sont indépendantes, et <span class="math inline">\(X_{n,k}\sim\mathcal{B}(p_{n,k})\)</span>. Déterminer la limite en loi de <span class="math inline">\(Y_n=\sum_{k=1}^{N_n}X_{n,k}\)</span>.</li>
+</ol>
+</div>
 <div id="exr-tcl-poisson-gamma" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 6 (Mélanges Gamma-Poisson)</strong></span> Soit <span class="math inline">\(X \sim \Gamma(1,s)\)</span>. On définit <span class="math inline">\(Y \sim \mathrm{Poisson}(X)\)</span>, (c’est-à-dire que conditionnellement à <span class="math inline">\(X=x\)</span>, <span class="math inline">\(Y \sim \mathrm{Poisson}(x)\)</span>).</p>
+<p><span class="theorem-title"><strong>Exercice 10 (Mélanges Gamma-Poisson)</strong></span> Soit <span class="math inline">\(X \sim \Gamma(1,s)\)</span>. On définit <span class="math inline">\(Y \sim \mathrm{Poisson}(X)\)</span>, (c’est-à-dire que conditionnellement à <span class="math inline">\(X=x\)</span>, <span class="math inline">\(Y \sim \mathrm{Poisson}(x)\)</span>).</p>
 <ol type="1">
 <li>Calculer <span class="math inline">\(\Phi_Y\)</span>.</li>
 <li>Montrer que lorsque <span class="math inline">\(s \to \infty\)</span>, <span class="math display">\[\frac{Y-E[Y]}{\sqrt{\mathrm{var}(Y)}} \overset{(\mathrm{loi})}{\longrightarrow} Z,\]</span> où <span class="math inline">\(Z \sim \mathcal{N}(0,1)\)</span>. Y a-t-il un lien avec le théorème central limite?</li>
@@ -4579,7 +4634,7 @@ window.Quarto = {
 </div>
 </div>
 <div id="exr-tcl-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 7</strong></span> (Une remarque importante sur la convergence en loi.)</p>
+<p><span class="theorem-title"><strong>Exercice 11</strong></span> (Une remarque importante sur la convergence en loi.)</p>
 <p>Soit, pour <span class="math inline">\(n \ge 1\)</span>, <span class="math inline">\(X_n\)</span> un variable aléatoire dont la fonction de répartition est définie par <span class="math display">\[F_n(x) = x - \frac{\sin(2n \pi x)}{2n\pi}, \ 0 \le x \le 1.\]</span></p>
 <ol type="1">
 <li>Montrer que <span class="math inline">\(X_n\)</span> converge en loi vers une variable <span class="math inline">\(X\)</span> (dont on décrira la loi).<br>
@@ -4598,7 +4653,15 @@ window.Quarto = {
 </div>
 </div>
 <div id="exr-tcl-mediane-empirique-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 8 (Mediane empirique échantillon exponentiel)</strong></span>  </p>
+<p><span class="theorem-title"><strong>Exercice 12 (Mediane empirique échantillon exponentiel)</strong></span> ln n)_n Si <span class="math inline">\(X_1, \ldots, X_n, \ldots \sim_{\text{i.i.d.}} \text{Exp}(1)\)</span>, la médiane empirique de l’échantillon exponentiel de taille <span class="math inline">\(n\)</span> est <span class="math inline">\(X_{\lfloor n/2\rfloor:n}\)</span></p>
+<ol type="1">
+<li>Calculer l’éspérance et la variance de <span class="math inline">\(X_{\lfloor n/2\rfloor:n}\)</span>.</li>
+<li>La suite <span class="math inline">\((X_{\lfloor n/2\rfloor:n})_n\)</span> possède-t-elle une limite en loi ? Si oui préciser la limite.</li>
+<li>La suite <span class="math inline">\((X_{\lfloor n/2\rfloor:n})_n\)</span> possède-t-elle une limite en probabilité ? Si oui préciser la limite.</li>
+<li>La suite <span class="math inline">\((X_{\lfloor n/2\rfloor:n})_n\)</span> possède-t-elle une limite dans <span class="math inline">\(L_2\)</span> ? Si oui préciser la limite.</li>
+<li>La suite <span class="math inline">\((X_{\lfloor n/2\rfloor:n})_n\)</span> possède-t-elle une limite presque sûre ? Si oui préciser la limite.</li>
+</ol>
+<p>Suggestion: utiliser la représentation de Rényi</p>
 </div>
 <div class="callout callout-style-simple callout-note no-icon" name="Solution">
 <div class="callout-body d-flex">
@@ -4611,7 +4674,7 @@ window.Quarto = {
 </div>
 </div>
 <div id="exr-tcl-mediane-empirique-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 9 (Mediane empirique échantillon uniforme)</strong></span> Dans cet exercice <span class="math inline">\(X_n\)</span> est la statistique d’ordre <span class="math inline">\(n+1\)</span> d’un échantillon de taille <span class="math inline">\(2n+1\)</span> de la loi uniforme sur <span class="math inline">\([0,1]\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercice 13 (Mediane empirique échantillon uniforme)</strong></span> Dans cet exercice <span class="math inline">\(X_n\)</span> est la statistique d’ordre <span class="math inline">\(n+1\)</span> d’un échantillon de taille <span class="math inline">\(2n+1\)</span> de la loi uniforme sur <span class="math inline">\([0,1]\)</span>.</p>
 <p>Montrer que la suite <span class="math inline">\((\sqrt{n}(X_n-1/2))_n\)</span> converge en distribution vers une loi normale.</p>
 <p>Suggestion: utiliser la représentation en distribution des statistiques d’ordre d’un échantillon uniforme de (voir <a href="https://s-v-b.github.io/MA1AY010/exercices/td4-2026.html">Exercice Statistiques d’ordre d’un échantillon uniforme</a>).</p>
 </div>
@@ -4626,7 +4689,14 @@ window.Quarto = {
 </div>
 </div>
 <div id="exr-gumbel" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 10 (Lois d’extrêmes : Gumbel)</strong></span>  </p>
+<p><span class="theorem-title"><strong>Exercice 14 (Lois d’extrêmes : Gumbel)</strong></span> Si <span class="math inline">\(X_1, \ldots, X_n, \ldots \sim_{\text{i.i.d.}} \text{Exp}(1)\)</span>, le maximum de l’échantillon exponentiel de taille <span class="math inline">\(n\)</span> est <span class="math inline">\(X_{\lfloor n\rfloor:n}\)</span></p>
+<ol type="1">
+<li>Calculer l’éspérance et la variance de <span class="math inline">\(X_{n:n}\)</span>.</li>
+<li>La suite <span class="math inline">\((X_{n:n} - \ln n)_n\)</span> possède-t-elle une limite en loi ? Si oui préciser la limite.</li>
+<li>La suite <span class="math inline">\((X_{n:n} - \ln n)_n\)</span> possède-t-elle une limite en probabilité ? Si oui préciser la limite.</li>
+<li>La suite <span class="math inline">\((X_{n:n} - \ln n)_n\)</span> possède-t-elle une limite dans <span class="math inline">\(L_2\)</span> ? Si oui préciser la limite.</li>
+<li>La suite <span class="math inline">\((X_{n:n}- \ln n)_n\)</span> possède-t-elle une limite presque sûre ? Si oui préciser la limite.</li>
+</ol>
 </div>
 <div class="callout callout-style-simple callout-note no-icon" name="Solution">
 <div class="callout-body d-flex">
@@ -4639,7 +4709,14 @@ window.Quarto = {
 </div>
 </div>
 <div id="exr-frechet" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 11 (Lois d’extremes : Frechet)</strong></span>  </p>
+<p><span class="theorem-title"><strong>Exercice 15 (Lois d’extremes : Frechet)</strong></span> Dans cet exercice, <span class="math inline">\(Y_1, \ldots, Y_n, \ldots \sim_{\text{i.i.d.}} \text{Exp}(1)\)</span>, et <span class="math inline">\(X_i = \exp(Y_i)\)</span>. On s’intéresse au maxima <span class="math inline">\(X_{\lfloor n\rfloor:n}\)</span> des échantillons <span class="math inline">\(X_1, \ldots, X_n\)</span>.</p>
+<ol type="1">
+<li>Calculer l’éspérance et la variance de <span class="math inline">\(X_{n:n}\)</span> (si définies).</li>
+<li>La suite <span class="math inline">\((X_{n:n}/n)_n\)</span> possède-t-elle une limite en loi ? Si oui préciser la limite.</li>
+<li>La suite <span class="math inline">\((X_{n:n}/n)_n\)</span> possède-t-elle une limite en probabilité ? Si oui préciser la limite.</li>
+<li>La suite <span class="math inline">\((X_{n:n}/n)_n\)</span> possède-t-elle une limite dans $L_2 ? Si oui préciser la limite.</li>
+<li>La suite <span class="math inline">\((X_{n:n}/n)_n\)</span> possède-t-elle une limite presque sûre ? Si oui préciser la limite.</li>
+</ol>
 </div>
 <div class="callout callout-style-simple callout-note no-icon" name="Solution">
 <div class="callout-body d-flex">
@@ -4652,7 +4729,7 @@ window.Quarto = {
 </div>
 </div>
 <div id="exr-stats-dordre-intermediaire" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 12 (Statistiques d’ordre intermediaires dans un echantillon exponentiel)</strong></span> <span class="math inline">\(X_1,\ldots,X_n\)</span> est un échantillon i.i.d. de la loi uniforme sur <span class="math inline">\([0,1]\)</span> et <span class="math inline">\(X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}\)</span> les statistiques d’ordre associées.</p>
+<p><span class="theorem-title"><strong>Exercice 16 (Statistiques d’ordre intermediaires dans un echantillon exponentiel)</strong></span> <span class="math inline">\(X_1,\ldots,X_n\)</span> est un échantillon i.i.d. de la loi uniforme sur <span class="math inline">\([0,1]\)</span> et <span class="math inline">\(X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}\)</span> les statistiques d’ordre associées.</p>
 <p><span class="math inline">\(Y_1, \ldots, Y_{n+1} \sim_{\text{i.i.d}} \text{Exp}(1)\)</span> où <span class="math inline">\(\text{Exp}(1)\)</span> désigne la loi exponentielle d’intensité <span class="math inline">\(1\)</span>. On définit <span class="math inline">\(S_k =\sum_{j=1}^k Y_j\)</span>, pour <span class="math inline">\(k=1, \ldots, n+1\)</span>.</p>
 <p>On rappelle (voir <a href="https://s-v-b.github.io/MA1AY010/exercices/td4-2026.html#statistiques-dordre">TD 4</a>) les écarts <span class="math inline">\((X_{i:n}-X_{i-1:n})_{1\leq i\leq n}\)</span> (<em>spacings</em>) forment une collection de variables aléatoires indépendamment distribuées. L’écart <span class="math inline">\(X_{i:n}-X_{i-1:n}\)</span> est distribué selon une loi exponentielle d’intensité <span class="math inline">\(n+1-i\)</span>.</p>
 <ol type="a">
@@ -4674,21 +4751,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="exr-stats-dordre-intermediaire-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 13 (Statistiques d’ordre intermediaires dans un echantillon uniforme)</strong></span>  </p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon" name="Solution">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>TODO</p>
-</div>
-</div>
-</div>
 <div id="exr-convergence-densite" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 14</strong></span> Soit <span class="math inline">\((P_n)_n\)</span> une suite de lois de probabilités absolument continues sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>. Pour chaque <span class="math inline">\(P_n\)</span> on dispose de <span class="math inline">\(f_n\)</span> une densité de <span class="math inline">\(P_n\)</span>,</p>
+<p><span class="theorem-title"><strong>Exercice 17</strong></span> Soit <span class="math inline">\((P_n)_n\)</span> une suite de lois de probabilités absolument continues sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>. Pour chaque <span class="math inline">\(P_n\)</span> on dispose de <span class="math inline">\(f_n\)</span> une densité de <span class="math inline">\(P_n\)</span>,</p>
 <ol type="1">
 <li>Montrer que si <span class="math inline">\((f_n)_n\)</span> converge simplement vers une densité <span class="math inline">\(f\)</span> alors la suite <span class="math inline">\((P_n)_n\)</span> converge faiblement vers une loi <span class="math inline">\(P\)</span> de densité <span class="math inline">\(f\)</span></li>
 <li>Peut-on se passer de l’hypothèse que <span class="math inline">\(f\)</span> est une densité pour déduire la convergence faible de la suite <span class="math inline">\((P_n)_n\)</span> ?</li>
