@@ -4456,7 +4456,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
   <div class="quarto-categories">
-    <div class="quarto-category">Concergence en ditribution</div>
+    <div class="quarto-category">Convergence en distribution</div>
     <div class="quarto-category">TCL</div>
   </div>
   </div>
@@ -4469,7 +4469,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">21 octobre 2026</p>
+      <p class="date">3 novembre 2026</p>
     </div>
   </div>
   
@@ -4481,8 +4481,8 @@ window.Quarto = {
 </header>
 
 
-<section id="convergences-en-distribution" class="level1">
-<h1>Convergences en distribution</h1>
+<section id="convergences-en-distribution-et-théorème-central-limite-tcl" class="level1">
+<h1>Convergences en distribution et théorème <em>central limite</em> (TCL)</h1>
 <section id="convergences" class="level2">
 <h2 class="anchored" data-anchor-id="convergences">Convergences</h2>
 <div id="exr-vague" class="theorem exercise">
@@ -4506,7 +4506,7 @@ window.Quarto = {
 <section id="théorèmes-de-continuité" class="level2">
 <h2 class="anchored" data-anchor-id="théorèmes-de-continuité">Théorèmes de continuité</h2>
 <div id="exr-laplaceconv" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 5</strong></span> Verifier qu’une suite de variables aléatoires <em>non négatives</em> <span class="math inline">\((X_n)_n\)</span> converge en loi vers la variable aléatoire <em>non négative</em> <span class="math inline">\(X\)</span> si et seulement si la suite des transformées de Laplace converge ponctuellement vers la transformée de Laplace de la loi de <span class="math inline">\(X\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercice 5</strong></span> Verifier qu’une suite de variables aléatoires <em>positives ou nulles</em> <span class="math inline">\((X_n)_n\)</span> converge en loi vers la variable aléatoire <em>positives ou nulle</em> <span class="math inline">\(X\)</span> si et seulement si la suite des transformées de Laplace converge ponctuellement vers la transformée de Laplace de la loi de <span class="math inline">\(X\)</span>.</p>
 </div>
 </section>
 <section id="tcl" class="level2">
@@ -4534,7 +4534,7 @@ window.Quarto = {
 </ol>
 </div>
 <div id="exr-poisson-suite" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 9 (suite de l’exercice)</strong></span> Suite de l’<a href="#exr-poisson1" class="quarto-xref">Exercice 8</a>.</p>
+<p><span class="theorem-title"><strong>Exercice 9</strong></span> Suite de l’<a href="#exr-poisson1" class="quarto-xref">Exercice 8</a>.</p>
 <p>Soit <span class="math inline">\((N_n)_{n\geq 1}\)</span> une suite d’entiers, soit <span class="math inline">\((p_{n,k})_{n\geq 1,\, 1\leq k\leq N_n}\)</span> un tableau triangulaire de nombres <span class="math inline">\(\geq 0\)</span> et soit <span class="math inline">\(\lambda\geq 0\)</span>. On suppose que</p>
 <p><span class="math display">\[
 \lim_{n\to\infty} \Bigl(\sum_{k=1}^{N_n}p_{n,k}\Bigr) =\lambda
@@ -4573,13 +4573,27 @@ window.Quarto = {
 </ol>
 <p>Suggestion: utiliser la représentation de Rényi</p>
 </div>
+<div id="exr-slutsky" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 13 (Lemme de Slutsky)</strong></span> Soient <span class="math inline">\((X_n)_{n\geq 1}\)</span> et <span class="math inline">\((Y_n)_{n\geq 1}\)</span> deux suites de variables aléatoires réelles définies sur le même espace probabilisé. On suppose que <span class="math inline">\(X_n\)</span> converge en loi vers une variable aléatoire <span class="math inline">\(X\)</span>, et que <span class="math inline">\(Y_n\)</span> converge en probabilité vers une constante <span class="math inline">\(c\in\mathbb{R}\)</span>.</p>
+<ol type="1">
+<li><p>Soit <span class="math inline">\(f:\mathbb{R}\to\mathbb{R}\)</span> bornée et uniformément continue. Montrer que</p>
+<p><span class="math display">\[
+\mathbb{E}\bigl[f(X_n+Y_n)\bigr]-\mathbb{E}\bigl[f(X_n+c)\bigr]\to 0,
+\]</span></p>
+<p>puis que <span class="math inline">\(X_n+Y_n\)</span> converge en loi vers <span class="math inline">\(X+c\)</span>.</p></li>
+<li><p>Montrer que <span class="math inline">\(X_n(Y_n-c)\)</span> converge en probabilité vers <span class="math inline">\(0\)</span>. En déduire que <span class="math inline">\(X_n Y_n\)</span> converge en loi vers <span class="math inline">\(cX\)</span>.</p>
+<p>On rappelle que la convergence en loi de <span class="math inline">\((X_n)\)</span> entraîne la tension de la suite des lois : pour tout <span class="math inline">\(\eta&gt;0\)</span>, il existe <span class="math inline">\(A&lt;+\infty\)</span> tel que <span class="math inline">\(\mathbb{P}(|X_n|&gt;A)\le\eta\)</span> pour tout <span class="math inline">\(n\)</span>.</p></li>
+<li><p>On suppose <span class="math inline">\(c\neq 0\)</span>. Montrer que <span class="math inline">\(1/Y_n\)</span> converge en probabilité vers <span class="math inline">\(1/c\)</span>, puis que <span class="math inline">\(X_n/Y_n\)</span> converge en loi vers <span class="math inline">\(X/c\)</span>. Sur l’événement <span class="math inline">\(\{Y_n=0\}\)</span>, on convient que le quotient vaut <span class="math inline">\(0\)</span>.</p></li>
+<li><p>Les conclusions restent-elles valables si l’on suppose seulement que <span class="math inline">\(Y_n\)</span> converge en loi vers la constante <span class="math inline">\(c\)</span> ?</p></li>
+</ol>
+</div>
 <div id="exr-tcl-mediane-empirique-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 13 (Mediane empirique échantillon uniforme)</strong></span> Dans cet exercice <span class="math inline">\(X_n\)</span> est la statistique d’ordre <span class="math inline">\(n+1\)</span> d’un échantillon de taille <span class="math inline">\(2n+1\)</span> de la loi uniforme sur <span class="math inline">\([0,1]\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercice 14 (Mediane empirique échantillon uniforme)</strong></span> Dans cet exercice <span class="math inline">\(X_n\)</span> est la statistique d’ordre <span class="math inline">\(n+1\)</span> d’un échantillon de taille <span class="math inline">\(2n+1\)</span> de la loi uniforme sur <span class="math inline">\([0,1]\)</span>.</p>
 <p>Montrer que la suite <span class="math inline">\((\sqrt{n}(X_n-1/2))_n\)</span> converge en distribution vers une loi normale.</p>
 <p>Suggestion: utiliser la représentation en distribution des statistiques d’ordre d’un échantillon uniforme de (voir <a href="https://s-v-b.github.io/MA1AY010/exercices/td4-2026.html">Exercice Statistiques d’ordre d’un échantillon uniforme</a>).</p>
 </div>
 <div id="exr-gumbel" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 14 (Lois d’extrêmes : Gumbel)</strong></span> Si <span class="math inline">\(X_1, \ldots, X_n, \ldots \sim_{\text{i.i.d.}} \text{Exp}(1)\)</span>, le maximum de l’échantillon exponentiel de taille <span class="math inline">\(n\)</span> est <span class="math inline">\(X_{\lfloor n\rfloor:n}\)</span></p>
+<p><span class="theorem-title"><strong>Exercice 15 (Lois d’extrêmes : Gumbel)</strong></span> Si <span class="math inline">\(X_1, \ldots, X_n, \ldots \sim_{\text{i.i.d.}} \text{Exp}(1)\)</span>, le maximum de l’échantillon exponentiel de taille <span class="math inline">\(n\)</span> est <span class="math inline">\(X_{\lfloor n\rfloor:n}\)</span></p>
 <ol type="1">
 <li>Calculer l’éspérance et la variance de <span class="math inline">\(X_{n:n}\)</span>.</li>
 <li>La suite <span class="math inline">\((X_{n:n} - \ln n)_n\)</span> possède-t-elle une limite en loi ? Si oui préciser la limite.</li>
@@ -4589,18 +4603,17 @@ window.Quarto = {
 </ol>
 </div>
 <div id="exr-frechet" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 15 (Lois d’extremes : Frechet)</strong></span> Dans cet exercice, <span class="math inline">\(Y_1, \ldots, Y_n, \ldots \sim_{\text{i.i.d.}} \text{Exp}(1)\)</span>, et <span class="math inline">\(X_i = \exp(Y_i)\)</span>. On s’intéresse au maxima <span class="math inline">\(X_{\lfloor n\rfloor:n}\)</span> des échantillons <span class="math inline">\(X_1, \ldots, X_n\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercice 16 (Lois d’extremes : Frechet)</strong></span> Dans cet exercice, <span class="math inline">\(Y_1, \ldots, Y_n, \ldots \sim_{\text{i.i.d.}} \text{Exp}(1)\)</span>, et <span class="math inline">\(X_i = \exp(Y_i)\)</span>. On s’intéresse au maxima <span class="math inline">\(X_{\lfloor n\rfloor:n}\)</span> des échantillons <span class="math inline">\(X_1, \ldots, X_n\)</span>.</p>
 <ol type="1">
 <li>Calculer l’éspérance et la variance de <span class="math inline">\(X_{n:n}\)</span> (si définies).</li>
 <li>La suite <span class="math inline">\((X_{n:n}/n)_n\)</span> possède-t-elle une limite en loi ? Si oui préciser la limite.</li>
 <li>La suite <span class="math inline">\((X_{n:n}/n)_n\)</span> possède-t-elle une limite en probabilité ? Si oui préciser la limite.</li>
-<li>La suite <span class="math inline">\((X_{n:n}/n)_n\)</span> possède-t-elle une limite dans $L_2 ? Si oui préciser la limite.</li>
+<li>La suite <span class="math inline">\((X_{n:n}/n)_n\)</span> possède-t-elle une limite dans <span class="math inline">\(L_2\)</span> ? Si oui préciser la limite.</li>
 <li>La suite <span class="math inline">\((X_{n:n}/n)_n\)</span> possède-t-elle une limite presque sûre ? Si oui préciser la limite.</li>
 </ol>
 </div>
 <div id="exr-stats-dordre-intermediaire" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 16 (Statistiques d’ordre intermediaires dans un echantillon exponentiel)</strong></span> <span class="math inline">\(X_1,\ldots,X_n\)</span> est un échantillon i.i.d. de la loi uniforme sur <span class="math inline">\([0,1]\)</span> et <span class="math inline">\(X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}\)</span> les statistiques d’ordre associées.</p>
-<p><span class="math inline">\(Y_1, \ldots, Y_{n+1} \sim_{\text{i.i.d}} \text{Exp}(1)\)</span> où <span class="math inline">\(\text{Exp}(1)\)</span> désigne la loi exponentielle d’intensité <span class="math inline">\(1\)</span>. On définit <span class="math inline">\(S_k =\sum_{j=1}^k Y_j\)</span>, pour <span class="math inline">\(k=1, \ldots, n+1\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercice 17 (Statistiques d’ordre intermediaires dans un echantillon uniforme)</strong></span> <span class="math inline">\(X_1,\ldots,X_n\)</span> est un échantillon i.i.d. de la loi uniforme sur <span class="math inline">\([0,1]\)</span> et <span class="math inline">\(X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}\)</span> les statistiques d’ordre associées.</p>
 <p>On rappelle (voir <a href="https://s-v-b.github.io/MA1AY010/exercices/td4-2026.html#statistiques-dordre">TD 4</a>) les écarts <span class="math inline">\((X_{i:n}-X_{i-1:n})_{1\leq i\leq n}\)</span> (<em>spacings</em>) forment une collection de variables aléatoires indépendamment distribuées. L’écart <span class="math inline">\(X_{i:n}-X_{i-1:n}\)</span> est distribué selon une loi exponentielle d’intensité <span class="math inline">\(n+1-i\)</span>.</p>
 <ol type="a">
 <li><p>Pour <span class="math inline">\(\alpha \in ]0,1[\)</span>, <span class="math inline">\(k_n = \lfloor\alpha n\rfloor\)</span>, montrer que</p>
@@ -4611,8 +4624,22 @@ window.Quarto = {
 <p>converge en loi vers une Gaussienne centrée réduite.</p></li>
 </ol>
 </div>
+<div id="exr-stats-dordre-intermediaire-generale" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 18 (Statistiques d’ordre intermediaires dans un echantillon i.i.d.)</strong></span> <span class="math inline">\(X_1,\ldots,X_n\)</span> est un échantillon i.i.d. de la loi <span class="math inline">\(P\)</span> qui admet une densité <span class="math inline">\(f\)</span> strictement positive un intervalle borné <span class="math inline">\(I \subseteq \mathbb{R}\)</span> et <span class="math inline">\(X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}\)</span> les statistiques d’ordre associées.</p>
+<ol type="a">
+<li><p>(Préparation). Si on note <span class="math inline">\(F\)</span> la fonction de répartition de <span class="math inline">\(P\)</span>, <span class="math inline">\(F^\leftarrow\)</span> la fonction quantile. Vérifier que <span class="math inline">\(F\)</span> et <span class="math inline">\(F^{\leftarrow}\)</span> sont continues, croissantes et dérivables presque partout.<br>
+</p></li>
+<li><p>Pour <span class="math inline">\(\alpha \in ]0,1[\)</span>, <span class="math inline">\(k_n = \lfloor\alpha n\rfloor\)</span>, montrer que</p>
+<p><span class="math display">\[\frac{X_{k_n:n} -\mathbb{E} X_{k_n:n} }{\sqrt{\operatorname{var}(X_{k_n:n} )}}\]</span></p>
+<p>converge en loi vers une Gaussienne centrée réduite.</p></li>
+<li><p>Maintenant <span class="math inline">\((k_n)_n\)</span> est une suite croissante d’entiers qui tend vers l’infini, telle que <span class="math inline">\(k_n/n\)</span> tend vers une limite finie (éventuellement nulle). Montrer que</p>
+<p><span class="math display">\[\frac{X_{k_n:n} -\mathbb{E} X_{k_n:n} }{\sqrt{\operatorname{var}(X_{k_n:n} )}}\]</span></p>
+<p>converge en loi vers une Gaussienne centrée réduite.</p></li>
+</ol>
+<p><em>Suggestion</em>: utiliser les résultats de l’exercice précédent, le mécanisme de la transformation quantile et la méthode <span class="math inline">\(\delta\)</span> de Cramer.</p>
+</div>
 <div id="exr-convergence-densite" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 17</strong></span> Soit <span class="math inline">\((P_n)_n\)</span> une suite de lois de probabilités absolument continues sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>. Pour chaque <span class="math inline">\(P_n\)</span> on dispose de <span class="math inline">\(f_n\)</span> une densité de <span class="math inline">\(P_n\)</span>,</p>
+<p><span class="theorem-title"><strong>Exercice 19</strong></span> Soit <span class="math inline">\((P_n)_n\)</span> une suite de lois de probabilités absolument continues sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>. Pour chaque <span class="math inline">\(P_n\)</span> on dispose de <span class="math inline">\(f_n\)</span> une densité de <span class="math inline">\(P_n\)</span>,</p>
 <ol type="1">
 <li>Montrer que si <span class="math inline">\((f_n)_n\)</span> converge simplement vers une densité <span class="math inline">\(f\)</span> alors la suite <span class="math inline">\((P_n)_n\)</span> converge faiblement vers une loi <span class="math inline">\(P\)</span> de densité <span class="math inline">\(f\)</span></li>
 <li>Peut-on se passer de l’hypothèse que <span class="math inline">\(f\)</span> est une densité pour déduire la convergence faible de la suite <span class="math inline">\((P_n)_n\)</span> ?</li>

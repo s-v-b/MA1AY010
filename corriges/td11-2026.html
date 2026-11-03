@@ -4456,7 +4456,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
   <div class="quarto-categories">
-    <div class="quarto-category">Concergence en ditribution</div>
+    <div class="quarto-category">Convergence en distribution</div>
     <div class="quarto-category">TCL</div>
   </div>
   </div>
@@ -4469,7 +4469,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">21 octobre 2026</p>
+      <p class="date">3 novembre 2026</p>
     </div>
   </div>
   
@@ -4481,8 +4481,8 @@ window.Quarto = {
 </header>
 
 
-<section id="convergences-en-distribution" class="level1">
-<h1>Convergences en distribution</h1>
+<section id="convergences-en-distribution-et-théorème-central-limite-tcl" class="level1">
+<h1>Convergences en distribution et théorème <em>central limite</em> (TCL)</h1>
 <section id="convergences" class="level2">
 <h2 class="anchored" data-anchor-id="convergences">Convergences</h2>
 <div id="exr-vague" class="theorem exercise">
@@ -4495,7 +4495,13 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<p>La mesure <span class="math inline">\(\delta_n\)</span> est la masse de Dirac au point <span class="math inline">\(n\)</span>.</p>
+<p>Soit <span class="math inline">\(f:\mathbb{R}\to\mathbb{R}\)</span> continue à support compact. Pour tout <span class="math inline">\(n\)</span> assez grand, <span class="math inline">\(n\)</span> est hors du support de <span class="math inline">\(f\)</span>, donc <span class="math inline">\(f(n)=0\)</span>. Ainsi</p>
+<p><span class="math display">\[
+\int f\,\mathrm{d}\delta_n=f(n)\to 0=\int f\,\mathrm{d}0.
+\]</span></p>
+<p>La suite <span class="math inline">\((\delta_n)\)</span> converge donc vaguement vers la mesure nulle.</p>
+<p>Elle ne converge pas faiblement. La fonction constante <span class="math inline">\(1\)</span> est continue et bornée, et <span class="math inline">\(\int 1\,\mathrm{d}\delta_n=1\)</span> ne tend pas vers <span class="math inline">\(0\)</span>. Plus précisément, toute limite faible serait aussi une limite vague, donc serait la mesure nulle, qui n’est pas une probabilité. La suite ne converge donc pas faiblement.</p>
 </div>
 </div>
 </div>
@@ -4508,7 +4514,27 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<p><em>Oui.</em> Sur <span class="math inline">\(\mathbb{R}^k\)</span>, la convergence vague vers une <em>probabilité</em> entraîne la convergence faible vers cette même probabilité.</p>
+<p>Soit <span class="math inline">\((P_n)\)</span> une suite de probabilités convergeant vaguement vers une probabilité <span class="math inline">\(P\)</span>. Soit <span class="math inline">\(f\)</span> continue et bornée, <span class="math inline">\(|f|\le M\)</span>, et soit <span class="math inline">\(\varepsilon&gt;0\)</span>. La mesure <span class="math inline">\(P\)</span> est tendue : il existe un compact <span class="math inline">\(K\)</span> tel que <span class="math inline">\(P(K)\ge 1-\varepsilon\)</span>. Soit <span class="math inline">\(d(x,K)=\inf_{y\in K}\|x-y\|\)</span> et soit <span class="math inline">\(\varphi\)</span> continue, à valeurs dans <span class="math inline">\([0,1]\)</span>, égale à <span class="math inline">\(1\)</span> sur <span class="math inline">\(K\)</span> et nulle dès que <span class="math inline">\(d(x,K)\ge 1\)</span> (on raccorde linéairement). Le support de <span class="math inline">\(\varphi\)</span> est compact, donc la convergence vague donne <span class="math inline">\(\int\varphi\,\mathrm{d}P_n\to\int\varphi\,\mathrm{d}P\)</span>.</p>
+<p>On découpe</p>
+<p><span class="math display">\[
+\Bigl|\int f\,\mathrm{d}P_n-\int f\,\mathrm{d}P\Bigr|
+\le\Bigl|\int f\varphi\,\mathrm{d}P_n-\int f\varphi\,\mathrm{d}P\Bigr|
++\Bigl|\int f(1-\varphi)\,\mathrm{d}P_n\Bigr|
++\Bigl|\int f(1-\varphi)\,\mathrm{d}P\Bigr|.
+\]</span></p>
+<p>Le produit <span class="math inline">\(f\varphi\)</span> est continu à support compact, donc le premier terme tend vers <span class="math inline">\(0\)</span>. Comme <span class="math inline">\(0\le 1-\varphi\le 1\)</span> et <span class="math inline">\(1-\varphi=0\)</span> sur <span class="math inline">\(K\)</span>,</p>
+<p><span class="math display">\[
+\Bigl|\int f(1-\varphi)\,\mathrm{d}P\Bigr|\le M\bigl(1-P(K)\bigr)\le M\varepsilon.
+\]</span></p>
+<p>Par ailleurs <span class="math inline">\(\int(1-\varphi)\,\mathrm{d}P_n=1-\int\varphi\,\mathrm{d}P_n\)</span>, donc</p>
+<p><span class="math display">\[
+\limsup_n\Bigl|\int f(1-\varphi)\,\mathrm{d}P_n\Bigr|
+\le M\bigl(1-\int\varphi\,\mathrm{d}P\bigr)
+\le M\bigl(1-P(K)\bigr)
+\le M\varepsilon.
+\]</span></p>
+<p>Ainsi <span class="math inline">\(\limsup_n\bigl|\int f\,\mathrm{d}P_n-\int f\,\mathrm{d}P\bigr|\le 2M\varepsilon\)</span>. Comme <span class="math inline">\(\varepsilon\)</span> est arbitraire, <span class="math inline">\(\int f\,\mathrm{d}P_n\to\int f\,\mathrm{d}P\)</span>.</p>
 </div>
 </div>
 </div>
@@ -4516,51 +4542,100 @@ window.Quarto = {
 <p><span class="theorem-title"><strong>Exercice 3</strong></span> Pour établir la compacité uniforme de <span class="math inline">\((P_n)_n\)</span>, il suffit de montrer que pour tout <span class="math inline">\(\epsilon&gt;0\)</span>, il existe un certain <span class="math inline">\(n_0(\epsilon)\)</span> et un compact <span class="math inline">\(K \subseteq \mathbb{R}\)</span> tels que</p>
 <p><span class="math display">\[\forall n \geq n_(\epsilon), \qquad P_n(K) \geq 1 - \epsilon\, .\]</span></p>
 </div>
-</section>
-<section id="portemanteau" class="level2">
-<h2 class="anchored" data-anchor-id="portemanteau">Portemanteau</h2>
 <div class="callout callout-style-simple callout-note no-icon" name="Solution">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<p>Soit <span class="math inline">\(\varepsilon&gt;0\)</span>. Par hypothèse, il existe <span class="math inline">\(n_0\)</span> et un compact <span class="math inline">\(K\)</span> tels que <span class="math inline">\(P_n(K)\ge 1-\varepsilon\)</span> pour tout <span class="math inline">\(n\ge n_0\)</span>.</p>
+<p>Chaque probabilité <span class="math inline">\(P_j\)</span>, <span class="math inline">\(0\le j&lt;n_0\)</span>, est tendue : il existe un compact <span class="math inline">\(K_j\)</span> tel que <span class="math inline">\(P_j(K_j)\ge 1-\varepsilon\)</span>. La réunion finie</p>
+<p><span class="math display">\[
+K&#39;=K\cup\bigcup_{0\le j&lt;n_0}K_j
+\]</span></p>
+<p>est compacte. Pour <span class="math inline">\(n\ge n_0\)</span>, <span class="math inline">\(P_n(K&#39;)\ge P_n(K)\ge 1-\varepsilon\)</span>, et pour <span class="math inline">\(j&lt;n_0\)</span>, <span class="math inline">\(P_j(K&#39;)\ge P_j(K_j)\ge 1-\varepsilon\)</span>. Donc <span class="math inline">\(P_n(K&#39;)\ge 1-\varepsilon\)</span> pour tout <span class="math inline">\(n\)</span>, ce qui est la tension uniforme.</p>
 </div>
 </div>
 </div>
+</section>
+<section id="portemanteau" class="level2">
+<h2 class="anchored" data-anchor-id="portemanteau">Portemanteau</h2>
 <div id="exr-weakconvquantiles" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 4</strong></span> Montrer qu’une suite de mesures de probabilité définies par leurs fonctions quantiles <span class="math inline">\((F^\leftarrow_n)_n\)</span> converge faiblement vers une mesure de probabilité définie par la fonction quantile <span class="math inline">\(F^\leftarrow\)</span> si et seulement si <span class="math inline">\(\lim_n F_n^\leftarrow(x) = F^\leftarrow(x)\)</span> en tout point <span class="math inline">\(x\)</span> de continuité de <span class="math inline">\(F^\leftarrow\)</span>.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>On note <span class="math inline">\(F^\leftarrow(p)=\inf\{x:F(x)\ge p\}\)</span> pour <span class="math inline">\(p\in\,]0,1[\)</span>. On utilisera l’équivalence, valable pour tout <span class="math inline">\(p\in\,]0,1[\)</span> et tout <span class="math inline">\(x\in\mathbb{R}\)</span>,</p>
+<p><span class="math display">\[
+F^\leftarrow(p)\le x\iff p\le F(x).
+\]</span></p>
+<p>En particulier, <span class="math inline">\(x&lt;F^\leftarrow(p)\)</span> entraîne <span class="math inline">\(F(x)&lt;p\)</span>.</p>
+<p><em>Convergence des quantiles <span class="math inline">\(\Rightarrow\)</span> convergence faible.</em></p>
+<p>Soit <span class="math inline">\(U\)</span> uniforme sur <span class="math inline">\(]0,1[\)</span>, et posons <span class="math inline">\(Y_n=F_n^\leftarrow(U)\)</span>, <span class="math inline">\(Y=F^\leftarrow(U)\)</span>. Alors <span class="math inline">\(Y_n\)</span> a pour fonction de répartition <span class="math inline">\(F_n\)</span> et <span class="math inline">\(Y\)</span> a pour fonction de répartition <span class="math inline">\(F\)</span>. La fonction <span class="math inline">\(F^\leftarrow\)</span> est monotone, donc discontinue en au plus un ensemble dénombrable. Ainsi, presque sûrement, <span class="math inline">\(F^\leftarrow\)</span> est continue en <span class="math inline">\(U\)</span>. Sur cet événement, <span class="math inline">\(F_n^\leftarrow(U)\to F^\leftarrow(U)\)</span> par hypothèse, donc <span class="math inline">\(Y_n\to Y\)</span> presque sûrement, et la suite des lois converge faiblement.</p>
+<p><em>Convergence faible <span class="math inline">\(\Rightarrow\)</span> convergence des quantiles aux points de continuité.</em></p>
+<p>Pour vérifier cette implication, on va utiliser le fait que la convergence faible des mesures de probabilité est équivalente à la convergence simple des fonctions de répartition aux points de continuité de la fonction de répartition de la loi limite.</p>
+<p>Soit <span class="math inline">\(p\in\,]0,1[\)</span> un point de continuité de <span class="math inline">\(F^\leftarrow\)</span>, et soit <span class="math inline">\(\varepsilon&gt;0\)</span>. Par continuité de <span class="math inline">\(F^\leftarrow\)</span> en <span class="math inline">\(p\)</span>, on peut choisir <span class="math inline">\(p_1&lt;p&lt;p_2\)</span> tels que</p>
+<p><span class="math display">\[
+F^\leftarrow(p)-\varepsilon&lt;F^\leftarrow(p_1)\le F^\leftarrow(p)\le F^\leftarrow(p_2)&lt;F^\leftarrow(p)+\varepsilon.
+\]</span></p>
+<p>Les points de continuité de <span class="math inline">\(F\)</span> sont denses (<span class="math inline">\(F\)</span> est croissante et possède donc au plus une collection dénombrable de points de discontinuité). On choisit un point de continuité <span class="math inline">\(x_1\)</span> dans l’intervalle non vide <span class="math inline">\(]F^\leftarrow(p)-\varepsilon,\,F^\leftarrow(p_1)[\)</span>, et un point de continuité <span class="math inline">\(x_2\)</span> dans <span class="math inline">\(]F^\leftarrow(p_2),\,F^\leftarrow(p)+\varepsilon[\)</span>.</p>
+<p>Alors <span class="math inline">\(x_1&lt;F^\leftarrow(p_1)\)</span>, donc <span class="math inline">\(F(x_1)&lt;p_1&lt;p\)</span>. La convergence faible donne <span class="math inline">\(F_n(x_1)\to F(x_1)\)</span>, donc <span class="math inline">\(F_n(x_1)&lt;p\)</span> pour <span class="math inline">\(n\)</span> grand, et <span class="math inline">\(F_n^\leftarrow(p)&gt;x_1\)</span>. Ainsi</p>
+<p><span class="math display">\[
+\liminf_n F_n^\leftarrow(p)\ge x_1&gt;F^\leftarrow(p)-\varepsilon.
+\]</span></p>
+<p>De même <span class="math inline">\(x_2&gt;F^\leftarrow(p_2)\)</span>, donc <span class="math inline">\(F(x_2)\ge p_2&gt;p\)</span>. Pour <span class="math inline">\(n\)</span> grand, <span class="math inline">\(F_n(x_2)&gt;p\)</span>, donc <span class="math inline">\(F_n^\leftarrow(p)\le x_2\)</span>, et</p>
+<p><span class="math display">\[
+\limsup_n F_n^\leftarrow(p)\le x_2&lt;F^\leftarrow(p)+\varepsilon.
+\]</span></p>
+<p>Comme <span class="math inline">\(\varepsilon\)</span> est arbitraire, <span class="math inline">\(F_n^\leftarrow(p)\to F^\leftarrow(p)\)</span>.</p>
+</div>
+</div>
 </div>
 </section>
 <section id="théorèmes-de-continuité" class="level2">
 <h2 class="anchored" data-anchor-id="théorèmes-de-continuité">Théorèmes de continuité</h2>
+<div id="exr-laplaceconv" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 5</strong></span> Verifier qu’une suite de variables aléatoires <em>positives ou nulles</em> <span class="math inline">\((X_n)_n\)</span> converge en loi vers la variable aléatoire <em>positives ou nulle</em> <span class="math inline">\(X\)</span> si et seulement si la suite des transformées de Laplace converge ponctuellement vers la transformée de Laplace de la loi de <span class="math inline">\(X\)</span>.</p>
+</div>
 <div class="callout callout-style-simple callout-note no-icon" name="Solution">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<p>La transformée de Laplace d’une variable positive est <span class="math inline">\(\lambda\mapsto\mathbb{E}[\mathrm{e}^{-\lambda X}]\)</span>, <span class="math inline">\(\lambda\ge 0\)</span>.</p>
+<p><em>Sens direct.</em> Si <span class="math inline">\(X_n\)</span> converge en loi vers <span class="math inline">\(X\)</span>, avec <span class="math inline">\(X_n\)</span> et <span class="math inline">\(X\)</span> positives, alors pour chaque <span class="math inline">\(\lambda\ge 0\)</span> la fonction <span class="math inline">\(x\mapsto\mathrm{e}^{-\lambda x}\)</span> est continue et bornée sur <span class="math inline">\([0,+\infty[\)</span>. Donc <span class="math inline">\(\mathbb{E}[\mathrm{e}^{-\lambda X_n}]\to\mathbb{E}[\mathrm{e}^{-\lambda X}]\)</span>.</p>
+<p><em>Sens réciproque.</em> On suppose que <span class="math inline">\(L_n(\lambda)=\mathbb{E}[\mathrm{e}^{-\lambda X_n}]\)</span> converge pour tout <span class="math inline">\(\lambda\ge 0\)</span> vers <span class="math inline">\(L(\lambda)=\mathbb{E}[\mathrm{e}^{-\lambda X}]\)</span>.</p>
+<p>La fonction <span class="math inline">\(L\)</span> est continue en <span class="math inline">\(0\)</span>, avec <span class="math inline">\(L(0)=1\)</span> (c’est une transformée de Laplace). Pour <span class="math inline">\(A&gt;0\)</span> et <span class="math inline">\(\lambda&gt;0\)</span>, l’inégalité de Markov appliquée à <span class="math inline">\(1-\mathrm{e}^{-\lambda X_n}\)</span> donne</p>
+<p><span class="math display">\[
+\mathbb{P}(X_n&gt;A)
+\le\frac{1-L_n(\lambda)}{1-\mathrm{e}^{-\lambda A}}.
+\]</span></p>
+<p>Soit <span class="math inline">\(\varepsilon&gt;0\)</span>. On choisit <span class="math inline">\(\lambda&gt;0\)</span> tel que <span class="math inline">\(1-L(\lambda)&lt;\varepsilon/2\)</span>, puis <span class="math inline">\(A\)</span> assez grand pour que <span class="math inline">\((1-L(\lambda))/(1-\mathrm{e}^{-\lambda A})&lt;\varepsilon\)</span>. Alors <span class="math inline">\(\limsup_n\mathbb{P}(X_n&gt;A)\le\varepsilon\)</span>. Quitte à agrandir <span class="math inline">\(A\)</span> pour absorber le nombre fini d’indices où l’inégalité n’est pas encore réalisée, <span class="math inline">\(\mathbb{P}(X_n\in[0,A])\ge 1-\varepsilon\)</span> pour tout <span class="math inline">\(n\)</span>. La suite des lois est <em>uniformément tendue</em>.</p>
+<p>Par le théorème de Prokhorov, de toute sous-suite d’une suite <em>uniformément tendue</em>, on extrait une sous-suite convergeant faiblement vers une probabilité <span class="math inline">\(Q\)</span> portée par <span class="math inline">\([0,+\infty[\)</span>. Le sens direct montre que la transformée de Laplace de <span class="math inline">\(Q\)</span> est <span class="math inline">\(L\)</span>.</p>
+<p>Cette transformée caractérise la loi. En effet, si <span class="math inline">\(Z=\mathrm{e}^{-X}\in\,]0,1]\)</span>, alors <span class="math inline">\(\mathbb{E}[Z^k]=L(k)\)</span> pour tout entier <span class="math inline">\(k\)</span>. Une loi sur le compact <span class="math inline">\([0,1]\)</span> est déterminée par ses moments : les polynômes sont denses dans les fonctions continues (Weierstrass), donc <span class="math inline">\(\mathbb{E}[f(Z)]\)</span> est déterminé pour toute <span class="math inline">\(f\)</span> continue, et la loi de <span class="math inline">\(Z\)</span> aussi. La loi de <span class="math inline">\(X=-\ln Z\)</span> s’en déduit. Ainsi <span class="math inline">\(Q\)</span> est la loi de <span class="math inline">\(X\)</span>.</p>
+<p>Toute sous-suite admet une sous-suite convergeant faiblement vers la loi de <span class="math inline">\(X\)</span>, donc la suite entière converge faiblement vers cette loi.</p>
 </div>
 </div>
 </div>
-<div id="exr-laplaceconv" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 5</strong></span> Verifier qu’une suite de variables aléatoires <em>non négatives</em> <span class="math inline">\((X_n)_n\)</span> converge en loi vers la variable aléatoire <em>non négative</em> <span class="math inline">\(X\)</span> si et seulement si la suite des transformées de Laplace converge ponctuellement vers la transformée de Laplace de la loi de <span class="math inline">\(X\)</span>.</p>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Dans la partie <em>réciproque</em>, on utilise le fait que la suite des transformées de Laplace converge simplement vers la transformée de Laplace d’une variable aléatoire positive. Si on suppose seulement la convergence simple des transformées de Laplace vers une fonction positive, on ne peut pas développer l’argument de tension uniforme.</p>
+<p>Pourrait-on se contenter de la convergence simple des transformées de Laplace vers une fonction continue en <span class="math inline">\(0\)</span>?</p>
+</div>
+</div>
 </div>
 </section>
 <section id="tcl" class="level2">
 <h2 class="anchored" data-anchor-id="tcl">TCL</h2>
-<div class="callout callout-style-simple callout-note no-icon" name="Solution">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>TODO</p>
-</div>
-</div>
-</div>
 <div id="exr-geom-exponentielle" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 6</strong></span> Soient <span class="math inline">\(\alpha&gt;0\)</span> et <span class="math inline">\((X_n)_{n\geq 1}\)</span> une suite de v.a. On suppose que pour tout <span class="math inline">\(n\geq 1\)</span>, <span class="math inline">\(X_n\)</span> est distribuée suivant la loi</p>
 <p><span class="math display">\[
@@ -4574,7 +4649,21 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<p>La loi exponentielle de paramètre <span class="math inline">\(\alpha&gt;0\)</span> a pour densité <span class="math inline">\(x\mapsto\alpha\mathrm{e}^{-\alpha x}\mathbf{1}_{x&gt;0}\)</span>, donc pour fonction de répartition <span class="math inline">\(F(x)=0\)</span> si <span class="math inline">\(x\le 0\)</span> et <span class="math inline">\(F(x)=1-\mathrm{e}^{-\alpha x}\)</span> si <span class="math inline">\(x&gt;0\)</span>. Cette fonction est continue sur <span class="math inline">\(\mathbb{R}\)</span>. Il suffit de montrer que <span class="math inline">\(\mathbb{P}(X_n/n\le x)\to F(x)\)</span> pour tout <span class="math inline">\(x\)</span>.</p>
+<p>La formule de l’énoncé définit une probabilité dès que <span class="math inline">\(n&gt;\alpha\)</span>. On se limite à ces indices.</p>
+<p>Si <span class="math inline">\(x\le 0\)</span>, alors <span class="math inline">\(\mathbb{P}(X_n/n\le x)=0=F(x)\)</span>, car <span class="math inline">\(X_n\ge 1\)</span>.</p>
+<p>Si <span class="math inline">\(x&gt;0\)</span>, <span class="math inline">\(X_n\)</span> est géométrique de paramètre <span class="math inline">\(p_n=\alpha/n\)</span>, à valeurs dans <span class="math inline">\(\{1,2,\ldots\}\)</span>, donc <span class="math inline">\(\mathbb{P}(X_n\ge m)=(1-p_n)^{m-1}\)</span>. Comme <span class="math inline">\(X_n\)</span> est entière,</p>
+<p><span class="math display">\[
+\mathbb{P}(X_n&gt;nx)
+=\mathbb{P}\bigl(X_n\ge\lfloor nx\rfloor+1\bigr)
+=\Bigl(1-\frac{\alpha}{n}\Bigr)^{\lfloor nx\rfloor}.
+\]</span></p>
+<p>On écrit</p>
+<p><span class="math display">\[
+\Bigl(1-\frac{\alpha}{n}\Bigr)^{\lfloor nx\rfloor}
+=\exp\Bigl(\frac{\lfloor nx\rfloor}{n}\cdot n\ln\bigl(1-\alpha/n\bigr)\Bigr).
+\]</span></p>
+<p>D’une part <span class="math inline">\(\lfloor nx\rfloor/n\to x\)</span>. D’autre part <span class="math inline">\(n\ln(1-\alpha/n)\to-\alpha\)</span>, car <span class="math inline">\(\ln(1-u)=-u+o(u)\)</span> lorsque <span class="math inline">\(u\to 0\)</span>. L’exposant tend vers <span class="math inline">\(-\alpha x\)</span>, donc <span class="math inline">\(\mathbb{P}(X_n/n&gt;x)\to\mathrm{e}^{-\alpha x}\)</span>, et <span class="math inline">\(\mathbb{P}(X_n/n\le x)\to 1-\mathrm{e}^{-\alpha x}=F(x)\)</span>.</p>
 </div>
 </div>
 </div>
@@ -4592,7 +4681,37 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<ol type="1">
+<li><p>On définit <span class="math inline">\(\varphi_\varepsilon\)</span> affine par morceaux :</p>
+<p><span class="math display">\[
+\varphi_\varepsilon(x)=
+\begin{cases}
+0 &amp; \text{si }|x-c|\le\varepsilon,\\[0.4em]
+\dfrac{|x-c|-\varepsilon}{\varepsilon} &amp; \text{si }\varepsilon\le|x-c|\le 2\varepsilon,\\[0.6em]
+1 &amp; \text{si }|x-c|\ge 2\varepsilon.
+\end{cases}
+\]</span></p>
+<p>Les valeurs se raccordent en <span class="math inline">\(|x-c|=\varepsilon\)</span> et <span class="math inline">\(|x-c|=2\varepsilon\)</span>, donc <span class="math inline">\(\varphi_\varepsilon\)</span> est continue. Elle est bornée et <span class="math inline">\(0\le\varphi_\varepsilon\le 1\)</span>.</p></li>
+<li><p>La fonction <span class="math inline">\(\varphi_\varepsilon\)</span> est continue et bornée, et la limite en loi est <span class="math inline">\(\delta_{\{c\}}\)</span>, donc</p>
+<p><span class="math display">\[
+\mathbb{E}\bigl[\varphi_\varepsilon(X_n)\bigr]\to\varphi_\varepsilon(c)=0.
+\]</span></p></li>
+<li><p>Pour tout <span class="math inline">\(x\)</span>, <span class="math inline">\(\mathbf{1}_{|x-c|&gt;2\varepsilon}\le\varphi_\varepsilon(x)\)</span>. En intégrant,</p>
+<p><span class="math display">\[
+\mathbb{P}(|X_n-c|&gt;2\varepsilon)\le\mathbb{E}\bigl[\varphi_\varepsilon(X_n)\bigr]\to 0.
+\]</span></p>
+<p>Comme <span class="math inline">\(\varepsilon&gt;0\)</span> est arbitraire, pour tout <span class="math inline">\(\eta&gt;0\)</span> le choix <span class="math inline">\(\varepsilon=\eta/2\)</span> donne <span class="math inline">\(\mathbb{P}(|X_n-c|&gt;\eta)\to 0\)</span> : <span class="math inline">\((X_n)\)</span> converge en probabilité vers <span class="math inline">\(c\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Cet exercice souligne qu’on peut raffiner la convergence en loi vers une masse de Dirac : si les variables aléatoires <span class="math inline">\(X_n\)</span> sont définies sur le même espace probabilisé, alors elles convergent aussi <em>en probabilité</em> vers une variable aléatoire (presque sûrement) constante.</p>
 </div>
 </div>
 </div>
@@ -4603,8 +4722,32 @@ window.Quarto = {
 <li>Soit <span class="math inline">\((T^n_k)_{n\geq 1,\, 1\leq k\leq n}\)</span> une famille de v.a. indépendantes telles que <span class="math inline">\(T^n_k\)</span> suit une loi de Bernoulli de paramètre <span class="math inline">\(p_n=\frac{\lambda}{n}\)</span>, et soit <span class="math inline">\(X_n=T^n_1+\cdots+T^n_n\)</span>. Déterminer la limite en loi de <span class="math inline">\((X_n)_{n\geq 1}\)</span>.</li>
 </ol>
 </div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ol type="1">
+<li><p>Le nombre moyen d’appels sur l’intervalle de longueur <span class="math inline">\(1/n\)</span> vaut <span class="math inline">\(p_n\)</span>, donc le nombre moyen d’appels sur l’intervalle unité vaut <span class="math inline">\(np_n\)</span>. On veut que ce taux vaille <span class="math inline">\(\lambda\)</span>, d’où <span class="math inline">\(p_n=\lambda/n\)</span>, pour <span class="math inline">\(n&gt;\lambda\)</span> afin que <span class="math inline">\(p_n\le 1\)</span>.</p>
+<p>C’est aussi l’équivalent de la probabilité d’au moins un appel dans un processus de Poisson d’intensité <span class="math inline">\(\lambda\)</span> : <span class="math inline">\(1-\mathrm{e}^{-\lambda/n}\sim\lambda/n\)</span>.</p></li>
+<li><p>Alors <span class="math inline">\(X_n\)</span> suit la loi binomiale de paramètres <span class="math inline">\(n\)</span> et <span class="math inline">\(\lambda/n\)</span>. Pour <span class="math inline">\(k\in\mathbb{N}\)</span> fixé et <span class="math inline">\(n&gt;k\)</span>,</p>
+<p><span class="math display">\[
+\mathbb{P}(X_n=k)
+=\binom{n}{k}\Bigl(\frac{\lambda}{n}\Bigr)^k\Bigl(1-\frac{\lambda}{n}\Bigr)^{n-k}
+=\frac{\lambda^k}{k!}\cdot\frac{n(n-1)\cdots(n-k+1)}{n^k}\cdot\Bigl(1-\frac{\lambda}{n}\Bigr)^{n-k}.
+\]</span></p>
+<p>Le produit de <span class="math inline">\(k\)</span> termes tend vers <span class="math inline">\(1\)</span>, et <span class="math inline">\((1-\lambda/n)^{n-k}\to\mathrm{e}^{-\lambda}\)</span>. Donc</p>
+<p><span class="math display">\[
+\mathbb{P}(X_n=k)\to\mathrm{e}^{-\lambda}\frac{\lambda^k}{k!}.
+\]</span></p>
+<p>La limite est la loi de <span class="math inline">\(\mathrm{Poisson}(\lambda)\)</span>. Comme les deux lois sont portées par <span class="math inline">\(\mathbb{N}\)</span>, la convergence des masses ponctuelles entraîne la convergence en loi.</p></li>
+</ol>
+</div>
+</div>
+</div>
 <div id="exr-poisson-suite" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 9 (suite de l’exercice)</strong></span> Suite de l’<a href="#exr-poisson1" class="quarto-xref">Exercice 8</a>.</p>
+<p><span class="theorem-title"><strong>Exercice 9</strong></span> Suite de l’<a href="#exr-poisson1" class="quarto-xref">Exercice 8</a>.</p>
 <p>Soit <span class="math inline">\((N_n)_{n\geq 1}\)</span> une suite d’entiers, soit <span class="math inline">\((p_{n,k})_{n\geq 1,\, 1\leq k\leq N_n}\)</span> un tableau triangulaire de nombres <span class="math inline">\(\geq 0\)</span> et soit <span class="math inline">\(\lambda\geq 0\)</span>. On suppose que</p>
 <p><span class="math display">\[
 \lim_{n\to\infty} \Bigl(\sum_{k=1}^{N_n}p_{n,k}\Bigr) =\lambda
@@ -4615,6 +4758,36 @@ window.Quarto = {
 <li>Montrer que pour tout <span class="math inline">\(x\geq 0\)</span>, la suite <span class="math inline">\((u_n)_{n\geq 1}\)</span> définie par <span class="math inline">\(u_n=\sum_{k=1}^{N_n}\log(1+xp_{n,k})\)</span> converge vers <span class="math inline">\(\lambda x\)</span>.</li>
 <li>Soit <span class="math inline">\((X_{n,k})_{n\geq 1,\, 1\leq k\leq N_n}\)</span> une famille de variables aléatoires telle que, pour tout <span class="math inline">\(n\geq 1\)</span>, les <span class="math inline">\((X_{n,k})_{1\leq k\leq N_n}\)</span> sont indépendantes, et <span class="math inline">\(X_{n,k}\sim\mathcal{B}(p_{n,k})\)</span>. Déterminer la limite en loi de <span class="math inline">\(Y_n=\sum_{k=1}^{N_n}X_{n,k}\)</span>.</li>
 </ol>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ol type="1">
+<li><p>Pour <span class="math inline">\(u\ge 0\)</span>, <span class="math inline">\(0\le u-\log(1+u)=\int_0^u\frac{t}{1+t}\,\mathrm{d}t\le u^2/2\)</span>. Avec <span class="math inline">\(u=xp_{n,k}\)</span>,</p>
+<p><span class="math display">\[
+\Bigl|u_n-x\sum_{k=1}^{N_n}p_{n,k}\Bigr|
+\le\sum_{k=1}^{N_n}\frac{(xp_{n,k})^2}{2}
+\le\frac{x^2}{2}\Bigl(\max_{1\le k\le N_n}p_{n,k}\Bigr)\sum_{k=1}^{N_n}p_{n,k}.
+\]</span></p>
+<p>Le maximum tend vers <span class="math inline">\(0\)</span> et la somme tend vers <span class="math inline">\(\lambda\)</span>, donc le membre de droite tend vers <span class="math inline">\(0\)</span>. Comme <span class="math inline">\(x\sum_k p_{n,k}\to\lambda x\)</span>, on obtient <span class="math inline">\(u_n\to\lambda x\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(n\)</span> assez grand, <span class="math inline">\(\max_k p_{n,k}\le 1\)</span>, donc les lois de Bernoulli sont bien définies. La fonction caractéristique de <span class="math inline">\(Y_n\)</span> vaut</p>
+<p><span class="math display">\[
+\varphi_n(t)=\prod_{k=1}^{N_n}\bigl(1+p_{n,k}(\mathrm{e}^{it}-1)\bigr).
+\]</span></p>
+<p>Le développement de la question 1 s’étend aux petits arguments complexes. Dès que <span class="math inline">\(\max_k p_{n,k}\le 1/4\)</span>, on a <span class="math inline">\(|z_{n,k}|\le 1/2\)</span> pour <span class="math inline">\(z_{n,k}=p_{n,k}(\mathrm{e}^{it}-1)\)</span>, donc <span class="math inline">\(1+z_{n,k}\)</span> reste dans le demi-plan <span class="math inline">\(\{\mathrm{Re}&gt;0\}\)</span> et</p>
+<p><span class="math display">\[
+\varphi_n(t)
+=\exp\Bigl(\sum_{k=1}^{N_n}\log(1+z_{n,k})\Bigr)
+=\exp\Bigl((\mathrm{e}^{it}-1)\sum_{k=1}^{N_n}p_{n,k}+r_n(t)\Bigr),
+\]</span></p>
+<p>où <span class="math inline">\(\log\)</span> est la détermination principale. Le reste vérifie <span class="math inline">\(|r_n(t)|\le\sum_k|z_{n,k}|^2\le 4\sum_k p_{n,k}^2\le 4(\max_k p_{n,k})(\sum_k p_{n,k})\to 0\)</span>. L’exposant tend vers <span class="math inline">\(\lambda(\mathrm{e}^{it}-1)\)</span>, donc <span class="math inline">\(\varphi_n(t)\to\exp\bigl(\lambda(\mathrm{e}^{it}-1)\bigr)\)</span>, fonction caractéristique de la loi <span class="math inline">\(\mathrm{Poisson}(\lambda)\)</span>. Par le théorème de continuité de Lévy, <span class="math inline">\(Y_n\)</span> converge en loi vers <span class="math inline">\(\mathrm{Poisson}(\lambda)\)</span>.</p>
+<p>Le cas de l’<a href="#exr-poisson1" class="quarto-xref">Exercice 8</a> est le cas particulier <span class="math inline">\(N_n=n\)</span> et <span class="math inline">\(p_{n,k}=\lambda/n\)</span>.</p></li>
+</ol>
+</div>
+</div>
 </div>
 <div id="exr-tcl-poisson-gamma" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercice 10 (Mélanges Gamma-Poisson)</strong></span> Soit <span class="math inline">\(X \sim \Gamma(1,s)\)</span>. On définit <span class="math inline">\(Y \sim \mathrm{Poisson}(X)\)</span>, (c’est-à-dire que conditionnellement à <span class="math inline">\(X=x\)</span>, <span class="math inline">\(Y \sim \mathrm{Poisson}(x)\)</span>).</p>
@@ -4629,7 +4802,42 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<p>On prend pour <span class="math inline">\(\Gamma(1,s)\)</span> la loi gamma de forme <span class="math inline">\(s\)</span> et de taux <span class="math inline">\(1\)</span>, de densité <span class="math inline">\(x^{s-1}\mathrm{e}^{-x}/\Gamma(s)\)</span> sur <span class="math inline">\((0,\infty)\)</span>. Ainsi <span class="math inline">\(\mathbb{E}[X]=\mathrm{Var}(X)=s\)</span>. (Dans la paramétrisation forme-taux <span class="math inline">\(\Gamma(\alpha,\lambda)\)</span> des feuilles précédentes, c’est la loi <span class="math inline">\(\Gamma(s,1)\)</span>.) C’est cette lecture qui rend l’asymptotique <span class="math inline">\(s\to\infty\)</span> compatible avec un théorème central limite.</p>
+<ol type="1">
+<li><p>La fonction caractéristique de <span class="math inline">\(Y\)</span> s’obtient en conditionnant par <span class="math inline">\(X\)</span>. Sachant <span class="math inline">\(X=x\)</span>, <span class="math inline">\(Y\)</span> est de Poisson de paramètre <span class="math inline">\(x\)</span>, de fonction caractéristique <span class="math inline">\(\mathrm{e}^{x(\mathrm{e}^{it}-1)}\)</span>. Donc</p>
+<p><span class="math display">\[
+\Phi_Y(t)
+=\mathbb{E}\bigl[\mathrm{e}^{itY}\bigr]
+=\mathbb{E}\bigl[\exp\bigl(X(\mathrm{e}^{it}-1)\bigr)\bigr].
+\]</span></p>
+<p>La transformée de Laplace de <span class="math inline">\(X\)</span> vaut <span class="math inline">\(\mathbb{E}[\mathrm{e}^{uX}]=(1-u)^{-s}\)</span> pour <span class="math inline">\(u&lt;1\)</span>. Avec <span class="math inline">\(u=\mathrm{e}^{it}-1\)</span>,</p>
+<p><span class="math display">\[
+\Phi_Y(t)=\bigl(2-\mathrm{e}^{it}\bigr)^{-s}.
+\]</span></p></li>
+<li><p>En conditionnant, <span class="math inline">\(\mathbb{E}[Y]=\mathbb{E}[X]=s\)</span> et</p>
+<p><span class="math display">\[
+\mathrm{Var}(Y)
+=\mathbb{E}[\mathrm{Var}(Y\mid X)]+\mathrm{Var}(\mathbb{E}[Y\mid X])
+=\mathbb{E}[X]+\mathrm{Var}(X)
+=2s.
+\]</span></p>
+<p>Posons <span class="math inline">\(\sigma_s=\sqrt{2s}\)</span> et <span class="math inline">\(Z_s=(Y-s)/\sigma_s\)</span>. Pour <span class="math inline">\(u=t/\sigma_s\)</span>,</p>
+<p><span class="math display">\[
+\mathbb{E}\bigl[\mathrm{e}^{itZ_s}\bigr]
+=\exp\Bigl(-it\frac{s}{\sigma_s}\Bigr)\bigl(2-\mathrm{e}^{iu}\bigr)^{-s}
+=\exp\Bigl(-is u-s\log(2-\mathrm{e}^{iu})\Bigr).
+\]</span></p>
+<p>Lorsque <span class="math inline">\(u\to 0\)</span>, <span class="math inline">\(1-\mathrm{e}^{iu}=-iu+u^2/2+O(u^3)\)</span>, et <span class="math inline">\(\log(1+z)=z-z^2/2+O(z^3)\)</span> donne</p>
+<p><span class="math display">\[
+\log(2-\mathrm{e}^{iu})=-iu+u^2+O(u^3).
+\]</span></p>
+<p>L’exposant vaut donc <span class="math inline">\(-su^2+O(s|u|^3)\)</span>. Or <span class="math inline">\(su^2=s t^2/(2s)=t^2/2\)</span> et <span class="math inline">\(s|u|^3=|t|^3/(2^{3/2}\sqrt{s})\to 0\)</span> lorsque <span class="math inline">\(s\to\infty\)</span>. Ainsi</p>
+<p><span class="math display">\[
+\mathbb{E}\bigl[\mathrm{e}^{itZ_s}\bigr]\to\mathrm{e}^{-t^2/2}.
+\]</span></p>
+<p>La limite est continue en <span class="math inline">\(0\)</span>. Le théorème de continuité de Lévy donne <span class="math inline">\(Z_s\to\mathcal{N}(0,1)\)</span> en loi.</p>
+<p>Lien avec le théorème central limite : si <span class="math inline">\(s=n\)</span> est entier, <span class="math inline">\(\Phi_Y(t)=(2-\mathrm{e}^{it})^{-n}\)</span> est la fonction caractéristique de la somme de <span class="math inline">\(n\)</span> variables géométriques indépendantes de paramètre <span class="math inline">\(1/2\)</span> (nombre d’échecs avant le premier succès). Chacune a pour espérance <span class="math inline">\(1\)</span> et pour variance <span class="math inline">\(2\)</span>. La convergence obtenue est alors exactement le théorème central limite pour cette somme. Le calcul par fonction caractéristique étend le résultat aux formes <span class="math inline">\(s\)</span> non entières.</p></li>
+</ol>
 </div>
 </div>
 </div>
@@ -4648,7 +4856,11 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<ol type="1">
+<li><p>Pour <span class="math inline">\(x\in[0,1]\)</span>, <span class="math inline">\(\bigl|\sin(2n\pi x)/(2n\pi)\bigr|\le 1/(2n\pi)\to 0\)</span>, donc <span class="math inline">\(F_n(x)\to x\)</span>. En prolongeant par <span class="math inline">\(F(x)=0\)</span> si <span class="math inline">\(x&lt;0\)</span> et <span class="math inline">\(F(x)=1\)</span> si <span class="math inline">\(x&gt;1\)</span>, on obtient la fonction de répartition de la loi uniforme sur <span class="math inline">\([0,1]\)</span>, continue en tout point. Ainsi <span class="math inline">\(X_n\)</span> converge en loi vers une variable uniforme sur <span class="math inline">\([0,1]\)</span>.</p>
+<p>On vérifie au passage que <span class="math inline">\(F_n\)</span> est bien une fonction de répartition sur <span class="math inline">\([0,1]\)</span> : <span class="math inline">\(F_n(0)=0\)</span>, <span class="math inline">\(F_n(1)=1\)</span>, et <span class="math inline">\(F_n&#39;(x)=1-\cos(2n\pi x)\ge 0\)</span>.</p></li>
+<li><p>La densité de <span class="math inline">\(X_n\)</span> est <span class="math inline">\(f_n(x)=1-\cos(2n\pi x)\)</span> sur <span class="math inline">\([0,1]\)</span>, et la densité limite est <span class="math inline">\(f=1\)</span> sur <span class="math inline">\([0,1]\)</span>. La suite <span class="math inline">\(f_n\)</span> ne converge pas simplement vers <span class="math inline">\(f\)</span>. Par exemple en <span class="math inline">\(x=1/2\)</span>, <span class="math inline">\(\cos(n\pi)=(-1)^n\)</span> ne converge pas, donc <span class="math inline">\(f_n(1/2)\)</span> ne converge pas. Plus généralement, pour <span class="math inline">\(x\in\,]0,1[\)</span>, la suite <span class="math inline">\(\cos(2\pi n x)\)</span> ne tend pas vers <span class="math inline">\(0\)</span>.</p></li>
+</ol>
 </div>
 </div>
 </div>
@@ -4669,12 +4881,107 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<p>La représentation de Rényi fournit la loi de la statistique d’ordre. Si <span class="math inline">\(E_j\)</span> sont i.i.d. de loi <span class="math inline">\(\mathrm{Exp}(1)\)</span> et <span class="math inline">\(k=\lfloor n/2\rfloor\)</span>,</p>
+<p><span class="math display">\[
+X_{k:n}\ \stackrel{d}{=}\ \sum_{j=1}^{k}\frac{E_j}{n-j+1}.
+\]</span></p>
+<ol type="1">
+<li><p>L’espérance et la variance s’en déduisent, puisque <span class="math inline">\(\mathbb{E}[E_j]=\mathrm{Var}(E_j)=1\)</span> :</p>
+<p><span class="math display">\[
+\mathbb{E}[X_{k:n}]
+=\sum_{j=1}^{k}\frac{1}{n-j+1}
+=\sum_{m=n-k+1}^{n}\frac{1}{m}
+=H_n-H_{n-k},
+\]</span></p>
+<p><span class="math display">\[
+\mathrm{Var}(X_{k:n})
+=\sum_{m=n-k+1}^{n}\frac{1}{m^2},
+\]</span></p>
+<p>où <span class="math inline">\(H_n\)</span> est le <span class="math inline">\(n\)</span>-ième nombre harmonique (<span class="math inline">\(H_0=0\)</span>). Comme <span class="math inline">\(H_n=\ln n+\gamma+o(1)\)</span> et <span class="math inline">\(n/(n-k)\to 2\)</span>,</p>
+<p><span class="math display">\[
+\mathbb{E}[X_{k:n}]=\ln\Bigl(\frac{n}{n-k}\Bigr)+o(1)\to\ln 2.
+\]</span></p>
+<p>Il y a au plus <span class="math inline">\(n/2\)</span> termes dans la variance, chacun au plus <span class="math inline">\(4/n^2\)</span>, donc <span class="math inline">\(\mathrm{Var}(X_{k:n})=O(1/n)\to 0\)</span>.</p></li>
+<li><p><em>Oui</em>, vers la constante <span class="math inline">\(\ln 2\)</span>, c’est-à-dire vers <span class="math inline">\(\delta_{\{\ln 2\}}\)</span>. En effet, pour <span class="math inline">\(\varepsilon&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\mathbb{P}\bigl(|X_{k:n}-\ln 2|&gt;\varepsilon\bigr)
+\le\frac{\mathbb{E}[(X_{k:n}-\ln 2)^2]}{\varepsilon^2}
+=\frac{\mathrm{Var}(X_{k:n})+(\mathbb{E}[X_{k:n}]-\ln 2)^2}{\varepsilon^2}\to 0.
+\]</span></p>
+<p>La convergence en probabilité vers une constante entraîne la convergence en loi vers le Dirac en cette constante.</p></li>
+<li><p><em>Oui</em>, vers <span class="math inline">\(\ln 2\)</span> : c’est l’estimation de la question précédente.</p></li>
+<li><p><em>Oui</em>, vers <span class="math inline">\(\ln 2\)</span>. Le calcul ci-dessus montre <span class="math inline">\(\mathbb{E}[(X_{k:n}-\ln 2)^2]\to 0\)</span>, c’est-à-dire la convergence dans <span class="math inline">\(L^2\)</span>.</p></li>
+<li><p><em>Oui</em>, vers <span class="math inline">\(\ln 2\)</span>, presque sûrement, pour la suite construite sur un seul échantillon infini <span class="math inline">\((X_i)_{i\ge 1}\)</span>. Soit <span class="math inline">\(\varepsilon&gt;0\)</span> avec <span class="math inline">\(\varepsilon&lt;\ln 2\)</span>, et</p>
+<p><span class="math display">\[
+p_+=\mathbb{P}(X_1\le\ln 2+\varepsilon)=1-\frac{\mathrm{e}^{-\varepsilon}}{2}&gt;\frac12,
+\qquad
+p_-=\mathbb{P}(X_1\le\ln 2-\varepsilon)=1-\frac{\mathrm{e}^{\varepsilon}}{2}&lt;\frac12.
+\]</span></p>
+<p>Par la loi forte des grands nombres, la fréquence empirique des <span class="math inline">\(\{X_i\le\ln 2+\varepsilon\}\)</span> tend vers <span class="math inline">\(p_+&gt;1/2\)</span>, tandis que <span class="math inline">\(k/n\to 1/2\)</span>. Presque sûrement, pour <span class="math inline">\(n\)</span> grand, au moins <span class="math inline">\(k\)</span> observations parmi les <span class="math inline">\(n\)</span> premières sont <span class="math inline">\(\le\ln 2+\varepsilon\)</span>, donc <span class="math inline">\(X_{k:n}\le\ln 2+\varepsilon\)</span>. De même, moins de <span class="math inline">\(k\)</span> observations sont <span class="math inline">\(\le\ln 2-\varepsilon\)</span>, donc <span class="math inline">\(X_{k:n}&gt;\ln 2-\varepsilon\)</span>. Ainsi <span class="math inline">\(X_{k:n}\to\ln 2\)</span> presque sûrement.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="exr-slutsky" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 13 (Lemme de Slutsky)</strong></span> Soient <span class="math inline">\((X_n)_{n\geq 1}\)</span> et <span class="math inline">\((Y_n)_{n\geq 1}\)</span> deux suites de variables aléatoires réelles définies sur le même espace probabilisé. On suppose que <span class="math inline">\(X_n\)</span> converge en loi vers une variable aléatoire <span class="math inline">\(X\)</span>, et que <span class="math inline">\(Y_n\)</span> converge en probabilité vers une constante <span class="math inline">\(c\in\mathbb{R}\)</span>.</p>
+<ol type="1">
+<li><p>Soit <span class="math inline">\(f:\mathbb{R}\to\mathbb{R}\)</span> bornée et uniformément continue. Montrer que</p>
+<p><span class="math display">\[
+\mathbb{E}\bigl[f(X_n+Y_n)\bigr]-\mathbb{E}\bigl[f(X_n+c)\bigr]\to 0,
+\]</span></p>
+<p>puis que <span class="math inline">\(X_n+Y_n\)</span> converge en loi vers <span class="math inline">\(X+c\)</span>.</p></li>
+<li><p>Montrer que <span class="math inline">\(X_n(Y_n-c)\)</span> converge en probabilité vers <span class="math inline">\(0\)</span>. En déduire que <span class="math inline">\(X_n Y_n\)</span> converge en loi vers <span class="math inline">\(cX\)</span>.</p>
+<p>On rappelle que la convergence en loi de <span class="math inline">\((X_n)\)</span> entraîne la tension de la suite des lois : pour tout <span class="math inline">\(\eta&gt;0\)</span>, il existe <span class="math inline">\(A&lt;+\infty\)</span> tel que <span class="math inline">\(\mathbb{P}(|X_n|&gt;A)\le\eta\)</span> pour tout <span class="math inline">\(n\)</span>.</p></li>
+<li><p>On suppose <span class="math inline">\(c\neq 0\)</span>. Montrer que <span class="math inline">\(1/Y_n\)</span> converge en probabilité vers <span class="math inline">\(1/c\)</span>, puis que <span class="math inline">\(X_n/Y_n\)</span> converge en loi vers <span class="math inline">\(X/c\)</span>. Sur l’événement <span class="math inline">\(\{Y_n=0\}\)</span>, on convient que le quotient vaut <span class="math inline">\(0\)</span>.</p></li>
+<li><p>Les conclusions restent-elles valables si l’on suppose seulement que <span class="math inline">\(Y_n\)</span> converge en loi vers la constante <span class="math inline">\(c\)</span> ?</p></li>
+</ol>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ol type="1">
+<li><p>Soit <span class="math inline">\(\varepsilon&gt;0\)</span>. Par uniforme continuité de <span class="math inline">\(f\)</span>, il existe <span class="math inline">\(\delta&gt;0\)</span> tel que <span class="math inline">\(|u-v|\le\delta\)</span> entraîne <span class="math inline">\(|f(u)-f(v)|\le\varepsilon\)</span>. Soit <span class="math inline">\(M\)</span> un majorant de <span class="math inline">\(|f|\)</span>. Alors</p>
+<p><span class="math display">\[
+\bigl|\mathbb{E}\bigl[f(X_n+Y_n)\bigr]-\mathbb{E}\bigl[f(X_n+c)\bigr]\bigr|
+\le\mathbb{E}\bigl[|f(X_n+Y_n)-f(X_n+c)|\bigr]
+\le\varepsilon+2M\,\mathbb{P}(|Y_n-c|&gt;\delta).
+\]</span></p>
+<p>Le second terme tend vers <span class="math inline">\(0\)</span>, car <span class="math inline">\(Y_n\)</span> converge en probabilité vers <span class="math inline">\(c\)</span>. Donc</p>
+<p><span class="math display">\[
+\limsup_n\bigl|\mathbb{E}\bigl[f(X_n+Y_n)\bigr]-\mathbb{E}\bigl[f(X_n+c)\bigr]\bigr|\le\varepsilon.
+\]</span></p>
+<p>Comme <span class="math inline">\(\varepsilon\)</span> est arbitraire, la différence tend vers <span class="math inline">\(0\)</span>.</p>
+<p>La fonction <span class="math inline">\(x\mapsto f(x+c)\)</span> est bornée et uniformément continue. La convergence en loi de <span class="math inline">\(X_n\)</span> vers <span class="math inline">\(X\)</span> et le théorème de portemanteau donnent <span class="math inline">\(\mathbb{E}[f(X_n+c)]\to\mathbb{E}[f(X+c)]\)</span>. Par suite <span class="math inline">\(\mathbb{E}[f(X_n+Y_n)]\to\mathbb{E}[f(X+c)]\)</span>. Ceci vaut pour toute fonction bornée uniformément continue, donc <span class="math inline">\(X_n+Y_n\)</span> converge en loi vers <span class="math inline">\(X+c\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(\varepsilon&gt;0\)</span> et <span class="math inline">\(\eta&gt;0\)</span>. Par tension, on choisit <span class="math inline">\(A&lt;+\infty\)</span> tel que <span class="math inline">\(\mathbb{P}(|X_n|&gt;A)\le\eta\)</span> pour tout <span class="math inline">\(n\)</span>. Alors</p>
+<p><span class="math display">\[
+\mathbb{P}\bigl(|X_n(Y_n-c)|&gt;\varepsilon\bigr)
+\le\mathbb{P}(|X_n|&gt;A)+\mathbb{P}\bigl(|Y_n-c|&gt;\varepsilon/A\bigr).
+\]</span></p>
+<p>Le second terme tend vers <span class="math inline">\(0\)</span>, donc <span class="math inline">\(\limsup_n\mathbb{P}(|X_n(Y_n-c)|&gt;\varepsilon)\le\eta\)</span>. Comme <span class="math inline">\(\eta\)</span> est arbitraire, <span class="math inline">\(X_n(Y_n-c)\)</span> converge en probabilité vers <span class="math inline">\(0\)</span>.</p>
+<p>On décompose <span class="math inline">\(X_n Y_n=cX_n+X_n(Y_n-c)\)</span>. Pour toute fonction <span class="math inline">\(g\)</span> bornée et continue, <span class="math inline">\(x\mapsto g(cx)\)</span> est bornée et continue, donc <span class="math inline">\(cX_n\)</span> converge en loi vers <span class="math inline">\(cX\)</span>. Le premier terme de la décomposition converge ainsi en loi vers <span class="math inline">\(cX\)</span>, et le second converge en probabilité vers <span class="math inline">\(0\)</span>. La question 1 donne la convergence en loi de la somme vers <span class="math inline">\(cX\)</span>.</p></li>
+<li><p>Comme <span class="math inline">\(c\neq 0\)</span> et <span class="math inline">\(Y_n\)</span> converge en probabilité vers <span class="math inline">\(c\)</span>, on a <span class="math inline">\(\mathbb{P}(|Y_n|&lt;|c|/2)\to 0\)</span>. Sur l’événement <span class="math inline">\(\{|Y_n|\ge |c|/2\}\)</span>,</p>
+<p><span class="math display">\[
+\Bigl|\frac{1}{Y_n}-\frac{1}{c}\Bigr|
+=\frac{|Y_n-c|}{|Y_n|\,|c|}
+\le\frac{2}{c^2}|Y_n-c|.
+\]</span></p>
+<p>Pour <span class="math inline">\(\varepsilon&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\mathbb{P}\Bigl(\Bigl|\frac{1}{Y_n}-\frac{1}{c}\Bigr|&gt;\varepsilon\Bigr)
+\le\mathbb{P}\bigl(|Y_n|&lt;|c|/2\bigr)
++\mathbb{P}\bigl(|Y_n-c|&gt;\varepsilon\, c^2/2\bigr).
+\]</span></p>
+<p>Les deux termes tendent vers <span class="math inline">\(0\)</span>, donc <span class="math inline">\(1/Y_n\)</span> converge en probabilité vers <span class="math inline">\(1/c\)</span>. La convention sur <span class="math inline">\(\{Y_n=0\}\)</span> ne change rien : cet événement a une probabilité qui tend vers <span class="math inline">\(0\)</span>. La question 2, appliquée au couple <span class="math inline">\(\bigl(X_n,\,1/Y_n\bigr)\)</span>, donne la convergence en loi de <span class="math inline">\(X_n/Y_n\)</span> vers <span class="math inline">\(X/c\)</span>.</p></li>
+<li><p><em>Oui.</em> D’après l’<a href="#exr-loi-dirac" class="quarto-xref">Exercice 7</a>, la convergence en loi de <span class="math inline">\(Y_n\)</span> vers la constante <span class="math inline">\(c\)</span> entraîne la convergence en probabilité vers <span class="math inline">\(c\)</span>. Les questions 1 à 3 s’appliquent.</p></li>
+</ol>
 </div>
 </div>
 </div>
 <div id="exr-tcl-mediane-empirique-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 13 (Mediane empirique échantillon uniforme)</strong></span> Dans cet exercice <span class="math inline">\(X_n\)</span> est la statistique d’ordre <span class="math inline">\(n+1\)</span> d’un échantillon de taille <span class="math inline">\(2n+1\)</span> de la loi uniforme sur <span class="math inline">\([0,1]\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercice 14 (Mediane empirique échantillon uniforme)</strong></span> Dans cet exercice <span class="math inline">\(X_n\)</span> est la statistique d’ordre <span class="math inline">\(n+1\)</span> d’un échantillon de taille <span class="math inline">\(2n+1\)</span> de la loi uniforme sur <span class="math inline">\([0,1]\)</span>.</p>
 <p>Montrer que la suite <span class="math inline">\((\sqrt{n}(X_n-1/2))_n\)</span> converge en distribution vers une loi normale.</p>
 <p>Suggestion: utiliser la représentation en distribution des statistiques d’ordre d’un échantillon uniforme de (voir <a href="https://s-v-b.github.io/MA1AY010/exercices/td4-2026.html">Exercice Statistiques d’ordre d’un échantillon uniforme</a>).</p>
 </div>
@@ -4684,12 +4991,44 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<p>Soit <span class="math inline">\(N=2n+1\)</span> et soient <span class="math inline">\(Y_1,\ldots,Y_{N+1}\)</span> i.i.d. de loi <span class="math inline">\(\mathrm{Exp}(1)\)</span>, <span class="math inline">\(S_m=\sum_{j=1}^m Y_j\)</span>. D’après la représentation des statistiques d’ordre uniformes,</p>
+<p><span class="math display">\[
+X_n=U_{n+1:2n+1}\ \stackrel{d}{=}\ \frac{S_{n+1}}{S_{2n+2}}.
+\]</span></p>
+<p>Le bloc <span class="math inline">\(T_{n+1}=S_{2n+2}-S_{n+1}\)</span> est indépendant de <span class="math inline">\(S_{n+1}\)</span> et de même loi <span class="math inline">\(\Gamma(n+1,1)\)</span> (forme <span class="math inline">\(n+1\)</span>, taux <span class="math inline">\(1\)</span>). Alors</p>
+<p><span class="math display">\[
+X_n-\frac12
+=\frac{S_{n+1}-T_{n+1}}{2S_{2n+2}},
+\]</span></p>
+<p>et</p>
+<p><span class="math display">\[
+\sqrt{n}\Bigl(X_n-\frac12\Bigr)
+=\frac{S_{n+1}-T_{n+1}}{\sqrt{2(n+1)}}
+\cdot
+\frac{\sqrt{n(n+1)/2}}{S_{2n+2}}.
+\]</span></p>
+<p>Le premier facteur a pour variance <span class="math inline">\(1\)</span> : <span class="math inline">\(S_{n+1}-T_{n+1}\)</span> est une somme de <span class="math inline">\(n+1\)</span> différences i.i.d. de deux variables <span class="math inline">\(\mathrm{Exp}(1)\)</span>, chacune de variance <span class="math inline">\(2\)</span>, et l’on divise par <span class="math inline">\(\sqrt{2(n+1)}\)</span>. Le théorème central limite donne la convergence en loi vers <span class="math inline">\(\mathcal{N}(0,1)\)</span>.</p>
+<p>Pour le second facteur, la loi des grands nombres donne <span class="math inline">\(S_{2n+2}/(2n+2)\to 1\)</span> en probabilité, et</p>
+<p><span class="math display">\[
+\frac{\sqrt{n(n+1)/2}}{2n+2}
+=\frac{1}{2\sqrt{2}}\sqrt{\frac{n}{n+1}}\to\frac{1}{2\sqrt{2}}.
+\]</span></p>
+<p>Donc</p>
+<p><span class="math display">\[
+\frac{\sqrt{n(n+1)/2}}{S_{2n+2}}
+=\frac{\sqrt{n(n+1)/2}}{2n+2}\cdot\frac{2n+2}{S_{2n+2}}
+\to\frac{1}{2\sqrt{2}}
+\]</span></p>
+<p>en probabilité. Par le lemme de Slutsky,</p>
+<p><span class="math display">\[
+\sqrt{n}\Bigl(X_n-\frac12\Bigr)
+\]</span></p>
+<p>converge en loi vers <span class="math inline">\(\mathcal{N}\bigl(0,\,1/8\bigr)\)</span>, car <span class="math inline">\(\bigl(1/(2\sqrt{2})\bigr)^2=1/8\)</span>.</p>
 </div>
 </div>
 </div>
 <div id="exr-gumbel" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 14 (Lois d’extrêmes : Gumbel)</strong></span> Si <span class="math inline">\(X_1, \ldots, X_n, \ldots \sim_{\text{i.i.d.}} \text{Exp}(1)\)</span>, le maximum de l’échantillon exponentiel de taille <span class="math inline">\(n\)</span> est <span class="math inline">\(X_{\lfloor n\rfloor:n}\)</span></p>
+<p><span class="theorem-title"><strong>Exercice 15 (Lois d’extrêmes : Gumbel)</strong></span> Si <span class="math inline">\(X_1, \ldots, X_n, \ldots \sim_{\text{i.i.d.}} \text{Exp}(1)\)</span>, le maximum de l’échantillon exponentiel de taille <span class="math inline">\(n\)</span> est <span class="math inline">\(X_{\lfloor n\rfloor:n}\)</span></p>
 <ol type="1">
 <li>Calculer l’éspérance et la variance de <span class="math inline">\(X_{n:n}\)</span>.</li>
 <li>La suite <span class="math inline">\((X_{n:n} - \ln n)_n\)</span> possède-t-elle une limite en loi ? Si oui préciser la limite.</li>
@@ -4704,17 +5043,51 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<p>Par la représentation de Rényi, si <span class="math inline">\(E_j\)</span> sont i.i.d. de loi <span class="math inline">\(\mathrm{Exp}(1)\)</span>,</p>
+<p><span class="math display">\[
+X_{n:n}\ \stackrel{d}{=}\ \sum_{k=1}^{n}\frac{E_k}{k}.
+\]</span></p>
+<ol type="1">
+<li><p>Donc</p>
+<p><span class="math display">\[
+\mathbb{E}[X_{n:n}]=\sum_{k=1}^{n}\frac{1}{k}=H_n,
+\qquad
+\mathrm{Var}(X_{n:n})=\sum_{k=1}^{n}\frac{1}{k^2}.
+\]</span></p>
+<p>En particulier <span class="math inline">\(H_n=\ln n+\gamma+o(1)\)</span> et <span class="math inline">\(\mathrm{Var}(X_{n:n})\to\sum_{k=1}^\infty 1/k^2=\pi^2/6\)</span>.</p></li>
+<li><p><em>Oui.</em> Pour tout <span class="math inline">\(x\in\mathbb{R}\)</span> et tout <span class="math inline">\(n&gt;\mathrm{e}^{-x}\)</span>,</p>
+<p><span class="math display">\[
+\mathbb{P}(X_{n:n}-\ln n\le x)
+=\bigl(1-\mathrm{e}^{-(x+\ln n)}\bigr)^n
+=\Bigl(1-\frac{\mathrm{e}^{-x}}{n}\Bigr)^n
+\to\exp(-\mathrm{e}^{-x}).
+\]</span></p>
+<p>La limite est la fonction de répartition de la loi de Gumbel standard (pour les maxima), continue sur <span class="math inline">\(\mathbb{R}\)</span>. Donc <span class="math inline">\(X_{n:n}-\ln n\)</span> converge en loi vers cette loi.</p></li>
+<li><p><em>Non.</em> La suite est construite sur un échantillon infini. Notons <span class="math inline">\(M_n=X_{n:n}\)</span> et <span class="math inline">\(M_n&#39;\)</span> le maximum de <span class="math inline">\(X_{n+1},\ldots,X_{2n}\)</span>, indépendant de <span class="math inline">\(M_n\)</span> et de même loi. Alors <span class="math inline">\(M_{2n}=\max(M_n,M_n&#39;)\)</span>, et</p>
+<p><span class="math display">\[
+\bigl(M_{2n}-\ln(2n)\bigr)-\bigl(M_n-\ln n\bigr)
+=\max(0,\,(M_n&#39;-\ln n)-(M_n-\ln n))-\ln 2.
+\]</span></p>
+<p>Le couple <span class="math inline">\((M_n-\ln n,\,M_n&#39;-\ln n)\)</span> converge en loi vers un couple <span class="math inline">\((G,G&#39;)\)</span> de variables de Gumbel indépendantes. L’image continue converge en loi vers <span class="math inline">\(\max(0,G&#39;-G)-\ln 2\)</span>. Or</p>
+<p><span class="math display">\[
+\mathbb{P}(G&#39;&gt;G+\ln 2)
+=\int_0^\infty\mathrm{e}^{-u/2}\mathrm{e}^{-u}\,\mathrm{d}u
+=\frac23\neq 0,
+\]</span></p>
+<p>par le changement de variable <span class="math inline">\(u=\mathrm{e}^{-x}\)</span> dans la densité <span class="math inline">\(\mathrm{e}^{-x}\exp(-\mathrm{e}^{-x})\)</span> de <span class="math inline">\(G\)</span>. La différence ne tend pas vers <span class="math inline">\(0\)</span> en probabilité : la suite <span class="math inline">\((M_n-\ln n)\)</span> n’est pas de Cauchy en probabilité, donc ne converge pas en probabilité.</p></li>
+<li><p><em>Non.</em> La convergence dans <span class="math inline">\(L^2\)</span> entraînerait la convergence en probabilité.</p></li>
+<li><p><em>Non.</em> La convergence presque sûre entraînerait la convergence en probabilité.</p></li>
+</ol>
 </div>
 </div>
 </div>
 <div id="exr-frechet" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 15 (Lois d’extremes : Frechet)</strong></span> Dans cet exercice, <span class="math inline">\(Y_1, \ldots, Y_n, \ldots \sim_{\text{i.i.d.}} \text{Exp}(1)\)</span>, et <span class="math inline">\(X_i = \exp(Y_i)\)</span>. On s’intéresse au maxima <span class="math inline">\(X_{\lfloor n\rfloor:n}\)</span> des échantillons <span class="math inline">\(X_1, \ldots, X_n\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercice 16 (Lois d’extremes : Frechet)</strong></span> Dans cet exercice, <span class="math inline">\(Y_1, \ldots, Y_n, \ldots \sim_{\text{i.i.d.}} \text{Exp}(1)\)</span>, et <span class="math inline">\(X_i = \exp(Y_i)\)</span>. On s’intéresse au maxima <span class="math inline">\(X_{\lfloor n\rfloor:n}\)</span> des échantillons <span class="math inline">\(X_1, \ldots, X_n\)</span>.</p>
 <ol type="1">
 <li>Calculer l’éspérance et la variance de <span class="math inline">\(X_{n:n}\)</span> (si définies).</li>
 <li>La suite <span class="math inline">\((X_{n:n}/n)_n\)</span> possède-t-elle une limite en loi ? Si oui préciser la limite.</li>
 <li>La suite <span class="math inline">\((X_{n:n}/n)_n\)</span> possède-t-elle une limite en probabilité ? Si oui préciser la limite.</li>
-<li>La suite <span class="math inline">\((X_{n:n}/n)_n\)</span> possède-t-elle une limite dans $L_2 ? Si oui préciser la limite.</li>
+<li>La suite <span class="math inline">\((X_{n:n}/n)_n\)</span> possède-t-elle une limite dans <span class="math inline">\(L_2\)</span> ? Si oui préciser la limite.</li>
 <li>La suite <span class="math inline">\((X_{n:n}/n)_n\)</span> possède-t-elle une limite presque sûre ? Si oui préciser la limite.</li>
 </ol>
 </div>
@@ -4724,13 +5097,27 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<p>On a <span class="math inline">\(X_i=\mathrm{e}^{Y_i}\)</span> avec <span class="math inline">\(Y_i\)</span> de loi <span class="math inline">\(\mathrm{Exp}(1)\)</span>, donc <span class="math inline">\(\mathbb{P}(X_i&gt;x)=1/x\)</span> pour <span class="math inline">\(x\ge 1\)</span>, et <span class="math inline">\(X_{n:n}=\mathrm{e}^{Y_{n:n}}\)</span>.</p>
+<ol type="1">
+<li><p>L’espérance et la variance ne sont pas finies. Déjà <span class="math inline">\(\mathbb{E}[X_1]=\int_0^\infty\mathrm{e}^{y}\mathrm{e}^{-y}\,\mathrm{d}y=\infty\)</span>, et <span class="math inline">\(X_{n:n}\ge X_1\)</span>, donc <span class="math inline">\(\mathbb{E}[X_{n:n}]=\infty\)</span> et <span class="math inline">\(\mathbb{E}[X_{n:n}^2]=\infty\)</span>.</p></li>
+<li><p><em>Oui.</em> D’après l’exercice précédent, <span class="math inline">\(Y_{n:n}-\ln n\)</span> converge en loi vers une variable <span class="math inline">\(G\)</span> de fonction de répartition <span class="math inline">\(\exp(-\mathrm{e}^{-x})\)</span>. L’application continue <span class="math inline">\(t\mapsto\mathrm{e}^{t}\)</span> donne</p>
+<p><span class="math display">\[
+\frac{X_{n:n}}{n}=\exp(Y_{n:n}-\ln n)
+\]</span></p>
+<p>qui converge en loi vers <span class="math inline">\(\mathrm{e}^{G}\)</span>. Pour <span class="math inline">\(y&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\mathbb{P}(\mathrm{e}^{G}\le y)=\mathbb{P}(G\le\ln y)=\exp(-\mathrm{e}^{-\ln y})=\exp(-1/y).
+\]</span></p>
+<p>C’est la loi de Fréchet standard d’indice <span class="math inline">\(1\)</span>.</p></li>
+<li><p><em>Non.</em> La fonction <span class="math inline">\(\exp\)</span> est un homéomorphisme de <span class="math inline">\(\mathbb{R}\)</span> sur <span class="math inline">\(]0,+\infty[\)</span>. La suite <span class="math inline">\(X_{n:n}/n\)</span> convergerait en probabilité si et seulement si <span class="math inline">\(Y_{n:n}-\ln n\)</span> convergait en probabilité, ce qui a été exclu à l’exercice précédent.</p></li>
+<li><p><em>Non.</em> La variable <span class="math inline">\(X_{n:n}/n\)</span> n’est pas de carré intégrable, puisque <span class="math inline">\(\mathbb{E}[X_{n:n}]=\infty\)</span>.</p></li>
+<li><p><em>Non.</em> La convergence presque sûre entraînerait la convergence en probabilité.</p></li>
+</ol>
 </div>
 </div>
 </div>
 <div id="exr-stats-dordre-intermediaire" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 16 (Statistiques d’ordre intermediaires dans un echantillon exponentiel)</strong></span> <span class="math inline">\(X_1,\ldots,X_n\)</span> est un échantillon i.i.d. de la loi uniforme sur <span class="math inline">\([0,1]\)</span> et <span class="math inline">\(X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}\)</span> les statistiques d’ordre associées.</p>
-<p><span class="math inline">\(Y_1, \ldots, Y_{n+1} \sim_{\text{i.i.d}} \text{Exp}(1)\)</span> où <span class="math inline">\(\text{Exp}(1)\)</span> désigne la loi exponentielle d’intensité <span class="math inline">\(1\)</span>. On définit <span class="math inline">\(S_k =\sum_{j=1}^k Y_j\)</span>, pour <span class="math inline">\(k=1, \ldots, n+1\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercice 17 (Statistiques d’ordre intermediaires dans un echantillon uniforme)</strong></span> <span class="math inline">\(X_1,\ldots,X_n\)</span> est un échantillon i.i.d. de la loi uniforme sur <span class="math inline">\([0,1]\)</span> et <span class="math inline">\(X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}\)</span> les statistiques d’ordre associées.</p>
 <p>On rappelle (voir <a href="https://s-v-b.github.io/MA1AY010/exercices/td4-2026.html#statistiques-dordre">TD 4</a>) les écarts <span class="math inline">\((X_{i:n}-X_{i-1:n})_{1\leq i\leq n}\)</span> (<em>spacings</em>) forment une collection de variables aléatoires indépendamment distribuées. L’écart <span class="math inline">\(X_{i:n}-X_{i-1:n}\)</span> est distribué selon une loi exponentielle d’intensité <span class="math inline">\(n+1-i\)</span>.</p>
 <ol type="a">
 <li><p>Pour <span class="math inline">\(\alpha \in ]0,1[\)</span>, <span class="math inline">\(k_n = \lfloor\alpha n\rfloor\)</span>, montrer que</p>
@@ -4747,12 +5134,82 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
+<p>On utilise la représentation de l’énoncé : si <span class="math inline">\(Y_j\)</span> sont i.i.d. de loi <span class="math inline">\(\mathrm{Exp}(1)\)</span> et <span class="math inline">\(S_m=\sum_{j=1}^m Y_j\)</span>, alors</p>
+<p><span class="math display">\[
+\bigl(X_{1:n},\ldots,X_{n:n}\bigr)
+\ \stackrel{d}{=}\
+\Bigl(\frac{S_1}{S_{n+1}},\ldots,\frac{S_n}{S_{n+1}}\Bigr).
+\]</span></p>
+<p>Fixons <span class="math inline">\(k\in\{1,\ldots,n\}\)</span> et posons <span class="math inline">\(m=n+1-k\)</span>, <span class="math inline">\(A=S_k\)</span>, <span class="math inline">\(B=S_{n+1}-S_k\)</span>. Les variables <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont indépendantes, de lois gamma de formes <span class="math inline">\(k\)</span> et <span class="math inline">\(m\)</span> et de taux <span class="math inline">\(1\)</span>. En particulier <span class="math inline">\(\mathbb{E}[A]=k\)</span>, <span class="math inline">\(\mathrm{Var}(A)=k\)</span>, et de même pour <span class="math inline">\(B\)</span> avec <span class="math inline">\(m\)</span>. La statistique d’ordre vaut <span class="math inline">\(X_{k:n}=A/(A+B)\)</span>. Elle suit la loi <span class="math inline">\(\mathrm{Beta}(k,n+1-k)\)</span>, donc</p>
+<p><span class="math display">\[
+\mathbb{E}[X_{k:n}]=\frac{k}{n+1},\qquad
+\mathrm{Var}(X_{k:n})=\frac{k(n+1-k)}{(n+1)^2(n+2)}.
+\]</span></p>
+<p>Posons <span class="math inline">\(\mu=k/(n+1)\)</span>. Alors <span class="math inline">\(1-\mu=m/(n+1)\)</span> et</p>
+<p><span class="math display">\[
+X_{k:n}-\mu
+=\frac{(1-\mu)A-\mu B}{A+B}
+=\frac{N}{(n+1)S_{n+1}},
+\qquad N=mA-kB.
+\]</span></p>
+<p>Le numérateur <span class="math inline">\(N\)</span> est centré, de variance <span class="math inline">\(\mathrm{Var}(N)=m^2k+k^2m=km(n+1)\)</span>.</p>
+<p>En notant <span class="math inline">\(\sigma_{k,n}^2=\mathrm{Var}(X_{k:n})\)</span> et <span class="math inline">\(Z_k=(A-k)/\sqrt{k}\)</span>, <span class="math inline">\(Z_m=(B-m)/\sqrt{m}\)</span>,</p>
+<p><span class="math display">\[
+\frac{N}{\sqrt{\mathrm{Var}(N)}}
+=\sqrt{\frac{m}{n+1}}\,Z_k-\sqrt{\frac{k}{n+1}}\,Z_m,
+\]</span></p>
+<p>et</p>
+<p><span class="math display">\[
+\frac{X_{k:n}-\mathbb{E}[X_{k:n}]}{\sigma_{k,n}}
+=\frac{N}{\sqrt{\mathrm{Var}(N)}}
+\cdot
+\frac{\sqrt{(n+1)(n+2)}}{S_{n+1}}.
+\]</span></p>
+<p>La loi des grands nombres donne <span class="math inline">\(S_{n+1}/(n+1)\to 1\)</span> en probabilité, et</p>
+<p><span class="math display">\[
+\frac{\sqrt{(n+1)(n+2)}}{S_{n+1}}
+=\sqrt{\frac{n+2}{n+1}}\cdot\frac{n+1}{S_{n+1}}\to 1
+\]</span></p>
+<p>en probabilité.</p>
+<ol type="a">
+<li>Ici <span class="math inline">\(k_n=\lfloor\alpha n\rfloor\)</span> avec <span class="math inline">\(\alpha\in\,]0,1[\)</span>, donc <span class="math inline">\(k_n\to\infty\)</span> et <span class="math inline">\(m_n=n+1-k_n\to\infty\)</span>, avec <span class="math inline">\(k_n/(n+1)\to\alpha\)</span> et <span class="math inline">\(m_n/(n+1)\to 1-\alpha\)</span>. Le théorème central limite fournit <span class="math inline">\(Z_{k_n}\to\mathcal{N}(0,1)\)</span> et <span class="math inline">\(Z_{m_n}\to\mathcal{N}(0,1)\)</span>, et ces deux limites sont indépendantes. La combinaison linéaire converge donc vers</li>
+</ol>
+<p><span class="math display">\[
+\sqrt{1-\alpha}\,G_1-\sqrt{\alpha}\,G_2\sim\mathcal{N}(0,1).
+\]</span></p>
+<p>Le lemme de Slutsky donne la convergence en loi vers <span class="math inline">\(\mathcal{N}(0,1)\)</span> après multiplication par le facteur qui tend vers <span class="math inline">\(1\)</span> en probabilité.</p>
+<ol start="2" type="a">
+<li>On suppose <span class="math inline">\(k_n\to\infty\)</span> et <span class="math inline">\(k_n/n\to L\in[0,1]\)</span>. La même décomposition s’applique dès que <span class="math inline">\(m_n=n+1-k_n\to\infty\)</span>, ce qui est automatique si <span class="math inline">\(L&lt;1\)</span>. Si <span class="math inline">\(L=0\)</span>, le coefficient de <span class="math inline">\(Z_{m_n}\)</span> tend vers <span class="math inline">\(0\)</span> et celui de <span class="math inline">\(Z_{k_n}\)</span> vers <span class="math inline">\(1\)</span>, avec <span class="math inline">\(k_n\to\infty\)</span> et <span class="math inline">\(m_n\to\infty\)</span> : la combinaison converge encore vers <span class="math inline">\(\mathcal{N}(0,1)\)</span>. Si <span class="math inline">\(L\in\,]0,1[\)</span>, on est ramené au cas a. Si <span class="math inline">\(L=1\)</span> et <span class="math inline">\(m_n\to\infty\)</span>, le rôle de <span class="math inline">\(k_n\)</span> et <span class="math inline">\(m_n\)</span> s’échange et la conclusion subsiste. Dans tous ces cas, le facteur <span class="math inline">\(\sqrt{(n+1)(n+2)}/S_{n+1}\)</span> tend vers <span class="math inline">\(1\)</span> en probabilité, et la statistique normalisée converge en loi vers <span class="math inline">\(\mathcal{N}(0,1)\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="exr-stats-dordre-intermediaire-generale" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 18 (Statistiques d’ordre intermediaires dans un echantillon i.i.d.)</strong></span> <span class="math inline">\(X_1,\ldots,X_n\)</span> est un échantillon i.i.d. de la loi <span class="math inline">\(P\)</span> qui admet une densité <span class="math inline">\(f\)</span> strictement positive un intervalle borné <span class="math inline">\(I \subseteq \mathbb{R}\)</span> et <span class="math inline">\(X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}\)</span> les statistiques d’ordre associées.</p>
+<ol type="a">
+<li><p>(Préparation). Si on note <span class="math inline">\(F\)</span> la fonction de répartition de <span class="math inline">\(P\)</span>, <span class="math inline">\(F^\leftarrow\)</span> la fonction quantile. Vérifier que <span class="math inline">\(F\)</span> et <span class="math inline">\(F^{\leftarrow}\)</span> sont continues, croissantes et dérivables presque partout.<br>
+</p></li>
+<li><p>Pour <span class="math inline">\(\alpha \in ]0,1[\)</span>, <span class="math inline">\(k_n = \lfloor\alpha n\rfloor\)</span>, montrer que</p>
+<p><span class="math display">\[\frac{X_{k_n:n} -\mathbb{E} X_{k_n:n} }{\sqrt{\operatorname{var}(X_{k_n:n} )}}\]</span></p>
+<p>converge en loi vers une Gaussienne centrée réduite.</p></li>
+<li><p>Maintenant <span class="math inline">\((k_n)_n\)</span> est une suite croissante d’entiers qui tend vers l’infini, telle que <span class="math inline">\(k_n/n\)</span> tend vers une limite finie (éventuellement nulle). Montrer que</p>
+<p><span class="math display">\[\frac{X_{k_n:n} -\mathbb{E} X_{k_n:n} }{\sqrt{\operatorname{var}(X_{k_n:n} )}}\]</span></p>
+<p>converge en loi vers une Gaussienne centrée réduite.</p></li>
+</ol>
+<p><em>Suggestion</em>: utiliser les résultats de l’exercice précédent, le mécanisme de la transformation quantile et la méthode <span class="math inline">\(\delta\)</span> de Cramer.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon" name="Solution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <p>TODO</p>
 </div>
 </div>
 </div>
 <div id="exr-convergence-densite" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 17</strong></span> Soit <span class="math inline">\((P_n)_n\)</span> une suite de lois de probabilités absolument continues sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>. Pour chaque <span class="math inline">\(P_n\)</span> on dispose de <span class="math inline">\(f_n\)</span> une densité de <span class="math inline">\(P_n\)</span>,</p>
+<p><span class="theorem-title"><strong>Exercice 19</strong></span> Soit <span class="math inline">\((P_n)_n\)</span> une suite de lois de probabilités absolument continues sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>. Pour chaque <span class="math inline">\(P_n\)</span> on dispose de <span class="math inline">\(f_n\)</span> une densité de <span class="math inline">\(P_n\)</span>,</p>
 <ol type="1">
 <li>Montrer que si <span class="math inline">\((f_n)_n\)</span> converge simplement vers une densité <span class="math inline">\(f\)</span> alors la suite <span class="math inline">\((P_n)_n\)</span> converge faiblement vers une loi <span class="math inline">\(P\)</span> de densité <span class="math inline">\(f\)</span></li>
 <li>Peut-on se passer de l’hypothèse que <span class="math inline">\(f\)</span> est une densité pour déduire la convergence faible de la suite <span class="math inline">\((P_n)_n\)</span> ?</li>
@@ -4764,7 +5221,20 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>TODO</p>
+<ol type="1">
+<li><p>Puisque <span class="math inline">\(f_n\)</span> et <span class="math inline">\(f\)</span> sont des densités, <span class="math inline">\(\int(f-f_n)=0\)</span>. Les parties positive et négative de <span class="math inline">\(f-f_n\)</span> ont donc la même intégrale, et</p>
+<p><span class="math display">\[
+\int_{\mathbb{R}}|f_n-f|
+=2\int_{\mathbb{R}}(f-f_n)_+.
+\]</span></p>
+<p>On a <span class="math inline">\(0\le(f-f_n)_+\le f\)</span>, et <span class="math inline">\(f\)</span> est intégrable. De plus <span class="math inline">\((f-f_n)_+\to 0\)</span> simplement. Le théorème de convergence dominée donne <span class="math inline">\(\int|f_n-f|\to 0\)</span>.</p>
+<p>Pour toute fonction mesurable bornée <span class="math inline">\(g\)</span>, <span class="math inline">\(|g|\le M\)</span>,</p>
+<p><span class="math display">\[
+\Bigl|\int g f_n-\int g f\Bigr|\le M\int|f_n-f|\to 0.
+\]</span></p>
+<p>En particulier c’est vrai pour toute <span class="math inline">\(g\)</span> continue bornée, donc <span class="math inline">\(P_n\)</span> converge faiblement vers la loi <span class="math inline">\(P\)</span> de densité <span class="math inline">\(f\)</span>. On a en fait la convergence en variation totale : <span class="math inline">\(\sup_A|P_n(A)-P(A)|\to 0\)</span>.</p></li>
+<li><p><em>Non.</em> Sans l’hypothèse que la limite simple est une densité, la convergence faible peut échouer. Prenons <span class="math inline">\(f_n=\mathbf{1}_{[n,n+1]}\)</span>. Alors <span class="math inline">\(\int f_n=1\)</span>, donc <span class="math inline">\(f_n\)</span> est une densité, et <span class="math inline">\(f_n(x)\to 0\)</span> pour tout <span class="math inline">\(x\)</span>. La limite simple est la fonction nulle, qui n’est pas une densité. La suite des lois uniformes sur <span class="math inline">\([n,n+1]\)</span> ne converge pas faiblement : elle converge vaguement vers la mesure nulle, et pour la fonction continue bornée <span class="math inline">\(g=1\)</span> on a <span class="math inline">\(\int g f_n=1\)</span>, qui ne tend pas vers <span class="math inline">\(0\)</span>.</p></li>
+</ol>
 </div>
 </div>
 </div>
