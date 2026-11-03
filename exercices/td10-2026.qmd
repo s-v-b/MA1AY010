@@ -62,8 +62,26 @@ Soit $(X_n)_{n\geq 0}$ une suite de v.a. réelles.
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+1. Si $(X_n)_n$ converge vers $X$ sur un événement $E$ de probabilité $1$, et vers $X'$ sur un événement $E'$  de probabilité $1$, alors sur $E \cap E'$ (qui est aussi de probabilité $1$), $(X_n)_n$ converge à la fois vers $X$ et $X'$ :
 
+    $$\omega \in E \cap E' \Rightarrow   \lim_{n} X_n(\omega) = X(\omega) \quad \text{ et } \quad \lim_n X_n(\omega)=X'(\omega)$$
+
+    L'unicité des limites pour les suites réelles implique que pour $\omega \in E \cap E'$, $X(\omega)=X'(\omega)$. Ce qui signifie l'égalité presque sûre de $X$ et $X'$.
+
+1. $\mathbb{P}(X >0) = \mathbb{P}(\cup_n X > 1/n) = \lim_n \mathbb{P} (X > 1/n)=0$.
+2. $\left\{ X \leq a \right\} \cap \left\{Y \leq b\right\} \subseteq \left\{ X + Y \leq  a + b\right\}$, d'où  en prenant les complémentaires et en invoquant les lois de De Morgan $\left\{ X + Y >  a + b\right\}  \subseteq \left\{ X > a \right\} \cup \left\{Y > b\right\}$
+3. On va d'abord  établir $\forall \epsilon >0, \quad \mathbb{P} \left\{ |X-X'| > \epsilon\right\}=0$.
+
+      Pour tout $\epsilon>0$, tout $n\in \mathbb{N}$
+      \begin{align*}
+         \mathbb{P} \left\{ |X-X'| > \epsilon\right\} 
+            & = \mathbb{P} \left\{ |(X- X_n) + (X_n- X')| > \epsilon\right\} \\
+            & \leq  \mathbb{P} \left\{ |X- X_n| > \epsilon/2 \right\}  + 
+                    \mathbb{P} \left\{ |X_n- X'| > \epsilon/2 \right\} 
+      \end{align*} 
+      On fait maintenant tendre $n$ vers l'infini. Les convergences en  probabilité de $(X_n)_n$ nous indiquent que les deux termes à droite tendent vers $0$. Donc pour tout $\epsilon>0$,
+      $$\mathbb{P}\{|X-X'|> \epsilon\}=0$$
+      autrement dit $X=X'$ presque sûrement.
 :::
 :::
 
@@ -81,7 +99,27 @@ Soit $(a_n)_{n\geq 1}$ une suite de v.a. identiquement distribuées, centrées e
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+1. Rappelons $\limsup_k \{|a_k|>k^{3/4}\} = \cap_n \cup_{k\geq n} \{|a_k|>k^{3/4}\}$.
+   La suite   $(\cup_{k\geq n} \{|a_k|>k^{3/4}\})_n$  est une suite décroissante d'événements. Il nous suffit de vérifier  que $\lim_n \mathbb{P}\left\{ \cup_{k\geq n} \{|a_k|>k^{3/4}\}\right\}=0$
+
+    Dans la suite, on utilisera une conséquence de l'inégalité de Chebychev :
+    $$\mathbb{P}\left\{ |a_k| > k^{3/4}\right\} \leq \frac{\operatorname{var}(a_k)}{k^{3/2}} =\frac{1}{k^{3/2}}$$
+
+   Pour $n>1$, on a 
+    \begin{align*}
+      \mathbb{P}\left\{ \cup_{k\geq n} \{|a_k|>k^{3/4}\}\right\} 
+         & \leq \sum_{k \geq n} \mathbb{P}\left\{ |a_k| > k^{3/4}\right\} \\
+         & \leq \sum_{k \geq n} \frac{1}{k^{3/2}} \\
+         & \leq \sum_{k \geq n} \int_{k-1}^{k} \frac{1}{x^{3/2}} \mathrm{d}x \\
+         & = \int_{n-1}^\infty \frac{1}{x^{3/2}} \mathrm{d}x \\
+         & = \frac{1}{2 \sqrt{n-1}} \, .
+    \end{align*}
+
+2. Soit $E$ l'événement $\cup_n \cap_{k\geq n} \{|a_k| \leq k^{3/4}\}$. Cet événement est de probabilité $1$. Pour chaque réalisation de cet événement, il existe $n_0$ (qui dépend peut-être de la réalisation) tel que $\wedge_{k\geq n_0}  |a_k| \leq k^{3/4}$.  
+    Dans ces conditions pour $n > n_0$
+    $$\sum_{k\geq n} |a_k|/k^2 \leq \sum_{k\geq n} 1/k^{5/4} \leq \frac{1}{4(n-1)^{1/4}}$$
+
+   Sous $E$, la série $\sum_{k=1}^\infty a_k/k^2$ est absolument convergente. 
 
 :::
 :::
@@ -98,8 +136,14 @@ Soit $(X_n)_{n\geq 1}$ une suite de v.a. i.i.d. positives et telles que $\mathbb
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+1. $\mathbb{E} Y_n = \prod_{i=1}^n \mathbb{E} X_i = \alpha^n$. Par l'inégalité de Markov, pour tout $\epsilon>0$, $\mathbb{P} \{ Y_n > \epsilon\} \leq \alpha^n/\epsilon$, donc 
+    $$\sum_{n} \mathbb{P} \{ Y_n > \epsilon\} \leq \frac{1}{\epsilon (1-\alpha)}$$ 
+    D'après le premier lemme de Borel-Cantelli, pour tout $\epsilon>0$
+    $$\mathbb{P} \left\{ \cap_n \cup_{k\geq n} \{ Y_n > \epsilon\}\right\} =0$$
+    Donc, presque sûrement $\limsup_n Y_n \leq \epsilon$. Comme $\epsilon$ est arbitraire, 
+    presque sûrement, on a $\wedge_m \limsup_n Y_n \leq 1/m$, presque sûrement $\lim_n Y_n =0.$
 
+2. $\mathbb{E} |Y_n -0 | = \mathbb{E} Y_n = \alpha^n$ qui tend vers $0$ quand $n \to \infty$. 
 :::
 :::
 
@@ -122,7 +166,47 @@ Montrer que $(X_n)_{n\geq 1}$ converge presque sûrement vers $f(U)$. Converge-t
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+La fonction $f$ est continue sur le compact $[0,1]$, donc bornée et uniformément continue. Notons
+
+$$
+\rho(\eta)=\sup\bigl\{|f(x)-f(y)| : x,y\in[0,1],\ |x-y|\le\eta\bigr\},
+$$
+
+de sorte que $\rho(\eta)\to 0$ lorsque $\eta\to 0$.
+
+Les intervalles $\bigl[k/n,(k+1)/n\bigr]$, $0\le k\le n-1$, ne se recouvrent qu'en leurs extrémités. L'ensemble
+
+$$
+N=\bigcup_{n\ge 1}\bigcup_{k=1}^{n-1}\bigl\{U=k/n\bigr\}
+$$
+
+est dénombrable, donc négligeable. Sur $N^c$, pour tout $n\ge 1$, il existe un unique indice $k$ tel que $U\in\bigl[k/n,(k+1)/n\bigr]$, et
+
+$$
+X_n = n\int_{k/n}^{(k+1)/n} f(x)\,\mathrm{d}x.
+$$
+
+Pour tout $x$ de cet intervalle, $|x-U|\le 1/n$, donc
+
+$$
+\bigl|X_n-f(U)\bigr|
+= \left| n\int_{k/n}^{(k+1)/n}\bigl(f(x)-f(U)\bigr)\,\mathrm{d}x \right|
+\le \rho(1/n).
+$$
+
+Le majorant ne dépend pas de la réalisation et tend vers $0$. Ainsi $X_n\to f(U)$ presque sûrement, et
+
+$$
+\|X_n-f(U)\|_\infty\le\rho(1/n)\to 0.
+$$
+
+La convergence a donc lieu dans $L^\infty$. A fortiori, pour tout $p\in[1,+\infty[$,
+
+$$
+\mathbb{E}\bigl|X_n-f(U)\bigr|^p\le\rho(1/n)^p\to 0,
+$$
+
+et $(X_n)$ converge vers $f(U)$ dans $L^p$.
 
 :::
 :::
@@ -145,7 +229,27 @@ TODO
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+1. Soit $X\in L^\infty(\Omega,\mathbb{P})$. Il existe $M<\infty$ tel que $\mathbb{P}(|X|>M)=0$, c'est-à-dire $|X|\le M$ presque sûrement. Pour tout $p\in[1,+\infty[$,
+
+    $$
+    \mathbb{E}|X|^p\le M^p<\infty,
+    $$
+
+    donc $X\in L^p(\Omega,\mathbb{P})$. Ceci vaut pour chaque $p$, d'où l'inclusion dans l'intersection.
+
+2. Prenons $\Omega=\,]0,1]$, muni de la tribu borélienne et de la mesure de Lebesgue, et $X(\omega)=-\ln\omega$. Pour tout $M<\infty$,
+
+    $$
+    \mathbb{P}(X>M)=\mathbb{P}\bigl(\omega<\mathrm{e}^{-M}\bigr)=\mathrm{e}^{-M}>0,
+    $$
+
+    donc $X\notin L^\infty$. En revanche, pour tout $p\in[1,+\infty[$, le changement de variable $t=-\ln\omega$ donne
+
+    $$
+    \mathbb{E}|X|^p=\int_0^1 (-\ln\omega)^p\,\mathrm{d}\omega=\int_0^\infty t^p\mathrm{e}^{-t}\,\mathrm{d}t.
+    $$
+
+    Cette intégrale est finie : au voisinage de $0$, $t^p\mathrm{e}^{-t}$ se comporte comme $t^p$, intégrable ; au voisinage de l'infini, $t^p\mathrm{e}^{-t/2}\to 0$, donc $t^p\mathrm{e}^{-t}\le\mathrm{e}^{-t/2}$ pour $t$ assez grand, et $\int^\infty\mathrm{e}^{-t/2}\,\mathrm{d}t<\infty$. Ainsi $X\in L^p$ pour tout $p$ fini.
 
 :::
 :::
@@ -176,7 +280,61 @@ Soit $p\in[1,+\infty[$ et soit $(X_n)_{n\geq 0}$ une suite de v.a. qui converge 
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+1. Sur un espace de probabilité, les normes $L^r$ croissent avec $r$. Précisément, si $1\le p'\le p$ et $Y\in L^p$, l'inégalité de Hölder donne
+
+    $$
+    \mathbb{E}|Y|^{p'}
+    =\mathbb{E}\bigl[|Y|^{p'}\cdot 1\bigr]
+    \le\bigl(\mathbb{E}|Y|^p\bigr)^{p'/p},
+    $$
+
+    et, en élevant à la puissance $1/p'$, $\|Y\|_{p'}\le\|Y\|_p$. En appliquant ceci à $Y=X_n-X$,
+
+    $$
+    \|X_n-X\|_{p'}\le\|X_n-X\|_p\to 0.
+    $$
+
+    L'inégalité triangulaire renversée donne alors :
+
+    $$
+    \bigl|\|X_n\|_{p'}-\|X\|_{p'}\bigr|\le\|X_n-X\|_{p'}\to 0.
+    $$
+
+2. L'identité algébrique $x^k-y^k=(x-y)\sum_{j=0}^{k-1}x^{k-1-j}y^j$ donne
+
+    $$
+    |x^k-y^k|\le|x-y|\sum_{j=0}^{k-1}|x|^{k-1-j}|y|^j.
+    $$
+
+    Chaque terme de la somme vérifie $|x|^{k-1-j}|y|^j\le|x|^{k-1}+|y|^{k-1}$ : si $|x|\ge|y|$, il est au plus $|x|^{k-1}$ ; si $|y|\ge|x|$, il est au plus $|y|^{k-1}$. Il y a $k$ termes, d'où
+
+    $$
+    |x^k-y^k|\le k\bigl(|x|^{k-1}+|y|^{k-1}\bigr)|x-y|.
+    $$
+
+3. Comme $k\le p$, la question 1 donne $X_n\to X$ dans $L^k$, donc $X_n^k$ et $X^k$ sont intégrables. Si $k=1$,
+
+    $$
+    \bigl|\mathbb{E} X_n-\mathbb{E} X\bigr|\le\|X_n-X\|_1\le\|X_n-X\|_p\to 0.
+    $$
+
+    Supposons maintenant $2\le k\le p$, donc $p>1$, et notons $q=p/(p-1)$ l'exposant conjugué. La question 2 et l'inégalité de Hölder donnent
+
+    \begin{align*}
+    \mathbb{E}\bigl(|X_n|^{k-1}|X_n-X|\bigr)
+    &\le\bigl(\mathbb{E}|X_n|^{(k-1)q}\bigr)^{1/q}\,\|X_n-X\|_p \\
+    &= \|X_n\|_{(k-1)q}^{k-1}\,\|X_n-X\|_p.
+    \end{align*}
+
+    Or $(k-1)q=(k-1)p/(p-1)\le p$ précisément parce que $k\le p$, donc $\|X_n\|_{(k-1)q}\le\|X_n\|_p$. Le même calcul s'applique en remplaçant $X_n$ par $X$ dans le facteur $|X|^{k-1}$. La suite $(X_n)$ converge dans $L^p$, donc elle y est bornée : il existe $M$ tel que $\|X_n\|_p\le M$ et $\|X\|_p\le M$ pour tout $n$. Ainsi
+
+    $$
+    \mathbb{E}|X_n^k-X^k|
+    \le k\bigl(\|X_n\|_p^{k-1}+\|X\|_p^{k-1}\bigr)\,\|X_n-X\|_p
+    \le 2k M^{k-1}\,\|X_n-X\|_p\to 0,
+    $$
+
+    et $\mathbb{E}(X_n^k)\to\mathbb{E}(X^k)$.
 
 :::
 :::
@@ -199,7 +357,33 @@ Montrer que $\bigl(\frac{1}{n}X_n\bigr)_{n\geq 1}$ converge en loi vers la loi e
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+La loi exponentielle de paramètre $\alpha>0$ a pour densité $x\mapsto\alpha\mathrm{e}^{-\alpha x}\mathbf{1}_{x>0}$, donc pour fonction de répartition $F(x)=0$ si $x\le 0$ et $F(x)=1-\mathrm{e}^{-\alpha x}$ si $x>0$. Cette fonction est continue sur $\mathbb{R}$. Il suffit de montrer que $\mathbb{P}(X_n/n\le x)\to F(x)$ pour tout $x$ : le théorème de Portemanteau donne alors la convergence en loi.
+
+La formule de l'énoncé définit une probabilité dès que $n>\alpha$. On se limite à ces indices.
+
+Si $x\le 0$, alors $\mathbb{P}(X_n/n\le x)=0=F(x)$, car $X_n\ge 1$.
+
+Si $x>0$, la variable $X_n$ est géométrique de paramètre $p_n=\alpha/n$, démarrant en $1$, donc $\mathbb{P}(X_n\ge m)=(1-p_n)^{m-1}$ pour tout entier $m\ge 1$. Comme $X_n$ est entière,
+
+$$
+\mathbb{P}(X_n>nx)=\mathbb{P}\bigl(X_n\ge\lfloor nx\rfloor+1\bigr)=\Bigl(1-\frac{\alpha}{n}\Bigr)^{\lfloor nx\rfloor}.
+$$
+
+On écrit
+
+$$
+\Bigl(1-\frac{\alpha}{n}\Bigr)^{\lfloor nx\rfloor}
+=\exp\Bigl(\lfloor nx\rfloor\,\ln\bigl(1-\alpha/n\bigr)\Bigr)
+=\exp\Bigl(\frac{\lfloor nx\rfloor}{n}\cdot n\ln\bigl(1-\alpha/n\bigr)\Bigr).
+$$
+
+D'une part $\lfloor nx\rfloor/n\to x$. D'autre part $n\ln(1-\alpha/n)\to-\alpha$, car $\ln(1-u)=-u+o(u)$ lorsque $u\to 0$. L'exposant tend donc vers $-\alpha x$, et
+
+$$
+\mathbb{P}(X_n/n>x)\to\mathrm{e}^{-\alpha x}.
+$$
+
+Ainsi $\mathbb{P}(X_n/n\le x)\to 1-\mathrm{e}^{-\alpha x}=F(x)$.
 
 :::
 :::
@@ -219,7 +403,32 @@ Soient $(X_n)_{n\geq 0}$ une suite de v.a. réelles et $c\in\mathbb{R}$. On supp
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+1. On définit $\varphi_\varepsilon$ affine par morceaux :
+
+    $$
+    \varphi_\varepsilon(x)=
+    \begin{cases}
+    0 & \text{si }|x-c|\le\varepsilon,\\[0.4em]
+    \dfrac{|x-c|-\varepsilon}{\varepsilon} & \text{si }\varepsilon\le|x-c|\le 2\varepsilon,\\[0.6em]
+    1 & \text{si }|x-c|\ge 2\varepsilon.
+    \end{cases}
+    $$
+
+    Les valeurs se raccordent aux seuils $\varepsilon$ et $2\varepsilon$, donc $\varphi_\varepsilon$ est continue. Elle est bornée et $0\le\varphi_\varepsilon\le 1$. Elle s'annule sur $[c-\varepsilon,c+\varepsilon]$ et vaut $1$ hors de $[c-2\varepsilon,c+2\varepsilon]$.
+
+2. La fonction $\varphi_\varepsilon$ est continue et bornée, et $(X_n)$ converge en loi vers $\delta_{\{c\}}$, donc
+
+    $$
+    \mathbb{E}\bigl[\varphi_\varepsilon(X_n)\bigr]\to\varphi_\varepsilon(c)=0.
+    $$
+
+3. Pour tout $x\in\mathbb{R}$, $\mathbf{1}_{|x-c|>2\varepsilon}\le\varphi_\varepsilon(x)$. En intégrant,
+
+    $$
+    \mathbb{P}(|X_n-c|>2\varepsilon)\le\mathbb{E}\bigl[\varphi_\varepsilon(X_n)\bigr]\to 0.
+    $$
+
+    Comme $\varepsilon>0$ est arbitraire, pour tout $\eta>0$ le choix $\varepsilon=\eta/2$ donne $\mathbb{P}(|X_n-c|>\eta)\to 0$ : la suite $(X_n)$ converge en probabilité vers la constante $c$.
 
 :::
 :::
@@ -246,15 +455,24 @@ Rappel: $\mathrm{d}_{\mathrm{KF}}$ désigne la distance de Ky-Fan.
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+On rappelle la distance de Ky-Fan
 
-On rappelle $\mathrm{d}_{\mathrm{KF}}(X_n, X) = \inf \left\{ \epsilon : \epsilon \geq 0, \qquad  P\left\{ |X_n -X| \geq \epsilon \right\} \leq \epsilon \right\}$
+$$
+\mathrm{d}_{\mathrm{KF}}(X,Y)
+= \inf\bigl\{\varepsilon\ge 0 : \mathbb{P}\bigl(|X-Y|\ge \varepsilon\bigr)\le \varepsilon\bigr\}.
+$$
 
-Par ailleurs, on peut caractériser la convergence en probabilité à l'aide du critère suivant 
+Si $d=\mathrm{d}_{\mathrm{KF}}(X,Y)$, alors pour tout $a>d$,
 
-$$X_n \stackrel{\text{Proba}}{\longrightarrow} X \qquad \longleftrightarrow \qquad \lim_n \mathbb{E}\left[ \min(1,  |X_n -X|)\right]=0$$
+$$
+\mathbb{P}\bigl(|X-Y|\ge a\bigr)\le d.
+$$
 
+En effet, la définition de l'infimum fournit une suite $\varepsilon_m\downarrow d$ telle que $\mathbb{P}(|X-Y|\ge\varepsilon_m)\le\varepsilon_m$. Pour $m$ assez grand, $\varepsilon_m<a$, donc $\{|X-Y|\ge a\}\subset\{|X-Y|\ge\varepsilon_m\}$ et $\mathbb{P}(|X-Y|\ge a)\le\varepsilon_m$. On fait tendre $m$ vers l'infini.
 
+1. Supposons que $(X_n)$ converge en probabilité vers $X$. Soit $\varepsilon>0$. Pour $n$ assez grand, $\mathbb{P}(|X_n-X|\ge\varepsilon)\le\varepsilon$, donc $\mathrm{d}_{\mathrm{KF}}(X_n,X)\le\varepsilon$. Ainsi $\mathrm{d}_{\mathrm{KF}}(X_n,X)\to 0$.
+
+2. Réciproquement, notons $d_n=\mathrm{d}_{\mathrm{KF}}(X_n,X)$ et supposons $d_n\to 0$. Soit $\varepsilon>0$. Pour $n$ assez grand, $d_n<\varepsilon$, donc $\mathbb{P}(|X_n-X|\ge\varepsilon)\le d_n\to 0$. Ainsi $(X_n)$ converge en probabilité vers $X$.
 
 :::
 :::
@@ -271,7 +489,43 @@ $$X_n \stackrel{\text{Proba}}{\longrightarrow} X \qquad \longleftrightarrow \qqu
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+- **Oui**, $\mathcal{L}_0$ quotienté par l'égalité presque sûre est complet pour $\mathrm{d}_{\mathrm{KF}}$.
+
+    Soit $(X_n)$ une suite de Cauchy pour cette distance. On extrait une sous-suite $(n_k)$ telle que, pour tous $n,m\ge n_k$,
+
+    $$
+    \mathrm{d}_{\mathrm{KF}}(X_n,X_m)\le 2^{-(k+1)}.
+    $$
+
+    Comme $2^{-k}>\mathrm{d}_{\mathrm{KF}}(X_{n_{k+1}},X_{n_k})$, l'exercice précédent donne
+
+    $$
+    \mathbb{P}\bigl(|X_{n_{k+1}}-X_{n_k}|\ge 2^{-k}\bigr)
+    \le\mathrm{d}_{\mathrm{KF}}(X_{n_{k+1}},X_{n_k})
+    \le 2^{-(k+1)}.
+    $$
+
+    La série de ces probabilités converge. Le premier lemme de Borel-Cantelli donne : presque sûrement, pour tout $k$ assez grand, $|X_{n_{k+1}}-X_{n_k}|<2^{-k}$. La série des accroissements converge alors presque sûrement, donc $(X_{n_k})$ est presque sûrement de Cauchy dans $\mathbb{R}$ et converge vers une limite finie $X$. La convergence presque sûre entraîne la convergence en probabilité, donc $\mathrm{d}_{\mathrm{KF}}(X_{n_k},X)\to 0$. L'inégalité triangulaire donne, pour $n\ge n_k$,
+
+    $$
+    \mathrm{d}_{\mathrm{KF}}(X_n,X)
+    \le\mathrm{d}_{\mathrm{KF}}(X_n,X_{n_k})+\mathrm{d}_{\mathrm{KF}}(X_{n_k},X)
+    \le 2^{-(k+1)}+\mathrm{d}_{\mathrm{KF}}(X_{n_k},X).
+    $$
+
+    Le membre de droite tend vers $0$ lorsque $k\to\infty$, donc $\mathrm{d}_{\mathrm{KF}}(X_n,X)\to 0$.
+
+- **Non.** Sur $\Omega=[0,1]$ muni de la mesure de Lebesgue, on énumère les intervalles $I_{m,j}=[j/m,(j+1)/m]$, $m\ge 1$, $0\le j<m$, en une suite $(I_n)$, dans l'ordre des $m$ croissants. Soit $X_n=\mathbf{1}_{I_n}$. Dans le bloc $m$, les intervalles ont longueur $1/m$, donc la longueur de $I_n$ tend vers $0$ et $X_n\to 0$ en probabilité. Mais tout $\omega\in[0,1]$ appartient à un intervalle de chaque bloc, donc $X_n(\omega)=1$ pour une infinité d'indices : $(X_n(\omega))$ ne converge pas vers $0$.
+
+    Toute suite convergente en probabilité admet toutefois une sous-suite convergente presque sûrement : c'est l'extraction faite dans la preuve de complétude.
+
+- **Non.** Sur le même espace, soit $X_n=n\,\mathbf{1}_{[0,1/n]}$. Alors $\mathbb{P}(|X_n|>\varepsilon)=1/n\to 0$, donc $X_n\to 0$ en probabilité. En revanche, pour tout $p\ge 1$,
+
+    $$
+    \mathbb{E}|X_n|^p=n^{p-1},
+    $$
+
+    qui vaut $1$ si $p=1$ et tend vers l'infini si $p>1$. La suite ne converge pas vers $0$ dans $L^p$. Elle ne converge dans $L^p$ vers aucune autre limite : la convergence dans $L^p$ entraîne la convergence en probabilité, et la limite en probabilité est unique presque sûrement.
 
 :::
 :::
@@ -293,7 +547,30 @@ Déduire le second lemme de Borel-Cantelli comme cas particulier de la loi 0-1.
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+Soit $(A_n)$ une suite d'événements indépendants telle que $\sum_n\mathbb{P}(A_n)=\infty$. Les variables $\mathbf{1}_{A_n}$ sont indépendantes. L'événement
+
+$$
+A=\limsup_n A_n=\bigcap_{N\ge 1}\bigcup_{n\ge N}A_n
+$$
+
+appartient, pour chaque $N$, à $\sigma(A_n : n\ge N)$ : en effet $A=\bigcap_{M\ge N}\bigcup_{n\ge M}A_n$. Il est donc dans la tribu asymptotique. La loi du 0-1 donne $\mathbb{P}(A)\in\{0,1\}$.
+
+Montrons que cette probabilité vaut $1$. Le complémentaire est $A^c=\bigcup_N\bigcap_{n\ge N}A_n^c$. L'indépendance se transmet aux complémentaires. Pour $x\in[0,1]$, $1-x\le\mathrm{e}^{-x}$, donc, pour tous $N$ et $m$,
+
+\begin{align*}
+\mathbb{P}\Bigl(\bigcap_{n=N}^{N+m}A_n^c\Bigr)
+&= \prod_{n=N}^{N+m}\bigl(1-\mathbb{P}(A_n)\bigr) \\
+&\le \exp\Bigl(-\sum_{n=N}^{N+m}\mathbb{P}(A_n)\Bigr).
+\end{align*}
+
+La série diverge, donc le membre de droite tend vers $0$ lorsque $m\to\infty$. Par continuité monotone,
+
+$$
+\mathbb{P}\Bigl(\bigcap_{n\ge N}A_n^c\Bigr)
+=\lim_{m\to\infty}\mathbb{P}\Bigl(\bigcap_{n=N}^{N+m}A_n^c\Bigr)=0.
+$$
+
+Une réunion dénombrable d'événements négligeables est négligeable, donc $\mathbb{P}(A^c)=0$ et $\mathbb{P}(A)=1$. Autrement dit, presque sûrement, une infinité des événements $A_n$ se réalisent.
 
 :::
 :::
@@ -320,6 +597,69 @@ et on cherche à montrer que $\frac{1}{n}S_n$ converge vers $0$, p.s. et dans $L
 
 :::
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+La décomposition $S_n=S_{p(n)^2}+R_n$ de la question 3 impose des sommes emboîtées : on réalise le tableau par une seule suite $(X_i)_{i\ge 1}$, en posant $X_{n,i}=X_i$. Les $X_i$ sont donc centrées, identiquement distribuées, de carré intégrable, et décorrélées. On note $\sigma^2=\mathrm{Var}(X_1)=\mathbb{E}[X_1^2]<\infty$, et $S_n=\sum_{i=1}^n X_i$ (avec $S_0=0$).
+
+1. Les variables $X_1,\ldots,X_n$ sont décorrélées et centrées, donc
+
+    $$
+    \mathbb{E}[S_n^2]=\mathrm{Var}(S_n)=\sum_{i=1}^n\mathrm{Var}(X_i)=n\sigma^2.
+    $$
+
+    Par suite
+
+    $$
+    \mathbb{E}\Bigl[\Bigl(\frac{S_n}{n}\Bigr)^2\Bigr]=\frac{\sigma^2}{n}\to 0.
+    $$
+
+    Ainsi $S_n/n\to 0$ dans $L^2$.
+
+2. L'inégalité de Markov et la question précédente donnent
+
+    $$
+    \theta_n
+    =\mathbb{P}\Bigl(\Bigl|\frac{S_{n^2}}{n^2}\Bigr|>\varepsilon\Bigr)
+    \le\frac{1}{\varepsilon^2}\mathbb{E}\Bigl[\Bigl(\frac{S_{n^2}}{n^2}\Bigr)^2\Bigr]
+    =\frac{\sigma^2}{\varepsilon^2 n^2}.
+    $$
+
+    La série $\sum_n 1/n^2$ converge, donc $\sum_n\theta_n<\infty$. Le premier lemme de Borel-Cantelli entraîne que, pour chaque entier $m\ge 1$, l'événement $\limsup_n\{|S_{n^2}|/n^2>1/m\}$ est négligeable. La réunion de ces événements sur $m$ est l'événement $\{S_{n^2}/n^2\not\to 0\}$, qui est donc négligeable. Ainsi $S_{n^2}/n^2\to 0$ presque sûrement.
+
+3. Pour $n\ge 1$, posons $p(n)=\lfloor\sqrt{n}\rfloor$. Alors $p(n)\ge 1$ et $p(n)^2\le n<(p(n)+1)^2$, donc
+
+    $$
+    0\le n-p(n)^2\le 2p(n)\le 2\sqrt{n}.
+    $$
+
+    Le reste $R_n=S_n-S_{p(n)^2}=\sum_{i=p(n)^2+1}^n X_i$ est une somme de variables centrées et décorrélées, d'où
+
+    $$
+    \mathbb{E}[R_n^2]=(n-p(n)^2)\sigma^2\le 2\sigma^2\sqrt{n},
+    $$
+
+    et
+
+    $$
+    \mathbb{E}\Bigl[\frac{R_n^2}{n^2}\Bigr]\le\frac{2\sigma^2}{n^{3/2}}.
+    $$
+
+    La série $\sum_n n^{-3/2}$ converge, donc $\sum_n\mathbb{E}[R_n^2/n^2]<\infty$. Les termes sont positifs, et l'espérance de la série est finie : $\sum_n R_n^2/n^2<\infty$ presque sûrement. Le terme général d'une série convergente tend vers $0$, donc $R_n/n\to 0$ presque sûrement.
+
+    On décompose
+
+    $$
+    \frac{S_n}{n}
+    =\frac{p(n)^2}{n}\cdot\frac{S_{p(n)^2}}{p(n)^2}+\frac{R_n}{n}.
+    $$
+
+    D'une part $p(n)^2/n\to 1$. D'autre part $p(n)\to\infty$, et la question 2 donne $S_{m^2}/m^2\to 0$ presque sûrement, donc $S_{p(n)^2}/p(n)^2\to 0$ presque sûrement. Les deux termes tendent vers $0$, et $S_n/n\to 0$ presque sûrement.
+
+:::
+:::
+
 ::: {#exr-sphere-gaussienne}
 
 On utilisera le résultat de convergence de l'@exr-lgn-tableau.
@@ -342,7 +682,50 @@ Soit $\Gamma_n$ un vecteur gaussien standard de $\mathbb{R}^n$. Notons $X_n=\Gam
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+On réalise les vecteurs de façon emboîtée : $(g_i)_{i\ge 1}$ est une suite i.i.d. de loi $\mathcal{N}(0,1)$ et $\Gamma_n=(g_1,\ldots,g_n)$. Ainsi toutes les variables vivent sur le même espace, et $\|\Gamma_n\|^2=\sum_{i=1}^n g_i^2$.
+
+1. La loi de $\Gamma_n$ admet la densité $(2\pi)^{-n/2}\exp(-\|x\|^2/2)$ par rapport à la mesure de Lebesgue sur $\mathbb{R}^n$. L'ensemble $\{0\}$ est négligeable pour cette mesure, donc $\mathbb{P}(\Gamma_n=0)=0$. Le quotient $X_n=\Gamma_n/\|\Gamma_n\|$ est bien défini presque sûrement. Sur l'événement négligeable $\{\Gamma_n=0\}$, on pose par exemple $X_n=0$.
+
+2. Si $A$ est une matrice orthogonale $n\times n$, alors $AA^\top=I_n$. Le vecteur $A\Gamma_n$ est gaussien centré de matrice de covariance $AA^\top=I_n$, donc $A\Gamma_n$ a la même loi que $\Gamma_n$. Par ailleurs $\|Av\|=\|v\|$ pour tout $v$, donc, presque sûrement,
+
+    $$
+    AX_n=\frac{A\Gamma_n}{\|\Gamma_n\|}=\frac{A\Gamma_n}{\|A\Gamma_n\|}.
+    $$
+
+    Le membre de droite est l'image de $A\Gamma_n$ par l'application $v\mapsto v/\|v\|$, mesurable sur $\mathbb{R}^n\setminus\{0\}$. Comme $A\Gamma_n$ et $\Gamma_n$ ont la même loi, $AX_n$ a la même loi que $X_n$.
+
+3. Pour $g\sim\mathcal{N}(0,1)$, une intégration par parties donne $\mathbb{E}[g^4]=3\mathbb{E}[g^2]=3$ : la dérivée de $x\mapsto x^3\mathrm{e}^{-x^2/2}$ est $(3x^2-x^4)\mathrm{e}^{-x^2/2}$, et l'intégrale de cette dérivée est nulle, d'où $\mathbb{E}[g^4-3g^2]=0$. Par conséquent
+
+    $$
+    \mathbb{E}\bigl[(g_1^2-1)^2\bigr]
+    =\mathbb{E}[g_1^4]-2\mathbb{E}[g_1^2]+1
+    =3-2+1=2<\infty.
+    $$
+
+    Les variables $X_{n,i}=g_i^2-1$, $1\le i\le n$, sont centrées, identiquement distribuées, de carré intégrable, et indépendantes donc décorrélées à $n$ fixé. L'@exr-lgn-tableau donne
+
+    $$
+    \frac1n\sum_{i=1}^n(g_i^2-1)\to 0
+    \qquad\text{presque sûrement.}
+    $$
+
+    Autrement dit $\|\Gamma_n\|^2/n\to 1$ presque sûrement. La fonction racine carrée est continue sur $[0,+\infty[$, donc $\|\Gamma_n\|/\sqrt{n}\to 1$ presque sûrement.
+
+4. La première coordonnée de $X_n$ est $Y_n=g_1/\|\Gamma_n\|$, donc
+
+    $$
+    \sqrt{n}\,Y_n=\frac{g_1}{\|\Gamma_n\|/\sqrt{n}}.
+    $$
+
+    La question 3 et le fait que $g_1$ est presque sûrement finie donnent $\sqrt{n}\,Y_n\to g_1=\Gamma_1$ presque sûrement.
+
+    Soit $f$ bornée par $M$ et $1$-lipschitzienne. Elle est continue, donc $f(\sqrt{n}\,Y_n)\to f(\Gamma_1)$ presque sûrement. De plus $\bigl|f(\sqrt{n}\,Y_n)-f(\Gamma_1)\bigr|\le 2M$. Le théorème de convergence dominée donne
+
+    $$
+    \mathbb{E}\bigl[f(\sqrt{n}\,Y_n)\bigr]\to\mathbb{E}\bigl[f(\Gamma_1)\bigr].
+    $$
+
+    Cette convergence s'étend à toute fonction bornée lipschitzienne. Si $h$ est $K$-lipschitzienne et bornée, avec $K>0$, alors $h/K$ est $1$-lipschitzienne et bornée, donc $\mathbb{E}[h(\sqrt{n}\,Y_n)]\to\mathbb{E}[h(\Gamma_1)]$. Le cas $K=0$ est celui d'une constante. D'après le théorème de Portemanteau, la convergence des espérances contre toutes les fonctions bornées lipschitziennes caractérise la convergence en loi. Ainsi $\sqrt{n}\,Y_n$ converge en loi vers $\Gamma_1$, c'est-à-dire vers $\mathcal{N}(0,1)$.
 
 :::
 :::
@@ -374,7 +757,67 @@ On pose $S_n=X_1+\cdots+X_n$ et on cherche à montrer que $\frac{1}{n}S_n$ tend 
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+1. Soit $(i,j,k,\ell)\in\{1,\ldots,n\}^4$ prenant au moins trois valeurs distinctes. L'une de ces valeurs n'apparaît qu'une fois : sinon chaque valeur apparaîtrait au moins deux fois, et il y aurait au plus deux valeurs distinctes. Notons $a$ cet indice isolé et $Z$ le produit des trois autres facteurs, qui est une fonction des $X_b$ pour $b\neq a$. L'indépendance et le centrage donnent
+
+    $$
+    \mathbb{E}[X_a Z]=\mathbb{E}[X_a]\,\mathbb{E}[Z]=0.
+    $$
+
+    Dans le développement de $\mathbb{E}[S_n^4]=\sum_{i,j,k,\ell}\mathbb{E}[X_i X_j X_k X_\ell]$, les contributions restantes correspondent à une ou deux valeurs distinctes.
+
+    - Si les quatre indices sont égaux à $i$, la contribution est $\mathbb{E}[X_i^4]$.
+    - S'il y a deux valeurs distinctes, les multiplicités sont $(3,1)$ ou $(2,2)$. Le cas $(3,1)$ contient encore un indice isolé, donc l'espérance est nulle par le même argument. Reste le cas $(2,2)$.
+
+    Pour $i<j$ fixés, le nombre de quadruplets comportant deux fois $i$ et deux fois $j$ est $\binom{4}{2}=6$, et chacun a pour espérance $\mathbb{E}[X_i^2 X_j^2]$. D'où
+
+    $$
+    \mathbb{E}[S_n^4]
+    =\sum_{i=1}^n\mathbb{E}[X_i^4]
+    +6\sum_{1\le i<j\le n}\mathbb{E}[X_i^2 X_j^2].
+    $$
+
+2. La variance de $X_i^2$ est positive, donc $\bigl(\mathbb{E}[X_i^2]\bigr)^2\le\mathbb{E}[X_i^4]\le K$, et $\mathbb{E}[X_i^2]\le\sqrt{K}$. Pour $i\neq j$, l'indépendance factorise le moment :
+
+    $$
+    \mathbb{E}[X_i^2 X_j^2]=\mathbb{E}[X_i^2]\,\mathbb{E}[X_j^2]\le K.
+    $$
+
+    Le nombre de couples $1\le i<j\le n$ est $n(n-1)/2$, donc
+
+    \begin{align*}
+    \mathbb{E}[S_n^4]
+    &\le nK + 6\cdot\frac{n(n-1)}{2}\cdot K \\
+    &= nK+3Kn(n-1) \\
+    &= 3Kn^2-2Kn \\
+    &\le 3Kn^2.
+    \end{align*}
+
+3. L'inégalité de Markov et la question précédente donnent, pour tout $\varepsilon>0$,
+
+    $$
+    \mathbb{P}\bigl(|S_n|/n>\varepsilon\bigr)
+    \le\frac{\mathbb{E}[S_n^4]}{n^4\varepsilon^4}
+    \le\frac{3K}{\varepsilon^4 n^2}.
+    $$
+
+    En particulier $\mathbb{E}[(S_n/n)^4]\le 3K/n^2\to 0$, donc $S_n/n\to 0$ dans $L^4$.
+
+    De plus, pour chaque entier $m\ge 1$, la série $\sum_n\mathbb{P}(|S_n|/n>1/m)$ converge. Le premier lemme de Borel-Cantelli entraîne que l'événement $\limsup_n\{|S_n|/n>1/m\}$ est négligeable. L'événement $\{S_n/n\not\to 0\}$ est la réunion de ces limsup sur $m\ge 1$, donc est négligeable. Ainsi $S_n/n\to 0$ presque sûrement.
+
+4. Posons $Y_i=X_i-\mu$. Les $Y_i$ sont indépendantes et centrées. La fonction $t\mapsto t^4$ est convexe, donc l'inégalité de Jensen donne $\mu^4=(\mathbb{E} X_i)^4\le\mathbb{E}[X_i^4]\le K$. Par ailleurs $|Y_i|^4\le\bigl(|X_i|+|\mu|\bigr)^4\le 16\max(|X_i|,|\mu|)^4\le 16\bigl(X_i^4+\mu^4\bigr)$, d'où
+
+    $$
+    \mathbb{E}[Y_i^4]\le 16\bigl(K+\mu^4\bigr)\le 32K.
+    $$
+
+    Les questions précédentes appliquées à $(Y_i)$, avec la constante $32K$, donnent
+
+    $$
+    \frac1n\sum_{i=1}^n(X_i-\mu)\to 0
+    \qquad\text{presque sûrement,}
+    $$
+
+    c'est-à-dire $S_n/n\to\mu$ presque sûrement.
 
 :::
 :::
@@ -389,7 +832,62 @@ Dans l'énoncé de la loi forte des grands nombres, on peut remplacer l'hypothè
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+La partie directe de la loi forte s'étend à des variables intégrables, identiquement distribuées, et seulement indépendantes deux à deux, d'espérance commune $\mu$.
+
+On traite d'abord le cas $X_i\ge 0$. Le cas général s'en déduit en séparant les parties positive et négative : $(X_i)_+$ et $(X_i)_-$ restent identiquement distribuées et indépendantes deux à deux, et
+
+$$
+\frac1n\sum_{i=1}^n X_i
+=\frac1n\sum_{i=1}^n(X_i)_+-\frac1n\sum_{i=1}^n(X_i)_-
+\to\mathbb{E}(X_1)_+-\mathbb{E}(X_1)_-=\mu
+$$
+
+presque sûrement, dès que le résultat est acquis pour des variables positives.
+
+On tronque $X_i^i=X_i\mathbf{1}_{X_i\le i}$ et l'on pose $T_n=\sum_{i=1}^n X_i^i$, $S_n=\sum_{i=1}^n X_i$. L'intégrabilité de $X_1$ donne
+
+$$
+\sum_i\mathbb{P}(X_i>i)=\sum_i\mathbb{P}(X_1>i)<\infty.
+$$
+
+Le premier lemme de Borel-Cantelli ne demande aucune indépendance : presque sûrement, $X_i\neq X_i^i$ pour un nombre fini d'indices seulement. Presque sûrement, $S_n-T_n$ converge vers une limite finie, donc $S_n/n$ et $T_n/n$ ont les mêmes limites inférieure et supérieure.
+
+Chaque variable tronquée $X_i^i$ est une fonction de $X_i$ seul. Les $X_i^i$ restent donc indépendantes deux à deux, et en particulier décorrélées. Elles sont bornées, donc de carré intégrable, et
+
+$$
+\mathrm{Var}(T_n)=\sum_{i=1}^n\mathrm{Var}(X_i^i).
+$$
+
+C'est ici qu'intervient l'hypothèse d'indépendance, et l'indépendance deux à deux suffit. Par ailleurs $\mathbb{E}[X_1\mathbf{1}_{X_1\le i}]\to\mathbb{E} X_1$, donc la moyenne de Cesàro $\mathbb{E} T_n/n$ tend vers $\mathbb{E} X_1$.
+
+Fixons $\alpha>1$ et $n(k)=\lfloor\alpha^k\rfloor$. L'inégalité de Chebyshev et la majoration de $\mathrm{Var}(T_{n(k)})$ par les queues intégrables de $X_1$, comme dans la preuve du cours, donnent, pour tout $\varepsilon>0$,
+
+$$
+\sum_k\mathbb{P}\bigl(|T_{n(k)}-\mathbb{E} T_{n(k)}|/n(k)>\varepsilon\bigr)<\infty.
+$$
+
+Un second appel au premier lemme de Borel-Cantelli fournit $T_{n(k)}/n(k)\to\mathbb{E} X_1$ presque sûrement, et de même pour $S_{n(k)}/n(k)$.
+
+Pour des variables positives, $(S_n)$ est croissante. Si $n(k)\le n<n(k+1)$,
+
+$$
+\frac{n(k)}{n(k+1)}\frac{S_{n(k)}}{n(k)}
+\le\frac{S_n}{n}
+\le\frac{n(k+1)}{n(k)}\frac{S_{n(k+1)}}{n(k+1)}.
+$$
+
+Comme $n(k+1)/n(k)\to\alpha$, on obtient presque sûrement
+
+$$
+\frac1\alpha\,\mathbb{E} X_1
+\le\liminf_n\frac{S_n}{n}
+\le\limsup_n\frac{S_n}{n}
+\le\alpha\,\mathbb{E} X_1.
+$$
+
+L'argument vaut pour tout $\alpha>1$, donc $S_n/n\to\mathbb{E} X_1$ presque sûrement.
+
+La convergence presque sûre est ainsi obtenue par Borel-Cantelli, sans passer par la loi du 0-1. Cette loi demanderait l'indépendance mutuelle, afin qu'un événement de la tribu asymptotique ait probabilité $0$ ou $1$.
 
 :::
 :::
@@ -483,5 +981,48 @@ $$
 
 Chaque $B_n(f)$ étant un polynôme, toute fonction continue sur $[0,1]$ est limite uniforme de polynômes : c'est le théorème d'approximation de Weierstrass.
 
+:::
+:::
+
+
+:::  {#exr-bc-2-1 name="Borel-Cantelli II"}
+
+Soit $A_1, \ldots, A_n, \ldots$ une collection d'événements *indépendants* sur $(\Omega, \mathcal{F}, P)$ qui vérifie $\sum_n P(A_n) = \infty$. On veut montrer  $P \left\{\omega : \sum_n \mathbb{I}_{A_n}(\omega) = \infty\right\} =1$ (soit $P\left\{ \limsup_n A_n \right\} = P\left\{ \cap_n \cup_{k\geq n} A_k \right\} =1$).
+
+1. Vérifier que pour tout $n$, $\lim_{m \to \infty} P (\cap_{k=n}^{n+m} A_k^c)=0$. 
+2. Vérifier que $P(\cup_n \cap_{k\geq n} A_n^c) =0$.
+3. Calculer $P\left\{ \cap_n \cup_{k\geq n} A_k \right\}$
+
+:::
+
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+
+1. L'hypothèse d'indépendance  de la famille $(A_n)$  se traduit en :
+
+    \begin{align*}
+    P (\cap_{k=n}^{n+m} A_k^c) 
+     & = \prod_{k=n}^{n+m} P(A_n^c) \\
+     & = \prod_{k=n}^{n+m} (1 - P(A_n)) \\
+     & \leq \prod_{k=n}^{n+m} \exp(- P(A_n)) \\
+     & = \exp\left( - \sum_{k=n}^{n+m} P(A_n)\right)
+    \end{align*}
+   D'où $\lim_{m \to \infty} P (\cap_{k=n}^{n+m} A_k^c) \leq \lim_m \exp\left( - \sum_{k=n}^{n+m} P(A_n)\right) = \exp\left( - \lim_m \sum_{k=n}^{n+m} P(A_n)\right) =0$
+
+   Notez qu'on évite d'écrire $P (\cap_{k=n}^{\infty} A_k^c) = \prod_{k=n}^\infty P(A_k^c)$. La définition d'une collection indépendante d'événements ne permet pas d'écrire cela.
+
+2. Comme les événements $\cap_{k\geq n} A_n^c$ forment une famille croissante:
+
+    \begin{align*}
+    P(\cup_n \cap_{k\geq n} A_n^c)  
+      & \leq \lim_n P(\cap_{k\geq n} A_n^c) \\
+      & \leq \lim_n  \lim_m P (\cap_{k=n}^{n+m} A_k^c) \\
+      & = 0 
+    \end{align*}
+
+3. D'après les lois de De Morgan $\left(\cap_n \cup_{k\geq n} A_k\right)^c = \cup_n \cap_{k\geq n} A_n^c$. D'où :
+    $$P\left\{ \cap_n \cup_{k\geq n} A_k \right\} =1$$.
 :::
 :::

@@ -21,7 +21,7 @@ format:
 engine: knitr
 draft: false
 
-categories: [Concergence en ditribution, TCL]
+categories: [Convergence en distribution, TCL]
 
 ---
 
@@ -39,12 +39,9 @@ categories: [Concergence en ditribution, TCL]
 requireNamespace('quarto')
 ```
 
-# Convergences en distribution
+# Convergences en distribution et théorème *central limite* (TCL) 
 
 ## Convergences 
-
-
-
 
 ::: {#exr-vague}
 
@@ -60,7 +57,17 @@ Montrer que cette suite converge vaguement vers la mesure nulle alors qu'elle ne
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+La mesure $\delta_n$ est la masse de Dirac au point $n$.
+
+Soit $f:\mathbb{R}\to\mathbb{R}$ continue à support compact. Pour tout $n$ assez grand, $n$ est hors du support de $f$, donc $f(n)=0$. Ainsi
+
+$$
+\int f\,\mathrm{d}\delta_n=f(n)\to 0=\int f\,\mathrm{d}0.
+$$
+
+La suite $(\delta_n)$ converge donc vaguement vers la mesure nulle.
+
+Elle ne converge pas faiblement. La fonction constante $1$ est continue et bornée, et $\int 1\,\mathrm{d}\delta_n=1$ ne tend pas vers $0$. Plus précisément, toute limite faible serait aussi une limite vague, donc serait la mesure nulle, qui n'est pas une probabilité. La suite ne converge donc pas faiblement.
 
 :::
 :::
@@ -75,7 +82,35 @@ Si une suite de lois de probabilité sur $\mathbb{R}^k$ converge vaguement vers 
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+*Oui.* Sur $\mathbb{R}^k$, la convergence vague vers une *probabilité* entraîne la convergence faible vers cette même probabilité.
+
+Soit $(P_n)$ une suite de probabilités convergeant vaguement vers une probabilité $P$. Soit $f$ continue et bornée, $|f|\le M$, et soit $\varepsilon>0$. La mesure $P$ est tendue : il existe un compact $K$ tel que $P(K)\ge 1-\varepsilon$. Soit $d(x,K)=\inf_{y\in K}\|x-y\|$ et soit $\varphi$ continue, à valeurs dans $[0,1]$, égale à $1$ sur $K$ et nulle dès que $d(x,K)\ge 1$ (on raccorde linéairement). Le support de $\varphi$ est compact, donc la convergence vague donne $\int\varphi\,\mathrm{d}P_n\to\int\varphi\,\mathrm{d}P$.
+
+On découpe
+
+$$
+\Bigl|\int f\,\mathrm{d}P_n-\int f\,\mathrm{d}P\Bigr|
+\le\Bigl|\int f\varphi\,\mathrm{d}P_n-\int f\varphi\,\mathrm{d}P\Bigr|
++\Bigl|\int f(1-\varphi)\,\mathrm{d}P_n\Bigr|
++\Bigl|\int f(1-\varphi)\,\mathrm{d}P\Bigr|.
+$$
+
+Le produit $f\varphi$ est continu à support compact, donc le premier terme tend vers $0$. Comme $0\le 1-\varphi\le 1$ et $1-\varphi=0$ sur $K$,
+
+$$
+\Bigl|\int f(1-\varphi)\,\mathrm{d}P\Bigr|\le M\bigl(1-P(K)\bigr)\le M\varepsilon.
+$$
+
+Par ailleurs $\int(1-\varphi)\,\mathrm{d}P_n=1-\int\varphi\,\mathrm{d}P_n$, donc
+
+$$
+\limsup_n\Bigl|\int f(1-\varphi)\,\mathrm{d}P_n\Bigr|
+\le M\bigl(1-\int\varphi\,\mathrm{d}P\bigr)
+\le M\bigl(1-P(K)\bigr)
+\le M\varepsilon.
+$$
+
+Ainsi $\limsup_n\bigl|\int f\,\mathrm{d}P_n-\int f\,\mathrm{d}P\bigr|\le 2M\varepsilon$. Comme $\varepsilon$ est arbitraire, $\int f\,\mathrm{d}P_n\to\int f\,\mathrm{d}P$.
 
 :::
 :::
@@ -89,15 +124,26 @@ $$\forall n \geq n_(\epsilon), \qquad P_n(K) \geq 1 - \epsilon\, .$$
 
 :::
 
-## Portemanteau 
+
 
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+Soit $\varepsilon>0$. Par hypothèse, il existe $n_0$ et un compact $K$ tels que $P_n(K)\ge 1-\varepsilon$ pour tout $n\ge n_0$.
+
+Chaque probabilité $P_j$, $0\le j<n_0$, est tendue : il existe un compact $K_j$ tel que $P_j(K_j)\ge 1-\varepsilon$. La réunion finie
+
+$$
+K'=K\cup\bigcup_{0\le j<n_0}K_j
+$$
+
+est compacte. Pour $n\ge n_0$, $P_n(K')\ge P_n(K)\ge 1-\varepsilon$, et pour $j<n_0$, $P_j(K')\ge P_j(K_j)\ge 1-\varepsilon$. Donc $P_n(K')\ge 1-\varepsilon$ pour tout $n$, ce qui est la tension uniforme.
 
 :::
 :::
+
+## Portemanteau 
+
 
 ::: {#exr-weakconvquantiles}
 
@@ -109,34 +155,109 @@ si et seulement si $\lim_n F_n^\leftarrow(x) = F^\leftarrow(x)$ en tout point $x
 
 
 
-## Théorèmes de continuité
 
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+On note $F^\leftarrow(p)=\inf\{x:F(x)\ge p\}$ pour $p\in\,]0,1[$. On utilisera l'équivalence, valable pour tout $p\in\,]0,1[$ et tout $x\in\mathbb{R}$,
+
+$$
+F^\leftarrow(p)\le x\iff p\le F(x).
+$$
+
+En particulier, $x<F^\leftarrow(p)$ entraîne $F(x)<p$.
+
+*Convergence des quantiles $\Rightarrow$ convergence faible.*
+
+Soit $U$ uniforme sur $]0,1[$, et posons $Y_n=F_n^\leftarrow(U)$, $Y=F^\leftarrow(U)$. Alors $Y_n$ a pour fonction de répartition $F_n$ et $Y$ a pour fonction de répartition $F$. La fonction $F^\leftarrow$ est monotone, donc discontinue en au plus un ensemble dénombrable. Ainsi, presque sûrement, $F^\leftarrow$ est continue en $U$. Sur cet événement, $F_n^\leftarrow(U)\to F^\leftarrow(U)$ par hypothèse, donc $Y_n\to Y$ presque sûrement, et la suite des lois converge faiblement.
+
+*Convergence faible $\Rightarrow$ convergence des quantiles aux points de continuité.*
+
+Pour vérifier cette implication, on va utiliser le fait que la convergence faible des mesures de probabilité est équivalente à la convergence simple des
+fonctions de répartition aux points de continuité de la fonction de répartition 
+de la loi limite. 
+
+Soit $p\in\,]0,1[$ un point de continuité de $F^\leftarrow$, et soit $\varepsilon>0$. Par continuité de $F^\leftarrow$  en $p$, on peut choisir $p_1<p<p_2$ tels que
+
+$$
+F^\leftarrow(p)-\varepsilon<F^\leftarrow(p_1)\le F^\leftarrow(p)\le F^\leftarrow(p_2)<F^\leftarrow(p)+\varepsilon.
+$$
+
+Les points de continuité de $F$ sont denses  ($F$ est croissante et possède donc au plus une collection dénombrable de points de discontinuité). On choisit un point de continuité $x_1$ dans l'intervalle non vide $]F^\leftarrow(p)-\varepsilon,\,F^\leftarrow(p_1)[$, et un point de continuité $x_2$ dans $]F^\leftarrow(p_2),\,F^\leftarrow(p)+\varepsilon[$.
+
+Alors $x_1<F^\leftarrow(p_1)$, donc $F(x_1)<p_1<p$. La convergence faible donne $F_n(x_1)\to F(x_1)$, donc $F_n(x_1)<p$ pour $n$ grand, et $F_n^\leftarrow(p)>x_1$. Ainsi
+
+$$
+\liminf_n F_n^\leftarrow(p)\ge x_1>F^\leftarrow(p)-\varepsilon.
+$$
+
+De même $x_2>F^\leftarrow(p_2)$, donc $F(x_2)\ge p_2>p$. Pour $n$ grand, $F_n(x_2)>p$, donc $F_n^\leftarrow(p)\le x_2$, et
+
+$$
+\limsup_n F_n^\leftarrow(p)\le x_2<F^\leftarrow(p)+\varepsilon.
+$$
+
+Comme $\varepsilon$ est arbitraire, $F_n^\leftarrow(p)\to F^\leftarrow(p)$.
 
 :::
 :::
+
+
+
+## Théorèmes de continuité
+
 
 ::: {#exr-laplaceconv}
 
-Verifier qu'une suite de variables aléatoires _non négatives_ $(X_n)_n$ converge en loi
-vers la variable aléatoire _non négative_ $X$ si et seulement si la suite des transformées de Laplace converge ponctuellement vers la transformée de Laplace de la loi de $X$.
+Verifier qu'une suite de variables aléatoires _positives ou nulles_ $(X_n)_n$ converge en loi
+vers la variable aléatoire _positives ou nulle_ $X$ si et seulement si la suite des transformées de Laplace converge ponctuellement vers la transformée de Laplace de la loi de $X$.
 
 :::
 
 
-## TCL
+
 
 
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+La transformée de Laplace d'une variable positive est $\lambda\mapsto\mathbb{E}[\mathrm{e}^{-\lambda X}]$, $\lambda\ge 0$.
+
+*Sens direct.* Si $X_n$ converge en loi vers $X$, avec $X_n$ et $X$ positives, alors pour chaque $\lambda\ge 0$ la fonction $x\mapsto\mathrm{e}^{-\lambda x}$ est continue et bornée sur $[0,+\infty[$. Donc $\mathbb{E}[\mathrm{e}^{-\lambda X_n}]\to\mathbb{E}[\mathrm{e}^{-\lambda X}]$.
+
+*Sens réciproque.* On suppose que $L_n(\lambda)=\mathbb{E}[\mathrm{e}^{-\lambda X_n}]$ converge pour tout $\lambda\ge 0$ vers $L(\lambda)=\mathbb{E}[\mathrm{e}^{-\lambda X}]$.
+
+La fonction $L$ est continue en $0$, avec $L(0)=1$ (c'est une transformée de Laplace). Pour $A>0$ et $\lambda>0$, l'inégalité de Markov appliquée à $1-\mathrm{e}^{-\lambda X_n}$ donne
+
+$$
+\mathbb{P}(X_n>A)
+\le\frac{1-L_n(\lambda)}{1-\mathrm{e}^{-\lambda A}}.
+$$
+
+Soit $\varepsilon>0$. On choisit $\lambda>0$ tel que $1-L(\lambda)<\varepsilon/2$, puis $A$ assez grand pour que $(1-L(\lambda))/(1-\mathrm{e}^{-\lambda A})<\varepsilon$. Alors $\limsup_n\mathbb{P}(X_n>A)\le\varepsilon$. Quitte à agrandir $A$ pour absorber le nombre fini d'indices où l'inégalité n'est pas encore réalisée, $\mathbb{P}(X_n\in[0,A])\ge 1-\varepsilon$ pour tout $n$. La suite des lois est *uniformément tendue*.
+
+Par le théorème de Prokhorov, de toute sous-suite d'une suite *uniformément tendue*, on extrait une sous-suite convergeant faiblement vers une probabilité $Q$ portée par $[0,+\infty[$. Le sens direct montre que la transformée de Laplace de $Q$ est $L$.
+
+Cette transformée caractérise la loi. En effet, si $Z=\mathrm{e}^{-X}\in\,]0,1]$, alors $\mathbb{E}[Z^k]=L(k)$ pour tout entier $k$. Une loi sur le compact $[0,1]$ est déterminée par ses moments : les polynômes sont denses dans les fonctions continues (Weierstrass), donc $\mathbb{E}[f(Z)]$ est déterminé pour toute $f$ continue, et la loi de $Z$ aussi. La loi de $X=-\ln Z$ s'en déduit. Ainsi $Q$ est la loi de $X$.
+
+Toute sous-suite admet une sous-suite convergeant faiblement vers la loi de $X$, donc la suite entière converge faiblement vers cette loi.
 
 :::
+
+
+
+::: {.callout-caution appearance="minimal"}
+
+Dans la partie *réciproque*, on utilise le fait que la suite des transformées de Laplace converge simplement vers la transformée de Laplace d'une variable aléatoire positive. Si on suppose seulement la convergence simple des transformées de Laplace vers une fonction positive, on ne peut pas développer 
+l'argument de tension uniforme. 
+
+Pourrait-on  se contenter de la convergence simple des transformées de Laplace vers une fonction continue en $0$?
+
 :::
+
+:::
+
+## TCL
 
 
 ::: {#exr-geom-exponentielle}
@@ -156,7 +277,28 @@ Montrer que $\bigl(\frac{1}{n}X_n\bigr)_{n\geq 1}$ converge en loi vers la loi e
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+La loi exponentielle de paramètre $\alpha>0$ a pour densité $x\mapsto\alpha\mathrm{e}^{-\alpha x}\mathbf{1}_{x>0}$, donc pour fonction de répartition $F(x)=0$ si $x\le 0$ et $F(x)=1-\mathrm{e}^{-\alpha x}$ si $x>0$. Cette fonction est continue sur $\mathbb{R}$. Il suffit de montrer que $\mathbb{P}(X_n/n\le x)\to F(x)$ pour tout $x$.
+
+La formule de l'énoncé définit une probabilité dès que $n>\alpha$. On se limite à ces indices.
+
+Si $x\le 0$, alors $\mathbb{P}(X_n/n\le x)=0=F(x)$, car $X_n\ge 1$.
+
+Si $x>0$, $X_n$ est géométrique de paramètre $p_n=\alpha/n$, à valeurs dans $\{1,2,\ldots\}$, donc $\mathbb{P}(X_n\ge m)=(1-p_n)^{m-1}$. Comme $X_n$ est entière,
+
+$$
+\mathbb{P}(X_n>nx)
+=\mathbb{P}\bigl(X_n\ge\lfloor nx\rfloor+1\bigr)
+=\Bigl(1-\frac{\alpha}{n}\Bigr)^{\lfloor nx\rfloor}.
+$$
+
+On écrit
+
+$$
+\Bigl(1-\frac{\alpha}{n}\Bigr)^{\lfloor nx\rfloor}
+=\exp\Bigl(\frac{\lfloor nx\rfloor}{n}\cdot n\ln\bigl(1-\alpha/n\bigr)\Bigr).
+$$
+
+D'une part $\lfloor nx\rfloor/n\to x$. D'autre part $n\ln(1-\alpha/n)\to-\alpha$, car $\ln(1-u)=-u+o(u)$ lorsque $u\to 0$. L'exposant tend vers $-\alpha x$, donc $\mathbb{P}(X_n/n>x)\to\mathrm{e}^{-\alpha x}$, et $\mathbb{P}(X_n/n\le x)\to 1-\mathrm{e}^{-\alpha x}=F(x)$.
 
 :::
 :::
@@ -176,9 +318,43 @@ Soient $(X_n)_{n\geq 0}$ une suite de v.a. réelles et $c\in\mathbb{R}$. On supp
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+1. On définit $\varphi_\varepsilon$ affine par morceaux :
+
+    $$
+    \varphi_\varepsilon(x)=
+    \begin{cases}
+    0 & \text{si }|x-c|\le\varepsilon,\\[0.4em]
+    \dfrac{|x-c|-\varepsilon}{\varepsilon} & \text{si }\varepsilon\le|x-c|\le 2\varepsilon,\\[0.6em]
+    1 & \text{si }|x-c|\ge 2\varepsilon.
+    \end{cases}
+    $$
+
+    Les valeurs se raccordent en $|x-c|=\varepsilon$ et $|x-c|=2\varepsilon$, donc $\varphi_\varepsilon$ est continue. Elle est bornée et $0\le\varphi_\varepsilon\le 1$.
+
+2. La fonction $\varphi_\varepsilon$ est continue et bornée, et la limite en loi est $\delta_{\{c\}}$, donc
+
+    $$
+    \mathbb{E}\bigl[\varphi_\varepsilon(X_n)\bigr]\to\varphi_\varepsilon(c)=0.
+    $$
+
+3. Pour tout $x$, $\mathbf{1}_{|x-c|>2\varepsilon}\le\varphi_\varepsilon(x)$. En intégrant,
+
+    $$
+    \mathbb{P}(|X_n-c|>2\varepsilon)\le\mathbb{E}\bigl[\varphi_\varepsilon(X_n)\bigr]\to 0.
+    $$
+
+    Comme $\varepsilon>0$ est arbitraire, pour tout $\eta>0$ le choix $\varepsilon=\eta/2$ donne $\mathbb{P}(|X_n-c|>\eta)\to 0$ : $(X_n)$ converge en probabilité vers $c$.
 
 :::
+
+
+
+::: {.callout-caution}
+
+Cet exercice souligne qu'on peut raffiner la convergence en loi vers une masse de Dirac : si les variables aléatoires $X_n$ sont définies sur le même espace probabilisé, alors elles convergent aussi *en probabilité*  vers une variable aléatoire (presque sûrement) constante.
+
+:::
+
 :::
 
 
@@ -192,7 +368,33 @@ Dans un contexte par exemple d'appels téléphoniques à un service d'urgence, o
 
 :::
 
-::: {#exr-poisson-suite name="suite de l'exercice"}
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+1. Le nombre moyen d'appels sur l'intervalle de longueur $1/n$ vaut $p_n$, donc le nombre moyen d'appels sur l'intervalle unité vaut $np_n$. On veut que ce taux vaille $\lambda$, d'où $p_n=\lambda/n$, pour $n>\lambda$ afin que $p_n\le 1$.
+
+    C'est aussi l'équivalent de la probabilité d'au moins un appel dans un processus de Poisson d'intensité $\lambda$ : $1-\mathrm{e}^{-\lambda/n}\sim\lambda/n$.
+
+2. Alors $X_n$ suit la loi binomiale de paramètres $n$ et $\lambda/n$. Pour $k\in\mathbb{N}$ fixé et $n>k$,
+
+    $$
+    \mathbb{P}(X_n=k)
+    =\binom{n}{k}\Bigl(\frac{\lambda}{n}\Bigr)^k\Bigl(1-\frac{\lambda}{n}\Bigr)^{n-k}
+    =\frac{\lambda^k}{k!}\cdot\frac{n(n-1)\cdots(n-k+1)}{n^k}\cdot\Bigl(1-\frac{\lambda}{n}\Bigr)^{n-k}.
+    $$
+
+    Le produit de $k$ termes tend vers $1$, et $(1-\lambda/n)^{n-k}\to\mathrm{e}^{-\lambda}$. Donc
+
+    $$
+    \mathbb{P}(X_n=k)\to\mathrm{e}^{-\lambda}\frac{\lambda^k}{k!}.
+    $$
+
+    La limite est la loi de $\mathrm{Poisson}(\lambda)$. Comme les deux lois sont portées par $\mathbb{N}$, la convergence des masses ponctuelles entraîne la convergence en loi.
+
+:::
+:::
+
+::: {#exr-poisson-suite}
 
 Suite de l'@exr-poisson1.
 
@@ -209,6 +411,42 @@ $$
 
 :::
 
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+1. Pour $u\ge 0$, $0\le u-\log(1+u)=\int_0^u\frac{t}{1+t}\,\mathrm{d}t\le u^2/2$. Avec $u=xp_{n,k}$,
+
+    $$
+    \Bigl|u_n-x\sum_{k=1}^{N_n}p_{n,k}\Bigr|
+    \le\sum_{k=1}^{N_n}\frac{(xp_{n,k})^2}{2}
+    \le\frac{x^2}{2}\Bigl(\max_{1\le k\le N_n}p_{n,k}\Bigr)\sum_{k=1}^{N_n}p_{n,k}.
+    $$
+
+    Le maximum tend vers $0$ et la somme tend vers $\lambda$, donc le membre de droite tend vers $0$. Comme $x\sum_k p_{n,k}\to\lambda x$, on obtient $u_n\to\lambda x$.
+
+2. Pour $n$ assez grand, $\max_k p_{n,k}\le 1$, donc les lois de Bernoulli sont bien définies. La fonction caractéristique de $Y_n$ vaut
+
+    $$
+    \varphi_n(t)=\prod_{k=1}^{N_n}\bigl(1+p_{n,k}(\mathrm{e}^{it}-1)\bigr).
+    $$
+
+    Le développement de la question 1 s'étend aux petits arguments complexes. Dès que $\max_k p_{n,k}\le 1/4$, on a $|z_{n,k}|\le 1/2$ pour $z_{n,k}=p_{n,k}(\mathrm{e}^{it}-1)$, donc $1+z_{n,k}$ reste dans le demi-plan $\{\mathrm{Re}>0\}$ et
+
+    $$
+    \varphi_n(t)
+    =\exp\Bigl(\sum_{k=1}^{N_n}\log(1+z_{n,k})\Bigr)
+    =\exp\Bigl((\mathrm{e}^{it}-1)\sum_{k=1}^{N_n}p_{n,k}+r_n(t)\Bigr),
+    $$
+
+    où $\log$ est la détermination principale. Le reste vérifie $|r_n(t)|\le\sum_k|z_{n,k}|^2\le 4\sum_k p_{n,k}^2\le 4(\max_k p_{n,k})(\sum_k p_{n,k})\to 0$. L'exposant tend vers $\lambda(\mathrm{e}^{it}-1)$, donc $\varphi_n(t)\to\exp\bigl(\lambda(\mathrm{e}^{it}-1)\bigr)$, fonction caractéristique de la loi $\mathrm{Poisson}(\lambda)$. Par le théorème de continuité de Lévy, $Y_n$ converge en loi vers $\mathrm{Poisson}(\lambda)$.
+
+    Le cas de l'@exr-poisson1 est le cas particulier $N_n=n$ et $p_{n,k}=\lambda/n$.
+
+:::
+:::
+
+
 ::: {#exr-tcl-poisson-gamma   name="Mélanges Gamma-Poisson"} 
 
 Soit $X \sim \Gamma(1,s)$. On définit $Y \sim \mathrm{Poisson}(X)$, (c'est-à-dire que conditionnellement à $X=x$, $Y \sim \mathrm{Poisson}(x)$). 
@@ -224,7 +462,54 @@ où $Z \sim \mathcal{N}(0,1)$. Y a-t-il un lien avec le théorème central limit
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+On prend pour $\Gamma(1,s)$ la loi gamma de forme $s$ et de taux $1$, de densité $x^{s-1}\mathrm{e}^{-x}/\Gamma(s)$ sur $(0,\infty)$. Ainsi $\mathbb{E}[X]=\mathrm{Var}(X)=s$. (Dans la paramétrisation forme-taux $\Gamma(\alpha,\lambda)$ des feuilles précédentes, c'est la loi $\Gamma(s,1)$.) C'est cette lecture qui rend l'asymptotique $s\to\infty$ compatible avec un théorème central limite.
+
+1. La fonction caractéristique de $Y$ s'obtient en conditionnant par $X$. Sachant $X=x$, $Y$ est de Poisson de paramètre $x$, de fonction caractéristique $\mathrm{e}^{x(\mathrm{e}^{it}-1)}$. Donc
+
+    $$
+    \Phi_Y(t)
+    =\mathbb{E}\bigl[\mathrm{e}^{itY}\bigr]
+    =\mathbb{E}\bigl[\exp\bigl(X(\mathrm{e}^{it}-1)\bigr)\bigr].
+    $$
+
+    La transformée de Laplace de $X$ vaut $\mathbb{E}[\mathrm{e}^{uX}]=(1-u)^{-s}$ pour $u<1$. Avec $u=\mathrm{e}^{it}-1$,
+
+    $$
+    \Phi_Y(t)=\bigl(2-\mathrm{e}^{it}\bigr)^{-s}.
+    $$
+
+2. En conditionnant, $\mathbb{E}[Y]=\mathbb{E}[X]=s$ et
+
+    $$
+    \mathrm{Var}(Y)
+    =\mathbb{E}[\mathrm{Var}(Y\mid X)]+\mathrm{Var}(\mathbb{E}[Y\mid X])
+    =\mathbb{E}[X]+\mathrm{Var}(X)
+    =2s.
+    $$
+
+    Posons $\sigma_s=\sqrt{2s}$ et $Z_s=(Y-s)/\sigma_s$. Pour $u=t/\sigma_s$,
+
+    $$
+    \mathbb{E}\bigl[\mathrm{e}^{itZ_s}\bigr]
+    =\exp\Bigl(-it\frac{s}{\sigma_s}\Bigr)\bigl(2-\mathrm{e}^{iu}\bigr)^{-s}
+    =\exp\Bigl(-is u-s\log(2-\mathrm{e}^{iu})\Bigr).
+    $$
+
+    Lorsque $u\to 0$, $1-\mathrm{e}^{iu}=-iu+u^2/2+O(u^3)$, et $\log(1+z)=z-z^2/2+O(z^3)$ donne
+
+    $$
+    \log(2-\mathrm{e}^{iu})=-iu+u^2+O(u^3).
+    $$
+
+    L'exposant vaut donc $-su^2+O(s|u|^3)$. Or $su^2=s t^2/(2s)=t^2/2$ et $s|u|^3=|t|^3/(2^{3/2}\sqrt{s})\to 0$ lorsque $s\to\infty$. Ainsi
+
+    $$
+    \mathbb{E}\bigl[\mathrm{e}^{itZ_s}\bigr]\to\mathrm{e}^{-t^2/2}.
+    $$
+
+    La limite est continue en $0$. Le théorème de continuité de Lévy donne $Z_s\to\mathcal{N}(0,1)$ en loi.
+
+    Lien avec le théorème central limite : si $s=n$ est entier, $\Phi_Y(t)=(2-\mathrm{e}^{it})^{-n}$ est la fonction caractéristique de la somme de $n$ variables géométriques indépendantes de paramètre $1/2$ (nombre d'échecs avant le premier succès). Chacune a pour espérance $1$ et pour variance $2$. La convergence obtenue est alors exactement le théorème central limite pour cette somme. Le calcul par fonction caractéristique étend le résultat aux formes $s$ non entières.
 
 :::
 :::
@@ -246,7 +531,11 @@ $$F_n(x) = x - \frac{\sin(2n \pi x)}{2n\pi}, \ 0 \le x \le 1.$$
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+1. Pour $x\in[0,1]$, $\bigl|\sin(2n\pi x)/(2n\pi)\bigr|\le 1/(2n\pi)\to 0$, donc $F_n(x)\to x$. En prolongeant par $F(x)=0$ si $x<0$ et $F(x)=1$ si $x>1$, on obtient la fonction de répartition de la loi uniforme sur $[0,1]$, continue en tout point. Ainsi $X_n$ converge en loi vers une variable uniforme sur $[0,1]$.
+
+    On vérifie au passage que $F_n$ est bien une fonction de répartition sur $[0,1]$ : $F_n(0)=0$, $F_n(1)=1$, et $F_n'(x)=1-\cos(2n\pi x)\ge 0$.
+
+2. La densité de $X_n$ est $f_n(x)=1-\cos(2n\pi x)$ sur $[0,1]$, et la densité limite est $f=1$ sur $[0,1]$. La suite $f_n$ ne converge pas simplement vers $f$. Par exemple en $x=1/2$, $\cos(n\pi)=(-1)^n$ ne converge pas, donc $f_n(1/2)$ ne converge pas. Plus généralement, pour $x\in\,]0,1[$, la suite $\cos(2\pi n x)$ ne tend pas vers $0$.
 
 :::
 :::
@@ -272,10 +561,139 @@ Suggestion: utiliser la représentation de Rényi
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+La représentation de Rényi fournit la loi de la statistique d'ordre. Si $E_j$ sont i.i.d. de loi $\mathrm{Exp}(1)$ et $k=\lfloor n/2\rfloor$,
+
+$$
+X_{k:n}\ \stackrel{d}{=}\ \sum_{j=1}^{k}\frac{E_j}{n-j+1}.
+$$
+
+1. L'espérance et la variance s'en déduisent, puisque $\mathbb{E}[E_j]=\mathrm{Var}(E_j)=1$ :
+
+    $$
+    \mathbb{E}[X_{k:n}]
+    =\sum_{j=1}^{k}\frac{1}{n-j+1}
+    =\sum_{m=n-k+1}^{n}\frac{1}{m}
+    =H_n-H_{n-k},
+    $$
+
+    $$
+    \mathrm{Var}(X_{k:n})
+    =\sum_{m=n-k+1}^{n}\frac{1}{m^2},
+    $$
+
+    où $H_n$ est le $n$-ième nombre harmonique ($H_0=0$). Comme $H_n=\ln n+\gamma+o(1)$ et $n/(n-k)\to 2$,
+
+    $$
+    \mathbb{E}[X_{k:n}]=\ln\Bigl(\frac{n}{n-k}\Bigr)+o(1)\to\ln 2.
+    $$
+
+    Il y a au plus $n/2$ termes dans la variance, chacun au plus $4/n^2$, donc $\mathrm{Var}(X_{k:n})=O(1/n)\to 0$.
+
+2. *Oui*, vers la constante $\ln 2$, c'est-à-dire vers $\delta_{\{\ln 2\}}$. En effet, pour $\varepsilon>0$,
+
+    $$
+    \mathbb{P}\bigl(|X_{k:n}-\ln 2|>\varepsilon\bigr)
+    \le\frac{\mathbb{E}[(X_{k:n}-\ln 2)^2]}{\varepsilon^2}
+    =\frac{\mathrm{Var}(X_{k:n})+(\mathbb{E}[X_{k:n}]-\ln 2)^2}{\varepsilon^2}\to 0.
+    $$
+
+    La convergence en probabilité vers une constante entraîne la convergence en loi vers le Dirac en cette constante.
+
+3. *Oui*, vers $\ln 2$ : c'est l'estimation de la question précédente.
+
+4. *Oui*, vers $\ln 2$. Le calcul ci-dessus montre $\mathbb{E}[(X_{k:n}-\ln 2)^2]\to 0$, c'est-à-dire la convergence dans $L^2$.
+
+5. *Oui*, vers $\ln 2$, presque sûrement, pour la suite construite sur un seul échantillon infini $(X_i)_{i\ge 1}$. Soit $\varepsilon>0$ avec $\varepsilon<\ln 2$, et
+
+    $$
+    p_+=\mathbb{P}(X_1\le\ln 2+\varepsilon)=1-\frac{\mathrm{e}^{-\varepsilon}}{2}>\frac12,
+    \qquad
+    p_-=\mathbb{P}(X_1\le\ln 2-\varepsilon)=1-\frac{\mathrm{e}^{\varepsilon}}{2}<\frac12.
+    $$
+
+    Par la loi forte des grands nombres, la fréquence empirique des $\{X_i\le\ln 2+\varepsilon\}$ tend vers $p_+>1/2$, tandis que $k/n\to 1/2$. Presque sûrement, pour $n$ grand, au moins $k$ observations parmi les $n$ premières sont $\le\ln 2+\varepsilon$, donc $X_{k:n}\le\ln 2+\varepsilon$. De même, moins de $k$ observations sont $\le\ln 2-\varepsilon$, donc $X_{k:n}>\ln 2-\varepsilon$. Ainsi $X_{k:n}\to\ln 2$ presque sûrement.
 
 :::
 :::
+
+
+::: {#exr-slutsky name="Lemme de Slutsky"}
+
+Soient $(X_n)_{n\geq 1}$ et $(Y_n)_{n\geq 1}$ deux suites de variables aléatoires réelles définies sur le même espace probabilisé. On suppose que $X_n$ converge en loi vers une variable aléatoire $X$, et que $Y_n$ converge en probabilité vers une constante $c\in\mathbb{R}$.
+
+1. Soit $f:\mathbb{R}\to\mathbb{R}$ bornée et uniformément continue. Montrer que
+
+    $$
+    \mathbb{E}\bigl[f(X_n+Y_n)\bigr]-\mathbb{E}\bigl[f(X_n+c)\bigr]\to 0,
+    $$
+
+    puis que $X_n+Y_n$ converge en loi vers $X+c$.
+
+2. Montrer que $X_n(Y_n-c)$ converge en probabilité vers $0$. En déduire que $X_n Y_n$ converge en loi vers $cX$.
+
+    On rappelle que la convergence en loi de $(X_n)$ entraîne la tension de la suite des lois : pour tout $\eta>0$, il existe $A<+\infty$ tel que $\mathbb{P}(|X_n|>A)\le\eta$ pour tout $n$.
+
+3. On suppose $c\neq 0$. Montrer que $1/Y_n$ converge en probabilité vers $1/c$, puis que $X_n/Y_n$ converge en loi vers $X/c$. Sur l'événement $\{Y_n=0\}$, on convient que le quotient vaut $0$.
+
+4. Les conclusions restent-elles valables si l'on suppose seulement que $Y_n$ converge en loi vers la constante $c$ ?
+
+:::
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+1. Soit $\varepsilon>0$. Par uniforme continuité de $f$, il existe $\delta>0$ tel que $|u-v|\le\delta$ entraîne $|f(u)-f(v)|\le\varepsilon$. Soit $M$ un majorant de $|f|$. Alors
+
+    $$
+    \bigl|\mathbb{E}\bigl[f(X_n+Y_n)\bigr]-\mathbb{E}\bigl[f(X_n+c)\bigr]\bigr|
+    \le\mathbb{E}\bigl[|f(X_n+Y_n)-f(X_n+c)|\bigr]
+    \le\varepsilon+2M\,\mathbb{P}(|Y_n-c|>\delta).
+    $$
+
+    Le second terme tend vers $0$, car $Y_n$ converge en probabilité vers $c$. Donc
+
+    $$
+    \limsup_n\bigl|\mathbb{E}\bigl[f(X_n+Y_n)\bigr]-\mathbb{E}\bigl[f(X_n+c)\bigr]\bigr|\le\varepsilon.
+    $$
+
+    Comme $\varepsilon$ est arbitraire, la différence tend vers $0$.
+
+    La fonction $x\mapsto f(x+c)$ est bornée et uniformément continue. La convergence en loi de $X_n$ vers $X$ et le théorème de portemanteau donnent $\mathbb{E}[f(X_n+c)]\to\mathbb{E}[f(X+c)]$. Par suite $\mathbb{E}[f(X_n+Y_n)]\to\mathbb{E}[f(X+c)]$. Ceci vaut pour toute fonction bornée uniformément continue, donc $X_n+Y_n$ converge en loi vers $X+c$.
+
+2. Soient $\varepsilon>0$ et $\eta>0$. Par tension, on choisit $A<+\infty$ tel que $\mathbb{P}(|X_n|>A)\le\eta$ pour tout $n$. Alors
+
+    $$
+    \mathbb{P}\bigl(|X_n(Y_n-c)|>\varepsilon\bigr)
+    \le\mathbb{P}(|X_n|>A)+\mathbb{P}\bigl(|Y_n-c|>\varepsilon/A\bigr).
+    $$
+
+    Le second terme tend vers $0$, donc $\limsup_n\mathbb{P}(|X_n(Y_n-c)|>\varepsilon)\le\eta$. Comme $\eta$ est arbitraire, $X_n(Y_n-c)$ converge en probabilité vers $0$.
+
+    On décompose $X_n Y_n=cX_n+X_n(Y_n-c)$. Pour toute fonction $g$ bornée et continue, $x\mapsto g(cx)$ est bornée et continue, donc $cX_n$ converge en loi vers $cX$. Le premier terme de la décomposition converge ainsi en loi vers $cX$, et le second converge en probabilité vers $0$. La question 1 donne la convergence en loi de la somme vers $cX$.
+
+3. Comme $c\neq 0$ et $Y_n$ converge en probabilité vers $c$, on a $\mathbb{P}(|Y_n|<|c|/2)\to 0$. Sur l'événement $\{|Y_n|\ge |c|/2\}$,
+
+    $$
+    \Bigl|\frac{1}{Y_n}-\frac{1}{c}\Bigr|
+    =\frac{|Y_n-c|}{|Y_n|\,|c|}
+    \le\frac{2}{c^2}|Y_n-c|.
+    $$
+
+    Pour $\varepsilon>0$,
+
+    $$
+    \mathbb{P}\Bigl(\Bigl|\frac{1}{Y_n}-\frac{1}{c}\Bigr|>\varepsilon\Bigr)
+    \le\mathbb{P}\bigl(|Y_n|<|c|/2\bigr)
+    +\mathbb{P}\bigl(|Y_n-c|>\varepsilon\, c^2/2\bigr).
+    $$
+
+    Les deux termes tendent vers $0$, donc $1/Y_n$ converge en probabilité vers $1/c$. La convention sur $\{Y_n=0\}$ ne change rien : cet événement a une probabilité qui tend vers $0$. La question 2, appliquée au couple $\bigl(X_n,\,1/Y_n\bigr)$, donne la convergence en loi de $X_n/Y_n$ vers $X/c$.
+
+4. *Oui.* D'après l'@exr-loi-dirac, la convergence en loi de $Y_n$ vers la constante $c$ entraîne la convergence en probabilité vers $c$. Les questions 1 à 3 s'appliquent.
+
+:::
+:::
+
 
 ::: {#exr-tcl-mediane-empirique-2 name="Mediane empirique échantillon uniforme"}
 
@@ -292,7 +710,52 @@ Suggestion: utiliser la représentation en distribution des statistiques d'ordre
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+Soit $N=2n+1$ et soient $Y_1,\ldots,Y_{N+1}$ i.i.d. de loi $\mathrm{Exp}(1)$, $S_m=\sum_{j=1}^m Y_j$. D'après la représentation des statistiques d'ordre uniformes,
+
+$$
+X_n=U_{n+1:2n+1}\ \stackrel{d}{=}\ \frac{S_{n+1}}{S_{2n+2}}.
+$$
+
+Le bloc $T_{n+1}=S_{2n+2}-S_{n+1}$ est indépendant de $S_{n+1}$ et de même loi $\Gamma(n+1,1)$ (forme $n+1$, taux $1$). Alors
+
+$$
+X_n-\frac12
+=\frac{S_{n+1}-T_{n+1}}{2S_{2n+2}},
+$$
+
+et
+
+$$
+\sqrt{n}\Bigl(X_n-\frac12\Bigr)
+=\frac{S_{n+1}-T_{n+1}}{\sqrt{2(n+1)}}
+\cdot
+\frac{\sqrt{n(n+1)/2}}{S_{2n+2}}.
+$$
+
+Le premier facteur a pour variance $1$ : $S_{n+1}-T_{n+1}$ est une somme de $n+1$ différences i.i.d. de deux variables $\mathrm{Exp}(1)$, chacune de variance $2$, et l'on divise par $\sqrt{2(n+1)}$. Le théorème central limite donne la convergence en loi vers $\mathcal{N}(0,1)$.
+
+Pour le second facteur, la loi des grands nombres donne $S_{2n+2}/(2n+2)\to 1$ en probabilité, et
+
+$$
+\frac{\sqrt{n(n+1)/2}}{2n+2}
+=\frac{1}{2\sqrt{2}}\sqrt{\frac{n}{n+1}}\to\frac{1}{2\sqrt{2}}.
+$$
+
+Donc
+
+$$
+\frac{\sqrt{n(n+1)/2}}{S_{2n+2}}
+=\frac{\sqrt{n(n+1)/2}}{2n+2}\cdot\frac{2n+2}{S_{2n+2}}
+\to\frac{1}{2\sqrt{2}}
+$$
+
+en probabilité. Par le lemme de Slutsky,
+
+$$
+\sqrt{n}\Bigl(X_n-\frac12\Bigr)
+$$
+
+converge en loi vers $\mathcal{N}\bigl(0,\,1/8\bigr)$, car $\bigl(1/(2\sqrt{2})\bigr)^2=1/8$.
 
 :::
 :::
@@ -314,7 +777,53 @@ Si $X_1, \ldots, X_n, \ldots \sim_{\text{i.i.d.}} \text{Exp}(1)$, le  maximum de
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+Par la représentation de Rényi, si $E_j$ sont i.i.d. de loi $\mathrm{Exp}(1)$,
+
+$$
+X_{n:n}\ \stackrel{d}{=}\ \sum_{k=1}^{n}\frac{E_k}{k}.
+$$
+
+1. Donc
+
+    $$
+    \mathbb{E}[X_{n:n}]=\sum_{k=1}^{n}\frac{1}{k}=H_n,
+    \qquad
+    \mathrm{Var}(X_{n:n})=\sum_{k=1}^{n}\frac{1}{k^2}.
+    $$
+
+    En particulier $H_n=\ln n+\gamma+o(1)$ et $\mathrm{Var}(X_{n:n})\to\sum_{k=1}^\infty 1/k^2=\pi^2/6$.
+
+2. *Oui.* Pour tout $x\in\mathbb{R}$ et tout $n>\mathrm{e}^{-x}$,
+
+    $$
+    \mathbb{P}(X_{n:n}-\ln n\le x)
+    =\bigl(1-\mathrm{e}^{-(x+\ln n)}\bigr)^n
+    =\Bigl(1-\frac{\mathrm{e}^{-x}}{n}\Bigr)^n
+    \to\exp(-\mathrm{e}^{-x}).
+    $$
+
+    La limite est la fonction de répartition de la loi de Gumbel standard (pour les maxima), continue sur $\mathbb{R}$. Donc $X_{n:n}-\ln n$ converge en loi vers cette loi.
+
+3. *Non.* La suite est construite sur un échantillon infini. Notons $M_n=X_{n:n}$ et $M_n'$ le maximum de $X_{n+1},\ldots,X_{2n}$, indépendant de $M_n$ et de même loi. Alors $M_{2n}=\max(M_n,M_n')$, et
+
+    $$
+    \bigl(M_{2n}-\ln(2n)\bigr)-\bigl(M_n-\ln n\bigr)
+    =\max(0,\,(M_n'-\ln n)-(M_n-\ln n))-\ln 2.
+    $$
+
+    Le couple $(M_n-\ln n,\,M_n'-\ln n)$ converge en loi vers un couple $(G,G')$ de variables de Gumbel indépendantes. L'image continue converge en loi vers $\max(0,G'-G)-\ln 2$. Or
+
+    $$
+    \mathbb{P}(G'>G+\ln 2)
+    =\int_0^\infty\mathrm{e}^{-u/2}\mathrm{e}^{-u}\,\mathrm{d}u
+    =\frac23\neq 0,
+    $$
+
+    par le changement de variable $u=\mathrm{e}^{-x}$ dans la densité $\mathrm{e}^{-x}\exp(-\mathrm{e}^{-x})$ de $G$. La différence ne tend pas vers $0$ en probabilité : la suite $(M_n-\ln n)$ n'est pas de Cauchy en probabilité, donc ne converge pas en probabilité.
+
+4. *Non.* La convergence dans $L^2$ entraînerait la convergence en probabilité.
+
+5. *Non.* La convergence presque sûre entraînerait la convergence en probabilité.
 
 :::
 :::
@@ -326,7 +835,7 @@ Dans cet exercice, $Y_1, \ldots, Y_n, \ldots \sim_{\text{i.i.d.}} \text{Exp}(1)$
 1. Calculer l'éspérance et la variance de $X_{n:n}$ (si définies).
 2. La suite $(X_{n:n}/n)_n$ possède-t-elle une limite en loi ? Si oui préciser la limite.
 3. La suite $(X_{n:n}/n)_n$ possède-t-elle une limite en probabilité ? Si oui préciser la limite.
-4. La suite $(X_{n:n}/n)_n$ possède-t-elle une limite dans $L_2 ? Si oui préciser la limite.
+4. La suite $(X_{n:n}/n)_n$ possède-t-elle une limite dans $L_2$ ? Si oui préciser la limite.
 5. La suite $(X_{n:n}/n)_n$ possède-t-elle une limite presque  sûre ? Si oui préciser la limite.
 
 
@@ -336,17 +845,37 @@ Dans cet exercice, $Y_1, \ldots, Y_n, \ldots \sim_{\text{i.i.d.}} \text{Exp}(1)$
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+On a $X_i=\mathrm{e}^{Y_i}$ avec $Y_i$ de loi $\mathrm{Exp}(1)$, donc $\mathbb{P}(X_i>x)=1/x$ pour $x\ge 1$, et $X_{n:n}=\mathrm{e}^{Y_{n:n}}$.
+
+1. L'espérance et la variance ne sont pas finies. Déjà $\mathbb{E}[X_1]=\int_0^\infty\mathrm{e}^{y}\mathrm{e}^{-y}\,\mathrm{d}y=\infty$, et $X_{n:n}\ge X_1$, donc $\mathbb{E}[X_{n:n}]=\infty$ et $\mathbb{E}[X_{n:n}^2]=\infty$.
+
+2. *Oui.* D'après l'exercice précédent, $Y_{n:n}-\ln n$ converge en loi vers une variable $G$ de fonction de répartition $\exp(-\mathrm{e}^{-x})$. L'application continue $t\mapsto\mathrm{e}^{t}$ donne
+
+    $$
+    \frac{X_{n:n}}{n}=\exp(Y_{n:n}-\ln n)
+    $$
+
+    qui converge en loi vers $\mathrm{e}^{G}$. Pour $y>0$,
+
+    $$
+    \mathbb{P}(\mathrm{e}^{G}\le y)=\mathbb{P}(G\le\ln y)=\exp(-\mathrm{e}^{-\ln y})=\exp(-1/y).
+    $$
+
+    C'est la loi de Fréchet standard d'indice $1$.
+
+3. *Non.* La fonction $\exp$ est un homéomorphisme de $\mathbb{R}$ sur $]0,+\infty[$. La suite $X_{n:n}/n$ convergerait en probabilité si et seulement si $Y_{n:n}-\ln n$ convergait en probabilité, ce qui a été exclu à l'exercice précédent.
+
+4. *Non.* La variable $X_{n:n}/n$ n'est pas de carré intégrable, puisque $\mathbb{E}[X_{n:n}]=\infty$.
+
+5. *Non.* La convergence presque sûre entraînerait la convergence en probabilité.
 
 :::
 :::
 
-::: {#exr-stats-dordre-intermediaire name="Statistiques d'ordre intermediaires dans un echantillon exponentiel"}
+::: {#exr-stats-dordre-intermediaire name="Statistiques d'ordre intermediaires dans un echantillon uniforme"}
 
 $X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi uniforme sur $[0,1]$ et $X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}$ les statistiques d'ordre associées.
 
-$Y_1, \ldots, Y_{n+1} \sim_{\text{i.i.d}} \text{Exp}(1)$ où $\text{Exp}(1)$ désigne la loi exponentielle d'intensité $1$. On définit 
-$S_k =\sum_{j=1}^k Y_j$, pour $k=1, \ldots, n+1$. 
 
 On rappelle (voir [TD 4](https://s-v-b.github.io/MA1AY010/exercices/td4-2026.html#statistiques-dordre)) les écarts $(X_{i:n}-X_{i-1:n})_{1\leq i\leq n}$ (*spacings*) forment une  collection de variables aléatoires indépendamment distribuées. L'écart $X_{i:n}-X_{i-1:n}$ est distribué selon une loi exponentielle d'intensité $n+1-i$. 
 
@@ -369,12 +898,101 @@ b. Maintenant $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infin
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
+On utilise la représentation de l'énoncé : si $Y_j$ sont i.i.d. de loi $\mathrm{Exp}(1)$ et $S_m=\sum_{j=1}^m Y_j$, alors
+
+$$
+\bigl(X_{1:n},\ldots,X_{n:n}\bigr)
+\ \stackrel{d}{=}\ 
+\Bigl(\frac{S_1}{S_{n+1}},\ldots,\frac{S_n}{S_{n+1}}\Bigr).
+$$
+
+Fixons $k\in\{1,\ldots,n\}$ et posons $m=n+1-k$, $A=S_k$, $B=S_{n+1}-S_k$. Les variables $A$ et $B$ sont indépendantes, de lois gamma de formes $k$ et $m$ et de taux $1$. En particulier $\mathbb{E}[A]=k$, $\mathrm{Var}(A)=k$, et de même pour $B$ avec $m$. La statistique d'ordre vaut $X_{k:n}=A/(A+B)$. Elle suit la loi $\mathrm{Beta}(k,n+1-k)$, donc
+
+$$
+\mathbb{E}[X_{k:n}]=\frac{k}{n+1},\qquad
+\mathrm{Var}(X_{k:n})=\frac{k(n+1-k)}{(n+1)^2(n+2)}.
+$$
+
+Posons $\mu=k/(n+1)$. Alors $1-\mu=m/(n+1)$ et
+
+$$
+X_{k:n}-\mu
+=\frac{(1-\mu)A-\mu B}{A+B}
+=\frac{N}{(n+1)S_{n+1}},
+\qquad N=mA-kB.
+$$
+
+Le numérateur $N$ est centré, de variance $\mathrm{Var}(N)=m^2k+k^2m=km(n+1)$.
+
+En notant $\sigma_{k,n}^2=\mathrm{Var}(X_{k:n})$ et $Z_k=(A-k)/\sqrt{k}$, $Z_m=(B-m)/\sqrt{m}$,
+
+$$
+\frac{N}{\sqrt{\mathrm{Var}(N)}}
+=\sqrt{\frac{m}{n+1}}\,Z_k-\sqrt{\frac{k}{n+1}}\,Z_m,
+$$
+
+et
+
+$$
+\frac{X_{k:n}-\mathbb{E}[X_{k:n}]}{\sigma_{k,n}}
+=\frac{N}{\sqrt{\mathrm{Var}(N)}}
+\cdot
+\frac{\sqrt{(n+1)(n+2)}}{S_{n+1}}.
+$$
+
+La loi des grands nombres donne $S_{n+1}/(n+1)\to 1$ en probabilité, et
+
+$$
+\frac{\sqrt{(n+1)(n+2)}}{S_{n+1}}
+=\sqrt{\frac{n+2}{n+1}}\cdot\frac{n+1}{S_{n+1}}\to 1
+$$
+
+en probabilité.
+
+a. Ici $k_n=\lfloor\alpha n\rfloor$ avec $\alpha\in\,]0,1[$, donc $k_n\to\infty$ et $m_n=n+1-k_n\to\infty$, avec $k_n/(n+1)\to\alpha$ et $m_n/(n+1)\to 1-\alpha$. Le théorème central limite fournit $Z_{k_n}\to\mathcal{N}(0,1)$ et $Z_{m_n}\to\mathcal{N}(0,1)$, et ces deux limites sont indépendantes. La combinaison linéaire converge donc vers
+
+$$
+\sqrt{1-\alpha}\,G_1-\sqrt{\alpha}\,G_2\sim\mathcal{N}(0,1).
+$$
+
+Le lemme de Slutsky donne la convergence en loi vers $\mathcal{N}(0,1)$ après multiplication par le facteur qui tend vers $1$ en probabilité.
+
+b. On suppose $k_n\to\infty$ et $k_n/n\to L\in[0,1]$. La même décomposition s'applique dès que $m_n=n+1-k_n\to\infty$, ce qui est automatique si $L<1$. Si $L=0$, le coefficient de $Z_{m_n}$ tend vers $0$ et celui de $Z_{k_n}$ vers $1$, avec $k_n\to\infty$ et $m_n\to\infty$ : la combinaison converge encore vers $\mathcal{N}(0,1)$. Si $L\in\,]0,1[$, on est ramené au cas a. Si $L=1$ et $m_n\to\infty$, le rôle de $k_n$ et $m_n$ s'échange et la conclusion subsiste. Dans tous ces cas, le facteur $\sqrt{(n+1)(n+2)}/S_{n+1}$ tend vers $1$ en probabilité, et la statistique normalisée converge en loi vers $\mathcal{N}(0,1)$.
+
+:::
+:::
+
+::: {#exr-stats-dordre-intermediaire-generale name="Statistiques d'ordre intermediaires dans un echantillon i.i.d."}
+
+
+$X_1,\ldots,X_n$ est un échantillon i.i.d. de la loi $P$ qui admet une densité $f$ strictement positive un intervalle borné $I \subseteq \mathbb{R}$   et $X_{n:n}\geq X_{n-1:n}\geq  \ldots \geq X_{1:n}$ les statistiques d'ordre associées.
+
+
+a. (Préparation). Si on note $F$ la fonction de répartition de $P$, $F^\leftarrow$ la fonction quantile. Vérifier que $F$ et $F^{\leftarrow}$ sont 
+continues, croissantes et dérivables presque partout.  
+a. Pour $\alpha \in ]0,1[$, $k_n = \lfloor\alpha n\rfloor$,  montrer que
+
+    $$\frac{X_{k_n:n} -\mathbb{E} X_{k_n:n} }{\sqrt{\operatorname{var}(X_{k_n:n} )}}$$ 
+    
+    converge en loi vers une Gaussienne centrée réduite.
+b. Maintenant $(k_n)_n$ est une suite croissante d'entiers qui tend vers l'infini,  telle que $k_n/n$ tend vers une limite finie (éventuellement nulle).  Montrer que
+
+    $$\frac{X_{k_n:n} -\mathbb{E} X_{k_n:n} }{\sqrt{\operatorname{var}(X_{k_n:n} )}}$$ 
+    
+    converge en loi vers une Gaussienne centrée réduite. 
+
+
+*Suggestion*: utiliser les résultats de l'exercice précédent, le mécanisme de la transformation quantile et la méthode $\delta$ de Cramer. 
+
+:::
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
 TODO
 
 :::
 :::
-
-
 
 ::: {#exr-convergence-densite}
 
@@ -392,7 +1010,24 @@ Pour chaque $P_n$ on dispose de $f_n$ une densité de $P_n$,
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-TODO
+1. Puisque $f_n$ et $f$ sont des densités, $\int(f-f_n)=0$. Les parties positive et négative de $f-f_n$ ont donc la même intégrale, et
+
+    $$
+    \int_{\mathbb{R}}|f_n-f|
+    =2\int_{\mathbb{R}}(f-f_n)_+.
+    $$
+
+    On a $0\le(f-f_n)_+\le f$, et $f$ est intégrable. De plus $(f-f_n)_+\to 0$ simplement. Le théorème de convergence dominée donne $\int|f_n-f|\to 0$.
+
+    Pour toute fonction mesurable bornée $g$, $|g|\le M$,
+
+    $$
+    \Bigl|\int g f_n-\int g f\Bigr|\le M\int|f_n-f|\to 0.
+    $$
+
+    En particulier c'est vrai pour toute $g$ continue bornée, donc $P_n$ converge faiblement vers la loi $P$ de densité $f$. On a en fait la convergence en variation totale : $\sup_A|P_n(A)-P(A)|\to 0$.
+
+2. *Non.* Sans l'hypothèse que la limite simple est une densité, la convergence faible peut échouer. Prenons $f_n=\mathbf{1}_{[n,n+1]}$. Alors $\int f_n=1$, donc $f_n$ est une densité, et $f_n(x)\to 0$ pour tout $x$. La limite simple est la fonction nulle, qui n'est pas une densité. La suite des lois uniformes sur $[n,n+1]$ ne converge pas faiblement : elle converge vaguement vers la mesure nulle, et pour la fonction continue bornée $g=1$ on a $\int g f_n=1$, qui ne tend pas vers $0$.
 
 :::
 :::

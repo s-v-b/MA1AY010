@@ -45,7 +45,70 @@ requireNamespace('quarto')
 ## Espérance conditionnelle 
 
 
+
+::: {#exr-esper-cond-1 name=""}
+
+TODO
+
+:::
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note appearance="minimal"}
+
+### Solution
+
+TODO
+
+:::
+:::
+
+::: {#exr-esper-cond-2 name=""}
+
+TODO
+
+:::
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note appearance="minimal"}
+
+### Solution
+
+TODO
+
+:::
+:::
+
+
 ## Prédiction linéaire
+
+::: {#exr-predic-lin-1 name=""}
+
+:::
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note appearance="minimal"}
+
+### Solution
+
+TODO
+
+:::
+:::
+
+
+::: {#exr-predic-lin-2 name=""}
+
+:::
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note appearance="minimal"}
+
+### Solution
+
+TODO
+
+:::
+:::
 
 
 ## Densités conditionnelles
