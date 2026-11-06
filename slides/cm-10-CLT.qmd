@@ -140,8 +140,7 @@ difs <- purrr::map_dbl(ns, .f = ~ sum(abs (dbinom(x, ., lambda/.) - dpois(x, lam
 ::::
  Logarithmic scales on both axes
 
-## We are talking about probability distributions, not random
-
+## 
 
 We are talking about probability distributions, not random variables
 
@@ -335,7 +334,7 @@ Some of them are listed in the Portemanteau Theorem.
 
 # Portemanteau Theorem {#portemanteau background-color="#1c191c"}
 
-## Portemanteau Theorem
+## 
 
 ::: {#thm-portemanteau-theorem}
 
@@ -401,16 +400,28 @@ Let us check that $3) \Rightarrow 5)$. Let $F$ be a closed subset of $\mathbb{R}
 
 For $x\in \mathbb{R}^k$, let $\mathrm{d}(x,F)$ denote the distance from $x$ to $F$.
 
-For $m \in \mathbb{N}$, let $f_m(x) = \big(1 - m \mathrm{d}(x, F)\big)_+$.
+For $m \in \mathbb{N}$, let 
 
-The function $f_m$
-$m$-is Lifchitz, lower bounded by $\mathbb{I}_F$, and for every $x \in \mathbb{R}^k$ $\lim_m \downarrow f_m(x)= \mathbb{I}_F(x)$
+$$f_m(x) = \big(1 - m \mathrm{d}(x, F)\big)_+$$
 
-Weak convergence of $P_n$ to $P$ implies
+The function $f_m$ satisfies:
+
+- $f_m$ is $m$-Lifshitz:  $\forall x, y, \qquad |f_m(x) -f_m(y)| \leq m d(x,y)$ 
+- $f_m$ is lower bounded by $\mathbb{I}_F$: $\forall x, \qquad \mathbb{I}_F(x)\leq f_m(x)$  
+- $\forall x \in \mathbb{R}^k, \qquad \lim_m \downarrow f_m(x)= \mathbb{I}_F(x)$
+
+Weak convergence of $P_n$ to $P$  (even clause `3)` in Portemanteau Theorem)implies
 
 $$\lim_n \mathbb{E}_{P_n} f_m = \mathbb{E}_P f_m$$
 
 :::
+
+::: {.aside}
+
+Check the properties of $f_m$ 
+
+:::
+
 
 ## Proof $3) \Rightarrow 5)$ (continued)
 
@@ -422,9 +433,9 @@ $$\limsup_n P_n(F) = \limsup_n \mathbb{E}_{P_n} \mathbb{I}_F \leq  \lim_n \mathb
 
 Taking the limit on the right side leads to
 
-$$\limsup_n P_n(F) = \limsup_n \mathbb{E}_{P_n} \mathbb{I}_F \leq \lim_m \downarrow \mathbb{E}_P f_m = \mathbb{E}_P \mathbb{I}_F =P (F)$$
+$$\limsup_n P_n(F)  \leq \lim_m \downarrow \mathbb{E}_P f_m = \mathbb{E}_P \mathbb{I}_F =P(F)$$
 
-(teaking the Monotone Converence Theorem)
+(by the Dominated Convergence Theorem)
 
 :::
 
@@ -452,7 +463,7 @@ $$\overline{\{ f > t\}} \setminus \{ f > t\}^\circ = \{f = t\}$$
 
 ::: {.proof}
 
-The  set of values $t$ such that $P \{ f = t\}>0$ is at most countable and thus Lebesgue-negligible
+The  set of values $t$ such that $P \{ f = t\}>0$ is at most countable and thus Lebesgue-negligible (why?)
 
 Let $E$ be its complement. For $t\in E$, $\lim_n P_n\{ f> t\} = P\{f >t\}$.
 
@@ -487,7 +498,7 @@ but $P(F) = 1 \geq \limsup_n P_n(F)=0$
 $$P_n(O) = 1, \quad \forall n$$
 but $P(O) = 0 \leq \liminf_n P_n(O)=1$
 
-## For probability measures over , weak convergence is
+## 
 
 > For probability measures over $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$, weak convergence is determined by cumulative distribution functions. This is sometimes taken as a definition of weak convergence in elementary books.
 
@@ -510,7 +521,7 @@ Consequence of 7) in the statement of the Portemanteau Theorem: if $x$ is a cont
 
 $$F(x) = P(-\infty, x] = P(-\infty, x[ = P(-\infty, x]^{\circ} = \lim_{x_n \uparrow x} F(x_n)$$
 
-## Prove this proposition {#weakconvquantiles}
+## Quantile functions  {#weakconvquantiles}
 
 For probability measures over $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$, weak convergence is also determined by quantile functions
 
@@ -641,7 +652,7 @@ the sequence of characteristic functions converges pointwise towards the charact
 
 :::
 
-## The Theorem asserts that weak convergence of probability
+## 
 
 ::: {.callout-warning}
 The Theorem  asserts that weak convergence
@@ -657,7 +668,7 @@ $$f \in \{ \cos(t \cdot), \sin(t \cdot) : t \in \mathbb{R} \}$$
 
 These functions are bounded and infinitely many times differentiable.
 
-## Let and live on the same probability space.
+## 
 
 ::: {#lem-lemma}
 
@@ -795,7 +806,7 @@ This entails that $X_n \rightsquigarrow X.$
 
 # Refining the continuity theorem {#refineLevy background-color="#1c191c"}
 
-## In some situations, we can prove that a
+## 
 
 In some situations, we can prove that a sequence of characteristic functions
 converges pointwise towards some function, but we have  no candidate
@@ -907,7 +918,7 @@ the sequence $(P_n)_n$ is _uniformly tight_.
 
 :::
 
-## The proof of the truncation inequality takes advantage
+## 
 
 :::: {.columns}
 
@@ -1056,20 +1067,26 @@ Finally, by the first form of the Levy continuity Theorem, $P_{n}\rightsquigarro
 
 :::
 
-## @@WARN@@
+## 
+
+::: {.callout-warning appearance="minimal"}
 
 
 All definitions and results in this section can be extended to the $k$-dimensional setting for all $k \in \mathbb{N}$
 
+:::
+
+
 # Relations between convergences {#relatconv background-color="#1c191c"}
 
-## The alternative characterizations of weak convergence provided by
+## 
 
 The alternative characterizations of weak convergence provided by the
 Portemanteau Theorem  facilitate  the
 proof of the next Proposition.
 
-## Convergence in probability implies convergence in distribution If
+## 
+
 
 ::: {#prp-proposition-2}
 
@@ -1117,7 +1134,7 @@ This is sufficient to establish convergence in distribution of $(X_n)_n$.
 
 # Central limit theorem {#clt background-color="#1c191c"}
 
-## The Lévy Continuity Theorem is the conerstone of
+## 
 
 The Lévy Continuity Theorem
 is the conerstone of a very concise proof the simplest version of the
@@ -1181,7 +1198,7 @@ $$\lim_n \Big(1 - \frac{t^2}{2n} + \frac{t^2}{n} R(t/\sqrt{n})\Big)^n  = \mathrm
 
 :::
 
-## The conditions in the Theorem statement allows for
+## 
 
 ::: {.callout-warning}
 The conditions in the Theorem statement allows for a short proof
@@ -1262,7 +1279,7 @@ for $p=.3$ and $n=30 \text(dotted), 100 \text(dashed)$.
 
 # Cramer-Wold device {#cramerwolddevice background-color="#1c191c"}
 
-## So far, we have discussed characteristic functions for
+## 
 
 So far, we have discussed characteristic functions for real valued random variables.
 
@@ -1291,7 +1308,7 @@ $$\langle t, X\rangle =\sum_{i=1}^n t_i X_i  \text{ where } (t_1, \ldots, t_n)^T
 
 :::
 
-## The Cramer-Wold device provides a short path to
+## 
 
 The Cramer-Wold device  provides a short path to the Multivariate Central Limit Theorem
 
@@ -1307,7 +1324,7 @@ $$\sqrt{n} \left(\frac{S_n}{n} - \mu \right) \rightsquigarrow \mathcal{N}\big(0,
 
 # Weak convergence and transforms {#weakconvtransforms background-color="#1c191c"}
 
-## We introduced different characterizations of probability distributions:
+## 
 
 :::: {.columns}
 
@@ -1334,7 +1351,7 @@ some (implicit) probability space.
 
 ::::
 
-## A sequence of non-negative random variables converges in
+## 
 
 ::: {#thm-theorem-3}
 
@@ -1345,7 +1362,7 @@ towards the _non negative_ random variable  $X$ iff the sequence of Laplace tran
 
 The proof parallels the derivation of the continuity Theorem
 
-## As probability generating functions allows us to recover
+## 
 
 As probability generating functions allows us to recover Laplace transforms, the next theorem is a special case of the statement concerning Laplace transforms.
 
