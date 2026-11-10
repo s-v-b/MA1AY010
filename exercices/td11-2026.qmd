@@ -203,6 +203,67 @@ Comme $\varepsilon$ est arbitraire, $F_n^\leftarrow(p)\to F^\leftarrow(p)$.
 :::
 
 
+::: {#exr-portemanteau-cantor}
+
+Dans cet exercice, on revient sur l'ensemble et la fonction de Cantor triadiques  sur la [feuille II](/exercices/td2-2026.qmd#exr-cantor-1). 
+On conserve les notations de l'[exercice](/exercices/td2-2026.qmd#exr-cantor-1). On s'intéresse à la convergence des lois $P_n$ (uniformes sur les ensembles $C_n$) vers la loi de Cantor, (uniforme sur l'ensemble de Cantor triadique $C$). On  note $F_n$ (resp. $F$) la fonction de répartition de $P_n$ (resp. $P$). 
+
+1. Quels sont les modes de convergence de la suite $(F_n)_n$ vers $F$ ?
+2. L'ensemble des fonctions absolument continues sur $[0,1]$ est il fermé par convergence uniforme ?
+3. Si $A \in \mathcal{B}([0,1])$, et $A \subseteq C$, que vaut $P_n(A)$ ?
+4. Quelle est la fonction caractéristique de la loi $P_0$ (uniforme sur $C_0 =[0,1]$) ?
+5. Établir une relation de récurrence entre la fonction caractéristique de $P_n$ et celle de $P_{n+1}$. 
+6. Quelle est la fonction caractéristique de la loi $P_n$ ?
+7. Quelle est la fonction caractéristique de la loi $P$ ?
+8. Maintenant, on considère une suite de variables aléatoires indépendantes $(Y_n)\_{n\geq 1}$, de loi de Bernoulli de paramètre $1/2$. On définit :
+
+    $$X=\sum_{n=1}^{+\infty}\frac{2Y_n}{3^n}.$$
+
+    Vérifier que $X$ est une variable aléatoire. Quels sont les modes de convergence de $\left(\sum_{n=1}^{m}\frac{2Y_n}{3^n}\right)_m$ ?
+
+9.  Calculer la fonction caractéristique de $\sum_{n=1}^{m}\frac{2Y_n}{3^n}$?
+10. Calculer la limite des fonctions caractéristiques obtenues pour répondre à la question précédente.
+11. Comparer le résultat avec la fonction caractéristique de la loi de Cantor. Conclure
+
+
+:::
+
+::: {.content-visible when-profile="solution"}
+
+::: {.callout-note  title="Solution" appearance="minimal"}
+
+1. Convergence simple et convergence uniforme. Voir [corrigé feuille II](/corriges/td2-2026.qmd#exr-cantor-1)
+2. Non. Les fonctions $F_n$ sont absolument continues (linéaires par morceaux), la fonction $F$ est continue mais pas absolument continue.
+3. $P_n(A) \leq P_n(C) =0$. Car $\operatorname{Lebesgue}(C)=0$.
+4. $\widehat{F}_0(t) = \frac{\mathrm{e}^{it}-1}{it}$
+5. $\widehat{F}_{n+1}(t) = \widehat{F}_n(t/3) \left(\frac{1+\mathrm{e}^{i2t/3}}{2}\right)$
+6. $\widehat{F}_{n}(t) = \widehat{F}_0(t/3^n) \prod_{j=1}^{n} \frac{1+\mathrm{e}^{i2t/3^j}}{2}$
+7. $\widehat{F}(t) = \prod_{j=1}^{\infty} \frac{1+\mathrm{e}^{i2t/3^j}}{2}$
+8. Convergences presque sûre, dans $L_p, p\geq 1$. 
+9. La fonction caractéristique de $X$, définie par
+    $$\varphi_X(t)= \mathbb{E}[\mathrm{e}^{itX}]$$
+
+    se calcule  grâce à l'indépendance des $B_n$.  
+
+    \begin{align*} \varphi_X(t) 
+    &=\mathbb E\left[ \exp\left(it\sum_{n=1}^{\infty} \frac{2B_n}{3^n}\right)\right]\\
+    &=\prod_{n=1}^{\infty} \mathbb E\left[\mathrm{e}^{it2B_n/3^n}\right]\\ 
+    &=\prod_{n=1}^{\infty} \left(\frac{1}{2}+\frac{1}{2} \mathrm{e}^{i2t/3^n}\right). 
+    \end{align*} 
+
+10.  Ainsi,
+    $$\varphi_X(t) = \prod_{n=1}^{\infty} \frac{1+\mathrm{e}^{i2t/3^n}}{2}$$
+
+    Ou, de manière équivalente :
+
+    $$\varphi_X(t)= \mathrm{e}^{it/2} \prod_{n=1}^{\infty} \cos\left(\frac{t}{3^n}\right).$$
+
+11. Les fonctions caractéristiques de la loi de $X$ et celle de la loi de Cantor sont identiques. Les deux lois coïncident. 
+    
+:::
+
+:::
+
 
 ## Théorèmes de continuité
 
@@ -1029,5 +1090,89 @@ Pour chaque $P_n$ on dispose de $f_n$ une densité de $P_n$,
 
 2. *Non.* Sans l'hypothèse que la limite simple est une densité, la convergence faible peut échouer. Prenons $f_n=\mathbf{1}_{[n,n+1]}$. Alors $\int f_n=1$, donc $f_n$ est une densité, et $f_n(x)\to 0$ pour tout $x$. La limite simple est la fonction nulle, qui n'est pas une densité. La suite des lois uniformes sur $[n,n+1]$ ne converge pas faiblement : elle converge vaguement vers la mesure nulle, et pour la fonction continue bornée $g=1$ on a $\int g f_n=1$, qui ne tend pas vers $0$.
 
+:::
+:::
+
+
+::: {#exr-renyi title=""}
+
+Soit $X_1, \ldots, X_n, \ldots$ une suite de variables aléatoires positives, intégrables, i.i.d., avec $\mathbb{E} X_i =1$. 
+Soit $U_1, \ldots, U_n, \ldots$  une suite de variables i.i.d. uniformément distribuées sur $[0,1]$, indépendantes de $X_1, \ldots, X_n, \ldots$. Pour $p \in ]0,1[$, on définit $N_p = \inf\{ n :  U_n < p\}$ et 
+$Z_p = \sum_{i \leq N_p} X_i$
+
+1. Quelle est la loi de $N_p$ ?
+2. Calculer l'espérance de $Z_p$ (si définie), la variance de $Z_p$ (si définie).
+3. Calculer la fonction caractéristique de la loi de $Z_p$ 
+4. Quelle est la limite en loi de $Z_p/\mathbb{E}N_p$ lorsque $p \searrow 0$ ? 
+
+:::
+
+
+::: {.content-visible when-profile="solution"}
+::: {.callout-note name="Solution"}
+
+1. Les événements $\{U_n<p\}$ sont indépendants et de probabilité $p$. La variable $N_p$ est le rang du premier succès, donc
+
+    $$
+    \mathbb{P}(N_p=k)=(1-p)^{k-1}p,\qquad k\ge 1.
+    $$
+
+    C'est la loi géométrique de paramètre $p$ à valeurs dans $\{1,2,\ldots\}$. En particulier $\mathbb{E}[N_p]=1/p$.
+
+1. Pour l'espérance de $Z_p$, on peut invoquer l'identité de Wald.
+    \begin{align*}
+    \mathbb{E} Z_p  
+        & = \mathbb{E} \left[\sum_{i=1}^\infty \mathbb{I}_{i \leq N_p} X_i \right]\\
+        & = \sum_{i=1}^\infty  \mathbb{E} \left[\mathbb{I}_{i \leq N_p} X_i \right] \\
+        & = \sum_{i=1}^\infty  \mathbb{E} \left[ \mathbb{E}\left[\mathbb{I}_{i \leq N_p} X_i \mid N_p \right]\right] \\
+        & = \sum_{i=1}^\infty  \mathbb{E} \left[ \mathbb{I}_{i \leq N_p}\right] \mathbb{E} X_1\\
+        & = \mathbb{E} \left[ \sum_{i=1}^\infty  \mathbb{I}_{i \leq N_p}\right] \mathbb{E} X_1 \\
+        & = \mathbb{E}N_p 
+    \end{align*}
+    où nous avons utilisé le théorème de convergence monotone (deux fois), quelques propriétés de l'espérance conditionnelle (on aurait pu conclure plus vite avec le théorème de convergence monotone conditionnel). 
+
+    La variance de $Z_p$ est définie si celle des $X_i^2$ l'est. 
+    \begin{align*}
+    \operatorname{Var}(Z_p)
+     & =  \operatorname{Var}(\mathbb{E}[Z_p  \mid N_p]) + 
+          \mathbb{E}\left[ \operatorname{Var} \left[Z_p \mid N_p\right] \right] \\
+     & =  \operatorname{Var}(N_p) + \mathbb{E}\left[N_p \operatorname{Var}(X_1)\right] \\
+     & = \frac{1-p}{p^2}  + \frac{1}{p} \operatorname{Var}(X_1)
+    \end{align*} 
+2. Notons $\varphi(t)=\mathbb{E}[\mathrm{e}^{itX_1}]$. La variable $N_p$ est indépendante de la suite $(X_i)$ et $Z_p=\sum_{i=1}^{N_p}X_i$, donc
+
+    $$
+    \Phi_{Z_p}(t)
+    =\sum_{k=1}^{\infty}\varphi(t)^k\,(1-p)^{k-1}p.
+    $$
+
+    Comme $|(1-p)\varphi(t)|\le 1-p<1$, la série géométrique converge absolument :
+
+    $$
+    \Phi_{Z_p}(t)
+    =\frac{p\,\varphi(t)}{1-(1-p)\varphi(t)}.
+    $$
+
+3. Puisque $\mathbb{E}[N_p]=1/p$, on a $Z_p/\mathbb{E}[N_p]=pZ_p$. La fonction caractéristique vaut
+
+    $$
+    \mathbb{E}\bigl[\mathrm{e}^{it\,pZ_p}\bigr]
+    =\frac{p\,\varphi(pt)}{1-(1-p)\varphi(pt)}.
+    $$
+
+    L'intégrabilité de $X_1$ et la condition $\mathbb{E}[X_1]=1$ donnent le développement $\varphi(u)=1+iu+o(u)$ lorsque $u\to 0$. Pour $t$ fixé, $\varphi(pt)=1+itp+\varepsilon(p)$ avec $\varepsilon(p)=o(p)$. Le numérateur est $p\,\varphi(pt)=p\bigl(1+o(1)\bigr)$, et le dénominateur vaut
+
+    $$
+    \begin{align*}
+    1-(1-p)\varphi(pt)
+    &=1-(1-p)\bigl(1+itp+\varepsilon(p)\bigr)\\
+    &=p(1-it)-\varepsilon(p)+O(p^2)\\
+    &=p\bigl(1-it+o(1)\bigr).
+    \end{align*}
+    $$
+
+    Donc $\mathbb{E}[\mathrm{e}^{it\,pZ_p}]\to 1/(1-it)$. C'est la fonction caractéristique de la loi exponentielle de paramètre $1$, de densité $\mathrm{e}^{-x}$ sur $(0,+\infty)$. Par le théorème de continuité de Lévy, $pZ_p$ converge en loi vers cette loi lorsque $p\searrow 0$.
+
+    On constate au passage que la limite en loi est de carré intégrable même si  
 :::
 :::

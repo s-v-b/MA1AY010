@@ -396,7 +396,7 @@ est une densité de $Y$. Elle est intégrable : $\int_0^1 (1-y^2)^{-1/2}\,\mathr
 
 {{< pagebreak >}}
 
-# Ensemble-mesure de Cantor
+# Ensemble-mesure de Cantor   {#sec-exo-cantor}
 
 
 ::: {#exr-cantor-1   name="Ensemble et mesure de Cantor"} 
@@ -410,6 +410,7 @@ $$x \times A = \left\{  xy : y \in A \right\}$$
 Si on définit la suite de sous-ensembles de $[0,1]$, par la récursion suivante :
 
 \begin{align*} 
+C_0 & = [0,1] \\
 C_1 & = 1/3 \times C_0 \cup 2/3 + 1/3\times C_0 \\
 C_2 & = 1/3 \times C_1 \cup 2/3 + 1/3\times C_1 \\
 \vdots & \quad \vdots \\
@@ -422,6 +423,7 @@ alors $C = \cap_{n=1}^\infty C_n = \lim_{n \to \infty} C_n$.
 
 
 (@) Les ensembles $C_n$ sont-ils ouverts/fermés/Boréliens ?
+(@) Montrer que $C_{n+1} \subseteq C_n$ pour tout $n$.
 (@) L'ensemble $C$ est-il ouvert/fermé/Borélien ?
 (@) $C$ est-il vide ?
 (@) L'intérieur de $C$ est-il vide ? 
@@ -457,11 +459,15 @@ On s'intéresse maintenant à la limite quand $n \to \infty$.
 ::: {.content-visible when-profile="solution"}
 ::: {.callout-note name="Solution"}
 
-La récursion fait appel à $C_0$, qui n'est pas défini. On prend $C_0=[0,1]$, ce qui donne la construction usuelle de l'ensemble de Cantor triadique : $C_n$ est la réunion de $2^n$ intervalles fermés de longueur $3^{-n}$.
+La récursion définit la construction usuelle de l'ensemble de Cantor triadique : $C_n$ est la réunion de $2^n$ intervalles fermés de longueur $3^{-n}$.
 
-(@) Chaque $C_n$ est une réunion finie de fermés, donc fermé, borélien, et d'intérieur non vide. Ce n'est pas un ouvert de $\mathbb{R}$.
+(@) Chaque $C_n$ est une réunion *finie* de fermés, donc fermé, borélien, et d'intérieur non vide. Ce n'est pas un ouvert de $\mathbb{R}$.
 
-(@) L'ensemble $C=\bigcap_n C_n$ est une intersection de fermés, donc fermé et borélien. Son intérieur est vide, comme on le voit plus bas : ce n'est pas un ouvert.
+(@) Pour tout $n$, on a 
+
+    $$C_{n+1} = C_n \setminus \left( \bigcup_{k=0}^{3^n-1} \frac{k}{3^n} + \left]\frac{1}{3^{n+1}}, \frac{2}{3^{n+1}}\right[\right)$$ 
+
+(@) L'ensemble $C=\bigcap_n C_n$ est une intersection de fermés, donc fermé et borélien. Son intérieur est vide, (on le voit plus bas) : ce n'est pas un ouvert.
 
 (@) Les $C_n$ sont des compacts emboîtés non vides, donc $C$ est non vide. Les extrémités des intervalles de construction, par exemple $0$, $1$, $1/3$, $2/3$, appartiennent à tous les $C_n$.
 
@@ -486,13 +492,13 @@ $$
 
 (@) Pour $A\in\mathcal{B}([0,1])$, $P_n(A) = (3/2)^n \lambda(A\cap C_n)$.
 
-(@) La majoration précédente montre que $(F_n)$ est uniformément de Cauchy : si $m>n$, $\sup |F_m-F_n| \le \sum_{k\ge n} 2^{-k}/6 = 2^{-n}/3$. La suite converge donc uniformément, et a fortiori simplement, vers une fonction continue $F$, croissante, constante sur chaque intervalle retiré au cours de la construction. C'est la fonction de Cantor.
+(@) La majoration précédente de $|F_n(x)-F_{n+1}(x)|$ montre que $(F_n)$ est uniformément de Cauchy : si $m>n$, $\sup_{x} |F_m(x)-F_n(x)| \le \sum_{k\ge n} 2^{-k}/6 = 2^{-n}/3$. La suite converge donc uniformément, et a fortiori simplement, vers une fonction *continue* $F$, croissante, constante sur chaque intervalle retiré au cours de la construction. C'est la fonction de Cantor.
 
-(@) La suite numérique $P_n(A)$ ne définit pas, par passage à la limite ensembliste, la loi portée par $F$. Par exemple $C\subset C_n$ et $\lambda(C)=0$, donc $P_n(C)=0$ pour tout $n$, alors que la loi limite charge $C$ d'une masse $1$. La convergence a lieu au sens étroit : $F_n$ converge uniformément vers $F$.
+(@) La suite numérique $P_n(A)$ ne définit pas, par passage à la limite ensembliste, la loi $P$ définie par $F$. Par exemple $C\subset C_n$ et $\lambda(C)=0$, donc $P_n(C)=0$ pour tout $n$, alors que la loi limite charge $C$ d'une masse $1$ ($P(C)=1$). La convergence a lieu au sens étroit/faible : $F_n$ converge uniformément vers $F$; si $A$ est fermé $\limsup_n P_n(A) \leq P(A)$, si $S$ est ouvert $\liminf_n P_n(A) \geq P(A)$. Les encembles $C$ et $C^c$ montrent que les inégalités peuvent être strictes. 
 
-(@) Il n'existe pas de probabilité proportionnelle à la mesure de Lebesgue sur $C$, puisque $\lambda(C)=0$. La loi de fonction de répartition $F$, limite étroite des $P_n$, est la loi naturelle « uniforme » sur $C$ : elle est diffuse, portée par $C$, et étrangère à la mesure de Lebesgue.
+(@) Il n'existe pas de probabilité proportionnelle à la mesure de Lebesgue sur $C$, puisque $\lambda(C)=0$. La loi de fonction de répartition $F$, limite étroite des $P_n$, est la loi naturelle « uniforme » sur $C$ : elle est *diffuse*, portée par $C$, et *étrangère* à la mesure de Lebesgue.
 
-(@) Sa fonction de répartition est $F$. Elle est continue, donc la loi est diffuse. Elle est dérivable presque partout, de dérivée nulle : $F$ est constante sur le complémentaire de $C$, qui est de mesure $1$. Elle n'est pas l'intégrale de sa dérivée, car $\int_0^1 F' = 0$ alors que $F(1)-F(0)=1$.
+(@) Sa fonction de répartition est $F$. Elle est continue  (la loi est diffuse). Elle est dérivable *Lebesgue presque partout*, de dérivée nulle : $F$ est constante sur le complémentaire de $C$, qui est de mesure de Lebesgue $1$. Elle n'est pas l'intégrale de sa dérivée, car $\int_0^1 F' = 0$ alors que $F(1)-F(0)=1$ ($F$ n'est pas *absolument continue*).
 
 (@) La variable $X = 2\sum_{j\ge 1} X_j 3^{-j}$ admet le développement triadique $0{,}(2X_1)(2X_2)\ldots$, dont les chiffres valent $0$ ou $2$ avec probabilité $1/2$, indépendamment. Sa loi est la loi de Cantor : sa fonction de répartition est $F$, et $P(X\in C)=1$.
 
