@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Stéphane Boucheron">
-  <meta name="dcterms.date" content="2026-10-18">
+  <meta name="dcterms.date" content="2026-11-05">
   <title>MA1AY010 Probabilités – Probability X: Convergences</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -173,7 +173,7 @@ Stéphane Boucheron
     </div>
 </div>
 
-  <p class="date">2026-10-18</p>
+  <p class="date">2026-11-05</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">Roadmap</h2>
@@ -257,8 +257,8 @@ Stéphane Boucheron
 </div></div>
 <p>Logarithmic scales on both axes</p>
 </section>
-<section id="we-are-talking-about-probability-distributions-not-random" class="slide level2 center">
-<h2>We are talking about probability distributions, not random</h2>
+<section id="section" class="slide level2 center">
+<h2></h2>
 <p>We are talking about probability distributions, not random variables</p>
 <p>We are not talking about Binomial and Poisson random variables leaving on the same probability space but on probability distributions of random variables leaving on possibly different probability spaces</p>
 <div class="fragment">
@@ -421,8 +421,8 @@ Stéphane Boucheron
 <h1>Portemanteau Theorem</h1>
 
 </section>
-<section id="portemanteau-theorem" class="slide level2 center scrollable">
-<h2>Portemanteau Theorem</h2>
+<section id="section-1" class="slide level2 center scrollable">
+<h2></h2>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
@@ -482,15 +482,25 @@ Stéphane Boucheron
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Let us check that <span class="math inline">\(3) \Rightarrow 5)\)</span>. Let <span class="math inline">\(F\)</span> be a closed subset of <span class="math inline">\(\mathbb{R}^k\)</span>.</p>
 <p>For <span class="math inline">\(x\in \mathbb{R}^k\)</span>, let <span class="math inline">\(\mathrm{d}(x,F)\)</span> denote the distance from <span class="math inline">\(x\)</span> to <span class="math inline">\(F\)</span>.</p>
-<p>For <span class="math inline">\(m \in \mathbb{N}\)</span>, let <span class="math inline">\(f_m(x) = \big(1 - m \mathrm{d}(x, F)\big)_+\)</span>.</p>
-<p>The function <span class="math inline">\(f_m\)</span> <span class="math inline">\(m\)</span>-is Lifchitz, lower bounded by <span class="math inline">\(\mathbb{I}_F\)</span>, and for every <span class="math inline">\(x \in \mathbb{R}^k\)</span> <span class="math inline">\(\lim_m \downarrow f_m(x)= \mathbb{I}_F(x)\)</span></p>
-<p>Weak convergence of <span class="math inline">\(P_n\)</span> to <span class="math inline">\(P\)</span> implies</p>
+<p>For <span class="math inline">\(m \in \mathbb{N}\)</span>, let</p>
+<p><span class="math display">\[f_m(x) = \big(1 - m \mathrm{d}(x, F)\big)_+\]</span></p>
+<p>The function <span class="math inline">\(f_m\)</span> satisfies:</p>
+<ul>
+<li><span class="math inline">\(f_m\)</span> is <span class="math inline">\(m\)</span>-Lifshitz: <span class="math inline">\(\forall x, y, \qquad |f_m(x) -f_m(y)| \leq m d(x,y)\)</span></li>
+<li><span class="math inline">\(f_m\)</span> is lower bounded by <span class="math inline">\(\mathbb{I}_F\)</span>: <span class="math inline">\(\forall x, \qquad \mathbb{I}_F(x)\leq f_m(x)\)</span><br>
+</li>
+<li><span class="math inline">\(\forall x \in \mathbb{R}^k, \qquad \lim_m \downarrow f_m(x)= \mathbb{I}_F(x)\)</span></li>
+</ul>
+<p>Weak convergence of <span class="math inline">\(P_n\)</span> to <span class="math inline">\(P\)</span> (even clause <code>3)</code> in Portemanteau Theorem)implies</p>
 <p><span class="math display">\[\lim_n \mathbb{E}_{P_n} f_m = \mathbb{E}_P f_m\]</span></p>
 </div>
 </div>
 </div>
 </div>
-</section>
+
+<aside><div>
+<p>Check the properties of <span class="math inline">\(f_m\)</span></p>
+</div></aside></section>
 <section id="proof-3-rightarrow-5-continued" class="slide level2 center">
 <h2>Proof <span class="math inline">\(3) \Rightarrow 5)\)</span> (continued)</h2>
 <div class="callout callout-note no-icon callout-style-simple">
@@ -500,8 +510,8 @@ Stéphane Boucheron
 <p><span class="proof-title"><em>Proof</em> (continued). </span>Hence for every <span class="math inline">\(m \in \mathbb{N}\)</span></p>
 <p><span class="math display">\[\limsup_n P_n(F) = \limsup_n \mathbb{E}_{P_n} \mathbb{I}_F \leq  \lim_n \mathbb{E}_{P_n} f_m  = \mathbb{E}_P f_m\]</span></p>
 <p>Taking the limit on the right side leads to</p>
-<p><span class="math display">\[\limsup_n P_n(F) = \limsup_n \mathbb{E}_{P_n} \mathbb{I}_F \leq \lim_m \downarrow \mathbb{E}_P f_m = \mathbb{E}_P \mathbb{I}_F =P (F)\]</span></p>
-<p>(teaking the Monotone Converence Theorem)</p>
+<p><span class="math display">\[\limsup_n P_n(F)  \leq \lim_m \downarrow \mathbb{E}_P f_m = \mathbb{E}_P \mathbb{I}_F =P(F)\]</span></p>
+<p>(by the Dominated Convergence Theorem)</p>
 </div>
 </div>
 </div>
@@ -531,7 +541,7 @@ Stéphane Boucheron
 <div class="callout-body">
 <div class="callout-content">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The set of values <span class="math inline">\(t\)</span> such that <span class="math inline">\(P \{ f = t\}&gt;0\)</span> is at most countable and thus Lebesgue-negligible</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The set of values <span class="math inline">\(t\)</span> such that <span class="math inline">\(P \{ f = t\}&gt;0\)</span> is at most countable and thus Lebesgue-negligible (why?)</p>
 <p>Let <span class="math inline">\(E\)</span> be its complement. For <span class="math inline">\(t\in E\)</span>, <span class="math inline">\(\lim_n P_n\{ f&gt; t\} = P\{f &gt;t\}\)</span>.</p>
 <p><span class="math display">\[\begin{array}{rl}  \lim_n \mathbb{E}_{P_n} f    &amp; = \lim_n \int_{[0, 1]} P_n \{ f &gt;t \} \mathrm{d}t \\    &amp; = \lim_n \int_{[0, 1]} P_n \{ f &gt;t \} \mathbb{I}_E(t) \mathrm{d}t \\    &amp; = \int_{[0, 1]} \lim_n  P_n \{ f &gt;t \} \mathbb{I}_E(t) \mathrm{d}t \\    &amp; = \int_{[0,1]} P\{f &gt;t\}  \mathbb{I}_E(t) \mathrm{d}t \\    &amp; = \int_{[0,1]} P\{f &gt;t\}   \mathrm{d}t \\    &amp; = \mathbb{E}_P f\end{array}\]</span></p>
 <div class="callout callout-tip no-icon callout-style-simple">
@@ -557,8 +567,8 @@ Stéphane Boucheron
 <li><p>Open set <span class="math inline">\(O = ]0, \infty)\)</span>, <span class="math display">\[P_n(O) = 1, \quad \forall n\]</span> but <span class="math inline">\(P(O) = 0 \leq \liminf_n P_n(O)=1\)</span></p></li>
 </ul>
 </section>
-<section id="for-probability-measures-over-weak-convergence-is" class="slide level2 center">
-<h2>For probability measures over , weak convergence is</h2>
+<section id="section-2" class="slide level2 center">
+<h2></h2>
 <blockquote>
 <p>For probability measures over <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>, weak convergence is determined by cumulative distribution functions. This is sometimes taken as a definition of weak convergence in elementary books.</p>
 </blockquote>
@@ -574,7 +584,7 @@ Stéphane Boucheron
 </div>
 </section>
 <section id="weakconvquantiles" class="slide level2 center">
-<h2>Prove this proposition</h2>
+<h2>Quantile functions</h2>
 <p>For probability measures over <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>, weak convergence is also determined by quantile functions</p>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
@@ -712,8 +722,8 @@ Stéphane Boucheron
 </div>
 </div>
 </section>
-<section id="the-theorem-asserts-that-weak-convergence-of-probability" class="slide level2 center">
-<h2>The Theorem asserts that weak convergence of probability</h2>
+<section id="section-3" class="slide level2 center">
+<h2></h2>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -731,8 +741,8 @@ Stéphane Boucheron
 <p><span class="math display">\[f \in \{ \cos(t \cdot), \sin(t \cdot) : t \in \mathbb{R} \}\]</span></p>
 <p>These functions are bounded and infinitely many times differentiable.</p>
 </section>
-<section id="let-and-live-on-the-same-probability-space." class="slide level2 center">
-<h2>Let and live on the same probability space.</h2>
+<section id="section-4" class="slide level2 center">
+<h2></h2>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
@@ -888,8 +898,8 @@ Stéphane Boucheron
 <h1>Refining the continuity theorem</h1>
 
 </section>
-<section id="in-some-situations-we-can-prove-that-a" class="slide level2 center">
-<h2>In some situations, we can prove that a</h2>
+<section id="section-5" class="slide level2 center">
+<h2></h2>
 <p>In some situations, we can prove that a sequence of characteristic functions converges pointwise towards some function, but we have no candidate for the limiting distribution.</p>
 <p>The question arises whether the pointwise limit of characteristic functions is the characteristic function of some probability distribution or something else.</p>
 <div class="fragment">
@@ -975,8 +985,8 @@ Stéphane Boucheron
 </div>
 </div>
 </section>
-<section id="the-proof-of-the-truncation-inequality-takes-advantage" class="slide level2 center">
-<h2>The proof of the truncation inequality takes advantage</h2>
+<section id="section-6" class="slide level2 center">
+<h2></h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <p>The proof of the truncation inequality takes advantage on easy bounds satisfied by the <span class="math inline">\(\operatorname{sinc}\)</span> function.</p>
@@ -1088,21 +1098,27 @@ Stéphane Boucheron
 </div>
 </div>
 </section>
-<section id="warn" class="slide level2 center">
-<h2>@<span class="citation" data-cites="WARN">@WARN</span>@@</h2>
+<section id="section-7" class="slide level2 center">
+<h2></h2>
+<div class="callout callout-warning no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
 <p>All definitions and results in this section can be extended to the <span class="math inline">\(k\)</span>-dimensional setting for all <span class="math inline">\(k \in \mathbb{N}\)</span></p>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="relatconv" class="title-slide slide level1 center" data-background-color="#1c191c">
 <h1>Relations between convergences</h1>
 
 </section>
-<section id="the-alternative-characterizations-of-weak-convergence-provided-by" class="slide level2 center">
-<h2>The alternative characterizations of weak convergence provided by</h2>
+<section id="section-8" class="slide level2 center">
+<h2></h2>
 <p>The alternative characterizations of weak convergence provided by the Portemanteau Theorem facilitate the proof of the next Proposition.</p>
 </section>
-<section id="convergence-in-probability-implies-convergence-in-distribution-if" class="slide level2 center">
-<h2>Convergence in probability implies convergence in distribution If</h2>
+<section id="section-9" class="slide level2 center">
+<h2></h2>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
@@ -1152,8 +1168,8 @@ Stéphane Boucheron
 <h1>Central limit theorem</h1>
 
 </section>
-<section id="the-lévy-continuity-theorem-is-the-conerstone-of" class="slide level2 center">
-<h2>The Lévy Continuity Theorem is the conerstone of</h2>
+<section id="section-10" class="slide level2 center">
+<h2></h2>
 <p>The Lévy Continuity Theorem is the conerstone of a very concise proof the simplest version of the Central Limit Theorem (CLT)</p>
 <p>Under square-integrability assumption, the CLT refines the Laws of Large Numbers.</p>
 <p>The CLT states that as <span class="math inline">\(n\)</span> tends to infinity, the fluctuations of the empirical mean <span class="math inline">\(\sum_{i=1}^n X_i/n\)</span> around its expectation tends to be of order <span class="math inline">\(1/\sqrt{n}\)</span> and, once rescaled, to be normally distributed.</p>
@@ -1207,8 +1223,8 @@ Stéphane Boucheron
 </div>
 </div>
 </section>
-<section id="the-conditions-in-the-theorem-statement-allows-for" class="slide level2 center">
-<h2>The conditions in the Theorem statement allows for</h2>
+<section id="section-11" class="slide level2 center">
+<h2></h2>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1268,8 +1284,8 @@ Stéphane Boucheron
 <h1>Cramer-Wold device</h1>
 
 </section>
-<section id="so-far-we-have-discussed-characteristic-functions-for" class="slide level2 center">
-<h2>So far, we have discussed characteristic functions for</h2>
+<section id="section-12" class="slide level2 center">
+<h2></h2>
 <p>So far, we have discussed characteristic functions for real valued random variables.</p>
 <p>Characteristic functions can also be defined for vector-valued random variables.</p>
 <p>If <span class="math inline">\(X\)</span> is a <span class="math inline">\(\mathbb{R}^k\)</span>-valued random variable, its characteristic function maps <span class="math inline">\(\mathbb{R}^k\)</span> to <span class="math inline">\(\mathbb{C}\)</span></p>
@@ -1290,8 +1306,8 @@ Stéphane Boucheron
 </div>
 </div>
 </section>
-<section id="the-cramer-wold-device-provides-a-short-path-to" class="slide level2 center">
-<h2>The Cramer-Wold device provides a short path to</h2>
+<section id="section-13" class="slide level2 center">
+<h2></h2>
 <p>The Cramer-Wold device provides a short path to the Multivariate Central Limit Theorem</p>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
@@ -1310,8 +1326,8 @@ Stéphane Boucheron
 <h1>Weak convergence and transforms</h1>
 
 </section>
-<section id="we-introduced-different-characterizations-of-probability-distributions" class="slide level2 center">
-<h2>We introduced different characterizations of probability distributions:</h2>
+<section id="section-14" class="slide level2 center">
+<h2></h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <p>We introduced different characterizations of probability distributions:</p>
@@ -1327,8 +1343,8 @@ Stéphane Boucheron
 <p>In the next two theorems, each random variable is assumed to live on some (implicit) probability space.</p>
 </div></div>
 </section>
-<section id="a-sequence-of-non-negative-random-variables-converges-in" class="slide level2 center">
-<h2>A sequence of non-negative random variables converges in</h2>
+<section id="section-15" class="slide level2 center">
+<h2></h2>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
@@ -1340,8 +1356,8 @@ Stéphane Boucheron
 </div>
 <p>The proof parallels the derivation of the continuity Theorem</p>
 </section>
-<section id="as-probability-generating-functions-allows-us-to-recover" class="slide level2 center">
-<h2>As probability generating functions allows us to recover</h2>
+<section id="section-16" class="slide level2 center">
+<h2></h2>
 <p>As probability generating functions allows us to recover Laplace transforms, the next theorem is a special case of the statement concerning Laplace transforms.</p>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
